@@ -4,6 +4,15 @@
 //  Created by zhou on 20/08/2016.
 //
 //
+//手机屏幕的宽度
+#define _width_                                                                \
+MIN([UIScreen mainScreen].bounds.size.width,                                 \
+[UIScreen mainScreen].bounds.size.height)
+
+//手机屏幕的高度
+#define _height_                                                               \
+MAX([UIScreen mainScreen].bounds.size.height,                                \
+[UIScreen mainScreen].bounds.size.width)
 
 #import "BMPopView.h"
 #import <QuartzCore/QuartzCore.h>

@@ -38,6 +38,13 @@
 		3048D86722364F5F00FE63B2 /* MyCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3048D86522364F5F00FE63B2 /* MyCenterViewController.xib */; };
 		3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D86922364F6F00FE63B2 /* MyCouseViewController.m */; };
 		3048D86C22364F6F00FE63B2 /* MyCouseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3048D86A22364F6F00FE63B2 /* MyCouseViewController.xib */; };
+		3048D86F2239F6B500FE63B2 /* MKBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D86E2239F6B500FE63B2 /* MKBaseTableViewCell.m */; };
+		3048D8732239F77900FE63B2 /* HomePageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D8712239F77900FE63B2 /* HomePageCell.m */; };
+		3048D8742239F77900FE63B2 /* HomePageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3048D8722239F77900FE63B2 /* HomePageCell.xib */; };
+		3048D892223A2E9D00FE63B2 /* XHRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D890223A2E9C00FE63B2 /* XHRefreshHeader.m */; };
+		3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D891223A2E9C00FE63B2 /* XHRefreshFooter.m */; };
+		3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89B223A2F5900FE63B2 /* PGIndexBannerSubiew.m */; };
+		3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */; };
 		6C55296C556EB2F911F5F752 /* libPods-MKUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */; };
 		B035F6116DCEE497F7AF27BA /* libPods-MK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */; };
 /* End PBXBuildFile section */
@@ -123,6 +130,19 @@
 		3048D86822364F6F00FE63B2 /* MyCouseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCouseViewController.h; sourceTree = "<group>"; };
 		3048D86922364F6F00FE63B2 /* MyCouseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCouseViewController.m; sourceTree = "<group>"; };
 		3048D86A22364F6F00FE63B2 /* MyCouseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCouseViewController.xib; sourceTree = "<group>"; };
+		3048D86D2239F6B500FE63B2 /* MKBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKBaseTableViewCell.h; sourceTree = "<group>"; };
+		3048D86E2239F6B500FE63B2 /* MKBaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKBaseTableViewCell.m; sourceTree = "<group>"; };
+		3048D8702239F77900FE63B2 /* HomePageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageCell.h; sourceTree = "<group>"; };
+		3048D8712239F77900FE63B2 /* HomePageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageCell.m; sourceTree = "<group>"; };
+		3048D8722239F77900FE63B2 /* HomePageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageCell.xib; sourceTree = "<group>"; };
+		3048D88E223A2E9C00FE63B2 /* XHRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHRefreshHeader.h; sourceTree = "<group>"; };
+		3048D88F223A2E9C00FE63B2 /* XHRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHRefreshFooter.h; sourceTree = "<group>"; };
+		3048D890223A2E9C00FE63B2 /* XHRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHRefreshHeader.m; sourceTree = "<group>"; };
+		3048D891223A2E9C00FE63B2 /* XHRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHRefreshFooter.m; sourceTree = "<group>"; };
+		3048D89B223A2F5900FE63B2 /* PGIndexBannerSubiew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGIndexBannerSubiew.m; sourceTree = "<group>"; };
+		3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPagedFlowView.m; sourceTree = "<group>"; };
+		3048D89D223A2F5900FE63B2 /* PGIndexBannerSubiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGIndexBannerSubiew.h; sourceTree = "<group>"; };
+		3048D89E223A2F5900FE63B2 /* NewPagedFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
 		5E84ED91666CEFAAA2A92824 /* Pods-MK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.debug.xcconfig"; sourceTree = "<group>"; };
 		62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C807C83E01E6A12BC783DB2 /* Pods-MKUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -270,6 +290,8 @@
 		3048D7E4223255BC00FE63B2 /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				3048D89A223A2F5900FE63B2 /* NewPagedFlowView */,
+				3048D88D223A2E9100FE63B2 /* RefreshToll */,
 				3048D8262232633400FE63B2 /* PpoViewToll */,
 			);
 			path = Utilites;
@@ -317,6 +339,8 @@
 				3048D82222325FAD00FE63B2 /* MKBaseTableView.m */,
 				3048D8512236496000FE63B2 /* MKTarbarViewController.h */,
 				3048D8522236496000FE63B2 /* MKTarbarViewController.m */,
+				3048D86D2239F6B500FE63B2 /* MKBaseTableViewCell.h */,
+				3048D86E2239F6B500FE63B2 /* MKBaseTableViewCell.m */,
 			);
 			path = Basis;
 			sourceTree = "<group>";
@@ -412,6 +436,9 @@
 		3048D7FC22325AD900FE63B2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3048D8702239F77900FE63B2 /* HomePageCell.h */,
+				3048D8712239F77900FE63B2 /* HomePageCell.m */,
+				3048D8722239F77900FE63B2 /* HomePageCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -651,8 +678,8 @@
 		3048D82D223263AF00FE63B2 /* AutoLayout */ = {
 			isa = PBXGroup;
 			children = (
-				3048D82E223263AF00FE63B2 /* UIView+Layout.m */,
 				3048D82F223263AF00FE63B2 /* UIView+Layout.h */,
+				3048D82E223263AF00FE63B2 /* UIView+Layout.m */,
 			);
 			path = AutoLayout;
 			sourceTree = "<group>";
@@ -661,10 +688,10 @@
 			isa = PBXGroup;
 			children = (
 				3048D831223263AF00FE63B2 /* UILabelEdgeInset.h */,
-				3048D832223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.h */,
-				3048D833223263AF00FE63B2 /* UILabel+layout.h */,
 				3048D834223263AF00FE63B2 /* UILabelEdgeInset.m */,
+				3048D832223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.h */,
 				3048D835223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.m */,
+				3048D833223263AF00FE63B2 /* UILabel+layout.h */,
 				3048D836223263AF00FE63B2 /* UILabel+layout.m */,
 			);
 			path = UILabel;
@@ -690,6 +717,28 @@
 			path = String;
 			sourceTree = "<group>";
 		};
+		3048D88D223A2E9100FE63B2 /* RefreshToll */ = {
+			isa = PBXGroup;
+			children = (
+				3048D88F223A2E9C00FE63B2 /* XHRefreshFooter.h */,
+				3048D891223A2E9C00FE63B2 /* XHRefreshFooter.m */,
+				3048D88E223A2E9C00FE63B2 /* XHRefreshHeader.h */,
+				3048D890223A2E9C00FE63B2 /* XHRefreshHeader.m */,
+			);
+			path = RefreshToll;
+			sourceTree = "<group>";
+		};
+		3048D89A223A2F5900FE63B2 /* NewPagedFlowView */ = {
+			isa = PBXGroup;
+			children = (
+				3048D89D223A2F5900FE63B2 /* PGIndexBannerSubiew.h */,
+				3048D89B223A2F5900FE63B2 /* PGIndexBannerSubiew.m */,
+				3048D89E223A2F5900FE63B2 /* NewPagedFlowView.h */,
+				3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */,
+			);
+			path = NewPagedFlowView;
+			sourceTree = "<group>";
+		};
 		9AF5AD9C0310B0C67ED2195B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +760,7 @@
 				3048D7A62232536D00FE63B2 /* Sources */,
 				3048D7A72232536D00FE63B2 /* Frameworks */,
 				3048D7A82232536D00FE63B2 /* Resources */,
+				858B35CB077B4139E31384D7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -806,6 +856,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3048D8742239F77900FE63B2 /* HomePageCell.xib in Resources */,
 				3048D86722364F5F00FE63B2 /* MyCenterViewController.xib in Resources */,
 				3048D86222364F4E00FE63B2 /* AppointmentViewController.xib in Resources */,
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
@@ -854,6 +905,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		858B35CB077B4139E31384D7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MK/Pods-MK-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MK/Pods-MK-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AD8A4902D9711A7F6158ADC7 /* [CP] Check Pods Manifest.lock */ = {
@@ -908,6 +981,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3048D8532236496000FE63B2 /* MKTarbarViewController.m in Sources */,
+				3048D86F2239F6B500FE63B2 /* MKBaseTableViewCell.m in Sources */,
 				3048D82022325F8E00FE63B2 /* MKBaseViewController.m in Sources */,
 				3048D85C22364F3800FE63B2 /* DiscoverPageViewController.m in Sources */,
 				3048D846223263AF00FE63B2 /* UIButton+layout.m in Sources */,
@@ -915,10 +989,15 @@
 				3048D7EC2232565500FE63B2 /* AppDelegate.m in Sources */,
 				3048D82322325FAD00FE63B2 /* MKBaseTableView.m in Sources */,
 				3048D86622364F5F00FE63B2 /* MyCenterViewController.m in Sources */,
+				3048D892223A2E9D00FE63B2 /* XHRefreshHeader.m in Sources */,
+				3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */,
+				3048D8732239F77900FE63B2 /* HomePageCell.m in Sources */,
+				3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */,
 				3048D843223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				3048D842223263AF00FE63B2 /* UILabelEdgeInset.m in Sources */,
 				3048D85722364F2700FE63B2 /* HomePageViewController.m in Sources */,
 				3048D86122364F4E00FE63B2 /* AppointmentViewController.m in Sources */,
+				3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */,
 				3048D848223263AF00FE63B2 /* NSString+SizeOfString.m in Sources */,
 				3048D7B22232536D00FE63B2 /* ViewController.m in Sources */,
 				3048D841223263AF00FE63B2 /* UIView+Layout.m in Sources */,
@@ -1106,6 +1185,7 @@
 					"$(SRCROOT)/MK/APPEntry",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/MK/APPEntry/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1129,6 +1209,7 @@
 					"$(SRCROOT)/MK/APPEntry",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/MK/APPEntry/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

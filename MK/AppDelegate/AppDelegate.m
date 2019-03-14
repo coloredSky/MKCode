@@ -16,9 +16,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self appConfig];
+    
     MKTarbarViewController *tarbarVC = [MKTarbarViewController new];
     self.window.rootViewController = tarbarVC;
     return YES;
+}
+-(void)appConfig
+{
+    if (@available(iOS 11.0, *)){
+        [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+    }
 }
 
 
