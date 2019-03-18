@@ -38,6 +38,7 @@
 
 //basic
 #import "MKBaseViewController.h"
+#import "MKNavViewController.h"
 #import "MKBaseTableView.h"
 
 #endif /* MKPrifix_pch */

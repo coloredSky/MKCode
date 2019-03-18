@@ -24,7 +24,37 @@
 }
 -(void)layoutNavView
 {
-    
+    if([self pr_isRootViewControllerWithCurrentViewController]){
+        if (self.navigationItem.rightBarButtonItem == nil){
+            //navigation item button...
+            UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            UIImage *image = [UIImage imageNamed:@"navBack_black_image"];
+            [backBtn setFrame:CGRectMake(0, 0, image.size.width, 40)];
+            [backBtn setImage:image forState:UIControlStateNormal];
+            [backBtn setShowsTouchWhenHighlighted:NO];
+            [backBtn addTarget:self action:@selector(backToPreviousViewController) forControlEvents:UIControlEventTouchUpInside];
+            if (K_ios11_0_){
+                [backBtn setFrame:CGRectMake(0, 0, 40, 40)];
+                backBtn.contentEdgeInsets=UIEdgeInsetsMake(0, -10, 0, 10);
+            }
+            UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+            self.navigationItem.rightBarButtonItem = item;
+        }
+    }
+}
+//current viewcontroller index...
+-(BOOL)pr_isRootViewControllerWithCurrentViewController
+{
+    return  [self.navigationController.viewControllers indexOfObject:self] > 0;
 }
 
+#pragma mark --  EVENT
+-(void)backToPreviousViewController
+{
+    if (self.navigationController.presentingViewController){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 @end

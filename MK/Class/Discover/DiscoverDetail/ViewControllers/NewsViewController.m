@@ -30,9 +30,16 @@
 {
     [_contentWeb removeObserver:self forKeyPath:@"estimatedProgress"];
 }
+
+-(void)loadView
+{
+    self.view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.contentUrl = @"https://www.baidu.com";
+    
     if (self.loadType == WebViewLoadTypeLoadTheRichText){
         //加载富文本
         [self loadRichHtmlText];
@@ -46,9 +53,7 @@
     if ([NSString isEmptyWithStr:self.contentString])
     {
         return;
-    }
-    else
-    {
+    }else{
         [self.contentWeb loadHTMLString:self.contentString baseURL:nil];
     }
 }
@@ -68,8 +73,13 @@
     if (!_contentWeb)
     {
         _contentWeb = [WKWebView new];
-        _contentWeb.frame = CGRectMake(0, 0, KScreenWidth,KScreenHeight-K_NaviHeight);
+        _contentWeb.frame = CGRectMake(0, 0, KScreenWidth,KScreenHeight);
         [self.view addSubview:_contentWeb];
+         if (@available(ios 11.0,*)) {
+            _contentWeb.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }else{
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
         _contentWeb.UIDelegate = self;
         _contentWeb.navigationDelegate = self;
         _contentWeb.backgroundColor = [UIColor whiteColor];

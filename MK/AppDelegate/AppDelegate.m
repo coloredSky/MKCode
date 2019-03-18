@@ -24,9 +24,9 @@
 }
 -(void)appConfig
 {
-    if (@available(iOS 11.0, *)){
-        [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
-    }
+//    if (@available(iOS 11.0, *)){
+//        [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+//    }
 }
 
 

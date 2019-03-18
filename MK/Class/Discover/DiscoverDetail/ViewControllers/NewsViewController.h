@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  新闻详情
  */
-@interface NewsViewController : MKBaseViewController
+@interface NewsViewController : MKNavViewController
 /**加载类型*/
 @property(nonatomic,assign)WebViewLoadType loadType;
 /**title*/
