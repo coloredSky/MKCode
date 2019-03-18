@@ -20,6 +20,9 @@ typedef NS_ENUM(NSUInteger, WebViewLoadType) {
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ 新闻详情
+ */
 @interface NewsViewController : MKBaseViewController
 /**加载类型*/
 @property(nonatomic,assign)WebViewLoadType loadType;

@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- 发现cell
+ 发现模块中的新闻cell
  */
 @interface DiscoverNewsCell : MKBaseTableViewCell
 

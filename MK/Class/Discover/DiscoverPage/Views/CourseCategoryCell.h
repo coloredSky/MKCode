@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ 发现中的课程分类item
+ */
 @interface CourseCategoryCell : UICollectionViewCell
 
 @end
