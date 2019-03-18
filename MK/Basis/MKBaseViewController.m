@@ -54,7 +54,7 @@
     //fixed
     self.automaticallyAdjustsScrollViewInsets = NO;
     //background color...
-    self.view.backgroundColor = K_BG_WhiteColor;
+    self.view.backgroundColor = K_BG_deepGrayColor;
 }
 
 

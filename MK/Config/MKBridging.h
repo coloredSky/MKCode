@@ -25,11 +25,11 @@
 #define BLOCK_EXEC(block,...) !block ?: block(__VA_ARGS__);
 
 
-#define ImageNamed(_pointer) [UIImage imageNamed:(_pointer)]
+#define KImageNamed(_pointer) [UIImage imageNamed:(_pointer)]
 //banner normal image
-#define K_placeholder_Annoument_Banner_Image  ImageNamed(@"annoument_Banner_Image")
+#define K_placeholder_Annoument_Banner_Image  KImageNamed(@"annoument_Banner_Image")
 //normal image
-#define K_placeholder_Image  ImageNamed(@"News_list_content_ima")
+#define K_placeholder_Image  KImageNamed(@"News_list_content_ima")
 
 
 //打印

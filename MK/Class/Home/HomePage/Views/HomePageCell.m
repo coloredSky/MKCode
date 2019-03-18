@@ -23,7 +23,7 @@
     _whiteView.layer.masksToBounds = YES;
     _whiteView.layer.cornerRadius = 6;
     
-    [_courseNameLab setFont:MKBoldFont(16) textColor:K_Text_BlackColor withBackGroundColor:nil];
+    [_courseNameLab setFont:K_Font_Text_Normal textColor:K_Text_BlackColor withBackGroundColor:nil];
     [_courseTeacherLab setFont:K_Font_Text_Min_Max textColor:K_Text_grayColor withBackGroundColor:nil];
     [_coursePriceLab setFont:K_Font_Text_Large_Little textColor:K_Text_grayColor withBackGroundColor:nil];
 }

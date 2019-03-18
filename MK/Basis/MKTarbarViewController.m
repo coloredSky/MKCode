@@ -33,8 +33,8 @@
 -(void)configTabbar
 {
     NSArray *titleArr = @[@"首页",@"发现",@"预约",@"课程",@"我的"];
-    NSArray *normalIconArr = @[@"home_normal_Icon",@"discover_normal_Icon",@"appoinment_normal_Icon",@"class_normal_Icon",@"center_normal_Icon"];
-    NSArray *selectedIconArr = @[@"home_selected_Icon",@"dicover_selected_Icon",@"appoinment_selected_Icon",@"class_selected_Icon",@"center_selected_Icon"];
+    NSArray *normalIconArr = @[@"discover_normal_Icon",@"discover_normal_Icon",@"appoinment_normal_Icon",@"class_normal_Icon",@"center_normal_Icon"];
+    NSArray *selectedIconArr = @[@"discover_normal_Icon",@"dicover_selected_Icon",@"appoinment_selected_Icon",@"class_selected_Icon",@"center_selected_Icon"];
     NSArray *subVCs = @[[HomePageViewController new],[DiscoverPageViewController new],[AppointmentViewController new],[MyCouseViewController new],[MyCenterViewController new]];
     NSMutableArray *navs = [NSMutableArray arrayWithCapacity:5];
     for (int i=0; i<titleArr.count; i++) {

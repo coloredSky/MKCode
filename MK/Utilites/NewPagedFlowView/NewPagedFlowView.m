@@ -152,7 +152,7 @@ static NSString *subviewClassName;
                 CGFloat origin = cell.frame.origin.x;
                 CGFloat delta = fabs(origin - offset);
                 
-                            NSLog(@"=====%f++++++++%f---------%f",origin,offset,delta);
+//                            NSLog(@"=====%f++++++++%f---------%f",origin,offset,delta);
                 
                 CGRect originCellFrame = CGRectMake(_pageSize.width * i, 0, _pageSize.width, _pageSize.height);//如果没有缩小效果的情况下的本该的Frame
                 
@@ -248,7 +248,6 @@ static NSString *subviewClassName;
 
 - (void)setPagesAtContentOffset:(CGPoint)offset{
     //计算_visibleRange
-    NSLog(@"----==%@",NSStringFromCGPoint(offset));
     CGPoint startPoint = CGPointMake(offset.x - _scrollView.frame.origin.x, offset.y - _scrollView.frame.origin.y);
     CGPoint endPoint = CGPointMake(startPoint.x + self.bounds.size.width, startPoint.y + self.bounds.size.height);
     

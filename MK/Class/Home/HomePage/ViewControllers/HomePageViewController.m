@@ -70,7 +70,7 @@
     if (!_contentTable) {
         _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(K_Padding_LeftPadding, 0, KScreenWidth-K_Padding_LeftPadding*2,KScreenHeight-K_TabbarHeight) style:UITableViewStyleGrouped];
         [_contentTable registerNib:[UINib nibWithNibName:@"HomePageCell" bundle:nil] forCellReuseIdentifier:@"HomePageCell"];
-        UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, K_NaviHeight+KScaleWidth(228)+20)];
+        UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 44+KScaleWidth(228)+30)];
         [headerView addSubview:self.bannerView];
         _contentTable.tableHeaderView = headerView;
         _contentTable.delegate = self;
@@ -81,7 +81,8 @@
 -(NewPagedFlowView *)bannerView
 {
     if (!_bannerView) {
-        _bannerView = [[NewPagedFlowView alloc]initWithFrame:CGRectMake(0, K_NaviHeight, KScreenWidth, KScaleWidth(228))];
+//        _bannerView = [[NewPagedFlowView alloc]initWithFrame:CGRectMake(KScreenWidth/2-KScaleWidth(308)/2-20, 44, KScaleWidth(308)+40, KScaleWidth(228))];
+        _bannerView = [[NewPagedFlowView alloc]initWithFrame:CGRectMake(K_Padding_LeftPadding, 44, KScreenWidth-K_Padding_LeftPadding*2, KScaleWidth(228))];
         _bannerView.delegate = self;
         _bannerView.dataSource = self;
         _bannerView.minimumPageAlpha = 0.1;

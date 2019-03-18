@@ -45,6 +45,13 @@
 		3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D891223A2E9C00FE63B2 /* XHRefreshFooter.m */; };
 		3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89B223A2F5900FE63B2 /* PGIndexBannerSubiew.m */; };
 		3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */; };
+		3048D8A4223BB46400FE63B2 /* DiscoverNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D8A2223BB46400FE63B2 /* DiscoverNewsCell.m */; };
+		3048D8A5223BB46400FE63B2 /* DiscoverNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3048D8A3223BB46400FE63B2 /* DiscoverNewsCell.xib */; };
+		30FBE2E5223F4CD60049C0DE /* DiscoverCourseCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2E4223F4CD60049C0DE /* DiscoverCourseCategoryView.m */; };
+		30FBE2E9223F4F0A0049C0DE /* CourseCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2E7223F4F0A0049C0DE /* CourseCategoryCell.m */; };
+		30FBE2EA223F4F0A0049C0DE /* CourseCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE2E8223F4F0A0049C0DE /* CourseCategoryCell.xib */; };
+		30FBE2ED223F73330049C0DE /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2EC223F73330049C0DE /* NewsViewController.m */; };
+		30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2EF223F7AEB0049C0DE /* MKNavViewController.m */; };
 		6C55296C556EB2F911F5F752 /* libPods-MKUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */; };
 		B035F6116DCEE497F7AF27BA /* libPods-MK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */; };
 /* End PBXBuildFile section */
@@ -143,6 +150,18 @@
 		3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPagedFlowView.m; sourceTree = "<group>"; };
 		3048D89D223A2F5900FE63B2 /* PGIndexBannerSubiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGIndexBannerSubiew.h; sourceTree = "<group>"; };
 		3048D89E223A2F5900FE63B2 /* NewPagedFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
+		3048D8A1223BB46400FE63B2 /* DiscoverNewsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverNewsCell.h; sourceTree = "<group>"; };
+		3048D8A2223BB46400FE63B2 /* DiscoverNewsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverNewsCell.m; sourceTree = "<group>"; };
+		3048D8A3223BB46400FE63B2 /* DiscoverNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverNewsCell.xib; sourceTree = "<group>"; };
+		30FBE2E3223F4CD60049C0DE /* DiscoverCourseCategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverCourseCategoryView.h; sourceTree = "<group>"; };
+		30FBE2E4223F4CD60049C0DE /* DiscoverCourseCategoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverCourseCategoryView.m; sourceTree = "<group>"; };
+		30FBE2E6223F4F0A0049C0DE /* CourseCategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseCategoryCell.h; sourceTree = "<group>"; };
+		30FBE2E7223F4F0A0049C0DE /* CourseCategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseCategoryCell.m; sourceTree = "<group>"; };
+		30FBE2E8223F4F0A0049C0DE /* CourseCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseCategoryCell.xib; sourceTree = "<group>"; };
+		30FBE2EB223F73330049C0DE /* NewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		30FBE2EC223F73330049C0DE /* NewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		30FBE2EE223F7AEB0049C0DE /* MKNavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKNavViewController.h; sourceTree = "<group>"; };
+		30FBE2EF223F7AEB0049C0DE /* MKNavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKNavViewController.m; sourceTree = "<group>"; };
 		5E84ED91666CEFAAA2A92824 /* Pods-MK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.debug.xcconfig"; sourceTree = "<group>"; };
 		62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C807C83E01E6A12BC783DB2 /* Pods-MKUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -335,6 +354,8 @@
 				3048D81C22325F7F00FE63B2 /* MKNavigationController.m */,
 				3048D81E22325F8E00FE63B2 /* MKBaseViewController.h */,
 				3048D81F22325F8E00FE63B2 /* MKBaseViewController.m */,
+				30FBE2EE223F7AEB0049C0DE /* MKNavViewController.h */,
+				30FBE2EF223F7AEB0049C0DE /* MKNavViewController.m */,
 				3048D82122325FAD00FE63B2 /* MKBaseTableView.h */,
 				3048D82222325FAD00FE63B2 /* MKBaseTableView.m */,
 				3048D8512236496000FE63B2 /* MKTarbarViewController.h */,
@@ -481,6 +502,14 @@
 		3048D80122325D5000FE63B2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3048D8A1223BB46400FE63B2 /* DiscoverNewsCell.h */,
+				3048D8A2223BB46400FE63B2 /* DiscoverNewsCell.m */,
+				3048D8A3223BB46400FE63B2 /* DiscoverNewsCell.xib */,
+				30FBE2E3223F4CD60049C0DE /* DiscoverCourseCategoryView.h */,
+				30FBE2E4223F4CD60049C0DE /* DiscoverCourseCategoryView.m */,
+				30FBE2E6223F4F0A0049C0DE /* CourseCategoryCell.h */,
+				30FBE2E7223F4F0A0049C0DE /* CourseCategoryCell.m */,
+				30FBE2E8223F4F0A0049C0DE /* CourseCategoryCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -506,6 +535,8 @@
 		3048D80422325DB400FE63B2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				30FBE2EB223F73330049C0DE /* NewsViewController.h */,
+				30FBE2EC223F73330049C0DE /* NewsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -860,9 +891,11 @@
 				3048D86722364F5F00FE63B2 /* MyCenterViewController.xib in Resources */,
 				3048D86222364F4E00FE63B2 /* AppointmentViewController.xib in Resources */,
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
+				30FBE2EA223F4F0A0049C0DE /* CourseCategoryCell.xib in Resources */,
 				3048D85D22364F3800FE63B2 /* DiscoverPageViewController.xib in Resources */,
 				3048D7BA2232536F00FE63B2 /* LaunchScreen.storyboard in Resources */,
 				3048D7B72232536F00FE63B2 /* Assets.xcassets in Resources */,
+				3048D8A5223BB46400FE63B2 /* DiscoverNewsCell.xib in Resources */,
 				3048D86C22364F6F00FE63B2 /* MyCouseViewController.xib in Resources */,
 				3048D7B52232536D00FE63B2 /* Main.storyboard in Resources */,
 			);
@@ -983,6 +1016,7 @@
 				3048D8532236496000FE63B2 /* MKTarbarViewController.m in Sources */,
 				3048D86F2239F6B500FE63B2 /* MKBaseTableViewCell.m in Sources */,
 				3048D82022325F8E00FE63B2 /* MKBaseViewController.m in Sources */,
+				30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */,
 				3048D85C22364F3800FE63B2 /* DiscoverPageViewController.m in Sources */,
 				3048D846223263AF00FE63B2 /* UIButton+layout.m in Sources */,
 				3048D847223263AF00FE63B2 /* NSString+Utilites.m in Sources */,
@@ -992,9 +1026,12 @@
 				3048D892223A2E9D00FE63B2 /* XHRefreshHeader.m in Sources */,
 				3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */,
 				3048D8732239F77900FE63B2 /* HomePageCell.m in Sources */,
+				30FBE2E5223F4CD60049C0DE /* DiscoverCourseCategoryView.m in Sources */,
 				3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */,
 				3048D843223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
+				3048D8A4223BB46400FE63B2 /* DiscoverNewsCell.m in Sources */,
 				3048D842223263AF00FE63B2 /* UILabelEdgeInset.m in Sources */,
+				30FBE2E9223F4F0A0049C0DE /* CourseCategoryCell.m in Sources */,
 				3048D85722364F2700FE63B2 /* HomePageViewController.m in Sources */,
 				3048D86122364F4E00FE63B2 /* AppointmentViewController.m in Sources */,
 				3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */,
@@ -1004,6 +1041,7 @@
 				3048D7BD2232536F00FE63B2 /* main.m in Sources */,
 				3048D81D22325F7F00FE63B2 /* MKNavigationController.m in Sources */,
 				3048D82C2232633400FE63B2 /* BMPopView.m in Sources */,
+				30FBE2ED223F73330049C0DE /* NewsViewController.m in Sources */,
 				3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */,
 				3048D844223263AF00FE63B2 /* UILabel+layout.m in Sources */,
 			);
