@@ -46,6 +46,16 @@
 		3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89B223A2F5900FE63B2 /* PGIndexBannerSubiew.m */; };
 		3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */; };
 		6C55296C556EB2F911F5F752 /* libPods-MKUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */; };
+		712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C4223F326100BA1905 /* MyCouseHeaderView.m */; };
+		712170C9223F327700BA1905 /* MyCouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C7223F327700BA1905 /* MyCouseCell.m */; };
+		712170CA223F327700BA1905 /* MyCouseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170C8223F327700BA1905 /* MyCouseCell.xib */; };
+		712170CC223F3A1C00BA1905 /* MyCouseHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170CB223F3A1C00BA1905 /* MyCouseHeaderView.xib */; };
+		712170D0223F43CC00BA1905 /* MyCenterTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170CE223F43CC00BA1905 /* MyCenterTopCell.m */; };
+		712170D1223F43CC00BA1905 /* MyCenterTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170CF223F43CC00BA1905 /* MyCenterTopCell.xib */; };
+		712170D5223F465700BA1905 /* MyCenterBottomoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170D3223F465700BA1905 /* MyCenterBottomoCell.m */; };
+		712170D6223F465700BA1905 /* MyCenterBottomoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170D4223F465700BA1905 /* MyCenterBottomoCell.xib */; };
+		712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170D8223F67FE00BA1905 /* MyCenterHeaderView.m */; };
+		712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170DA223F680D00BA1905 /* MyCenterHeaderView.xib */; };
 		B035F6116DCEE497F7AF27BA /* libPods-MK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +156,21 @@
 		5E84ED91666CEFAAA2A92824 /* Pods-MK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.debug.xcconfig"; sourceTree = "<group>"; };
 		62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C807C83E01E6A12BC783DB2 /* Pods-MKUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		712170C3223F326100BA1905 /* MyCouseHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCouseHeaderView.h; sourceTree = "<group>"; };
+		712170C4223F326100BA1905 /* MyCouseHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCouseHeaderView.m; sourceTree = "<group>"; };
+		712170C6223F327700BA1905 /* MyCouseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCouseCell.h; sourceTree = "<group>"; };
+		712170C7223F327700BA1905 /* MyCouseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCouseCell.m; sourceTree = "<group>"; };
+		712170C8223F327700BA1905 /* MyCouseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCouseCell.xib; sourceTree = "<group>"; };
+		712170CB223F3A1C00BA1905 /* MyCouseHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCouseHeaderView.xib; sourceTree = "<group>"; };
+		712170CD223F43CC00BA1905 /* MyCenterTopCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCenterTopCell.h; sourceTree = "<group>"; };
+		712170CE223F43CC00BA1905 /* MyCenterTopCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCenterTopCell.m; sourceTree = "<group>"; };
+		712170CF223F43CC00BA1905 /* MyCenterTopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCenterTopCell.xib; sourceTree = "<group>"; };
+		712170D2223F465700BA1905 /* MyCenterBottomoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCenterBottomoCell.h; sourceTree = "<group>"; };
+		712170D3223F465700BA1905 /* MyCenterBottomoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCenterBottomoCell.m; sourceTree = "<group>"; };
+		712170D4223F465700BA1905 /* MyCenterBottomoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCenterBottomoCell.xib; sourceTree = "<group>"; };
+		712170D7223F67FE00BA1905 /* MyCenterHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCenterHeaderView.h; sourceTree = "<group>"; };
+		712170D8223F67FE00BA1905 /* MyCenterHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCenterHeaderView.m; sourceTree = "<group>"; };
+		712170DA223F680D00BA1905 /* MyCenterHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCenterHeaderView.xib; sourceTree = "<group>"; };
 		A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B9090FC31E61654C9D5DF8 /* Pods-MK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.release.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.release.xcconfig"; sourceTree = "<group>"; };
 		D6C8DA04A8C4F273735FE2C0 /* Pods-MKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKTests/Pods-MKTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -612,6 +637,12 @@
 		3048D81122325E6700FE63B2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				712170C3223F326100BA1905 /* MyCouseHeaderView.h */,
+				712170C4223F326100BA1905 /* MyCouseHeaderView.m */,
+				712170CB223F3A1C00BA1905 /* MyCouseHeaderView.xib */,
+				712170C6223F327700BA1905 /* MyCouseCell.h */,
+				712170C7223F327700BA1905 /* MyCouseCell.m */,
+				712170C8223F327700BA1905 /* MyCouseCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -662,6 +693,15 @@
 		3048D81722325E8600FE63B2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				712170CD223F43CC00BA1905 /* MyCenterTopCell.h */,
+				712170CE223F43CC00BA1905 /* MyCenterTopCell.m */,
+				712170CF223F43CC00BA1905 /* MyCenterTopCell.xib */,
+				712170D2223F465700BA1905 /* MyCenterBottomoCell.h */,
+				712170D3223F465700BA1905 /* MyCenterBottomoCell.m */,
+				712170D4223F465700BA1905 /* MyCenterBottomoCell.xib */,
+				712170D7223F67FE00BA1905 /* MyCenterHeaderView.h */,
+				712170D8223F67FE00BA1905 /* MyCenterHeaderView.m */,
+				712170DA223F680D00BA1905 /* MyCenterHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -857,9 +897,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3048D8742239F77900FE63B2 /* HomePageCell.xib in Resources */,
+				712170CC223F3A1C00BA1905 /* MyCouseHeaderView.xib in Resources */,
+				712170CA223F327700BA1905 /* MyCouseCell.xib in Resources */,
 				3048D86722364F5F00FE63B2 /* MyCenterViewController.xib in Resources */,
 				3048D86222364F4E00FE63B2 /* AppointmentViewController.xib in Resources */,
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
+				712170D1223F43CC00BA1905 /* MyCenterTopCell.xib in Resources */,
+				712170D6223F465700BA1905 /* MyCenterBottomoCell.xib in Resources */,
+				712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */,
 				3048D85D22364F3800FE63B2 /* DiscoverPageViewController.xib in Resources */,
 				3048D7BA2232536F00FE63B2 /* LaunchScreen.storyboard in Resources */,
 				3048D7B72232536F00FE63B2 /* Assets.xcassets in Resources */,
@@ -983,9 +1028,12 @@
 				3048D8532236496000FE63B2 /* MKTarbarViewController.m in Sources */,
 				3048D86F2239F6B500FE63B2 /* MKBaseTableViewCell.m in Sources */,
 				3048D82022325F8E00FE63B2 /* MKBaseViewController.m in Sources */,
+				712170D5223F465700BA1905 /* MyCenterBottomoCell.m in Sources */,
 				3048D85C22364F3800FE63B2 /* DiscoverPageViewController.m in Sources */,
+				712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */,
 				3048D846223263AF00FE63B2 /* UIButton+layout.m in Sources */,
 				3048D847223263AF00FE63B2 /* NSString+Utilites.m in Sources */,
+				712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */,
 				3048D7EC2232565500FE63B2 /* AppDelegate.m in Sources */,
 				3048D82322325FAD00FE63B2 /* MKBaseTableView.m in Sources */,
 				3048D86622364F5F00FE63B2 /* MyCenterViewController.m in Sources */,
@@ -1000,11 +1048,13 @@
 				3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */,
 				3048D848223263AF00FE63B2 /* NSString+SizeOfString.m in Sources */,
 				3048D7B22232536D00FE63B2 /* ViewController.m in Sources */,
+				712170C9223F327700BA1905 /* MyCouseCell.m in Sources */,
 				3048D841223263AF00FE63B2 /* UIView+Layout.m in Sources */,
 				3048D7BD2232536F00FE63B2 /* main.m in Sources */,
 				3048D81D22325F7F00FE63B2 /* MKNavigationController.m in Sources */,
 				3048D82C2232633400FE63B2 /* BMPopView.m in Sources */,
 				3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */,
+				712170D0223F43CC00BA1905 /* MyCenterTopCell.m in Sources */,
 				3048D844223263AF00FE63B2 /* UILabel+layout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
