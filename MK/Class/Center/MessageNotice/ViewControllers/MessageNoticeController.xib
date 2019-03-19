@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageNoticeController">
+            <connections>
+                <outlet property="noticeSwitch" destination="Irt-ZE-gln" id="Cjo-R5-obf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通知设置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLQ-lE-6LD">
+                    <rect key="frame" x="20" y="27" width="114" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTE-QG-d3x">
+                    <rect key="frame" x="18" y="106" width="339" height="36"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="接收推送通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqM-e6-1fF">
+                            <rect key="frame" x="8" y="10.5" width="74" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Irt-ZE-gln">
+                            <rect key="frame" x="282" y="2.5" width="49" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="31" id="Aa3-er-67W"/>
+                                <constraint firstAttribute="width" constant="47" id="aDC-SA-6YE"/>
+                            </constraints>
+                            <color key="onTintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="switchClick:" destination="-1" eventType="valueChanged" id="iB1-9T-CFC"/>
+                            </connections>
+                        </switch>
+                    </subviews>
+                    <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="Irt-ZE-gln" firstAttribute="centerY" secondItem="kqM-e6-1fF" secondAttribute="centerY" id="0qI-RA-Jl6"/>
+                        <constraint firstItem="kqM-e6-1fF" firstAttribute="centerY" secondItem="FTE-QG-d3x" secondAttribute="centerY" id="69Q-8Z-TSU"/>
+                        <constraint firstAttribute="height" constant="36" id="GyX-hT-7mQ"/>
+                        <constraint firstAttribute="trailing" secondItem="Irt-ZE-gln" secondAttribute="trailing" constant="10" id="IPb-Oc-cge"/>
+                        <constraint firstItem="kqM-e6-1fF" firstAttribute="leading" secondItem="FTE-QG-d3x" secondAttribute="leading" constant="8" id="LXj-Dn-lzL"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="FTE-QG-d3x" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="18" id="5ez-w9-6sC"/>
+                <constraint firstItem="rLQ-lE-6LD" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="B1D-rH-hOi"/>
+                <constraint firstItem="FTE-QG-d3x" firstAttribute="top" secondItem="rLQ-lE-6LD" secondAttribute="bottom" constant="45" id="Zzn-dO-YTc"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="FTE-QG-d3x" secondAttribute="trailing" constant="18" id="pDi-bw-1Jm"/>
+                <constraint firstItem="rLQ-lE-6LD" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="7" id="qzW-1f-4IR"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

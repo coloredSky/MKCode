@@ -63,6 +63,12 @@
 		712170D6223F465700BA1905 /* MyCenterBottomoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170D4223F465700BA1905 /* MyCenterBottomoCell.xib */; };
 		712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170D8223F67FE00BA1905 /* MyCenterHeaderView.m */; };
 		712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170DA223F680D00BA1905 /* MyCenterHeaderView.xib */; };
+		712AB1782240B71D00E8A034 /* MessageNoticeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712AB1762240B71D00E8A034 /* MessageNoticeController.m */; };
+		712AB1792240B71D00E8A034 /* MessageNoticeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712AB1772240B71D00E8A034 /* MessageNoticeController.xib */; };
+		712AB1822240BBAC00E8A034 /* SetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712AB1802240BBAC00E8A034 /* SetPasswordController.m */; };
+		712AB1832240BBAC00E8A034 /* SetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712AB1812240BBAC00E8A034 /* SetPasswordController.xib */; };
+		712AB18C2240C11100E8A034 /* PolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712AB18A2240C11100E8A034 /* PolicyViewController.m */; };
+		712AB18D2240C11100E8A034 /* PolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712AB18B2240C11100E8A034 /* PolicyViewController.xib */; };
 		B035F6116DCEE497F7AF27BA /* libPods-MK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */; };
 /* End PBXBuildFile section */
 
@@ -190,6 +196,15 @@
 		712170D7223F67FE00BA1905 /* MyCenterHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCenterHeaderView.h; sourceTree = "<group>"; };
 		712170D8223F67FE00BA1905 /* MyCenterHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCenterHeaderView.m; sourceTree = "<group>"; };
 		712170DA223F680D00BA1905 /* MyCenterHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCenterHeaderView.xib; sourceTree = "<group>"; };
+		712AB1752240B71D00E8A034 /* MessageNoticeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageNoticeController.h; sourceTree = "<group>"; };
+		712AB1762240B71D00E8A034 /* MessageNoticeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageNoticeController.m; sourceTree = "<group>"; };
+		712AB1772240B71D00E8A034 /* MessageNoticeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageNoticeController.xib; sourceTree = "<group>"; };
+		712AB17F2240BBAC00E8A034 /* SetPasswordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetPasswordController.h; sourceTree = "<group>"; };
+		712AB1802240BBAC00E8A034 /* SetPasswordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetPasswordController.m; sourceTree = "<group>"; };
+		712AB1812240BBAC00E8A034 /* SetPasswordController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetPasswordController.xib; sourceTree = "<group>"; };
+		712AB1892240C11100E8A034 /* PolicyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolicyViewController.h; sourceTree = "<group>"; };
+		712AB18A2240C11100E8A034 /* PolicyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolicyViewController.m; sourceTree = "<group>"; };
+		712AB18B2240C11100E8A034 /* PolicyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PolicyViewController.xib; sourceTree = "<group>"; };
 		A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B9090FC31E61654C9D5DF8 /* Pods-MK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.release.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.release.xcconfig"; sourceTree = "<group>"; };
 		D6C8DA04A8C4F273735FE2C0 /* Pods-MKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKTests/Pods-MKTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -681,6 +696,9 @@
 		3048D81222325E8600FE63B2 /* Center */ = {
 			isa = PBXGroup;
 			children = (
+				712AB1842240C07900E8A034 /* Policy */,
+				712AB17A2240BB6000E8A034 /* SetPassword */,
+				712AB1702240B6CE00E8A034 /* MessageNotice */,
 				3048D81322325E8600FE63B2 /* MyCenter */,
 			);
 			path = Center;
@@ -810,6 +828,132 @@
 			path = NewPagedFlowView;
 			sourceTree = "<group>";
 		};
+		712AB1702240B6CE00E8A034 /* MessageNotice */ = {
+			isa = PBXGroup;
+			children = (
+				712AB1742240B6F600E8A034 /* Views */,
+				712AB1732240B6F000E8A034 /* Model */,
+				712AB1722240B6E700E8A034 /* ViewControllers */,
+				712AB1712240B6DF00E8A034 /* Manager */,
+			);
+			path = MessageNotice;
+			sourceTree = "<group>";
+		};
+		712AB1712240B6DF00E8A034 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		712AB1722240B6E700E8A034 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				712AB1752240B71D00E8A034 /* MessageNoticeController.h */,
+				712AB1762240B71D00E8A034 /* MessageNoticeController.m */,
+				712AB1772240B71D00E8A034 /* MessageNoticeController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		712AB1732240B6F000E8A034 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		712AB1742240B6F600E8A034 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		712AB17A2240BB6000E8A034 /* SetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				712AB17E2240BB8700E8A034 /* Manager */,
+				712AB17D2240BB7E00E8A034 /* ViewControllers */,
+				712AB17C2240BB7400E8A034 /* Model */,
+				712AB17B2240BB6F00E8A034 /* Views */,
+			);
+			path = SetPassword;
+			sourceTree = "<group>";
+		};
+		712AB17B2240BB6F00E8A034 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		712AB17C2240BB7400E8A034 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		712AB17D2240BB7E00E8A034 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				712AB17F2240BBAC00E8A034 /* SetPasswordController.h */,
+				712AB1802240BBAC00E8A034 /* SetPasswordController.m */,
+				712AB1812240BBAC00E8A034 /* SetPasswordController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		712AB17E2240BB8700E8A034 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		712AB1842240C07900E8A034 /* Policy */ = {
+			isa = PBXGroup;
+			children = (
+				712AB1882240C0A200E8A034 /* Views */,
+				712AB1872240C09C00E8A034 /* Model */,
+				712AB1862240C08B00E8A034 /* ViewControllers */,
+				712AB1852240C08300E8A034 /* Manager */,
+			);
+			path = Policy;
+			sourceTree = "<group>";
+		};
+		712AB1852240C08300E8A034 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		712AB1862240C08B00E8A034 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				712AB1892240C11100E8A034 /* PolicyViewController.h */,
+				712AB18A2240C11100E8A034 /* PolicyViewController.m */,
+				712AB18B2240C11100E8A034 /* PolicyViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		712AB1872240C09C00E8A034 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		712AB1882240C0A200E8A034 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9AF5AD9C0310B0C67ED2195B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -930,18 +1074,21 @@
 				3048D8742239F77900FE63B2 /* HomePageCell.xib in Resources */,
 				712170CC223F3A1C00BA1905 /* MyCouseHeaderView.xib in Resources */,
 				712170CA223F327700BA1905 /* MyCouseCell.xib in Resources */,
+				712AB1832240BBAC00E8A034 /* SetPasswordController.xib in Resources */,
 				3048D86722364F5F00FE63B2 /* MyCenterViewController.xib in Resources */,
 				3048D86222364F4E00FE63B2 /* AppointmentViewController.xib in Resources */,
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
 				30FBE2EA223F4F0A0049C0DE /* CourseCategoryCell.xib in Resources */,
 				712170D1223F43CC00BA1905 /* MyCenterTopCell.xib in Resources */,
 				712170D6223F465700BA1905 /* MyCenterBottomoCell.xib in Resources */,
+				712AB18D2240C11100E8A034 /* PolicyViewController.xib in Resources */,
 				712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */,
 				3048D85D22364F3800FE63B2 /* DiscoverPageViewController.xib in Resources */,
 				3048D7BA2232536F00FE63B2 /* LaunchScreen.storyboard in Resources */,
 				3048D7B72232536F00FE63B2 /* Assets.xcassets in Resources */,
 				3048D8A5223BB46400FE63B2 /* DiscoverNewsCell.xib in Resources */,
 				3048D86C22364F6F00FE63B2 /* MyCouseViewController.xib in Resources */,
+				712AB1792240B71D00E8A034 /* MessageNoticeController.xib in Resources */,
 				3048D7B52232536D00FE63B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1066,6 +1213,7 @@
 				3048D85C22364F3800FE63B2 /* DiscoverPageViewController.m in Sources */,
 				712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */,
 				3048D846223263AF00FE63B2 /* UIButton+layout.m in Sources */,
+				712AB18C2240C11100E8A034 /* PolicyViewController.m in Sources */,
 				3048D847223263AF00FE63B2 /* NSString+Utilites.m in Sources */,
 				712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */,
 				3048D7EC2232565500FE63B2 /* AppDelegate.m in Sources */,
@@ -1075,6 +1223,7 @@
 				3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */,
 				3048D8732239F77900FE63B2 /* HomePageCell.m in Sources */,
 				30FBE2E5223F4CD60049C0DE /* DiscoverCourseCategoryView.m in Sources */,
+				712AB1822240BBAC00E8A034 /* SetPasswordController.m in Sources */,
 				3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */,
 				3048D843223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				3048D8A4223BB46400FE63B2 /* DiscoverNewsCell.m in Sources */,
@@ -1093,6 +1242,7 @@
 				30FBE2ED223F73330049C0DE /* NewsViewController.m in Sources */,
 				3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */,
 				712170D0223F43CC00BA1905 /* MyCenterTopCell.m in Sources */,
+				712AB1782240B71D00E8A034 /* MessageNoticeController.m in Sources */,
 				3048D844223263AF00FE63B2 /* UILabel+layout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

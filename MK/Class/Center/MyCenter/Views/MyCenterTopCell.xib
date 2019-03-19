@@ -19,6 +19,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="156" height="101"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eI8-zb-iEx">
+                        <rect key="frame" x="0.0" y="0.0" width="156" height="101"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ym0-uX-Mql">
                         <rect key="frame" x="63" y="27" width="30" height="30"/>
                         <constraints>
@@ -36,16 +40,21 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="eI8-zb-iEx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0C5-wD-SY5"/>
+                <constraint firstAttribute="bottom" secondItem="eI8-zb-iEx" secondAttribute="bottom" id="0pq-dd-ChI"/>
                 <constraint firstItem="src-Af-96m" firstAttribute="top" secondItem="ym0-uX-Mql" secondAttribute="bottom" constant="5" id="14b-Ku-nNa"/>
                 <constraint firstItem="ym0-uX-Mql" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="27" id="1CM-x2-tGy"/>
                 <constraint firstItem="ym0-uX-Mql" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Amq-0H-WeA"/>
                 <constraint firstItem="src-Af-96m" firstAttribute="centerX" secondItem="ym0-uX-Mql" secondAttribute="centerX" id="P1r-of-cCt"/>
+                <constraint firstAttribute="trailing" secondItem="eI8-zb-iEx" secondAttribute="trailing" id="Whd-BF-nCI"/>
+                <constraint firstItem="eI8-zb-iEx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="YR1-jn-Q9c"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="152" height="86"/>
             <connections>
                 <outlet property="myCenterImage" destination="ym0-uX-Mql" id="3o3-eb-Qmn"/>
                 <outlet property="myCenterLab" destination="src-Af-96m" id="sjB-RW-xiC"/>
+                <outlet property="shadowView" destination="eI8-zb-iEx" id="mnX-zb-9af"/>
             </connections>
             <point key="canvasLocation" x="56" y="129.08545727136433"/>
         </collectionViewCell>

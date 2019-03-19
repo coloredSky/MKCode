@@ -19,6 +19,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="100" height="92"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sS5-6n-7di">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="92"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MQa-vg-QH6">
                         <rect key="frame" x="35" y="21" width="30" height="30"/>
                         <constraints>
@@ -36,15 +40,20 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="sS5-6n-7di" secondAttribute="trailing" id="2dV-7C-wDo"/>
                 <constraint firstItem="MQa-vg-QH6" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="9EB-Yf-uLc"/>
+                <constraint firstAttribute="bottom" secondItem="sS5-6n-7di" secondAttribute="bottom" id="Vo7-9I-LvM"/>
                 <constraint firstItem="MQa-vg-QH6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="21" id="Xqa-H2-KBe"/>
                 <constraint firstItem="cds-8S-gHB" firstAttribute="top" secondItem="MQa-vg-QH6" secondAttribute="bottom" constant="5" id="s17-GZ-pXh"/>
+                <constraint firstItem="sS5-6n-7di" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="vFn-h8-i5g"/>
                 <constraint firstItem="cds-8S-gHB" firstAttribute="centerX" secondItem="MQa-vg-QH6" secondAttribute="centerX" id="wX5-la-CqO"/>
+                <constraint firstItem="sS5-6n-7di" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zZL-Hn-wzq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <connections>
                 <outlet property="myCenterImage" destination="MQa-vg-QH6" id="E3s-GY-yqL"/>
                 <outlet property="myCenterLab" destination="cds-8S-gHB" id="Y5K-xE-bmf"/>
+                <outlet property="shadowView" destination="sS5-6n-7di" id="dj7-rU-oQm"/>
             </connections>
         </collectionViewCell>
     </objects>
