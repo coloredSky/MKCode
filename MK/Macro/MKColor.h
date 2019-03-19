@@ -27,7 +27,7 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:A]
 
 //背景色
-#define K_BG_YellowColor UIColorFromRGB_0x(0xfaac1b)
+#define K_BG_YellowColor UIColorFromRGB_0x(0xF7EE15)
 #define K_BG_WhiteColor UIColorFromRGB_0x(0xffffff)
 #define K_BG_GrayColor UIColorFromRGB_0x(0xeeeeee)
 #define K_BG_deepGrayColor UIColorFromRGB_0x(0xf7f7f7)

@@ -52,6 +52,16 @@
 		30FBE2EA223F4F0A0049C0DE /* CourseCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE2E8223F4F0A0049C0DE /* CourseCategoryCell.xib */; };
 		30FBE2ED223F73330049C0DE /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2EC223F73330049C0DE /* NewsViewController.m */; };
 		30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2EF223F7AEB0049C0DE /* MKNavViewController.m */; };
+		30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2F7223F98240049C0DE /* TitleScrollView.m */; };
+		30FBE2FC223F98250049C0DE /* SelectedCustomLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2F8223F98250049C0DE /* SelectedCustomLab.m */; };
+		30FBE309223FA3E00049C0DE /* HomeRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE308223FA3E00049C0DE /* HomeRecommendViewController.m */; };
+		30FBE30C224092780049C0DE /* HomeContentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE30B224092780049C0DE /* HomeContentScrollView.m */; };
+		30FBE30F2240976D0049C0DE /* HomeCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE30E2240976D0049C0DE /* HomeCommonViewController.m */; };
+		30FBE3132240C2020049C0DE /* HomeRecommenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3112240C2020049C0DE /* HomeRecommenCell.m */; };
+		30FBE3142240C2020049C0DE /* HomeRecommenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE3122240C2020049C0DE /* HomeRecommenCell.xib */; };
+		30FBE3172240E50A0049C0DE /* HomeCourseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3162240E50A0049C0DE /* HomeCourseCollectionView.m */; };
+		30FBE31B2240E6B50049C0DE /* HomeCourseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3192240E6B50049C0DE /* HomeCourseCollectionViewCell.m */; };
+		30FBE31C2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE31A2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib */; };
 		6C55296C556EB2F911F5F752 /* libPods-MKUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */; };
 		712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C4223F326100BA1905 /* MyCouseHeaderView.m */; };
 		712170C9223F327700BA1905 /* MyCouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C7223F327700BA1905 /* MyCouseCell.m */; };
@@ -172,6 +182,24 @@
 		30FBE2EC223F73330049C0DE /* NewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		30FBE2EE223F7AEB0049C0DE /* MKNavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKNavViewController.h; sourceTree = "<group>"; };
 		30FBE2EF223F7AEB0049C0DE /* MKNavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKNavViewController.m; sourceTree = "<group>"; };
+		30FBE2F7223F98240049C0DE /* TitleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScrollView.m; sourceTree = "<group>"; };
+		30FBE2F8223F98250049C0DE /* SelectedCustomLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCustomLab.m; sourceTree = "<group>"; };
+		30FBE2F9223F98250049C0DE /* SelectedCustomLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCustomLab.h; sourceTree = "<group>"; };
+		30FBE2FA223F98250049C0DE /* TitleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScrollView.h; sourceTree = "<group>"; };
+		30FBE307223FA3E00049C0DE /* HomeRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeRecommendViewController.h; sourceTree = "<group>"; };
+		30FBE308223FA3E00049C0DE /* HomeRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendViewController.m; sourceTree = "<group>"; };
+		30FBE30A224092780049C0DE /* HomeContentScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeContentScrollView.h; sourceTree = "<group>"; };
+		30FBE30B224092780049C0DE /* HomeContentScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeContentScrollView.m; sourceTree = "<group>"; };
+		30FBE30D2240976D0049C0DE /* HomeCommonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCommonViewController.h; sourceTree = "<group>"; };
+		30FBE30E2240976D0049C0DE /* HomeCommonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCommonViewController.m; sourceTree = "<group>"; };
+		30FBE3102240C2020049C0DE /* HomeRecommenCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeRecommenCell.h; sourceTree = "<group>"; };
+		30FBE3112240C2020049C0DE /* HomeRecommenCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeRecommenCell.m; sourceTree = "<group>"; };
+		30FBE3122240C2020049C0DE /* HomeRecommenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeRecommenCell.xib; sourceTree = "<group>"; };
+		30FBE3152240E50A0049C0DE /* HomeCourseCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCourseCollectionView.h; sourceTree = "<group>"; };
+		30FBE3162240E50A0049C0DE /* HomeCourseCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCourseCollectionView.m; sourceTree = "<group>"; };
+		30FBE3182240E6B50049C0DE /* HomeCourseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCourseCollectionViewCell.h; sourceTree = "<group>"; };
+		30FBE3192240E6B50049C0DE /* HomeCourseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCourseCollectionViewCell.m; sourceTree = "<group>"; };
+		30FBE31A2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCourseCollectionViewCell.xib; sourceTree = "<group>"; };
 		5E84ED91666CEFAAA2A92824 /* Pods-MK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.debug.xcconfig"; sourceTree = "<group>"; };
 		62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C807C83E01E6A12BC783DB2 /* Pods-MKUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -439,6 +467,8 @@
 		3048D7F722325AD900FE63B2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				30FBE2FD223FA3B20049C0DE /* HomeCommon */,
+				30FBE302223FA3B20049C0DE /* HomeRecommended */,
 				3048D7F822325AD900FE63B2 /* HomePage */,
 			);
 			path = Home;
@@ -482,9 +512,15 @@
 		3048D7FC22325AD900FE63B2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				30FBE2F9223F98250049C0DE /* SelectedCustomLab.h */,
+				30FBE2F8223F98250049C0DE /* SelectedCustomLab.m */,
+				30FBE2FA223F98250049C0DE /* TitleScrollView.h */,
+				30FBE2F7223F98240049C0DE /* TitleScrollView.m */,
 				3048D8702239F77900FE63B2 /* HomePageCell.h */,
 				3048D8712239F77900FE63B2 /* HomePageCell.m */,
 				3048D8722239F77900FE63B2 /* HomePageCell.xib */,
+				30FBE30A224092780049C0DE /* HomeContentScrollView.h */,
+				30FBE30B224092780049C0DE /* HomeContentScrollView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -810,6 +846,96 @@
 			path = NewPagedFlowView;
 			sourceTree = "<group>";
 		};
+		30FBE2FD223FA3B20049C0DE /* HomeCommon */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE2FE223FA3B20049C0DE /* Manager */,
+				30FBE2FF223FA3B20049C0DE /* ViewControllers */,
+				30FBE300223FA3B20049C0DE /* Model */,
+				30FBE301223FA3B20049C0DE /* Views */,
+			);
+			path = HomeCommon;
+			sourceTree = "<group>";
+		};
+		30FBE2FE223FA3B20049C0DE /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		30FBE2FF223FA3B20049C0DE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE30D2240976D0049C0DE /* HomeCommonViewController.h */,
+				30FBE30E2240976D0049C0DE /* HomeCommonViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		30FBE300223FA3B20049C0DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30FBE301223FA3B20049C0DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		30FBE302223FA3B20049C0DE /* HomeRecommended */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE303223FA3B20049C0DE /* Manager */,
+				30FBE304223FA3B20049C0DE /* ViewControllers */,
+				30FBE305223FA3B20049C0DE /* Model */,
+				30FBE306223FA3B20049C0DE /* Views */,
+			);
+			path = HomeRecommended;
+			sourceTree = "<group>";
+		};
+		30FBE303223FA3B20049C0DE /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		30FBE304223FA3B20049C0DE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE307223FA3E00049C0DE /* HomeRecommendViewController.h */,
+				30FBE308223FA3E00049C0DE /* HomeRecommendViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		30FBE305223FA3B20049C0DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30FBE306223FA3B20049C0DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE3102240C2020049C0DE /* HomeRecommenCell.h */,
+				30FBE3112240C2020049C0DE /* HomeRecommenCell.m */,
+				30FBE3122240C2020049C0DE /* HomeRecommenCell.xib */,
+				30FBE3152240E50A0049C0DE /* HomeCourseCollectionView.h */,
+				30FBE3162240E50A0049C0DE /* HomeCourseCollectionView.m */,
+				30FBE3182240E6B50049C0DE /* HomeCourseCollectionViewCell.h */,
+				30FBE3192240E6B50049C0DE /* HomeCourseCollectionViewCell.m */,
+				30FBE31A2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9AF5AD9C0310B0C67ED2195B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -933,9 +1059,11 @@
 				3048D86722364F5F00FE63B2 /* MyCenterViewController.xib in Resources */,
 				3048D86222364F4E00FE63B2 /* AppointmentViewController.xib in Resources */,
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
+				30FBE3142240C2020049C0DE /* HomeRecommenCell.xib in Resources */,
 				30FBE2EA223F4F0A0049C0DE /* CourseCategoryCell.xib in Resources */,
 				712170D1223F43CC00BA1905 /* MyCenterTopCell.xib in Resources */,
 				712170D6223F465700BA1905 /* MyCenterBottomoCell.xib in Resources */,
+				30FBE31C2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib in Resources */,
 				712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */,
 				3048D85D22364F3800FE63B2 /* DiscoverPageViewController.xib in Resources */,
 				3048D7BA2232536F00FE63B2 /* LaunchScreen.storyboard in Resources */,
@@ -1063,24 +1191,30 @@
 				3048D82022325F8E00FE63B2 /* MKBaseViewController.m in Sources */,
 				30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */,
 				712170D5223F465700BA1905 /* MyCenterBottomoCell.m in Sources */,
+				30FBE30F2240976D0049C0DE /* HomeCommonViewController.m in Sources */,
 				3048D85C22364F3800FE63B2 /* DiscoverPageViewController.m in Sources */,
 				712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */,
 				3048D846223263AF00FE63B2 /* UIButton+layout.m in Sources */,
 				3048D847223263AF00FE63B2 /* NSString+Utilites.m in Sources */,
 				712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */,
 				3048D7EC2232565500FE63B2 /* AppDelegate.m in Sources */,
+				30FBE3132240C2020049C0DE /* HomeRecommenCell.m in Sources */,
 				3048D82322325FAD00FE63B2 /* MKBaseTableView.m in Sources */,
+				30FBE31B2240E6B50049C0DE /* HomeCourseCollectionViewCell.m in Sources */,
 				3048D86622364F5F00FE63B2 /* MyCenterViewController.m in Sources */,
 				3048D892223A2E9D00FE63B2 /* XHRefreshHeader.m in Sources */,
 				3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */,
 				3048D8732239F77900FE63B2 /* HomePageCell.m in Sources */,
+				30FBE3172240E50A0049C0DE /* HomeCourseCollectionView.m in Sources */,
 				30FBE2E5223F4CD60049C0DE /* DiscoverCourseCategoryView.m in Sources */,
 				3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */,
 				3048D843223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
+				30FBE2FC223F98250049C0DE /* SelectedCustomLab.m in Sources */,
 				3048D8A4223BB46400FE63B2 /* DiscoverNewsCell.m in Sources */,
 				3048D842223263AF00FE63B2 /* UILabelEdgeInset.m in Sources */,
 				30FBE2E9223F4F0A0049C0DE /* CourseCategoryCell.m in Sources */,
 				3048D85722364F2700FE63B2 /* HomePageViewController.m in Sources */,
+				30FBE30C224092780049C0DE /* HomeContentScrollView.m in Sources */,
 				3048D86122364F4E00FE63B2 /* AppointmentViewController.m in Sources */,
 				3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */,
 				3048D848223263AF00FE63B2 /* NSString+SizeOfString.m in Sources */,
@@ -1093,7 +1227,9 @@
 				30FBE2ED223F73330049C0DE /* NewsViewController.m in Sources */,
 				3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */,
 				712170D0223F43CC00BA1905 /* MyCenterTopCell.m in Sources */,
+				30FBE309223FA3E00049C0DE /* HomeRecommendViewController.m in Sources */,
 				3048D844223263AF00FE63B2 /* UILabel+layout.m in Sources */,
+				30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,15 +7,19 @@
 //
 
 #import "HomePageViewController.h"
+//VC
+#import "HomeRecommendViewController.h"
+#import "HomeCommonViewController.h"
 //View
-#import "HomePageCell.h"
-#import "NewPagedFlowView.h"
+#import "TitleScrollView.h"
+#import "HomeContentScrollView.h"
 
-@interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource,NewPagedFlowViewDelegate,NewPagedFlowViewDataSource>
-@property (nonatomic, strong) MKBaseTableView *contentTable;
-@property (nonatomic, strong)NewPagedFlowView *bannerView;
-@property (nonatomic, strong) NSArray *titleArr;//区头标题
-@property (nonatomic, strong) NSArray *bannerArr;//banner 图片
+@interface HomePageViewController ()<TitleScrollViewDelegate,HomeContentScrollViewDelegate>
+@property (nonatomic, strong) NSArray *titleArr;//标题数组
+@property (nonatomic, strong) NSArray *childVCs;//视图数组
+@property (nonatomic, strong) UIView *topView;//顶部View
+@property (nonatomic, strong) TitleScrollView *titleView;//标题scroll
+@property (nonatomic, strong) HomeContentScrollView *contentScroll;//内容scroll
 @end
 
 @implementation HomePageViewController
@@ -24,8 +28,8 @@
 -(instancetype)init
 {
     if (self = [super init]) {
-        self.titleArr = @[@"语言",@"学部",@"大学院",@"美术"];
-        self.bannerArr = @[@"home_Bnner",@"home_Bnner",@"home_Bnner",@"home_Bnner"];
+        self.titleArr = @[@"推荐",@"语言",@"学部",@"大学院",@"美术"];
+        self.childVCs = @[[HomeRecommendViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new]];
     }
     return self;
 }
@@ -38,136 +42,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_deepGrayColor;
-    [self.view addSubview:self.contentTable];
-    //refresh
-//    [self setUpRefresh];
-    //request
-    [self startRequest];
+    //navView
+    [self laoutTopView];
+    
+    [self.contentScroll AddChildViewWithTitleArr:self.childVCs.mutableCopy andRootViewController:self];
 }
-
-#pragma mark --  refresh
--(void)setUpRefresh
+-(void)laoutTopView
 {
-    //下拉刷新
-//    @weakObject(self);
-    self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
-//        @strongObject(self);
-    }];
-    //上拉加载
-    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-//        @strongObject(self);
-    }];
-}
-
-#pragma mark --  request
--(void)startRequest
-{
+    _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, K_NaviHeight+KScaleHeight(35)+KScaleHeight(20))];
+    [self.view addSubview:_topView];
+    _titleView = [[TitleScrollView alloc]initWithFrame:CGRectMake(0, _topView.height-KScaleHeight(35+20), _topView.width, KScaleHeight(35))];
+    _titleView.delegate = self;
+    [_topView addSubview:_titleView];
+    [_titleView reloadDataWithTitleArr:self.titleArr.mutableCopy];
 }
 
 #pragma mark --  lazy
--(MKBaseTableView *)contentTable
+-(HomeContentScrollView *)contentScroll
 {
-    if (!_contentTable) {
-        _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(K_Padding_LeftPadding, 0, KScreenWidth-K_Padding_LeftPadding*2,KScreenHeight-K_TabbarHeight) style:UITableViewStyleGrouped];
-        [_contentTable registerNib:[UINib nibWithNibName:@"HomePageCell" bundle:nil] forCellReuseIdentifier:@"HomePageCell"];
-        UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 44+KScaleWidth(228)+30)];
-        [headerView addSubview:self.bannerView];
-        _contentTable.tableHeaderView = headerView;
-        _contentTable.delegate = self;
-        _contentTable.dataSource = self;
+    if (!_contentScroll) {
+        _contentScroll = [[HomeContentScrollView alloc]initWithFrame:CGRectMake(0, self.topView.bottomY, self.view.width, KScreenHeight-self.topView.height-K_TabbarHeight)];
+        _contentScroll.delegate = self;
+        [self.view addSubview:_contentScroll];
     }
-    return _contentTable;
+        return _contentScroll;
 }
--(NewPagedFlowView *)bannerView
-{
-    if (!_bannerView) {
-//        _bannerView = [[NewPagedFlowView alloc]initWithFrame:CGRectMake(KScreenWidth/2-KScaleWidth(308)/2-20, 44, KScaleWidth(308)+40, KScaleWidth(228))];
-        _bannerView = [[NewPagedFlowView alloc]initWithFrame:CGRectMake(K_Padding_LeftPadding, 44, KScreenWidth-K_Padding_LeftPadding*2, KScaleWidth(228))];
-        _bannerView.delegate = self;
-        _bannerView.dataSource = self;
-        _bannerView.minimumPageAlpha = 0.1;
-        _bannerView.isOpenAutoScroll = YES;
-        _bannerView.isCarousel = YES;
-        _bannerView.orientation = NewPagedFlowViewOrientationHorizontal;
-        _bannerView.orginPageCount = 3;
-        [_bannerView reloadData];
-    }
-    return _bannerView;
-}
-
-#pragma mark - UITableViewDataSource
-#pragma mark - cell
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    HomePageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCell" forIndexPath:indexPath];
-    [cell cellRefreshData];
-    return cell;
-}
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return self.titleArr.count;
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 2;
-}
-#pragma mark - UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return KScaleHeight(80);
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return KScaleHeight(25);
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return CGFLOAT_MIN;
-}
-- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(25))];
-    UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 200, headerView.height)];
-    [headerView addSubview:titleLab];
-    [titleLab setFont:MKBoldFont(16) textColor:K_Text_BlackColor withBackGroundColor:nil];
-    titleLab.text = self.titleArr[section];
-    return headerView;
-}
-- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    return nil;
-}
-
-#pragma mark --  NewPagedFlowView Delegate
-- (CGSize)sizeForPageInFlowView:(NewPagedFlowView *)flowView {
-    return CGSizeMake(KScaleWidth(308), KScaleWidth(228));
-}
-#pragma mark NewPagedFlowView Datasource
-- (NSInteger)numberOfPagesInFlowView:(NewPagedFlowView *)flowView {
-    return self.bannerArr.count;
-}
-- (PGIndexBannerSubiew *)flowView:(NewPagedFlowView *)flowView cellForPageAtIndex:(NSInteger)index{
-    PGIndexBannerSubiew *bannerView = [flowView dequeueReusableCell];
-    if (!bannerView) {
-        bannerView = [[PGIndexBannerSubiew alloc] init];
-        bannerView.tag = index;
-        bannerView.layer.cornerRadius = 8;
-        bannerView.layer.masksToBounds = YES;
-//        [bannerView setSubviewsWithSuperViewBounds:CGRectMake(0, 0, KScaleWidth(308), KScaleWidth(228))];
-    }
-    bannerView.mainImageView.image = [UIImage imageNamed:self.bannerArr[index]];
-    return bannerView;
-}
-
 
 #pragma mark --  EVENT
-#pragma mark - cell did selected
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark --  titleScroll-Delegate
+-(void)titleScrollView:(TitleScrollView *)titleView didSelectedIndex:(NSInteger)index
 {
-    
+    [self.contentScroll scrollToIndex:index];
 }
-#pragma mark --  banner did selected
-- (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
-    
+#pragma mark --  contentScroll-delegate
+-(void)homeContentScrollViewScrollToIndex:(NSInteger )index
+{
+    [self.titleView titleScrollViewScrollToIndex:index];
 }
 @end

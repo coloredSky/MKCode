@@ -34,7 +34,7 @@
 
 #define K_Font_Text_Min_Max  MKFont(12)
 #define K_Font_Text_Min  MKFont(11)
-#define K_Font_Text_Min_Little  MKFont(11)
+#define K_Font_Text_Min_Little  MKFont(10)
 
 //底部按钮字体大小
 #define K_Font_Btn_Title  MKFont(16)

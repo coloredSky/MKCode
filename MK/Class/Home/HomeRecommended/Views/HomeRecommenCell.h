@@ -1,8 +1,8 @@
 //
-//  HomePageCell.h
+//  HomeRecommenCell.h
 //  MK
 //
-//  Created by 周洋 on 2019/3/14.
+//  Created by 周洋 on 2019/3/19.
 //  Copyright © 2019年 周洋. All rights reserved.
 //
 
@@ -10,12 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- 首页课程cell
- */
-@interface HomePageCell : MKBaseTableViewCell
-
-//刷新数据
+@interface HomeRecommenCell : MKBaseTableViewCell
 -(void)cellRefreshData;
 @end
 
