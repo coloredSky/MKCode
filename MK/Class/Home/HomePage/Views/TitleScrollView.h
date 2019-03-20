@@ -18,6 +18,7 @@
 @property(nonatomic,assign)id<TitleScrollViewDelegate>delegate;
 @property(nonatomic,assign)NSInteger selectedIndex;//选中的下标
 
+-(instancetype)initWithFrame:(CGRect)frame withItemPadding:(CGFloat )padding;
 /**
 根据数据加载标题
  @param titleArr    标题数组
