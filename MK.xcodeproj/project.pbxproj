@@ -831,19 +831,9 @@
 		712AB1702240B6CE00E8A034 /* MessageNotice */ = {
 			isa = PBXGroup;
 			children = (
-				712AB1742240B6F600E8A034 /* Views */,
-				712AB1732240B6F000E8A034 /* Model */,
 				712AB1722240B6E700E8A034 /* ViewControllers */,
-				712AB1712240B6DF00E8A034 /* Manager */,
 			);
 			path = MessageNotice;
-			sourceTree = "<group>";
-		};
-		712AB1712240B6DF00E8A034 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		712AB1722240B6E700E8A034 /* ViewControllers */ = {
@@ -856,43 +846,12 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		712AB1732240B6F000E8A034 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		712AB1742240B6F600E8A034 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		712AB17A2240BB6000E8A034 /* SetPassword */ = {
 			isa = PBXGroup;
 			children = (
-				712AB17E2240BB8700E8A034 /* Manager */,
 				712AB17D2240BB7E00E8A034 /* ViewControllers */,
-				712AB17C2240BB7400E8A034 /* Model */,
-				712AB17B2240BB6F00E8A034 /* Views */,
 			);
 			path = SetPassword;
-			sourceTree = "<group>";
-		};
-		712AB17B2240BB6F00E8A034 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		712AB17C2240BB7400E8A034 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		712AB17D2240BB7E00E8A034 /* ViewControllers */ = {
@@ -905,29 +864,12 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		712AB17E2240BB8700E8A034 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
 		712AB1842240C07900E8A034 /* Policy */ = {
 			isa = PBXGroup;
 			children = (
-				712AB1882240C0A200E8A034 /* Views */,
-				712AB1872240C09C00E8A034 /* Model */,
 				712AB1862240C08B00E8A034 /* ViewControllers */,
-				712AB1852240C08300E8A034 /* Manager */,
 			);
 			path = Policy;
-			sourceTree = "<group>";
-		};
-		712AB1852240C08300E8A034 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		712AB1862240C08B00E8A034 /* ViewControllers */ = {
@@ -938,20 +880,6 @@
 				712AB18B2240C11100E8A034 /* PolicyViewController.xib */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		712AB1872240C09C00E8A034 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		712AB1882240C0A200E8A034 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		9AF5AD9C0310B0C67ED2195B /* Frameworks */ = {
