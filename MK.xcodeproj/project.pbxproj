@@ -79,6 +79,8 @@
 		712170D6223F465700BA1905 /* MyCenterBottomoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170D4223F465700BA1905 /* MyCenterBottomoCell.xib */; };
 		712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170D8223F67FE00BA1905 /* MyCenterHeaderView.m */; };
 		712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170DA223F680D00BA1905 /* MyCenterHeaderView.xib */; };
+		712729362241EB9B006772BF /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729352241EB9B006772BF /* MessageModel.m */; };
+		712729392241EBC2006772BF /* RuquestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729382241EBC2006772BF /* RuquestManager.m */; };
 		B035F6116DCEE497F7AF27BA /* libPods-MK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */; };
 /* End PBXBuildFile section */
 
@@ -233,6 +235,10 @@
 		712170D7223F67FE00BA1905 /* MyCenterHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCenterHeaderView.h; sourceTree = "<group>"; };
 		712170D8223F67FE00BA1905 /* MyCenterHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCenterHeaderView.m; sourceTree = "<group>"; };
 		712170DA223F680D00BA1905 /* MyCenterHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCenterHeaderView.xib; sourceTree = "<group>"; };
+		712729342241EB9B006772BF /* MessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
+		712729352241EB9B006772BF /* MessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
+		712729372241EBC2006772BF /* RuquestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuquestManager.h; sourceTree = "<group>"; };
+		712729382241EBC2006772BF /* RuquestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuquestManager.m; sourceTree = "<group>"; };
 		A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B9090FC31E61654C9D5DF8 /* Pods-MK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.release.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.release.xcconfig"; sourceTree = "<group>"; };
 		D6C8DA04A8C4F273735FE2C0 /* Pods-MKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKTests/Pods-MKTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1013,6 +1019,8 @@
 		712729322241EA2A006772BF /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				712729372241EBC2006772BF /* RuquestManager.h */,
+				712729382241EBC2006772BF /* RuquestManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1020,6 +1028,8 @@
 		712729332241EA5B006772BF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				712729342241EB9B006772BF /* MessageModel.h */,
+				712729352241EB9B006772BF /* MessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1295,6 +1305,7 @@
 				3048D86622364F5F00FE63B2 /* MyCenterViewController.m in Sources */,
 				3048D892223A2E9D00FE63B2 /* XHRefreshHeader.m in Sources */,
 				3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */,
+				712729392241EBC2006772BF /* RuquestManager.m in Sources */,
 				3048D8732239F77900FE63B2 /* HomePageCell.m in Sources */,
 				30FBE3172240E50A0049C0DE /* HomeCourseCollectionView.m in Sources */,
 				30FBE2E5223F4CD60049C0DE /* DiscoverCourseCategoryView.m in Sources */,
@@ -1324,6 +1335,7 @@
 				3048D844223263AF00FE63B2 /* UILabel+layout.m in Sources */,
 				30FBE3572241E83C0049C0DE /* PolicyViewController.m in Sources */,
 				30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */,
+				712729362241EB9B006772BF /* MessageModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
