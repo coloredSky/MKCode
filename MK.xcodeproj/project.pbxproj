@@ -68,6 +68,7 @@
 		30FBE3582241E83C0049C0DE /* PolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE34F2241E83C0049C0DE /* PolicyViewController.xib */; };
 		30FBE3592241E83C0049C0DE /* SetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3522241E83C0049C0DE /* SetPasswordController.m */; };
 		30FBE35A2241E83C0049C0DE /* SetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE3532241E83C0049C0DE /* SetPasswordController.xib */; };
+		30FBE3622241F81D0049C0DE /* CourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3612241F81D0049C0DE /* CourseDetailViewController.m */; };
 		6C55296C556EB2F911F5F752 /* libPods-MKUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */; };
 		712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C4223F326100BA1905 /* MyCouseHeaderView.m */; };
 		712170C9223F327700BA1905 /* MyCouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C7223F327700BA1905 /* MyCouseCell.m */; };
@@ -217,6 +218,8 @@
 		30FBE3522241E83C0049C0DE /* SetPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetPasswordController.m; sourceTree = "<group>"; };
 		30FBE3532241E83C0049C0DE /* SetPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetPasswordController.xib; sourceTree = "<group>"; };
 		30FBE3542241E83C0049C0DE /* SetPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetPasswordController.h; sourceTree = "<group>"; };
+		30FBE3602241F81D0049C0DE /* CourseDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseDetailViewController.h; sourceTree = "<group>"; };
+		30FBE3612241F81D0049C0DE /* CourseDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseDetailViewController.m; sourceTree = "<group>"; };
 		5E84ED91666CEFAAA2A92824 /* Pods-MK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.debug.xcconfig"; sourceTree = "<group>"; };
 		62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C807C83E01E6A12BC783DB2 /* Pods-MKUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -682,6 +685,7 @@
 		3048D80C22325E6700FE63B2 /* Couse */ = {
 			isa = PBXGroup;
 			children = (
+				30FBE35B2241F7FB0049C0DE /* CourseDetail */,
 				3048D80D22325E6700FE63B2 /* MyCouse */,
 			);
 			path = Couse;
@@ -1016,6 +1020,47 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		30FBE35B2241F7FB0049C0DE /* CourseDetail */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE35C2241F7FB0049C0DE /* Manager */,
+				30FBE35D2241F7FB0049C0DE /* ViewControllers */,
+				30FBE35E2241F7FB0049C0DE /* Model */,
+				30FBE35F2241F7FB0049C0DE /* View */,
+			);
+			path = CourseDetail;
+			sourceTree = "<group>";
+		};
+		30FBE35C2241F7FB0049C0DE /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		30FBE35D2241F7FB0049C0DE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE3602241F81D0049C0DE /* CourseDetailViewController.h */,
+				30FBE3612241F81D0049C0DE /* CourseDetailViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		30FBE35E2241F7FB0049C0DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30FBE35F2241F7FB0049C0DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		712729322241EA2A006772BF /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1335,6 +1380,7 @@
 				3048D844223263AF00FE63B2 /* UILabel+layout.m in Sources */,
 				30FBE3572241E83C0049C0DE /* PolicyViewController.m in Sources */,
 				30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */,
+				30FBE3622241F81D0049C0DE /* CourseDetailViewController.m in Sources */,
 				712729362241EB9B006772BF /* MessageModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
