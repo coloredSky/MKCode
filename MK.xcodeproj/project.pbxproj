@@ -62,6 +62,12 @@
 		30FBE3172240E50A0049C0DE /* HomeCourseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3162240E50A0049C0DE /* HomeCourseCollectionView.m */; };
 		30FBE31B2240E6B50049C0DE /* HomeCourseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3192240E6B50049C0DE /* HomeCourseCollectionViewCell.m */; };
 		30FBE31C2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE31A2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib */; };
+		30FBE3552241E83C0049C0DE /* MessageNoticeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3482241E83C0049C0DE /* MessageNoticeController.m */; };
+		30FBE3562241E83C0049C0DE /* MessageNoticeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE34A2241E83C0049C0DE /* MessageNoticeController.xib */; };
+		30FBE3572241E83C0049C0DE /* PolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE34D2241E83C0049C0DE /* PolicyViewController.m */; };
+		30FBE3582241E83C0049C0DE /* PolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE34F2241E83C0049C0DE /* PolicyViewController.xib */; };
+		30FBE3592241E83C0049C0DE /* SetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3522241E83C0049C0DE /* SetPasswordController.m */; };
+		30FBE35A2241E83C0049C0DE /* SetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE3532241E83C0049C0DE /* SetPasswordController.xib */; };
 		6C55296C556EB2F911F5F752 /* libPods-MKUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */; };
 		712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C4223F326100BA1905 /* MyCouseHeaderView.m */; };
 		712170C9223F327700BA1905 /* MyCouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C7223F327700BA1905 /* MyCouseCell.m */; };
@@ -200,6 +206,15 @@
 		30FBE3182240E6B50049C0DE /* HomeCourseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCourseCollectionViewCell.h; sourceTree = "<group>"; };
 		30FBE3192240E6B50049C0DE /* HomeCourseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCourseCollectionViewCell.m; sourceTree = "<group>"; };
 		30FBE31A2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCourseCollectionViewCell.xib; sourceTree = "<group>"; };
+		30FBE3482241E83C0049C0DE /* MessageNoticeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageNoticeController.m; sourceTree = "<group>"; };
+		30FBE3492241E83C0049C0DE /* MessageNoticeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageNoticeController.h; sourceTree = "<group>"; };
+		30FBE34A2241E83C0049C0DE /* MessageNoticeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageNoticeController.xib; sourceTree = "<group>"; };
+		30FBE34D2241E83C0049C0DE /* PolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolicyViewController.m; sourceTree = "<group>"; };
+		30FBE34E2241E83C0049C0DE /* PolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolicyViewController.h; sourceTree = "<group>"; };
+		30FBE34F2241E83C0049C0DE /* PolicyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PolicyViewController.xib; sourceTree = "<group>"; };
+		30FBE3522241E83C0049C0DE /* SetPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetPasswordController.m; sourceTree = "<group>"; };
+		30FBE3532241E83C0049C0DE /* SetPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetPasswordController.xib; sourceTree = "<group>"; };
+		30FBE3542241E83C0049C0DE /* SetPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetPasswordController.h; sourceTree = "<group>"; };
 		5E84ED91666CEFAAA2A92824 /* Pods-MK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.debug.xcconfig"; sourceTree = "<group>"; };
 		62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C807C83E01E6A12BC783DB2 /* Pods-MKUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -717,6 +732,9 @@
 		3048D81222325E8600FE63B2 /* Center */ = {
 			isa = PBXGroup;
 			children = (
+				30FBE3462241E83C0049C0DE /* MessageNotice */,
+				30FBE34B2241E83C0049C0DE /* Policy */,
+				30FBE3502241E83C0049C0DE /* SetPassword */,
 				3048D81322325E8600FE63B2 /* MyCenter */,
 			);
 			path = Center;
@@ -936,6 +954,60 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		30FBE3462241E83C0049C0DE /* MessageNotice */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE3472241E83C0049C0DE /* ViewControllers */,
+			);
+			path = MessageNotice;
+			sourceTree = "<group>";
+		};
+		30FBE3472241E83C0049C0DE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE3482241E83C0049C0DE /* MessageNoticeController.m */,
+				30FBE3492241E83C0049C0DE /* MessageNoticeController.h */,
+				30FBE34A2241E83C0049C0DE /* MessageNoticeController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		30FBE34B2241E83C0049C0DE /* Policy */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE34C2241E83C0049C0DE /* ViewControllers */,
+			);
+			path = Policy;
+			sourceTree = "<group>";
+		};
+		30FBE34C2241E83C0049C0DE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE34D2241E83C0049C0DE /* PolicyViewController.m */,
+				30FBE34E2241E83C0049C0DE /* PolicyViewController.h */,
+				30FBE34F2241E83C0049C0DE /* PolicyViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		30FBE3502241E83C0049C0DE /* SetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE3512241E83C0049C0DE /* ViewControllers */,
+			);
+			path = SetPassword;
+			sourceTree = "<group>";
+		};
+		30FBE3512241E83C0049C0DE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE3522241E83C0049C0DE /* SetPasswordController.m */,
+				30FBE3532241E83C0049C0DE /* SetPasswordController.xib */,
+				30FBE3542241E83C0049C0DE /* SetPasswordController.h */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		9AF5AD9C0310B0C67ED2195B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1065,11 +1137,14 @@
 				712170D6223F465700BA1905 /* MyCenterBottomoCell.xib in Resources */,
 				30FBE31C2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib in Resources */,
 				712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */,
+				30FBE3582241E83C0049C0DE /* PolicyViewController.xib in Resources */,
 				3048D85D22364F3800FE63B2 /* DiscoverPageViewController.xib in Resources */,
 				3048D7BA2232536F00FE63B2 /* LaunchScreen.storyboard in Resources */,
 				3048D7B72232536F00FE63B2 /* Assets.xcassets in Resources */,
 				3048D8A5223BB46400FE63B2 /* DiscoverNewsCell.xib in Resources */,
 				3048D86C22364F6F00FE63B2 /* MyCouseViewController.xib in Resources */,
+				30FBE35A2241E83C0049C0DE /* SetPasswordController.xib in Resources */,
+				30FBE3562241E83C0049C0DE /* MessageNoticeController.xib in Resources */,
 				3048D7B52232536D00FE63B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1210,6 +1285,7 @@
 				3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */,
 				3048D843223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				30FBE2FC223F98250049C0DE /* SelectedCustomLab.m in Sources */,
+				30FBE3592241E83C0049C0DE /* SetPasswordController.m in Sources */,
 				3048D8A4223BB46400FE63B2 /* DiscoverNewsCell.m in Sources */,
 				3048D842223263AF00FE63B2 /* UILabelEdgeInset.m in Sources */,
 				30FBE2E9223F4F0A0049C0DE /* CourseCategoryCell.m in Sources */,
@@ -1228,7 +1304,9 @@
 				3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */,
 				712170D0223F43CC00BA1905 /* MyCenterTopCell.m in Sources */,
 				30FBE309223FA3E00049C0DE /* HomeRecommendViewController.m in Sources */,
+				30FBE3552241E83C0049C0DE /* MessageNoticeController.m in Sources */,
 				3048D844223263AF00FE63B2 /* UILabel+layout.m in Sources */,
+				30FBE3572241E83C0049C0DE /* PolicyViewController.m in Sources */,
 				30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,9 +7,15 @@
 //
 
 #import "MyCenterViewController.h"
+#import "MessageNoticeController.h"//消息通知
+#import "SetPasswordController.h"//修改密码
+#import "PolicyViewController.h"//隐私声明
+//views
 #import "MyCenterTopCell.h"
 #import "MyCenterBottomoCell.h"
+#import "MyCenterHeaderView.h"
 @interface MyCenterViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@property (nonatomic, strong) MyCenterHeaderView *headerView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *titleArr;//区头标题
 @property (nonatomic, strong) NSArray *bannerArr;//banner 图片
@@ -34,6 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_deepGrayColor;
+    [self.view addSubview:self.headerView];
     [self.view addSubview:self.collectionView];
     //refresh
     //    [self setUpRefresh];
@@ -54,16 +61,25 @@
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight) collectionViewLayout:layout];
-        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 203, KScreenWidth, KScreenHeight-203) collectionViewLayout:layout];
+        _collectionView.backgroundColor = K_BG_GrayColor;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
-        [_collectionView registerClass:[MyCenterTopCell class] forCellWithReuseIdentifier:@"MyCenterTopCell"];
-        [_collectionView registerClass:[MyCenterBottomoCell class] forCellWithReuseIdentifier:@"MyCenterBottomoCell"];
+        [_collectionView registerNib:[UINib nibWithNibName:@"MyCenterTopCell" bundle:nil] forCellWithReuseIdentifier:@"MyCenterTopCell"];
+        [_collectionView  registerNib:[UINib nibWithNibName:@"MyCenterTopCell" bundle:nil] forCellWithReuseIdentifier:@"MyCenterBottomoCell"];
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
     }
     return _collectionView;
+}
+
+-(MyCenterHeaderView *)headerView
+{
+    if (!_headerView) {
+        _headerView = [[NSBundle mainBundle]loadNibNamed:@"MyCenterHeaderView" owner:nil options:nil][0];
+        _headerView.frame =CGRectMake(0, 0,KScreenWidth ,203);
+    }
+    return _headerView;
 }
 
 #pragma mark - UICollectionViewDatasource
@@ -86,6 +102,8 @@
     if (indexPath.section==0)
     {
         MyCenterTopCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCenterTopCell" forIndexPath:indexPath];
+        cell.layer.cornerRadius =5.f;
+        cell.layer.masksToBounds=YES;
         cell.myCenterLab.text =self.titleArr[indexPath.section][indexPath.row];
         NSString * imageStr =self.bannerArr[indexPath.section][indexPath.row];
         cell.myCenterImage.image  =[UIImage imageNamed:imageStr];
@@ -94,6 +112,8 @@
   else
   {
       MyCenterBottomoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCenterBottomoCell" forIndexPath:indexPath];
+      cell.layer.cornerRadius =5.f;
+      cell.layer.masksToBounds=YES;
       cell.myCenterLab.text =self.titleArr[indexPath.section][indexPath.row];
       NSString * imageStr =self.bannerArr[indexPath.section][indexPath.row];
       cell.myCenterImage.image  =[UIImage imageNamed:imageStr];
@@ -161,7 +181,59 @@
 // 选中某item
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.section ==0)
+    {
+        if (indexPath.item ==0)
+        {
+            
+        }
+        if (indexPath.item ==1)
+        {
+            
+        }
+        if (indexPath.item ==2)
+        {
+            MessageNoticeController * mvc =[MessageNoticeController new];
+            mvc.hidesBottomBarWhenPushed =YES;
+            [self.navigationController pushViewController:mvc animated:YES];
+        }
+        if (indexPath.item ==3)
+        {
+            SetPasswordController * svc =[SetPasswordController new];
+            svc.hidesBottomBarWhenPushed =YES;
+            [self.navigationController pushViewController:svc animated:YES];
+        }
+    }
+    else
+    {
+        if (indexPath.item ==0)
+        {
+            PolicyViewController * pvc =[PolicyViewController new];
+            pvc.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:pvc animated:YES];
+        }
+        if (indexPath.item ==1)
+        {
+            
+        }
+        if (indexPath.item ==2)
+        {
+            
+        }
+        if (indexPath.item ==3)
+        {
+            
+        }
+        if (indexPath.item ==4)
+        {
+            
+        }
+        if (indexPath.item ==5)
+        {
+            
+        }
+    }
+   
 }
 
 
@@ -185,7 +257,7 @@
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(5, 12, 5, 12);
+    return UIEdgeInsetsMake(10, 20, 10, 20);
 }
 
 
@@ -197,19 +269,19 @@
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 5.f;
+    return 0.1f;
 }
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return (CGSize){KScreenWidth,22};
+    return (CGSize){KScreenWidth,0.1};
 }
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    return (CGSize){KScreenWidth,22};
+    return (CGSize){KScreenWidth,0.1};
 }
 
 
