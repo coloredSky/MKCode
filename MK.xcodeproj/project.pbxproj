@@ -957,6 +957,8 @@
 		30FBE3462241E83C0049C0DE /* MessageNotice */ = {
 			isa = PBXGroup;
 			children = (
+				712729332241EA5B006772BF /* Model */,
+				712729322241EA2A006772BF /* Manager */,
 				30FBE3472241E83C0049C0DE /* ViewControllers */,
 			);
 			path = MessageNotice;
@@ -1006,6 +1008,20 @@
 				30FBE3542241E83C0049C0DE /* SetPasswordController.h */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		712729322241EA2A006772BF /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		712729332241EA5B006772BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9AF5AD9C0310B0C67ED2195B /* Frameworks */ = {
