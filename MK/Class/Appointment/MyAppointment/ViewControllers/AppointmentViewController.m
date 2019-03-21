@@ -19,6 +19,7 @@
 @property (nonatomic, strong) UIView *topView;//顶部View
 @property (nonatomic, strong) TitleScrollView *titleView;//标题scroll
 @property (nonatomic, strong) HomeContentScrollView *contentScroll;//内容scroll
+@property (nonatomic, strong) UIButton *appointmentBtn;//预约按钮
 @end
 
 @implementation AppointmentViewController
@@ -42,8 +43,9 @@
     self.view.backgroundColor = K_BG_deepGrayColor;
     //navView
     [self laoutTopView];
-    
+    //加载子视图
     [self.contentScroll AddChildViewWithTitleArr:self.childVCs.mutableCopy andRootViewController:self];
+    [self.appointmentBtn addTarget:self action:@selector(appointmentBtnTarget:) forControlEvents:UIControlEventTouchUpInside];
 }
 -(void)laoutTopView
 {
@@ -75,6 +77,17 @@
     }
     return _contentScroll;
 }
+-(UIButton *)appointmentBtn
+{
+    if (!_appointmentBtn) {
+        
+        _appointmentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.view addSubview:_appointmentBtn];
+        [_appointmentBtn setImage:KImageNamed(@"appointment_btn") forState:UIControlStateNormal];
+        _appointmentBtn.frame = CGRectMake(KScreenWidth-KScaleWidth(12)-KScaleWidth(66), KScreenHeight-K_TabbarHeight-KScaleHeight(18)-KScaleWidth(66), KScaleWidth(66), KScaleWidth(66));
+    }
+    return _appointmentBtn;
+}
 
 #pragma mark --  EVENT
 #pragma mark --  titleScroll-Delegate
@@ -87,15 +100,10 @@
 {
     [self.titleView titleScrollViewScrollToIndex:index];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark --  预约按钮
+-(void)appointmentBtnTarget:(UIButton *)sender
+{
+    
 }
-*/
 
 @end

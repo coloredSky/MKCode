@@ -39,7 +39,7 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    self.shadowView.frame = CGRectMake(0, 0, self.contentView.width, self.contentView.height);
+    self.shadowView.frame = CGRectMake(5, 5, self.contentView.width-10, self.contentView.height-10);
     self.whiteView.frame = CGRectMake(0, 0, self.shadowView.width, self.shadowView.height);
     self.courseIma.frame = CGRectMake(10, 10, KScaleWidth(70), KScaleWidth(70));
     self.courseTypeLab.frame = CGRectMake(self.courseIma.rightX+KScaleWidth(10), self.courseIma.centerY-9, self.whiteView.width-self.courseTypeLab.leftX-KScaleWidth(10), 18);

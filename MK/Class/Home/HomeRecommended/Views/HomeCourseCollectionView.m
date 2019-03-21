@@ -26,13 +26,13 @@
 {
     if (!_contentCollectionView) {
 //        CGFloat itemWidth = (KScreenWidth-25*2-18*3)/4;
-        CGSize itemSize = CGSizeMake(KScaleWidth(194), KScaleWidth(88));
+        CGSize itemSize = CGSizeMake(KScaleWidth(194)+10, KScaleWidth(88)+10);
         UICollectionViewFlowLayout *defaultLaout = [[UICollectionViewFlowLayout alloc]init];
         defaultLaout.itemSize = itemSize;
         defaultLaout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        defaultLaout.sectionInset = UIEdgeInsetsMake(0, K_Padding_Home_LeftPadding, 0, K_Padding_Home_LeftPadding);
+        defaultLaout.sectionInset = UIEdgeInsetsMake(0, K_Padding_Home_LeftPadding-5, 0, K_Padding_Home_LeftPadding-5);
         defaultLaout.minimumInteritemSpacing  = 0;//行间距
-        defaultLaout.minimumLineSpacing = 15;//列间距
+        defaultLaout.minimumLineSpacing = 5;//列间距
         _contentCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, self.width, self.height) collectionViewLayout:defaultLaout];
         _contentCollectionView.showsVerticalScrollIndicator = NO;
         _contentCollectionView.showsHorizontalScrollIndicator = NO;

@@ -20,13 +20,13 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        CGFloat itemWidth = (KScreenWidth-25*2-18*3)/4;
+        CGFloat itemWidth = (KScreenWidth-20*2-8*3)/4;
         UICollectionViewFlowLayout *defaultLaout = [[UICollectionViewFlowLayout alloc]init];
         defaultLaout.itemSize = CGSizeMake(itemWidth, itemWidth);
         defaultLaout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        defaultLaout.sectionInset = UIEdgeInsetsMake(0, 25, 0, 25);
+        defaultLaout.sectionInset = UIEdgeInsetsMake(0, 20, 0, 20);
         defaultLaout.minimumInteritemSpacing  = 0;//行间距
-        defaultLaout.minimumLineSpacing = 18;//列间距
+        defaultLaout.minimumLineSpacing = 8;//列间距
         _contentCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height) collectionViewLayout:defaultLaout];
         _contentCollectionView.backgroundColor = K_BG_deepGrayColor;
         [self addSubview:_contentCollectionView];

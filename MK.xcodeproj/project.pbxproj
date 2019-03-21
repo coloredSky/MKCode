@@ -75,6 +75,7 @@
 		30FBE36D224236DA0049C0DE /* AppointmentCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE36C224236DA0049C0DE /* AppointmentCollectionView.m */; };
 		30FBE371224238090049C0DE /* AppointmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE36F224238090049C0DE /* AppointmentCollectionViewCell.m */; };
 		30FBE372224238090049C0DE /* AppointmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE370224238090049C0DE /* AppointmentCollectionViewCell.xib */; };
+		30FBE375224398620049C0DE /* AppointmentPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE374224398620049C0DE /* AppointmentPopView.m */; };
 		6C55296C556EB2F911F5F752 /* libPods-MKUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */; };
 		712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C4223F326100BA1905 /* MyCouseHeaderView.m */; };
 		712170C9223F327700BA1905 /* MyCouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C7223F327700BA1905 /* MyCouseCell.m */; };
@@ -236,6 +237,8 @@
 		30FBE36E224238090049C0DE /* AppointmentCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentCollectionViewCell.h; sourceTree = "<group>"; };
 		30FBE36F224238090049C0DE /* AppointmentCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentCollectionViewCell.m; sourceTree = "<group>"; };
 		30FBE370224238090049C0DE /* AppointmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentCollectionViewCell.xib; sourceTree = "<group>"; };
+		30FBE373224398620049C0DE /* AppointmentPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentPopView.h; sourceTree = "<group>"; };
+		30FBE374224398620049C0DE /* AppointmentPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentPopView.m; sourceTree = "<group>"; };
 		5E84ED91666CEFAAA2A92824 /* Pods-MK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.debug.xcconfig"; sourceTree = "<group>"; };
 		62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C807C83E01E6A12BC783DB2 /* Pods-MKUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -704,6 +707,8 @@
 				30FBE36E224238090049C0DE /* AppointmentCollectionViewCell.h */,
 				30FBE36F224238090049C0DE /* AppointmentCollectionViewCell.m */,
 				30FBE370224238090049C0DE /* AppointmentCollectionViewCell.xib */,
+				30FBE373224398620049C0DE /* AppointmentPopView.h */,
+				30FBE374224398620049C0DE /* AppointmentPopView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1374,6 +1379,7 @@
 				712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */,
 				3048D7EC2232565500FE63B2 /* AppDelegate.m in Sources */,
 				30FBE3132240C2020049C0DE /* HomeRecommenCell.m in Sources */,
+				30FBE375224398620049C0DE /* AppointmentPopView.m in Sources */,
 				3048D82322325FAD00FE63B2 /* MKBaseTableView.m in Sources */,
 				30FBE31B2240E6B50049C0DE /* HomeCourseCollectionViewCell.m in Sources */,
 				3048D86622364F5F00FE63B2 /* MyCenterViewController.m in Sources */,
