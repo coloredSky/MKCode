@@ -81,6 +81,16 @@
 		712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170DA223F680D00BA1905 /* MyCenterHeaderView.xib */; };
 		712729362241EB9B006772BF /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729352241EB9B006772BF /* MessageModel.m */; };
 		712729392241EBC2006772BF /* RuquestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729382241EBC2006772BF /* RuquestManager.m */; };
+		712A1BDC2244713900C49181 /* BookmarkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712A1BDB2244713900C49181 /* BookmarkController.m */; };
+		712A1BE02244732B00C49181 /* BookmarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712A1BDE2244732B00C49181 /* BookmarkCell.m */; };
+		712A1BE12244732B00C49181 /* BookmarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712A1BDF2244732B00C49181 /* BookmarkCell.xib */; };
+		712A1BEB22447E6100C49181 /* FeedBackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712A1BE922447E6100C49181 /* FeedBackController.m */; };
+		712A1BEC22447E6100C49181 /* FeedBackController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712A1BEA22447E6100C49181 /* FeedBackController.xib */; };
+		712A1BEF22447FD000C49181 /* UserTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712A1BEE22447FD000C49181 /* UserTextView.m */; };
+		712A1F1A224330FC00C378FF /* SupportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712A1F18224330FC00C378FF /* SupportController.m */; };
+		712A1F1B224330FC00C378FF /* SupportController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712A1F19224330FC00C378FF /* SupportController.xib */; };
+		71F2BCDE2243399C00EED9F6 /* VersionUpdateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F2BCDC2243399C00EED9F6 /* VersionUpdateController.m */; };
+		71F2BCDF2243399C00EED9F6 /* VersionUpdateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71F2BCDD2243399C00EED9F6 /* VersionUpdateController.xib */; };
 		B035F6116DCEE497F7AF27BA /* libPods-MK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */; };
 /* End PBXBuildFile section */
 
@@ -239,6 +249,22 @@
 		712729352241EB9B006772BF /* MessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
 		712729372241EBC2006772BF /* RuquestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuquestManager.h; sourceTree = "<group>"; };
 		712729382241EBC2006772BF /* RuquestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuquestManager.m; sourceTree = "<group>"; };
+		712A1BDA2244713900C49181 /* BookmarkController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookmarkController.h; sourceTree = "<group>"; };
+		712A1BDB2244713900C49181 /* BookmarkController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookmarkController.m; sourceTree = "<group>"; };
+		712A1BDD2244732B00C49181 /* BookmarkCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookmarkCell.h; sourceTree = "<group>"; };
+		712A1BDE2244732B00C49181 /* BookmarkCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookmarkCell.m; sourceTree = "<group>"; };
+		712A1BDF2244732B00C49181 /* BookmarkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkCell.xib; sourceTree = "<group>"; };
+		712A1BE822447E6100C49181 /* FeedBackController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedBackController.h; sourceTree = "<group>"; };
+		712A1BE922447E6100C49181 /* FeedBackController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedBackController.m; sourceTree = "<group>"; };
+		712A1BEA22447E6100C49181 /* FeedBackController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedBackController.xib; sourceTree = "<group>"; };
+		712A1BED22447FD000C49181 /* UserTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTextView.h; sourceTree = "<group>"; };
+		712A1BEE22447FD000C49181 /* UserTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTextView.m; sourceTree = "<group>"; };
+		712A1F17224330FC00C378FF /* SupportController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupportController.h; sourceTree = "<group>"; };
+		712A1F18224330FC00C378FF /* SupportController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupportController.m; sourceTree = "<group>"; };
+		712A1F19224330FC00C378FF /* SupportController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupportController.xib; sourceTree = "<group>"; };
+		71F2BCDB2243399C00EED9F6 /* VersionUpdateController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionUpdateController.h; sourceTree = "<group>"; };
+		71F2BCDC2243399C00EED9F6 /* VersionUpdateController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersionUpdateController.m; sourceTree = "<group>"; };
+		71F2BCDD2243399C00EED9F6 /* VersionUpdateController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VersionUpdateController.xib; sourceTree = "<group>"; };
 		A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B9090FC31E61654C9D5DF8 /* Pods-MK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.release.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.release.xcconfig"; sourceTree = "<group>"; };
 		D6C8DA04A8C4F273735FE2C0 /* Pods-MKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKTests/Pods-MKTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -738,10 +764,14 @@
 		3048D81222325E8600FE63B2 /* Center */ = {
 			isa = PBXGroup;
 			children = (
+				3048D81322325E8600FE63B2 /* MyCenter */,
+				712A1BE222447E0800C49181 /* FeedBack */,
+				71F2BCE022433D6300EED9F6 /* BookMark */,
+				71F2BCD62243395500EED9F6 /* VersionUpdate */,
+				712A1F12224330A900C378FF /* Support */,
 				30FBE3462241E83C0049C0DE /* MessageNotice */,
 				30FBE34B2241E83C0049C0DE /* Policy */,
 				30FBE3502241E83C0049C0DE /* SetPassword */,
-				3048D81322325E8600FE63B2 /* MyCenter */,
 			);
 			path = Center;
 			sourceTree = "<group>";
@@ -973,8 +1003,8 @@
 		30FBE3472241E83C0049C0DE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				30FBE3482241E83C0049C0DE /* MessageNoticeController.m */,
 				30FBE3492241E83C0049C0DE /* MessageNoticeController.h */,
+				30FBE3482241E83C0049C0DE /* MessageNoticeController.m */,
 				30FBE34A2241E83C0049C0DE /* MessageNoticeController.xib */,
 			);
 			path = ViewControllers;
@@ -991,8 +1021,8 @@
 		30FBE34C2241E83C0049C0DE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				30FBE34D2241E83C0049C0DE /* PolicyViewController.m */,
 				30FBE34E2241E83C0049C0DE /* PolicyViewController.h */,
+				30FBE34D2241E83C0049C0DE /* PolicyViewController.m */,
 				30FBE34F2241E83C0049C0DE /* PolicyViewController.xib */,
 			);
 			path = ViewControllers;
@@ -1009,9 +1039,9 @@
 		30FBE3512241E83C0049C0DE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				30FBE3542241E83C0049C0DE /* SetPasswordController.h */,
 				30FBE3522241E83C0049C0DE /* SetPasswordController.m */,
 				30FBE3532241E83C0049C0DE /* SetPasswordController.xib */,
-				30FBE3542241E83C0049C0DE /* SetPasswordController.h */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1030,6 +1060,178 @@
 			children = (
 				712729342241EB9B006772BF /* MessageModel.h */,
 				712729352241EB9B006772BF /* MessageModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		712A1BD8224470F800C49181 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				712A1BDA2244713900C49181 /* BookmarkController.h */,
+				712A1BDB2244713900C49181 /* BookmarkController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		712A1BD92244710300C49181 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		712A1BE222447E0800C49181 /* FeedBack */ = {
+			isa = PBXGroup;
+			children = (
+				712A1BE722447E3400C49181 /* Manager */,
+				712A1BE622447E2D00C49181 /* ViewControllers */,
+				712A1BE522447E2700C49181 /* Model */,
+				712A1BE322447E1C00C49181 /* Views */,
+			);
+			path = FeedBack;
+			sourceTree = "<group>";
+		};
+		712A1BE322447E1C00C49181 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				712A1BED22447FD000C49181 /* UserTextView.h */,
+				712A1BEE22447FD000C49181 /* UserTextView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		712A1BE522447E2700C49181 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		712A1BE622447E2D00C49181 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				712A1BE822447E6100C49181 /* FeedBackController.h */,
+				712A1BE922447E6100C49181 /* FeedBackController.m */,
+				712A1BEA22447E6100C49181 /* FeedBackController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		712A1BE722447E3400C49181 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		712A1F12224330A900C378FF /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				712A1F16224330DB00C378FF /* Views */,
+				712A1F15224330D600C378FF /* Model */,
+				712A1F14224330CC00C378FF /* ViewControllers */,
+				712A1F13224330C300C378FF /* Manager */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		712A1F13224330C300C378FF /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		712A1F14224330CC00C378FF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				712A1F17224330FC00C378FF /* SupportController.h */,
+				712A1F18224330FC00C378FF /* SupportController.m */,
+				712A1F19224330FC00C378FF /* SupportController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		712A1F15224330D600C378FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		712A1F16224330DB00C378FF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		71F2BCD62243395500EED9F6 /* VersionUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				71F2BCDA2243398300EED9F6 /* Manager */,
+				71F2BCD92243397C00EED9F6 /* ViewControllers */,
+				71F2BCD82243397500EED9F6 /* Model */,
+				71F2BCD72243396A00EED9F6 /* Views */,
+			);
+			path = VersionUpdate;
+			sourceTree = "<group>";
+		};
+		71F2BCD72243396A00EED9F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		71F2BCD82243397500EED9F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71F2BCD92243397C00EED9F6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				71F2BCDB2243399C00EED9F6 /* VersionUpdateController.h */,
+				71F2BCDC2243399C00EED9F6 /* VersionUpdateController.m */,
+				71F2BCDD2243399C00EED9F6 /* VersionUpdateController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		71F2BCDA2243398300EED9F6 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		71F2BCE022433D6300EED9F6 /* BookMark */ = {
+			isa = PBXGroup;
+			children = (
+				712A1BD92244710300C49181 /* Manager */,
+				712A1BD8224470F800C49181 /* ViewControllers */,
+				71F2BCE222433D7300EED9F6 /* Model */,
+				71F2BCE122433D6A00EED9F6 /* Views */,
+			);
+			path = BookMark;
+			sourceTree = "<group>";
+		};
+		71F2BCE122433D6A00EED9F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				712A1BDD2244732B00C49181 /* BookmarkCell.h */,
+				712A1BDE2244732B00C49181 /* BookmarkCell.m */,
+				712A1BDF2244732B00C49181 /* BookmarkCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		71F2BCE222433D7300EED9F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1154,16 +1356,20 @@
 				3048D8742239F77900FE63B2 /* HomePageCell.xib in Resources */,
 				712170CC223F3A1C00BA1905 /* MyCouseHeaderView.xib in Resources */,
 				712170CA223F327700BA1905 /* MyCouseCell.xib in Resources */,
+				71F2BCDF2243399C00EED9F6 /* VersionUpdateController.xib in Resources */,
 				3048D86722364F5F00FE63B2 /* MyCenterViewController.xib in Resources */,
 				3048D86222364F4E00FE63B2 /* AppointmentViewController.xib in Resources */,
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
 				30FBE3142240C2020049C0DE /* HomeRecommenCell.xib in Resources */,
 				30FBE2EA223F4F0A0049C0DE /* CourseCategoryCell.xib in Resources */,
 				712170D1223F43CC00BA1905 /* MyCenterTopCell.xib in Resources */,
+				712A1F1B224330FC00C378FF /* SupportController.xib in Resources */,
 				712170D6223F465700BA1905 /* MyCenterBottomoCell.xib in Resources */,
 				30FBE31C2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib in Resources */,
 				712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */,
 				30FBE3582241E83C0049C0DE /* PolicyViewController.xib in Resources */,
+				712A1BE12244732B00C49181 /* BookmarkCell.xib in Resources */,
+				712A1BEC22447E6100C49181 /* FeedBackController.xib in Resources */,
 				3048D85D22364F3800FE63B2 /* DiscoverPageViewController.xib in Resources */,
 				3048D7BA2232536F00FE63B2 /* LaunchScreen.storyboard in Resources */,
 				3048D7B72232536F00FE63B2 /* Assets.xcassets in Resources */,
@@ -1288,6 +1494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3048D8532236496000FE63B2 /* MKTarbarViewController.m in Sources */,
+				712A1BDC2244713900C49181 /* BookmarkController.m in Sources */,
 				3048D86F2239F6B500FE63B2 /* MKBaseTableViewCell.m in Sources */,
 				3048D82022325F8E00FE63B2 /* MKBaseViewController.m in Sources */,
 				30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */,
@@ -1300,11 +1507,13 @@
 				712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */,
 				3048D7EC2232565500FE63B2 /* AppDelegate.m in Sources */,
 				30FBE3132240C2020049C0DE /* HomeRecommenCell.m in Sources */,
+				712A1F1A224330FC00C378FF /* SupportController.m in Sources */,
 				3048D82322325FAD00FE63B2 /* MKBaseTableView.m in Sources */,
 				30FBE31B2240E6B50049C0DE /* HomeCourseCollectionViewCell.m in Sources */,
 				3048D86622364F5F00FE63B2 /* MyCenterViewController.m in Sources */,
 				3048D892223A2E9D00FE63B2 /* XHRefreshHeader.m in Sources */,
 				3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */,
+				712A1BEB22447E6100C49181 /* FeedBackController.m in Sources */,
 				712729392241EBC2006772BF /* RuquestManager.m in Sources */,
 				3048D8732239F77900FE63B2 /* HomePageCell.m in Sources */,
 				30FBE3172240E50A0049C0DE /* HomeCourseCollectionView.m in Sources */,
@@ -1328,14 +1537,17 @@
 				3048D81D22325F7F00FE63B2 /* MKNavigationController.m in Sources */,
 				3048D82C2232633400FE63B2 /* BMPopView.m in Sources */,
 				30FBE2ED223F73330049C0DE /* NewsViewController.m in Sources */,
+				712A1BEF22447FD000C49181 /* UserTextView.m in Sources */,
 				3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */,
 				712170D0223F43CC00BA1905 /* MyCenterTopCell.m in Sources */,
 				30FBE309223FA3E00049C0DE /* HomeRecommendViewController.m in Sources */,
 				30FBE3552241E83C0049C0DE /* MessageNoticeController.m in Sources */,
 				3048D844223263AF00FE63B2 /* UILabel+layout.m in Sources */,
+				71F2BCDE2243399C00EED9F6 /* VersionUpdateController.m in Sources */,
 				30FBE3572241E83C0049C0DE /* PolicyViewController.m in Sources */,
 				30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */,
 				712729362241EB9B006772BF /* MessageModel.m in Sources */,
+				712A1BE02244732B00C49181 /* BookmarkCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

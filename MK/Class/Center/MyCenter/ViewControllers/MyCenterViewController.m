@@ -10,6 +10,10 @@
 #import "MessageNoticeController.h"//消息通知
 #import "SetPasswordController.h"//修改密码
 #import "PolicyViewController.h"//隐私声明
+#import "SupportController.h"//帮助
+#import "VersionUpdateController.h"//版本更新
+#import "BookmarkController.h"//书签
+#import "FeedBackController.h"//反馈
 //views
 #import "MyCenterTopCell.h"
 #import "MyCenterBottomoCell.h"
@@ -189,7 +193,9 @@
         }
         if (indexPath.item ==1)
         {
-            
+            BookmarkController * bvc =[BookmarkController new];
+            bvc.hidesBottomBarWhenPushed =YES;
+            [self.navigationController pushViewController:bvc animated:YES];
         }
         if (indexPath.item ==2)
         {
@@ -214,15 +220,21 @@
         }
         if (indexPath.item ==1)
         {
-            
+            SupportController * svc =[SupportController new];
+            svc.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:svc animated:YES];
         }
         if (indexPath.item ==2)
         {
-            
+            FeedBackController *fvc =[FeedBackController new];
+            fvc.hidesBottomBarWhenPushed =YES;
+            [self.navigationController pushViewController:fvc animated:YES];
         }
         if (indexPath.item ==3)
         {
-            
+            VersionUpdateController * vc =[VersionUpdateController new];
+            vc.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:vc animated:YES];
         }
         if (indexPath.item ==4)
         {
