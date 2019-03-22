@@ -68,6 +68,13 @@
 		30FBE3582241E83C0049C0DE /* PolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE34F2241E83C0049C0DE /* PolicyViewController.xib */; };
 		30FBE3592241E83C0049C0DE /* SetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3522241E83C0049C0DE /* SetPasswordController.m */; };
 		30FBE35A2241E83C0049C0DE /* SetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE3532241E83C0049C0DE /* SetPasswordController.xib */; };
+		30FBE3622241F81D0049C0DE /* CourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3612241F81D0049C0DE /* CourseDetailViewController.m */; };
+		30FBE3652242115F0049C0DE /* AppointmentChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3642242115F0049C0DE /* AppointmentChildViewController.m */; };
+		30FBE369224213200049C0DE /* AppointmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE367224213200049C0DE /* AppointmentCell.m */; };
+		30FBE36A224213200049C0DE /* AppointmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE368224213200049C0DE /* AppointmentCell.xib */; };
+		30FBE36D224236DA0049C0DE /* AppointmentCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE36C224236DA0049C0DE /* AppointmentCollectionView.m */; };
+		30FBE371224238090049C0DE /* AppointmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE36F224238090049C0DE /* AppointmentCollectionViewCell.m */; };
+		30FBE372224238090049C0DE /* AppointmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE370224238090049C0DE /* AppointmentCollectionViewCell.xib */; };
 		6C55296C556EB2F911F5F752 /* libPods-MKUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */; };
 		712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C4223F326100BA1905 /* MyCouseHeaderView.m */; };
 		712170C9223F327700BA1905 /* MyCouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C7223F327700BA1905 /* MyCouseCell.m */; };
@@ -227,6 +234,18 @@
 		30FBE3522241E83C0049C0DE /* SetPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetPasswordController.m; sourceTree = "<group>"; };
 		30FBE3532241E83C0049C0DE /* SetPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetPasswordController.xib; sourceTree = "<group>"; };
 		30FBE3542241E83C0049C0DE /* SetPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetPasswordController.h; sourceTree = "<group>"; };
+		30FBE3602241F81D0049C0DE /* CourseDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseDetailViewController.h; sourceTree = "<group>"; };
+		30FBE3612241F81D0049C0DE /* CourseDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseDetailViewController.m; sourceTree = "<group>"; };
+		30FBE3632242115F0049C0DE /* AppointmentChildViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentChildViewController.h; sourceTree = "<group>"; };
+		30FBE3642242115F0049C0DE /* AppointmentChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentChildViewController.m; sourceTree = "<group>"; };
+		30FBE366224213200049C0DE /* AppointmentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentCell.h; sourceTree = "<group>"; };
+		30FBE367224213200049C0DE /* AppointmentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentCell.m; sourceTree = "<group>"; };
+		30FBE368224213200049C0DE /* AppointmentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentCell.xib; sourceTree = "<group>"; };
+		30FBE36B224236DA0049C0DE /* AppointmentCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentCollectionView.h; sourceTree = "<group>"; };
+		30FBE36C224236DA0049C0DE /* AppointmentCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentCollectionView.m; sourceTree = "<group>"; };
+		30FBE36E224238090049C0DE /* AppointmentCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentCollectionViewCell.h; sourceTree = "<group>"; };
+		30FBE36F224238090049C0DE /* AppointmentCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentCollectionViewCell.m; sourceTree = "<group>"; };
+		30FBE370224238090049C0DE /* AppointmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentCollectionViewCell.xib; sourceTree = "<group>"; };
 		5E84ED91666CEFAAA2A92824 /* Pods-MK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.debug.xcconfig"; sourceTree = "<group>"; };
 		62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C807C83E01E6A12BC783DB2 /* Pods-MKUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -687,6 +706,8 @@
 				3048D85E22364F4E00FE63B2 /* AppointmentViewController.h */,
 				3048D85F22364F4E00FE63B2 /* AppointmentViewController.m */,
 				3048D86022364F4E00FE63B2 /* AppointmentViewController.xib */,
+				30FBE3632242115F0049C0DE /* AppointmentChildViewController.h */,
+				30FBE3642242115F0049C0DE /* AppointmentChildViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -701,6 +722,14 @@
 		3048D80B22325E2700FE63B2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				30FBE366224213200049C0DE /* AppointmentCell.h */,
+				30FBE367224213200049C0DE /* AppointmentCell.m */,
+				30FBE368224213200049C0DE /* AppointmentCell.xib */,
+				30FBE36B224236DA0049C0DE /* AppointmentCollectionView.h */,
+				30FBE36C224236DA0049C0DE /* AppointmentCollectionView.m */,
+				30FBE36E224238090049C0DE /* AppointmentCollectionViewCell.h */,
+				30FBE36F224238090049C0DE /* AppointmentCollectionViewCell.m */,
+				30FBE370224238090049C0DE /* AppointmentCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -708,6 +737,7 @@
 		3048D80C22325E6700FE63B2 /* Couse */ = {
 			isa = PBXGroup;
 			children = (
+				30FBE35B2241F7FB0049C0DE /* CourseDetail */,
 				3048D80D22325E6700FE63B2 /* MyCouse */,
 			);
 			path = Couse;
@@ -1046,6 +1076,47 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		30FBE35B2241F7FB0049C0DE /* CourseDetail */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE35C2241F7FB0049C0DE /* Manager */,
+				30FBE35D2241F7FB0049C0DE /* ViewControllers */,
+				30FBE35E2241F7FB0049C0DE /* Model */,
+				30FBE35F2241F7FB0049C0DE /* View */,
+			);
+			path = CourseDetail;
+			sourceTree = "<group>";
+		};
+		30FBE35C2241F7FB0049C0DE /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		30FBE35D2241F7FB0049C0DE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE3602241F81D0049C0DE /* CourseDetailViewController.h */,
+				30FBE3612241F81D0049C0DE /* CourseDetailViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		30FBE35E2241F7FB0049C0DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30FBE35F2241F7FB0049C0DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		712729322241EA2A006772BF /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1368,8 +1439,13 @@
 				30FBE31C2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib in Resources */,
 				712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */,
 				30FBE3582241E83C0049C0DE /* PolicyViewController.xib in Resources */,
+
 				712A1BE12244732B00C49181 /* BookmarkCell.xib in Resources */,
 				712A1BEC22447E6100C49181 /* FeedBackController.xib in Resources */,
+
+				30FBE36A224213200049C0DE /* AppointmentCell.xib in Resources */,
+				30FBE372224238090049C0DE /* AppointmentCollectionViewCell.xib in Resources */,
+
 				3048D85D22364F3800FE63B2 /* DiscoverPageViewController.xib in Resources */,
 				3048D7BA2232536F00FE63B2 /* LaunchScreen.storyboard in Resources */,
 				3048D7B72232536F00FE63B2 /* Assets.xcassets in Resources */,
@@ -1501,6 +1577,7 @@
 				712170D5223F465700BA1905 /* MyCenterBottomoCell.m in Sources */,
 				30FBE30F2240976D0049C0DE /* HomeCommonViewController.m in Sources */,
 				3048D85C22364F3800FE63B2 /* DiscoverPageViewController.m in Sources */,
+				30FBE36D224236DA0049C0DE /* AppointmentCollectionView.m in Sources */,
 				712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */,
 				3048D846223263AF00FE63B2 /* UIButton+layout.m in Sources */,
 				3048D847223263AF00FE63B2 /* NSString+Utilites.m in Sources */,
@@ -1511,6 +1588,7 @@
 				3048D82322325FAD00FE63B2 /* MKBaseTableView.m in Sources */,
 				30FBE31B2240E6B50049C0DE /* HomeCourseCollectionViewCell.m in Sources */,
 				3048D86622364F5F00FE63B2 /* MyCenterViewController.m in Sources */,
+				30FBE3652242115F0049C0DE /* AppointmentChildViewController.m in Sources */,
 				3048D892223A2E9D00FE63B2 /* XHRefreshHeader.m in Sources */,
 				3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */,
 				712A1BEB22447E6100C49181 /* FeedBackController.m in Sources */,
@@ -1522,9 +1600,11 @@
 				3048D843223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				30FBE2FC223F98250049C0DE /* SelectedCustomLab.m in Sources */,
 				30FBE3592241E83C0049C0DE /* SetPasswordController.m in Sources */,
+				30FBE369224213200049C0DE /* AppointmentCell.m in Sources */,
 				3048D8A4223BB46400FE63B2 /* DiscoverNewsCell.m in Sources */,
 				3048D842223263AF00FE63B2 /* UILabelEdgeInset.m in Sources */,
 				30FBE2E9223F4F0A0049C0DE /* CourseCategoryCell.m in Sources */,
+				30FBE371224238090049C0DE /* AppointmentCollectionViewCell.m in Sources */,
 				3048D85722364F2700FE63B2 /* HomePageViewController.m in Sources */,
 				30FBE30C224092780049C0DE /* HomeContentScrollView.m in Sources */,
 				3048D86122364F4E00FE63B2 /* AppointmentViewController.m in Sources */,
@@ -1546,6 +1626,7 @@
 				71F2BCDE2243399C00EED9F6 /* VersionUpdateController.m in Sources */,
 				30FBE3572241E83C0049C0DE /* PolicyViewController.m in Sources */,
 				30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */,
+				30FBE3622241F81D0049C0DE /* CourseDetailViewController.m in Sources */,
 				712729362241EB9B006772BF /* MessageModel.m in Sources */,
 				712A1BE02244732B00C49181 /* BookmarkCell.m in Sources */,
 			);

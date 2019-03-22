@@ -38,7 +38,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:A]
 #define K_Text_grayColor UIColorFromRGB_0x(0x727272)
 #define K_Text_DeepGrayColor UIColorFromRGB_0x(0xb2b2b2)
 #define K_Text_RedColor UIColorFromRGB_0x(0xfb5d43)
-#define K_Text_BlueColor UIColorFromRGB_0x(0x6e8ebd)
+#define K_Text_BlueColor UIColorFromRGB_0x(0x74BAFF)
 
 //线的颜色
 #define K_Line_lineColor UIColorFromRGB_0x(0xdddddd)

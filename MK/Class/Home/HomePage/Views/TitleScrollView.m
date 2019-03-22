@@ -14,6 +14,7 @@
 
 
 @interface TitleScrollView()
+@property(nonatomic,assign)CGFloat itemPadding;//title间距
 @property(nonatomic,strong)UIScrollView *titleScroll;//title的scroll
 @property(nonnull,strong)SelectedCustomLab *haveSelectedLab;
 @property (nonatomic, strong) UIImageView *tipIma;//移动ima
@@ -25,12 +26,19 @@
 
 @implementation TitleScrollView
 @synthesize delegate;
-
 -(instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        return  [self initWithFrame:frame withItemPadding:TitleLabPanding];
+    }
+    return self;
+}
+-(instancetype)initWithFrame:(CGRect)frame withItemPadding:(CGFloat )padding
 {
     if (self = [super initWithFrame:frame])
     {
         self.backgroundColor = [UIColor clearColor];
+        self.itemPadding = padding;
         self.titleScroll.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
     }
     return self;
@@ -55,14 +63,14 @@
         NSString *title = obj;
         //每个字符的长度
         float titleWidth = [title getStrWidthWithfont:TitleLabFont];
-        contentWidth += (titleWidth + TitleLabPanding);
+        contentWidth += (titleWidth + self.itemPadding);
         //X
         float currentWidthX = widthX;
         if (idx > 0)
         {
             NSString *beforeString = self.allTitleArr[idx - 1];
             float beforeTitleWidth = [beforeString getStrWidthWithfont:TitleLabFont];
-            widthX += (beforeTitleWidth +TitleLabPanding);
+            widthX += (beforeTitleWidth +self.itemPadding);
             currentWidthX = widthX;
         }
         SelectedCustomLab *titleLab = [[SelectedCustomLab alloc]initWithFrame:CGRectMake(currentWidthX, self.height/2-10, titleWidth, 20)];
