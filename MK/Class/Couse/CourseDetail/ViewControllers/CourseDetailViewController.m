@@ -7,26 +7,89 @@
 //
 
 #import "CourseDetailViewController.h"
+#import "CourseDetailTipView.h"
+#import "CourseDetailScrollView.h"
 
-@interface CourseDetailViewController ()
-
+@interface CourseDetailViewController ()<CourseDetailScrollViewDelegate,CourseDetailTipViewDelegate>
+@property (nullable,nonatomic, strong) UIScrollView *contentScroll;
+@property (nonatomic, strong) CourseDetailTipView *courseTipView;
+@property (nonatomic, strong) CourseDetailScrollView *detailScroll;
 @end
 
 @implementation CourseDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self.detailScroll CourseDetailScrollViewReloadData];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    self.contentScroll.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
+    self.courseTipView.frame = CGRectMake(0, KScaleWidth(278), KScreenWidth, 60);
+    self.detailScroll.frame = CGRectMake(0, self.courseTipView.bottomY, KScreenWidth, KScreenHeight-self.courseTipView.bottomY);
 }
-*/
+#pragma mark --  lazy
+-(UIScrollView *)contentScroll
+{
+    if (!_contentScroll) {
+        _contentScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+        if (@available(ios 11.0,*)) {
+            _contentScroll.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }else{
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
+        [self.view addSubview:_contentScroll];
+        
+        UIImageView *playView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(278))];
+        playView.image = [UIImage imageNamed:@"playIma"];
+        [_contentScroll addSubview:playView];
+        playView.backgroundColor = K_BG_YellowColor;
+    }
+    return _contentScroll;
+}
+
+-(CourseDetailTipView *)courseTipView
+{
+    if (!_courseTipView) {
+        _courseTipView = [[CourseDetailTipView alloc]initWithFrame:CGRectMake(0, KScaleWidth(278), KScreenWidth, 60)];
+        _courseTipView.delegate = self;
+        [self.contentScroll addSubview:_courseTipView];
+    }
+    return _courseTipView;
+}
+
+-(CourseDetailScrollView *)detailScroll
+{
+    if (!_detailScroll) {
+        _detailScroll = [[CourseDetailScrollView alloc]initWithFrame:CGRectMake(0, self.courseTipView.bottomY, KScreenWidth, KScreenHeight-self.courseTipView.bottomY)];
+        _detailScroll.delegate = self;
+//        NSInteger
+        _detailScroll.courseType = CourseSituationTypeOffline;
+        [self.contentScroll addSubview:_detailScroll];
+    }
+    return _detailScroll;
+}
+
+-(void)CourseDetailScrollViewScrollOffsetY:(float )offsetY
+{
+//    if (offsetY >= self.courseTipView.topY) {
+//        [self.contentScroll setContentOffset:CGPointMake(0, self.courseTipView.topY)];
+//    }else{
+//        [self.contentScroll setContentOffset:CGPointMake(0, offsetY)];
+//    }
+}
+#pragma mark --  tip标头点击
+-(void)CourseDetailTipViewClickBtnWithSelectedIndex:(NSInteger )index
+{
+    [self.detailScroll scrollToIndex:index];
+}
+#pragma mark --  内容scroll 滑动
+-(void)CourseDetailScrollViewScrollToIndex:(NSInteger)index
+{
+    [self.courseTipView courseButtonSeletedWithIndex:index];
+}
 
 @end

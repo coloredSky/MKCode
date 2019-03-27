@@ -96,6 +96,37 @@
  */
 + (BOOL)validateIDCardNumber:(NSString *)value;
 
+
+/**
+ 字符串中的targetString改变大小
+
+ @param str 需要改变文字大小的字符
+ @param font font
+ @return 改变g后的字符
+ */
 -(NSAttributedString *)attributStrWithTargetStr:(NSString *)str font:(UIFont *)font;
+
+
+/**
+ 改变字符串的大小 颜色
+
+ @param fontStr 需要改变大小的字符
+ @param font 字体大小
+ @param colorStr 需要改变z颜色的字符
+ @param color 颜色
+ @return 改变后的字符
+ */
 - (NSAttributedString *)attributStrWithFontTargetStr:(NSString *)fontStr font:(UIFont *)font andColorTargetStr:(NSString *)colorStr color:(UIColor *)color;
+
+
+/**
+ 字符串自定义行间距 字间距
+
+ @param text 字符串
+ @param lineSpace 行间距
+ @param wordSpace 字间距
+ @param font 字符大小
+ @return 结果字符
+ */
++(NSAttributedString *)setStringSpaceWithText:(NSString *)text  andLineSpacValue:(float)lineSpace  andWordSpace:(float)wordSpace withFont:(UIFont*)font;
 @end

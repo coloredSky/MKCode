@@ -76,6 +76,22 @@
 		30FBE371224238090049C0DE /* AppointmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE36F224238090049C0DE /* AppointmentCollectionViewCell.m */; };
 		30FBE372224238090049C0DE /* AppointmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE370224238090049C0DE /* AppointmentCollectionViewCell.xib */; };
 		30FBE375224398620049C0DE /* AppointmentPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE374224398620049C0DE /* AppointmentPopView.m */; };
+		30FBE3782244C50C0049C0DE /* CourseDetailScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3772244C50C0049C0DE /* CourseDetailScrollView.m */; };
+		30FBE37B2244C5700049C0DE /* CourseDetailTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE37A2244C5700049C0DE /* CourseDetailTipView.m */; };
+		30FBE38722488AF30049C0DE /* CourseOnlineTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE38522488AF30049C0DE /* CourseOnlineTitleCell.m */; };
+		30FBE38822488AF30049C0DE /* CourseOnlineTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE38622488AF30049C0DE /* CourseOnlineTitleCell.xib */; };
+		30FBE38F22488BFE0049C0DE /* CourseTeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE38D22488BFE0049C0DE /* CourseTeacherCell.m */; };
+		30FBE39022488BFE0049C0DE /* CourseTeacherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE38E22488BFE0049C0DE /* CourseTeacherCell.xib */; };
+		30FBE39422488C280049C0DE /* CourseOnlineListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE39222488C280049C0DE /* CourseOnlineListCell.m */; };
+		30FBE39522488C280049C0DE /* CourseOnlineListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE39322488C280049C0DE /* CourseOnlineListCell.xib */; };
+		30FBE399224B26730049C0DE /* CourseOfflineListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE397224B26730049C0DE /* CourseOfflineListCell.m */; };
+		30FBE39A224B26730049C0DE /* CourseOfflineListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE398224B26730049C0DE /* CourseOfflineListCell.xib */; };
+		30FBE39E224B2F890049C0DE /* CourseOfflineTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE39C224B2F890049C0DE /* CourseOfflineTitleCell.m */; };
+		30FBE39F224B2F890049C0DE /* CourseOfflineTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE39D224B2F890049C0DE /* CourseOfflineTitleCell.xib */; };
+		30FBE3AE224B5C000049C0DE /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3AC224B5C000049C0DE /* MessageViewController.m */; };
+		30FBE3B3224B5CF60049C0DE /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3B1224B5CF60049C0DE /* MessageCell.m */; };
+		30FBE3B4224B5CF60049C0DE /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE3B2224B5CF60049C0DE /* MessageCell.xib */; };
+		30FBE3BA224B771B0049C0DE /* MKMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3B9224B771B0049C0DE /* MKMessageModel.m */; };
 		6C55296C556EB2F911F5F752 /* libPods-MKUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */; };
 		712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C4223F326100BA1905 /* MyCouseHeaderView.m */; };
 		712170C9223F327700BA1905 /* MyCouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C7223F327700BA1905 /* MyCouseCell.m */; };
@@ -239,6 +255,32 @@
 		30FBE370224238090049C0DE /* AppointmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentCollectionViewCell.xib; sourceTree = "<group>"; };
 		30FBE373224398620049C0DE /* AppointmentPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentPopView.h; sourceTree = "<group>"; };
 		30FBE374224398620049C0DE /* AppointmentPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentPopView.m; sourceTree = "<group>"; };
+		30FBE3762244C50C0049C0DE /* CourseDetailScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseDetailScrollView.h; sourceTree = "<group>"; };
+		30FBE3772244C50C0049C0DE /* CourseDetailScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseDetailScrollView.m; sourceTree = "<group>"; };
+		30FBE3792244C5700049C0DE /* CourseDetailTipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseDetailTipView.h; sourceTree = "<group>"; };
+		30FBE37A2244C5700049C0DE /* CourseDetailTipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseDetailTipView.m; sourceTree = "<group>"; };
+		30FBE38422488AF30049C0DE /* CourseOnlineTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseOnlineTitleCell.h; sourceTree = "<group>"; };
+		30FBE38522488AF30049C0DE /* CourseOnlineTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseOnlineTitleCell.m; sourceTree = "<group>"; };
+		30FBE38622488AF30049C0DE /* CourseOnlineTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseOnlineTitleCell.xib; sourceTree = "<group>"; };
+		30FBE38C22488BFE0049C0DE /* CourseTeacherCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseTeacherCell.h; sourceTree = "<group>"; };
+		30FBE38D22488BFE0049C0DE /* CourseTeacherCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseTeacherCell.m; sourceTree = "<group>"; };
+		30FBE38E22488BFE0049C0DE /* CourseTeacherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseTeacherCell.xib; sourceTree = "<group>"; };
+		30FBE39122488C280049C0DE /* CourseOnlineListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseOnlineListCell.h; sourceTree = "<group>"; };
+		30FBE39222488C280049C0DE /* CourseOnlineListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseOnlineListCell.m; sourceTree = "<group>"; };
+		30FBE39322488C280049C0DE /* CourseOnlineListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseOnlineListCell.xib; sourceTree = "<group>"; };
+		30FBE396224B26730049C0DE /* CourseOfflineListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseOfflineListCell.h; sourceTree = "<group>"; };
+		30FBE397224B26730049C0DE /* CourseOfflineListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseOfflineListCell.m; sourceTree = "<group>"; };
+		30FBE398224B26730049C0DE /* CourseOfflineListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseOfflineListCell.xib; sourceTree = "<group>"; };
+		30FBE39B224B2F890049C0DE /* CourseOfflineTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseOfflineTitleCell.h; sourceTree = "<group>"; };
+		30FBE39C224B2F890049C0DE /* CourseOfflineTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseOfflineTitleCell.m; sourceTree = "<group>"; };
+		30FBE39D224B2F890049C0DE /* CourseOfflineTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseOfflineTitleCell.xib; sourceTree = "<group>"; };
+		30FBE3AB224B5C000049C0DE /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		30FBE3AC224B5C000049C0DE /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		30FBE3B0224B5CF60049C0DE /* MessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		30FBE3B1224B5CF60049C0DE /* MessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		30FBE3B2224B5CF60049C0DE /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		30FBE3B8224B771B0049C0DE /* MKMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKMessageModel.h; sourceTree = "<group>"; };
+		30FBE3B9224B771B0049C0DE /* MKMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKMessageModel.m; sourceTree = "<group>"; };
 		5E84ED91666CEFAAA2A92824 /* Pods-MK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.debug.xcconfig"; sourceTree = "<group>"; };
 		62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C807C83E01E6A12BC783DB2 /* Pods-MKUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -493,6 +535,7 @@
 		3048D7F522325AD300FE63B2 /* Appointment */ = {
 			isa = PBXGroup;
 			children = (
+				30FBE3A0224B58A50049C0DE /* Message */,
 				3048D80722325E2600FE63B2 /* MyAppointment */,
 			);
 			path = Appointment;
@@ -875,9 +918,9 @@
 		3048D83C223263AF00FE63B2 /* String */ = {
 			isa = PBXGroup;
 			children = (
+				3048D83F223263AF00FE63B2 /* NSString+Utilites.h */,
 				3048D83D223263AF00FE63B2 /* NSString+Utilites.m */,
 				3048D83E223263AF00FE63B2 /* NSString+SizeOfString.h */,
-				3048D83F223263AF00FE63B2 /* NSString+Utilites.h */,
 				3048D840223263AF00FE63B2 /* NSString+SizeOfString.m */,
 			);
 			path = String;
@@ -1088,8 +1131,73 @@
 		30FBE35F2241F7FB0049C0DE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				30FBE3762244C50C0049C0DE /* CourseDetailScrollView.h */,
+				30FBE3772244C50C0049C0DE /* CourseDetailScrollView.m */,
+				30FBE3792244C5700049C0DE /* CourseDetailTipView.h */,
+				30FBE37A2244C5700049C0DE /* CourseDetailTipView.m */,
+				30FBE38422488AF30049C0DE /* CourseOnlineTitleCell.h */,
+				30FBE38522488AF30049C0DE /* CourseOnlineTitleCell.m */,
+				30FBE38622488AF30049C0DE /* CourseOnlineTitleCell.xib */,
+				30FBE38C22488BFE0049C0DE /* CourseTeacherCell.h */,
+				30FBE38D22488BFE0049C0DE /* CourseTeacherCell.m */,
+				30FBE38E22488BFE0049C0DE /* CourseTeacherCell.xib */,
+				30FBE39122488C280049C0DE /* CourseOnlineListCell.h */,
+				30FBE39222488C280049C0DE /* CourseOnlineListCell.m */,
+				30FBE39322488C280049C0DE /* CourseOnlineListCell.xib */,
+				30FBE396224B26730049C0DE /* CourseOfflineListCell.h */,
+				30FBE397224B26730049C0DE /* CourseOfflineListCell.m */,
+				30FBE398224B26730049C0DE /* CourseOfflineListCell.xib */,
+				30FBE39B224B2F890049C0DE /* CourseOfflineTitleCell.h */,
+				30FBE39C224B2F890049C0DE /* CourseOfflineTitleCell.m */,
+				30FBE39D224B2F890049C0DE /* CourseOfflineTitleCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		30FBE3A0224B58A50049C0DE /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE3A1224B58A50049C0DE /* Controller */,
+				30FBE3A2224B58A50049C0DE /* Manager */,
+				30FBE3A3224B58A50049C0DE /* Model */,
+				30FBE3A4224B58A50049C0DE /* Views */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		30FBE3A1224B58A50049C0DE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE3AB224B5C000049C0DE /* MessageViewController.h */,
+				30FBE3AC224B5C000049C0DE /* MessageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		30FBE3A2224B58A50049C0DE /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		30FBE3A3224B58A50049C0DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE3B8224B771B0049C0DE /* MKMessageModel.h */,
+				30FBE3B9224B771B0049C0DE /* MKMessageModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30FBE3A4224B58A50049C0DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30FBE3B0224B5CF60049C0DE /* MessageCell.h */,
+				30FBE3B1224B5CF60049C0DE /* MessageCell.m */,
+				30FBE3B2224B5CF60049C0DE /* MessageCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		712729322241EA2A006772BF /* Manager */ = {
@@ -1229,17 +1337,23 @@
 			files = (
 				3048D8742239F77900FE63B2 /* HomePageCell.xib in Resources */,
 				712170CC223F3A1C00BA1905 /* MyCouseHeaderView.xib in Resources */,
+				30FBE3B4224B5CF60049C0DE /* MessageCell.xib in Resources */,
 				712170CA223F327700BA1905 /* MyCouseCell.xib in Resources */,
 				3048D86722364F5F00FE63B2 /* MyCenterViewController.xib in Resources */,
 				3048D86222364F4E00FE63B2 /* AppointmentViewController.xib in Resources */,
+				30FBE39022488BFE0049C0DE /* CourseTeacherCell.xib in Resources */,
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
 				30FBE3142240C2020049C0DE /* HomeRecommenCell.xib in Resources */,
 				30FBE2EA223F4F0A0049C0DE /* CourseCategoryCell.xib in Resources */,
+				30FBE39F224B2F890049C0DE /* CourseOfflineTitleCell.xib in Resources */,
 				712170D1223F43CC00BA1905 /* MyCenterTopCell.xib in Resources */,
 				712170D6223F465700BA1905 /* MyCenterBottomoCell.xib in Resources */,
 				30FBE31C2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib in Resources */,
 				712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */,
+				30FBE38822488AF30049C0DE /* CourseOnlineTitleCell.xib in Resources */,
 				30FBE3582241E83C0049C0DE /* PolicyViewController.xib in Resources */,
+				30FBE39522488C280049C0DE /* CourseOnlineListCell.xib in Resources */,
+				30FBE39A224B26730049C0DE /* CourseOfflineListCell.xib in Resources */,
 				30FBE36A224213200049C0DE /* AppointmentCell.xib in Resources */,
 				30FBE372224238090049C0DE /* AppointmentCollectionViewCell.xib in Resources */,
 				3048D85D22364F3800FE63B2 /* DiscoverPageViewController.xib in Resources */,
@@ -1371,17 +1485,22 @@
 				30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */,
 				712170D5223F465700BA1905 /* MyCenterBottomoCell.m in Sources */,
 				30FBE30F2240976D0049C0DE /* HomeCommonViewController.m in Sources */,
+				30FBE3AE224B5C000049C0DE /* MessageViewController.m in Sources */,
 				3048D85C22364F3800FE63B2 /* DiscoverPageViewController.m in Sources */,
 				30FBE36D224236DA0049C0DE /* AppointmentCollectionView.m in Sources */,
 				712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */,
 				3048D846223263AF00FE63B2 /* UIButton+layout.m in Sources */,
 				3048D847223263AF00FE63B2 /* NSString+Utilites.m in Sources */,
+				30FBE37B2244C5700049C0DE /* CourseDetailTipView.m in Sources */,
 				712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */,
 				3048D7EC2232565500FE63B2 /* AppDelegate.m in Sources */,
 				30FBE3132240C2020049C0DE /* HomeRecommenCell.m in Sources */,
 				30FBE375224398620049C0DE /* AppointmentPopView.m in Sources */,
+				30FBE3BA224B771B0049C0DE /* MKMessageModel.m in Sources */,
+				30FBE399224B26730049C0DE /* CourseOfflineListCell.m in Sources */,
 				3048D82322325FAD00FE63B2 /* MKBaseTableView.m in Sources */,
 				30FBE31B2240E6B50049C0DE /* HomeCourseCollectionViewCell.m in Sources */,
+				30FBE3782244C50C0049C0DE /* CourseDetailScrollView.m in Sources */,
 				3048D86622364F5F00FE63B2 /* MyCenterViewController.m in Sources */,
 				30FBE3652242115F0049C0DE /* AppointmentChildViewController.m in Sources */,
 				3048D892223A2E9D00FE63B2 /* XHRefreshHeader.m in Sources */,
@@ -1406,6 +1525,8 @@
 				3048D848223263AF00FE63B2 /* NSString+SizeOfString.m in Sources */,
 				3048D7B22232536D00FE63B2 /* ViewController.m in Sources */,
 				712170C9223F327700BA1905 /* MyCouseCell.m in Sources */,
+				30FBE3B3224B5CF60049C0DE /* MessageCell.m in Sources */,
+				30FBE39422488C280049C0DE /* CourseOnlineListCell.m in Sources */,
 				3048D841223263AF00FE63B2 /* UIView+Layout.m in Sources */,
 				3048D7BD2232536F00FE63B2 /* main.m in Sources */,
 				3048D81D22325F7F00FE63B2 /* MKNavigationController.m in Sources */,
@@ -1414,10 +1535,13 @@
 				3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */,
 				712170D0223F43CC00BA1905 /* MyCenterTopCell.m in Sources */,
 				30FBE309223FA3E00049C0DE /* HomeRecommendViewController.m in Sources */,
+				30FBE38F22488BFE0049C0DE /* CourseTeacherCell.m in Sources */,
+				30FBE38722488AF30049C0DE /* CourseOnlineTitleCell.m in Sources */,
 				30FBE3552241E83C0049C0DE /* MessageNoticeController.m in Sources */,
 				3048D844223263AF00FE63B2 /* UILabel+layout.m in Sources */,
 				30FBE3572241E83C0049C0DE /* PolicyViewController.m in Sources */,
 				30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */,
+				30FBE39E224B2F890049C0DE /* CourseOfflineTitleCell.m in Sources */,
 				30FBE3622241F81D0049C0DE /* CourseDetailViewController.m in Sources */,
 				712729362241EB9B006772BF /* MessageModel.m in Sources */,
 			);
@@ -1592,6 +1716,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E3X874KJM3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MK/Config/MKPrefix.h";
 				HEADER_SEARCH_PATHS = (
@@ -1616,6 +1741,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E3X874KJM3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MK/Config/MKPrefix.h";
 				HEADER_SEARCH_PATHS = (

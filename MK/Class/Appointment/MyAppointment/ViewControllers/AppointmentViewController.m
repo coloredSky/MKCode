@@ -8,6 +8,7 @@
 
 #import "AppointmentViewController.h"
 #import "AppointmentChildViewController.h"
+#import "MessageViewController.h"
 //View
 #import "TitleScrollView.h"
 #import "HomeContentScrollView.h"
@@ -65,6 +66,7 @@
     [self.topView addSubview:messageBtn];
     messageBtn.frame = CGRectMake(self.topView.width-K_Padding_Home_LeftPadding-22, self.topView.height-K_Padding_Home_LeftPadding-22, 22, 22);
     [messageBtn setImage:KImageNamed(@"appointment_message") forState:UIControlStateNormal];
+    [messageBtn addTarget:self action:@selector(messageTarget:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark --  lazy
@@ -105,5 +107,10 @@
 {
     
 }
-
+#pragma mark --  消息中心
+-(void)messageTarget:(UIButton *)sender
+{
+    MessageViewController *messageVC = [MessageViewController new];
+    [self.navigationController pushViewController:messageVC animated:YES];
+}
 @end

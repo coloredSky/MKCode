@@ -7,6 +7,7 @@
 //
 
 #import "HomeRecommendViewController.h"
+#import "CourseDetailViewController.h"
 //View
 #import "HomePageCell.h"
 #import "NewPagedFlowView.h"
@@ -180,7 +181,8 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    CourseDetailViewController *courseDetailVC = [CourseDetailViewController new];
+    [self.navigationController pushViewController:courseDetailVC animated:YES];
 }
 #pragma mark --  banner did selected
 - (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {

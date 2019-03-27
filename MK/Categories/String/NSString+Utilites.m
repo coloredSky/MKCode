@@ -416,4 +416,25 @@
     
     return outStr;
 }
+
++(NSAttributedString *)setStringSpaceWithText:(NSString *)text  andLineSpacValue:(float)lineSpace  andWordSpace:(float)wordSpace withFont:(UIFont*)font
+{
+    if ([NSString isEmptyWithStr:text]) {
+        return nil;
+    }
+    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
+    paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    paraStyle.alignment = NSTextAlignmentLeft;
+    paraStyle.lineSpacing = lineSpace; //设置行间距
+    paraStyle.hyphenationFactor = 1.0;
+    paraStyle.firstLineHeadIndent = 0.0;
+    paraStyle.paragraphSpacingBefore = 0.0;
+    paraStyle.headIndent = 0;
+    paraStyle.tailIndent = 0;
+    //设置字间距 NSKernAttributeName:@1.5f
+    NSDictionary *dic = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@(wordSpace)
+                          };
+    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:text attributes:dic];
+    return  attributeStr;
+}
 @end
