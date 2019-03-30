@@ -66,8 +66,12 @@
     if (!_detailScroll) {
         _detailScroll = [[CourseDetailScrollView alloc]initWithFrame:CGRectMake(0, self.courseTipView.bottomY, KScreenWidth, KScreenHeight-self.courseTipView.bottomY)];
         _detailScroll.delegate = self;
-//        NSInteger
-        _detailScroll.courseType = CourseSituationTypeOffline;
+        NSInteger type = arc4random()%2;
+        if (type == 0) {
+            _detailScroll.courseType = CourseSituationTypeOffline;
+        }else{
+            _detailScroll.courseType = CourseSituationTypeOnline;
+        }
         [self.contentScroll addSubview:_detailScroll];
     }
     return _detailScroll;

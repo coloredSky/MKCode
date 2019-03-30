@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- 课程介绍-名字-h课时-人数
+ 课程介绍-名字-课时-人数
  */
 @interface CourseOnlineTitleCell : MKBaseTableViewCell
 -(void)cellRefreshData;

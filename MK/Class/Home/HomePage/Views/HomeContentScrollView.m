@@ -32,7 +32,7 @@
         _contentScroll.showsVerticalScrollIndicator= NO;
         _contentScroll.showsHorizontalScrollIndicator = NO;
         [self addSubview:_contentScroll];
-        _contentScroll.backgroundColor = [UIColor yellowColor];
+        _contentScroll.backgroundColor = K_BG_deepGrayColor;
         _contentScroll.delegate = self;
         _contentScroll.pagingEnabled = YES;
     }

@@ -43,7 +43,7 @@
     [_addressLab setFont:_timeConsumingLab.font textColor:_timeConsumingLab.textColor withBackGroundColor:nil];
     [_attendanceLab setFont:_timeConsumingLab.font textColor:_timeConsumingLab.textColor withBackGroundColor:nil];
     [_personsLab setFont:_timeConsumingLab.font textColor:_timeConsumingLab.textColor withBackGroundColor:nil];
-    [_calendarSignLab setFont:K_Font_Text_Min_Little textColor:_timeConsumingLab.textColor withBackGroundColor:nil];
+    [_calendarSignLab setFont:K_Font_Text_Min_MinLittle textColor:_timeConsumingLab.textColor withBackGroundColor:nil];
     _calendarSignLab.text = @"下载到日历";
     _calendarSignLab.textAlignment = NSTextAlignmentCenter;
     _lineIma.backgroundColor = K_Line_lineColor;
@@ -52,8 +52,8 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    self.calendarBtn.frame = CGRectMake(self.contentView.width-K_Padding_Home_LeftPadding-KScaleWidth(48), 0, KScaleWidth(48), KScaleWidth(48));
-    self.calendarSignLab.frame = CGRectMake(self.calendarBtn.centerX-KScaleWidth(40), self.calendarBtn.bottomY, KScaleWidth(80), KScaleHeight(12));
+    self.calendarBtn.frame = CGRectMake(self.contentView.width-K_Padding_Home_LeftPadding-KScaleWidth(60), 0, KScaleWidth(60), KScaleWidth(60));
+    self.calendarSignLab.frame = CGRectMake(self.calendarBtn.centerX-KScaleWidth(40), KScaleWidth(50), KScaleWidth(80), KScaleHeight(12));
     self.titleLab.frame = CGRectMake(K_Padding_LeftPadding, 0, self.calendarBtn.leftX-K_Padding_LeftPadding*2, KScaleWidth(48));
     
     self.bottomView.frame = CGRectMake(0, self.titleLab.bottomY+10, self.contentView.width, self.contentView.height-self.titleLab.bottomY);

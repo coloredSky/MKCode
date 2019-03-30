@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ 线下的课程列表
+ */
 @interface CourseOfflineListCell : MKBaseTableViewCell
 -(void)cellRefreshData;
 @end

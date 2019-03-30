@@ -9,10 +9,10 @@
 #import "CourseOfflineListCell.h"
 @interface CourseOfflineListCell()
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
-@property (weak, nonatomic) IBOutlet UILabel *courseNumLab;
-@property (weak, nonatomic) IBOutlet UILabel *courseTimeLab;
-@property (weak, nonatomic) IBOutlet UILabel *courseDecriptionLab;
-@property (weak, nonatomic) IBOutlet UIImageView *courseSelectedIma;
+@property (weak, nonatomic) IBOutlet UILabel *courseNumLab;//课程编号
+@property (weak, nonatomic) IBOutlet UILabel *courseTimeLab;//课程时间
+@property (weak, nonatomic) IBOutlet UILabel *courseDecriptionLab;//课程描述
+@property (weak, nonatomic) IBOutlet UIImageView *courseSelectedIma;//是否上过c课程
 
 @end
 @implementation CourseOfflineListCell

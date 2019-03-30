@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- 课程视频列表
+ 线上课程视频列表
  */
 @interface CourseOnlineListCell : MKBaseTableViewCell
 -(void)cellRefreshWithData:(BOOL )selected;

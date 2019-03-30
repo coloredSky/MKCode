@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ 已完成的预约cell
+ */
 @interface AppointmentCollectionView : UIView
 
 -(void)appointmentCollectionViewReloadData;

@@ -18,6 +18,7 @@ MAX([UIScreen mainScreen].bounds.size.height,                                \
 #import <QuartzCore/QuartzCore.h>
 
 @implementation BMPopView
+@synthesize delegate;
 
 +(BMPopView *)shareInstance
 {
@@ -210,10 +211,10 @@ MAX([UIScreen mainScreen].bounds.size.height,                                \
             break;
         case BMPopViewAnimationShowFromBottom:
         {
-            self.contentView.center = CGPointMake(_width_/2- _offset.left +_offset.right , _height_ - _offset.bottom + _offset.top);
+            self.contentView.center = CGPointMake(_width_/2, _height_);
             [UIView animateWithDuration:0.1f delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 self.alpha = 1.f;
-                self.contentView.center = CGPointMake(_width_/2- _offset.left +_offset.right , _height_ - _contentView.frame.size.height/2 - _offset.bottom + _offset.top);
+                self.contentView.center = CGPointMake(_width_/2, _height_/2);
             } completion:^(BOOL finished) {
             }];
             
@@ -224,7 +225,7 @@ MAX([UIScreen mainScreen].bounds.size.height,                                \
             self.contentView.center = CGPointMake(_width_ - _offset.left +_offset.right , _height_ - _contentView.frame.size.height - _offset.bottom + _offset.top);
             [UIView animateWithDuration:0.2f delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 self.alpha = 1.f;
-                self.contentView.center = CGPointMake(_width_/2- _offset.left +_offset.right , _height_ - _contentView.frame.size.height /2- _offset.bottom + _offset.top);
+                self.contentView.center = CGPointMake(_width_/2, _height_/2);
             } completion:^(BOOL finished) {
             }];
             
@@ -265,7 +266,7 @@ MAX([UIScreen mainScreen].bounds.size.height,                                \
         found = YES;
     }
     
-    if(!found && _canDisMiss) {
+    if(found && _canDisMiss) {
         [self dismiss];
     }
     
@@ -286,8 +287,8 @@ MAX([UIScreen mainScreen].bounds.size.height,                                \
                 
                 [self removeFromSuperview];
                 
-                if(self.delegate && [self.delegate respondsToSelector:@selector(popViewDidDismiss:)]) {
-                    [_delegate popViewDidDismiss:self];
+                if(self->delegate && [self->delegate respondsToSelector:@selector(popViewDidDismiss:)]) {
+                    [self->delegate popViewDidDismiss:self];
                 }
                 
             }];
@@ -298,13 +299,13 @@ MAX([UIScreen mainScreen].bounds.size.height,                                \
         {
             [UIView animateWithDuration:0.2f delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 self.alpha = 0.1f;
-                self.contentView.center = CGPointMake(_width_/2- _offset.left +_offset.right , _height_ + _contentView.frame.size.height/2);
+                self.contentView.center = CGPointMake(_width_/2,_height_/2);
             } completion:^(BOOL finished) {
                 [self.contentView removeFromSuperview];
                 
                 [self removeFromSuperview];
                 if(self.delegate && [self.delegate respondsToSelector:@selector(popViewDidDismiss:)]) {
-                    [_delegate popViewDidDismiss:self];
+                    [self->delegate popViewDidDismiss:self];
                 }
             }];
             
@@ -314,13 +315,13 @@ MAX([UIScreen mainScreen].bounds.size.height,                                \
         {
             [UIView animateWithDuration:0.2f delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 self.alpha = 0.1f;
-                self.contentView.center = CGPointMake(_width_/2- _offset.left +_offset.right , _height_ - _contentView.frame.size.height /2- _offset.bottom + _offset.top);
+                self.contentView.center = CGPointMake(_width_/2, _height_/2);
             } completion:^(BOOL finished) {
                 [self.contentView removeFromSuperview];
                 
                 [self removeFromSuperview];
                 if(self.delegate && [self.delegate respondsToSelector:@selector(popViewDidDismiss:)]) {
-                    [_delegate popViewDidDismiss:self];
+                    [self->delegate popViewDidDismiss:self];
                 }
             }];
             
@@ -338,7 +339,7 @@ MAX([UIScreen mainScreen].bounds.size.height,                                \
             
             [self removeFromSuperview];
             if(self.delegate && [self.delegate respondsToSelector:@selector(popViewDidDismiss:)]) {
-                [_delegate popViewDidDismiss:self];
+                [delegate popViewDidDismiss:self];
             }
         }
             break;

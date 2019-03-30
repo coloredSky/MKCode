@@ -8,9 +8,9 @@
 
 #import "CourseTeacherCell.h"
 @interface CourseTeacherCell()
-@property (weak, nonatomic) IBOutlet UIImageView *teacherHeaderIma;
-@property (weak, nonatomic) IBOutlet UILabel *teacherNameLab;
-@property (weak, nonatomic) IBOutlet UILabel *teacherIntroduceLab;
+@property (weak, nonatomic) IBOutlet UIImageView *teacherHeaderIma;//老师简介图
+@property (weak, nonatomic) IBOutlet UILabel *teacherNameLab;//名字
+@property (weak, nonatomic) IBOutlet UILabel *teacherIntroduceLab;//导师介绍
 
 @end
 @implementation CourseTeacherCell

@@ -105,7 +105,11 @@
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, height)];
     UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, headerView.height-20-KScaleHeight(12), 200, 20)];
     [headerView addSubview:titleLab];
-    titleLab.text = @"公开课";
+    if (section == 0) {
+         titleLab.text = @"已完成的预约";
+    }else{
+        titleLab.text = @"未完成的预约";
+    }
     [titleLab setFont:MKBoldFont(16) textColor:K_Text_grayColor withBackGroundColor:nil];
     return headerView;
 }

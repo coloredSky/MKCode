@@ -9,12 +9,12 @@
 #import "CourseOnlineListCell.h"
 @interface CourseOnlineListCell()
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
-@property (weak, nonatomic) IBOutlet UIImageView *selectedLeftIma;
-@property (weak, nonatomic) IBOutlet UIImageView *playIma;
-@property (weak, nonatomic) IBOutlet UIImageView *courseIma;
-@property (weak, nonatomic) IBOutlet UILabel *courseNumLab;
-@property (weak, nonatomic) IBOutlet UILabel *courseNameLab;
-@property (weak, nonatomic) IBOutlet UILabel *courseTimeLab;
+@property (weak, nonatomic) IBOutlet UIImageView *selectedLeftIma;//选中播放 右侧展示图
+@property (weak, nonatomic) IBOutlet UIImageView *playIma;//播放Ima
+@property (weak, nonatomic) IBOutlet UIImageView *courseIma;//课程介绍图
+@property (weak, nonatomic) IBOutlet UILabel *courseNumLab;//课程编号
+@property (weak, nonatomic) IBOutlet UILabel *courseNameLab;//课程名字
+@property (weak, nonatomic) IBOutlet UILabel *courseTimeLab;//课程时间
 
 @end
 @implementation CourseOnlineListCell

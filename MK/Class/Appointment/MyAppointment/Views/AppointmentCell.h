@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ 未完成的预约cell
+ */
 @interface AppointmentCell : MKBaseTableViewCell
 -(void)cellRefreshData;
 @end

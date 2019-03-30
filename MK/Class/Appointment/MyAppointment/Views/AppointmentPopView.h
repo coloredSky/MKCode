@@ -10,11 +10,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, AppointmentOperationType) {
+    AppointmentOperationTypeCancle,
+    AppointmentOperationTypeMeeting,
+    AppointmentOperationTypeAskForLeave,
+    AppointmentOperationTypeChangeClass
+};
+
+@protocol AppointmentPopViewDelegate <NSObject>
+@optional
+-(void)AppointmentPopViewClickWithAppointmentType:(AppointmentOperationType )appointmentType;
+@end
 /**
  预约动画弹出界面
  */
 @interface AppointmentPopView : UIView
-
+@property (nonatomic, assign) id<AppointmentPopViewDelegate>delegate;
 @end
 
 NS_ASSUME_NONNULL_END

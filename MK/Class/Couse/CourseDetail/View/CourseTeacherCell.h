@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ 课程详情中老师的介绍
+ */
 @interface CourseTeacherCell : MKBaseTableViewCell
 -(void)cellRefreshData;
 @end

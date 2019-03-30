@@ -23,6 +23,9 @@ typedef NS_ENUM(NSUInteger, CourseSituationType) {
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ 装载课程详情的scroll
+ */
 @protocol CourseDetailScrollViewDelegate;
 
 @interface CourseDetailScrollView : UIView

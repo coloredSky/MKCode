@@ -12,9 +12,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
-@property (weak, nonatomic) IBOutlet UILabel *timeConsumingLab;
+@property (weak, nonatomic) IBOutlet UILabel *timeConsumingLab;//课程耗时
 @property (weak, nonatomic) IBOutlet UIImageView *timeConsumingIma;
-@property (weak, nonatomic) IBOutlet UILabel *personsLab;
+@property (weak, nonatomic) IBOutlet UILabel *personsLab;//课程人数
 @property (weak, nonatomic) IBOutlet UIImageView *personsIma;
 @property (weak, nonatomic) IBOutlet UIImageView *lineIma;
 

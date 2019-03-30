@@ -9,12 +9,16 @@
 #import "AppointmentViewController.h"
 #import "AppointmentChildViewController.h"
 #import "MessageViewController.h"
+#import "AskForLeaveViewController.h"
+#import "ChangeClassViewController.h"
+#import "MeetingMakeViewController.h"
 //View
 #import "TitleScrollView.h"
 #import "HomeContentScrollView.h"
+#import "BMPopView.h"
+#import "AppointmentPopView.h"
 
-
-@interface AppointmentViewController ()<TitleScrollViewDelegate,HomeContentScrollViewDelegate>
+@interface AppointmentViewController ()<TitleScrollViewDelegate,HomeContentScrollViewDelegate,BMPopViewDelegate,AppointmentPopViewDelegate>
 @property (nonatomic, strong) NSArray *titleArr;//标题数组
 @property (nonatomic, strong) NSArray *childVCs;//视图数组
 @property (nonatomic, strong) UIView *topView;//顶部View
@@ -29,7 +33,7 @@
 {
     if (self = [super init]) {
         self.titleArr = @[@"换班",@"请假",@"预约"];
-        self.childVCs = @[[AppointmentChildViewController new],[AppointmentChildViewController new],[AppointmentChildViewController new],[AppointmentChildViewController new]];
+        self.childVCs = @[[AppointmentChildViewController new],[AppointmentChildViewController new],[AppointmentChildViewController new]];
     }
     return self;
 }
@@ -105,12 +109,38 @@
 #pragma mark --  预约按钮
 -(void)appointmentBtnTarget:(UIButton *)sender
 {
-    
+    AppointmentPopView *appointmentView = [[AppointmentPopView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+    appointmentView.delegate = self;
+    BMPopView *popToll = [BMPopView shareInstance];
+    popToll.canDisMiss = YES;
+    popToll.delegate = self;
+    [popToll showWithContentView:appointmentView withAnimation:BMPopViewAnimationNone];
 }
+
 #pragma mark --  消息中心
 -(void)messageTarget:(UIButton *)sender
 {
     MessageViewController *messageVC = [MessageViewController new];
     [self.navigationController pushViewController:messageVC animated:YES];
+}
+#pragma mark --  预约按钮点击
+-(void)AppointmentPopViewClickWithAppointmentType:(AppointmentOperationType )appointmentType
+{
+    [[BMPopView shareInstance] dismiss];
+    if (appointmentType == AppointmentOperationTypeCancle) {
+        //cancle
+    }else if (appointmentType == AppointmentOperationTypeMeeting){
+        //预约相谈
+        MeetingMakeViewController *meetingVC = [MeetingMakeViewController new];
+        [self.navigationController pushViewController:meetingVC animated:YES];
+    }else if (appointmentType == AppointmentOperationTypeAskForLeave){
+        //预约请假
+        AskForLeaveViewController *askForLeaveVC = [AskForLeaveViewController new];
+        [self.navigationController pushViewController:askForLeaveVC animated:YES];
+    }else if (appointmentType == AppointmentOperationTypeChangeClass){
+        //预约换班
+        ChangeClassViewController *classChangeVC = [ChangeClassViewController new];
+        [self.navigationController pushViewController:classChangeVC animated:YES];
+    }
 }
 @end
