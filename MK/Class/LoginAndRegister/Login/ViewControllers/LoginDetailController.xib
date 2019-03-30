@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginDetailController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_app" translatesAutoresizingMaskIntoConstraints="NO" id="5fT-yV-uTL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Entrance Experience" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAd-2E-iST">
+                    <rect key="frame" x="42" y="228" width="176" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to MK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjM-pk-EJO">
+                    <rect key="frame" x="42" y="184" width="203" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdP-aJ-zaT">
+                    <rect key="frame" x="42" y="140" width="75" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecF-jn-Xbg">
+                    <rect key="frame" x="26" y="537" width="323" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="reN-MG-6OY"/>
+                    </constraints>
+                    <state key="normal" title="登 录">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="6AM-bb-Js0"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N27-Da-zle">
+                    <rect key="frame" x="289" y="469" width="60" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="Xoq-Iy-QMs"/>
+                        <constraint firstAttribute="height" constant="60" id="eY8-mV-Xxa"/>
+                    </constraints>
+                    <state key="normal" title="Skip">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="sct-ha-D4z"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsA-h2-aa5">
+                    <rect key="frame" x="26" y="469" width="242" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="zaa-M9-IGh"/>
+                    </constraints>
+                    <state key="normal" title="注册">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="89D-2R-EDx"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bdP-aJ-zaT" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="120" id="1OZ-Wf-FH8"/>
+                <constraint firstItem="PjM-pk-EJO" firstAttribute="top" secondItem="bdP-aJ-zaT" secondAttribute="bottom" constant="8" id="1l2-GP-69s"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="5fT-yV-uTL" secondAttribute="bottom" id="2KX-kj-wTn"/>
+                <constraint firstItem="5fT-yV-uTL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7lL-aK-M4a"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="ecF-jn-Xbg" secondAttribute="trailing" constant="26" id="8dg-Fm-OZI"/>
+                <constraint firstItem="ecF-jn-Xbg" firstAttribute="top" secondItem="gsA-h2-aa5" secondAttribute="bottom" constant="8" id="CWc-T0-Lgq"/>
+                <constraint firstItem="bdP-aJ-zaT" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="42" id="EUd-QX-Jaa"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="5fT-yV-uTL" secondAttribute="trailing" id="EVg-qg-69g"/>
+                <constraint firstItem="gAd-2E-iST" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="42" id="FAW-0n-k26"/>
+                <constraint firstItem="PjM-pk-EJO" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="42" id="QeG-3U-BJ3"/>
+                <constraint firstItem="5fT-yV-uTL" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="aat-KR-7HC"/>
+                <constraint firstItem="ecF-jn-Xbg" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="26" id="bOi-oZ-Vo0"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="ecF-jn-Xbg" secondAttribute="bottom" constant="70" id="hk0-g2-En5"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="N27-Da-zle" secondAttribute="trailing" constant="26" id="i6N-8e-c93"/>
+                <constraint firstItem="gAd-2E-iST" firstAttribute="top" secondItem="PjM-pk-EJO" secondAttribute="bottom" constant="8" id="iCP-mG-BYF"/>
+                <constraint firstItem="N27-Da-zle" firstAttribute="leading" secondItem="gsA-h2-aa5" secondAttribute="trailing" constant="21" id="nQV-17-T0q"/>
+                <constraint firstItem="ecF-jn-Xbg" firstAttribute="top" secondItem="N27-Da-zle" secondAttribute="bottom" constant="8" id="tqJ-Ld-rIU"/>
+                <constraint firstItem="gsA-h2-aa5" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="26" id="ymw-zd-gfw"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="138.40000000000001" y="118.29085457271366"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="login_app" width="375" height="812"/>
+    </resources>
+</document>

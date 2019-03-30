@@ -14,11 +14,12 @@
 #import "VersionUpdateController.h"//版本更新
 #import "BookmarkController.h"//书签
 #import "FeedBackController.h"//反馈
+#import "UpdateMessageController.h"//编辑个人资料
 //views
 #import "MyCenterTopCell.h"
 #import "MyCenterBottomoCell.h"
 #import "MyCenterHeaderView.h"
-@interface MyCenterViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface MyCenterViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,MyCenterHeaderViewDelegate>
 @property (nonatomic, strong) MyCenterHeaderView *headerView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *titleArr;//区头标题
@@ -82,6 +83,7 @@
     if (!_headerView) {
         _headerView = [[NSBundle mainBundle]loadNibNamed:@"MyCenterHeaderView" owner:nil options:nil][0];
         _headerView.frame =CGRectMake(0, 0,KScreenWidth ,203);
+        _headerView.delegate =self;
     }
     return _headerView;
 }
@@ -297,6 +299,12 @@
 }
 
 
-
+#pragma mark-headerViewDelegate
+-(void)headerViewBtnClick
+{
+    UpdateMessageController * uvc =[UpdateMessageController new];
+    uvc.hidesBottomBarWhenPushed =YES;
+    [self.navigationController pushViewController:uvc animated:YES];
+}
 
 @end

@@ -7,6 +7,7 @@
 //
 #import "AppDelegate.h"
 #import "MKTarbarViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,10 +18,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self appConfig];
-    
-    MKTarbarViewController *tarbarVC = [MKTarbarViewController new];
-    self.window.rootViewController = tarbarVC;
+    if ([self isUserLogin]) {
+        LoginViewController * lvc =[LoginViewController new];
+        self.window.rootViewController =lvc;
+    }
+    else
+    {
+        MKTarbarViewController *tarbarVC = [MKTarbarViewController new];
+        self.window.rootViewController = tarbarVC;
+    }
     return YES;
+}
+-(BOOL)isUserLogin
+{
+    NSString *userId =  [[NSUserDefaults standardUserDefaults]objectForKey:@"userId"];
+    
+    if (userId != nil && userId.length> 0)
+    {
+        //已经登录
+        return YES;
+    }
+    return NO;
 }
 -(void)appConfig
 {

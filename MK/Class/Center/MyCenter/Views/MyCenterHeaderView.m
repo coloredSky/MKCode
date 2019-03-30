@@ -37,4 +37,11 @@
     self.topView.layer.cornerRadius=6.f;
     self.topView.layer.masksToBounds=YES;
 }
+-(IBAction)updateBtnClick:(id)sender
+{
+    if (self.delegate  && [self.delegate respondsToSelector:@selector(headerViewBtnClick)])
+    {
+        [self.delegate headerViewBtnClick];
+    }
+}
 @end
