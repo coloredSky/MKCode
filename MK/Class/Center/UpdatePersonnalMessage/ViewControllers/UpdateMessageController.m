@@ -52,8 +52,6 @@
 {
     if (!_titleView) {
         _titleView = [[TitleScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 40)];
-        self.midView.backgroundColor = [UIColor blueColor];
-        _titleView.backgroundColor = [UIColor redColor];
         _titleView.delegate = self;
         [_titleView reloadDataWithTitleArr:self.titleArr.mutableCopy];
     }
