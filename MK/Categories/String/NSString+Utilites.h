@@ -129,4 +129,14 @@
  @return 结果字符
  */
 +(NSAttributedString *)setStringSpaceWithText:(NSString *)text  andLineSpacValue:(float)lineSpace  andWordSpace:(float)wordSpace withFont:(UIFont*)font;
+
+/**
+ *  将日期格式化为NSString对象
+ *
+ *  @param date    时间对象
+ *  @param formate 时间格式
+ *
+ *  @return 时间字符串
+ */
++ (NSString *)stringFromDate:(NSDate *)date formate:(NSDateFormatter *)formate;
 @end

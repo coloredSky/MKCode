@@ -54,7 +54,7 @@
 -(MKBaseTableView *)contentTable
 {
     if (!_contentTable) {
-        _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight-210) style:UITableViewStyleGrouped];
+        _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight-(K_NaviHeight+190)) style:UITableViewStyleGrouped];
         [self.view addSubview:_contentTable];
         _contentTable.backgroundColor = K_BG_WhiteColor;
         [_contentTable registerNib:[UINib nibWithNibName:@"BasicInfoCell" bundle:nil] forCellReuseIdentifier:@"BasicInfoCell"];
@@ -92,6 +92,9 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
+    if (section ==self.sectionArr.count-1) {
+        return 130;
+    }
     return .1f;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -107,6 +110,19 @@
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
+    if (section ==self.sectionArr.count-1) {
+        UIView * bgView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 130)];
+        bgView.backgroundColor =K_BG_WhiteColor;
+        
+        UIButton * btn =[UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setNormalTitle:@"保存" font:MKFont(13) titleColor:K_Text_DeepGrayColor];
+        btn.backgroundColor =[UIColor yellowColor];
+        btn.frame =CGRectMake(26, 55, KScreenWidth-52, 60);
+        btn.layer.cornerRadius =5.f;
+        btn.layer.masksToBounds =YES;
+        [bgView addSubview:btn];
+        return bgView;
+    }
     return nil;
 }
 

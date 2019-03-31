@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor =K_BG_WhiteColor;
 }
 -(IBAction)btnClick:(UIButton * )sender
 {
@@ -27,7 +28,7 @@
         [LYSDatePickerController customdidSelectDatePicker:^(NSDate *date) {
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"yyyy-MM-dd"];
-//        [sender setTitle:[NSString stringFromDate:date formate:dateFormat] forState:UIControlStateNormal];
+        [sender setTitle:[NSString stringFromDate:date formate:dateFormat] forState:UIControlStateNormal];
         }];
     }
     else

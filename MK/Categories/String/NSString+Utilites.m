@@ -437,4 +437,10 @@
     NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:text attributes:dic];
     return  attributeStr;
 }
++ (NSString *)stringFromDate:(NSDate *)date formate:(NSDateFormatter *)formate {
+    
+    NSString *datestring = [formate stringFromDate:date];
+    
+    return datestring;
+}
 @end
