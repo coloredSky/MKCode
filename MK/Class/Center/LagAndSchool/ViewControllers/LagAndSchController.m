@@ -7,9 +7,10 @@
 //
 
 #import "LagAndSchController.h"
-
+#import "ValuePickerView.h"
 @interface LagAndSchController ()
-
+@property (nonatomic, strong) ValuePickerView *pickerView;
+@property(nonatomic,weak)IBOutlet UITextField * schField;
 @end
 
 @implementation LagAndSchController
@@ -17,8 +18,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor =[UIColor yellowColor];
+    self.view.backgroundColor =K_BG_WhiteColor;
 }
+#pragma mark -lazy
+-(ValuePickerView*)pickerView
+{
+    if (!_pickerView) {
+        _pickerView =[ValuePickerView new];
+        _pickerView .dataSource =@[@"上午班",@"下午班"];
+        _pickerView.pickerTitle =@"选择班级类型";
+    }
+    return _pickerView;
+}
+-(IBAction)btnClick:(UIButton *)sender
+{
+    if (sender.tag ==0) {
+        [self.pickerView show];
+        self.pickerView.valueDidSelect = ^(NSString *value){
+            value =[value substringToIndex:3];
+            [sender setTitle:value forState:UIControlStateNormal];
+        };
+    }
+   else
+   {
+       //保存
+   }
+}
+
 
 /*
 #pragma mark - Navigation
