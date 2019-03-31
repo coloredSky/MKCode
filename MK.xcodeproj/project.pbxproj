@@ -8,6 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		2DF4FA5813FDC7022BE50883 /* libPods-MKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EC22067BFBE5FAFDA1AA9E /* libPods-MKTests.a */; };
+		3035B65A224F2C7D00A1AA98 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3035B649224F2C7D00A1AA98 /* .gitkeep */; };
+		3035B65B224F2C7D00A1AA98 /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B64D224F2C7D00A1AA98 /* RegisterController.xib */; };
+		3035B65C224F2C7D00A1AA98 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B64E224F2C7D00A1AA98 /* RegisterController.m */; };
+		3035B65D224F2C7D00A1AA98 /* LoginActionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B651224F2C7D00A1AA98 /* LoginActionController.xib */; };
+		3035B65E224F2C7D00A1AA98 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B653224F2C7D00A1AA98 /* LoginViewController.m */; };
+		3035B65F224F2C7D00A1AA98 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B655224F2C7D00A1AA98 /* LoginViewController.xib */; };
+		3035B660224F2C7D00A1AA98 /* LoginActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B656224F2C7D00A1AA98 /* LoginActionController.m */; };
+		3035B661224F2C7D00A1AA98 /* LoginDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B657224F2C7D00A1AA98 /* LoginDetailController.m */; };
+		3035B662224F2C7D00A1AA98 /* LoginDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B659224F2C7D00A1AA98 /* LoginDetailController.xib */; };
+		3035B69E224F2D4500A1AA98 /* PropertyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B666224F2D4400A1AA98 /* PropertyController.m */; };
+		3035B69F224F2D4500A1AA98 /* JapanDateVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B66A224F2D4500A1AA98 /* JapanDateVController.m */; };
+		3035B6A0224F2D4500A1AA98 /* ValSchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B66D224F2D4500A1AA98 /* ValSchController.m */; };
+		3035B6A1224F2D4500A1AA98 /* LagAndSchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B672224F2D4500A1AA98 /* LagAndSchController.m */; };
+		3035B6A2224F2D4500A1AA98 /* BookmarkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B676224F2D4500A1AA98 /* BookmarkController.m */; };
+		3035B6A3224F2D4500A1AA98 /* BookmarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B678224F2D4500A1AA98 /* BookmarkCell.m */; };
+		3035B6A4224F2D4500A1AA98 /* BookmarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B67A224F2D4500A1AA98 /* BookmarkCell.xib */; };
+		3035B6A5224F2D4500A1AA98 /* BasicInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B67E224F2D4500A1AA98 /* BasicInfoController.m */; };
+		3035B6A6224F2D4500A1AA98 /* BasicInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B681224F2D4500A1AA98 /* BasicInfoCell.xib */; };
+		3035B6A7224F2D4500A1AA98 /* BasicInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B682224F2D4500A1AA98 /* BasicInfoCell.m */; };
+		3035B6A8224F2D4500A1AA98 /* LagAbilityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B685224F2D4500A1AA98 /* LagAbilityController.m */; };
+		3035B6A9224F2D4500A1AA98 /* FeedBackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B689224F2D4500A1AA98 /* FeedBackController.m */; };
+		3035B6AA224F2D4500A1AA98 /* FeedBackController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B68A224F2D4500A1AA98 /* FeedBackController.xib */; };
+		3035B6AB224F2D4500A1AA98 /* UserTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B68D224F2D4500A1AA98 /* UserTextView.m */; };
+		3035B6AD224F2D4500A1AA98 /* UpdateMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B693224F2D4500A1AA98 /* UpdateMessageController.m */; };
+		3035B6AE224F2D4500A1AA98 /* VersionUpdateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B697224F2D4500A1AA98 /* VersionUpdateController.xib */; };
+		3035B6AF224F2D4500A1AA98 /* VersionUpdateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B698224F2D4500A1AA98 /* VersionUpdateController.m */; };
+		3035B6B0224F2D4500A1AA98 /* SupportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B69B224F2D4500A1AA98 /* SupportController.m */; };
+		3035B6B1224F2D4500A1AA98 /* SupportController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B69D224F2D4500A1AA98 /* SupportController.xib */; };
+		3035B6B322505C4200A1AA98 /* UpdateMessageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B6B222505C4100A1AA98 /* UpdateMessageController.xib */; };
 		3048D7B22232536D00FE63B2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D7B12232536D00FE63B2 /* ViewController.m */; };
 		3048D7B52232536D00FE63B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3048D7B32232536D00FE63B2 /* Main.storyboard */; };
 		3048D7B72232536F00FE63B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3048D7B62232536F00FE63B2 /* Assets.xcassets */; };
@@ -53,12 +82,6 @@
 		30A2DA2F224E00640030120D /* DiscoverNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A2DA1A224E00640030120D /* DiscoverNewsCell.xib */; };
 		30A2DA30224E00640030120D /* CourseCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA1B224E00640030120D /* CourseCategoryCell.m */; };
 		30A2DA32224E00640030120D /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA20224E00640030120D /* NewsViewController.m */; };
-		30A2DA39224E07210030120D /* AskForLeaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA36224E07210030120D /* AskForLeaveViewController.m */; };
-		30A2DA3A224E07210030120D /* AskForLeaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A2DA37224E07210030120D /* AskForLeaveViewController.xib */; };
-		30A2DA44224E07B00030120D /* AppointmentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA43224E07B00030120D /* AppointmentHeaderView.m */; };
-		30A2DA48224E18380030120D /* MeetingMakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA46224E18380030120D /* MeetingMakeViewController.m */; };
-		30A2DA49224E18380030120D /* MeetingMakeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A2DA47224E18380030120D /* MeetingMakeViewController.xib */; };
-		30A2DA4C224E18BD0030120D /* AppointmentTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA4B224E18BD0030120D /* AppointmentTapView.m */; };
 		30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2EF223F7AEB0049C0DE /* MKNavViewController.m */; };
 		30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2F7223F98240049C0DE /* TitleScrollView.m */; };
 		30FBE2FC223F98250049C0DE /* SelectedCustomLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2F8223F98250049C0DE /* SelectedCustomLab.m */; };
@@ -136,6 +159,53 @@
 /* Begin PBXFileReference section */
 		01EC22067BFBE5FAFDA1AA9E /* libPods-MKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		103DD988DFB0D2ECAC8DD95D /* Pods-MKUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3035B649224F2C7D00A1AA98 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		3035B64C224F2C7D00A1AA98 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
+		3035B64D224F2C7D00A1AA98 /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
+		3035B64E224F2C7D00A1AA98 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
+		3035B651224F2C7D00A1AA98 /* LoginActionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginActionController.xib; sourceTree = "<group>"; };
+		3035B652224F2C7D00A1AA98 /* LoginActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginActionController.h; sourceTree = "<group>"; };
+		3035B653224F2C7D00A1AA98 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3035B654224F2C7D00A1AA98 /* LoginDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginDetailController.h; sourceTree = "<group>"; };
+		3035B655224F2C7D00A1AA98 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		3035B656224F2C7D00A1AA98 /* LoginActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginActionController.m; sourceTree = "<group>"; };
+		3035B657224F2C7D00A1AA98 /* LoginDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginDetailController.m; sourceTree = "<group>"; };
+		3035B658224F2C7D00A1AA98 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3035B659224F2C7D00A1AA98 /* LoginDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginDetailController.xib; sourceTree = "<group>"; };
+		3035B665224F2D4400A1AA98 /* PropertyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyController.h; sourceTree = "<group>"; };
+		3035B666224F2D4400A1AA98 /* PropertyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyController.m; sourceTree = "<group>"; };
+		3035B669224F2D4500A1AA98 /* JapanDateVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JapanDateVController.h; sourceTree = "<group>"; };
+		3035B66A224F2D4500A1AA98 /* JapanDateVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JapanDateVController.m; sourceTree = "<group>"; };
+		3035B66D224F2D4500A1AA98 /* ValSchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValSchController.m; sourceTree = "<group>"; };
+		3035B66E224F2D4500A1AA98 /* ValSchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValSchController.h; sourceTree = "<group>"; };
+		3035B671224F2D4500A1AA98 /* LagAndSchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LagAndSchController.h; sourceTree = "<group>"; };
+		3035B672224F2D4500A1AA98 /* LagAndSchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LagAndSchController.m; sourceTree = "<group>"; };
+		3035B675224F2D4500A1AA98 /* BookmarkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkController.h; sourceTree = "<group>"; };
+		3035B676224F2D4500A1AA98 /* BookmarkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkController.m; sourceTree = "<group>"; };
+		3035B678224F2D4500A1AA98 /* BookmarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkCell.m; sourceTree = "<group>"; };
+		3035B679224F2D4500A1AA98 /* BookmarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkCell.h; sourceTree = "<group>"; };
+		3035B67A224F2D4500A1AA98 /* BookmarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookmarkCell.xib; sourceTree = "<group>"; };
+		3035B67D224F2D4500A1AA98 /* BasicInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInfoController.h; sourceTree = "<group>"; };
+		3035B67E224F2D4500A1AA98 /* BasicInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicInfoController.m; sourceTree = "<group>"; };
+		3035B680224F2D4500A1AA98 /* BasicInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInfoCell.h; sourceTree = "<group>"; };
+		3035B681224F2D4500A1AA98 /* BasicInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicInfoCell.xib; sourceTree = "<group>"; };
+		3035B682224F2D4500A1AA98 /* BasicInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicInfoCell.m; sourceTree = "<group>"; };
+		3035B685224F2D4500A1AA98 /* LagAbilityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LagAbilityController.m; sourceTree = "<group>"; };
+		3035B686224F2D4500A1AA98 /* LagAbilityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LagAbilityController.h; sourceTree = "<group>"; };
+		3035B689224F2D4500A1AA98 /* FeedBackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackController.m; sourceTree = "<group>"; };
+		3035B68A224F2D4500A1AA98 /* FeedBackController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedBackController.xib; sourceTree = "<group>"; };
+		3035B68B224F2D4500A1AA98 /* FeedBackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackController.h; sourceTree = "<group>"; };
+		3035B68D224F2D4500A1AA98 /* UserTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTextView.m; sourceTree = "<group>"; };
+		3035B68E224F2D4500A1AA98 /* UserTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTextView.h; sourceTree = "<group>"; };
+		3035B691224F2D4500A1AA98 /* UpdateMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateMessageController.h; sourceTree = "<group>"; };
+		3035B693224F2D4500A1AA98 /* UpdateMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateMessageController.m; sourceTree = "<group>"; };
+		3035B696224F2D4500A1AA98 /* VersionUpdateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionUpdateController.h; sourceTree = "<group>"; };
+		3035B697224F2D4500A1AA98 /* VersionUpdateController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VersionUpdateController.xib; sourceTree = "<group>"; };
+		3035B698224F2D4500A1AA98 /* VersionUpdateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionUpdateController.m; sourceTree = "<group>"; };
+		3035B69B224F2D4500A1AA98 /* SupportController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportController.m; sourceTree = "<group>"; };
+		3035B69C224F2D4500A1AA98 /* SupportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportController.h; sourceTree = "<group>"; };
+		3035B69D224F2D4500A1AA98 /* SupportController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupportController.xib; sourceTree = "<group>"; };
+		3035B6B222505C4100A1AA98 /* UpdateMessageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateMessageController.xib; sourceTree = "<group>"; };
 		3048D7AA2232536D00FE63B2 /* MK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3048D7AD2232536D00FE63B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3048D7AE2232536D00FE63B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -223,16 +293,6 @@
 		30A2DA1B224E00640030120D /* CourseCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCategoryCell.m; sourceTree = "<group>"; };
 		30A2DA20224E00640030120D /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		30A2DA22224E00640030120D /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
-		30A2DA36224E07210030120D /* AskForLeaveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskForLeaveViewController.m; sourceTree = "<group>"; };
-		30A2DA37224E07210030120D /* AskForLeaveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AskForLeaveViewController.xib; sourceTree = "<group>"; };
-		30A2DA38224E07210030120D /* AskForLeaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskForLeaveViewController.h; sourceTree = "<group>"; };
-		30A2DA42224E07B00030120D /* AppointmentHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentHeaderView.h; sourceTree = "<group>"; };
-		30A2DA43224E07B00030120D /* AppointmentHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentHeaderView.m; sourceTree = "<group>"; };
-		30A2DA45224E18380030120D /* MeetingMakeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingMakeViewController.h; sourceTree = "<group>"; };
-		30A2DA46224E18380030120D /* MeetingMakeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingMakeViewController.m; sourceTree = "<group>"; };
-		30A2DA47224E18380030120D /* MeetingMakeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetingMakeViewController.xib; sourceTree = "<group>"; };
-		30A2DA4A224E18BD0030120D /* AppointmentTapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentTapView.h; sourceTree = "<group>"; };
-		30A2DA4B224E18BD0030120D /* AppointmentTapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentTapView.m; sourceTree = "<group>"; };
 		30FBE2EE223F7AEB0049C0DE /* MKNavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKNavViewController.h; sourceTree = "<group>"; };
 		30FBE2EF223F7AEB0049C0DE /* MKNavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKNavViewController.m; sourceTree = "<group>"; };
 		30FBE2F7223F98240049C0DE /* TitleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScrollView.m; sourceTree = "<group>"; };
@@ -371,6 +431,281 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3035B648224F2C7D00A1AA98 /* LoginAndRegister */ = {
+			isa = PBXGroup;
+			children = (
+				3035B649224F2C7D00A1AA98 /* .gitkeep */,
+				3035B64A224F2C7D00A1AA98 /* Register */,
+				3035B64F224F2C7D00A1AA98 /* Login */,
+			);
+			path = LoginAndRegister;
+			sourceTree = "<group>";
+		};
+		3035B64A224F2C7D00A1AA98 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				3035B64B224F2C7D00A1AA98 /* ViewControllers */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		3035B64B224F2C7D00A1AA98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3035B64C224F2C7D00A1AA98 /* RegisterController.h */,
+				3035B64D224F2C7D00A1AA98 /* RegisterController.xib */,
+				3035B64E224F2C7D00A1AA98 /* RegisterController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3035B64F224F2C7D00A1AA98 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3035B650224F2C7D00A1AA98 /* ViewControllers */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3035B650224F2C7D00A1AA98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3035B651224F2C7D00A1AA98 /* LoginActionController.xib */,
+				3035B652224F2C7D00A1AA98 /* LoginActionController.h */,
+				3035B653224F2C7D00A1AA98 /* LoginViewController.m */,
+				3035B654224F2C7D00A1AA98 /* LoginDetailController.h */,
+				3035B655224F2C7D00A1AA98 /* LoginViewController.xib */,
+				3035B656224F2C7D00A1AA98 /* LoginActionController.m */,
+				3035B657224F2C7D00A1AA98 /* LoginDetailController.m */,
+				3035B658224F2C7D00A1AA98 /* LoginViewController.h */,
+				3035B659224F2C7D00A1AA98 /* LoginDetailController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3035B663224F2D4400A1AA98 /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				3035B664224F2D4400A1AA98 /* ViewControllers */,
+			);
+			path = Property;
+			sourceTree = "<group>";
+		};
+		3035B664224F2D4400A1AA98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3035B665224F2D4400A1AA98 /* PropertyController.h */,
+				3035B666224F2D4400A1AA98 /* PropertyController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3035B667224F2D4500A1AA98 /* JapanDate */ = {
+			isa = PBXGroup;
+			children = (
+				3035B668224F2D4500A1AA98 /* ViewControllers */,
+			);
+			path = JapanDate;
+			sourceTree = "<group>";
+		};
+		3035B668224F2D4500A1AA98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3035B669224F2D4500A1AA98 /* JapanDateVController.h */,
+				3035B66A224F2D4500A1AA98 /* JapanDateVController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3035B66B224F2D4500A1AA98 /* VoluntarySchools  */ = {
+			isa = PBXGroup;
+			children = (
+				3035B66C224F2D4500A1AA98 /* ViewControllers */,
+			);
+			path = "VoluntarySchools ";
+			sourceTree = "<group>";
+		};
+		3035B66C224F2D4500A1AA98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3035B66D224F2D4500A1AA98 /* ValSchController.m */,
+				3035B66E224F2D4500A1AA98 /* ValSchController.h */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3035B66F224F2D4500A1AA98 /* LagAndSchool */ = {
+			isa = PBXGroup;
+			children = (
+				3035B670224F2D4500A1AA98 /* ViewControllers */,
+			);
+			path = LagAndSchool;
+			sourceTree = "<group>";
+		};
+		3035B670224F2D4500A1AA98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3035B671224F2D4500A1AA98 /* LagAndSchController.h */,
+				3035B672224F2D4500A1AA98 /* LagAndSchController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3035B673224F2D4500A1AA98 /* BookMark */ = {
+			isa = PBXGroup;
+			children = (
+				3035B674224F2D4500A1AA98 /* ViewControllers */,
+				3035B677224F2D4500A1AA98 /* Views */,
+			);
+			path = BookMark;
+			sourceTree = "<group>";
+		};
+		3035B674224F2D4500A1AA98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3035B675224F2D4500A1AA98 /* BookmarkController.h */,
+				3035B676224F2D4500A1AA98 /* BookmarkController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3035B677224F2D4500A1AA98 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3035B678224F2D4500A1AA98 /* BookmarkCell.m */,
+				3035B679224F2D4500A1AA98 /* BookmarkCell.h */,
+				3035B67A224F2D4500A1AA98 /* BookmarkCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3035B67B224F2D4500A1AA98 /* BasicInfo */ = {
+			isa = PBXGroup;
+			children = (
+				3035B67C224F2D4500A1AA98 /* ViewControllers */,
+				3035B67F224F2D4500A1AA98 /* Views */,
+			);
+			path = BasicInfo;
+			sourceTree = "<group>";
+		};
+		3035B67C224F2D4500A1AA98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3035B67D224F2D4500A1AA98 /* BasicInfoController.h */,
+				3035B67E224F2D4500A1AA98 /* BasicInfoController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3035B67F224F2D4500A1AA98 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3035B680224F2D4500A1AA98 /* BasicInfoCell.h */,
+				3035B681224F2D4500A1AA98 /* BasicInfoCell.xib */,
+				3035B682224F2D4500A1AA98 /* BasicInfoCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3035B683224F2D4500A1AA98 /* LanguageAbility  */ = {
+			isa = PBXGroup;
+			children = (
+				3035B684224F2D4500A1AA98 /* ViewControllers */,
+			);
+			path = "LanguageAbility ";
+			sourceTree = "<group>";
+		};
+		3035B684224F2D4500A1AA98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3035B685224F2D4500A1AA98 /* LagAbilityController.m */,
+				3035B686224F2D4500A1AA98 /* LagAbilityController.h */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3035B687224F2D4500A1AA98 /* FeedBack */ = {
+			isa = PBXGroup;
+			children = (
+				3035B688224F2D4500A1AA98 /* ViewControllers */,
+				3035B68C224F2D4500A1AA98 /* Views */,
+			);
+			path = FeedBack;
+			sourceTree = "<group>";
+		};
+		3035B688224F2D4500A1AA98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3035B689224F2D4500A1AA98 /* FeedBackController.m */,
+				3035B68A224F2D4500A1AA98 /* FeedBackController.xib */,
+				3035B68B224F2D4500A1AA98 /* FeedBackController.h */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3035B68C224F2D4500A1AA98 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3035B68D224F2D4500A1AA98 /* UserTextView.m */,
+				3035B68E224F2D4500A1AA98 /* UserTextView.h */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3035B68F224F2D4500A1AA98 /* UpdatePersonnalMessage */ = {
+			isa = PBXGroup;
+			children = (
+				3035B690224F2D4500A1AA98 /* ViewControllers */,
+			);
+			path = UpdatePersonnalMessage;
+			sourceTree = "<group>";
+		};
+		3035B690224F2D4500A1AA98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3035B691224F2D4500A1AA98 /* UpdateMessageController.h */,
+				3035B693224F2D4500A1AA98 /* UpdateMessageController.m */,
+				3035B6B222505C4100A1AA98 /* UpdateMessageController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3035B694224F2D4500A1AA98 /* VersionUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				3035B695224F2D4500A1AA98 /* ViewControllers */,
+			);
+			path = VersionUpdate;
+			sourceTree = "<group>";
+		};
+		3035B695224F2D4500A1AA98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3035B696224F2D4500A1AA98 /* VersionUpdateController.h */,
+				3035B698224F2D4500A1AA98 /* VersionUpdateController.m */,
+				3035B697224F2D4500A1AA98 /* VersionUpdateController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3035B699224F2D4500A1AA98 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				3035B69A224F2D4500A1AA98 /* ViewControllers */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		3035B69A224F2D4500A1AA98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3035B69B224F2D4500A1AA98 /* SupportController.m */,
+				3035B69C224F2D4500A1AA98 /* SupportController.h */,
+				3035B69D224F2D4500A1AA98 /* SupportController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		3048D7A12232536D00FE63B2 = {
 			isa = PBXGroup;
 			children = (
@@ -398,7 +733,7 @@
 			children = (
 				3048D7EB223255E400FE63B2 /* AppDelegate */,
 				3048D7EA223255E000FE63B2 /* Class */,
-				3048D7E9223255DB00FE63B2 /* LoginAndRegister */,
+				3035B648224F2C7D00A1AA98 /* LoginAndRegister */,
 				3048D7E8223255D100FE63B2 /* Basis */,
 				3048D7E7223255CD00FE63B2 /* Macro */,
 				3048D7E6223255C600FE63B2 /* Config */,
@@ -525,13 +860,6 @@
 			path = Basis;
 			sourceTree = "<group>";
 		};
-		3048D7E9223255DB00FE63B2 /* LoginAndRegister */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LoginAndRegister;
-			sourceTree = "<group>";
-		};
 		3048D7EA223255E000FE63B2 /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,9 +884,7 @@
 		3048D7F522325AD300FE63B2 /* Appointment */ = {
 			isa = PBXGroup;
 			children = (
-				30A2D9F1224DFB790030120D /* AskForLeave */,
 				30A2D9EF224DFB790030120D /* ChangeClass */,
-				30A2D9F3224DFB790030120D /* Meeting */,
 				30FBE3A0224B58A50049C0DE /* Message */,
 				3048D80722325E2600FE63B2 /* MyAppointment */,
 			);
@@ -749,6 +1075,17 @@
 		3048D81222325E8600FE63B2 /* Center */ = {
 			isa = PBXGroup;
 			children = (
+				3035B67B224F2D4500A1AA98 /* BasicInfo */,
+				3035B673224F2D4500A1AA98 /* BookMark */,
+				3035B687224F2D4500A1AA98 /* FeedBack */,
+				3035B667224F2D4500A1AA98 /* JapanDate */,
+				3035B66F224F2D4500A1AA98 /* LagAndSchool */,
+				3035B683224F2D4500A1AA98 /* LanguageAbility  */,
+				3035B663224F2D4400A1AA98 /* Property */,
+				3035B699224F2D4500A1AA98 /* Support */,
+				3035B68F224F2D4500A1AA98 /* UpdatePersonnalMessage */,
+				3035B694224F2D4500A1AA98 /* VersionUpdate */,
+				3035B66B224F2D4500A1AA98 /* VoluntarySchools  */,
 				30FBE3462241E83C0049C0DE /* MessageNotice */,
 				30FBE34B2241E83C0049C0DE /* Policy */,
 				30FBE3502241E83C0049C0DE /* SetPassword */,
@@ -899,45 +1236,6 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		30A2D9F1224DFB790030120D /* AskForLeave */ = {
-			isa = PBXGroup;
-			children = (
-				30A2D9F2224DFB790030120D /* ViewController */,
-			);
-			name = AskForLeave;
-			path = ../../../../AskForLeave;
-			sourceTree = "<group>";
-		};
-		30A2D9F2224DFB790030120D /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				30A2DA38224E07210030120D /* AskForLeaveViewController.h */,
-				30A2DA36224E07210030120D /* AskForLeaveViewController.m */,
-				30A2DA37224E07210030120D /* AskForLeaveViewController.xib */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		30A2D9F3224DFB790030120D /* Meeting */ = {
-			isa = PBXGroup;
-			children = (
-				30A2D9F4224DFB790030120D /* ViewController */,
-				30A2DA41224E07960030120D /* Views */,
-			);
-			name = Meeting;
-			path = ../../../../Meeting;
-			sourceTree = "<group>";
-		};
-		30A2D9F4224DFB790030120D /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				30A2DA45224E18380030120D /* MeetingMakeViewController.h */,
-				30A2DA46224E18380030120D /* MeetingMakeViewController.m */,
-				30A2DA47224E18380030120D /* MeetingMakeViewController.xib */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		30A2DA09224E00640030120D /* DiscoverPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1025,17 +1323,6 @@
 		30A2DA25224E00640030120D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		30A2DA41224E07960030120D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				30A2DA42224E07B00030120D /* AppointmentHeaderView.h */,
-				30A2DA43224E07B00030120D /* AppointmentHeaderView.m */,
-				30A2DA4A224E18BD0030120D /* AppointmentTapView.h */,
-				30A2DA4B224E18BD0030120D /* AppointmentTapView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1427,30 +1714,39 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30A2DA3A224E07210030120D /* AskForLeaveViewController.xib in Resources */,
 				3048D8742239F77900FE63B2 /* HomePageCell.xib in Resources */,
 				712170CC223F3A1C00BA1905 /* MyCouseHeaderView.xib in Resources */,
 				30FBE3B4224B5CF60049C0DE /* MessageCell.xib in Resources */,
 				712170CA223F327700BA1905 /* MyCouseCell.xib in Resources */,
+				3035B6A4224F2D4500A1AA98 /* BookmarkCell.xib in Resources */,
 				3048D86722364F5F00FE63B2 /* MyCenterViewController.xib in Resources */,
 				3048D86222364F4E00FE63B2 /* AppointmentViewController.xib in Resources */,
 				30FBE39022488BFE0049C0DE /* CourseTeacherCell.xib in Resources */,
+				3035B65F224F2C7D00A1AA98 /* LoginViewController.xib in Resources */,
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
+				3035B6B322505C4200A1AA98 /* UpdateMessageController.xib in Resources */,
 				30A2DA08224DFE000030120D /* ChangeClassViewController.xib in Resources */,
 				30FBE3142240C2020049C0DE /* HomeRecommenCell.xib in Resources */,
 				30FBE39F224B2F890049C0DE /* CourseOfflineTitleCell.xib in Resources */,
+				3035B6A6224F2D4500A1AA98 /* BasicInfoCell.xib in Resources */,
 				712170D1223F43CC00BA1905 /* MyCenterTopCell.xib in Resources */,
+				3035B6AA224F2D4500A1AA98 /* FeedBackController.xib in Resources */,
 				712170D6223F465700BA1905 /* MyCenterBottomoCell.xib in Resources */,
 				30FBE31C2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib in Resources */,
 				712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */,
 				30FBE38822488AF30049C0DE /* CourseOnlineTitleCell.xib in Resources */,
 				30FBE3582241E83C0049C0DE /* PolicyViewController.xib in Resources */,
 				30FBE39522488C280049C0DE /* CourseOnlineListCell.xib in Resources */,
+				3035B65D224F2C7D00A1AA98 /* LoginActionController.xib in Resources */,
 				30FBE39A224B26730049C0DE /* CourseOfflineListCell.xib in Resources */,
-				30A2DA49224E18380030120D /* MeetingMakeViewController.xib in Resources */,
 				30FBE36A224213200049C0DE /* AppointmentCell.xib in Resources */,
 				30FBE372224238090049C0DE /* AppointmentCollectionViewCell.xib in Resources */,
+				3035B662224F2C7D00A1AA98 /* LoginDetailController.xib in Resources */,
 				3048D7BA2232536F00FE63B2 /* LaunchScreen.storyboard in Resources */,
+				3035B65B224F2C7D00A1AA98 /* RegisterController.xib in Resources */,
+				3035B65A224F2C7D00A1AA98 /* .gitkeep in Resources */,
+				3035B6B1224F2D4500A1AA98 /* SupportController.xib in Resources */,
+				3035B6AE224F2D4500A1AA98 /* VersionUpdateController.xib in Resources */,
 				3048D7B72232536F00FE63B2 /* Assets.xcassets in Resources */,
 				3048D86C22364F6F00FE63B2 /* MyCouseViewController.xib in Resources */,
 				30A2DA2F224E00640030120D /* DiscoverNewsCell.xib in Resources */,
@@ -1588,17 +1884,22 @@
 				3048D847223263AF00FE63B2 /* NSString+Utilites.m in Sources */,
 				30FBE37B2244C5700049C0DE /* CourseDetailTipView.m in Sources */,
 				712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */,
-				30A2DA4C224E18BD0030120D /* AppointmentTapView.m in Sources */,
+				3035B6AB224F2D4500A1AA98 /* UserTextView.m in Sources */,
+				3035B6B0224F2D4500A1AA98 /* SupportController.m in Sources */,
+				3035B6A3224F2D4500A1AA98 /* BookmarkCell.m in Sources */,
 				3048D7EC2232565500FE63B2 /* AppDelegate.m in Sources */,
 				30FBE3132240C2020049C0DE /* HomeRecommenCell.m in Sources */,
 				30FBE375224398620049C0DE /* AppointmentPopView.m in Sources */,
+				3035B660224F2C7D00A1AA98 /* LoginActionController.m in Sources */,
 				30FBE3BA224B771B0049C0DE /* MKMessageModel.m in Sources */,
+				3035B6A0224F2D4500A1AA98 /* ValSchController.m in Sources */,
 				30FBE399224B26730049C0DE /* CourseOfflineListCell.m in Sources */,
 				3048D82322325FAD00FE63B2 /* MKBaseTableView.m in Sources */,
-				30A2DA48224E18380030120D /* MeetingMakeViewController.m in Sources */,
 				30FBE31B2240E6B50049C0DE /* HomeCourseCollectionViewCell.m in Sources */,
 				30FBE3782244C50C0049C0DE /* CourseDetailScrollView.m in Sources */,
+				3035B6A8224F2D4500A1AA98 /* LagAbilityController.m in Sources */,
 				3048D86622364F5F00FE63B2 /* MyCenterViewController.m in Sources */,
+				3035B6A2224F2D4500A1AA98 /* BookmarkController.m in Sources */,
 				30FBE3652242115F0049C0DE /* AppointmentChildViewController.m in Sources */,
 				3048D892223A2E9D00FE63B2 /* XHRefreshHeader.m in Sources */,
 				3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */,
@@ -1606,6 +1907,9 @@
 				3048D8732239F77900FE63B2 /* HomePageCell.m in Sources */,
 				30FBE3172240E50A0049C0DE /* HomeCourseCollectionView.m in Sources */,
 				3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */,
+				3035B65E224F2C7D00A1AA98 /* LoginViewController.m in Sources */,
+				3035B69E224F2D4500A1AA98 /* PropertyController.m in Sources */,
+				3035B65C224F2C7D00A1AA98 /* RegisterController.m in Sources */,
 				3048D843223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				30FBE2FC223F98250049C0DE /* SelectedCustomLab.m in Sources */,
 				30FBE3592241E83C0049C0DE /* SetPasswordController.m in Sources */,
@@ -1615,32 +1919,38 @@
 				30A2DA2E224E00640030120D /* DiscoverCourseCategoryView.m in Sources */,
 				3048D85722364F2700FE63B2 /* HomePageViewController.m in Sources */,
 				30FBE30C224092780049C0DE /* HomeContentScrollView.m in Sources */,
-				30A2DA39224E07210030120D /* AskForLeaveViewController.m in Sources */,
 				3048D86122364F4E00FE63B2 /* AppointmentViewController.m in Sources */,
 				3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */,
 				30A2DA30224E00640030120D /* CourseCategoryCell.m in Sources */,
 				3048D848223263AF00FE63B2 /* NSString+SizeOfString.m in Sources */,
 				3048D7B22232536D00FE63B2 /* ViewController.m in Sources */,
 				30A2DA2B224E00640030120D /* DiscoverNewsCell.m in Sources */,
+				3035B6A9224F2D4500A1AA98 /* FeedBackController.m in Sources */,
 				712170C9223F327700BA1905 /* MyCouseCell.m in Sources */,
+				3035B661224F2C7D00A1AA98 /* LoginDetailController.m in Sources */,
+				3035B6A5224F2D4500A1AA98 /* BasicInfoController.m in Sources */,
 				30FBE3B3224B5CF60049C0DE /* MessageCell.m in Sources */,
 				30FBE39422488C280049C0DE /* CourseOnlineListCell.m in Sources */,
 				3048D841223263AF00FE63B2 /* UIView+Layout.m in Sources */,
 				3048D7BD2232536F00FE63B2 /* main.m in Sources */,
 				3048D81D22325F7F00FE63B2 /* MKNavigationController.m in Sources */,
 				30A2DA28224E00640030120D /* DiscoverPageViewController.m in Sources */,
+				3035B6A7224F2D4500A1AA98 /* BasicInfoCell.m in Sources */,
+				3035B6AD224F2D4500A1AA98 /* UpdateMessageController.m in Sources */,
 				3048D82C2232633400FE63B2 /* BMPopView.m in Sources */,
 				3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */,
 				712170D0223F43CC00BA1905 /* MyCenterTopCell.m in Sources */,
 				30FBE309223FA3E00049C0DE /* HomeRecommendViewController.m in Sources */,
+				3035B6A1224F2D4500A1AA98 /* LagAndSchController.m in Sources */,
+				3035B6AF224F2D4500A1AA98 /* VersionUpdateController.m in Sources */,
 				30FBE38F22488BFE0049C0DE /* CourseTeacherCell.m in Sources */,
 				30FBE38722488AF30049C0DE /* CourseOnlineTitleCell.m in Sources */,
 				30FBE3552241E83C0049C0DE /* MessageNoticeController.m in Sources */,
+				3035B69F224F2D4500A1AA98 /* JapanDateVController.m in Sources */,
 				3048D844223263AF00FE63B2 /* UILabel+layout.m in Sources */,
 				30FBE3572241E83C0049C0DE /* PolicyViewController.m in Sources */,
 				30A2DA32224E00640030120D /* NewsViewController.m in Sources */,
 				30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */,
-				30A2DA44224E07B00030120D /* AppointmentHeaderView.m in Sources */,
 				30FBE39E224B2F890049C0DE /* CourseOfflineTitleCell.m in Sources */,
 				30FBE3622241F81D0049C0DE /* CourseDetailViewController.m in Sources */,
 				712729362241EB9B006772BF /* MessageModel.m in Sources */,

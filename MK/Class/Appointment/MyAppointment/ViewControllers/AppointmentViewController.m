@@ -9,9 +9,9 @@
 #import "AppointmentViewController.h"
 #import "AppointmentChildViewController.h"
 #import "MessageViewController.h"
-#import "AskForLeaveViewController.h"
+//#import "AskForLeaveViewController.h"
 #import "ChangeClassViewController.h"
-#import "MeetingMakeViewController.h"
+//#import "MeetingMakeViewController.h"
 //View
 #import "TitleScrollView.h"
 #import "HomeContentScrollView.h"
@@ -131,12 +131,12 @@
         //cancle
     }else if (appointmentType == AppointmentOperationTypeMeeting){
         //预约相谈
-        MeetingMakeViewController *meetingVC = [MeetingMakeViewController new];
-        [self.navigationController pushViewController:meetingVC animated:YES];
+//        MeetingMakeViewController *meetingVC = [MeetingMakeViewController new];
+//        [self.navigationController pushViewController:meetingVC animated:YES];
     }else if (appointmentType == AppointmentOperationTypeAskForLeave){
         //预约请假
-        AskForLeaveViewController *askForLeaveVC = [AskForLeaveViewController new];
-        [self.navigationController pushViewController:askForLeaveVC animated:YES];
+//        AskForLeaveViewController *askForLeaveVC = [AskForLeaveViewController new];
+//        [self.navigationController pushViewController:askForLeaveVC animated:YES];
     }else if (appointmentType == AppointmentOperationTypeChangeClass){
         //预约换班
         ChangeClassViewController *classChangeVC = [ChangeClassViewController new];
