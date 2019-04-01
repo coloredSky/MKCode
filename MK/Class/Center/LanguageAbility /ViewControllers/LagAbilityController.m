@@ -9,7 +9,9 @@
 #import "LagAbilityController.h"
 
 @interface LagAbilityController ()
-
+@property(nonatomic,weak)IBOutlet UITextField * TOEIC;
+@property(nonatomic,weak)IBOutlet UITextField * TOEFL;
+@property(nonatomic,weak)IBOutlet UITextField * JapField;
 @end
 
 @implementation LagAbilityController
@@ -17,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor =K_BG_WhiteColor;
 }
 
 /*

@@ -10,8 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
-@interface JapanDateVController : MKNavViewController
+@interface JapanDateVController : MKBaseViewController
 
 @end
 

@@ -7,9 +7,9 @@
 //
 
 #import "JapanDateVController.h"
-
-@interface JapanDateVController ()
-
+#import "LYSDatePickerController.h"//时间控件
+@interface JapanDateVController ()<LYSDatePickerSelectDelegate>
+@property(nonatomic,weak)IBOutlet UIButton  * timeBtn;
 @end
 
 @implementation JapanDateVController
@@ -17,8 +17,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor =K_BG_WhiteColor;
 }
-
+-(IBAction)btnClick:(UIButton * )sender
+{
+    if (sender.tag ==0)
+    {
+        [LYSDatePickerController alertDatePickerInWindowRootVCWithType:(LYSDatePickerTypeDay) selectDate:[NSDate date]];
+        [LYSDatePickerController customPickerDelegate:self];
+        [LYSDatePickerController customdidSelectDatePicker:^(NSDate *date) {
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        [sender setTitle:[NSString stringFromDate:date formate:dateFormat] forState:UIControlStateNormal];
+        }];
+    }
+    else
+    {
+        //保存
+    }
+}
 /*
 #pragma mark - Navigation
 
