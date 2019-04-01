@@ -14,8 +14,7 @@
 @property (nonatomic, strong) UIButton *clickBtn;
 
 @property (nonatomic, assign) BOOL isSelected;
-@property (nonatomic, strong) UIColor *normalColor;
-@property (nonatomic, strong) UIColor *selectedColor;
+
 @end
 @implementation AppointmentTapView
 
@@ -39,7 +38,7 @@
     [self addSubview:_shadowView];
     self.shadowView.backgroundColor = [UIColor clearColor];
     self.shadowView.layer.shadowColor = K_Text_DeepGrayColor.CGColor;
-    self.shadowView.layer.shadowRadius = 3.0f;
+    self.shadowView.layer.shadowRadius = KScaleHeight(3);
     self.shadowView.layer.shadowOffset = CGSizeMake(1, 1);
     self.shadowView.layer.shadowOpacity = .5;
     
@@ -47,7 +46,7 @@
     [self.shadowView addSubview:_whiteView];
     _whiteView.backgroundColor = K_BG_blackColor;
     _whiteView.layer.masksToBounds = YES;
-    _whiteView.layer.cornerRadius = 4;
+    _whiteView.layer.cornerRadius = KScaleHeight(6);
     
     _contentLab = [UILabel new];
     [self.whiteView addSubview:_contentLab];
@@ -55,6 +54,7 @@
     
     _clickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.whiteView addSubview:_clickBtn];
+    [_clickBtn addTarget:self action:@selector(clickBtnTarget:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)layoutSubviews
@@ -66,5 +66,17 @@
     self.clickBtn.frame = CGRectMake(0, 0, self.whiteView.width, self.whiteView.height);
 }
 
+-(void)setTextString:(NSString *)textString
+{
+    self.contentLab.text = textString;
+}
+-(void)setNormalColor:(UIColor *)normalColor
+{
+    self.contentLab.textColor = normalColor;
+}
 
+-(void)clickBtnTarget:(UIButton *)sender
+{
+    
+}
 @end

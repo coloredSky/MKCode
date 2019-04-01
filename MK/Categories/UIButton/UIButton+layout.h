@@ -22,4 +22,5 @@
 
 -(void)setSelectedBackgroundImage:(UIImage *)image andTitle:(NSString *)title andFont:(UIFont *)font textColor:(UIColor *)textColor;
 
++(UIButton *)getBottomBtnWithBtnX:(CGFloat )btnX btnY:(CGFloat )btnY btnTitle:(NSString *)title;
 @end

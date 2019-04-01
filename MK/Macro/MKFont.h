@@ -39,7 +39,7 @@
 #define K_Font_Text_Min_MinLittle  MKFont(8)
 
 //底部按钮字体大小
-#define K_Font_Btn_Title  MKFont(16)
+#define K_Font_BottomBtn_Title  MKBoldFont(16)
 
 //其他字体大小
 //发现栏位下的星期几

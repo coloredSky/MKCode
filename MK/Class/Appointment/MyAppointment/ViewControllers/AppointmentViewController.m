@@ -9,9 +9,9 @@
 #import "AppointmentViewController.h"
 #import "AppointmentChildViewController.h"
 #import "MessageViewController.h"
-//#import "AskForLeaveViewController.h"
+#import "AskForLeaveViewController.h"
 #import "ChangeClassViewController.h"
-//#import "MeetingMakeViewController.h"
+#import "MKMeetingViewController.h"
 //View
 #import "TitleScrollView.h"
 #import "HomeContentScrollView.h"
@@ -20,7 +20,7 @@
 
 @interface AppointmentViewController ()<TitleScrollViewDelegate,HomeContentScrollViewDelegate,BMPopViewDelegate,AppointmentPopViewDelegate>
 @property (nonatomic, strong) NSArray *titleArr;//标题数组
-@property (nonatomic, strong) NSArray *childVCs;//视图数组
+@property (nonatomic, strong) NSMutableArray *childVCs;//视图数组
 @property (nonatomic, strong) UIView *topView;//顶部View
 @property (nonatomic, strong) TitleScrollView *titleView;//标题scroll
 @property (nonatomic, strong) HomeContentScrollView *contentScroll;//内容scroll
@@ -33,7 +33,11 @@
 {
     if (self = [super init]) {
         self.titleArr = @[@"换班",@"请假",@"预约"];
-        self.childVCs = @[[AppointmentChildViewController new],[AppointmentChildViewController new],[AppointmentChildViewController new]];
+        for (int i=0; i<3; i++) {
+            AppointmentChildViewController *childVC = [AppointmentChildViewController new];
+            childVC.dispayType = i;
+            [self.childVCs addObject:childVC];
+        }
     }
     return self;
 }
@@ -49,7 +53,7 @@
     //navView
     [self laoutTopView];
     //加载子视图
-    [self.contentScroll AddChildViewWithTitleArr:self.childVCs.mutableCopy andRootViewController:self];
+    [self.contentScroll AddChildViewWithTitleArr:self.childVCs andRootViewController:self];
     [self.appointmentBtn addTarget:self action:@selector(appointmentBtnTarget:) forControlEvents:UIControlEventTouchUpInside];
 }
 -(void)laoutTopView
@@ -94,6 +98,13 @@
     }
     return _appointmentBtn;
 }
+-(NSMutableArray *)childVCs
+{
+    if (!_childVCs) {
+        _childVCs = [NSMutableArray arrayWithCapacity:3];
+    }
+    return _childVCs;
+}
 
 #pragma mark --  EVENT
 #pragma mark --  titleScroll-Delegate
@@ -131,12 +142,12 @@
         //cancle
     }else if (appointmentType == AppointmentOperationTypeMeeting){
         //预约相谈
-//        MeetingMakeViewController *meetingVC = [MeetingMakeViewController new];
-//        [self.navigationController pushViewController:meetingVC animated:YES];
+        MKMeetingViewController *meetingVC = [MKMeetingViewController new];
+        [self.navigationController pushViewController:meetingVC animated:YES];
     }else if (appointmentType == AppointmentOperationTypeAskForLeave){
         //预约请假
-//        AskForLeaveViewController *askForLeaveVC = [AskForLeaveViewController new];
-//        [self.navigationController pushViewController:askForLeaveVC animated:YES];
+        AskForLeaveViewController *askForLeaveVC = [AskForLeaveViewController new];
+        [self.navigationController pushViewController:askForLeaveVC animated:YES];
     }else if (appointmentType == AppointmentOperationTypeChangeClass){
         //预约换班
         ChangeClassViewController *classChangeVC = [ChangeClassViewController new];

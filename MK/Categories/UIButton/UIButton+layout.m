@@ -79,4 +79,15 @@
     [self setTitleColor:textColor forState:UIControlStateSelected];
 }
 
++(UIButton *)getBottomBtnWithBtnX:(CGFloat )btnX btnY:(CGFloat )btnY btnTitle:(NSString *)title
+{
+    UIButton *sender = [UIButton buttonWithType:UIButtonTypeCustom];
+    sender.layer.masksToBounds = YES;
+    sender.layer.cornerRadius = KScaleWidth(8);
+    sender.frame = CGRectMake(btnX, btnY, K_Btn_BottomBtnWidth, K_Btn_BottomBtnHeight);
+    [sender setNormalTitle:title font:K_Font_BottomBtn_Title titleColor:K_Btn_BottomBtn_TextColor];
+    sender.backgroundColor = K_Btn_BottomBtn_BGColor;
+    
+    return sender;
+}
 @end

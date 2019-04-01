@@ -15,7 +15,8 @@
 @interface ChangeClassViewController ()
 @property (nonatomic, strong) UIScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
-
+@property (nonatomic, strong) UITextView *reasonTextView;
+@property (nonatomic, strong) NSArray *tipStringArr;
 @end
 
 @implementation ChangeClassViewController
@@ -23,18 +24,46 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_YellowColor;
+    
+    [self creatSubVuew];
+}
+-(void)creatSubVuew
+{
+    [self.view addSubview:self.contentScroll];
+    [self.contentScroll addSubview:self.headerView];
+    [self.contentScroll addSubview:self.reasonTextView];
 }
 
+#pragma mark --  lazy
+-(NSArray *)tipStringArr
+{
+    if (!_tipStringArr) {
+        _tipStringArr = @[@"选择原有班级",@"选择希望更改的班级"];
+    }
+    return _tipStringArr;
+}
 -(UIScrollView *)contentScroll
 {
     if (!_contentScroll) {
-        _contentScroll = [UIScrollView new];
-        [self.view addSubview:_contentScroll];
+        _contentScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
         _contentScroll.backgroundColor = K_BG_YellowColor;
-    
-        for (int i=0; i < 5; i++) {
-            AppointmentTapView *tapView = [[AppointmentTapView alloc]initWithFrame:CGRectMake(0, self.headerView.bottomY+KScaleHeight(35)+(KScaleHeight(33+15)*i), self.contentScroll.width, KScaleHeight(33))];
+        //
+        UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, self.reasonTextView.bottomY+KScaleHeight(20), 200, KScaleHeight(20))];
+        [self.contentScroll addSubview:titleLab];
+        [titleLab setFont:K_Font_Text_Normal textColor:K_Text_grayColor withBackGroundColor:nil];
+        titleLab.text = @"选择班级";
+        
+        for (int i=0; i < self.tipStringArr.count; i++) {
+            AppointmentTapView *tapView = [AppointmentTapView new];
+            CGFloat tapViewY = tapViewY = titleLab.bottomY+ KScaleHeight(13)+(KScaleHeight(33+15)*i);
+            tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
+            tapView.textString = self.tipStringArr[i];
             [self.contentScroll addSubview:tapView];
+            //底部按钮
+            if (i == self.tipStringArr.count-1) {
+                UIButton *submitBtn = [UIButton getBottomBtnWithBtnX:tapView.leftX btnY:tapView.bottomY+KScaleHeight(130) btnTitle:@"发送"];
+                [self.contentScroll addSubview:submitBtn];
+            }
         }
     }
     return  _contentScroll;
@@ -42,16 +71,23 @@
 -(AppointmentHeaderView *)headerView
 {
     if (!_headerView) {
-        _headerView = [AppointmentHeaderView new];
-        _headerView.titleString = @"新建预约";
-        [self.contentScroll addSubview:_headerView];
+        _headerView = [[AppointmentHeaderView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight)];;
+        _headerView.titleString = @"申请换班";
     }
     return _headerView;
 }
--(void)viewDidLayoutSubviews
+-(UITextView *)reasonTextView
 {
-    [super viewDidLayoutSubviews];
-    self.contentScroll.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
-    self.headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight);
+    if (!_reasonTextView) {
+        _reasonTextView = [[UITextView alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, self.headerView.bottomY+KScaleHeight(30), KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(122))];
+        _reasonTextView.backgroundColor = K_BG_blackColor;
+        _reasonTextView.layer.masksToBounds = YES;
+        _reasonTextView.layer.cornerRadius = KScaleWidth(8);
+        _reasonTextView.textColor = K_Text_WhiteColor;
+        _reasonTextView.text = @"理由";
+    }
+    return _reasonTextView;
 }
+
+
 @end

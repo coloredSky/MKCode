@@ -7,10 +7,12 @@
 //
 
 #import "AppointmentChildViewController.h"
+#import "MeetingQueryViewController.h"
+#import "MeetingEndQueryViewController.h"
 //View
 #import "AppointmentCell.h"
 #import "AppointmentCollectionView.h"
-@interface AppointmentChildViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface AppointmentChildViewController ()<UITableViewDelegate,UITableViewDataSource,AppointmentCollectionViewDelegate>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @end
 
@@ -117,10 +119,29 @@
 {
     if (section == 0) {
         AppointmentCollectionView *fotterView = [[AppointmentCollectionView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(145))];
+        fotterView.delegate = self;
         [fotterView appointmentCollectionViewReloadData];
         return fotterView;
     }
     return nil;
+}
+#pragma mark --  collectionItem-didSelected
+-(void)appointmentCollectionViewItemDidSelectedWithIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.dispayType == AppointmentDisplayTypeChangeClass) {
+        
+    }else if (self.dispayType == AppointmentDisplayTypeAskForLeave){
+        
+    }else if (self.dispayType == AppointmentDisplayTypeMeeting){
+        NSInteger type = arc4random()%2;
+        if (type == 0) {
+            MeetingQueryViewController *meetingQuaryVC = [MeetingQueryViewController new];
+            [self.navigationController pushViewController:meetingQuaryVC animated:YES];
+        }else{
+            MeetingEndQueryViewController *meetingQuaryVC = [MeetingEndQueryViewController new];
+            [self.navigationController pushViewController:meetingQuaryVC animated:YES];
+        }
+    }
 }
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

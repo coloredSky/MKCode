@@ -53,6 +53,9 @@ MAX([UIScreen mainScreen].bounds.size.height,                                \
 // 高度适配
 #define KScaleHeight(height) ((height)*K_iPhone6BreadthHeight)
 
+//底部按钮高度
+#define K_Btn_BottomBtnWidth KScreenWidth-K_Padding_Home_LeftPadding*2
+#define K_Btn_BottomBtnHeight KScaleWidth(60)
 
 //Iphone Type
 #define K_IS_IPHONE_4     ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(320, 480), [[UIScreen mainScreen] currentMode].size) : NO)
