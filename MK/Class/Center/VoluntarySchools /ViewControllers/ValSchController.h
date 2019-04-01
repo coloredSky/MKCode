@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ValSchController : MKBaseViewController
+@interface ValSchController : MKNavViewController
 
 @end
 

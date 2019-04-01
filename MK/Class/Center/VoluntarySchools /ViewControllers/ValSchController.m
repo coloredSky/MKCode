@@ -116,7 +116,7 @@
         
         UIButton * btn =[UIButton buttonWithType:UIButtonTypeCustom];
         [btn setNormalTitle:@"保存" font:MKFont(13) titleColor:K_Text_DeepGrayColor];
-        btn.backgroundColor =[UIColor yellowColor];
+        btn.backgroundColor =UIColorFromRGB_0x(0xfdf303);
         btn.frame =CGRectMake(26, 55, KScreenWidth-52, 60);
         btn.layer.cornerRadius =5.f;
         btn.layer.masksToBounds =YES;

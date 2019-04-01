@@ -589,8 +589,8 @@
 		3035B67B224F2D4500A1AA98 /* BasicInfo */ = {
 			isa = PBXGroup;
 			children = (
-				3035B67C224F2D4500A1AA98 /* ViewControllers */,
 				3035B67F224F2D4500A1AA98 /* Views */,
+				3035B67C224F2D4500A1AA98 /* ViewControllers */,
 			);
 			path = BasicInfo;
 			sourceTree = "<group>";

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LagAndSchController : MKBaseViewController
+@interface LagAndSchController : MKNavViewController
 
 @end
 
