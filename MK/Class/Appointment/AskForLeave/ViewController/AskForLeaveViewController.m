@@ -1,25 +1,24 @@
 //
-//  ChangeClassViewController.m
+//  AskForLeaveViewController.m
 //  MK
 //
-//  Created by 周洋 on 2019/3/29.
+//  Created by 周洋 on 2019/3/31.
 //  Copyright © 2019年 周洋. All rights reserved.
 //
 
-#import "ChangeClassViewController.h"
+#import "AskForLeaveViewController.h"
 //View
 #import "AppointmentHeaderView.h"
 #import "AppointmentTapView.h"
 
-
-@interface ChangeClassViewController ()
+@interface AskForLeaveViewController ()
 @property (nonatomic, strong) UIScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) UITextView *reasonTextView;
 @property (nonatomic, strong) NSArray *tipStringArr;
 @end
 
-@implementation ChangeClassViewController
+@implementation AskForLeaveViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,7 +37,7 @@
 -(NSArray *)tipStringArr
 {
     if (!_tipStringArr) {
-        _tipStringArr = @[@"选择原有班级",@"选择希望更改的班级"];
+        _tipStringArr = @[@"XXX班",@"选择要休息的课程"];
     }
     return _tipStringArr;
 }
@@ -51,7 +50,7 @@
         UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, self.reasonTextView.bottomY+KScaleHeight(20), 200, KScaleHeight(20))];
         [self.contentScroll addSubview:titleLab];
         [titleLab setFont:K_Font_Text_Normal textColor:K_Text_grayColor withBackGroundColor:nil];
-        titleLab.text = @"选择班级";
+        titleLab.text = @"选择课程";
         
         for (int i=0; i < self.tipStringArr.count; i++) {
             AppointmentTapView *tapView = [AppointmentTapView new];
@@ -72,7 +71,7 @@
 {
     if (!_headerView) {
         _headerView = [[AppointmentHeaderView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight)];;
-        _headerView.titleString = @"申请换班";
+        _headerView.titleString = @"请假申请";
     }
     return _headerView;
 }

@@ -10,11 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol AppointmentCollectionViewDelegate <NSObject>
+@optional
+-(void)appointmentCollectionViewItemDidSelectedWithIndexPath:(NSIndexPath *)indexPath;
+@end
 /**
  已完成的预约cell
  */
 @interface AppointmentCollectionView : UIView
-
+@property (nonatomic, assign) id<AppointmentCollectionViewDelegate>delegate;
 -(void)appointmentCollectionViewReloadData;
 @end
 

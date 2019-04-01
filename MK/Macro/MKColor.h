@@ -33,9 +33,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:A]
 #define K_BG_GrayColor UIColorFromRGB_0x(0xeeeeee)
 #define K_BG_deepGrayColor UIColorFromRGB_0x(0xf7f7f7)
 
+//按钮背景色
+//底部按钮背景色
+#define K_Btn_BottomBtn_BGColor  UIColorFromRGB_0x(0x313030)
+#define K_Btn_BottomBtn_TextColor  UIColorFromRGB_0x(0xffffff)
+
 //字体颜色
 #define K_Text_WhiteColor UIColorFromRGB_0x(0xffffff)
-#define K_Text_YellowColor UIColorFromRGB_0x(0xfaac1b)
+#define K_Text_YellowColor UIColorFromRGB_0x(0xF7EE15)
 #define K_Text_BlackColor UIColorFromRGB_0x(0x313030)
 #define K_Text_grayColor UIColorFromRGB_0x(0x727272)
 #define K_Text_DeepGrayColor UIColorFromRGB_0x(0xb2b2b2)

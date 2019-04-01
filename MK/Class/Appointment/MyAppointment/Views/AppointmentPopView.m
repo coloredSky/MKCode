@@ -32,6 +32,7 @@
             
             UILabel *signStrLab = [UILabel new];
             [self addSubview:signStrLab];
+            signStrLab.textAlignment = NSTextAlignmentRight;
             signStrLab.frame = CGRectMake(sender.leftX-100, sender.centerY-10, 100, 20);
             [signStrLab setFont:K_Font_Text_Normal textColor:K_Text_WhiteColor withBackGroundColor:nil];
             signStrLab.text = self.btnTitleArr[i];

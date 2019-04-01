@@ -12,6 +12,7 @@
 @property (nonatomic, strong) UICollectionView *contentCollectionView;
 @end
 @implementation AppointmentCollectionView
+@synthesize delegate;
 
 -(instancetype)initWithFrame:(CGRect)frame
 {
@@ -58,9 +59,9 @@
 #pragma mark --  cell did selected
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    if ([delegate respondsToSelector:@selector(itemDidSelectedWithIndex:)]) {
-    //        [delegate itemDidSelectedWithIndex:indexPath.row];
-    //    }
+        if ([delegate respondsToSelector:@selector(appointmentCollectionViewItemDidSelectedWithIndexPath:)]) {
+            [delegate appointmentCollectionViewItemDidSelectedWithIndexPath:indexPath];
+        }
 }
 #pragma mark --  reload data
 -(void)appointmentCollectionViewReloadData
