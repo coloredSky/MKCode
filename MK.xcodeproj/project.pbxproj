@@ -36,6 +36,10 @@
 		3035B6B0224F2D4500A1AA98 /* SupportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B69B224F2D4500A1AA98 /* SupportController.m */; };
 		3035B6B1224F2D4500A1AA98 /* SupportController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B69D224F2D4500A1AA98 /* SupportController.xib */; };
 		3035B6B322505C4200A1AA98 /* UpdateMessageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B6B222505C4100A1AA98 /* UpdateMessageController.xib */; };
+		3035B6BD2250725000A1AA98 /* AskForLeaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B6BC2250725000A1AA98 /* AskForLeaveViewController.m */; };
+		3035B6C02250725D00A1AA98 /* MKMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B6BF2250725D00A1AA98 /* MKMeetingViewController.m */; };
+		3035B6C4225072BB00A1AA98 /* AppointmentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B6C3225072BB00A1AA98 /* AppointmentHeaderView.m */; };
+		3035B6C7225078F100A1AA98 /* AppointmentTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B6C6225078F100A1AA98 /* AppointmentTapView.m */; };
 		3048D7B22232536D00FE63B2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D7B12232536D00FE63B2 /* ViewController.m */; };
 		3048D7B52232536D00FE63B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3048D7B32232536D00FE63B2 /* Main.storyboard */; };
 		3048D7B72232536F00FE63B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3048D7B62232536F00FE63B2 /* Assets.xcassets */; };
@@ -204,6 +208,14 @@
 		3035B69C224F2D4500A1AA98 /* SupportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportController.h; sourceTree = "<group>"; };
 		3035B69D224F2D4500A1AA98 /* SupportController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupportController.xib; sourceTree = "<group>"; };
 		3035B6B222505C4100A1AA98 /* UpdateMessageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateMessageController.xib; sourceTree = "<group>"; };
+		3035B6BB2250725000A1AA98 /* AskForLeaveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskForLeaveViewController.h; sourceTree = "<group>"; };
+		3035B6BC2250725000A1AA98 /* AskForLeaveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskForLeaveViewController.m; sourceTree = "<group>"; };
+		3035B6BE2250725D00A1AA98 /* MKMeetingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKMeetingViewController.h; sourceTree = "<group>"; };
+		3035B6BF2250725D00A1AA98 /* MKMeetingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKMeetingViewController.m; sourceTree = "<group>"; };
+		3035B6C2225072BB00A1AA98 /* AppointmentHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentHeaderView.h; sourceTree = "<group>"; };
+		3035B6C3225072BB00A1AA98 /* AppointmentHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentHeaderView.m; sourceTree = "<group>"; };
+		3035B6C5225078F100A1AA98 /* AppointmentTapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentTapView.h; sourceTree = "<group>"; };
+		3035B6C6225078F100A1AA98 /* AppointmentTapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentTapView.m; sourceTree = "<group>"; };
 		3048D7AA2232536D00FE63B2 /* MK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3048D7AD2232536D00FE63B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3048D7AE2232536D00FE63B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -703,6 +715,51 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		3035B6B4225071EE00A1AA98 /* AskForLeave */ = {
+			isa = PBXGroup;
+			children = (
+				3035B6BA2250724000A1AA98 /* ViewController */,
+			);
+			path = AskForLeave;
+			sourceTree = "<group>";
+		};
+		3035B6B5225071F200A1AA98 /* Meeting */ = {
+			isa = PBXGroup;
+			children = (
+				3035B6B92250722800A1AA98 /* ViewController */,
+			);
+			path = Meeting;
+			sourceTree = "<group>";
+		};
+		3035B6B92250722800A1AA98 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3035B6BE2250725D00A1AA98 /* MKMeetingViewController.h */,
+				3035B6BF2250725D00A1AA98 /* MKMeetingViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3035B6BA2250724000A1AA98 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3035B6BB2250725000A1AA98 /* AskForLeaveViewController.h */,
+				3035B6BC2250725000A1AA98 /* AskForLeaveViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3035B6C12250729700A1AA98 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3035B6C2225072BB00A1AA98 /* AppointmentHeaderView.h */,
+				3035B6C3225072BB00A1AA98 /* AppointmentHeaderView.m */,
+				3035B6C5225078F100A1AA98 /* AppointmentTapView.h */,
+				3035B6C6225078F100A1AA98 /* AppointmentTapView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3048D7A12232536D00FE63B2 = {
 			isa = PBXGroup;
 			children = (
@@ -881,6 +938,8 @@
 		3048D7F522325AD300FE63B2 /* Appointment */ = {
 			isa = PBXGroup;
 			children = (
+				3035B6B5225071F200A1AA98 /* Meeting */,
+				3035B6B4225071EE00A1AA98 /* AskForLeave */,
 				30A2D9EF224DFB790030120D /* ChangeClass */,
 				30FBE3A0224B58A50049C0DE /* Message */,
 				3048D80722325E2600FE63B2 /* MyAppointment */,
@@ -1219,6 +1278,7 @@
 			isa = PBXGroup;
 			children = (
 				30A2D9F0224DFB790030120D /* ViewController */,
+				3035B6C12250729700A1AA98 /* View */,
 			);
 			path = ChangeClass;
 			sourceTree = "<group>";
@@ -1868,6 +1928,7 @@
 			files = (
 				3048D8532236496000FE63B2 /* MKTarbarViewController.m in Sources */,
 				3048D86F2239F6B500FE63B2 /* MKBaseTableViewCell.m in Sources */,
+				3035B6C4225072BB00A1AA98 /* AppointmentHeaderView.m in Sources */,
 				3048D82022325F8E00FE63B2 /* MKBaseViewController.m in Sources */,
 				30A2DA07224DFE000030120D /* ChangeClassViewController.m in Sources */,
 				30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */,
@@ -1940,7 +2001,10 @@
 				3035B6A1224F2D4500A1AA98 /* LagAndSchController.m in Sources */,
 				3035B6AF224F2D4500A1AA98 /* VersionUpdateController.m in Sources */,
 				30FBE38F22488BFE0049C0DE /* CourseTeacherCell.m in Sources */,
+				3035B6C02250725D00A1AA98 /* MKMeetingViewController.m in Sources */,
+				3035B6BD2250725000A1AA98 /* AskForLeaveViewController.m in Sources */,
 				30FBE38722488AF30049C0DE /* CourseOnlineTitleCell.m in Sources */,
+				3035B6C7225078F100A1AA98 /* AppointmentTapView.m in Sources */,
 				30FBE3552241E83C0049C0DE /* MessageNoticeController.m in Sources */,
 				3035B69F224F2D4500A1AA98 /* JapanDateVController.m in Sources */,
 				3048D844223263AF00FE63B2 /* UILabel+layout.m in Sources */,
