@@ -75,6 +75,10 @@
 		3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D891223A2E9C00FE63B2 /* XHRefreshFooter.m */; };
 		3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89B223A2F5900FE63B2 /* PGIndexBannerSubiew.m */; };
 		3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */; };
+		30A201362254679400A6A232 /* AskForLeaveQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A201352254679400A6A232 /* AskForLeaveQueryViewController.m */; };
+		30A201392254681100A6A232 /* AskForLeaveEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A201382254681100A6A232 /* AskForLeaveEndViewController.m */; };
+		30A2013C2254A2AC00A6A232 /* ChangeClassQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2013B2254A2AC00A6A232 /* ChangeClassQueryViewController.m */; };
+		30A2013F2254A76300A6A232 /* ChangeClassEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2013E2254A76300A6A232 /* ChangeClassEndViewController.m */; };
 		30A2DA07224DFE000030120D /* ChangeClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA05224DFE000030120D /* ChangeClassViewController.m */; };
 		30A2DA08224DFE000030120D /* ChangeClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A2DA06224DFE000030120D /* ChangeClassViewController.xib */; };
 		30A2DA28224E00640030120D /* DiscoverPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA0D224E00640030120D /* DiscoverPageViewController.m */; };
@@ -311,6 +315,14 @@
 		3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPagedFlowView.m; sourceTree = "<group>"; };
 		3048D89D223A2F5900FE63B2 /* PGIndexBannerSubiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGIndexBannerSubiew.h; sourceTree = "<group>"; };
 		3048D89E223A2F5900FE63B2 /* NewPagedFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
+		30A201342254679400A6A232 /* AskForLeaveQueryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskForLeaveQueryViewController.h; sourceTree = "<group>"; };
+		30A201352254679400A6A232 /* AskForLeaveQueryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskForLeaveQueryViewController.m; sourceTree = "<group>"; };
+		30A201372254681100A6A232 /* AskForLeaveEndViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskForLeaveEndViewController.h; sourceTree = "<group>"; };
+		30A201382254681100A6A232 /* AskForLeaveEndViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskForLeaveEndViewController.m; sourceTree = "<group>"; };
+		30A2013A2254A2AC00A6A232 /* ChangeClassQueryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeClassQueryViewController.h; sourceTree = "<group>"; };
+		30A2013B2254A2AC00A6A232 /* ChangeClassQueryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeClassQueryViewController.m; sourceTree = "<group>"; };
+		30A2013D2254A76300A6A232 /* ChangeClassEndViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeClassEndViewController.h; sourceTree = "<group>"; };
+		30A2013E2254A76300A6A232 /* ChangeClassEndViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeClassEndViewController.m; sourceTree = "<group>"; };
 		30A2DA04224DFE000030120D /* ChangeClassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeClassViewController.h; sourceTree = "<group>"; };
 		30A2DA05224DFE000030120D /* ChangeClassViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeClassViewController.m; sourceTree = "<group>"; };
 		30A2DA06224DFE000030120D /* ChangeClassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeClassViewController.xib; sourceTree = "<group>"; };
@@ -754,6 +766,10 @@
 			children = (
 				3035B6BB2250725000A1AA98 /* AskForLeaveViewController.h */,
 				3035B6BC2250725000A1AA98 /* AskForLeaveViewController.m */,
+				30A201342254679400A6A232 /* AskForLeaveQueryViewController.h */,
+				30A201352254679400A6A232 /* AskForLeaveQueryViewController.m */,
+				30A201372254681100A6A232 /* AskForLeaveEndViewController.h */,
+				30A201382254681100A6A232 /* AskForLeaveEndViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1308,6 +1324,10 @@
 				30A2DA04224DFE000030120D /* ChangeClassViewController.h */,
 				30A2DA05224DFE000030120D /* ChangeClassViewController.m */,
 				30A2DA06224DFE000030120D /* ChangeClassViewController.xib */,
+				30A2013A2254A2AC00A6A232 /* ChangeClassQueryViewController.h */,
+				30A2013B2254A2AC00A6A232 /* ChangeClassQueryViewController.m */,
+				30A2013D2254A76300A6A232 /* ChangeClassEndViewController.h */,
+				30A2013E2254A76300A6A232 /* ChangeClassEndViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2231,6 +2251,7 @@
 				30A2DA30224E00640030120D /* CourseCategoryCell.m in Sources */,
 				3035B6CD2251E27400A1AA98 /* MeetingEndQueryViewController.m in Sources */,
 				71A18E27225072CA007B4C55 /* LYSDateIndicatorViewController.m in Sources */,
+				30A201362254679400A6A232 /* AskForLeaveQueryViewController.m in Sources */,
 				3048D848223263AF00FE63B2 /* NSString+SizeOfString.m in Sources */,
 				3048D7B22232536D00FE63B2 /* ViewController.m in Sources */,
 				30A2DA2B224E00640030120D /* DiscoverNewsCell.m in Sources */,
@@ -2248,7 +2269,9 @@
 				71A18E2A225072CA007B4C55 /* LYSDatePickerTypeTimeDelegate.m in Sources */,
 				30A2DA28224E00640030120D /* DiscoverPageViewController.m in Sources */,
 				3035B6A7224F2D4500A1AA98 /* BasicInfoCell.m in Sources */,
+				30A2013C2254A2AC00A6A232 /* ChangeClassQueryViewController.m in Sources */,
 				71A18E24225072CA007B4C55 /* LYSDatePickerLabel.m in Sources */,
+				30A2013F2254A76300A6A232 /* ChangeClassEndViewController.m in Sources */,
 				3035B6AD224F2D4500A1AA98 /* UpdateMessageController.m in Sources */,
 				3048D82C2232633400FE63B2 /* BMPopView.m in Sources */,
 				3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */,
@@ -2259,6 +2282,7 @@
 				3035B6C02250725D00A1AA98 /* MKMeetingViewController.m in Sources */,
 				3035B6BD2250725000A1AA98 /* AskForLeaveViewController.m in Sources */,
 				30FBE38722488AF30049C0DE /* CourseOnlineTitleCell.m in Sources */,
+				30A201392254681100A6A232 /* AskForLeaveEndViewController.m in Sources */,
 				3035B6C7225078F100A1AA98 /* AppointmentTapView.m in Sources */,
 				30FBE3552241E83C0049C0DE /* MessageNoticeController.m in Sources */,
 				71A18E1A225072CA007B4C55 /* LagAbilityController.m in Sources */,

@@ -10,6 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+/**
+ 预约查询-等待回复。可编辑、删除
+ */
 @interface MeetingQueryViewController : MKNavViewController
 
 @end

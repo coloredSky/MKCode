@@ -1,57 +1,83 @@
 //
-//  MeetingQueryViewController.m
+//  ChangeClassEndViewController.m
 //  MK
 //
-//  Created by 周洋 on 2019/4/1.
+//  Created by 周洋 on 2019/4/3.
 //  Copyright © 2019年 周洋. All rights reserved.
 //
 
-#import "MeetingQueryViewController.h"
-#import "MKMeetingViewController.h"
+#import "ChangeClassEndViewController.h"
 //View
 #import "AppointmentHeaderView.h"
 #import "AppointmentTapView.h"
 #import "AppointmentTeacherReplyCell.h"
 
-@interface MeetingQueryViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ChangeClassEndViewController()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
+//@property (nonatomic, strong) UITextView *reasonTextView;
 @property (nonatomic, strong) NSArray *tipStringArr;
+@property (nonatomic, strong) NSArray *contentStringArr;
 @end
 
-@implementation MeetingQueryViewController
+@implementation ChangeClassEndViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_YellowColor;
+    
+    [self creatSubVuew];
+}
+-(void)creatSubVuew
+{
+    [self.view addSubview:self.contentScroll];
+    [self.contentScroll addSubview:self.headerView];
 }
 
+#pragma mark --  lazy
 -(NSArray *)tipStringArr
 {
     if (!_tipStringArr) {
-        _tipStringArr = @[@"心理咨询",@"大学院美术 施晋昊",@"2019年 2月 4日 14:00",@"2019年 2月 4日 14:00",@"2019年 2月 4日 14:00"];
+        _tipStringArr = @[@"更改后班级",@"原有班级",@"换班理由"];
     }
     return _tipStringArr;
+}
+-(NSArray *)contentStringArr
+{
+    if (!_contentStringArr) {
+        _contentStringArr = @[@"中级日语",@"高级日语",@"高级日语的课程感觉有些吃力，想申请换到中级班，望批准。"];
+    }
+    return _contentStringArr;
 }
 -(UIScrollView *)contentScroll
 {
     if (!_contentScroll) {
-        _contentScroll = [UIScrollView new];
-        [self.view addSubview:_contentScroll];
+        _contentScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
         _contentScroll.backgroundColor = K_BG_YellowColor;
-        //
+        
         for (int i=0; i < self.tipStringArr.count; i++) {
-            AppointmentTapView *tapView = [AppointmentTapView new];
-            CGFloat tapViewY = 0;
-            if (i < 2) {
-                tapViewY = KScaleHeight(86)+K_NaviHeight+KScaleHeight(35)+(KScaleHeight(33+15)*i);
-            }else{
-                tapViewY = KScaleHeight(86)+K_NaviHeight+KScaleHeight(35)+KScaleHeight(20)+(KScaleHeight(33+15)*i);
-            }
-            tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
-            tapView.textString = self.tipStringArr[i];
-            [self.contentScroll addSubview:tapView];
+            UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, self.headerView.bottomY+KScaleHeight(30)+KScaleHeight(70+20)*i, _contentScroll.width-K_Padding_Home_LeftPadding*2, KScaleHeight(20))];
+            [_contentScroll addSubview:titleLab];
+            [titleLab setFont:K_Font_Text_Normal textColor:K_Text_grayColor withBackGroundColor:nil];
+            titleLab.text = self.tipStringArr[i];
             
+            AppointmentTapView *tapView = [AppointmentTapView new];
+            CGFloat tapViewY = tapViewY = titleLab.bottomY+ KScaleHeight(13);
+            if (i == self.contentStringArr.count-1) {
+                  CGSize size = [self.contentStringArr[i] getStrSizeWithSize:CGSizeMake(_contentScroll.width-K_Padding_Home_LeftPadding*2, 300) font:K_Font_Text_Normal];
+                CGFloat height = 33;
+                if (size.height+20 > 33) {
+                    height = size.height+20;
+                }
+                tapView.frame = CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, height);
+            }else{
+                tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
+            }
+            tapView.textString = self.contentStringArr[i];
+            [self.contentScroll addSubview:tapView];
+            tapView.normalColor = K_Text_YellowColor;
+            //底部消息列表
             if (i == self.tipStringArr.count-1) {
                 _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, tapView.bottomY+KScaleHeight(35), KScreenWidth, KScreenHeight-tapView.bottomY-KScaleHeight(35)) style:UITableViewStyleGrouped];
                 _contentTable.delegate = self;
@@ -68,36 +94,11 @@
 -(AppointmentHeaderView *)headerView
 {
     if (!_headerView) {
-        _headerView = [AppointmentHeaderView new];
-        _headerView.titleString = @"等待回复";
+        _headerView = [[AppointmentHeaderView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight)];
+        _headerView.titleString = @"换班成功";
         [self.contentScroll addSubview:_headerView];
-        _headerView.showType = AppointmentHeaderViewShowTypeEditting;
-        __weak typeof(self) weakSelf = self;
-        _headerView.operationBlock = ^(AppointmentHeaderViewOperationType operationType) {
-            __strong typeof(weakSelf) strongSelf = weakSelf;
-            if (operationType == AppointmentHeaderViewOperationTypeEdit) {
-                MKMeetingViewController *meetingVC = [MKMeetingViewController new];
-                meetingVC.operationType = MeetingOperationTypeEdit;
-                [strongSelf.navigationController pushViewController:meetingVC animated:YES];
-            }else{
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否确认取消申请" preferredStyle:UIAlertControllerStyleAlert];
-                [strongSelf presentViewController:alert animated:YES completion:nil];
-                UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
-                }];
-                UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
-                [alert addAction:cancleAction];
-                [alert addAction:sureAction];
-            }
-        };
     }
     return _headerView;
-}
--(void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    self.contentScroll.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
-    self.headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight);
 }
 
 
@@ -115,7 +116,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return 1;
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -149,4 +150,5 @@
 {
     
 }
+
 @end

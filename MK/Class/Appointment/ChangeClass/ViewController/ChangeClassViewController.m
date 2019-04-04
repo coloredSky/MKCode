@@ -71,8 +71,12 @@
 -(AppointmentHeaderView *)headerView
 {
     if (!_headerView) {
-        _headerView = [[AppointmentHeaderView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight)];;
-        _headerView.titleString = @"申请换班";
+        _headerView = [[AppointmentHeaderView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight)];
+        if (self.operationType == ChangeClassOperationTypeTypeNew) {
+            _headerView.titleString = @"申请换班";
+        }else{
+            _headerView.titleString = @"修改申请";
+        }
     }
     return _headerView;
 }

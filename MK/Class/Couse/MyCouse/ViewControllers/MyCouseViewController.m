@@ -7,6 +7,8 @@
 //
 
 #import "MyCouseViewController.h"
+#import "CourseDetailViewController.h"
+
 #import "MyCouseCell.h"
 #import "MyCouseHeaderView.h"
 @interface MyCouseViewController()<UITableViewDelegate,UITableViewDataSource>
@@ -130,7 +132,8 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    CourseDetailViewController *detailVC = [CourseDetailViewController new];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 

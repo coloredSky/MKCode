@@ -50,7 +50,7 @@
         UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, self.reasonTextView.bottomY+KScaleHeight(20), 200, KScaleHeight(20))];
         [self.contentScroll addSubview:titleLab];
         [titleLab setFont:K_Font_Text_Normal textColor:K_Text_grayColor withBackGroundColor:nil];
-        titleLab.text = @"选择课程";
+        titleLab.text = @"请假课程";
         
         for (int i=0; i < self.tipStringArr.count; i++) {
             AppointmentTapView *tapView = [AppointmentTapView new];
@@ -71,7 +71,11 @@
 {
     if (!_headerView) {
         _headerView = [[AppointmentHeaderView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight)];;
-        _headerView.titleString = @"请假申请";
+        if (self.operationType == AskForLeaveOperationTypeNew) {
+            _headerView.titleString = @"请假申请";
+        }else{
+            _headerView.titleString = @"修改申请";
+        }
     }
     return _headerView;
 }

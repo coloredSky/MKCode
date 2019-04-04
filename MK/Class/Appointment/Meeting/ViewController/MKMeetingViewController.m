@@ -65,7 +65,11 @@
 {
     if (!_headerView) {
         _headerView = [AppointmentHeaderView new];
-        _headerView.titleString = @"新建预约";
+        if (self.operationType == MeetingOperationTypeNew) {
+            _headerView.titleString = @"新建预约";
+        }else{
+            _headerView.titleString = @"修改申请";
+        }
         [self.contentScroll addSubview:_headerView];
     }
     return _headerView;
