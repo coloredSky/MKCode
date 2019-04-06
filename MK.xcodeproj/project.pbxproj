@@ -1150,6 +1150,7 @@
 		3048D81222325E8600FE63B2 /* Center */ = {
 			isa = PBXGroup;
 			children = (
+				7124447A22582C3C005AF711 /* OrderDetail */,
 				71A18DDD225072CA007B4C55 /* JapanDate */,
 				71A18E10225072CA007B4C55 /* LagAndSchool */,
 				71A18DD5225072CA007B4C55 /* LanguageAbility  */,
@@ -1653,6 +1654,45 @@
 				30FBE3B2224B5CF60049C0DE /* MessageCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7124447A22582C3C005AF711 /* OrderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				7124447E22582C5E005AF711 /* Manager */,
+				7124447D22582C55005AF711 /* ViewControllers */,
+				7124447C22582C50005AF711 /* Model */,
+				7124447B22582C4C005AF711 /* Views */,
+			);
+			path = OrderDetail;
+			sourceTree = "<group>";
+		};
+		7124447B22582C4C005AF711 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7124447C22582C50005AF711 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7124447D22582C55005AF711 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7124447E22582C5E005AF711 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		712729322241EA2A006772BF /* Manager */ = {
