@@ -50,7 +50,8 @@
     
     _contentLab = [UILabel new];
     [self.whiteView addSubview:_contentLab];
-    [_contentLab setFont:K_Font_Text_Normal textColor:K_Text_WhiteColor withBackGroundColor:nil];
+    _contentLab.numberOfLines = 0;
+    [_contentLab setFont:K_Font_Text_Normal_little textColor:K_Text_WhiteColor withBackGroundColor:nil];
     
     _clickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.whiteView addSubview:_clickBtn];

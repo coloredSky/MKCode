@@ -1,57 +1,68 @@
 //
-//  MeetingQueryViewController.m
+//  ChangeClassQueryViewController.m
 //  MK
 //
-//  Created by 周洋 on 2019/4/1.
+//  Created by 周洋 on 2019/4/3.
 //  Copyright © 2019年 周洋. All rights reserved.
 //
 
-#import "MeetingQueryViewController.h"
-#import "MKMeetingViewController.h"
+#import "ChangeClassQueryViewController.h"
+#import "ChangeClassViewController.h"
 //View
 #import "AppointmentHeaderView.h"
 #import "AppointmentTapView.h"
 #import "AppointmentTeacherReplyCell.h"
 
-@interface MeetingQueryViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ChangeClassQueryViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
+@property (nonatomic, strong) UITextView *reasonTextView;
 @property (nonatomic, strong) NSArray *tipStringArr;
 @end
 
-@implementation MeetingQueryViewController
+@implementation ChangeClassQueryViewController
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_YellowColor;
+    
+    [self creatSubVuew];
+}
+-(void)creatSubVuew
+{
+    [self.view addSubview:self.contentScroll];
+    [self.contentScroll addSubview:self.headerView];
+    [self.contentScroll addSubview:self.reasonTextView];
 }
 
+#pragma mark --  lazy
 -(NSArray *)tipStringArr
 {
     if (!_tipStringArr) {
-        _tipStringArr = @[@"心理咨询",@"大学院美术 施晋昊",@"2019年 2月 4日 14:00",@"2019年 2月 4日 14:00",@"2019年 2月 4日 14:00"];
+        _tipStringArr = @[@"选择原有班级",@"选择希望更改的班级"];
     }
     return _tipStringArr;
 }
 -(UIScrollView *)contentScroll
 {
     if (!_contentScroll) {
-        _contentScroll = [UIScrollView new];
-        [self.view addSubview:_contentScroll];
+        _contentScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
         _contentScroll.backgroundColor = K_BG_YellowColor;
         //
+        UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, self.reasonTextView.bottomY+KScaleHeight(20), 200, KScaleHeight(20))];
+        [self.contentScroll addSubview:titleLab];
+        [titleLab setFont:K_Font_Text_Normal textColor:K_Text_grayColor withBackGroundColor:nil];
+        titleLab.text = @"选择班级";
+        
         for (int i=0; i < self.tipStringArr.count; i++) {
             AppointmentTapView *tapView = [AppointmentTapView new];
-            CGFloat tapViewY = 0;
-            if (i < 2) {
-                tapViewY = KScaleHeight(86)+K_NaviHeight+KScaleHeight(35)+(KScaleHeight(33+15)*i);
-            }else{
-                tapViewY = KScaleHeight(86)+K_NaviHeight+KScaleHeight(35)+KScaleHeight(20)+(KScaleHeight(33+15)*i);
-            }
+            CGFloat tapViewY = tapViewY = titleLab.bottomY+ KScaleHeight(13)+(KScaleHeight(33+15)*i);
             tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
             tapView.textString = self.tipStringArr[i];
             [self.contentScroll addSubview:tapView];
-            
+            //底部消息列表
             if (i == self.tipStringArr.count-1) {
                 _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, tapView.bottomY+KScaleHeight(35), KScreenWidth, KScreenHeight-tapView.bottomY-KScaleHeight(35)) style:UITableViewStyleGrouped];
                 _contentTable.delegate = self;
@@ -60,7 +71,7 @@
                 _contentTable.backgroundColor = K_BG_WhiteColor;
                 _contentTable.sectionHeaderHeight = 0.001;
                 [_contentTable registerNib:[UINib nibWithNibName:@"AppointmentTeacherReplyCell" bundle:nil] forCellReuseIdentifier:@"AppointmentTeacherReplyCell"];
-            }
+           }
         }
     }
     return  _contentScroll;
@@ -68,7 +79,7 @@
 -(AppointmentHeaderView *)headerView
 {
     if (!_headerView) {
-        _headerView = [AppointmentHeaderView new];
+        _headerView = [[AppointmentHeaderView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight)];
         _headerView.titleString = @"等待回复";
         [self.contentScroll addSubview:_headerView];
         _headerView.showType = AppointmentHeaderViewShowTypeEditting;
@@ -76,9 +87,9 @@
         _headerView.operationBlock = ^(AppointmentHeaderViewOperationType operationType) {
             __strong typeof(weakSelf) strongSelf = weakSelf;
             if (operationType == AppointmentHeaderViewOperationTypeEdit) {
-                MKMeetingViewController *meetingVC = [MKMeetingViewController new];
-                meetingVC.operationType = MeetingOperationTypeEdit;
-                [strongSelf.navigationController pushViewController:meetingVC animated:YES];
+                ChangeClassViewController *changeClassVC = [ChangeClassViewController new];
+                changeClassVC.operationType = ChangeClassOperationTypeEdit;
+                [strongSelf.navigationController pushViewController:changeClassVC animated:YES];
             }else{
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否确认取消申请" preferredStyle:UIAlertControllerStyleAlert];
                 [strongSelf presentViewController:alert animated:YES completion:nil];
@@ -93,13 +104,19 @@
     }
     return _headerView;
 }
--(void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    self.contentScroll.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
-    self.headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight);
-}
 
+-(UITextView *)reasonTextView
+{
+    if (!_reasonTextView) {
+        _reasonTextView = [[UITextView alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, self.headerView.bottomY+KScaleHeight(30), KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(122))];
+        _reasonTextView.backgroundColor = K_BG_blackColor;
+        _reasonTextView.layer.masksToBounds = YES;
+        _reasonTextView.layer.cornerRadius = KScaleWidth(8);
+        _reasonTextView.textColor = K_Text_WhiteColor;
+        _reasonTextView.text = @"理由";
+    }
+    return _reasonTextView;
+}
 
 #pragma mark - UITableViewDataSource
 #pragma mark - cell

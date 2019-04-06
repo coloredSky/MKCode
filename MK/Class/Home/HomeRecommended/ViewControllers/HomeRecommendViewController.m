@@ -168,8 +168,8 @@
     if (!bannerView) {
         bannerView = [[PGIndexBannerSubiew alloc] init];
         bannerView.tag = index;
-        bannerView.layer.cornerRadius = 8;
-        bannerView.layer.masksToBounds = YES;
+//        bannerView.layer.cornerRadius = 8;
+//        bannerView.layer.masksToBounds = YES;
 //        [bannerView setSubviewsWithSuperViewBounds:CGRectMake(0, 0, KScaleWidth(308), KScaleWidth(228))];
     }
     bannerView.mainImageView.image = [UIImage imageNamed:self.bannerArr[index]];

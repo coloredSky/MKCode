@@ -9,6 +9,10 @@
 #import "AppointmentChildViewController.h"
 #import "MeetingQueryViewController.h"
 #import "MeetingEndQueryViewController.h"
+#import "AskForLeaveQueryViewController.h"
+#import "AskForLeaveEndViewController.h"
+#import "ChangeClassQueryViewController.h"
+#import "ChangeClassEndViewController.h"
 //View
 #import "AppointmentCell.h"
 #import "AppointmentCollectionView.h"
@@ -108,9 +112,9 @@
     UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, headerView.height-20-KScaleHeight(12), 200, 20)];
     [headerView addSubview:titleLab];
     if (section == 0) {
-         titleLab.text = @"已完成的预约";
+         titleLab.text = @"未完成的预约";
     }else{
-        titleLab.text = @"未完成的预约";
+        titleLab.text = @"已完成的预约";
     }
     [titleLab setFont:MKBoldFont(16) textColor:K_Text_grayColor withBackGroundColor:nil];
     return headerView;
@@ -129,24 +133,29 @@
 -(void)appointmentCollectionViewItemDidSelectedWithIndexPath:(NSIndexPath *)indexPath
 {
     if (self.dispayType == AppointmentDisplayTypeChangeClass) {
-        
+        ChangeClassQueryViewController *changeClassQuaryVC = [ChangeClassQueryViewController new];
+        [self.navigationController pushViewController:changeClassQuaryVC animated:YES];
     }else if (self.dispayType == AppointmentDisplayTypeAskForLeave){
-        
+        AskForLeaveQueryViewController *askForLeaveQuaryVC = [AskForLeaveQueryViewController new];
+        [self.navigationController pushViewController:askForLeaveQuaryVC animated:YES];
     }else if (self.dispayType == AppointmentDisplayTypeMeeting){
-        NSInteger type = arc4random()%2;
-        if (type == 0) {
-            MeetingQueryViewController *meetingQuaryVC = [MeetingQueryViewController new];
-            [self.navigationController pushViewController:meetingQuaryVC animated:YES];
-        }else{
-            MeetingEndQueryViewController *meetingQuaryVC = [MeetingEndQueryViewController new];
-            [self.navigationController pushViewController:meetingQuaryVC animated:YES];
-        }
+        MeetingQueryViewController *meetingQuaryVC = [MeetingQueryViewController new];
+        [self.navigationController pushViewController:meetingQuaryVC animated:YES];
     }
 }
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (self.dispayType == AppointmentDisplayTypeChangeClass) {
+        ChangeClassEndViewController *changClassEndVC = [ChangeClassEndViewController new];
+        [self.navigationController pushViewController:changClassEndVC animated:YES];
+    }else if (self.dispayType == AppointmentDisplayTypeAskForLeave){
+        AskForLeaveEndViewController *askForLeaveEndVC = [AskForLeaveEndViewController new];
+        [self.navigationController pushViewController:askForLeaveEndVC animated:YES];
+    }else{
+        MeetingEndQueryViewController *meetingEndVC = [MeetingEndQueryViewController new];
+        [self.navigationController pushViewController:meetingEndVC animated:YES];
+    }
 }
 
 @end
