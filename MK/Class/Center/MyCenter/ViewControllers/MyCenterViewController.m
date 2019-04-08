@@ -7,6 +7,7 @@
 //
 
 #import "MyCenterViewController.h"
+#import "MyBillListViewController.h"//订单列表
 #import "MessageNoticeController.h"//消息通知
 #import "SetPasswordController.h"//修改密码
 #import "PolicyViewController.h"//隐私声明
@@ -191,7 +192,8 @@
     {
         if (indexPath.item ==0)
         {
-            
+            MyBillListViewController *billVC = [MyBillListViewController new];
+            [self.navigationController pushViewController:billVC animated:YES];
         }
         if (indexPath.item ==1)
         {

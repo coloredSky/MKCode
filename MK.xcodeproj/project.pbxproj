@@ -79,6 +79,10 @@
 		30A201392254681100A6A232 /* AskForLeaveEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A201382254681100A6A232 /* AskForLeaveEndViewController.m */; };
 		30A2013C2254A2AC00A6A232 /* ChangeClassQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2013B2254A2AC00A6A232 /* ChangeClassQueryViewController.m */; };
 		30A2013F2254A76300A6A232 /* ChangeClassEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2013E2254A76300A6A232 /* ChangeClassEndViewController.m */; };
+		30A2014C2255F33800A6A232 /* MyBillListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2014B2255F33800A6A232 /* MyBillListViewController.m */; };
+		30A2014F2255F3B700A6A232 /* BillListCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2014E2255F3B700A6A232 /* BillListCollectionViewFlowLayout.m */; };
+		30A201532255F74100A6A232 /* BillListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A201512255F74100A6A232 /* BillListCollectionViewCell.m */; };
+		30A201542255F74100A6A232 /* BillListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A201522255F74100A6A232 /* BillListCollectionViewCell.xib */; };
 		30A2DA07224DFE000030120D /* ChangeClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA05224DFE000030120D /* ChangeClassViewController.m */; };
 		30A2DA08224DFE000030120D /* ChangeClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A2DA06224DFE000030120D /* ChangeClassViewController.xib */; };
 		30A2DA28224E00640030120D /* DiscoverPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA0D224E00640030120D /* DiscoverPageViewController.m */; };
@@ -323,6 +327,13 @@
 		30A2013B2254A2AC00A6A232 /* ChangeClassQueryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeClassQueryViewController.m; sourceTree = "<group>"; };
 		30A2013D2254A76300A6A232 /* ChangeClassEndViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeClassEndViewController.h; sourceTree = "<group>"; };
 		30A2013E2254A76300A6A232 /* ChangeClassEndViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeClassEndViewController.m; sourceTree = "<group>"; };
+		30A2014A2255F33800A6A232 /* MyBillListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyBillListViewController.h; sourceTree = "<group>"; };
+		30A2014B2255F33800A6A232 /* MyBillListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyBillListViewController.m; sourceTree = "<group>"; };
+		30A2014D2255F3B700A6A232 /* BillListCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillListCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		30A2014E2255F3B700A6A232 /* BillListCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillListCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		30A201502255F74100A6A232 /* BillListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillListCollectionViewCell.h; sourceTree = "<group>"; };
+		30A201512255F74100A6A232 /* BillListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillListCollectionViewCell.m; sourceTree = "<group>"; };
+		30A201522255F74100A6A232 /* BillListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillListCollectionViewCell.xib; sourceTree = "<group>"; };
 		30A2DA04224DFE000030120D /* ChangeClassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeClassViewController.h; sourceTree = "<group>"; };
 		30A2DA05224DFE000030120D /* ChangeClassViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeClassViewController.m; sourceTree = "<group>"; };
 		30A2DA06224DFE000030120D /* ChangeClassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeClassViewController.xib; sourceTree = "<group>"; };
@@ -973,6 +984,8 @@
 		3048D7F522325AD300FE63B2 /* Appointment */ = {
 			isa = PBXGroup;
 			children = (
+				30A201452255F2F700A6A232 /* BillDetail */,
+				30A201402255F2DC00A6A232 /* MyBill */,
 				3035B6B5225071F200A1AA98 /* Meeting */,
 				3035B6B4225071EE00A1AA98 /* AskForLeave */,
 				30A2D9EF224DFB790030120D /* ChangeClass */,
@@ -1307,6 +1320,91 @@
 				3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */,
 			);
 			path = NewPagedFlowView;
+			sourceTree = "<group>";
+		};
+		30A201402255F2DC00A6A232 /* MyBill */ = {
+			isa = PBXGroup;
+			children = (
+				30A201412255F2DC00A6A232 /* ViewCotroller */,
+				30A201422255F2DC00A6A232 /* Manager */,
+				30A201432255F2DC00A6A232 /* Model */,
+				30A201442255F2DC00A6A232 /* View */,
+			);
+			path = MyBill;
+			sourceTree = "<group>";
+		};
+		30A201412255F2DC00A6A232 /* ViewCotroller */ = {
+			isa = PBXGroup;
+			children = (
+				30A2014A2255F33800A6A232 /* MyBillListViewController.h */,
+				30A2014B2255F33800A6A232 /* MyBillListViewController.m */,
+			);
+			path = ViewCotroller;
+			sourceTree = "<group>";
+		};
+		30A201422255F2DC00A6A232 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		30A201432255F2DC00A6A232 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30A201442255F2DC00A6A232 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30A2014D2255F3B700A6A232 /* BillListCollectionViewFlowLayout.h */,
+				30A2014E2255F3B700A6A232 /* BillListCollectionViewFlowLayout.m */,
+				30A201502255F74100A6A232 /* BillListCollectionViewCell.h */,
+				30A201512255F74100A6A232 /* BillListCollectionViewCell.m */,
+				30A201522255F74100A6A232 /* BillListCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		30A201452255F2F700A6A232 /* BillDetail */ = {
+			isa = PBXGroup;
+			children = (
+				30A201462255F2F700A6A232 /* ViewCotroller */,
+				30A201472255F2F700A6A232 /* Manager */,
+				30A201482255F2F700A6A232 /* Model */,
+				30A201492255F2F700A6A232 /* View */,
+			);
+			path = BillDetail;
+			sourceTree = "<group>";
+		};
+		30A201462255F2F700A6A232 /* ViewCotroller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewCotroller;
+			sourceTree = "<group>";
+		};
+		30A201472255F2F700A6A232 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		30A201482255F2F700A6A232 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30A201492255F2F700A6A232 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		30A2D9EF224DFB790030120D /* ChangeClass */ = {
@@ -2032,6 +2130,7 @@
 				30FBE39022488BFE0049C0DE /* CourseTeacherCell.xib in Resources */,
 				3035B65F224F2C7D00A1AA98 /* LoginViewController.xib in Resources */,
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
+				30A201542255F74100A6A232 /* BillListCollectionViewCell.xib in Resources */,
 				3035B6B322505C4200A1AA98 /* UpdateMessageController.xib in Resources */,
 				30A2DA08224DFE000030120D /* ChangeClassViewController.xib in Resources */,
 				30FBE3142240C2020049C0DE /* HomeRecommenCell.xib in Resources */,
@@ -2222,6 +2321,7 @@
 				30FBE3652242115F0049C0DE /* AppointmentChildViewController.m in Sources */,
 				3048D892223A2E9D00FE63B2 /* XHRefreshHeader.m in Sources */,
 				71A18E1E225072CA007B4C55 /* LYSDateContentView.m in Sources */,
+				30A201532255F74100A6A232 /* BillListCollectionViewCell.m in Sources */,
 				3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */,
 				712729392241EBC2006772BF /* RuquestManager.m in Sources */,
 				3048D8732239F77900FE63B2 /* HomePageCell.m in Sources */,
@@ -2231,6 +2331,7 @@
 				3035B65E224F2C7D00A1AA98 /* LoginViewController.m in Sources */,
 				71A18E32225072CA007B4C55 /* ValuePickerView.m in Sources */,
 				3035B69E224F2D4500A1AA98 /* PropertyController.m in Sources */,
+				30A2014F2255F3B700A6A232 /* BillListCollectionViewFlowLayout.m in Sources */,
 				3035B65C224F2C7D00A1AA98 /* RegisterController.m in Sources */,
 				3048D843223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				71A18E2C225072CA007B4C55 /* LYSDatePickerTypeBase.m in Sources */,
@@ -2272,6 +2373,7 @@
 				30A2013C2254A2AC00A6A232 /* ChangeClassQueryViewController.m in Sources */,
 				71A18E24225072CA007B4C55 /* LYSDatePickerLabel.m in Sources */,
 				30A2013F2254A76300A6A232 /* ChangeClassEndViewController.m in Sources */,
+				30A2014C2255F33800A6A232 /* MyBillListViewController.m in Sources */,
 				3035B6AD224F2D4500A1AA98 /* UpdateMessageController.m in Sources */,
 				3048D82C2232633400FE63B2 /* BMPopView.m in Sources */,
 				3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */,
