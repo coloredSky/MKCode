@@ -7,6 +7,7 @@
 //
 
 #import "MyBillListViewController.h"
+#import "MKBillDetailViewController.h"
 //flowLayout
 #import "BillListCollectionViewFlowLayout.h"
 //View
@@ -47,9 +48,9 @@
 -(UIView *)headerView
 {
     if (!_headerView) {
-        _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(170))];
+        _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, K_NaviHeight, KScreenWidth, KScaleHeight(106))];
         [self.view addSubview:_headerView];
-        UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, KScaleHeight(70), 200, KScaleHeight(20))];
+        UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, _headerView.height-KScaleHeight(60+20), 200, KScaleHeight(20))];
         [_headerView addSubview:titleLab];
         [titleLab setFont:MKBoldFont(24) textColor:K_Text_BlackColor withBackGroundColor:nil];
         titleLab.text = @"订单";
@@ -60,7 +61,7 @@
 {
     if (!_contentCollectionView) {
         BillListCollectionViewFlowLayout *listFlowLayout = [[BillListCollectionViewFlowLayout alloc]init];
-        _contentCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, self.headerView.bottomY, KScreenWidth, KScreenHeight-self.headerView.height) collectionViewLayout:listFlowLayout];
+        _contentCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, self.headerView.bottomY, KScreenWidth, KScreenHeight-self.headerView.height-K_NaviHeight) collectionViewLayout:listFlowLayout];
         _contentCollectionView.backgroundColor = K_BG_deepGrayColor;
         _contentCollectionView.dataSource = self;
         _contentCollectionView.delegate = self;
@@ -93,6 +94,7 @@
 #pragma mark --  collection-didSelected
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    MKBillDetailViewController *billDetailVC  = [MKBillDetailViewController new];
+    [self.navigationController pushViewController:billDetailVC animated:YES];
 }
 @end

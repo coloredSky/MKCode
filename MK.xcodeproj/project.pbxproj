@@ -83,6 +83,11 @@
 		30A2014F2255F3B700A6A232 /* BillListCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2014E2255F3B700A6A232 /* BillListCollectionViewFlowLayout.m */; };
 		30A201532255F74100A6A232 /* BillListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A201512255F74100A6A232 /* BillListCollectionViewCell.m */; };
 		30A201542255F74100A6A232 /* BillListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A201522255F74100A6A232 /* BillListCollectionViewCell.xib */; };
+		30A20158225B370A00A6A232 /* BillDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A20156225B370A00A6A232 /* BillDetailCell.m */; };
+		30A20159225B370A00A6A232 /* BillDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A20157225B370A00A6A232 /* BillDetailCell.xib */; };
+		30A2015C225B3B3500A6A232 /* MKBillDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2015B225B3B3500A6A232 /* MKBillDetailViewController.m */; };
+		30A20160225B449700A6A232 /* BillDetailPayTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2015E225B449700A6A232 /* BillDetailPayTimeCell.m */; };
+		30A20161225B449700A6A232 /* BillDetailPayTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A2015F225B449700A6A232 /* BillDetailPayTimeCell.xib */; };
 		30A2DA07224DFE000030120D /* ChangeClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA05224DFE000030120D /* ChangeClassViewController.m */; };
 		30A2DA08224DFE000030120D /* ChangeClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A2DA06224DFE000030120D /* ChangeClassViewController.xib */; };
 		30A2DA28224E00640030120D /* DiscoverPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA0D224E00640030120D /* DiscoverPageViewController.m */; };
@@ -334,6 +339,14 @@
 		30A201502255F74100A6A232 /* BillListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillListCollectionViewCell.h; sourceTree = "<group>"; };
 		30A201512255F74100A6A232 /* BillListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillListCollectionViewCell.m; sourceTree = "<group>"; };
 		30A201522255F74100A6A232 /* BillListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillListCollectionViewCell.xib; sourceTree = "<group>"; };
+		30A20155225B370A00A6A232 /* BillDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillDetailCell.h; sourceTree = "<group>"; };
+		30A20156225B370A00A6A232 /* BillDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillDetailCell.m; sourceTree = "<group>"; };
+		30A20157225B370A00A6A232 /* BillDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillDetailCell.xib; sourceTree = "<group>"; };
+		30A2015A225B3B3500A6A232 /* MKBillDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKBillDetailViewController.h; sourceTree = "<group>"; };
+		30A2015B225B3B3500A6A232 /* MKBillDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKBillDetailViewController.m; sourceTree = "<group>"; };
+		30A2015D225B449700A6A232 /* BillDetailPayTimeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillDetailPayTimeCell.h; sourceTree = "<group>"; };
+		30A2015E225B449700A6A232 /* BillDetailPayTimeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillDetailPayTimeCell.m; sourceTree = "<group>"; };
+		30A2015F225B449700A6A232 /* BillDetailPayTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillDetailPayTimeCell.xib; sourceTree = "<group>"; };
 		30A2DA04224DFE000030120D /* ChangeClassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeClassViewController.h; sourceTree = "<group>"; };
 		30A2DA05224DFE000030120D /* ChangeClassViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeClassViewController.m; sourceTree = "<group>"; };
 		30A2DA06224DFE000030120D /* ChangeClassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeClassViewController.xib; sourceTree = "<group>"; };
@@ -1382,6 +1395,8 @@
 		30A201462255F2F700A6A232 /* ViewCotroller */ = {
 			isa = PBXGroup;
 			children = (
+				30A2015A225B3B3500A6A232 /* MKBillDetailViewController.h */,
+				30A2015B225B3B3500A6A232 /* MKBillDetailViewController.m */,
 			);
 			path = ViewCotroller;
 			sourceTree = "<group>";
@@ -1403,6 +1418,12 @@
 		30A201492255F2F700A6A232 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				30A20155225B370A00A6A232 /* BillDetailCell.h */,
+				30A20156225B370A00A6A232 /* BillDetailCell.m */,
+				30A20157225B370A00A6A232 /* BillDetailCell.xib */,
+				30A2015D225B449700A6A232 /* BillDetailPayTimeCell.h */,
+				30A2015E225B449700A6A232 /* BillDetailPayTimeCell.m */,
+				30A2015F225B449700A6A232 /* BillDetailPayTimeCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2132,6 +2153,7 @@
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
 				30A201542255F74100A6A232 /* BillListCollectionViewCell.xib in Resources */,
 				3035B6B322505C4200A1AA98 /* UpdateMessageController.xib in Resources */,
+				30A20161225B449700A6A232 /* BillDetailPayTimeCell.xib in Resources */,
 				30A2DA08224DFE000030120D /* ChangeClassViewController.xib in Resources */,
 				30FBE3142240C2020049C0DE /* HomeRecommenCell.xib in Resources */,
 				30FBE39F224B2F890049C0DE /* CourseOfflineTitleCell.xib in Resources */,
@@ -2141,6 +2163,7 @@
 				71A18E1B225072CA007B4C55 /* LagAbilityController.xib in Resources */,
 				712170D6223F465700BA1905 /* MyCenterBottomoCell.xib in Resources */,
 				30FBE31C2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib in Resources */,
+				30A20159225B370A00A6A232 /* BillDetailCell.xib in Resources */,
 				712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */,
 				30FBE38822488AF30049C0DE /* CourseOnlineTitleCell.xib in Resources */,
 				30FBE3582241E83C0049C0DE /* PolicyViewController.xib in Resources */,
@@ -2364,6 +2387,7 @@
 				3035B6A5224F2D4500A1AA98 /* BasicInfoController.m in Sources */,
 				30FBE3B3224B5CF60049C0DE /* MessageCell.m in Sources */,
 				30FBE39422488C280049C0DE /* CourseOnlineListCell.m in Sources */,
+				30A2015C225B3B3500A6A232 /* MKBillDetailViewController.m in Sources */,
 				3048D841223263AF00FE63B2 /* UIView+Layout.m in Sources */,
 				3048D7BD2232536F00FE63B2 /* main.m in Sources */,
 				3048D81D22325F7F00FE63B2 /* MKNavigationController.m in Sources */,
@@ -2395,6 +2419,8 @@
 				30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */,
 				30FBE39E224B2F890049C0DE /* CourseOfflineTitleCell.m in Sources */,
 				30FBE3622241F81D0049C0DE /* CourseDetailViewController.m in Sources */,
+				30A20160225B449700A6A232 /* BillDetailPayTimeCell.m in Sources */,
+				30A20158225B370A00A6A232 /* BillDetailCell.m in Sources */,
 				712729362241EB9B006772BF /* MessageModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
