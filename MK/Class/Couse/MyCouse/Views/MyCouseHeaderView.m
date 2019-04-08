@@ -12,6 +12,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *VideoStatusLab;
 @property (weak, nonatomic) IBOutlet UILabel *VideoTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *VideoTimeLab;
+@property (weak, nonatomic) IBOutlet UIImageView *courseIma;
+@property (weak, nonatomic) IBOutlet UIImageView *coursePlayIma;
+@property (weak, nonatomic) IBOutlet UIImageView *lineIma;
+//layout
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineHeightConstraints;
+
 @end
 @implementation MyCouseHeaderView
 
@@ -28,11 +34,18 @@
     [_VideoTimeLab setFont:MKBoldFont(10) textColor:K_Text_grayColor withBackGroundColor:nil];
     [_VideoTitleLab setFont:MKBoldFont(13) textColor:K_Text_BlackColor withBackGroundColor:nil];
     [_VideoStatusLab setFont:MKBoldFont(14) textColor:K_Text_WhiteColor withBackGroundColor:nil];
-
+    _lineIma.backgroundColor = K_Line_lineColor;
 }
-
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.lineHeightConstraints.constant = K_Line_lineWidth;
+}
 -(void)cellRefreshData
 {
+    self.lineIma.hidden = YES;
+    self.courseIma.image = KImageNamed(@"playIma");
+    self.coursePlayIma.image = KImageNamed(@"Course_list_play");
     self.VideoTimeLab.text = @"23:49";
     self.VideoTitleLab.text = @"语态：可能态";
     self.VideoStatusLab.text = @"继续观看";

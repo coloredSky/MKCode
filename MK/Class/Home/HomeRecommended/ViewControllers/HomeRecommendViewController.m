@@ -8,13 +8,15 @@
 
 #import "HomeRecommendViewController.h"
 #import "CourseDetailViewController.h"
+#import "NewsViewController.h"
+#import "CourseDetailViewController.h"
 //View
 #import "HomePageCell.h"
 #import "NewPagedFlowView.h"
 #import "HomeRecommenCell.h"
 #import "HomeCourseCollectionView.h"
 
-@interface HomeRecommendViewController ()<UITableViewDelegate,UITableViewDataSource,NewPagedFlowViewDelegate,NewPagedFlowViewDataSource>
+@interface HomeRecommendViewController ()<UITableViewDelegate,UITableViewDataSource,NewPagedFlowViewDelegate,NewPagedFlowViewDataSource,HomeCourseCollectionViewDelegate>
 
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong)NewPagedFlowView *bannerView;
@@ -86,7 +88,7 @@
 {
     if (!_bannerView) {
 //        _bannerView = [[NewPagedFlowView alloc]initWithFrame:CGRectMake(KScreenWidth/2-KScaleWidth(308)/2-20, 44, KScaleWidth(308)+40, KScaleWidth(228))];
-        _bannerView = [[NewPagedFlowView alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, 0, KScreenWidth-K_Padding_Home_LeftPadding*2, self.bannerItemSize.height)];
+        _bannerView = [[NewPagedFlowView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, self.bannerItemSize.height)];
         _bannerView.delegate = self;
         _bannerView.dataSource = self;
         _bannerView.minimumPageAlpha = 0.1;
@@ -148,6 +150,7 @@
     if (section ==0) {
         UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 88)];
         HomeCourseCollectionView *courseCollectionView = [[HomeCourseCollectionView alloc]initWithFrame:CGRectMake(0, 0, footerView.width, footerView.height)];
+        courseCollectionView.delegate = self;
         [courseCollectionView homeCourseCollectionViewReloadData];
         [footerView addSubview:courseCollectionView];
         return footerView;
@@ -184,9 +187,16 @@
     CourseDetailViewController *courseDetailVC = [CourseDetailViewController new];
     [self.navigationController pushViewController:courseDetailVC animated:YES];
 }
+#pragma mark --  collection-DidSelected
+-(void)homeCourseCollectionViewDidSelectedWithIndexPath:(NSIndexPath *)indexPath
+{
+    CourseDetailViewController *courseDetailVC = [CourseDetailViewController new];
+    [self.navigationController pushViewController:courseDetailVC animated:YES];
+}
 #pragma mark --  banner did selected
 - (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
-
+    NewsViewController *newsDetailVC = [NewsViewController new];
+    [self.navigationController pushViewController:newsDetailVC animated:YES];
 }
 
 @end

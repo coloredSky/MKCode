@@ -69,6 +69,7 @@
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 203, KScreenWidth, KScreenHeight-203) collectionViewLayout:layout];
         _collectionView.backgroundColor = K_BG_GrayColor;
+        _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         [_collectionView registerNib:[UINib nibWithNibName:@"MyCenterTopCell" bundle:nil] forCellWithReuseIdentifier:@"MyCenterTopCell"];

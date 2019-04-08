@@ -7,6 +7,7 @@
 //
 
 #import "HomeCommonViewController.h"
+#import "CourseDetailViewController.h"
 //View
 #import "HomePageCell.h"
 
@@ -112,7 +113,8 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    CourseDetailViewController *courseDetailVC = [CourseDetailViewController new];
+    [self.navigationController pushViewController:courseDetailVC animated:YES];
 }
 
 

@@ -82,12 +82,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MyCouseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCouseCell" forIndexPath:indexPath];
-    [cell cellRefreshData];
+    [cell cellRefreshDataWithIndexPath:indexPath];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -96,11 +96,16 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return KScaleHeight(50.5);
+    return KScaleHeight(60);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return KScaleHeight(25);
+    if (section ==0) {
+        return KScaleHeight(40);
+    }else if (section ==1){
+        return KScaleHeight(70);
+    }
+    return KScaleHeight(35);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -108,16 +113,42 @@
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(25))];
+    UIView *headerView = [UIView new];
+    headerView.frame = CGRectMake(0, 0, KScreenWidth, [self tableView:tableView heightForHeaderInSection:section]);
     headerView.backgroundColor =K_Text_WhiteColor;
-    UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(28, 0, 100, headerView.height)];
-    [headerView addSubview:titleLab];
-    [titleLab setFont:MKBoldFont(16) textColor:K_Text_BlackColor withBackGroundColor:nil];
-    titleLab.text = section ==0?@"线上课程":@"线下课程";
     
-    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [headerView addSubview:button];
-    [button setNormalTitle:@"all" font:MKBoldFont(13) titleColor:K_Text_BlueColor];
+    if (section <= 1) {
+        
+        UIImageView *lineIma = [UIImageView new];
+        lineIma.backgroundColor = K_Line_lineColor;
+        [headerView addSubview:lineIma];
+        lineIma.frame = CGRectMake(28, 0, KScreenWidth-28, K_Line_lineWidth);
+        
+        UILabel *titleLab = [UILabel new];
+        [headerView addSubview:titleLab];
+        titleLab.text = section ==0?@"线上课程":@"线下课程";
+        if (section ==0) {
+            titleLab.frame = CGRectMake(28, KScaleHeight(10), 200, 22);
+        }else if (section == 1){
+            titleLab.frame = CGRectMake(28, KScaleHeight(10), 200, 22);
+            UILabel *courseTypeLab = [UILabel new];
+            [headerView addSubview:courseTypeLab];
+            courseTypeLab.frame = CGRectMake(titleLab.leftX, titleLab.bottomY+KScaleHeight(5), titleLab.width, KScaleHeight(16));
+            [courseTypeLab setFont:K_Font_Text_Min_Max textColor:K_Text_DeepGrayColor withBackGroundColor:nil];
+            courseTypeLab.text = @"正在进行的课程";
+        }
+    }else{
+        UILabel *courseTypeLab = [UILabel new];
+        [headerView addSubview:courseTypeLab];
+        courseTypeLab.frame = CGRectMake(28, headerView.height-KScaleHeight(20)-KScaleHeight(5), 200, KScaleHeight(20));
+        [courseTypeLab setFont:K_Font_Text_Min_Max textColor:K_Text_DeepGrayColor withBackGroundColor:nil];
+        courseTypeLab.text = @"还未开始的课程";
+    }
+
+    UIImageView *bottomLine = [UIImageView new];
+    [headerView addSubview:bottomLine];
+    bottomLine.backgroundColor = K_Line_lineColor;
+    bottomLine.frame = CGRectMake(110, headerView.height-K_Line_lineWidth, headerView.width-110, K_Line_lineWidth);
     return headerView;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section

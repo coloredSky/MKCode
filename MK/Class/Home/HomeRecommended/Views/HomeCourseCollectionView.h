@@ -10,7 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol HomeCourseCollectionViewDelegate <NSObject>
+@optional
+-(void)homeCourseCollectionViewDidSelectedWithIndexPath:(NSIndexPath *)indexPath;
+@end
+
 @interface HomeCourseCollectionView : UIView
+@property (nonatomic, assign) id<HomeCourseCollectionViewDelegate> delegate;
 -(void)homeCourseCollectionViewReloadData;
 @end
 

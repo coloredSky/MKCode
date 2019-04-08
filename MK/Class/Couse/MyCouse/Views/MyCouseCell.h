@@ -6,12 +6,12 @@
 //  Copyright © 2019年 周洋. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MKBaseTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MyCouseCell : UITableViewCell
--(void)cellRefreshData;
+@interface MyCouseCell : MKBaseTableViewCell
+-(void)cellRefreshDataWithIndexPath:(NSIndexPath *)indexPath;
 @end
 
 NS_ASSUME_NONNULL_END

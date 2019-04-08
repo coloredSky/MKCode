@@ -12,6 +12,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *courseNameLab;
 @property (weak, nonatomic) IBOutlet UILabel *courseDetailLab;
 @property (weak, nonatomic) IBOutlet UILabel *courseStatusLab;
+@property (weak, nonatomic) IBOutlet UIImageView *lineIma;
+
+//layout
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineHeightConstritraints;
+
 @end
 @implementation MyCouseCell
 
@@ -20,7 +25,8 @@
     // Initialization code
     [_courseNameLab setFont:MKBoldFont(14) textColor:K_Text_BlackColor withBackGroundColor:nil];
     [_courseDetailLab setFont:K_Font_Text_Min_Max textColor:K_Text_grayColor withBackGroundColor:nil];
-    [_courseStatusLab setFont:K_Font_Text_Large_Little textColor:K_Text_grayColor withBackGroundColor:nil];
+    [_courseStatusLab setFont:K_Font_Text_Normal_Max textColor:K_Text_grayColor withBackGroundColor:nil];
+    _lineIma.backgroundColor = K_Line_lineColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -31,11 +37,16 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-
+    self.lineHeightConstritraints.constant = K_Line_lineWidth;
 }
 
--(void)cellRefreshData
+-(void)cellRefreshDataWithIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 4) {
+        self.lineIma.hidden = YES;
+    }else{
+        self.lineIma.hidden = NO;
+    }
     self.courseImage.image = [UIImage imageNamed:@"home_course"];
     self.courseNameLab.text = @"日语基础";
     self.courseDetailLab.text = @"大阪大学博士";
