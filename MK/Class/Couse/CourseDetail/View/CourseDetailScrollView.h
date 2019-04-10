@@ -6,20 +6,10 @@
 //  Copyright © 2019年 周洋. All rights reserved.
 //
 
-/**
- 课程状态
 
- - CourseSituationTypeUnkown: 未知
- - CourseSituationTypeOnline: 线上
- - CourseSituationTypeOffline: 线下
- */
-typedef NS_ENUM(NSUInteger, CourseSituationType) {
-    CourseSituationTypeUnkown,
-    CourseSituationTypeOnline,
-    CourseSituationTypeOffline,
-};
 
 #import <UIKit/UIKit.h>
+#import "CourseDetailManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

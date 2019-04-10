@@ -26,7 +26,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [_leftTitleLab setFont:K_Font_Text_Normal_Max textColor:K_Text_grayColor withBackGroundColor:nil];
-    [_rightContentLab setFont:K_Font_Text_Normal_Max textColor:K_Text_BlackColor withBackGroundColor:nil];
+    [_rightContentLab setFont:K_Font_Text_Normal_Max textColor:K_Text_grayColor withBackGroundColor:nil];
     _rightContentLab.textAlignment = NSTextAlignmentRight;
     _rightContentLab.numberOfLines = 0;
 }

@@ -47,6 +47,15 @@
         playView.image = [UIImage imageNamed:@"playIma"];
         [_contentScroll addSubview:playView];
         playView.backgroundColor = K_BG_YellowColor;
+        
+        UIImageView *bgIma = [[UIImageView alloc]initWithFrame:CGRectMake(playView.leftX, playView.topY, playView.width, playView.height)];
+        [_contentScroll addSubview:bgIma];
+        bgIma.backgroundColor = [UIColor colorWithWhite:.2 alpha:.4];
+        
+        UIImageView *playIcon = [[UIImageView alloc]initWithFrame:CGRectMake(playView.centerX-KScaleWidth(50), playView.centerY-KScaleWidth(30), KScaleWidth(100), KScaleWidth(100))];
+        [_contentScroll addSubview:playIcon];
+        playIcon.image = KImageNamed(@"courseDetail_playIcon");
+        
     }
     return _contentScroll;
 }
@@ -66,12 +75,13 @@
     if (!_detailScroll) {
         _detailScroll = [[CourseDetailScrollView alloc]initWithFrame:CGRectMake(0, self.courseTipView.bottomY, KScreenWidth, KScreenHeight-self.courseTipView.bottomY)];
         _detailScroll.delegate = self;
-        NSInteger type = arc4random()%2;
-        if (type == 0) {
-            _detailScroll.courseType = CourseSituationTypeOffline;
-        }else{
-            _detailScroll.courseType = CourseSituationTypeOnline;
-        }
+        _detailScroll.courseType = self.courseType;
+//        NSInteger type = arc4random()%2;
+//        if (type == 0) {
+//            _detailScroll.courseType = CourseSituationTypeOffline;
+//        }else{
+//            _detailScroll.courseType = CourseSituationTypeOnline;
+//        }
         [self.contentScroll addSubview:_detailScroll];
     }
     return _detailScroll;

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -92,18 +91,17 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="ANX-0K-Yla" firstAttribute="trailing" secondItem="ZG1-nB-uqN" secondAttribute="trailing" id="7Sc-pj-04I"/>
-                <constraint firstItem="ANX-0K-Yla" firstAttribute="bottom" secondItem="ZG1-nB-uqN" secondAttribute="bottom" id="7rN-D4-piu"/>
-                <constraint firstItem="upd-Jk-5qo" firstAttribute="trailing" secondItem="ANX-0K-Yla" secondAttribute="trailing" id="8Ef-hb-SMZ"/>
-                <constraint firstItem="ANX-0K-Yla" firstAttribute="bottom" secondItem="sI7-S6-GQL" secondAttribute="bottom" constant="10" id="FFM-Pi-rqH"/>
+                <constraint firstAttribute="trailing" secondItem="ZG1-nB-uqN" secondAttribute="trailing" id="7Sc-pj-04I"/>
+                <constraint firstAttribute="bottom" secondItem="ZG1-nB-uqN" secondAttribute="bottom" id="7rN-D4-piu"/>
+                <constraint firstItem="upd-Jk-5qo" firstAttribute="trailing" secondItem="9mN-23-2f6" secondAttribute="trailing" id="8Ef-hb-SMZ"/>
+                <constraint firstAttribute="bottom" secondItem="sI7-S6-GQL" secondAttribute="bottom" constant="10" id="FFM-Pi-rqH"/>
                 <constraint firstItem="ZG1-nB-uqN" firstAttribute="leading" secondItem="sI7-S6-GQL" secondAttribute="leading" id="TpF-Xt-rqb"/>
-                <constraint firstItem="upd-Jk-5qo" firstAttribute="leading" secondItem="ANX-0K-Yla" secondAttribute="leading" id="Y6W-gN-oiV"/>
-                <constraint firstItem="sI7-S6-GQL" firstAttribute="leading" secondItem="ANX-0K-Yla" secondAttribute="leading" constant="28" id="dYa-XC-PPf"/>
-                <constraint firstItem="upd-Jk-5qo" firstAttribute="top" secondItem="ANX-0K-Yla" secondAttribute="top" id="eZj-gy-SuN"/>
+                <constraint firstItem="upd-Jk-5qo" firstAttribute="leading" secondItem="9mN-23-2f6" secondAttribute="leading" id="Y6W-gN-oiV"/>
+                <constraint firstItem="sI7-S6-GQL" firstAttribute="leading" secondItem="9mN-23-2f6" secondAttribute="leading" constant="28" id="dYa-XC-PPf"/>
+                <constraint firstItem="upd-Jk-5qo" firstAttribute="top" secondItem="9mN-23-2f6" secondAttribute="top" id="eZj-gy-SuN"/>
                 <constraint firstItem="sI7-S6-GQL" firstAttribute="top" secondItem="upd-Jk-5qo" secondAttribute="bottom" constant="20" id="ofu-Qc-M5K"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="ANX-0K-Yla"/>
             <connections>
                 <outlet property="VideoStatusLab" destination="r0e-3j-wio" id="3Rj-0Z-gH6"/>
                 <outlet property="VideoTimeLab" destination="Kyd-eu-FHp" id="BpI-Di-bwl"/>
