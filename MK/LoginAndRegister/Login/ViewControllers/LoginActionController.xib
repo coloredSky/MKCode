@@ -68,6 +68,9 @@
                             <integer key="value" value="6"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="zDW-aj-wZQ"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+8615833934060" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3nZ-1w-5PL">
                     <rect key="frame" x="26" y="331" width="124" height="17"/>
@@ -94,17 +97,32 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tJ-LZ-c5j">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tJ-LZ-c5j">
                     <rect key="frame" x="12" y="20" width="14" height="26"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="26" id="A3n-pb-cAl"/>
                         <constraint firstAttribute="width" constant="14" id="zKb-Vj-q0V"/>
                     </constraints>
                     <state key="normal" image="login_back"/>
+                    <connections>
+                        <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="lbw-7X-Oxq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10A-hh-2uZ">
+                    <rect key="frame" x="147.5" y="471" width="80" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="PUH-wM-1xo"/>
+                        <constraint firstAttribute="width" constant="80" id="s47-c9-80A"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="还没有账号？">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="10A-hh-2uZ" firstAttribute="centerX" secondItem="EDR-mz-R8P" secondAttribute="centerX" id="18I-JQ-zNk"/>
                 <constraint firstItem="jRB-wg-UnJ" firstAttribute="trailing" secondItem="EDR-mz-R8P" secondAttribute="trailing" constant="26" id="1fw-Ia-sEW"/>
                 <constraint firstItem="4jy-rn-ZNx" firstAttribute="leading" secondItem="jRB-wg-UnJ" secondAttribute="leading" constant="26" id="4Vq-6b-r24"/>
                 <constraint firstItem="Sd3-bc-dKK" firstAttribute="leading" secondItem="jRB-wg-UnJ" secondAttribute="leading" constant="26" id="7nh-Tp-Fj0"/>
@@ -112,6 +130,7 @@
                 <constraint firstItem="Sd3-bc-dKK" firstAttribute="top" secondItem="e53-wD-cuk" secondAttribute="bottom" constant="34" id="AcC-I0-Gpd"/>
                 <constraint firstItem="4jy-rn-ZNx" firstAttribute="top" secondItem="jRB-wg-UnJ" secondAttribute="top" constant="100" id="AvT-T0-Ohf"/>
                 <constraint firstItem="IWj-oh-vJF" firstAttribute="leading" secondItem="jRB-wg-UnJ" secondAttribute="leading" id="Hlc-eH-Qfi"/>
+                <constraint firstItem="EDR-mz-R8P" firstAttribute="top" secondItem="10A-hh-2uZ" secondAttribute="bottom" constant="8" id="JlT-aH-n9e"/>
                 <constraint firstItem="3nZ-1w-5PL" firstAttribute="top" secondItem="8pO-ZN-Glq" secondAttribute="bottom" constant="28" id="Kb7-wg-H9h"/>
                 <constraint firstItem="EDR-mz-R8P" firstAttribute="top" secondItem="Sd3-bc-dKK" secondAttribute="bottom" constant="73" id="N81-kw-0s3"/>
                 <constraint firstItem="e53-wD-cuk" firstAttribute="top" secondItem="3nZ-1w-5PL" secondAttribute="bottom" constant="17" id="QDp-BU-eo1"/>
