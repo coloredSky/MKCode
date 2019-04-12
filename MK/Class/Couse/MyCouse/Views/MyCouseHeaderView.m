@@ -31,6 +31,7 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+    self.VideoView.backgroundColor = K_BG_YellowColor;
     [_VideoTimeLab setFont:MKBoldFont(10) textColor:K_Text_grayColor withBackGroundColor:nil];
     [_VideoTitleLab setFont:MKBoldFont(13) textColor:K_Text_BlackColor withBackGroundColor:nil];
     [_VideoStatusLab setFont:MKBoldFont(14) textColor:K_Text_WhiteColor withBackGroundColor:nil];
@@ -44,7 +45,7 @@
 -(void)cellRefreshData
 {
     self.lineIma.hidden = YES;
-    self.courseIma.image = KImageNamed(@"playIma");
+    self.courseIma.image = KImageNamed(@"timg.jpeg");
     self.coursePlayIma.image = KImageNamed(@"Course_list_play");
     self.VideoTimeLab.text = @"23:49";
     self.VideoTitleLab.text = @"语态：可能态";

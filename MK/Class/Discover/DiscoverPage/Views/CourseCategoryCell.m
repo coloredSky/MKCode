@@ -27,7 +27,7 @@
     
     self.contentIma.layer.masksToBounds = YES;
     self.contentIma.layer.cornerRadius = 10;
-    self.contentIma.image = KImageNamed(@"message_logo");
+    self.contentIma.image = KImageNamed(@"discover_category1");
 }
 
 @end

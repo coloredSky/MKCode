@@ -31,6 +31,10 @@
     
     _contentIma.layer.masksToBounds = YES;
     _contentIma.layer.cornerRadius = 10;
+    
+    _whiteView.hidden = YES;
+    _titleLab.hidden = YES;
+    _discriptionLab.hidden = YES;
     _whiteView.backgroundColor = UIColorFromRGB_A(255, 255, 255, .2);
     [_titleLab setFont:MKBoldFont(16) textColor:K_Text_BlackColor withBackGroundColor:nil];
     [_discriptionLab setFont:K_Font_Text_Min textColor:K_Text_BlackColor withBackGroundColor:nil];
@@ -50,8 +54,8 @@
 -(void)cellRefreshData
 {
     self.contentIma.image = KImageNamed(@"home_recommentCell");
-    self.titleLab.text = @"EJU文科综合—历史";
-    self.discriptionLab.text = @"巩固日语基础阶段学习中必须掌握的语法，\n为留考，校内考以及N1N2的学习打下良好的基础。";
+//    self.titleLab.text = @"EJU文科综合—历史";
+//    self.discriptionLab.text = @"巩固日语基础阶段学习中必须掌握的语法，\n为留考，校内考以及N1N2的学习打下良好的基础。";
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
