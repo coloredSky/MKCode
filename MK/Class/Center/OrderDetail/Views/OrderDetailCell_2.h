@@ -1,0 +1,22 @@
+//
+//  OrderDetailCell_2.h
+//  MK
+//
+//  Created by ginluck on 2019/4/6.
+//  Copyright © 2019年 周洋. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface OrderDetailCell_2 : UITableViewCell
+@property(nonatomic,weak)IBOutlet UILabel  * titleLab;
+@property(nonatomic,weak)IBOutlet UILabel  * timeLab;
+@property(nonatomic,weak)IBOutlet UILabel  * moneyLab;
+@property(nonatomic,weak)IBOutlet UILabel  * wayLab;
+@property(nonatomic,weak)IBOutlet UILabel  * noLab;
+@property(nonatomic,weak)IBOutlet UILabel  * statusLab;
+@end
+
+NS_ASSUME_NONNULL_END

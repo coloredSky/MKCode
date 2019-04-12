@@ -141,6 +141,12 @@
 		712170D6223F465700BA1905 /* MyCenterBottomoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170D4223F465700BA1905 /* MyCenterBottomoCell.xib */; };
 		712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170D8223F67FE00BA1905 /* MyCenterHeaderView.m */; };
 		712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170DA223F680D00BA1905 /* MyCenterHeaderView.xib */; };
+		7124448622582D6B005AF711 /* OrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124448522582D6B005AF711 /* OrderDetailController.m */; };
+		7124448822582D8C005AF711 /* OrderDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7124448722582D8C005AF711 /* OrderDetailController.xib */; };
+		7124448C225831D3005AF711 /* OrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124448A225831D3005AF711 /* OrderDetailCell.m */; };
+		7124448D225831D3005AF711 /* OrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7124448B225831D3005AF711 /* OrderDetailCell.xib */; };
+		71244491225832A1005AF711 /* OrderDetailCell_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124448F225832A1005AF711 /* OrderDetailCell_2.m */; };
+		71244492225832A1005AF711 /* OrderDetailCell_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71244490225832A1005AF711 /* OrderDetailCell_2.xib */; };
 		712729362241EB9B006772BF /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729352241EB9B006772BF /* MessageModel.m */; };
 		712729392241EBC2006772BF /* RuquestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729382241EBC2006772BF /* RuquestManager.m */; };
 		71A18E1A225072CA007B4C55 /* LagAbilityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A18DD8225072CA007B4C55 /* LagAbilityController.m */; };
@@ -426,6 +432,15 @@
 		712170D7223F67FE00BA1905 /* MyCenterHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCenterHeaderView.h; sourceTree = "<group>"; };
 		712170D8223F67FE00BA1905 /* MyCenterHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCenterHeaderView.m; sourceTree = "<group>"; };
 		712170DA223F680D00BA1905 /* MyCenterHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCenterHeaderView.xib; sourceTree = "<group>"; };
+		7124448422582D6B005AF711 /* OrderDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDetailController.h; sourceTree = "<group>"; };
+		7124448522582D6B005AF711 /* OrderDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailController.m; sourceTree = "<group>"; };
+		7124448722582D8C005AF711 /* OrderDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailController.xib; sourceTree = "<group>"; };
+		71244489225831D3005AF711 /* OrderDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDetailCell.h; sourceTree = "<group>"; };
+		7124448A225831D3005AF711 /* OrderDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailCell.m; sourceTree = "<group>"; };
+		7124448B225831D3005AF711 /* OrderDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailCell.xib; sourceTree = "<group>"; };
+		7124448E225832A1005AF711 /* OrderDetailCell_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDetailCell_2.h; sourceTree = "<group>"; };
+		7124448F225832A1005AF711 /* OrderDetailCell_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailCell_2.m; sourceTree = "<group>"; };
+		71244490225832A1005AF711 /* OrderDetailCell_2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailCell_2.xib; sourceTree = "<group>"; };
 		712729342241EB9B006772BF /* MessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
 		712729352241EB9B006772BF /* MessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
 		712729372241EBC2006772BF /* RuquestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuquestManager.h; sourceTree = "<group>"; };
@@ -1690,6 +1705,12 @@
 		7124447B22582C4C005AF711 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				71244489225831D3005AF711 /* OrderDetailCell.h */,
+				7124448A225831D3005AF711 /* OrderDetailCell.m */,
+				7124448B225831D3005AF711 /* OrderDetailCell.xib */,
+				7124448E225832A1005AF711 /* OrderDetailCell_2.h */,
+				7124448F225832A1005AF711 /* OrderDetailCell_2.m */,
+				71244490225832A1005AF711 /* OrderDetailCell_2.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1704,6 +1725,9 @@
 		7124447D22582C55005AF711 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7124448422582D6B005AF711 /* OrderDetailController.h */,
+				7124448522582D6B005AF711 /* OrderDetailController.m */,
+				7124448722582D8C005AF711 /* OrderDetailController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1754,9 +1778,9 @@
 		71A18DD7225072CA007B4C55 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				71A18DDA225072CA007B4C55 /* LagAbilityController.h */,
 				71A18DD8225072CA007B4C55 /* LagAbilityController.m */,
 				71A18DD9225072CA007B4C55 /* LagAbilityController.xib */,
-				71A18DDA225072CA007B4C55 /* LagAbilityController.h */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1923,8 +1947,8 @@
 			isa = PBXGroup;
 			children = (
 				71A18E13225072CA007B4C55 /* LagAndSchController.h */,
-				71A18E14225072CA007B4C55 /* LagAndSchController.xib */,
 				71A18E15225072CA007B4C55 /* LagAndSchController.m */,
+				71A18E14225072CA007B4C55 /* LagAndSchController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2064,7 +2088,9 @@
 			files = (
 				3048D8742239F77900FE63B2 /* HomePageCell.xib in Resources */,
 				712170CC223F3A1C00BA1905 /* MyCouseHeaderView.xib in Resources */,
+				71244492225832A1005AF711 /* OrderDetailCell_2.xib in Resources */,
 				30FBE3B4224B5CF60049C0DE /* MessageCell.xib in Resources */,
+				7124448822582D8C005AF711 /* OrderDetailController.xib in Resources */,
 				712170CA223F327700BA1905 /* MyCouseCell.xib in Resources */,
 				3035B6A4224F2D4500A1AA98 /* BookmarkCell.xib in Resources */,
 				3048D86722364F5F00FE63B2 /* MyCenterViewController.xib in Resources */,
@@ -2072,6 +2098,7 @@
 				30FBE39022488BFE0049C0DE /* CourseTeacherCell.xib in Resources */,
 				3035B65F224F2C7D00A1AA98 /* LoginViewController.xib in Resources */,
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
+				7124448D225831D3005AF711 /* OrderDetailCell.xib in Resources */,
 				3035B6B322505C4200A1AA98 /* UpdateMessageController.xib in Resources */,
 				30A2DA08224DFE000030120D /* ChangeClassViewController.xib in Resources */,
 				30FBE3142240C2020049C0DE /* HomeRecommenCell.xib in Resources */,
@@ -2250,6 +2277,7 @@
 				30FBE375224398620049C0DE /* AppointmentPopView.m in Sources */,
 				3035B660224F2C7D00A1AA98 /* LoginActionController.m in Sources */,
 				30FBE3BA224B771B0049C0DE /* MKMessageModel.m in Sources */,
+				7124448622582D6B005AF711 /* OrderDetailController.m in Sources */,
 				30FBE399224B26730049C0DE /* CourseOfflineListCell.m in Sources */,
 				3048D82322325FAD00FE63B2 /* MKBaseTableView.m in Sources */,
 				30FBE31B2240E6B50049C0DE /* HomeCourseCollectionViewCell.m in Sources */,
@@ -2268,6 +2296,7 @@
 				30FBE3172240E50A0049C0DE /* HomeCourseCollectionView.m in Sources */,
 				3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */,
 				71A18E23225072CA007B4C55 /* LYSDateHeaderViewController.m in Sources */,
+				7124448C225831D3005AF711 /* OrderDetailCell.m in Sources */,
 				3035B65E224F2C7D00A1AA98 /* LoginViewController.m in Sources */,
 				71A18E32225072CA007B4C55 /* ValuePickerView.m in Sources */,
 				3035B69E224F2D4500A1AA98 /* PropertyController.m in Sources */,
@@ -2321,6 +2350,7 @@
 				30FBE38F22488BFE0049C0DE /* CourseTeacherCell.m in Sources */,
 				3035B6C02250725D00A1AA98 /* MKMeetingViewController.m in Sources */,
 				3035B6BD2250725000A1AA98 /* AskForLeaveViewController.m in Sources */,
+				71244491225832A1005AF711 /* OrderDetailCell_2.m in Sources */,
 				30FBE38722488AF30049C0DE /* CourseOnlineTitleCell.m in Sources */,
 				30A201392254681100A6A232 /* AskForLeaveEndViewController.m in Sources */,
 				3035B6C7225078F100A1AA98 /* AppointmentTapView.m in Sources */,
