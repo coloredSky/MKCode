@@ -35,7 +35,7 @@
 - (CGSize)collectionViewContentSize
 {
     NSInteger itemsCount = [self.collectionView numberOfItemsInSection:0];
-    CGFloat height =  (self.itemSize.height-KScaleHeight(60))*itemsCount+self.estimatedItemSize.height+20;
+    CGFloat height =  (self.itemSize.height-KScaleHeight(60))*itemsCount+self.itemSize.height+20;
     return CGSizeMake(KScreenWidth, height);
 }
 

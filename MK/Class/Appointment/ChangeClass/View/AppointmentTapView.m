@@ -13,10 +13,11 @@
 @property (nonatomic, strong) UILabel *contentLab;
 @property (nonatomic, strong) UIButton *clickBtn;
 
-@property (nonatomic, assign) BOOL isSelected;
+//@property (nonatomic, assign) BOOL isSelected;
 
 @end
 @implementation AppointmentTapView
+@synthesize delegate;
 
 -(instancetype)initWithFrame:(CGRect)frame
 {
@@ -78,6 +79,8 @@
 
 -(void)clickBtnTarget:(UIButton *)sender
 {
-    
+    if ([delegate respondsToSelector:@selector(appointmentTapViewTapClickWithView:)]) {
+        [delegate appointmentTapViewTapClickWithView:self];
+    }
 }
 @end

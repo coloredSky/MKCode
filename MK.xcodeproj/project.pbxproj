@@ -98,6 +98,11 @@
 		30A2018A225DF20700A6A232 /* MyCourseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A20188225DF20700A6A232 /* MyCourseListCell.m */; };
 		30A2018B225DF20700A6A232 /* MyCourseListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A20189225DF20700A6A232 /* MyCourseListCell.xib */; };
 		30A2018E225DFD3B00A6A232 /* CourseDetailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2018D225DFD3B00A6A232 /* CourseDetailManager.m */; };
+		30A20192225F28FC00A6A232 /* UITextView+WJPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A20191225F28FB00A6A232 /* UITextView+WJPlaceholder.m */; };
+		30A20195225F2CFE00A6A232 /* MKBaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A20194225F2CFE00A6A232 /* MKBaseScrollView.m */; };
+		30A20199225F32BC00A6A232 /* XDSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A20198225F32BB00A6A232 /* XDSDropDownMenu.m */; };
+		30A2019D225F490400A6A232 /* XDSDropDownMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2019B225F490400A6A232 /* XDSDropDownMenuCell.m */; };
+		30A2019E225F490400A6A232 /* XDSDropDownMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A2019C225F490400A6A232 /* XDSDropDownMenuCell.xib */; };
 		30A2DA07224DFE000030120D /* ChangeClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA05224DFE000030120D /* ChangeClassViewController.m */; };
 		30A2DA08224DFE000030120D /* ChangeClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A2DA06224DFE000030120D /* ChangeClassViewController.xib */; };
 		30A2DA28224E00640030120D /* DiscoverPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA0D224E00640030120D /* DiscoverPageViewController.m */; };
@@ -373,6 +378,15 @@
 		30A20189225DF20700A6A232 /* MyCourseListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCourseListCell.xib; sourceTree = "<group>"; };
 		30A2018C225DFD3B00A6A232 /* CourseDetailManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseDetailManager.h; sourceTree = "<group>"; };
 		30A2018D225DFD3B00A6A232 /* CourseDetailManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseDetailManager.m; sourceTree = "<group>"; };
+		30A20190225F28FB00A6A232 /* UITextView+WJPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+WJPlaceholder.h"; sourceTree = "<group>"; };
+		30A20191225F28FB00A6A232 /* UITextView+WJPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+WJPlaceholder.m"; sourceTree = "<group>"; };
+		30A20193225F2CFE00A6A232 /* MKBaseScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKBaseScrollView.h; sourceTree = "<group>"; };
+		30A20194225F2CFE00A6A232 /* MKBaseScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKBaseScrollView.m; sourceTree = "<group>"; };
+		30A20197225F32BB00A6A232 /* XDSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDSDropDownMenu.h; sourceTree = "<group>"; };
+		30A20198225F32BB00A6A232 /* XDSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDSDropDownMenu.m; sourceTree = "<group>"; };
+		30A2019A225F490400A6A232 /* XDSDropDownMenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XDSDropDownMenuCell.h; sourceTree = "<group>"; };
+		30A2019B225F490400A6A232 /* XDSDropDownMenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XDSDropDownMenuCell.m; sourceTree = "<group>"; };
+		30A2019C225F490400A6A232 /* XDSDropDownMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XDSDropDownMenuCell.xib; sourceTree = "<group>"; };
 		30A2DA04224DFE000030120D /* ChangeClassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeClassViewController.h; sourceTree = "<group>"; };
 		30A2DA05224DFE000030120D /* ChangeClassViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeClassViewController.m; sourceTree = "<group>"; };
 		30A2DA06224DFE000030120D /* ChangeClassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeClassViewController.xib; sourceTree = "<group>"; };
@@ -939,6 +953,7 @@
 		3048D7E4223255BC00FE63B2 /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				30A20196225F32BB00A6A232 /* XDSDropDownMenuToll */,
 				3048D89A223A2F5900FE63B2 /* NewPagedFlowView */,
 				3048D88D223A2E9100FE63B2 /* RefreshToll */,
 				3048D8262232633400FE63B2 /* PpoViewToll */,
@@ -949,6 +964,7 @@
 		3048D7E5223255C200FE63B2 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				30A2018F225F28FB00A6A232 /* UITextView */,
 				3048D82D223263AF00FE63B2 /* AutoLayout */,
 				3048D83C223263AF00FE63B2 /* String */,
 				3048D837223263AF00FE63B2 /* UIButton */,
@@ -992,6 +1008,8 @@
 				3048D8522236496000FE63B2 /* MKTarbarViewController.m */,
 				3048D86D2239F6B500FE63B2 /* MKBaseTableViewCell.h */,
 				3048D86E2239F6B500FE63B2 /* MKBaseTableViewCell.m */,
+				30A20193225F2CFE00A6A232 /* MKBaseScrollView.h */,
+				30A20194225F2CFE00A6A232 /* MKBaseScrollView.m */,
 			);
 			path = Basis;
 			sourceTree = "<group>";
@@ -1494,6 +1512,27 @@
 				30A20185225DF1AA00A6A232 /* MyCourseListViewController.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		30A2018F225F28FB00A6A232 /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				30A20190225F28FB00A6A232 /* UITextView+WJPlaceholder.h */,
+				30A20191225F28FB00A6A232 /* UITextView+WJPlaceholder.m */,
+			);
+			path = UITextView;
+			sourceTree = "<group>";
+		};
+		30A20196225F32BB00A6A232 /* XDSDropDownMenuToll */ = {
+			isa = PBXGroup;
+			children = (
+				30A20197225F32BB00A6A232 /* XDSDropDownMenu.h */,
+				30A20198225F32BB00A6A232 /* XDSDropDownMenu.m */,
+				30A2019A225F490400A6A232 /* XDSDropDownMenuCell.h */,
+				30A2019B225F490400A6A232 /* XDSDropDownMenuCell.m */,
+				30A2019C225F490400A6A232 /* XDSDropDownMenuCell.xib */,
+			);
+			path = XDSDropDownMenuToll;
 			sourceTree = "<group>";
 		};
 		30A2D9EF224DFB790030120D /* ChangeClass */ = {
@@ -2220,6 +2259,7 @@
 				30FBE39022488BFE0049C0DE /* CourseTeacherCell.xib in Resources */,
 				3035B65F224F2C7D00A1AA98 /* LoginViewController.xib in Resources */,
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
+				30A2019E225F490400A6A232 /* XDSDropDownMenuCell.xib in Resources */,
 				30A201542255F74100A6A232 /* BillListCollectionViewCell.xib in Resources */,
 				3035B6B322505C4200A1AA98 /* UpdateMessageController.xib in Resources */,
 				30A20161225B449700A6A232 /* BillDetailPayTimeCell.xib in Resources */,
@@ -2383,11 +2423,13 @@
 				30A2DA07224DFE000030120D /* ChangeClassViewController.m in Sources */,
 				71A18E2F225072CA007B4C55 /* ValSchController.m in Sources */,
 				30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */,
+				30A20199225F32BC00A6A232 /* XDSDropDownMenu.m in Sources */,
 				712170D5223F465700BA1905 /* MyCenterBottomoCell.m in Sources */,
 				30FBE30F2240976D0049C0DE /* HomeCommonViewController.m in Sources */,
 				30FBE3AE224B5C000049C0DE /* MessageViewController.m in Sources */,
 				30FBE36D224236DA0049C0DE /* AppointmentCollectionView.m in Sources */,
 				71A18E28225072CA007B4C55 /* LYSDatePickerManager.m in Sources */,
+				30A2019D225F490400A6A232 /* XDSDropDownMenuCell.m in Sources */,
 				30A2017C225DDDB900A6A232 /* MyOfflineCourseListFlowLayout.m in Sources */,
 				712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */,
 				3048D846223263AF00FE63B2 /* UIButton+layout.m in Sources */,
@@ -2440,6 +2482,7 @@
 				3048D842223263AF00FE63B2 /* UILabelEdgeInset.m in Sources */,
 				71A18E25225072CA007B4C55 /* LYSDatePickerTypeDayAndTimeDelegate.m in Sources */,
 				30FBE371224238090049C0DE /* AppointmentCollectionViewCell.m in Sources */,
+				30A20192225F28FC00A6A232 /* UITextView+WJPlaceholder.m in Sources */,
 				30A2DA2E224E00640030120D /* DiscoverCourseCategoryView.m in Sources */,
 				3048D85722364F2700FE63B2 /* HomePageViewController.m in Sources */,
 				30FBE30C224092780049C0DE /* HomeContentScrollView.m in Sources */,
@@ -2447,6 +2490,7 @@
 				3048D86122364F4E00FE63B2 /* AppointmentViewController.m in Sources */,
 				3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */,
 				71A18E20225072CA007B4C55 /* LYSDateBaseViewController.m in Sources */,
+				30A20195225F2CFE00A6A232 /* MKBaseScrollView.m in Sources */,
 				30A2DA30224E00640030120D /* CourseCategoryCell.m in Sources */,
 				3035B6CD2251E27400A1AA98 /* MeetingEndQueryViewController.m in Sources */,
 				71A18E27225072CA007B4C55 /* LYSDateIndicatorViewController.m in Sources */,

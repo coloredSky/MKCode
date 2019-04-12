@@ -54,8 +54,17 @@
 -(CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
 {
     NSInteger index = (proposedContentOffset.x-K_Padding_Home_LeftPadding)/self.itemSize.width;
-    CGFloat offsetX = index == 0?0:self.itemSize.width*index;
+    CGFloat offsetX = index == 0 ? 0:self.itemSize.width*index;
     CGPoint targetPoint = CGPointMake(offsetX, 0);
     return targetPoint;
+//    CGFloat miniDistance = MAXFLOAT;
+//    for (UICollectionViewLayoutAttributes *attributes in self.itemAttribuitesArr) {
+//        if (ABS(miniDistance) > ABS(attributes.frame.origin.x-attributes.frame.origin.x)) {
+//            miniDistance = proposedContentOffset.x-attributes.frame.origin.x;
+//        }
+//    }
+//    proposedContentOffset.x += miniDistance;
+//    proposedContentOffset.x -= K_Padding_Home_LeftPadding;
+//    return proposedContentOffset;
 }
 @end

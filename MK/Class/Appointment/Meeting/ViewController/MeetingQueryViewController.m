@@ -14,7 +14,7 @@
 #import "AppointmentTeacherReplyCell.h"
 
 @interface MeetingQueryViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) UIScrollView *contentScroll;
+@property (nonatomic, strong) MKBaseScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong) NSArray *tipStringArr;
@@ -33,10 +33,10 @@
     }
     return _tipStringArr;
 }
--(UIScrollView *)contentScroll
+-(MKBaseScrollView *)contentScroll
 {
     if (!_contentScroll) {
-        _contentScroll = [UIScrollView new];
+        _contentScroll = [MKBaseScrollView new];
         [self.view addSubview:_contentScroll];
         _contentScroll.backgroundColor = K_BG_YellowColor;
         //

@@ -13,7 +13,7 @@
 #import "AppointmentTeacherReplyCell.h"
 
 @interface AskForLeaveEndViewController()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) UIScrollView *contentScroll;
+@property (nonatomic, strong) MKBaseScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 //@property (nonatomic, strong) UITextView *reasonTextView;
@@ -44,10 +44,10 @@
     }
     return _tipStringArr;
 }
--(UIScrollView *)contentScroll
+-(MKBaseScrollView *)contentScroll
 {
     if (!_contentScroll) {
-        _contentScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+        _contentScroll = [[MKBaseScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
         _contentScroll.backgroundColor = K_BG_YellowColor;
         //请假课程标题
         UILabel *courseTitleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, self.headerView.bottomY+KScaleHeight(30), 200, KScaleHeight(20))];

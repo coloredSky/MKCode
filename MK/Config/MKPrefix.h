@@ -31,6 +31,7 @@
 //Utilites 工具类
 #import "XHRefreshFooter.h"
 #import "XHRefreshHeader.h"
+#import "XDSDropDownMenu.h"
 
 //vendor 第三方
 
@@ -40,5 +41,6 @@
 #import "MKBaseViewController.h"
 #import "MKNavViewController.h"
 #import "MKBaseTableView.h"
+#import "MKBaseScrollView.h"
 
 #endif /* MKPrifix_pch */
