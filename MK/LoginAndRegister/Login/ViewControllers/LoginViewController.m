@@ -20,8 +20,8 @@
 }
 -(IBAction)btnClick:(UIButton * )sender
 {
-    LoginDetailController * lvc =[LoginDetailController new];
-    [self presentViewController:lvc animated:YES completion:nil];
+//    LoginDetailController * lvc =[LoginDetailController new];
+//    [self presentViewController:lvc animated:YES completion:nil];
 }
 /*
 #pragma mark - Navigation

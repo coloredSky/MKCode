@@ -29,14 +29,15 @@
 -(void)setUpRefresh
 {
     //下拉刷新
-    //    @weakObject(self);
+    @weakObject(self);
     self.contentCollectionView.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
-        //        @strongObject(self);
+        @strongObject(self);
+        [self.contentCollectionView.mj_header endRefreshing];
     }];
     //上拉加载
-    self.contentCollectionView.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-        //        @strongObject(self);
-    }];
+    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
+    //                @strongObject(self);
+    //    }];
 }
 
 #pragma mark --  request

@@ -35,14 +35,15 @@
 -(void)setUpRefresh
 {
     //下拉刷新
-    //    @weakObject(self);
+    @weakObject(self);
     self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
-        //        @strongObject(self);
+        @strongObject(self);
+        [self.contentTable.mj_header endRefreshing];
     }];
     //上拉加载
-    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-        //        @strongObject(self);
-    }];
+    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
+    //                @strongObject(self);
+    //    }];
 }
 
 #pragma mark --  request

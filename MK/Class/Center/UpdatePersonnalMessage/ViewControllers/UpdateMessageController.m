@@ -62,7 +62,7 @@
 -(HomeContentScrollView *)contentScroll
 {
     if (!_contentScroll) {
-        _contentScroll = [[HomeContentScrollView alloc]initWithFrame:CGRectMake(0, 190+K_NaviHeight, KScreenWidth, KScreenHeight-(190+K_NaviHeight))];
+        _contentScroll = [[HomeContentScrollView alloc]initWithFrame:CGRectMake(0, 200+K_NaviHeight, KScreenWidth, KScreenHeight-(190+K_NaviHeight))];
         _contentScroll.delegate = self;
     [_contentScroll AddChildViewWithTitleArr:self.childVCs.mutableCopy andRootViewController:self];
     }

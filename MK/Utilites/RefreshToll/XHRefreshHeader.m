@@ -130,8 +130,10 @@
 }
 -(void)stopAnimation
 {
+    __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        _finish = NO;
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        strongSelf.finish = NO;
         [self.animationLayer  removeAllAnimations];
     });
 }
