@@ -7,11 +7,12 @@
 //
 
 #import "MKBaseViewController.h"
+#import "CourseDetailManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CourseDetailViewController : MKNavViewController
-
+@property (nonatomic, assign) CourseSituationType courseType;
 @end
 
 NS_ASSUME_NONNULL_END

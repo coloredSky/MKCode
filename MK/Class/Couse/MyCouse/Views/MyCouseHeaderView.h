@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ 正在观看的视频--headerView
+ */
 @interface MyCouseHeaderView : UIView
 -(void)cellRefreshData;
 @end

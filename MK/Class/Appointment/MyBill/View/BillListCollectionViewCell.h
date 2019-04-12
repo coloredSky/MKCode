@@ -1,8 +1,8 @@
 //
-//  MyCouseCell.h
+//  BillListCollectionViewCell.h
 //  MK
 //
-//  Created by ginluck on 2019/3/18.
+//  Created by 周洋 on 2019/4/4.
 //  Copyright © 2019年 周洋. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MyCouseCell : UITableViewCell
+@interface BillListCollectionViewCell : UICollectionViewCell
 -(void)cellRefreshData;
 @end
 

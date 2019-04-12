@@ -7,6 +7,7 @@
 //
 
 #import "MyCenterViewController.h"
+#import "MyBillListViewController.h"//订单列表
 #import "MessageNoticeController.h"//消息通知
 #import "SetPasswordController.h"//修改密码
 #import "PolicyViewController.h"//隐私声明
@@ -69,6 +70,7 @@
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 203, KScreenWidth, KScreenHeight-203) collectionViewLayout:layout];
         _collectionView.backgroundColor = K_BG_GrayColor;
+        _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         [_collectionView registerNib:[UINib nibWithNibName:@"MyCenterTopCell" bundle:nil] forCellWithReuseIdentifier:@"MyCenterTopCell"];
@@ -192,9 +194,14 @@
     {
         if (indexPath.item ==0)
         {
-            OrderDetailController * ovc= [OrderDetailController new];
-            ovc.hidesBottomBarWhenPushed =YES;
-            [self.navigationController pushViewController:ovc animated:YES];
+
+//            OrderDetailController * ovc= [OrderDetailController new];
+//            ovc.hidesBottomBarWhenPushed =YES;
+//            [self.navigationController pushViewController:ovc animated:YES];
+
+            MyBillListViewController *billVC = [MyBillListViewController new];
+            [self.navigationController pushViewController:billVC animated:YES];
+
         }
         if (indexPath.item ==1)
         {

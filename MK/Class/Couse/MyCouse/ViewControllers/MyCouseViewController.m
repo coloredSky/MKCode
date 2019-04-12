@@ -8,14 +8,17 @@
 
 #import "MyCouseViewController.h"
 #import "CourseDetailViewController.h"
-
-#import "MyCouseCell.h"
+#import "MyCourseListViewController.h"
+#import "CourseDetailViewController.h"
+//View
 #import "MyCouseHeaderView.h"
-@interface MyCouseViewController()<UITableViewDelegate,UITableViewDataSource>
+#import "MyOnlineCourseListView.h"
+
+@interface MyCouseViewController()<UITableViewDelegate,UITableViewDataSource,MyOnlineCourseListViewDelagate>
+
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong)MyCouseHeaderView *headerView;
 @property (nonatomic, strong) NSArray *titleArr;//区头标题
-@property (nonatomic, strong) NSArray *bannerArr;//banner 图片
 @end
 
 @implementation MyCouseViewController
@@ -30,9 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_deepGrayColor;
-    [self.view addSubview:self.contentTable];
     //refresh
-    //    [self setUpRefresh];
+    [self setUpRefresh];
     //request
     [self startRequest];
 }
@@ -60,11 +62,18 @@
 -(MKBaseTableView *)contentTable
 {
     if (!_contentTable) {
-        _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(K_Padding_LeftPadding, 0, KScreenWidth-K_Padding_LeftPadding*2,KScreenHeight-K_TabbarHeight) style:UITableViewStyleGrouped];
-        [_contentTable registerNib:[UINib nibWithNibName:@"MyCouseCell" bundle:nil] forCellReuseIdentifier:@"MyCouseCell"];
-        _contentTable.tableHeaderView = self.headerView;
+        _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth,KScreenHeight-K_TabbarHeight) style:UITableViewStyleGrouped];
+        [self.view addSubview:_contentTable];
+        if (@available(ios 11.0,*)) {
+            _contentTable.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }else{
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
         _contentTable.delegate = self;
         _contentTable.dataSource = self;
+        [_contentTable registerNib:[UINib nibWithNibName:@"UITableViewCell" bundle:nil] forCellReuseIdentifier:@"UITableViewCell"];
+        _contentTable.tableHeaderView = self.headerView;
+        _contentTable.backgroundColor = K_BG_WhiteColor;
     }
     return _contentTable;
 }
@@ -81,48 +90,132 @@
 #pragma mark - cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MyCouseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCouseCell" forIndexPath:indexPath];
-    [cell cellRefreshData];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+//    [cell cellRefreshDataWithIndexPath:indexPath];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 0;
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return KScaleHeight(50.5);
+    return KScaleHeight(60);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return KScaleHeight(25);
+    if (section ==0) {
+        return KScaleHeight(40);
+    }else if (section ==1){
+        return KScaleHeight(70);
+    }
+    return KScaleHeight(35);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return CGFLOAT_MIN;
+    if (section == 0) {
+        return KScaleWidth(180);
+    }else if (section ==1){
+        return KScaleWidth(180);
+    }
+    return KScaleWidth(180);
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(25))];
+    UIView *headerView = [UIView new];
+    headerView.frame = CGRectMake(0, 0, KScreenWidth, [self tableView:tableView heightForHeaderInSection:section]);
     headerView.backgroundColor =K_Text_WhiteColor;
-    UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(28, 0, 100, headerView.height)];
-    [headerView addSubview:titleLab];
-    [titleLab setFont:MKBoldFont(16) textColor:K_Text_BlackColor withBackGroundColor:nil];
-    titleLab.text = section ==0?@"线上课程":@"线下课程";
     
-    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [headerView addSubview:button];
-    [button setNormalTitle:@"all" font:MKBoldFont(13) titleColor:K_Text_BlueColor];
+    if (section == 0) {//线上课程
+        UIImageView *lineIma = [UIImageView new];
+        lineIma.backgroundColor = K_Line_lineColor;
+        [headerView addSubview:lineIma];
+        lineIma.frame = CGRectMake(28, 0, KScreenWidth-28, K_Line_lineWidth);
+        UILabel *titleLab = [UILabel new];
+         titleLab.frame = CGRectMake(28, KScaleHeight(10), 200, 22);
+        [headerView addSubview:titleLab];
+        titleLab.text = @"线上课程";
+        
+        UILabel *allLab = [[UILabel alloc]initWithFrame:CGRectMake(headerView.width-KScaleWidth(30+30), titleLab.centerY-KScaleHeight(10), KScaleWidth(30), KScaleHeight(20))];
+        [headerView addSubview:allLab];
+        [allLab setFont:K_Font_Text_Normal_little textColor:K_Text_BlueColor withBackGroundColor:nil];
+        allLab.textAlignment = NSTextAlignmentRight;
+        allLab.text = @"all";
+        UIButton *clickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [headerView addSubview:clickBtn];
+        clickBtn.tag = section;
+        clickBtn.frame = CGRectMake(headerView.width-KScaleWidth(60), allLab.centerY-KScaleHeight(20), KScaleWidth(60), KScaleHeight(40));
+        [clickBtn addTarget:self action:@selector(clickAllCourseListTarget:) forControlEvents:UIControlEventTouchUpInside];
+    }else if (section == 1){
+        UIImageView *lineIma = [UIImageView new];
+        lineIma.backgroundColor = K_Line_lineColor;
+        [headerView addSubview:lineIma];
+        lineIma.frame = CGRectMake(28, 0, KScreenWidth-28, K_Line_lineWidth);
+        UILabel *titleLab = [UILabel new];
+        titleLab.frame = CGRectMake(28, KScaleHeight(10), 200, 22);
+        [headerView addSubview:titleLab];
+        titleLab.text =  @"线下课程";
+        UILabel *courseTypeLab = [UILabel new];
+        [headerView addSubview:courseTypeLab];
+        courseTypeLab.frame = CGRectMake(titleLab.leftX, titleLab.bottomY+KScaleHeight(5), titleLab.width, KScaleHeight(16));
+        [courseTypeLab setFont:K_Font_Text_Min_Max textColor:K_Text_DeepGrayColor withBackGroundColor:nil];
+        courseTypeLab.text = @"正在进行的课程";
+        
+        UILabel *allLab = [[UILabel alloc]initWithFrame:CGRectMake(headerView.width-KScaleWidth(30+30), titleLab.centerY-KScaleHeight(10), KScaleWidth(30), KScaleHeight(20))];
+        [headerView addSubview:allLab];
+        [allLab setFont:K_Font_Text_Normal_little textColor:K_Text_BlueColor withBackGroundColor:nil];
+        allLab.textAlignment = NSTextAlignmentRight;
+        allLab.text = @"all";
+        
+        UIButton *clickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [headerView addSubview:clickBtn];
+        clickBtn.tag = section;
+        clickBtn.frame = CGRectMake(headerView.width-KScaleWidth(60), allLab.centerY-KScaleHeight(20), KScaleWidth(60), KScaleHeight(40));
+        [clickBtn addTarget:self action:@selector(clickAllCourseListTarget:) forControlEvents:UIControlEventTouchUpInside];
+    }else{
+        UILabel *courseTypeLab = [UILabel new];
+        [headerView addSubview:courseTypeLab];
+        courseTypeLab.frame = CGRectMake(28, headerView.height-KScaleHeight(20)-KScaleHeight(5), 200, KScaleHeight(20));
+        [courseTypeLab setFont:K_Font_Text_Min_Max textColor:K_Text_DeepGrayColor withBackGroundColor:nil];
+        courseTypeLab.text = @"还未开始的课程";
+    }
+    UIImageView *bottomLine = [UIImageView new];
+    [headerView addSubview:bottomLine];
+    bottomLine.backgroundColor = K_Line_lineColor;
+    bottomLine.frame = CGRectMake(110, headerView.height-K_Line_lineWidth, headerView.width-110, K_Line_lineWidth);
     return headerView;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return nil;
+    UIView *headerView = [UIView new];
+    if (section ==0) {
+        headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(180));
+        MyOnlineCourseListView *onlineListView = [[MyOnlineCourseListView alloc]initWithFrame:CGRectMake(0, 0, headerView.width, headerView.height)];
+        onlineListView.delegate = self;
+        onlineListView.listViewShowType = UserCourseListViewShowTypeOnline;
+        [headerView addSubview:onlineListView];
+        [onlineListView onlineCourseListViewRefreshDataWithContentArr:[NSArray array].mutableCopy];
+    }else if (section == 1){
+        headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(180));
+        MyOnlineCourseListView *onlineListView = [[MyOnlineCourseListView alloc]initWithFrame:CGRectMake(0, 0, headerView.width, headerView.height)];
+        onlineListView.delegate = self;
+        onlineListView.listViewShowType = UserCourseListViewShowTypeOfflineUnderWay;
+        [headerView addSubview:onlineListView];
+        [onlineListView onlineCourseListViewRefreshDataWithContentArr:[NSArray array].mutableCopy];
+    }else{
+        headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(180));
+        MyOnlineCourseListView *onlineListView = [[MyOnlineCourseListView alloc]initWithFrame:CGRectMake(0, 0, headerView.width, headerView.height)];
+        onlineListView.delegate = self;
+        onlineListView.listViewShowType = UserCourseListViewShowTypeOfflineNotStart;
+        [headerView addSubview:onlineListView];
+        [onlineListView onlineCourseListViewRefreshDataWithContentArr:[NSArray array].mutableCopy];
+    }
+    return headerView;
 }
 
 
@@ -135,6 +228,27 @@
     CourseDetailViewController *detailVC = [CourseDetailViewController new];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
-
+#pragma mark --  all
+-(void)clickAllCourseListTarget:(UIButton *)sender
+{
+    MyCourseListViewController *courseListVC = [MyCourseListViewController new];
+    if (sender.tag == 0) {
+        courseListVC.courseListShowType = UserCourseListViewShowTypeOnline;
+    }else{
+        courseListVC.courseListShowType = UserCourseListViewShowTypeOfflineUnderWay;
+    }
+    [self.navigationController pushViewController:courseListVC animated:YES];
+}
+#pragma mark --  Course-DidSelected
+-(void)myOnlineCourseListViewDidSelectedCourseWithIndexPath:(NSIndexPath *)indexPath andUserCourseListViewShowType:(UserCourseListViewShowType)listViewShowType
+{
+    CourseDetailViewController *detailVC = [CourseDetailViewController new];
+    if (listViewShowType == UserCourseListViewShowTypeOnline) {
+        detailVC.courseType = CourseSituationTypeOnline;
+    }else{
+        detailVC.courseType = CourseSituationTypeOffline;
+    }
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
 
 @end

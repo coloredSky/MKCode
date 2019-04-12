@@ -19,6 +19,9 @@
         self.backgroundColor = K_BG_deepGrayColor;
         self.estimatedSectionHeaderHeight = 0;
         self.estimatedSectionFooterHeight = 0;
+//        if (@available(ios 11.0,*)) {
+//            self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        }
     }
     return self;
 }

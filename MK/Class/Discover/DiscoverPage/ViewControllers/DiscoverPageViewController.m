@@ -8,6 +8,7 @@
 
 #import "DiscoverPageViewController.h"
 #import "NewsViewController.h"
+#import "CourseDetailViewController.h"
 //View
 #import "DiscoverNewsCell.h"
 #import "DiscoverCourseCategoryView.h"
@@ -30,6 +31,7 @@
 -(void)dealloc
 {
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     //NavView
@@ -162,7 +164,8 @@
 #pragma mark -- course category did selected
 -(void)itemDidSelectedWithIndex:(NSUInteger )index
 {
-    
+    CourseDetailViewController *courseDetailVC = [CourseDetailViewController new];
+    [self.navigationController pushViewController:courseDetailVC animated:YES];
 }
 
 @end

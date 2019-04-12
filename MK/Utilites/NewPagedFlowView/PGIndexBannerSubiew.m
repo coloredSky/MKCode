@@ -10,6 +10,7 @@
 
 #import "PGIndexBannerSubiew.h"
 @interface PGIndexBannerSubiew()
+@property (nonatomic, strong) UIView *shadowView;
 @property (nonatomic, strong) UIView *contentView;
 @end
 @implementation PGIndexBannerSubiew
@@ -21,12 +22,13 @@
     
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        self.layer.shadowColor = K_Text_DeepGrayColor.CGColor;
-        self.layer.shadowRadius = 3.0f;
-        self.layer.shadowOffset = CGSizeMake(1, 1);
-        self.layer.shadowOpacity = .5;
+        self.shadowView.layer.shadowColor = K_Text_DeepGrayColor.CGColor;
+        self.shadowView.layer.shadowRadius = 3.0f;
+        self.shadowView.layer.shadowOffset = CGSizeMake(1, 1);
+        self.shadowView.layer.shadowOpacity = .5;
         
-        [self addSubview:self.contentView];
+        [self addSubview:self.shadowView];
+        [self.shadowView addSubview:self.contentView];
         [self.contentView addSubview:self.mainImageView];
         [self.contentView addSubview:self.coverView];
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleCellTapAction:)];
@@ -47,15 +49,26 @@
     if (CGRectEqualToRect(self.mainImageView.frame, superViewBounds)) {
         return;
     }
-    self.contentView.frame = superViewBounds;
-    self.mainImageView.frame = superViewBounds;
-    self.coverView.frame = superViewBounds;
+    self.shadowView.frame = CGRectMake(5, 5, superViewBounds.size.width-10, superViewBounds.size.height-10);
+    self.contentView.frame = CGRectMake(0, 0, self.shadowView.width, self.shadowView.height);
+    self.mainImageView.frame = CGRectMake(0, 0, self.shadowView.width, self.shadowView.height);
+    self.coverView.frame = CGRectMake(0, 0, self.shadowView.width, self.shadowView.height);
+}
+
+-(UIView *)shadowView
+{
+    if (!_shadowView) {
+        _shadowView = [UIView new];
+        _shadowView.backgroundColor = [UIColor clearColor];
+    }
+    return _shadowView;
 }
 
 -(UIView *)contentView
 {
     if (!_contentView) {
         _contentView = [UIView new];
+        _contentView.backgroundColor = [UIColor clearColor];
         _contentView.layer.masksToBounds = YES;
         _contentView.layer.cornerRadius = KScaleWidth(10);
     }
