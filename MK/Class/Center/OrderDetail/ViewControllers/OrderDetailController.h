@@ -1,8 +1,8 @@
 //
-//  MKBaseViewController.h
+//  OrderDetailController.h
 //  MK
 //
-//  Created by 周洋 on 2019/3/8.
+//  Created by ginluck on 2019/4/6.
 //  Copyright © 2019年 周洋. All rights reserved.
 //
 
@@ -10,8 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MKBaseViewController : UIViewController
--(void)loginAlterViewShow;
+@interface OrderDetailController : MKNavViewController
+
 @end
 
 NS_ASSUME_NONNULL_END

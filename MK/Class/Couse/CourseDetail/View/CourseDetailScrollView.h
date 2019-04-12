@@ -27,12 +27,15 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)scrollToIndex:(NSInteger )index;
 @end
 
+
 @protocol CourseDetailScrollViewDelegate <NSObject>
 @optional
 //监测滑动位置
 -(void)CourseDetailScrollViewScrollOffsetY:(float )offsetY;
 //监测滑动e页数
 -(void)CourseDetailScrollViewScrollToIndex:(NSInteger )index;
+//cell 课程点击
+-(void)courseDidSelectedWithIndexPath:(NSIndexPath *)indexPath;
 @end
 
 NS_ASSUME_NONNULL_END

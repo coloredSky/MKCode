@@ -41,6 +41,8 @@
     // Do any additional setup after loading the view from its nib.
     [self creatUICompoents];
 }
+
+
 -(void)creatUICompoents
 {
     self.view.backgroundColor =K_BG_WhiteColor;

@@ -8,6 +8,7 @@
 
 #import "MKBaseViewController.h"
 #import <objc/runtime.h>
+#import "LoginActionController.h"
 
 @interface MKBaseViewController ()
 
@@ -76,5 +77,20 @@
     }
     free(classes);
     return [NSArray arrayWithArray:mutabArray];
+}
+
+-(void)loginAlterViewShow
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您还未登录？请登录" preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+    __weak typeof(self) weakSelf = self;
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        LoginActionController *loginVC = [LoginActionController new];
+        [strongSelf.navigationController pushViewController:loginVC animated:YES];
+    }];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:cancleAction];
+    [alert addAction:sureAction];
 }
 @end

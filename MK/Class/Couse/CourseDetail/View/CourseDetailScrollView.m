@@ -179,7 +179,11 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.section == 2) {
+        if ([delegate respondsToSelector:@selector(courseDidSelectedWithIndexPath:)]) {
+            [delegate courseDidSelectedWithIndexPath:indexPath];
+        }
+    }
 }
 
 -(void)scrollToIndex:(NSInteger )index

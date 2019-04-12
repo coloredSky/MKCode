@@ -105,5 +105,10 @@
 {
     [self.courseTipView courseButtonSeletedWithIndex:index];
 }
+#pragma mark --  课程点击
+-(void)courseDidSelectedWithIndexPath:(NSIndexPath *)indexPath
+{
+    [self loginAlterViewShow];
+}
 
 @end

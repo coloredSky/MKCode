@@ -16,6 +16,7 @@
 #import "BookmarkController.h"//书签
 #import "FeedBackController.h"//反馈
 #import "UpdateMessageController.h"//编辑个人资料
+#import "OrderDetailController.h"//订单
 //views
 #import "MyCenterTopCell.h"
 #import "MyCenterBottomoCell.h"
@@ -193,8 +194,14 @@
     {
         if (indexPath.item ==0)
         {
+
+//            OrderDetailController * ovc= [OrderDetailController new];
+//            ovc.hidesBottomBarWhenPushed =YES;
+//            [self.navigationController pushViewController:ovc animated:YES];
+
             MyBillListViewController *billVC = [MyBillListViewController new];
             [self.navigationController pushViewController:billVC animated:YES];
+
         }
         if (indexPath.item ==1)
         {
@@ -219,9 +226,9 @@
     {
         if (indexPath.item ==0)
         {
-            PolicyViewController * pvc =[PolicyViewController new];
-            pvc.hidesBottomBarWhenPushed=YES;
-            [self.navigationController pushViewController:pvc animated:YES];
+            PolicyViewController * policyVC =[PolicyViewController new];
+            policyVC.titleString = @"隐私条款";
+            [self.navigationController pushViewController:policyVC animated:YES];
         }
         if (indexPath.item ==1)
         {
@@ -243,7 +250,9 @@
         }
         if (indexPath.item ==4)
         {
-            
+            PolicyViewController *policyVC = [PolicyViewController new];
+            policyVC.titleString = @"隐私条款";
+            [self.navigationController pushViewController:policyVC animated:YES];
         }
         if (indexPath.item ==5)
         {

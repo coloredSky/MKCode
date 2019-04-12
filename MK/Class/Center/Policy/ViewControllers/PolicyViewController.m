@@ -9,6 +9,8 @@
 #import "PolicyViewController.h"
 #import <WebKit/WebKit.h>
 @interface PolicyViewController ()<WKUIDelegate,WKNavigationDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+
 /**webView*/
 @property(nonatomic,strong) WKWebView *contentWeb;
 /**进度条*/
@@ -37,6 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.contentUrl = @"https://www.baidu.com";
+    self.titleLab.text = self.titleString;
     
     if (self.loadType == WebViewLoadTypeLoadTheRichText){
         //加载富文本
