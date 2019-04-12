@@ -52,12 +52,14 @@
     if (indexPath.row==2) {
         OrderDetailCell_2 *cell = [tableView dequeueReusableCellWithIdentifier:@"OrderDetailCell_2" forIndexPath:indexPath];
           cell.titleLab.text =self.dataAry[indexPath.row];
+        cell.selectionStyle =UITableViewCellSelectionStyleNone;
         return cell;
     }
     else
     {
         OrderDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OrderDetailCell" forIndexPath:indexPath];
         cell.titleLab.text =self.dataAry[indexPath.row];
+        cell.selectionStyle =UITableViewCellSelectionStyleNone;
         cell.detailLab.text =@"";
         return cell;
     }
