@@ -70,6 +70,7 @@
     BasicInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BasicInfoCell" forIndexPath:indexPath];
     NSArray * ary =self.titleArr[indexPath.section];
     cell.ttLabel.text =ary[indexPath.row];
+    cell.selectionStyle =UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
