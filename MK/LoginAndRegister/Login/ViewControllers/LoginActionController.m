@@ -7,7 +7,7 @@
 //
 
 #import "LoginActionController.h"
-
+#import "MKTarbarViewController.h"
 @interface LoginActionController ()
 
 @end
@@ -18,7 +18,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
-
+-(IBAction)btnClick:(UIButton *)sender
+{
+    if (sender.tag ==1) {
+          [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        //登录
+        MKTarbarViewController *tarbarVC = [MKTarbarViewController new];
+        [[UIApplication sharedApplication]keyWindow]. rootViewController = tarbarVC;
+    }
+  
+}
 /*
 #pragma mark - Navigation
 
