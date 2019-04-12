@@ -7,6 +7,7 @@
 //
 
 #import "LoginActionController.h"
+#import "RegisterController.h"
 #import "MKTarbarViewController.h"
 @interface LoginActionController ()
 
@@ -31,6 +32,12 @@
     }
   
 }
+
+- (IBAction)registerTarget:(id)sender {
+    RegisterController *registerVC = [RegisterController new];
+    [self.navigationController pushViewController:registerVC animated:YES];
+}
+
 /*
 #pragma mark - Navigation
 

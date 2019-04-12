@@ -93,4 +93,18 @@
     [alert addAction:cancleAction];
     [alert addAction:sureAction];
 }
+
+-(void)loginOutAlterViewShow
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您确定要退出登录？" preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+//    __weak typeof(self) weakSelf = self;
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        __strong typeof(weakSelf) strongSelf = weakSelf;
+        
+    }];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:cancleAction];
+    [alert addAction:sureAction];
+}
 @end

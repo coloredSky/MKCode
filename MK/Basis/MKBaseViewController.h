@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MKBaseViewController : UIViewController
 -(void)loginAlterViewShow;
+-(void)loginOutAlterViewShow;
 @end
 
 NS_ASSUME_NONNULL_END

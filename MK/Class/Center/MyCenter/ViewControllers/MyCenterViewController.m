@@ -227,7 +227,7 @@
         if (indexPath.item ==0)
         {
             PolicyViewController * policyVC =[PolicyViewController new];
-            policyVC.titleString = @"隐私条款";
+            policyVC.titleString = @"隐私声明";
             [self.navigationController pushViewController:policyVC animated:YES];
         }
         if (indexPath.item ==1)
@@ -251,12 +251,12 @@
         if (indexPath.item ==4)
         {
             PolicyViewController *policyVC = [PolicyViewController new];
-            policyVC.titleString = @"隐私条款";
+            policyVC.titleString = @"服务条款";
             [self.navigationController pushViewController:policyVC animated:YES];
         }
         if (indexPath.item ==5)
         {
-            
+            [self loginOutAlterViewShow];
         }
     }
    

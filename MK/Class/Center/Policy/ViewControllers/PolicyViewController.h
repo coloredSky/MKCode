@@ -27,7 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSString *contentUrl;
 /**显示的富文本*/
 @property(nonatomic,copy)NSString *contentString;
-@property (nonatomic, copy) NSString *titleString;
 @end
 
 NS_ASSUME_NONNULL_END

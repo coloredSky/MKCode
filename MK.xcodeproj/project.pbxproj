@@ -219,6 +219,7 @@
 /* Begin PBXFileReference section */
 		01EC22067BFBE5FAFDA1AA9E /* libPods-MKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		103DD988DFB0D2ECAC8DD95D /* Pods-MKUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3029551022607066006D1613 /* MKKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKKey.h; sourceTree = "<group>"; };
 		3035B64C224F2C7D00A1AA98 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		3035B64D224F2C7D00A1AA98 /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 		3035B64E224F2C7D00A1AA98 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
@@ -622,8 +623,8 @@
 			isa = PBXGroup;
 			children = (
 				3035B64C224F2C7D00A1AA98 /* RegisterController.h */,
-				3035B64D224F2C7D00A1AA98 /* RegisterController.xib */,
 				3035B64E224F2C7D00A1AA98 /* RegisterController.m */,
+				3035B64D224F2C7D00A1AA98 /* RegisterController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -993,6 +994,7 @@
 			children = (
 				3048D8242232616100FE63B2 /* MKBridging.h */,
 				3048D84D22327BE500FE63B2 /* MKPrefix.h */,
+				3029551022607066006D1613 /* MKKey.h */,
 			);
 			path = Config;
 			sourceTree = "<group>";
