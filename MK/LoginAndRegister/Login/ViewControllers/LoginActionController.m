@@ -27,8 +27,13 @@
     else
     {
         //登录
-        MKTarbarViewController *tarbarVC = [MKTarbarViewController new];
-        [[UIApplication sharedApplication]keyWindow]. rootViewController = tarbarVC;
+//        MKTarbarViewController *tarbarVC = [MKTarbarViewController new];
+//        [[UIApplication sharedApplication]keyWindow]. rootViewController = tarbarVC;
+        [self.navigationController popViewControllerAnimated:YES];
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setBool:YES forKey:KMKLoginKey];
+        [userDefaults synchronize];
+//        [self dismissViewControllerAnimated:YES completion:nil];
     }
   
 }

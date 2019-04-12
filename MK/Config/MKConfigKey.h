@@ -1,13 +1,13 @@
 //
-//  MKKey.h
+//  MKConfigKey.h
 //  MK
 //
 //  Created by 周洋 on 2019/4/12.
 //  Copyright © 2019年 周洋. All rights reserved.
 //
 
-#ifndef MKKey_h
-#define MKKey_h
+#ifndef MKConfigKey_h
+#define MKConfigKey_h
 
 #ifdef DEBUG
 // DEBUG Module Bugly
@@ -19,6 +19,9 @@
 #define kXHBorrowBugConfigChannel @"APP Store"
 #endif
 
-#define MKLoginKey @"MKLoginKey"
 
-#endif /* MKKey_h */
+#define KMKLoginKey @"KMKLoginKey"
+#define K_MK_IsHaveLoginKey [[NSUserDefaults standardUserDefaults]boolForKey:KMKLoginKey]
+
+
+#endif /* MKConfigKey_h */

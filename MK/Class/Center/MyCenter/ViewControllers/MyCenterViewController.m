@@ -192,6 +192,10 @@
 {
     if (indexPath.section ==0)
     {
+        if (!K_MK_IsHaveLoginKey) {
+            [self loginAlterViewShow];
+            return;
+        }
         if (indexPath.item ==0)
         {
 
@@ -314,6 +318,10 @@
 #pragma mark-headerViewDelegate
 -(void)headerViewBtnClick
 {
+    if (!K_MK_IsHaveLoginKey) {
+        [self loginAlterViewShow];
+        return;
+    }
     UpdateMessageController * uvc =[UpdateMessageController new];
     [self.navigationController pushViewController:uvc animated:YES];
 }

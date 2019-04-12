@@ -101,7 +101,9 @@
 //    __weak typeof(self) weakSelf = self;
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //        __strong typeof(weakSelf) strongSelf = weakSelf;
-        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setBool:NO forKey:KMKLoginKey];
+        [userDefaults synchronize];
     }];
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:cancleAction];

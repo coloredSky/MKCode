@@ -20,6 +20,7 @@
 #import "MKDevice.h"
 #import "MKFont.h"
 #import "MKShareInstance.h"
+#import "MKConfigKey.h"
 
 //category 扩展
 #import "UIView+Layout.h"
