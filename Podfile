@@ -3,7 +3,7 @@
 
 target 'MK' do
    pod 'MJRefresh'
-
+  pod 'IQKeyboardManager'
   # Pods for MK
 
   target 'MKTests' do

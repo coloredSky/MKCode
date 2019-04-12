@@ -2279,21 +2279,15 @@
 				712170CC223F3A1C00BA1905 /* MyCouseHeaderView.xib in Resources */,
 				71244492225832A1005AF711 /* OrderDetailCell_2.xib in Resources */,
 				30FBE3B4224B5CF60049C0DE /* MessageCell.xib in Resources */,
-
 				7124448822582D8C005AF711 /* OrderDetailController.xib in Resources */,
-				712170CA223F327700BA1905 /* MyCouseCell.xib in Resources */,
-
 				3035B6A4224F2D4500A1AA98 /* BookmarkCell.xib in Resources */,
 				3048D86722364F5F00FE63B2 /* MyCenterViewController.xib in Resources */,
 				3048D86222364F4E00FE63B2 /* AppointmentViewController.xib in Resources */,
 				30FBE39022488BFE0049C0DE /* CourseTeacherCell.xib in Resources */,
 				3035B65F224F2C7D00A1AA98 /* LoginViewController.xib in Resources */,
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
-
 				7124448D225831D3005AF711 /* OrderDetailCell.xib in Resources */,
-
 				30A201542255F74100A6A232 /* BillListCollectionViewCell.xib in Resources */,
-
 				3035B6B322505C4200A1AA98 /* UpdateMessageController.xib in Resources */,
 				30A20161225B449700A6A232 /* BillDetailPayTimeCell.xib in Resources */,
 				30A2DA08224DFE000030120D /* ChangeClassViewController.xib in Resources */,
@@ -2382,18 +2376,20 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MK/Pods-MK-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MK/Pods-MK-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MK/Pods-MK-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MK/Pods-MK-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AD8A4902D9711A7F6158ADC7 /* [CP] Check Pods Manifest.lock */ = {
@@ -2764,6 +2760,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.MeiKeWangXiao.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
@@ -2789,6 +2786,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.MeiKeWangXiao.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};
