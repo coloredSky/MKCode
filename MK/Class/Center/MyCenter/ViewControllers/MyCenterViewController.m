@@ -111,8 +111,6 @@
     if (indexPath.section==0)
     {
         MyCenterTopCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCenterTopCell" forIndexPath:indexPath];
-        cell.layer.cornerRadius =5.f;
-        cell.layer.masksToBounds=YES;
         cell.myCenterLab.text =self.titleArr[indexPath.section][indexPath.row];
         NSString * imageStr =self.bannerArr[indexPath.section][indexPath.row];
         cell.myCenterImage.image  =[UIImage imageNamed:imageStr];
@@ -121,8 +119,6 @@
   else
   {
       MyCenterBottomoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCenterBottomoCell" forIndexPath:indexPath];
-      cell.layer.cornerRadius =5.f;
-      cell.layer.masksToBounds=YES;
       cell.myCenterLab.text =self.titleArr[indexPath.section][indexPath.row];
       NSString * imageStr =self.bannerArr[indexPath.section][indexPath.row];
       cell.myCenterImage.image  =[UIImage imageNamed:imageStr];
@@ -268,12 +264,12 @@
 {
     if (indexPath.section ==0)
     {
-        CGSize size={156,101};
+        CGSize size={KScaleWidth(160),KScaleWidth(90)};
         return size;
     }
     else
     {
-        CGSize size={100,92};
+        CGSize size={KScaleWidth(100),KScaleWidth(90)};
         return size;
     }
 }
