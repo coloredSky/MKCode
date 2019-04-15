@@ -56,5 +56,9 @@
     CGFloat offsetX = index == 0 ? 0:self.itemSize.width*index;
     CGPoint targetPoint = CGPointMake(offsetX, 0);
     return targetPoint;
+    
+//    proposedContentOffset.x += miniDistance;
+//    proposedContentOffset.x -= K_Padding_Home_LeftPadding;
+//    return proposedContentOffset;
 }
 @end

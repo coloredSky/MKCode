@@ -188,6 +188,10 @@
 {
     if (indexPath.section ==0)
     {
+        if (!K_MK_IsHaveLoginKey) {
+            [self loginAlterViewShow];
+            return;
+        }
         if (indexPath.item ==0)
         {
 
@@ -222,9 +226,9 @@
     {
         if (indexPath.item ==0)
         {
-            PolicyViewController * pvc =[PolicyViewController new];
-            pvc.hidesBottomBarWhenPushed=YES;
-            [self.navigationController pushViewController:pvc animated:YES];
+            PolicyViewController * policyVC =[PolicyViewController new];
+            policyVC.titleString = @"隐私声明";
+            [self.navigationController pushViewController:policyVC animated:YES];
         }
         if (indexPath.item ==1)
         {
@@ -246,11 +250,13 @@
         }
         if (indexPath.item ==4)
         {
-            
+            PolicyViewController *policyVC = [PolicyViewController new];
+            policyVC.titleString = @"服务条款";
+            [self.navigationController pushViewController:policyVC animated:YES];
         }
         if (indexPath.item ==5)
         {
-            
+            [self loginOutAlterViewShow];
         }
     }
    
@@ -308,6 +314,10 @@
 #pragma mark-headerViewDelegate
 -(void)headerViewBtnClick
 {
+    if (!K_MK_IsHaveLoginKey) {
+        [self loginAlterViewShow];
+        return;
+    }
     UpdateMessageController * uvc =[UpdateMessageController new];
     [self.navigationController pushViewController:uvc animated:YES];
 }

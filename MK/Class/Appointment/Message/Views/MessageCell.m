@@ -36,7 +36,7 @@
     self.messageIconIma.layer.cornerRadius = KScaleWidth(20);
     
     self.meeeageTimeLab.textAlignment = NSTextAlignmentRight;
-    self.messageIconIma.image = KImageNamed(@"discover_items");
+    self.messageIconIma.image = KImageNamed(@"message_logo");
     self.messageIconIma.userInteractionEnabled = YES;
     [self.meeeageTitleLab setFont:MKBoldFont(14) textColor:K_Text_BlackColor withBackGroundColor:nil];
     [self.messageContentLab setFont:K_Font_Text_Normal_little textColor:K_Text_grayColor withBackGroundColor:nil];

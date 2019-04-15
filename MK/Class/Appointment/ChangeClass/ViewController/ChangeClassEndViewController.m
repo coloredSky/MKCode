@@ -13,7 +13,7 @@
 #import "AppointmentTeacherReplyCell.h"
 
 @interface ChangeClassEndViewController()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) UIScrollView *contentScroll;
+@property (nonatomic, strong) MKBaseScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 //@property (nonatomic, strong) UITextView *reasonTextView;
@@ -50,10 +50,10 @@
     }
     return _contentStringArr;
 }
--(UIScrollView *)contentScroll
+-(MKBaseScrollView *)contentScroll
 {
     if (!_contentScroll) {
-        _contentScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+        _contentScroll = [[MKBaseScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
         _contentScroll.backgroundColor = K_BG_YellowColor;
         
         for (int i=0; i < self.tipStringArr.count; i++) {

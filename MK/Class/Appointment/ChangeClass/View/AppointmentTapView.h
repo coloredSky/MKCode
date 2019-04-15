@@ -9,8 +9,16 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@class AppointmentTapView;
+@protocol AppointmentTapViewDelegate <NSObject>
+@optional
+-(void)appointmentTapViewTapClickWithView:(AppointmentTapView *)tapView;
+@end
 
 @interface AppointmentTapView : UIView
+@property (nonatomic, assign) id<AppointmentTapViewDelegate> delegate;
+
+@property (nonatomic, assign) BOOL isSelected;
 @property (nonatomic, copy) NSString *textString;
 @property (nonatomic, strong) UIColor *normalColor;
 @property (nonatomic, strong) UIColor *selectedColor;

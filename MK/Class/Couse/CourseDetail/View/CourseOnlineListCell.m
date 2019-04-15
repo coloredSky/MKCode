@@ -44,7 +44,7 @@
 
 -(void)cellRefreshWithData:(BOOL )selected
 {
-    self.courseIma.image = KImageNamed(@"coursedetail_list");
+    self.courseIma.image = KImageNamed(@"billList");
     self.courseNameLab.text = @"语态：可能态";
     self.courseTimeLab.text = @"23:34";
     if (selected) {

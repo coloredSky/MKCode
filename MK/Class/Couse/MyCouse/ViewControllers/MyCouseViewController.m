@@ -43,14 +43,15 @@
 -(void)setUpRefresh
 {
     //下拉刷新
-    //    @weakObject(self);
+    @weakObject(self);
     self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
-        //        @strongObject(self);
+        @strongObject(self);
+        [self.contentTable.mj_header endRefreshing];
     }];
     //上拉加载
-    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-        //        @strongObject(self);
-    }];
+    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
+    //                @strongObject(self);
+    //    }];
 }
 
 #pragma mark --  request
@@ -112,9 +113,9 @@
     if (section ==0) {
         return KScaleHeight(40);
     }else if (section ==1){
-        return KScaleHeight(70);
+        return KScaleHeight(70+20);
     }
-    return KScaleHeight(35);
+    return KScaleHeight(35+20);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -155,9 +156,9 @@
         UIImageView *lineIma = [UIImageView new];
         lineIma.backgroundColor = K_Line_lineColor;
         [headerView addSubview:lineIma];
-        lineIma.frame = CGRectMake(28, 0, KScreenWidth-28, K_Line_lineWidth);
+        lineIma.frame = CGRectMake(28, 20, KScreenWidth-28, K_Line_lineWidth);
         UILabel *titleLab = [UILabel new];
-        titleLab.frame = CGRectMake(28, KScaleHeight(10), 200, 22);
+        titleLab.frame = CGRectMake(28, lineIma.bottomY+KScaleHeight(12), 200, 22);
         [headerView addSubview:titleLab];
         titleLab.text =  @"线下课程";
         UILabel *courseTypeLab = [UILabel new];

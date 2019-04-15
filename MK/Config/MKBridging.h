@@ -9,16 +9,6 @@
 #ifndef MKBridging_h
 #define MKBridging_h
 
-#ifdef DEBUG
-
-// DEBUG Module Bugly
-#define kXHBorrowBuglyAPPID @""
-#define kXHBorrowBugConfigChannel @"Development"
-#else
-// RELEASE Module Bugly
-#define kXHBorrowBuglyAPPID @""
-#define kXHBorrowBugConfigChannel @"APP Store"
-#endif
 
 
 //Block condition

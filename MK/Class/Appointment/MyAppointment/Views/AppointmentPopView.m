@@ -52,7 +52,7 @@
 -(NSArray <NSString *>*)btnImaArr
 {
     if (!_btnImaArr) {
-        _btnImaArr = @[@"appontment_pop_changeClass",@"appontment_pop_ conversation",@"appontment_pop_AskForLeave",@"appontment_pop_changeClass"];
+        _btnImaArr = @[@"appointment_cancle",@"appontment_pop_ conversation",@"appontment_pop_AskForLeave",@"appontment_pop_changeClass"];
     }
     return _btnImaArr;
 }

@@ -35,7 +35,7 @@
 - (CGSize)collectionViewContentSize
 {
     NSInteger itemsCount = [self.collectionView numberOfItemsInSection:0];
-    CGFloat height =  (self.itemSize.height-KScaleHeight(60))*itemsCount+self.estimatedItemSize.height+20;
+    CGFloat height =  (self.itemSize.height-KScaleHeight(60))*itemsCount+self.itemSize.height+20;
     return CGSizeMake(KScreenWidth, height);
 }
 
@@ -47,7 +47,7 @@
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewLayoutAttributes *itemAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-    itemAttributes.frame = CGRectMake(0, (self.itemSize.height-KScaleHeight(60))*indexPath.row, self.itemSize.width, self.itemSize.height);
+    itemAttributes.frame = CGRectMake(0, (self.itemSize.height-KScaleHeight(45))*indexPath.row, self.itemSize.width, self.itemSize.height);
     itemAttributes.zIndex = indexPath.row;
     return itemAttributes;
 }

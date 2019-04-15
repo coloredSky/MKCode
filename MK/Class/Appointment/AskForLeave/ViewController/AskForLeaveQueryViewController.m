@@ -12,9 +12,11 @@
 #import "AppointmentHeaderView.h"
 #import "AppointmentTapView.h"
 #import "AppointmentTeacherReplyCell.h"
+//category
+#import "UITextView+WJPlaceholder.h"
 
 @interface AskForLeaveQueryViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) UIScrollView *contentScroll;
+@property (nonatomic, strong) MKBaseScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong) UITextView *reasonTextView;
@@ -44,10 +46,10 @@
     }
     return _tipStringArr;
 }
--(UIScrollView *)contentScroll
+-(MKBaseScrollView *)contentScroll
 {
     if (!_contentScroll) {
-        _contentScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+        _contentScroll = [[MKBaseScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
         _contentScroll.backgroundColor = K_BG_YellowColor;
         //
         UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, self.reasonTextView.bottomY+KScaleHeight(20), 200, KScaleHeight(20))];
@@ -111,7 +113,10 @@
         _reasonTextView.layer.masksToBounds = YES;
         _reasonTextView.layer.cornerRadius = KScaleWidth(8);
         _reasonTextView.textColor = K_Text_WhiteColor;
-        _reasonTextView.text = @"理由";
+        _reasonTextView.font = K_Font_Text_Normal;
+        _reasonTextView.placeholder = @"理由";
+        _reasonTextView.placeholdFont = K_Font_Text_Normal;
+        _reasonTextView.placeholderColor = K_Text_DeepGrayColor;
     }
     return _reasonTextView;
 }

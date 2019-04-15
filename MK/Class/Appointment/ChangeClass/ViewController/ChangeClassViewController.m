@@ -10,13 +10,22 @@
 //View
 #import "AppointmentHeaderView.h"
 #import "AppointmentTapView.h"
+//category
+#import "UITextView+WJPlaceholder.h"
 
 
-@interface ChangeClassViewController ()
-@property (nonatomic, strong) UIScrollView *contentScroll;
+@interface ChangeClassViewController ()<AppointmentTapViewDelegate,XDSDropDownMenuDelegate>
+@property (nonatomic, strong) MKBaseScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) UITextView *reasonTextView;
 @property (nonatomic, strong) NSArray *tipStringArr;
+//下拉
+@property (nonatomic, strong) XDSDropDownMenu *originalClasssDownMenu;//现有班级
+@property (nonatomic, strong) XDSDropDownMenu *otherClasssDownMenu;//更改后的班级
+@property (nonatomic, strong) NSArray *downMenuArr;//装载下拉控件
+@property (nonatomic, strong) NSMutableArray *tapViewArr;//装载点击控件
+@property (nonatomic, strong) NSArray *originalClassArr;
+@property (nonatomic, strong) NSArray *otherClassArr;
 @end
 
 @implementation ChangeClassViewController
@@ -25,7 +34,15 @@
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_YellowColor;
     
+    [self initData];
     [self creatSubVuew];
+}
+-(void)initData
+{
+    self.downMenuArr = @[self.originalClasssDownMenu,self.otherClasssDownMenu];
+    self.tapViewArr = [NSMutableArray arrayWithCapacity:2];
+    self.originalClassArr = @[@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班"];
+    self.otherClassArr = @[@"美术B班",@"美术B班"];
 }
 -(void)creatSubVuew
 {
@@ -35,6 +52,22 @@
 }
 
 #pragma mark --  lazy
+-(XDSDropDownMenu *)originalClasssDownMenu
+{
+    if (!_originalClasssDownMenu) {
+        _originalClasssDownMenu = [[XDSDropDownMenu alloc]init];
+        _originalClasssDownMenu.delegate = self;
+    }
+    return _originalClasssDownMenu;
+}
+-(XDSDropDownMenu *)otherClasssDownMenu
+{
+    if (!_otherClasssDownMenu) {
+        _otherClasssDownMenu = [[XDSDropDownMenu alloc]init];
+        _otherClasssDownMenu.delegate = self;
+    }
+    return _otherClasssDownMenu;
+}
 -(NSArray *)tipStringArr
 {
     if (!_tipStringArr) {
@@ -42,10 +75,10 @@
     }
     return _tipStringArr;
 }
--(UIScrollView *)contentScroll
+-(MKBaseScrollView *)contentScroll
 {
     if (!_contentScroll) {
-        _contentScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+        _contentScroll = [[MKBaseScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
         _contentScroll.backgroundColor = K_BG_YellowColor;
         //
         UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, self.reasonTextView.bottomY+KScaleHeight(20), 200, KScaleHeight(20))];
@@ -55,6 +88,9 @@
         
         for (int i=0; i < self.tipStringArr.count; i++) {
             AppointmentTapView *tapView = [AppointmentTapView new];
+            [self.tapViewArr addObject:tapView];
+            tapView.delegate = self;
+            tapView.tag = i+1;
             CGFloat tapViewY = tapViewY = titleLab.bottomY+ KScaleHeight(13)+(KScaleHeight(33+15)*i);
             tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
             tapView.textString = self.tipStringArr[i];
@@ -88,10 +124,53 @@
         _reasonTextView.layer.masksToBounds = YES;
         _reasonTextView.layer.cornerRadius = KScaleWidth(8);
         _reasonTextView.textColor = K_Text_WhiteColor;
-        _reasonTextView.text = @"理由";
+        _reasonTextView.font = K_Font_Text_Normal;
+        _reasonTextView.placeholder = @"理由";
+        _reasonTextView.placeholdFont = K_Font_Text_Normal;
+        _reasonTextView.placeholderColor = K_Text_DeepGrayColor;
     }
     return _reasonTextView;
 }
 
+#pragma mark --  EVENT
+#pragma mark --  下拉表出现
+-(void)appointmentTapViewTapClickWithView:(AppointmentTapView *)tapView
+{
+    if (tapView.tag == 1) {//原有班级
+        //初始化选择菜单
+        [self showDropDownMenuWithView:tapView withTapViewFrame:tapView.frame downMenu:self.originalClasssDownMenu titleArr:self.originalClassArr];
+    }else{
+        //更改后的班级
+        [self showDropDownMenuWithView:tapView withTapViewFrame:tapView.frame downMenu:self.otherClasssDownMenu titleArr:self.otherClassArr];
+    }
+}
+#pragma mark --  下拉表点击
+-(void)XDSDropDownMenu:(XDSDropDownMenu *)downMenuView didSelectedWithIndex:(NSInteger )index
+{
+    if (downMenuView == self.originalClasssDownMenu) {
+        AppointmentTapView *tapView = self.tapViewArr[0];
+        tapView.textString = self.originalClassArr[index];
+    }else{
+        AppointmentTapView *tapView = self.tapViewArr[1];
+        tapView.textString = self.otherClassArr[index];
+    }
+}
 
+-(void)showDropDownMenuWithView:(AppointmentTapView *)tapView withTapViewFrame:(CGRect )tapViewFrame downMenu:(XDSDropDownMenu *)downMenue titleArr:(NSArray *)titleArr
+{
+    for (int i=0; i<self.downMenuArr.count; i++) {
+        XDSDropDownMenu *menu = self.downMenuArr[i];
+        AppointmentTapView *clickView = self.tapViewArr[i];
+        if (menu != downMenue) {
+            [menu hideDropDownMenuWithBtnFrame:clickView.frame];
+        }
+    }
+    if (downMenue.isShow ==NO) {
+        [downMenue showDropDownMenu:tapView withTapViewFrame:tapView.frame arrayOfTitle:titleArr arrayOfImage:nil animationDirection:@"down"];
+        //添加到主视图上
+        [self.view addSubview:downMenue];
+    }else{
+        [downMenue  hideDropDownMenuWithBtnFrame:tapView.frame];
+    }
+}
 @end

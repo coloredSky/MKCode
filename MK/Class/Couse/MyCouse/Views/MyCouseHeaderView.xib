@@ -50,7 +50,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFJ-oD-L8b">
-                            <rect key="frame" x="154" y="79" width="42" height="21"/>
+                            <rect key="frame" x="154" y="82" width="42" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                         <constraint firstAttribute="bottom" secondItem="BjF-WK-ufx" secondAttribute="bottom" constant="15" id="6BL-k0-gh0"/>
                         <constraint firstItem="r0e-3j-wio" firstAttribute="top" secondItem="upd-Jk-5qo" secondAttribute="top" constant="58" id="Dh8-yW-gqq"/>
                         <constraint firstAttribute="height" constant="138.5" id="Eie-IY-PmB"/>
-                        <constraint firstItem="rFJ-oD-L8b" firstAttribute="top" secondItem="upd-Jk-5qo" secondAttribute="top" constant="79" id="WoF-2U-VgC"/>
+                        <constraint firstItem="rFJ-oD-L8b" firstAttribute="top" secondItem="upd-Jk-5qo" secondAttribute="top" constant="82" id="WoF-2U-VgC"/>
                         <constraint firstItem="Kyd-eu-FHp" firstAttribute="top" secondItem="upd-Jk-5qo" secondAttribute="top" constant="109" id="cYj-O5-2Vy"/>
                         <constraint firstItem="r0e-3j-wio" firstAttribute="leading" secondItem="upd-Jk-5qo" secondAttribute="leading" constant="154" id="fHW-6W-EH7"/>
                         <constraint firstItem="rFJ-oD-L8b" firstAttribute="leading" secondItem="upd-Jk-5qo" secondAttribute="leading" constant="154" id="kdX-ea-i23"/>

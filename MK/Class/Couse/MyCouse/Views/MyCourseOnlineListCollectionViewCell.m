@@ -33,8 +33,7 @@
     self.courseIma.frame = CGRectMake(0, self.contentView.height/2-KScaleWidth(23), KScaleWidth(75), KScaleWidth(46));
     self.courseNameLab.frame = CGRectMake(_courseIma.rightX+KScaleWidth(10), _courseIma.topY, self.contentView.width-_courseIma.rightX-KScaleWidth(10), KScaleHeight(20));
     self.courseTeacherLab.frame = CGRectMake(_courseNameLab.leftX, _courseIma.bottomY-KScaleHeight(20), _courseNameLab.width, KScaleHeight(20));
-    
-    self.lineIma.frame = CGRectMake(_courseNameLab.leftX, self.contentView.height-K_Line_lineWidth, self.contentView.width-_courseNameLab.leftX-K_Padding_Home_LeftPadding, K_Line_lineWidth);
+    self.lineIma.frame = CGRectMake(_courseNameLab.leftX, self.contentView.height-K_Line_lineWidth, self.contentView.width-_courseNameLab.leftX-K_Padding_LeftPadding, K_Line_lineWidth);
     self.courseStatusLab.frame = CGRectMake(self.lineIma.rightX-KScaleWidth(40), 0, KScaleWidth(40), self.contentView.height);
 }
 
@@ -45,7 +44,7 @@
     }else{
         self.lineIma.hidden = NO;
     }
-    self.courseIma.image = [UIImage imageNamed:@"home_course"];
+    self.courseIma.image = [UIImage imageNamed:@"courseList"];
     self.courseNameLab.text = @"日语基础";
     self.courseTeacherLab.text = @"大阪大学博士";
     if (listViewShowType == UserCourseListViewShowTypeOnline) {

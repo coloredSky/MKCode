@@ -43,16 +43,16 @@
     
     _editBtn= [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:_editBtn];
-    [_editBtn setImage:KImageNamed(@"") forState:UIControlStateNormal];
-    _editBtn.backgroundColor = K_BG_blackColor;
+    [_editBtn setImage:KImageNamed(@"appointment_edit") forState:UIControlStateNormal];
+//    _editBtn.backgroundColor = K_BG_blackColor;
     _editBtn.hidden = YES;
     [_editBtn addTarget:self action:@selector(senderTarget:) forControlEvents:UIControlEventTouchUpInside];
     _editBtn.tag = 0;
     
     _deleteBtn= [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:_deleteBtn];
-    [_deleteBtn setImage:KImageNamed(@"") forState:UIControlStateNormal];
-    _deleteBtn.backgroundColor = K_BG_blackColor;
+    [_deleteBtn setImage:KImageNamed(@"appointment_delete") forState:UIControlStateNormal];
+//    _deleteBtn.backgroundColor = K_BG_blackColor;
     _deleteBtn.hidden = YES;
     [_deleteBtn addTarget:self action:@selector(senderTarget:) forControlEvents:UIControlEventTouchUpInside];
     _deleteBtn.tag = 1;
