@@ -134,6 +134,7 @@
     if (section == 0) {
         AppointmentCollectionView *fotterView = [[AppointmentCollectionView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(145))];
         fotterView.delegate = self;
+        fotterView.dispayType = self.dispayType;
         [fotterView appointmentCollectionViewReloadData];
         return fotterView;
     }

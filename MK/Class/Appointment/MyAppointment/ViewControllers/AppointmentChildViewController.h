@@ -6,13 +6,11 @@
 //  Copyright © 2019年 周洋. All rights reserved.
 //
 
-typedef NS_ENUM(NSUInteger, AppointmentDisplayType) {
-    AppointmentDisplayTypeChangeClass,
-    AppointmentDisplayTypeAskForLeave,
-    AppointmentDisplayTypeMeeting,
-};
+
 
 #import "MKBaseViewController.h"
+//管理类
+#import "AppointmentManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

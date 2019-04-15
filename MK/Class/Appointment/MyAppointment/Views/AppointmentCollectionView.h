@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppointmentManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  已完成的预约cell
  */
 @interface AppointmentCollectionView : UIView
+@property (nonatomic, assign) AppointmentDisplayType dispayType;
 @property (nonatomic, assign) id<AppointmentCollectionViewDelegate>delegate;
 -(void)appointmentCollectionViewReloadData;
 @end

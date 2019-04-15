@@ -48,7 +48,7 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     AppointmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"AppointmentCollectionViewCell" forIndexPath:indexPath];
-    [cell cellRefreshData];
+    [cell cellRefreshDataWithDisplayType:self.dispayType];
     return cell;
 }
 

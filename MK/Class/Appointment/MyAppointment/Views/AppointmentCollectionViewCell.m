@@ -55,13 +55,14 @@
     self.teacherLab.frame = CGRectMake(self.titleLab.leftX, self.teacherIma.centerY-self.titleLab.height/2, self.timeLab.width, self.timeLab.height);
 }
 
--(void)cellRefreshData
+-(void)cellRefreshDataWithDisplayType:(AppointmentDisplayType )displayType
 {
+    NSArray *titleArr = @[@"更换班级",@"请假",@"预约相谈"];
     self.titleIma.image = KImageNamed(@"appointment_changeClass");
     self.timeIma.image = KImageNamed(@"appointment_Coursetime");
     self.courseNameIma.image = KImageNamed(@"appointment_CourseName");
     self.teacherIma.image = KImageNamed(@"appointment_CourseTeacher");
-    self.titleLab.text = @"更换班级";
+    self.titleLab.text = titleArr[displayType];
     self.timeLab.text = @"12月20日";
     self.courseNameLab.text = @"日语基础-日语进阶";
     self.teacherLab.text = @"大学院美术 施晋昊";

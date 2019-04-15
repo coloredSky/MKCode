@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2DF4FA5813FDC7022BE50883 /* libPods-MKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EC22067BFBE5FAFDA1AA9E /* libPods-MKTests.a */; };
+		30295514226493FF006D1613 /* AppointmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295513226493FF006D1613 /* AppointmentManager.m */; };
 		3035B65B224F2C7D00A1AA98 /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B64D224F2C7D00A1AA98 /* RegisterController.xib */; };
 		3035B65C224F2C7D00A1AA98 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B64E224F2C7D00A1AA98 /* RegisterController.m */; };
 		3035B65D224F2C7D00A1AA98 /* LoginActionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B651224F2C7D00A1AA98 /* LoginActionController.xib */; };
@@ -220,6 +221,8 @@
 		01EC22067BFBE5FAFDA1AA9E /* libPods-MKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		103DD988DFB0D2ECAC8DD95D /* Pods-MKUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.release.xcconfig"; sourceTree = "<group>"; };
 		302955112260795D006D1613 /* MKConfigKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKConfigKey.h; sourceTree = "<group>"; };
+		30295512226493FF006D1613 /* AppointmentManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentManager.h; sourceTree = "<group>"; };
+		30295513226493FF006D1613 /* AppointmentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentManager.m; sourceTree = "<group>"; };
 		3035B64C224F2C7D00A1AA98 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		3035B64D224F2C7D00A1AA98 /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 		3035B64E224F2C7D00A1AA98 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
@@ -1150,6 +1153,8 @@
 		3048D80822325E2700FE63B2 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				30295512226493FF006D1613 /* AppointmentManager.h */,
+				30295513226493FF006D1613 /* AppointmentManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -2550,6 +2555,7 @@
 				30FBE2FC223F98250049C0DE /* SelectedCustomLab.m in Sources */,
 				71A18E31225072CA007B4C55 /* LagAndSchController.m in Sources */,
 				30A2017F225DE36D00A6A232 /* UserCourseListManager.m in Sources */,
+				30295514226493FF006D1613 /* AppointmentManager.m in Sources */,
 				30FBE3592241E83C0049C0DE /* SetPasswordController.m in Sources */,
 				30FBE369224213200049C0DE /* AppointmentCell.m in Sources */,
 				3048D842223263AF00FE63B2 /* UILabelEdgeInset.m in Sources */,

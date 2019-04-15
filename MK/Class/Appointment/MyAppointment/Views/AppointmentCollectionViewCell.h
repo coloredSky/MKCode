@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppointmentManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AppointmentCollectionViewCell : UICollectionViewCell
--(void)cellRefreshData;
+-(void)cellRefreshDataWithDisplayType:(AppointmentDisplayType )displayType;
 @end
 
 NS_ASSUME_NONNULL_END
