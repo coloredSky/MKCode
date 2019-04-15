@@ -9,6 +9,14 @@
 #import "RegisterController.h"
 
 @interface RegisterController ()
+@property (weak, nonatomic) IBOutlet UIImageView *bgIma;
+
+@property (weak, nonatomic) IBOutlet UILabel *helloLab;
+@property (weak, nonatomic) IBOutlet UILabel *signLab;
+@property (weak, nonatomic) IBOutlet UILabel * phoneStringLab;
+@property (weak, nonatomic) IBOutlet UILabel *codeSignLab;
+//@property (weak, nonatomic) IBOutlet UIButton *forgetSignLab;
+
 @property(nonatomic,weak)IBOutlet UITextField * phoneTextfield;
 @property(nonatomic,weak)IBOutlet UITextField * codeTextfield;
 @end
@@ -17,7 +25,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self layoutSubViewAttributtes];
+}
+-(void)layoutSubViewAttributtes
+{
+    [self.codeTextfield setValue:K_Text_grayColor forKeyPath:@"_placeholderLabel.textColor"];
+    [self.codeTextfield setValue:[UIFont systemFontOfSize:12] forKeyPath:@"_placeholderLabel.font"];
+    self.bgIma.backgroundColor = [UIColor colorWithWhite:.8 alpha:.3];
+    self.helloLab.attributedText = [self getAttributedStringWithString:@"Hello！" textFont:MKFont(30)];
+    self.signLab.attributedText = [self getAttributedStringWithString:@"Sign in to continue" textFont:MKFont(30)];
+    self.phoneStringLab.attributedText = [self getAttributedStringWithString:@"可接收验证码的手机号" textFont:MKFont(15)];
+    self.codeSignLab.attributedText = [self getAttributedStringWithString:@"验证码" textFont:MKFont(15)];
+}
+-(NSAttributedString *)getAttributedStringWithString:(NSString *)signString textFont:(UIFont *)textFont
+{
+    NSShadow *signShadow = [[NSShadow alloc]init];
+    signShadow.shadowColor =  [UIColor colorWithWhite:1 alpha:.8];
+    signShadow.shadowBlurRadius = 3;
+    signShadow.shadowOffset = CGSizeMake(1, 1);
+    NSAttributedString *attributedString = [[NSAttributedString alloc]initWithString:signString attributes:@{NSShadowAttributeName : signShadow,NSFontAttributeName : textFont}];
+    return attributedString;
 }
 -(IBAction)btnClick:(UIButton *)sender
 {
