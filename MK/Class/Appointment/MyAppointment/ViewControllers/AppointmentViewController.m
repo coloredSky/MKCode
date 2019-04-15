@@ -61,7 +61,7 @@
     _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, K_NaviHeight+KScaleHeight(20))];
     [self.view addSubview:_topView];
     _topView.backgroundColor = K_BG_WhiteColor;
-    _titleView = [[TitleScrollView alloc]initWithFrame:CGRectMake(0, _topView.height-KScaleHeight(35+10), _topView.width, KScaleHeight(35)) withItemPadding:37];
+    _titleView = [[TitleScrollView alloc]initWithFrame:CGRectMake(0, _topView.height-KScaleWidth(36+10), _topView.width, KScaleWidth(36)) withItemPadding:37];
     _titleView.delegate = self;
     [_topView addSubview:_titleView];
     [_titleView reloadDataWithTitleArr:self.titleArr.mutableCopy];

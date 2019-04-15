@@ -49,9 +49,9 @@
 }
 -(void)laoutTopView
 {
-    _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, K_NaviHeight+KScaleHeight(35)+KScaleHeight(20))];
+    _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(91)+KScaleHeight(20))];
     [self.view addSubview:_topView];
-    _titleView = [[TitleScrollView alloc]initWithFrame:CGRectMake(0, _topView.height-KScaleHeight(35+20), _topView.width, KScaleHeight(35))];
+    _titleView = [[TitleScrollView alloc]initWithFrame:CGRectMake(0, _topView.height-KScaleWidth(36+20), _topView.width, KScaleWidth(36))];
     _titleView.delegate = self;
     [_topView addSubview:_titleView];
     [_titleView reloadDataWithTitleArr:self.titleArr.mutableCopy];

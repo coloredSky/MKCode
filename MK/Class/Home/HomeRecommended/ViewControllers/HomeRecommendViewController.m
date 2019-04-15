@@ -128,28 +128,32 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 60;
+    return KScaleHeight(50);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 88;
+        return KScaleHeight(88)+10;
     }
     return CGFLOAT_MIN;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 60)];
-    UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, headerView.height-20-10, 200, 20)];
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(50))];
+    UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, headerView.height-20-8, 200, 20)];
     [headerView addSubview:titleLab];
-    titleLab.text = @"公开课";
+    if (section == 0) {
+        titleLab.text = @"公开课";
+    }else{
+        titleLab.text = @"推荐";
+    }
     [titleLab setFont:MKBoldFont(16) textColor:K_Text_BlackColor withBackGroundColor:nil];
     return headerView;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     if (section ==0) {
-        UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 88)];
+        UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(88)+10)];
         HomeCourseCollectionView *courseCollectionView = [[HomeCourseCollectionView alloc]initWithFrame:CGRectMake(0, 0, footerView.width, footerView.height)];
         courseCollectionView.delegate = self;
         [courseCollectionView homeCourseCollectionViewReloadData];

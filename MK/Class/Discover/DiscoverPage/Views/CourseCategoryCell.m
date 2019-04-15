@@ -26,7 +26,7 @@
     self.shadowView.layer.shadowOpacity = .5;
     
     self.contentIma.layer.masksToBounds = YES;
-    self.contentIma.layer.cornerRadius = 10;
+    self.contentIma.layer.cornerRadius = KScaleWidth(16);
     self.contentIma.image = KImageNamed(@"discover_category1");
 }
 

@@ -79,7 +79,7 @@
             titleLab.selected = YES;
             self.selectedIndex = 0;
             self.haveSelectedLab = titleLab;
-            self.tipIma.frame = CGRectMake(self.haveSelectedLab.centerX-(self.haveSelectedLab.width+36)/2, self.haveSelectedLab.centerY-self.height/2, self.haveSelectedLab.width+36, self.height);
+            self.tipIma.frame = CGRectMake(self.haveSelectedLab.centerX-(self.haveSelectedLab.width+32)/2, self.haveSelectedLab.centerY-self.height/2, self.haveSelectedLab.width+32, self.height);
         }
         titleLab.text = title;
         titleLab.textAlignment = NSTextAlignmentCenter;
@@ -109,7 +109,7 @@
         [_titleScroll insertSubview:_tipIma atIndex:0];
         _tipIma.backgroundColor = K_BG_YellowColor;
         _tipIma.layer.masksToBounds = YES;
-        _tipIma.layer.cornerRadius = 18;
+        _tipIma.layer.cornerRadius = self.height/2;
     }
     return _tipIma;
 }
@@ -153,7 +153,7 @@
 -(void)tipImaAnimatied
 {
     [UIView animateWithDuration:.5 animations:^{
-        self.tipIma.frame = CGRectMake(self.haveSelectedLab.centerX-(self.haveSelectedLab.width+36)/2, self.haveSelectedLab.centerY-self.height/2, self.haveSelectedLab.width+36, self.height);
+        self.tipIma.frame = CGRectMake(self.haveSelectedLab.centerX-(self.haveSelectedLab.width+32)/2, self.haveSelectedLab.centerY-self.height/2, self.haveSelectedLab.width+32, self.height);
     }];
 }
 

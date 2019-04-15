@@ -50,9 +50,9 @@
     if (!_courseListArr) {
         _courseListArr = [NSMutableArray array];
         if (self.listViewShowType == UserCourseListViewShowTypeOnline) {
-            _courseListArr = @[@"",@"",@"",@"",].mutableCopy;
+            _courseListArr = @[@"",@"",@"",@"",@"",@"",@"",@""].mutableCopy;
         }else if (self.listViewShowType == UserCourseListViewShowTypeOfflineUnderWay) {
-            _courseListArr = @[@"",@"",@"",@"",@"",].mutableCopy;
+            _courseListArr = @[@"",@"",@"",@"",@"",@"",@"",@""].mutableCopy;
         }else if (self.listViewShowType == UserCourseListViewShowTypeOfflineNotStart) {
             _courseListArr = @[@"",@"",@"",@"",@"",@"",@"",@""].mutableCopy;
         }

@@ -42,8 +42,8 @@
         UIImage *barNormalImage = [UIImage imageNamed:normalIconArr[i]];
         UIImage *selectedNormalImage = [UIImage imageNamed:selectedIconArr[i]];
         UITabBarItem * tabBarItem = [[UITabBarItem alloc]initWithTitle:barTitle image:[self tabBarItemImage:barNormalImage] selectedImage:[self tabBarItemImage:selectedNormalImage]];
-        [tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColorFromRGB_0x(0x000000)} forState:UIControlStateNormal];
-        [tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColorFromRGB_0x(0xfe8219)} forState:UIControlStateSelected];
+        [tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColorFromRGB_0x(0x313030)} forState:UIControlStateNormal];
+        [tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColorFromRGB_0x(0xF7EE15)} forState:UIControlStateSelected];
         UIViewController *subViewController = subVCs[i];
         subViewController.tabBarItem = tabBarItem;
         MKNavigationController *navController = [[MKNavigationController alloc]initWithRootViewController:subViewController];

@@ -26,7 +26,7 @@
     [super awakeFromNib];
     self.whiteView.backgroundColor = K_BG_GrayColor;
     self.whiteView.layer.masksToBounds = YES;
-    self.whiteView.layer.cornerRadius = 8;
+    self.whiteView.layer.cornerRadius = KScaleWidth(6);
     
     [self.courseNameLab setFont:MKBoldFont(13) textColor:K_Text_grayColor withBackGroundColor:nil];
     [self.timeLab setFont:K_Font_Text_Min_Little textColor:K_Text_grayColor withBackGroundColor:nil];

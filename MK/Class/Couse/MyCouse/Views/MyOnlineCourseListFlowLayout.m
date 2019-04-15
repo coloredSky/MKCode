@@ -25,7 +25,7 @@
 {
     [super prepareLayout];
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.itemSize = CGSizeMake(KScreenWidth-K_Padding_Home_LeftPadding-KScaleWidth(50), KScaleHeight(60));
+    self.itemSize = CGSizeMake(KScreenWidth-K_Padding_Home_LeftPadding-KScaleWidth(54), KScaleHeight(60));
     NSInteger itemsCount = [self.collectionView numberOfItemsInSection:0];
     for (int i=0; i<itemsCount; i++) {
         NSIndexPath *indesPath = [NSIndexPath indexPathForRow:i inSection:0];

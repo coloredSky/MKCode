@@ -188,7 +188,8 @@
     UIImageView *bottomLine = [UIImageView new];
     [headerView addSubview:bottomLine];
     bottomLine.backgroundColor = K_Line_lineColor;
-    bottomLine.frame = CGRectMake(110, headerView.height-K_Line_lineWidth, headerView.width-110, K_Line_lineWidth);
+//        self.lineIma.frame = CGRectMake(_courseNameLab.leftX, self.contentView.height-K_Line_lineWidth, self.contentView.width-_courseNameLab.leftX-K_Padding_LeftPadding, K_Line_lineWidth);
+//    bottomLine.frame = CGRectMake(KScaleWidth(110), headerView.height-K_Line_lineWidth, headerView.width-KScaleWidth(110)-K_Padding_LeftPadding-KScaleWidth(50), K_Line_lineWidth);
     return headerView;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section

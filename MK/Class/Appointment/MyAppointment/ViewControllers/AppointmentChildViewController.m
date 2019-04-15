@@ -18,10 +18,19 @@
 #import "AppointmentCollectionView.h"
 @interface AppointmentChildViewController ()<UITableViewDelegate,UITableViewDataSource,AppointmentCollectionViewDelegate>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
+@property (nonatomic, strong) NSArray *sectionOneTitleArr;
+@property (nonatomic, strong) NSArray *sectionTwoTitleArr;
 @end
 
 @implementation AppointmentChildViewController
-
+-(instancetype)init
+{
+    if (self = [super init]) {
+        self.sectionOneTitleArr = @[@"未完成",@"未完成",@"未完成"];
+        self.sectionTwoTitleArr = @[@"已完成的换班申请",@"已完成的请假申请",@"已完成的预约"];
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpRefresh];
@@ -113,9 +122,9 @@
     UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, headerView.height-20-KScaleHeight(12), 200, 20)];
     [headerView addSubview:titleLab];
     if (section == 0) {
-         titleLab.text = @"未完成的预约";
+         titleLab.text =self.sectionOneTitleArr[self.dispayType];
     }else{
-        titleLab.text = @"已完成的预约";
+        titleLab.text = self.sectionTwoTitleArr[self.dispayType];
     }
     [titleLab setFont:MKBoldFont(16) textColor:K_Text_grayColor withBackGroundColor:nil];
     return headerView;

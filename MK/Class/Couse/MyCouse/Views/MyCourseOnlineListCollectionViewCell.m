@@ -8,6 +8,7 @@
 
 #import "MyCourseOnlineListCollectionViewCell.h"
 @interface MyCourseOnlineListCollectionViewCell()
+@property (weak, nonatomic) IBOutlet UIImageView *topLine;
 @property (weak, nonatomic) IBOutlet UIImageView *courseIma;
 @property (weak, nonatomic) IBOutlet UIImageView *lineIma;
 @property (weak, nonatomic) IBOutlet UILabel *courseNameLab;
@@ -25,6 +26,7 @@
     _courseStatusLab.textAlignment = NSTextAlignmentRight;
     _courseStatusLab.text = @"";
     _lineIma.backgroundColor = K_Line_lineColor;
+    _topLine.backgroundColor = K_Line_lineColor;
 }
 
 -(void)layoutSubviews
@@ -35,10 +37,12 @@
     self.courseTeacherLab.frame = CGRectMake(_courseNameLab.leftX, _courseIma.bottomY-KScaleHeight(20), _courseNameLab.width, KScaleHeight(20));
     self.lineIma.frame = CGRectMake(_courseNameLab.leftX, self.contentView.height-K_Line_lineWidth, self.contentView.width-_courseNameLab.leftX-K_Padding_LeftPadding, K_Line_lineWidth);
     self.courseStatusLab.frame = CGRectMake(self.lineIma.rightX-KScaleWidth(40), 0, KScaleWidth(40), self.contentView.height);
+        self.topLine.frame = CGRectMake(_courseNameLab.leftX, 0, self.contentView.width-_courseNameLab.leftX-K_Padding_LeftPadding, K_Line_lineWidth);
 }
 
 -(void)cellRefreshDataWithIndexPath:(NSIndexPath *)indexPath withShowType:(UserCourseListViewShowType )listViewShowType
 {
+    self.topLine.hidden = indexPath.row%3 == 0 ?NO:YES;
     if ((indexPath.row+1)%3==0) {
         self.lineIma.hidden = YES;
     }else{

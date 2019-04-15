@@ -13,53 +13,58 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MyCourseOnlineListCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="501" height="158"/>
+            <rect key="frame" x="0.0" y="0.0" width="532" height="216"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="501" height="158"/>
+                <rect key="frame" x="0.0" y="0.0" width="532" height="216"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YrQ-3R-UzW">
-                        <rect key="frame" x="7" y="13" width="70" height="88"/>
+                        <rect key="frame" x="13" y="47" width="70" height="88"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNr-sv-bCg">
-                        <rect key="frame" x="113" y="72" width="42" height="21"/>
+                        <rect key="frame" x="119" y="106" width="42" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfN-Ia-8UM">
-                        <rect key="frame" x="375" y="51" width="42" height="21"/>
+                        <rect key="frame" x="381" y="85" width="42" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDo-Jn-FrC">
-                        <rect key="frame" x="111" y="26" width="42" height="21"/>
+                        <rect key="frame" x="117" y="60" width="42" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AR5-40-abm">
-                        <rect key="frame" x="68" y="108" width="364" height="30"/>
+                        <rect key="frame" x="102" y="153" width="364" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ub9-hc-l29">
+                        <rect key="frame" x="31" y="10" width="364" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
-            <size key="customSize" width="501" height="158"/>
+            <size key="customSize" width="532" height="216"/>
             <connections>
                 <outlet property="courseIma" destination="YrQ-3R-UzW" id="RHQ-fl-jdQ"/>
                 <outlet property="courseNameLab" destination="oDo-Jn-FrC" id="C3E-Ac-wIE"/>
                 <outlet property="courseStatusLab" destination="EfN-Ia-8UM" id="BwD-rb-tOj"/>
                 <outlet property="courseTeacherLab" destination="aNr-sv-bCg" id="R6p-Io-i3t"/>
                 <outlet property="lineIma" destination="AR5-40-abm" id="T0e-Dz-e8c"/>
+                <outlet property="topLine" destination="Ub9-hc-l29" id="RY1-58-822"/>
             </connections>
-            <point key="canvasLocation" x="212" y="-129.53523238380811"/>
+            <point key="canvasLocation" x="68.799999999999997" y="-105.24737631184409"/>
         </collectionViewCell>
     </objects>
 </document>
