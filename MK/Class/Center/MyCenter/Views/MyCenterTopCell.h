@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MyCenterTopCell : UICollectionViewCell
 @property(nonatomic,weak)IBOutlet UIImageView * myCenterImage;
 @property(nonatomic,weak)IBOutlet UILabel * myCenterLab;
-@property(nonatomic,weak)IBOutlet UIView * shadowView;
+@property(nonatomic,weak)IBOutlet UIView * whiteView;
+@property(nonatomic,weak)IBOutlet UIView * bgView;
 @end
 
 NS_ASSUME_NONNULL_END

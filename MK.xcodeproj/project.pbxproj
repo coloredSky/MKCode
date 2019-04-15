@@ -492,7 +492,7 @@
 		712170D3223F465700BA1905 /* MyCenterBottomoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCenterBottomoCell.m; sourceTree = "<group>"; };
 		712170D4223F465700BA1905 /* MyCenterBottomoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCenterBottomoCell.xib; sourceTree = "<group>"; };
 		712170D7223F67FE00BA1905 /* MyCenterHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCenterHeaderView.h; sourceTree = "<group>"; };
-		712170D8223F67FE00BA1905 /* MyCenterHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCenterHeaderView.m; sourceTree = "<group>"; };
+		712170D8223F67FE00BA1905 /* MyCenterHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCenterHeaderView.m; sourceTree = "<group>"; wrapsLines = 0; };
 		712170DA223F680D00BA1905 /* MyCenterHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCenterHeaderView.xib; sourceTree = "<group>"; };
 		7124448422582D6B005AF711 /* OrderDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDetailController.h; sourceTree = "<group>"; };
 		7124448522582D6B005AF711 /* OrderDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailController.m; sourceTree = "<group>"; };
