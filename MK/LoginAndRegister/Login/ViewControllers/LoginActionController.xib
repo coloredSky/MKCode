@@ -82,7 +82,7 @@
                         <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="zDW-aj-wZQ"/>
                     </connections>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+8615833934060" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3nZ-1w-5PL">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3nZ-1w-5PL">
                     <rect key="frame" x="26" y="331" width="124" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="124" id="OwS-w9-3bU"/>

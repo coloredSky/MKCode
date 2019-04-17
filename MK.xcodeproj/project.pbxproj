@@ -214,6 +214,8 @@
 		71A18E30225072CA007B4C55 /* LagAndSchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A18E14225072CA007B4C55 /* LagAndSchController.xib */; };
 		71A18E31225072CA007B4C55 /* LagAndSchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A18E15225072CA007B4C55 /* LagAndSchController.m */; };
 		71A18E32225072CA007B4C55 /* ValuePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A18E18225072CA007B4C55 /* ValuePickerView.m */; };
+		71C36EAE2267279D0088885F /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C36EAD2267279D0088885F /* LoginManager.m */; };
+		71C36EB2226728900088885F /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C36EB1226728900088885F /* LoginModel.m */; };
 		B035F6116DCEE497F7AF27BA /* libPods-MK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */; };
 /* End PBXBuildFile section */
 
@@ -614,6 +616,10 @@
 		71A18E15225072CA007B4C55 /* LagAndSchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LagAndSchController.m; sourceTree = "<group>"; };
 		71A18E18225072CA007B4C55 /* ValuePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValuePickerView.m; sourceTree = "<group>"; };
 		71A18E19225072CA007B4C55 /* ValuePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValuePickerView.h; sourceTree = "<group>"; };
+		71C36EAC2267279D0088885F /* LoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginManager.h; sourceTree = "<group>"; };
+		71C36EAD2267279D0088885F /* LoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
+		71C36EB0226728900088885F /* LoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginModel.h; sourceTree = "<group>"; };
+		71C36EB1226728900088885F /* LoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginModel.m; sourceTree = "<group>"; };
 		A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MKUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B9090FC31E61654C9D5DF8 /* Pods-MK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.release.xcconfig"; path = "Pods/Target Support Files/Pods-MK/Pods-MK.release.xcconfig"; sourceTree = "<group>"; };
 		D6C8DA04A8C4F273735FE2C0 /* Pods-MKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKTests/Pods-MKTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -749,6 +755,8 @@
 		3035B64F224F2C7D00A1AA98 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				71C36EAF2267287F0088885F /* Model */,
+				71C36EAB226727770088885F /* Manager */,
 				3035B650224F2C7D00A1AA98 /* ViewControllers */,
 			);
 			path = Login;
@@ -2323,6 +2331,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		71C36EAB226727770088885F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				71C36EAC2267279D0088885F /* LoginManager.h */,
+				71C36EAD2267279D0088885F /* LoginManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		71C36EAF2267287F0088885F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				71C36EB0226728900088885F /* LoginModel.h */,
+				71C36EB1226728900088885F /* LoginModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9AF5AD9C0310B0C67ED2195B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2647,6 +2673,7 @@
 				30FBE375224398620049C0DE /* AppointmentPopView.m in Sources */,
 				3035B660224F2C7D00A1AA98 /* LoginActionController.m in Sources */,
 				30FBE3BA224B771B0049C0DE /* MKMessageModel.m in Sources */,
+				71C36EB2226728900088885F /* LoginModel.m in Sources */,
 				7124448622582D6B005AF711 /* OrderDetailController.m in Sources */,
 				30FBE399224B26730049C0DE /* CourseOfflineListCell.m in Sources */,
 				3048D82322325FAD00FE63B2 /* MKBaseTableView.m in Sources */,
@@ -2734,6 +2761,7 @@
 				30A2014C2255F33800A6A232 /* MyBillListViewController.m in Sources */,
 				3035B6AD224F2D4500A1AA98 /* UpdateMessageController.m in Sources */,
 				3048D82C2232633400FE63B2 /* BMPopView.m in Sources */,
+				71C36EAE2267279D0088885F /* LoginManager.m in Sources */,
 				3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */,
 				30A20186225DF1AA00A6A232 /* MyCourseListViewController.m in Sources */,
 				712170D0223F43CC00BA1905 /* MyCenterTopCell.m in Sources */,

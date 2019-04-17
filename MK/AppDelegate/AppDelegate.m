@@ -18,15 +18,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self appConfig];
-//    if (![self isUserLogin]) {
-//        LoginViewController * lvc =[LoginViewController new];
-//        self.window.rootViewController =lvc;
-//    }
-//    else
-//    {
+    if (![self isUserLogin]) {
+        LoginViewController * lvc =[LoginViewController new];
+        self.window.rootViewController =lvc;
+    }
+    else
+    {
         MKTarbarViewController *tarbarVC = [MKTarbarViewController new];
         self.window.rootViewController = tarbarVC;
-//    }
+    }
     return YES;
 }
 - (void)configKeyboard{

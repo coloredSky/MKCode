@@ -18,5 +18,6 @@ static NSString * const KMKBaseServerRequestUrl  = @"https://class.jastudy.com";
 
 //首页
 static NSString * const K_MK_Home_AllCategoryList_Url  = @"/base/course/category";
+static NSString * const K_MK_Home_Login_url  = @"/user/base/auth";
 
 #endif /* MKRequestUrl_h */

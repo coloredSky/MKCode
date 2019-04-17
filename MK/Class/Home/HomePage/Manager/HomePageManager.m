@@ -24,7 +24,6 @@
                 completionBlock(NO, MKResult.message,[NSArray array]);
             }
         }
-        
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (completionBlock) {
             completionBlock(NO, [NSString stringWithFormat:@"error code is %ld",statusCode],[NSArray array]);
