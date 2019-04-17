@@ -15,6 +15,8 @@
 #import "HomeContentScrollView.h"
 //manager
 #import "HomePageManager.h"
+//model
+#import "HomeCourseCategoryModel.h"
 
 @interface HomePageViewController ()<TitleScrollViewDelegate,HomeContentScrollViewDelegate>
 @property (nonatomic, strong) NSArray *titleArr;//标题数组
@@ -23,7 +25,7 @@
 @property (nonatomic, strong) TitleScrollView *titleView;//标题scroll
 @property (nonatomic, strong) HomeContentScrollView *contentScroll;//内容scroll
 //数据
-@property (nonatomic, strong) NSArray *courseCategoryList;//课程类型list
+@property (nonatomic, strong) NSArray <HomeCourseCategoryModel *>*courseCategoryList;//课程类型list
 @end
 
 @implementation HomePageViewController
@@ -53,6 +55,7 @@
     [HomePageManager callBackHomePageCouurseCategoryDataWithCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<HomeCourseCategoryModel *> * _Nonnull resultList) {
         if (isSuccess) {
             self.courseCategoryList = resultList;
+            
             self.titleArr = @[@"推荐",@"语言",@"学部",@"大学院",@"美术"];
             self.childVCs = @[[HomeRecommendViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new]];
             [self.contentScroll AddChildViewWithTitleArr:self.childVCs.mutableCopy andRootViewController:self];
