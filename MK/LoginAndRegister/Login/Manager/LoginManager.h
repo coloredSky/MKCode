@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LoginManager : NSObject
-+(void)callBackLoginDataWith:(NSString *)userName pwd:(NSString *)pwd CompletionBlock:(void(^)(BOOL isSuccess,NSString *message, LoginModel *model))completionBlock;
++(void)callBackLoginDataWithHudShow:(BOOL)hudShow userName:(NSString *)userName pwd:(NSString *)pwd CompletionBlock:(void(^)(BOOL isSuccess,NSString *message, LoginModel *model))completionBlock;
 @end
 
 NS_ASSUME_NONNULL_END

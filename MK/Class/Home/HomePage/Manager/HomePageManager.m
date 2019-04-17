@@ -11,9 +11,9 @@
 
 @implementation HomePageManager
 
-+(void)callBackHomePageCouurseCategoryDataWithCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <HomeCourseCategoryModel *>*resultList))completionBlock
++(void)callBackHomePageCouurseCategoryDataWithHUDShow:(BOOL)hudShow andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <HomeCourseCategoryModel *>*resultList))completionBlock
 {
-    [MKNetworkManager sendGetRequestWithUrl:K_MK_Home_AllCategoryList_Url hudIsShow:YES success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+    [MKNetworkManager sendGetRequestWithUrl:K_MK_Home_AllCategoryList_Url hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 1) {
             if (completionBlock) {
                 NSArray *courseCayegoryList = [NSArray yy_modelArrayWithClass:[HomeCourseCategoryModel class] json:MKResult.dataResponseObject];
@@ -28,6 +28,21 @@
         if (completionBlock) {
             completionBlock(NO, [NSString stringWithFormat:@"error code is %ld",statusCode],[NSArray array]);
         }
+    }];
+}
+
++(void)callBackHomePageCouurseListDataWithHUDShow:(BOOL)hudShow categoryID:(NSString *)categoryID andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSMutableArray <MKCourseListModel *>*resultList))completionBlock
+{
+    if ([NSString isEmptyWithStr:categoryID]) {
+        return;
+    }
+    NSDictionary *parameters = @{@"language" : @"zh-cn",
+                                               @"category_id" : categoryID
+                                 };
+    [MKNetworkManager sendPostRequestWithUrl:K_MK_Home_CourseList_Url parameters:parameters hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        
     }];
 }
 @end

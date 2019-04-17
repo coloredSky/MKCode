@@ -7,7 +7,7 @@
 //
 
 #import "RegisterController.h"
-
+#import "RegisterManager.h"
 @interface RegisterController ()
 @property (weak, nonatomic) IBOutlet UIImageView *bgIma;
 
@@ -58,6 +58,10 @@
         case 1:
         {
             //获取验证码
+            [RegisterManager callBackPhoneCodeWithHudShow:YES phone:self.phoneTextfield.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSString * _Nonnull code) {
+                
+                
+            }];
         }
             break;
         case 2:

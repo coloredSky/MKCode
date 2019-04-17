@@ -9,15 +9,27 @@
 #import "LoginManager.h"
 
 @implementation LoginManager
-+(void)callBackLoginDataWith:(NSString *)userName pwd:(NSString *)pwd CompletionBlock:(void(^)(BOOL isSuccess,NSString *message, LoginModel *model))completionBlock
++(void)callBackLoginDataWithHudShow:(BOOL)hudShow userName:(NSString *)userName pwd:(NSString *)pwd CompletionBlock:(void(^)(BOOL isSuccess,NSString *message, LoginModel *model))completionBlock;
 {
     if ([NSString isEmptyWithStr:userName] ==YES){
-        
+        [MBHUDManager showBriefAlert:@"请输入用户名"];
+        return;
     }
     if ([NSString isEmptyWithStr:pwd]==YES){
-        
+        [MBHUDManager showBriefAlert:@"请输入密码"];
+        return;
     }
-//    MKNetworkManager sendPostRequestWithUrl:K_MK_Home_Login_url parameters:<#(nonnull id)#> hudIsShow:<#(BOOL)#> success:<#^(MKResponseResult *MKResult, BOOL isCacheObject)successBlock#> failure:<#^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)failureBlock#>
+    NSDictionary * param =@{@"username":userName,@"password":pwd};
+    [MKNetworkManager sendPostRequestWithUrl:K_MK_Login_url parameters:param hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode ==1) {
+            if (completionBlock)
+            {
+                
+            }
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        
+    }];
 //    [MKNetworkManager sendGetRequestWithUrl:K_MK_Home_AllCategoryList_Url hudIsShow:YES success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
 //        if (MKResult.responseCode == 1) {
 //            if (completionBlock) {

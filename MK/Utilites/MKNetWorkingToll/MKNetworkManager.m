@@ -11,7 +11,7 @@ static NSString *const responseData = @"data";
 static NSString *const responseMessage = @"msg";
 
 #import "MKNetworkManager.h"
-#import "MBHUDManager.h"
+
 
 @implementation MKNetworkManager
 

@@ -9,6 +9,7 @@
 #import "LoginActionController.h"
 #import "RegisterController.h"
 #import "MKTarbarViewController.h"
+#import "LoginManager.h"
 @interface LoginActionController ()
 @property (weak, nonatomic) IBOutlet UIImageView *bgIma;
 
@@ -58,11 +59,15 @@
         //登录
 //        MKTarbarViewController *tarbarVC = [MKTarbarViewController new];
 //        [[UIApplication sharedApplication]keyWindow]. rootViewController = tarbarVC;
-        [self.navigationController popViewControllerAnimated:YES];
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setBool:YES forKey:KMKLoginKey];
-        [userDefaults synchronize];
+//        [self.navigationController popViewControllerAnimated:YES];
+//        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//        [userDefaults setBool:YES forKey:KMKLoginKey];
+//        [userDefaults synchronize];
 //        [self dismissViewControllerAnimated:YES completion:nil];
+        [LoginManager callBackLoginDataWithHudShow:YES userName:self.phoneTF.text pwd:self.passwordTF.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, LoginModel * _Nonnull model) {
+            
+            
+        }];
     }
   
 }

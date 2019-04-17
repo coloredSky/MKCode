@@ -34,6 +34,7 @@
 #import "XHRefreshHeader.h"
 #import "XDSDropDownMenu.h"
 #import <YYModel.h>
+#import "MBHUDManager.h"
 
 //网络请求
 #import "MKNetworkManager.h"
