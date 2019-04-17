@@ -52,7 +52,7 @@
 }
 -(void)startRequestWithHUDShow:(BOOL )hudShow
 {
-    [HomePageManager callBackHomePageCouurseCategoryDataWithCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<HomeCourseCategoryModel *> * _Nonnull resultList) {
+    [HomePageManager callBackHomePageCouurseCategoryDataWithHUDShow:YES andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<HomeCourseCategoryModel *> * _Nonnull resultList) {
         if (isSuccess) {
             self.courseCategoryList = resultList;
             

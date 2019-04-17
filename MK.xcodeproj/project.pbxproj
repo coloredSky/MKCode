@@ -26,6 +26,7 @@
 		302956CD2267226A006D1613 /* WYNetworkUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956BF2267226A006D1613 /* WYNetworkUtils.m */; };
 		302956CE2267226A006D1613 /* WYNetworkBaseEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956C02267226A006D1613 /* WYNetworkBaseEngine.m */; };
 		302956CF2267226A006D1613 /* WYImageScaleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956C22267226A006D1613 /* WYImageScaleTool.m */; };
+		302956D2226728CF006D1613 /* MKCourseListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956D1226728CF006D1613 /* MKCourseListModel.m */; };
 		3035B65B224F2C7D00A1AA98 /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B64D224F2C7D00A1AA98 /* RegisterController.xib */; };
 		3035B65C224F2C7D00A1AA98 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B64E224F2C7D00A1AA98 /* RegisterController.m */; };
 		3035B65D224F2C7D00A1AA98 /* LoginActionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B651224F2C7D00A1AA98 /* LoginActionController.xib */; };
@@ -279,6 +280,8 @@
 		302956C02267226A006D1613 /* WYNetworkBaseEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkBaseEngine.m; sourceTree = "<group>"; };
 		302956C12267226A006D1613 /* WYNetworkDownloadResumeDataInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkDownloadResumeDataInfo.h; sourceTree = "<group>"; };
 		302956C22267226A006D1613 /* WYImageScaleTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYImageScaleTool.m; sourceTree = "<group>"; };
+		302956D0226728CF006D1613 /* MKCourseListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKCourseListModel.h; sourceTree = "<group>"; };
+		302956D1226728CF006D1613 /* MKCourseListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKCourseListModel.m; sourceTree = "<group>"; };
 		3035B64C224F2C7D00A1AA98 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		3035B64D224F2C7D00A1AA98 /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 		3035B64E224F2C7D00A1AA98 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
@@ -1238,6 +1241,8 @@
 			children = (
 				302956772266DFAD006D1613 /* HomeCourseCategoryModel.h */,
 				302956782266DFAD006D1613 /* HomeCourseCategoryModel.m */,
+				302956D0226728CF006D1613 /* MKCourseListModel.h */,
+				302956D1226728CF006D1613 /* MKCourseListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2637,6 +2642,7 @@
 				30A2018A225DF20700A6A232 /* MyCourseListCell.m in Sources */,
 				30FBE37B2244C5700049C0DE /* CourseDetailTipView.m in Sources */,
 				712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */,
+				302956D2226728CF006D1613 /* MKCourseListModel.m in Sources */,
 				71A18E2B225072CA007B4C55 /* LYSDatePickerItem.m in Sources */,
 				3035B6AB224F2D4500A1AA98 /* UserTextView.m in Sources */,
 				3035B6D22252032800A1AA98 /* AppointmentTeacherReplyCell.m in Sources */,
