@@ -13,6 +13,8 @@
 //View
 #import "TitleScrollView.h"
 #import "HomeContentScrollView.h"
+//manager
+#import "HomePageManager.h"
 
 @interface HomePageViewController ()<TitleScrollViewDelegate,HomeContentScrollViewDelegate>
 @property (nonatomic, strong) NSArray *titleArr;//标题数组
@@ -20,6 +22,8 @@
 @property (nonatomic, strong) UIView *topView;//顶部View
 @property (nonatomic, strong) TitleScrollView *titleView;//标题scroll
 @property (nonatomic, strong) HomeContentScrollView *contentScroll;//内容scroll
+//数据
+@property (nonatomic, strong) NSArray *courseCategoryList;//课程类型list
 @end
 
 @implementation HomePageViewController
@@ -28,8 +32,6 @@
 -(instancetype)init
 {
     if (self = [super init]) {
-        self.titleArr = @[@"推荐",@"语言",@"学部",@"大学院",@"美术"];
-        self.childVCs = @[[HomeRecommendViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new]];
     }
     return self;
 }
@@ -44,9 +46,20 @@
     self.view.backgroundColor = K_BG_deepGrayColor;
     //navView
     [self laoutTopView];
-    
-    [self.contentScroll AddChildViewWithTitleArr:self.childVCs.mutableCopy andRootViewController:self];
+    [self startRequestWithHUDShow:YES];
 }
+-(void)startRequestWithHUDShow:(BOOL )hudShow
+{
+    [HomePageManager callBackHomePageCouurseCategoryDataWithCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<HomeCourseCategoryModel *> * _Nonnull resultList) {
+        if (isSuccess) {
+            self.courseCategoryList = resultList;
+            self.titleArr = @[@"推荐",@"语言",@"学部",@"大学院",@"美术"];
+            self.childVCs = @[[HomeRecommendViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new]];
+            [self.contentScroll AddChildViewWithTitleArr:self.childVCs.mutableCopy andRootViewController:self];
+        }
+    }];
+}
+
 -(void)laoutTopView
 {
     _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(91)+KScaleHeight(20))];

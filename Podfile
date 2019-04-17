@@ -3,7 +3,11 @@
 
 target 'MK' do
    pod 'MJRefresh'
-  pod 'IQKeyboardManager'
+   pod 'IQKeyboardManager'
+   pod 'AFNetworking'
+   pod 'MBProgressHUD'
+   pod 'YYModel'
+
   # Pods for MK
 
   target 'MKTests' do
