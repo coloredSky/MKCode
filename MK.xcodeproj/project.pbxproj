@@ -191,6 +191,7 @@
 		71244492225832A1005AF711 /* OrderDetailCell_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71244490225832A1005AF711 /* OrderDetailCell_2.xib */; };
 		712729362241EB9B006772BF /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729352241EB9B006772BF /* MessageModel.m */; };
 		712729392241EBC2006772BF /* RuquestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729382241EBC2006772BF /* RuquestManager.m */; };
+		7127C086226808D700895D79 /* JKCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7127C085226808D700895D79 /* JKCountDownButton.m */; };
 		71A18E1A225072CA007B4C55 /* LagAbilityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A18DD8225072CA007B4C55 /* LagAbilityController.m */; };
 		71A18E1B225072CA007B4C55 /* LagAbilityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A18DD9225072CA007B4C55 /* LagAbilityController.xib */; };
 		71A18E1C225072CA007B4C55 /* JapanDateVController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A18DE1225072CA007B4C55 /* JapanDateVController.xib */; };
@@ -574,6 +575,8 @@
 		712729352241EB9B006772BF /* MessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
 		712729372241EBC2006772BF /* RuquestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuquestManager.h; sourceTree = "<group>"; };
 		712729382241EBC2006772BF /* RuquestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuquestManager.m; sourceTree = "<group>"; };
+		7127C084226808D700895D79 /* JKCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKCountDownButton.h; sourceTree = "<group>"; };
+		7127C085226808D700895D79 /* JKCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCountDownButton.m; sourceTree = "<group>"; };
 		71A18DD8225072CA007B4C55 /* LagAbilityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LagAbilityController.m; sourceTree = "<group>"; };
 		71A18DD9225072CA007B4C55 /* LagAbilityController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LagAbilityController.xib; sourceTree = "<group>"; };
 		71A18DDA225072CA007B4C55 /* LagAbilityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LagAbilityController.h; sourceTree = "<group>"; };
@@ -743,6 +746,7 @@
 		3035B64A224F2C7D00A1AA98 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				7127C083226808AE00895D79 /* Views */,
 				710CF97722672D2F004DAD9D /* Manager */,
 				3035B64B224F2C7D00A1AA98 /* ViewControllers */,
 			);
@@ -2137,6 +2141,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7127C083226808AE00895D79 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7127C084226808D700895D79 /* JKCountDownButton.h */,
+				7127C085226808D700895D79 /* JKCountDownButton.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		71A18DD5225072CA007B4C55 /* LanguageAbility  */ = {
 			isa = PBXGroup;
 			children = (
@@ -2777,6 +2790,7 @@
 				3035B6A7224F2D4500A1AA98 /* BasicInfoCell.m in Sources */,
 				30A2013C2254A2AC00A6A232 /* ChangeClassQueryViewController.m in Sources */,
 				71A18E24225072CA007B4C55 /* LYSDatePickerLabel.m in Sources */,
+				7127C086226808D700895D79 /* JKCountDownButton.m in Sources */,
 				30A2013F2254A76300A6A232 /* ChangeClassEndViewController.m in Sources */,
 				30A2014C2255F33800A6A232 /* MyBillListViewController.m in Sources */,
 				3035B6AD224F2D4500A1AA98 /* UpdateMessageController.m in Sources */,

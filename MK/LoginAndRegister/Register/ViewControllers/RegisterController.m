@@ -8,6 +8,7 @@
 
 #import "RegisterController.h"
 #import "RegisterManager.h"
+#import "JKCountDownButton.h"
 @interface RegisterController ()
 @property (weak, nonatomic) IBOutlet UIImageView *bgIma;
 
@@ -16,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel * phoneStringLab;
 @property (weak, nonatomic) IBOutlet UILabel *codeSignLab;
 //@property (weak, nonatomic) IBOutlet UIButton *forgetSignLab;
+
+@property (weak, nonatomic) IBOutlet JKCountDownButton *codeBtn;
 
 @property(nonatomic,weak)IBOutlet UITextField * phoneTextfield;
 @property(nonatomic,weak)IBOutlet UITextField * codeTextfield;
@@ -58,8 +61,21 @@
         case 1:
         {
             //获取验证码
-            [RegisterManager callBackPhoneCodeWithHudShow:YES phone:self.phoneTextfield.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSString * _Nonnull code) {
+            if ([NSString isEmptyWithStr:self.phoneTextfield.text]==YES) {
+                [MBHUDManager showBriefAlert:@"请输入手机号"];
+                return;
+            }
+            [_codeBtn startWithSecond:60];
+            [_codeBtn didChange:^NSString *(JKCountDownButton *countDownButton,int second) {
+                NSString *title = [NSString stringWithFormat:@"剩余%d秒",second];
                 
+                return title;
+            }];
+            [_codeBtn didFinished:^NSString *(JKCountDownButton *countDownButton, int second) {
+                countDownButton.enabled = YES;
+                return @"重新获取";
+            }];
+            [RegisterManager callBackPhoneCodeWithHudShow:YES phone:self.phoneTextfield.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSString * _Nonnull code) {
                 
             }];
         }

@@ -27,7 +27,6 @@
 //                completionBlock(NO, MKResult.message,[NSArray array]);
             }
         }
-
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         
     }];

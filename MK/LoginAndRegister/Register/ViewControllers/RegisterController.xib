@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterController">
             <connections>
                 <outlet property="bgIma" destination="cnm-Gy-Vu8" id="rED-L2-6fv"/>
+                <outlet property="codeBtn" destination="wcg-59-ZvU" id="S2T-Hr-d41"/>
                 <outlet property="codeSignLab" destination="61f-sX-LbR" id="A7m-jr-JxK"/>
                 <outlet property="codeTextfield" destination="QaS-Y5-LQM" id="tX9-T4-EgA"/>
                 <outlet property="helloLab" destination="mpd-Cw-u3U" id="MXZ-oA-oWO"/>
@@ -88,13 +89,16 @@
                     </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xd5-I3-kl4">
-                    <rect key="frame" x="26" y="304" width="90" height="17"/>
+                    <rect key="frame" x="26" y="304" width="120" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="lPj-Mm-CkU"/>
+                    </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcg-59-ZvU">
-                    <rect key="frame" x="149" y="299" width="100" height="27"/>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcg-59-ZvU" customClass="JKCountDownButton">
+                    <rect key="frame" x="179" y="299" width="100" height="27"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="evF-kV-W15"/>
