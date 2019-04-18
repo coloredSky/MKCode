@@ -10,11 +10,11 @@
 #ifndef MKRequestUrl_h
 #define MKRequestUrl_h
 
-#ifndef DEBUG
-static NSString * const KMKBaseServerRequestUrl  = @"http://test.class.jastudy.com";
-#else
+//#ifdef DEBUG
+//static NSString * const KMKBaseServerRequestUrl  = @"http://test.class.jastudy.com";
+//#else
 static NSString * const KMKBaseServerRequestUrl  = @"https://class.jastudy.com";
-#endif
+//#endif
 
 //首页
 //所有课程分类

@@ -11,6 +11,7 @@
 @implementation RegisterManager
 +(void)callBackPhoneCodeWithHudShow:(BOOL)hudShow phone:(NSString *)phone  CompletionBlock:(void(^)(BOOL isSuccess,NSString *message, NSString *code))completionBlock
 {
+    phone = @"15871808259";
     if ([NSString isEmptyWithStr:phone]==YES)
     {
         [MBHUDManager showBriefAlert:@"请输入手机号"];

@@ -12,6 +12,9 @@ static NSString *const responseMessage = @"msg";
 
 #import "MKNetworkManager.h"
 
+@interface MKNetworkManager()
+
+@end
 
 @implementation MKNetworkManager
 
@@ -64,7 +67,7 @@ static NSString *const responseMessage = @"msg";
     if (hudShow) {
         [MBHUDManager showLoading];
     }
-    [[self sharedManager]sendPostRequest:WYJSONRequestSerializer url:url parameters:parameters success:^(id responseObject, BOOL isCacheObject) {
+    [[self sharedManager]sendPostRequest:WYHTTPRequestSerializer url:url parameters:parameters success:^(id responseObject, BOOL isCacheObject) {
         if (hudShow) {
             [MBHUDManager hideAlert];
         }

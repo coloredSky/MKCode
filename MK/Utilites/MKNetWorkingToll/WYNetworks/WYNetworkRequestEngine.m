@@ -56,7 +56,9 @@
         [_sessionManager.securityPolicy setAllowInvalidCertificates:YES];
         _sessionManager.securityPolicy.validatesDomainName = NO;
         
-        _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/css", @"text/xml", @"text/plain", @"application/javascript", @"image/*", nil];
+//        _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/css", @"text/xml", @"text/plain", @"application/javascript", @"image/*", nil];
+        _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
+        _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
         
         //Queue
         _sessionManager.completionQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -89,6 +91,7 @@
         
         _sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
         _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
+            _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
         
     } else if (serializer == WYJSONHTTPRequestSerializer){
         

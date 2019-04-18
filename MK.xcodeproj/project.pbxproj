@@ -13,20 +13,20 @@
 		302956732266D83A006D1613 /* MKNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956722266D83A006D1613 /* MKNetworkManager.m */; };
 		302956762266DE95006D1613 /* HomePageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956752266DE95006D1613 /* HomePageManager.m */; };
 		302956792266DFAD006D1613 /* HomeCourseCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956782266DFAD006D1613 /* HomeCourseCategoryModel.m */; };
-		302956C32267226A006D1613 /* WYNetworkRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956A62267226A006D1613 /* WYNetworkRequestModel.m */; };
-		302956C42267226A006D1613 /* WYNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956A72267226A006D1613 /* WYNetworkConfig.m */; };
-		302956C52267226A006D1613 /* WYNetworkRequestPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956A82267226A006D1613 /* WYNetworkRequestPool.m */; };
-		302956C62267226A006D1613 /* WYNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956AB2267226A006D1613 /* WYNetworkManager.m */; };
-		302956C72267226A006D1613 /* WYNetworkCacheInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956AC2267226A006D1613 /* WYNetworkCacheInfo.m */; };
-		302956C82267226A006D1613 /* WYNetworkUploadEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956AE2267226A006D1613 /* WYNetworkUploadEngine.m */; };
-		302956C92267226A006D1613 /* WYNetworkDownloadResumeDataInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956B02267226A006D1613 /* WYNetworkDownloadResumeDataInfo.m */; };
-		302956CA2267226A006D1613 /* WYNetworkCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956B82267226A006D1613 /* WYNetworkCacheManager.m */; };
-		302956CB2267226A006D1613 /* WYNetworkRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956BC2267226A006D1613 /* WYNetworkRequestEngine.m */; };
-		302956CC2267226A006D1613 /* WYNetworkDownloadEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956BE2267226A006D1613 /* WYNetworkDownloadEngine.m */; };
-		302956CD2267226A006D1613 /* WYNetworkUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956BF2267226A006D1613 /* WYNetworkUtils.m */; };
-		302956CE2267226A006D1613 /* WYNetworkBaseEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956C02267226A006D1613 /* WYNetworkBaseEngine.m */; };
-		302956CF2267226A006D1613 /* WYImageScaleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956C22267226A006D1613 /* WYImageScaleTool.m */; };
 		302956D2226728CF006D1613 /* MKCourseListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956D1226728CF006D1613 /* MKCourseListModel.m */; };
+		3029571B226859E4006D1613 /* WYNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956FF226859E1006D1613 /* WYNetworkConfig.m */; };
+		3029571C226859E4006D1613 /* WYNetworkRequestPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295700226859E1006D1613 /* WYNetworkRequestPool.m */; };
+		3029571D226859E4006D1613 /* WYNetworkBaseEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295703226859E1006D1613 /* WYNetworkBaseEngine.m */; };
+		3029571E226859E4006D1613 /* WYImageScaleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295705226859E2006D1613 /* WYImageScaleTool.m */; };
+		3029571F226859E4006D1613 /* WYNetworkRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295706226859E2006D1613 /* WYNetworkRequestEngine.m */; };
+		30295720226859E4006D1613 /* WYNetworkCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295707226859E2006D1613 /* WYNetworkCacheManager.m */; };
+		30295721226859E4006D1613 /* WYNetworkRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295708226859E2006D1613 /* WYNetworkRequestModel.m */; };
+		30295722226859E4006D1613 /* WYNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3029570B226859E2006D1613 /* WYNetworkManager.m */; };
+		30295723226859E4006D1613 /* WYNetworkUploadEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3029570E226859E2006D1613 /* WYNetworkUploadEngine.m */; };
+		30295724226859E4006D1613 /* WYNetworkDownloadResumeDataInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3029570F226859E3006D1613 /* WYNetworkDownloadResumeDataInfo.m */; };
+		30295725226859E4006D1613 /* WYNetworkUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295711226859E3006D1613 /* WYNetworkUtils.m */; };
+		30295726226859E4006D1613 /* WYNetworkCacheInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295714226859E3006D1613 /* WYNetworkCacheInfo.m */; };
+		30295727226859E4006D1613 /* WYNetworkDownloadEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295717226859E3006D1613 /* WYNetworkDownloadEngine.m */; };
 		3035B65B224F2C7D00A1AA98 /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B64D224F2C7D00A1AA98 /* RegisterController.xib */; };
 		3035B65C224F2C7D00A1AA98 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B64E224F2C7D00A1AA98 /* RegisterController.m */; };
 		3035B65D224F2C7D00A1AA98 /* LoginActionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B651224F2C7D00A1AA98 /* LoginActionController.xib */; };
@@ -254,37 +254,37 @@
 		302956752266DE95006D1613 /* HomePageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageManager.m; sourceTree = "<group>"; };
 		302956772266DFAD006D1613 /* HomeCourseCategoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCourseCategoryModel.h; sourceTree = "<group>"; };
 		302956782266DFAD006D1613 /* HomeCourseCategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCourseCategoryModel.m; sourceTree = "<group>"; };
-		302956A62267226A006D1613 /* WYNetworkRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkRequestModel.m; sourceTree = "<group>"; };
-		302956A72267226A006D1613 /* WYNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkConfig.m; sourceTree = "<group>"; };
-		302956A82267226A006D1613 /* WYNetworkRequestPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkRequestPool.m; sourceTree = "<group>"; };
-		302956A92267226A006D1613 /* WYNetworkCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkCacheManager.h; sourceTree = "<group>"; };
-		302956AA2267226A006D1613 /* WYNetworkProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkProtocol.h; sourceTree = "<group>"; };
-		302956AB2267226A006D1613 /* WYNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkManager.m; sourceTree = "<group>"; };
-		302956AC2267226A006D1613 /* WYNetworkCacheInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkCacheInfo.m; sourceTree = "<group>"; };
-		302956AD2267226A006D1613 /* WYNetworkRequestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkRequestEngine.h; sourceTree = "<group>"; };
-		302956AE2267226A006D1613 /* WYNetworkUploadEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkUploadEngine.m; sourceTree = "<group>"; };
-		302956AF2267226A006D1613 /* WYImageScaleTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYImageScaleTool.h; sourceTree = "<group>"; };
-		302956B02267226A006D1613 /* WYNetworkDownloadResumeDataInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkDownloadResumeDataInfo.m; sourceTree = "<group>"; };
-		302956B12267226A006D1613 /* WYNetworkBaseEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkBaseEngine.h; sourceTree = "<group>"; };
-		302956B22267226A006D1613 /* WYNetworkUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkUtils.h; sourceTree = "<group>"; };
-		302956B32267226A006D1613 /* WYNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetwork.h; sourceTree = "<group>"; };
-		302956B42267226A006D1613 /* WYNetworkDownloadEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkDownloadEngine.h; sourceTree = "<group>"; };
-		302956B52267226A006D1613 /* WYNetworkRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkRequestModel.h; sourceTree = "<group>"; };
-		302956B62267226A006D1613 /* WYNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkManager.h; sourceTree = "<group>"; };
-		302956B72267226A006D1613 /* WYNetworkHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkHeader.h; sourceTree = "<group>"; };
-		302956B82267226A006D1613 /* WYNetworkCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkCacheManager.m; sourceTree = "<group>"; };
-		302956B92267226A006D1613 /* WYNetworkRequestPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkRequestPool.h; sourceTree = "<group>"; };
-		302956BA2267226A006D1613 /* WYNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkConfig.h; sourceTree = "<group>"; };
-		302956BB2267226A006D1613 /* WYNetworkUploadEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkUploadEngine.h; sourceTree = "<group>"; };
-		302956BC2267226A006D1613 /* WYNetworkRequestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkRequestEngine.m; sourceTree = "<group>"; };
-		302956BD2267226A006D1613 /* WYNetworkCacheInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkCacheInfo.h; sourceTree = "<group>"; };
-		302956BE2267226A006D1613 /* WYNetworkDownloadEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkDownloadEngine.m; sourceTree = "<group>"; };
-		302956BF2267226A006D1613 /* WYNetworkUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkUtils.m; sourceTree = "<group>"; };
-		302956C02267226A006D1613 /* WYNetworkBaseEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkBaseEngine.m; sourceTree = "<group>"; };
-		302956C12267226A006D1613 /* WYNetworkDownloadResumeDataInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkDownloadResumeDataInfo.h; sourceTree = "<group>"; };
-		302956C22267226A006D1613 /* WYImageScaleTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYImageScaleTool.m; sourceTree = "<group>"; };
 		302956D0226728CF006D1613 /* MKCourseListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKCourseListModel.h; sourceTree = "<group>"; };
 		302956D1226728CF006D1613 /* MKCourseListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKCourseListModel.m; sourceTree = "<group>"; };
+		302956FE226859E1006D1613 /* WYNetworkUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkUtils.h; sourceTree = "<group>"; };
+		302956FF226859E1006D1613 /* WYNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkConfig.m; sourceTree = "<group>"; };
+		30295700226859E1006D1613 /* WYNetworkRequestPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkRequestPool.m; sourceTree = "<group>"; };
+		30295701226859E1006D1613 /* WYNetworkBaseEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkBaseEngine.h; sourceTree = "<group>"; };
+		30295702226859E1006D1613 /* WYNetworkCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkCacheManager.h; sourceTree = "<group>"; };
+		30295703226859E1006D1613 /* WYNetworkBaseEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkBaseEngine.m; sourceTree = "<group>"; };
+		30295704226859E1006D1613 /* WYNetworkRequestPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkRequestPool.h; sourceTree = "<group>"; };
+		30295705226859E2006D1613 /* WYImageScaleTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYImageScaleTool.m; sourceTree = "<group>"; };
+		30295706226859E2006D1613 /* WYNetworkRequestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkRequestEngine.m; sourceTree = "<group>"; };
+		30295707226859E2006D1613 /* WYNetworkCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkCacheManager.m; sourceTree = "<group>"; };
+		30295708226859E2006D1613 /* WYNetworkRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkRequestModel.m; sourceTree = "<group>"; };
+		30295709226859E2006D1613 /* WYNetworkCacheInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkCacheInfo.h; sourceTree = "<group>"; };
+		3029570A226859E2006D1613 /* WYImageScaleTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYImageScaleTool.h; sourceTree = "<group>"; };
+		3029570B226859E2006D1613 /* WYNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkManager.m; sourceTree = "<group>"; };
+		3029570C226859E2006D1613 /* WYNetworkRequestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkRequestEngine.h; sourceTree = "<group>"; };
+		3029570D226859E2006D1613 /* WYNetworkProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkProtocol.h; sourceTree = "<group>"; };
+		3029570E226859E2006D1613 /* WYNetworkUploadEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkUploadEngine.m; sourceTree = "<group>"; };
+		3029570F226859E3006D1613 /* WYNetworkDownloadResumeDataInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkDownloadResumeDataInfo.m; sourceTree = "<group>"; };
+		30295710226859E3006D1613 /* WYNetworkDownloadEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkDownloadEngine.h; sourceTree = "<group>"; };
+		30295711226859E3006D1613 /* WYNetworkUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkUtils.m; sourceTree = "<group>"; };
+		30295712226859E3006D1613 /* WYNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetwork.h; sourceTree = "<group>"; };
+		30295713226859E3006D1613 /* WYNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkConfig.h; sourceTree = "<group>"; };
+		30295714226859E3006D1613 /* WYNetworkCacheInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkCacheInfo.m; sourceTree = "<group>"; };
+		30295715226859E3006D1613 /* WYNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkManager.h; sourceTree = "<group>"; };
+		30295716226859E3006D1613 /* WYNetworkUploadEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkUploadEngine.h; sourceTree = "<group>"; };
+		30295717226859E3006D1613 /* WYNetworkDownloadEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYNetworkDownloadEngine.m; sourceTree = "<group>"; };
+		30295718226859E4006D1613 /* WYNetworkDownloadResumeDataInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkDownloadResumeDataInfo.h; sourceTree = "<group>"; };
+		30295719226859E4006D1613 /* WYNetworkHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkHeader.h; sourceTree = "<group>"; };
+		3029571A226859E4006D1613 /* WYNetworkRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkRequestModel.h; sourceTree = "<group>"; };
 		3035B64C224F2C7D00A1AA98 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		3035B64D224F2C7D00A1AA98 /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 		3035B64E224F2C7D00A1AA98 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
@@ -698,35 +698,35 @@
 		302956A52267226A006D1613 /* WYNetworks */ = {
 			isa = PBXGroup;
 			children = (
-				302956A62267226A006D1613 /* WYNetworkRequestModel.m */,
-				302956A72267226A006D1613 /* WYNetworkConfig.m */,
-				302956A82267226A006D1613 /* WYNetworkRequestPool.m */,
-				302956A92267226A006D1613 /* WYNetworkCacheManager.h */,
-				302956AA2267226A006D1613 /* WYNetworkProtocol.h */,
-				302956AB2267226A006D1613 /* WYNetworkManager.m */,
-				302956AC2267226A006D1613 /* WYNetworkCacheInfo.m */,
-				302956AD2267226A006D1613 /* WYNetworkRequestEngine.h */,
-				302956AE2267226A006D1613 /* WYNetworkUploadEngine.m */,
-				302956AF2267226A006D1613 /* WYImageScaleTool.h */,
-				302956B02267226A006D1613 /* WYNetworkDownloadResumeDataInfo.m */,
-				302956B12267226A006D1613 /* WYNetworkBaseEngine.h */,
-				302956B22267226A006D1613 /* WYNetworkUtils.h */,
-				302956B32267226A006D1613 /* WYNetwork.h */,
-				302956B42267226A006D1613 /* WYNetworkDownloadEngine.h */,
-				302956B52267226A006D1613 /* WYNetworkRequestModel.h */,
-				302956B62267226A006D1613 /* WYNetworkManager.h */,
-				302956B72267226A006D1613 /* WYNetworkHeader.h */,
-				302956B82267226A006D1613 /* WYNetworkCacheManager.m */,
-				302956B92267226A006D1613 /* WYNetworkRequestPool.h */,
-				302956BA2267226A006D1613 /* WYNetworkConfig.h */,
-				302956BB2267226A006D1613 /* WYNetworkUploadEngine.h */,
-				302956BC2267226A006D1613 /* WYNetworkRequestEngine.m */,
-				302956BD2267226A006D1613 /* WYNetworkCacheInfo.h */,
-				302956BE2267226A006D1613 /* WYNetworkDownloadEngine.m */,
-				302956BF2267226A006D1613 /* WYNetworkUtils.m */,
-				302956C02267226A006D1613 /* WYNetworkBaseEngine.m */,
-				302956C12267226A006D1613 /* WYNetworkDownloadResumeDataInfo.h */,
-				302956C22267226A006D1613 /* WYImageScaleTool.m */,
+				3029570A226859E2006D1613 /* WYImageScaleTool.h */,
+				30295705226859E2006D1613 /* WYImageScaleTool.m */,
+				30295712226859E3006D1613 /* WYNetwork.h */,
+				30295701226859E1006D1613 /* WYNetworkBaseEngine.h */,
+				30295703226859E1006D1613 /* WYNetworkBaseEngine.m */,
+				30295709226859E2006D1613 /* WYNetworkCacheInfo.h */,
+				30295714226859E3006D1613 /* WYNetworkCacheInfo.m */,
+				30295702226859E1006D1613 /* WYNetworkCacheManager.h */,
+				30295707226859E2006D1613 /* WYNetworkCacheManager.m */,
+				30295713226859E3006D1613 /* WYNetworkConfig.h */,
+				302956FF226859E1006D1613 /* WYNetworkConfig.m */,
+				30295710226859E3006D1613 /* WYNetworkDownloadEngine.h */,
+				30295717226859E3006D1613 /* WYNetworkDownloadEngine.m */,
+				30295718226859E4006D1613 /* WYNetworkDownloadResumeDataInfo.h */,
+				3029570F226859E3006D1613 /* WYNetworkDownloadResumeDataInfo.m */,
+				30295719226859E4006D1613 /* WYNetworkHeader.h */,
+				30295715226859E3006D1613 /* WYNetworkManager.h */,
+				3029570B226859E2006D1613 /* WYNetworkManager.m */,
+				3029570D226859E2006D1613 /* WYNetworkProtocol.h */,
+				3029570C226859E2006D1613 /* WYNetworkRequestEngine.h */,
+				30295706226859E2006D1613 /* WYNetworkRequestEngine.m */,
+				3029571A226859E4006D1613 /* WYNetworkRequestModel.h */,
+				30295708226859E2006D1613 /* WYNetworkRequestModel.m */,
+				30295704226859E1006D1613 /* WYNetworkRequestPool.h */,
+				30295700226859E1006D1613 /* WYNetworkRequestPool.m */,
+				30295716226859E3006D1613 /* WYNetworkUploadEngine.h */,
+				3029570E226859E2006D1613 /* WYNetworkUploadEngine.m */,
+				302956FE226859E1006D1613 /* WYNetworkUtils.h */,
+				30295711226859E3006D1613 /* WYNetworkUtils.m */,
 			);
 			path = WYNetworks;
 			sourceTree = "<group>";
@@ -2653,13 +2653,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3029571D226859E4006D1613 /* WYNetworkBaseEngine.m in Sources */,
 				3048D8532236496000FE63B2 /* MKTarbarViewController.m in Sources */,
 				71A18E1F225072CA007B4C55 /* LYSDatePopViewController.m in Sources */,
 				71A18E26225072CA007B4C55 /* LYSDateBasicViewController.m in Sources */,
 				3048D86F2239F6B500FE63B2 /* MKBaseTableViewCell.m in Sources */,
 				3035B6C4225072BB00A1AA98 /* AppointmentHeaderView.m in Sources */,
 				3048D82022325F8E00FE63B2 /* MKBaseViewController.m in Sources */,
-				302956C72267226A006D1613 /* WYNetworkCacheInfo.m in Sources */,
 				30A2DA07224DFE000030120D /* ChangeClassViewController.m in Sources */,
 				71A18E2F225072CA007B4C55 /* ValSchController.m in Sources */,
 				30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */,
@@ -2668,15 +2668,13 @@
 				30FBE30F2240976D0049C0DE /* HomeCommonViewController.m in Sources */,
 				30FBE3AE224B5C000049C0DE /* MessageViewController.m in Sources */,
 				30FBE36D224236DA0049C0DE /* AppointmentCollectionView.m in Sources */,
+				3029571C226859E4006D1613 /* WYNetworkRequestPool.m in Sources */,
 				71A18E28225072CA007B4C55 /* LYSDatePickerManager.m in Sources */,
-				302956CC2267226A006D1613 /* WYNetworkDownloadEngine.m in Sources */,
 				30A2019D225F490400A6A232 /* XDSDropDownMenuCell.m in Sources */,
-				302956C62267226A006D1613 /* WYNetworkManager.m in Sources */,
 				30A2017C225DDDB900A6A232 /* MyOfflineCourseListFlowLayout.m in Sources */,
-				302956CD2267226A006D1613 /* WYNetworkUtils.m in Sources */,
 				712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */,
+				30295723226859E4006D1613 /* WYNetworkUploadEngine.m in Sources */,
 				3048D846223263AF00FE63B2 /* UIButton+layout.m in Sources */,
-				302956C92267226A006D1613 /* WYNetworkDownloadResumeDataInfo.m in Sources */,
 				3048D847223263AF00FE63B2 /* NSString+Utilites.m in Sources */,
 				30A2018A225DF20700A6A232 /* MyCourseListCell.m in Sources */,
 				30FBE37B2244C5700049C0DE /* CourseDetailTipView.m in Sources */,
@@ -2694,6 +2692,8 @@
 				710CF97A22672D62004DAD9D /* RegisterManager.m in Sources */,
 				30FBE3BA224B771B0049C0DE /* MKMessageModel.m in Sources */,
 				71C36EB2226728900088885F /* LoginModel.m in Sources */,
+				30295726226859E4006D1613 /* WYNetworkCacheInfo.m in Sources */,
+				30295724226859E4006D1613 /* WYNetworkDownloadResumeDataInfo.m in Sources */,
 				7124448622582D6B005AF711 /* OrderDetailController.m in Sources */,
 				30FBE399224B26730049C0DE /* CourseOfflineListCell.m in Sources */,
 				3048D82322325FAD00FE63B2 /* MKBaseTableView.m in Sources */,
@@ -2726,22 +2726,20 @@
 				30FBE2FC223F98250049C0DE /* SelectedCustomLab.m in Sources */,
 				71A18E31225072CA007B4C55 /* LagAndSchController.m in Sources */,
 				30A2017F225DE36D00A6A232 /* UserCourseListManager.m in Sources */,
-				302956C32267226A006D1613 /* WYNetworkRequestModel.m in Sources */,
 				30295514226493FF006D1613 /* AppointmentManager.m in Sources */,
 				30FBE3592241E83C0049C0DE /* SetPasswordController.m in Sources */,
 				30FBE369224213200049C0DE /* AppointmentCell.m in Sources */,
-				302956C82267226A006D1613 /* WYNetworkUploadEngine.m in Sources */,
 				3048D842223263AF00FE63B2 /* UILabelEdgeInset.m in Sources */,
 				71A18E25225072CA007B4C55 /* LYSDatePickerTypeDayAndTimeDelegate.m in Sources */,
 				302956762266DE95006D1613 /* HomePageManager.m in Sources */,
 				30FBE371224238090049C0DE /* AppointmentCollectionViewCell.m in Sources */,
 				30A20192225F28FC00A6A232 /* UITextView+WJPlaceholder.m in Sources */,
 				30A2DA2E224E00640030120D /* DiscoverCourseCategoryView.m in Sources */,
+				30295727226859E4006D1613 /* WYNetworkDownloadEngine.m in Sources */,
 				3048D85722364F2700FE63B2 /* HomePageViewController.m in Sources */,
-				302956C42267226A006D1613 /* WYNetworkConfig.m in Sources */,
+				30295722226859E4006D1613 /* WYNetworkManager.m in Sources */,
 				30FBE30C224092780049C0DE /* HomeContentScrollView.m in Sources */,
 				71A18E1D225072CA007B4C55 /* JapanDateVController.m in Sources */,
-				302956CE2267226A006D1613 /* WYNetworkBaseEngine.m in Sources */,
 				3048D86122364F4E00FE63B2 /* AppointmentViewController.m in Sources */,
 				3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */,
 				71A18E20225072CA007B4C55 /* LYSDateBaseViewController.m in Sources */,
@@ -2752,7 +2750,6 @@
 				71A18E27225072CA007B4C55 /* LYSDateIndicatorViewController.m in Sources */,
 				30A201362254679400A6A232 /* AskForLeaveQueryViewController.m in Sources */,
 				3048D848223263AF00FE63B2 /* NSString+SizeOfString.m in Sources */,
-				302956C52267226A006D1613 /* WYNetworkRequestPool.m in Sources */,
 				302956732266D83A006D1613 /* MKNetworkManager.m in Sources */,
 				3048D7B22232536D00FE63B2 /* ViewController.m in Sources */,
 				30A2DA2B224E00640030120D /* DiscoverNewsCell.m in Sources */,
@@ -2764,10 +2761,9 @@
 				3035B6A5224F2D4500A1AA98 /* BasicInfoController.m in Sources */,
 				30FBE3B3224B5CF60049C0DE /* MessageCell.m in Sources */,
 				30FBE39422488C280049C0DE /* CourseOnlineListCell.m in Sources */,
-				302956CF2267226A006D1613 /* WYImageScaleTool.m in Sources */,
-				302956CB2267226A006D1613 /* WYNetworkRequestEngine.m in Sources */,
 				30A2016D225D9F9C00A6A232 /* MyCourseOnlineListCollectionViewCell.m in Sources */,
 				30A2015C225B3B3500A6A232 /* MKBillDetailViewController.m in Sources */,
+				3029571F226859E4006D1613 /* WYNetworkRequestEngine.m in Sources */,
 				302956792266DFAD006D1613 /* HomeCourseCategoryModel.m in Sources */,
 				3048D841223263AF00FE63B2 /* UIView+Layout.m in Sources */,
 				3048D7BD2232536F00FE63B2 /* main.m in Sources */,
@@ -2777,9 +2773,11 @@
 				3035B6A7224F2D4500A1AA98 /* BasicInfoCell.m in Sources */,
 				30A2013C2254A2AC00A6A232 /* ChangeClassQueryViewController.m in Sources */,
 				71A18E24225072CA007B4C55 /* LYSDatePickerLabel.m in Sources */,
+				3029571B226859E4006D1613 /* WYNetworkConfig.m in Sources */,
 				30A2013F2254A76300A6A232 /* ChangeClassEndViewController.m in Sources */,
 				30A2014C2255F33800A6A232 /* MyBillListViewController.m in Sources */,
 				3035B6AD224F2D4500A1AA98 /* UpdateMessageController.m in Sources */,
+				30295725226859E4006D1613 /* WYNetworkUtils.m in Sources */,
 				3048D82C2232633400FE63B2 /* BMPopView.m in Sources */,
 				71C36EAE2267279D0088885F /* LoginManager.m in Sources */,
 				3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */,
@@ -2792,13 +2790,14 @@
 				3035B6C02250725D00A1AA98 /* MKMeetingViewController.m in Sources */,
 				3035B6BD2250725000A1AA98 /* AskForLeaveViewController.m in Sources */,
 				71244491225832A1005AF711 /* OrderDetailCell_2.m in Sources */,
+				30295721226859E4006D1613 /* WYNetworkRequestModel.m in Sources */,
 				30FBE38722488AF30049C0DE /* CourseOnlineTitleCell.m in Sources */,
-				302956CA2267226A006D1613 /* WYNetworkCacheManager.m in Sources */,
 				30A201392254681100A6A232 /* AskForLeaveEndViewController.m in Sources */,
 				3035B6C7225078F100A1AA98 /* AppointmentTapView.m in Sources */,
 				30FBE3552241E83C0049C0DE /* MessageNoticeController.m in Sources */,
 				71A18E1A225072CA007B4C55 /* LagAbilityController.m in Sources */,
 				3048D844223263AF00FE63B2 /* UILabel+layout.m in Sources */,
+				3029571E226859E4006D1613 /* WYImageScaleTool.m in Sources */,
 				3035B6CA2251E25600A1AA98 /* MeetingQueryViewController.m in Sources */,
 				30FBE3572241E83C0049C0DE /* PolicyViewController.m in Sources */,
 				30A2DA32224E00640030120D /* NewsViewController.m in Sources */,
@@ -2808,6 +2807,7 @@
 				30A20160225B449700A6A232 /* BillDetailPayTimeCell.m in Sources */,
 				30A20158225B370A00A6A232 /* BillDetailCell.m in Sources */,
 				712729362241EB9B006772BF /* MessageModel.m in Sources */,
+				30295720226859E4006D1613 /* WYNetworkCacheManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
