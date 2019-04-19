@@ -86,6 +86,9 @@
             //注册
             [RegisterManager callBackRegisterWithHudShow:YES phone:self.phoneTextfield.text code:self.codeTextfield.text pwd:self.pwdTextfield.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSString * _Nonnull status) {
                 [MBHUDManager showBriefAlert:status];
+                if (isSuccess ==YES) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
             }];
         }
             break;
