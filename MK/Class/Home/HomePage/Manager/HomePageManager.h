@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param completionBlock 回调
  */
-+(void)callBackHomePageCouurseCategoryDataWithHUDShow:(BOOL)hudShow andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <HomeCourseCategoryModel *>*resultList))completionBlock;
++(void)callBackHomePageCouurseCategoryDataWithHUDShow:(BOOL)hudShow andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <HomeCourseCategoryModel *>*resultList, NSMutableArray <NSString *>*titleArr))completionBlock;
 
 +(void)callBackHomePageCouurseListDataWithHUDShow:(BOOL)hudShow categoryID:(NSString *)categoryID andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSMutableArray <MKCourseListModel *>*resultList))completionBlock;
 

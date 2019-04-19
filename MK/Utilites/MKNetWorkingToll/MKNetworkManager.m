@@ -35,12 +35,12 @@ static NSString *const responseMessage = @"msg";
     return sharedManager;
 }
 
-+ (void)sendGetRequestWithUrl:(NSString *)url hudIsShow:(BOOL )hudShow success:(MKSuccessBlock)successBlock failure:(MKFailureBlock)failureBlock
++ (void)sendGetRequestWithUrl:(NSString *)url parameters:(id _Nullable)parameters hudIsShow:(BOOL )hudShow success:(MKSuccessBlock)successBlock failure:(MKFailureBlock)failureBlock;
 {
     if (hudShow) {
         [MBHUDManager showLoading];
     }
-    [[self sharedManager]sendGetRequest:WYJSONRequestSerializer url:url success:^(id responseObject, BOOL isCacheObject) {
+    [[self sharedManager]sendGetRequest:WYJSONRequestSerializer url:url parameters:parameters success:^(id responseObject, BOOL isCacheObject) {
         if (hudShow) {
             [MBHUDManager hideAlert];
         }

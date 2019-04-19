@@ -7,6 +7,7 @@
 //
 
 #import "HomePageCell.h"
+#import "MKCourseListModel.h"
 @interface HomePageCell()
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
 @property (weak, nonatomic) IBOutlet UIImageView *courseIma;
@@ -34,12 +35,13 @@
 //    _courseIma.frame = CGRectMake(KScaleWidth(12), <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
 }
 
--(void)cellRefreshData
+-(void)cellRefreshDataWithMKCourseListModel:(MKCourseListModel *)model
 {
-    self.courseIma.image = [UIImage imageNamed:@"home_course"];
-    self.courseNameLab.text = @"日语基础";
-    self.courseTeacherLab.text = @"冯利兵";
-    self.coursePriceLab.text = @"¥1800";
+    [self.courseIma sd_setImageWithURL:[NSURL URLWithString:model.courseImage] placeholderImage:K_placeholder_Image];
+//    .image = [UIImage imageNamed:@"home_course"];
+    self.courseNameLab.text = model.courseName;
+    self.courseTeacherLab.text = model.teacherNmae;
+    self.coursePriceLab.text = [NSString stringWithFormat:@"%@分",model.coursePrice];
 }
 
 

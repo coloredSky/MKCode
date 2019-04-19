@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param successBlock 成功回调
  @param failureBlock 失败回调
  */
-+ (void)sendGetRequestWithUrl:(NSString *)url hudIsShow:(BOOL )hudShow success:(MKSuccessBlock)successBlock failure:(MKFailureBlock)failureBlock;
++ (void)sendGetRequestWithUrl:(NSString *)url parameters:(id _Nullable)parameters hudIsShow:(BOOL )hudShow success:(MKSuccessBlock)successBlock failure:(MKFailureBlock)failureBlock;
 
 
 /**

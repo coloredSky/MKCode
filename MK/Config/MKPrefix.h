@@ -35,6 +35,7 @@
 #import "XDSDropDownMenu.h"
 #import <YYModel.h>
 #import "MBHUDManager.h"
+#import <UIImageView+WebCache.h>
 #import "UserManager.h"
 #import "ViewControllerManager.h"
 //网络请求

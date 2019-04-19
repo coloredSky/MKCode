@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeCourseCategoryModel : NSObject
-
+@property (nonatomic, copy) NSString *categoryID;
+@property (nonatomic, copy) NSString *categoryName;
 @end
 
 NS_ASSUME_NONNULL_END

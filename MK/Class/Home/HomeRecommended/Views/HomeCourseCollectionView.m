@@ -8,9 +8,10 @@
 
 #import "HomeCourseCollectionView.h"
 #import "HomeCourseCollectionViewCell.h"
-
+#import "MKCourseListModel.h"
 @interface HomeCourseCollectionView()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *contentCollectionView;
+@property (nonatomic, strong) NSMutableArray *courseList;
 @end
 @implementation HomeCourseCollectionView
 @synthesize delegate;
@@ -50,12 +51,13 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HomeCourseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCourseCollectionViewCell" forIndexPath:indexPath];
+//    MKCourseListModel *model = self.courseList[indexPath.row];
     [cell cellRefreshData];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 4;
+    return self.courseList.count;
 }
 
 #pragma mark --  cell did selected
@@ -66,8 +68,9 @@
     }
 }
 #pragma mark --  reload data
--(void)homeCourseCollectionViewReloadData
+-(void)homeCourseCollectionViewReloadDataWithCourseList:(NSMutableArray *)couseList
 {
+    self.courseList = couseList;
     [self.contentCollectionView reloadData];
 }
 @end

@@ -10,9 +10,14 @@
 #import "CourseDetailViewController.h"
 //View
 #import "HomePageCell.h"
+//manager
+#import "HomePageManager.h"
+//model
+#import "MKCourseListModel.h"
 
 @interface HomeCommonViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
+@property (nonatomic, strong) NSMutableArray *commonCourseList;
 @end
 
 @implementation HomeCommonViewController
@@ -56,6 +61,12 @@
 #pragma mark --  request
 -(void)startRequest
 {
+    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:self.categoryID andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSMutableArray<MKCourseListModel *> * _Nonnull resultList) {
+        if (isSuccess) {
+            self.commonCourseList = resultList;
+            [self.contentTable reloadData];
+        }
+    }];
 }
 
 #pragma mark --  lazy
@@ -76,7 +87,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HomePageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCell" forIndexPath:indexPath];
-    [cell cellRefreshData];
+    MKCourseListModel *model = self.commonCourseList[indexPath.row];
+    [cell cellRefreshDataWithMKCourseListModel:model];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -85,7 +97,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.commonCourseList.count;
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
