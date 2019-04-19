@@ -9,5 +9,11 @@
 #import "LoginModel.h"
 
 @implementation LoginModel
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [self yy_modelEncodeWithCoder:aCoder];
+}
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init]; return [self yy_modelInitWithCoder:aDecoder];
+}
 @end

@@ -20,16 +20,46 @@
     [MKNetworkManager sendPostRequestWithUrl:K_MK_GetPhoneCode_url parameters:param hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 1) {
             if (completionBlock) {
-
+                completionBlock(YES,MKResult.message,@"发送成功");
             }
         }else{
             if (completionBlock) {
-//                completionBlock(NO, MKResult.message,[NSArray array]);
+                completionBlock(NO, MKResult.message,@"获取验证码失败");
             }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         
     }];
+}
++(void)callBackRegisterWithHudShow:(BOOL)hudShow phone:(NSString *)phone code:(NSString *)code pwd:(NSString * )pwd CompletionBlock:(void(^)(BOOL isSuccess,NSString *message, NSString *status))completionBlock
+{
+    if ([NSString isEmptyWithStr:phone])
+    {
+        [MBHUDManager showBriefAlert:@"请填写手机号"];
+        return;
+    }
+    if ([NSString isEmptyWithStr:code])
+    {
+        [MBHUDManager showBriefAlert:@"请填写验证码"];
+        return;
+    }
+    if ([NSString isEmptyWithStr:pwd])
+    {
+        [MBHUDManager showBriefAlert:@"请填写密码"];
+        return;
+    }
     
+    NSDictionary * param_dic =@{@"mobile":phone,@"code":code,@"passwd":pwd};
+    [MKNetworkManager sendPostRequestWithUrl:K_MK_Register_Url parameters:param_dic hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode ==1) {
+            completionBlock(YES,MKResult.message,@"注册成功");
+        }
+        else
+        {
+            completionBlock(NO,MKResult.message,@"注册失败");
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        
+    }];
 }
 @end

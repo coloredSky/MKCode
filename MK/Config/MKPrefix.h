@@ -35,7 +35,8 @@
 #import "XDSDropDownMenu.h"
 #import <YYModel.h>
 #import "MBHUDManager.h"
-
+#import "UserManager.h"
+#import "ViewControllerManager.h"
 //网络请求
 #import "MKNetworkManager.h"
 #import "MKRequestUrl.h"

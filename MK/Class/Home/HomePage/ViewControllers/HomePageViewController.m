@@ -48,7 +48,7 @@
     self.view.backgroundColor = K_BG_deepGrayColor;
     //navView
     [self laoutTopView];
-    [self startRequestWithHUDShow:YES];
+//    [self startRequestWithHUDShow:YES]; 
 }
 -(void)startRequestWithHUDShow:(BOOL )hudShow
 {
@@ -57,6 +57,7 @@
             self.courseCategoryList = resultList;
             
             self.titleArr = @[@"推荐",@"语言",@"学部",@"大学院",@"美术"];
+            [self.titleView reloadDataWithTitleArr:self.titleArr.mutableCopy];
             self.childVCs = @[[HomeRecommendViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new]];
             [self.contentScroll AddChildViewWithTitleArr:self.childVCs.mutableCopy andRootViewController:self];
         }
@@ -70,7 +71,6 @@
     _titleView = [[TitleScrollView alloc]initWithFrame:CGRectMake(0, _topView.height-KScaleWidth(36+20), _topView.width, KScaleWidth(36))];
     _titleView.delegate = self;
     [_topView addSubview:_titleView];
-    [_titleView reloadDataWithTitleArr:self.titleArr.mutableCopy];
 }
 
 #pragma mark --  lazy
