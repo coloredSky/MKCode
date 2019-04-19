@@ -9,6 +9,7 @@
 #import "MKTarbarViewController.h"
 #import "LoginViewController.h"
 #import "IQKeyboardManager.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,16 +18,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UIViewController *vc = [UIViewController new];
+    vc.view.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
     [self appConfig];
-//    if (![self isUserLogin]) {
-//        LoginViewController * lvc =[LoginViewController new];
-//        self.window.rootViewController =lvc;
-//    }
-//    else
-//    {
-        MKTarbarViewController *tarbarVC = [MKTarbarViewController new];
-        self.window.rootViewController = tarbarVC;
-//    }
+    if (![self isUserLogin]) {
+        [ViewControllerManager showLoginViewController];
+    }
+    else
+    {
+        [ViewControllerManager showMainViewController];
+    }
     return YES;
 }
 - (void)configKeyboard{
@@ -52,7 +57,8 @@
 
 -(BOOL)isUserLogin
 {
-    NSString *userId =  [[NSUserDefaults standardUserDefaults]objectForKey:@"userId"];
+   
+    NSString *userId =   [[UserManager shareInstance]getUserId ];
     
     if (userId != nil && userId.length> 0)
     {

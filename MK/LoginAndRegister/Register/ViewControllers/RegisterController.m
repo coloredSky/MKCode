@@ -8,6 +8,7 @@
 
 #import "RegisterController.h"
 #import "RegisterManager.h"
+#import "JKCountDownButton.h"
 @interface RegisterController ()
 @property (weak, nonatomic) IBOutlet UIImageView *bgIma;
 
@@ -17,8 +18,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *codeSignLab;
 //@property (weak, nonatomic) IBOutlet UIButton *forgetSignLab;
 
+@property (weak, nonatomic) IBOutlet JKCountDownButton *codeBtn;
+
 @property(nonatomic,weak)IBOutlet UITextField * phoneTextfield;
 @property(nonatomic,weak)IBOutlet UITextField * codeTextfield;
+@property(nonatomic,weak)IBOutlet UITextField * pwdTextfield;
 @end
 
 @implementation RegisterController
@@ -52,27 +56,54 @@
         case 0:
         {
             //返回
-            [self dismissViewControllerAnimated:NO completion:nil];
+               [self.navigationController popViewControllerAnimated:YES];
         }
             break;
         case 1:
         {
             //获取验证码
+            if ([NSString isEmptyWithStr:self.phoneTextfield.text]==YES) {
+                [MBHUDManager showBriefAlert:@"请输入手机号"];
+                return;
+            }
+            [_codeBtn startWithSecond:60];
+            [_codeBtn didChange:^NSString *(JKCountDownButton *countDownButton,int second) {
+                NSString *title = [NSString stringWithFormat:@"剩余%d秒",second];
+                
+                return title;
+            }];
+            [_codeBtn didFinished:^NSString *(JKCountDownButton *countDownButton, int second) {
+                countDownButton.enabled = YES;
+                return @"重新获取";
+            }];
             [RegisterManager callBackPhoneCodeWithHudShow:YES phone:self.phoneTextfield.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSString * _Nonnull code) {
-                
-                
+                [MBHUDManager showBriefAlert:code];
             }];
         }
             break;
         case 2:
         {
             //注册
+            [RegisterManager callBackRegisterWithHudShow:YES phone:self.phoneTextfield.text code:self.codeTextfield.text pwd:self.pwdTextfield.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSString * _Nonnull status) {
+                [MBHUDManager showBriefAlert:status];
+            }];
         }
             break;
             
         default:
             break;
     }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 /*
 #pragma mark - Navigation

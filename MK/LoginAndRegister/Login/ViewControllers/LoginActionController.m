@@ -10,6 +10,7 @@
 #import "RegisterController.h"
 #import "MKTarbarViewController.h"
 #import "LoginManager.h"
+
 @interface LoginActionController ()
 @property (weak, nonatomic) IBOutlet UIImageView *bgIma;
 
@@ -28,6 +29,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self layoutSubViewAttributtes];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 -(void)layoutSubViewAttributtes
 {
@@ -54,28 +65,24 @@
     if (sender.tag ==1) {
           [self dismissViewControllerAnimated:YES completion:nil];
     }
-    else
+    else if(sender.tag==2)
     {
         //登录
-//        MKTarbarViewController *tarbarVC = [MKTarbarViewController new];
-//        [[UIApplication sharedApplication]keyWindow]. rootViewController = tarbarVC;
-//        [self.navigationController popViewControllerAnimated:YES];
-//        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//        [userDefaults setBool:YES forKey:KMKLoginKey];
-//        [userDefaults synchronize];
-//        [self dismissViewControllerAnimated:YES completion:nil];
         [LoginManager callBackLoginDataWithHudShow:YES userName:self.phoneTF.text pwd:self.passwordTF.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, LoginModel * _Nonnull model) {
-            
-            
+            if (isSuccess ==YES) {
+                [ViewControllerManager showMainViewController];
+            }
         }];
     }
   
 }
 
-- (IBAction)registerTarget:(id)sender {
+- (IBAction)registerTarget:(id)sender
+{
     RegisterController *registerVC = [RegisterController new];
     [self.navigationController pushViewController:registerVC animated:YES];
 }
+
 
 /*
 #pragma mark - Navigation

@@ -176,6 +176,7 @@
 		30FBE3BA224B771B0049C0DE /* MKMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3B9224B771B0049C0DE /* MKMessageModel.m */; };
 		6C55296C556EB2F911F5F752 /* libPods-MKUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */; };
 		710CF97A22672D62004DAD9D /* RegisterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 710CF97922672D62004DAD9D /* RegisterManager.m */; };
+		7117325B226862C10065772B /* ViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71173259226862C10065772B /* ViewControllerManager.m */; };
 		712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C4223F326100BA1905 /* MyCouseHeaderView.m */; };
 		712170CC223F3A1C00BA1905 /* MyCouseHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170CB223F3A1C00BA1905 /* MyCouseHeaderView.xib */; };
 		712170D0223F43CC00BA1905 /* MyCenterTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170CE223F43CC00BA1905 /* MyCenterTopCell.m */; };
@@ -190,8 +191,10 @@
 		7124448D225831D3005AF711 /* OrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7124448B225831D3005AF711 /* OrderDetailCell.xib */; };
 		71244491225832A1005AF711 /* OrderDetailCell_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124448F225832A1005AF711 /* OrderDetailCell_2.m */; };
 		71244492225832A1005AF711 /* OrderDetailCell_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71244490225832A1005AF711 /* OrderDetailCell_2.xib */; };
+		7124F7BE2269719C00084346 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124F7BD2269719C00084346 /* UserManager.m */; };
 		712729362241EB9B006772BF /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729352241EB9B006772BF /* MessageModel.m */; };
 		712729392241EBC2006772BF /* RuquestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729382241EBC2006772BF /* RuquestManager.m */; };
+		7127C086226808D700895D79 /* JKCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7127C085226808D700895D79 /* JKCountDownButton.m */; };
 		71A18E1A225072CA007B4C55 /* LagAbilityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A18DD8225072CA007B4C55 /* LagAbilityController.m */; };
 		71A18E1B225072CA007B4C55 /* LagAbilityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A18DD9225072CA007B4C55 /* LagAbilityController.xib */; };
 		71A18E1C225072CA007B4C55 /* JapanDateVController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A18DE1225072CA007B4C55 /* JapanDateVController.xib */; };
@@ -552,6 +555,8 @@
 		6C807C83E01E6A12BC783DB2 /* Pods-MKUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		710CF97822672D62004DAD9D /* RegisterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterManager.h; sourceTree = "<group>"; };
 		710CF97922672D62004DAD9D /* RegisterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterManager.m; sourceTree = "<group>"; };
+		71173259226862C10065772B /* ViewControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerManager.m; sourceTree = "<group>"; };
+		7117325A226862C10065772B /* ViewControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerManager.h; sourceTree = "<group>"; };
 		712170C3223F326100BA1905 /* MyCouseHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCouseHeaderView.h; sourceTree = "<group>"; };
 		712170C4223F326100BA1905 /* MyCouseHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCouseHeaderView.m; sourceTree = "<group>"; };
 		712170CB223F3A1C00BA1905 /* MyCouseHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCouseHeaderView.xib; sourceTree = "<group>"; };
@@ -573,10 +578,14 @@
 		7124448E225832A1005AF711 /* OrderDetailCell_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDetailCell_2.h; sourceTree = "<group>"; };
 		7124448F225832A1005AF711 /* OrderDetailCell_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailCell_2.m; sourceTree = "<group>"; };
 		71244490225832A1005AF711 /* OrderDetailCell_2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailCell_2.xib; sourceTree = "<group>"; };
+		7124F7BC2269719C00084346 /* UserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
+		7124F7BD2269719C00084346 /* UserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
 		712729342241EB9B006772BF /* MessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
 		712729352241EB9B006772BF /* MessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
 		712729372241EBC2006772BF /* RuquestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuquestManager.h; sourceTree = "<group>"; };
 		712729382241EBC2006772BF /* RuquestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuquestManager.m; sourceTree = "<group>"; };
+		7127C084226808D700895D79 /* JKCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKCountDownButton.h; sourceTree = "<group>"; };
+		7127C085226808D700895D79 /* JKCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCountDownButton.m; sourceTree = "<group>"; };
 		71A18DD8225072CA007B4C55 /* LagAbilityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LagAbilityController.m; sourceTree = "<group>"; };
 		71A18DD9225072CA007B4C55 /* LagAbilityController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LagAbilityController.xib; sourceTree = "<group>"; };
 		71A18DDA225072CA007B4C55 /* LagAbilityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LagAbilityController.h; sourceTree = "<group>"; };
@@ -755,6 +764,7 @@
 		3035B64A224F2C7D00A1AA98 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				7127C083226808AE00895D79 /* Views */,
 				710CF97722672D2F004DAD9D /* Manager */,
 				3035B64B224F2C7D00A1AA98 /* ViewControllers */,
 			);
@@ -1193,6 +1203,8 @@
 			children = (
 				3048D7AD2232536D00FE63B2 /* AppDelegate.h */,
 				3048D7AE2232536D00FE63B2 /* AppDelegate.m */,
+				7117325A226862C10065772B /* ViewControllerManager.h */,
+				71173259226862C10065772B /* ViewControllerManager.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -2142,6 +2154,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7127C083226808AE00895D79 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7127C084226808D700895D79 /* JKCountDownButton.h */,
+				7127C085226808D700895D79 /* JKCountDownButton.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		71A18DD5225072CA007B4C55 /* LanguageAbility  */ = {
 			isa = PBXGroup;
 			children = (
@@ -2359,6 +2380,8 @@
 			children = (
 				71C36EAC2267279D0088885F /* LoginManager.h */,
 				71C36EAD2267279D0088885F /* LoginManager.m */,
+				7124F7BC2269719C00084346 /* UserManager.h */,
+				7124F7BD2269719C00084346 /* UserManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -2677,6 +2700,7 @@
 				71A18E28225072CA007B4C55 /* LYSDatePickerManager.m in Sources */,
 				30A2019D225F490400A6A232 /* XDSDropDownMenuCell.m in Sources */,
 				30A2017C225DDDB900A6A232 /* MyOfflineCourseListFlowLayout.m in Sources */,
+				7117325B226862C10065772B /* ViewControllerManager.m in Sources */,
 				712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */,
 				30295723226859E4006D1613 /* WYNetworkUploadEngine.m in Sources */,
 				3048D846223263AF00FE63B2 /* UIButton+layout.m in Sources */,
@@ -2755,6 +2779,7 @@
 				71A18E27225072CA007B4C55 /* LYSDateIndicatorViewController.m in Sources */,
 				30A201362254679400A6A232 /* AskForLeaveQueryViewController.m in Sources */,
 				3048D848223263AF00FE63B2 /* NSString+SizeOfString.m in Sources */,
+				7124F7BE2269719C00084346 /* UserManager.m in Sources */,
 				302956732266D83A006D1613 /* MKNetworkManager.m in Sources */,
 				3048D7B22232536D00FE63B2 /* ViewController.m in Sources */,
 				30A2DA2B224E00640030120D /* DiscoverNewsCell.m in Sources */,
@@ -2779,6 +2804,7 @@
 				30A2013C2254A2AC00A6A232 /* ChangeClassQueryViewController.m in Sources */,
 				3029572E22687102006D1613 /* HomeRecommendListManager.m in Sources */,
 				71A18E24225072CA007B4C55 /* LYSDatePickerLabel.m in Sources */,
+				7127C086226808D700895D79 /* JKCountDownButton.m in Sources */,
 				3029571B226859E4006D1613 /* WYNetworkConfig.m in Sources */,
 				30A2013F2254A76300A6A232 /* ChangeClassEndViewController.m in Sources */,
 				30A2014C2255F33800A6A232 /* MyBillListViewController.m in Sources */,
@@ -2986,7 +3012,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A9VG9KGP8J;
+				DEVELOPMENT_TEAM = SM9A2WCYC3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MK/Config/MKPrefix.h";
 				HEADER_SEARCH_PATHS = (
@@ -3012,7 +3038,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A9VG9KGP8J;
+				DEVELOPMENT_TEAM = SM9A2WCYC3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MK/Config/MKPrefix.h";
 				HEADER_SEARCH_PATHS = (

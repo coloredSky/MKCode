@@ -7,7 +7,7 @@
 //
 
 #import "LoginManager.h"
-
+#import "UserManager.h"
 @implementation LoginManager
 +(void)callBackLoginDataWithHudShow:(BOOL)hudShow userName:(NSString *)userName pwd:(NSString *)pwd CompletionBlock:(void(^)(BOOL isSuccess,NSString *message, LoginModel *model))completionBlock;
 {
@@ -24,7 +24,10 @@
         if (MKResult.responseCode ==1) {
             if (completionBlock)
             {
-                
+                LoginModel * model =[LoginModel yy_modelWithJSON:MKResult.dataResponseObject];
+                completionBlock(YES,MKResult.message,model);
+                [[UserManager shareInstance]saveUser:model];
+                [[UserManager shareInstance]saveToken:model.token];
             }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {

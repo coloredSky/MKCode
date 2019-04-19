@@ -25,7 +25,7 @@ static NSString * const K_MK_Login_url  = @"/user/base/auth";
 static NSString * const K_MK_GetPhoneCode_url  = @"/user/base/sms";
 //课程列表
 static NSString * const K_MK_Home_CourseList_Url  = @"/base/course/list";
-
-
+//注册接口
+static NSString * const K_MK_Register_Url  = @"/user/base/reg";
 
 #endif /* MKRequestUrl_h */
