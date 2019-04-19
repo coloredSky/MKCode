@@ -7,6 +7,7 @@ target 'MK' do
    pod 'AFNetworking'
    pod 'MBProgressHUD'
    pod 'YYModel'
+   pod 'SDWebImage'
 
   # Pods for MK
 

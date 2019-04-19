@@ -15,6 +15,10 @@
 #import "NewPagedFlowView.h"
 #import "HomeRecommenCell.h"
 #import "HomeCourseCollectionView.h"
+//manager
+#import "HomePageManager.h"
+//model
+#import "MKCourseListModel.h"
 
 @interface HomeRecommendViewController ()<UITableViewDelegate,UITableViewDataSource,NewPagedFlowViewDelegate,NewPagedFlowViewDataSource,HomeCourseCollectionViewDelegate>
 
@@ -22,6 +26,8 @@
 @property (nonatomic, strong)NewPagedFlowView *bannerView;
 @property (nonatomic, strong) NSArray *bannerArr;//banner 图片
 @property (nonatomic, assign) CGSize bannerItemSize;//banner图片的大小
+@property (nonatomic, strong) NSMutableArray <MKCourseListModel *>*recommendCourseList;
+@property (nonatomic, strong) NSMutableArray <MKCourseListModel *>*publicCourseList;
 @end
 
 @implementation HomeRecommendViewController
@@ -66,9 +72,29 @@
 #pragma mark --  request
 -(void)startRequest
 {
+    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:self.categoryID andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSMutableArray<MKCourseListModel *> * _Nonnull resultList) {
+        if (isSuccess) {
+            self.recommendCourseList = resultList;
+            [self.contentTable reloadData];
+        }
+    }];
 }
 
 #pragma mark --  lazy
+-(NSMutableArray <MKCourseListModel *>*)recommendCourseList
+{
+    if (!_recommendCourseList) {
+        _recommendCourseList = [NSMutableArray array];
+    }
+    return _recommendCourseList;
+}
+-(NSMutableArray <MKCourseListModel *>*)publicCourseList
+{
+    if (!_publicCourseList) {
+        _publicCourseList = [NSMutableArray array];
+    }
+    return _publicCourseList;
+}
 -(MKBaseTableView *)contentTable
 {
     if (!_contentTable) {
@@ -107,7 +133,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HomeRecommenCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeRecommenCell" forIndexPath:indexPath];
-    [cell cellRefreshData];
+    MKCourseListModel *model = self.recommendCourseList[indexPath.row];
+    [cell cellRefreshDataWithMKCourseListModel:model];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -117,7 +144,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section > 0) {
-        return 4;
+        return self.recommendCourseList.count;
     }
     return 0;
 }
@@ -156,7 +183,7 @@
         UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(88)+10)];
         HomeCourseCollectionView *courseCollectionView = [[HomeCourseCollectionView alloc]initWithFrame:CGRectMake(0, 0, footerView.width, footerView.height)];
         courseCollectionView.delegate = self;
-        [courseCollectionView homeCourseCollectionViewReloadData];
+        [courseCollectionView homeCourseCollectionViewReloadDataWithCourseList:@[@"",@"",@"",@"",@""].mutableCopy];
         [footerView addSubview:courseCollectionView];
         return footerView;
     }

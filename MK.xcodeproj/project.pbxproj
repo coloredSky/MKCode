@@ -27,6 +27,7 @@
 		30295725226859E4006D1613 /* WYNetworkUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295711226859E3006D1613 /* WYNetworkUtils.m */; };
 		30295726226859E4006D1613 /* WYNetworkCacheInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295714226859E3006D1613 /* WYNetworkCacheInfo.m */; };
 		30295727226859E4006D1613 /* WYNetworkDownloadEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295717226859E3006D1613 /* WYNetworkDownloadEngine.m */; };
+		3029572E22687102006D1613 /* HomeRecommendListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3029572D22687102006D1613 /* HomeRecommendListManager.m */; };
 		3035B65B224F2C7D00A1AA98 /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B64D224F2C7D00A1AA98 /* RegisterController.xib */; };
 		3035B65C224F2C7D00A1AA98 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B64E224F2C7D00A1AA98 /* RegisterController.m */; };
 		3035B65D224F2C7D00A1AA98 /* LoginActionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B651224F2C7D00A1AA98 /* LoginActionController.xib */; };
@@ -285,6 +286,8 @@
 		30295718226859E4006D1613 /* WYNetworkDownloadResumeDataInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkDownloadResumeDataInfo.h; sourceTree = "<group>"; };
 		30295719226859E4006D1613 /* WYNetworkHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkHeader.h; sourceTree = "<group>"; };
 		3029571A226859E4006D1613 /* WYNetworkRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkRequestModel.h; sourceTree = "<group>"; };
+		3029572C22687102006D1613 /* HomeRecommendListManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeRecommendListManager.h; sourceTree = "<group>"; };
+		3029572D22687102006D1613 /* HomeRecommendListManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendListManager.m; sourceTree = "<group>"; };
 		3035B64C224F2C7D00A1AA98 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		3035B64D224F2C7D00A1AA98 /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 		3035B64E224F2C7D00A1AA98 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
@@ -729,6 +732,15 @@
 				30295711226859E3006D1613 /* WYNetworkUtils.m */,
 			);
 			path = WYNetworks;
+			sourceTree = "<group>";
+		};
+		3029572B226870EC006D1613 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3029572C22687102006D1613 /* HomeRecommendListManager.h */,
+				3029572D22687102006D1613 /* HomeRecommendListManager.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		3035B648224F2C7D00A1AA98 /* LoginAndRegister */ = {
@@ -1852,19 +1864,12 @@
 		30FBE302223FA3B20049C0DE /* HomeRecommended */ = {
 			isa = PBXGroup;
 			children = (
-				30FBE303223FA3B20049C0DE /* Manager */,
+				3029572B226870EC006D1613 /* Manager */,
 				30FBE304223FA3B20049C0DE /* ViewControllers */,
 				30FBE305223FA3B20049C0DE /* Model */,
 				30FBE306223FA3B20049C0DE /* Views */,
 			);
 			path = HomeRecommended;
-			sourceTree = "<group>";
-		};
-		30FBE303223FA3B20049C0DE /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		30FBE304223FA3B20049C0DE /* ViewControllers */ = {
@@ -2772,6 +2777,7 @@
 				30A2DA28224E00640030120D /* DiscoverPageViewController.m in Sources */,
 				3035B6A7224F2D4500A1AA98 /* BasicInfoCell.m in Sources */,
 				30A2013C2254A2AC00A6A232 /* ChangeClassQueryViewController.m in Sources */,
+				3029572E22687102006D1613 /* HomeRecommendListManager.m in Sources */,
 				71A18E24225072CA007B4C55 /* LYSDatePickerLabel.m in Sources */,
 				3029571B226859E4006D1613 /* WYNetworkConfig.m in Sources */,
 				30A2013F2254A76300A6A232 /* ChangeClassEndViewController.m in Sources */,

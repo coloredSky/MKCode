@@ -5,7 +5,7 @@
 //  Created by 周洋 on 2019/3/14.
 //  Copyright © 2019年 周洋. All rights reserved.
 //
-
+@class MKCourseListModel;
 #import "MKBaseTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HomePageCell : MKBaseTableViewCell
 
 //刷新数据
--(void)cellRefreshData;
+-(void)cellRefreshDataWithMKCourseListModel:(MKCourseListModel *)model;
 @end
 
 NS_ASSUME_NONNULL_END

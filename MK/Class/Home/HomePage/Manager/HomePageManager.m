@@ -8,25 +8,30 @@
 
 #import "HomePageManager.h"
 #import "HomeCourseCategoryModel.h"
+#import "MKCourseListModel.h"
 
 @implementation HomePageManager
 
-+(void)callBackHomePageCouurseCategoryDataWithHUDShow:(BOOL)hudShow andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <HomeCourseCategoryModel *>*resultList))completionBlock
++(void)callBackHomePageCouurseCategoryDataWithHUDShow:(BOOL)hudShow andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <HomeCourseCategoryModel *>*resultList, NSMutableArray <NSString *>*titleArr))completionBlock
 {
-    [MKNetworkManager sendGetRequestWithUrl:K_MK_Home_AllCategoryList_Url hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+    [MKNetworkManager sendGetRequestWithUrl:K_MK_Home_AllCategoryList_Url parameters:nil hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 1) {
             if (completionBlock) {
                 NSArray *courseCayegoryList = [NSArray yy_modelArrayWithClass:[HomeCourseCategoryModel class] json:MKResult.dataResponseObject];
-                completionBlock(YES, MKResult.message,courseCayegoryList);
+                NSMutableArray *titleResultArr = [NSMutableArray arrayWithCapacity:courseCayegoryList.count];
+                for (HomeCourseCategoryModel *model in courseCayegoryList) {
+                    [titleResultArr addObject:model.categoryName];
+                }
+                completionBlock(YES, MKResult.message,courseCayegoryList,titleResultArr);
             }
         }else{
             if (completionBlock) {
-                completionBlock(NO, MKResult.message,[NSArray array]);
+                completionBlock(NO, MKResult.message,nil,nil);
             }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (completionBlock) {
-            completionBlock(NO, [NSString stringWithFormat:@"error code is %ld",statusCode],[NSArray array]);
+            completionBlock(NO, [NSString stringWithFormat:@"error code is %ld",statusCode],nil,nil);
         }
     }];
 }
@@ -39,10 +44,21 @@
     NSDictionary *parameters = @{@"language" : @"zh-cn",
                                                @"category_id" : categoryID
                                  };
-    [MKNetworkManager sendPostRequestWithUrl:K_MK_Home_CourseList_Url parameters:parameters hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
-        
+    [MKNetworkManager sendGetRequestWithUrl:K_MK_Home_CourseList_Url parameters:parameters hudIsShow:YES success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode == 1) {
+            if (completionBlock) {
+                NSMutableArray *courseList = [NSArray yy_modelArrayWithClass:[MKCourseListModel class] json:MKResult.dataResponseObject].mutableCopy;
+                completionBlock(YES, MKResult.message,courseList);
+            }
+        }else{
+            if (completionBlock) {
+                completionBlock(NO, MKResult.message,nil);
+            }
+        }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
-        
+        if (completionBlock) {
+            completionBlock(NO, [NSString stringWithFormat:@"error code is %ld",statusCode],nil);
+        }
     }];
 }
 @end

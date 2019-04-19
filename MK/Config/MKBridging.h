@@ -19,6 +19,7 @@
 //banner normal image
 #define K_placeholder_Annoument_Banner_Image  KImageNamed(@"annoument_Banner_Image")
 //normal image
+#define K_placeholder_Image_HomeRecommendImage  KImageNamed(@"home_place")
 #define K_placeholder_Image  KImageNamed(@"News_list_content_ima")
 
 

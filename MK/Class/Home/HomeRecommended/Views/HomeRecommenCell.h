@@ -6,12 +6,13 @@
 //  Copyright © 2019年 周洋. All rights reserved.
 //
 
+@class MKCourseListModel;
 #import "MKBaseTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeRecommenCell : MKBaseTableViewCell
--(void)cellRefreshData;
+-(void)cellRefreshDataWithMKCourseListModel:(MKCourseListModel *)model;
 @end
 
 NS_ASSUME_NONNULL_END

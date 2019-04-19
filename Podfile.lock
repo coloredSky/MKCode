@@ -17,6 +17,9 @@ PODS:
   - IQKeyboardManager (6.2.0)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.7)
+  - SDWebImage (5.0.1):
+    - SDWebImage/Core (= 5.0.1)
+  - SDWebImage/Core (5.0.1)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -24,6 +27,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - MBProgressHUD
   - MJRefresh
+  - SDWebImage
   - YYModel
 
 SPEC REPOS:
@@ -32,6 +36,7 @@ SPEC REPOS:
     - IQKeyboardManager
     - MBProgressHUD
     - MJRefresh
+    - SDWebImage
     - YYModel
 
 SPEC CHECKSUMS:
@@ -39,8 +44,9 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  SDWebImage: 27dd2c9ea07a2252f94557c9fbb6105ee94b74c9
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: c438cb18ff5546c0de95f17019ff6c01da8e5afc
+PODFILE CHECKSUM: 8369418266e4edfff55cd6e0d15412092eabd99a
 
 COCOAPODS: 1.5.3

@@ -19,8 +19,8 @@
 #import "HomeCourseCategoryModel.h"
 
 @interface HomePageViewController ()<TitleScrollViewDelegate,HomeContentScrollViewDelegate>
-@property (nonatomic, strong) NSArray *titleArr;//标题数组
-@property (nonatomic, strong) NSArray *childVCs;//视图数组
+@property (nonatomic, strong) NSMutableArray *titleArr;//标题数组
+@property (nonatomic, strong) NSMutableArray <UIViewController *>*childVCs;//视图数组
 @property (nonatomic, strong) UIView *topView;//顶部View
 @property (nonatomic, strong) TitleScrollView *titleView;//标题scroll
 @property (nonatomic, strong) HomeContentScrollView *contentScroll;//内容scroll
@@ -48,18 +48,31 @@
     self.view.backgroundColor = K_BG_deepGrayColor;
     //navView
     [self laoutTopView];
-//    [self startRequestWithHUDShow:YES]; 
+    [self startRequestWithHUDShow:YES]; 
 }
 -(void)startRequestWithHUDShow:(BOOL )hudShow
 {
-    [HomePageManager callBackHomePageCouurseCategoryDataWithHUDShow:YES andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<HomeCourseCategoryModel *> * _Nonnull resultList) {
+    
+    [HomePageManager callBackHomePageCouurseCategoryDataWithHUDShow:YES andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<HomeCourseCategoryModel *> * _Nonnull resultList, NSMutableArray<NSString *> * _Nonnull titleArr) {
         if (isSuccess) {
             self.courseCategoryList = resultList;
-            
-            self.titleArr = @[@"推荐",@"语言",@"学部",@"大学院",@"美术"];
-            [self.titleView reloadDataWithTitleArr:self.titleArr.mutableCopy];
-            self.childVCs = @[[HomeRecommendViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new],[HomeCommonViewController new]];
-            [self.contentScroll AddChildViewWithTitleArr:self.childVCs.mutableCopy andRootViewController:self];
+            self.titleArr = titleArr;
+            [self.titleView reloadDataWithTitleArr:self.titleArr];
+            if (self.courseCategoryList.count > 0) {
+                for (int i=0; i < self.courseCategoryList.count; i++) {
+                    HomeCourseCategoryModel *model = self.courseCategoryList[i];
+                    if (i == 0) {
+                        HomeRecommendViewController *recommendVC =  [HomeRecommendViewController new];
+                        recommendVC.categoryID = model.categoryID;
+                        [self.childVCs addObject:recommendVC];
+                    }else{
+                        HomeCommonViewController *commonVC = [HomeCommonViewController new];
+                        commonVC.categoryID = model.categoryID;
+                        [self.childVCs addObject:commonVC];
+                    }
+                }
+            }
+            [self.contentScroll AddChildViewWithTitleArr:self.childVCs andRootViewController:self];
         }
     }];
 }
@@ -74,6 +87,13 @@
 }
 
 #pragma mark --  lazy
+-(NSMutableArray <UIViewController *>*)childVCs
+{
+    if (!_childVCs) {
+        _childVCs = [NSMutableArray array];
+    }
+    return _childVCs;
+}
 -(HomeContentScrollView *)contentScroll
 {
     if (!_contentScroll) {

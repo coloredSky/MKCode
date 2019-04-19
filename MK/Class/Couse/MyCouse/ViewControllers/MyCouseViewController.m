@@ -120,11 +120,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
-        return KScaleWidth(180);
+        return KScaleHeight(180);
     }else if (section ==1){
-        return KScaleWidth(180);
+        return KScaleHeight(180);
     }
-    return KScaleWidth(180);
+    return KScaleHeight(180);
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
