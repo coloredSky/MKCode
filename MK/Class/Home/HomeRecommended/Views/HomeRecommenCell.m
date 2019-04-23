@@ -8,6 +8,7 @@
 
 #import "HomeRecommenCell.h"
 #import "MKCourseListModel.h"
+
 @interface HomeRecommenCell()
 
 @property (weak, nonatomic) IBOutlet UIView *shdowView;
@@ -37,14 +38,14 @@
     
 //    _whiteView.hidden = YES;
 //    _titleLab.hidden = YES;
-    _discriptionLab.hidden = YES;
+//    _discriptionLab.hidden = YES;
 //    _whiteView.backgroundColor = UIColorFromRGB_A(255, 255, 255, .2);
     _whiteShadowView.backgroundColor = [UIColor clearColor];
     _whiteShadowView.layer.shadowColor = K_Text_DeepGrayColor.CGColor;
     _whiteShadowView.layer.shadowRadius = 3.0f;
     _whiteShadowView.layer.shadowOffset = CGSizeMake(1, 1);
     _whiteShadowView.layer.shadowOpacity = .5;
-    _whiteView.backgroundColor = [UIColor colorWithWhite:1 alpha:.5];
+    _whiteView.backgroundColor = [UIColor colorWithWhite:1 alpha:.4];
     [_titleLab setFont:MKBoldFont(16) textColor:K_Text_BlackColor withBackGroundColor:nil];
     [_discriptionLab setFont:K_Font_Text_Min textColor:K_Text_BlackColor withBackGroundColor:nil];
     _discriptionLab.numberOfLines = 2;

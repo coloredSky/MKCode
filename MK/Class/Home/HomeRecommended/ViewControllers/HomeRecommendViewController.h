@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeRecommendViewController : MKBaseViewController
 @property (nonatomic, copy) NSString *categoryID;//课程类型ID
+
+-(void)homeRecommendfreshCourseListData;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,6 +8,12 @@
 
 #import "MKBaseTableView.h"
 
+@interface MKBaseTableView()
+@property (nonatomic, strong) UILabel *titleLab;
+@property (nonatomic, strong) UIImageView *noDataIma;
+
+@end
+
 @implementation MKBaseTableView
 
 -(instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
@@ -19,11 +25,12 @@
         self.backgroundColor = K_BG_deepGrayColor;
         self.estimatedSectionHeaderHeight = 0;
         self.estimatedSectionFooterHeight = 0;
-//        if (@available(ios 11.0,*)) {
-//            self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-//        }
     }
     return self;
 }
+
+
+
+
 
 @end

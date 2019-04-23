@@ -11,7 +11,6 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-
 //configuration File
 #import "MKBridging.h"
 
@@ -32,6 +31,7 @@
 //Utilites 工具类
 #import "XHRefreshFooter.h"
 #import "XHRefreshHeader.h"
+#import "MKPlaceholderView.h"
 #import "XDSDropDownMenu.h"
 #import <YYModel.h>
 #import "MBHUDManager.h"

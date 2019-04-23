@@ -13,11 +13,17 @@
 //manager
 #import "HomePageManager.h"
 //model
+#import "MKBannerModel.h"
+#import "HomePublicCourseModel.h"
 #import "MKCourseListModel.h"
 
 @interface HomeCommonViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
-@property (nonatomic, strong) NSMutableArray *commonCourseList;
+
+@property (nonatomic, strong) NSMutableArray <MKCourseListModel *>*commonCourseList;//推荐课
+//分页
+@property (nonatomic, assign) NSInteger pageOffset;//从第几条取数据
+@property (nonatomic, assign) NSInteger pageLimit;//取数据的条数
 @end
 
 @implementation HomeCommonViewController
@@ -25,6 +31,8 @@
 -(instancetype)init
 {
     if (self = [super init]) {
+        self.pageOffset = 1;
+        self.pageLimit = 5;
     }
     return self;
 }
@@ -39,8 +47,12 @@
     //    self.view.backgroundColor = [UIColor redColor];
     //refresh
     [self setUpRefresh];
-    //    request
-    [self startRequest];
+}
+-(void)homeCommonrefreshCourseListData
+{
+    if (self.commonCourseList.count == 0) {
+        [self startRequest];
+    }
 }
 
 #pragma mark --  refresh
@@ -50,26 +62,48 @@
     @weakObject(self);
     self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
-        [self.contentTable.mj_header endRefreshing];
+        self.pageOffset = 1;
+        [self startRequest];
     }];
     //上拉加载
-    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-    //                @strongObject(self);
-    //    }];
+    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
+        @strongObject(self);
+        self.pageOffset += self.pageLimit;
+        [self startRequest];
+    }];
 }
 
 #pragma mark --  request
 -(void)startRequest
 {
-    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:self.categoryID andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSMutableArray<MKCourseListModel *> * _Nonnull resultList) {
+    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:self.categoryID pageOffset:self.pageOffset pageLimit:self.pageLimit andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<MKBannerModel *> * _Nonnull bannerList, NSArray<HomePublicCourseModel *> * _Nonnull publicCourseList, NSArray<MKCourseListModel *> * _Nonnull recommentCourseList) {
+        [self.contentTable.mj_header endRefreshing];
+        [self.contentTable.mj_footer endRefreshing];
         if (isSuccess) {
-            self.commonCourseList = resultList;
+            if (self.pageOffset == 1) {
+                [self.commonCourseList removeAllObjects];
+                [self.commonCourseList addObjectsFromArray:recommentCourseList];
+            }else{
+                [self.commonCourseList addObjectsFromArray:recommentCourseList];
+            }
+            if (recommentCourseList.count < self.pageLimit) {
+                [self.contentTable.mj_footer endRefreshingWithNoMoreData];
+            }
             [self.contentTable reloadData];
+        }else{
+            self.pageOffset -= self.pageLimit;
         }
     }];
 }
 
 #pragma mark --  lazy
+-(NSMutableArray <MKCourseListModel *>*)commonCourseList
+{
+    if (!_commonCourseList) {
+        _commonCourseList = [NSMutableArray array];
+    }
+    return _commonCourseList;
+}
 -(MKBaseTableView *)contentTable
 {
     if (!_contentTable) {

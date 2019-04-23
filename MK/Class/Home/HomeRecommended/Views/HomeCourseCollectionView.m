@@ -8,10 +8,11 @@
 
 #import "HomeCourseCollectionView.h"
 #import "HomeCourseCollectionViewCell.h"
-#import "MKCourseListModel.h"
+
+#import "HomePublicCourseModel.h"
 @interface HomeCourseCollectionView()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *contentCollectionView;
-@property (nonatomic, strong) NSMutableArray *courseList;
+@property (nonatomic, strong) NSArray *courseList;
 @end
 @implementation HomeCourseCollectionView
 @synthesize delegate;
@@ -51,8 +52,8 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HomeCourseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCourseCollectionViewCell" forIndexPath:indexPath];
-//    MKCourseListModel *model = self.courseList[indexPath.row];
-    [cell cellRefreshData];
+    HomePublicCourseModel *model = self.courseList[indexPath.row];
+    [cell cellRefreshDataWithModel:model];
     return cell;
 }
 
@@ -68,7 +69,7 @@
     }
 }
 #pragma mark --  reload data
--(void)homeCourseCollectionViewReloadDataWithCourseList:(NSMutableArray *)couseList
+-(void)homeCourseCollectionViewReloadDataWithCourseList:(NSArray *)couseList
 {
     self.courseList = couseList;
     [self.contentCollectionView reloadData];

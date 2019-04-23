@@ -133,6 +133,9 @@
 		30A2DA2F224E00640030120D /* DiscoverNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A2DA1A224E00640030120D /* DiscoverNewsCell.xib */; };
 		30A2DA30224E00640030120D /* CourseCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA1B224E00640030120D /* CourseCategoryCell.m */; };
 		30A2DA32224E00640030120D /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA20224E00640030120D /* NewsViewController.m */; };
+		30E77DC5226D9DC90052DE5D /* MKPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DC4226D9DC90052DE5D /* MKPlaceholderView.m */; };
+		30E77DC8226DAD720052DE5D /* MKBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DC7226DAD720052DE5D /* MKBannerModel.m */; };
+		30E77DCB226EFEB80052DE5D /* HomePublicCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DCA226EFEB80052DE5D /* HomePublicCourseModel.m */; };
 		30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2EF223F7AEB0049C0DE /* MKNavViewController.m */; };
 		30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2F7223F98240049C0DE /* TitleScrollView.m */; };
 		30FBE2FC223F98250049C0DE /* SelectedCustomLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2F8223F98250049C0DE /* SelectedCustomLab.m */; };
@@ -387,7 +390,6 @@
 		3048D84A223264E900FE63B2 /* MKDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKDevice.h; sourceTree = "<group>"; };
 		3048D84B223264F000FE63B2 /* MKFont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKFont.h; sourceTree = "<group>"; };
 		3048D84C2232652E00FE63B2 /* MKShareInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKShareInstance.h; sourceTree = "<group>"; };
-		3048D84D22327BE500FE63B2 /* MKPrefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKPrefix.h; sourceTree = "<group>"; };
 		3048D8512236496000FE63B2 /* MKTarbarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKTarbarViewController.h; sourceTree = "<group>"; };
 		3048D8522236496000FE63B2 /* MKTarbarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKTarbarViewController.m; sourceTree = "<group>"; };
 		3048D85422364F2700FE63B2 /* HomePageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
@@ -481,6 +483,13 @@
 		30A2DA1B224E00640030120D /* CourseCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCategoryCell.m; sourceTree = "<group>"; };
 		30A2DA20224E00640030120D /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		30A2DA22224E00640030120D /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		30E77DBF226D96B70052DE5D /* MKPrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPrefix.h; sourceTree = "<group>"; };
+		30E77DC3226D9DC90052DE5D /* MKPlaceholderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKPlaceholderView.h; sourceTree = "<group>"; };
+		30E77DC4226D9DC90052DE5D /* MKPlaceholderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKPlaceholderView.m; sourceTree = "<group>"; };
+		30E77DC6226DAD720052DE5D /* MKBannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKBannerModel.h; sourceTree = "<group>"; };
+		30E77DC7226DAD720052DE5D /* MKBannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKBannerModel.m; sourceTree = "<group>"; };
+		30E77DC9226EFEB80052DE5D /* HomePublicCourseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePublicCourseModel.h; sourceTree = "<group>"; };
+		30E77DCA226EFEB80052DE5D /* HomePublicCourseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePublicCourseModel.m; sourceTree = "<group>"; };
 		30FBE2EE223F7AEB0049C0DE /* MKNavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKNavViewController.h; sourceTree = "<group>"; };
 		30FBE2EF223F7AEB0049C0DE /* MKNavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKNavViewController.m; sourceTree = "<group>"; };
 		30FBE2F7223F98240049C0DE /* TitleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScrollView.m; sourceTree = "<group>"; };
@@ -1147,8 +1156,8 @@
 		3048D7E6223255C600FE63B2 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				30E77DBF226D96B70052DE5D /* MKPrefix.h */,
 				3048D8242232616100FE63B2 /* MKBridging.h */,
-				3048D84D22327BE500FE63B2 /* MKPrefix.h */,
 				302955112260795D006D1613 /* MKConfigKey.h */,
 			);
 			path = Config;
@@ -1182,6 +1191,8 @@
 				3048D86E2239F6B500FE63B2 /* MKBaseTableViewCell.m */,
 				30A20193225F2CFE00A6A232 /* MKBaseScrollView.h */,
 				30A20194225F2CFE00A6A232 /* MKBaseScrollView.m */,
+				30E77DC3226D9DC90052DE5D /* MKPlaceholderView.h */,
+				30E77DC4226D9DC90052DE5D /* MKPlaceholderView.m */,
 			);
 			path = Basis;
 			sourceTree = "<group>";
@@ -1279,6 +1290,10 @@
 				302956782266DFAD006D1613 /* HomeCourseCategoryModel.m */,
 				302956D0226728CF006D1613 /* MKCourseListModel.h */,
 				302956D1226728CF006D1613 /* MKCourseListModel.m */,
+				30E77DC9226EFEB80052DE5D /* HomePublicCourseModel.h */,
+				30E77DCA226EFEB80052DE5D /* HomePublicCourseModel.m */,
+				30E77DC6226DAD720052DE5D /* MKBannerModel.h */,
+				30E77DC7226DAD720052DE5D /* MKBannerModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2709,6 +2724,7 @@
 				30FBE37B2244C5700049C0DE /* CourseDetailTipView.m in Sources */,
 				712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */,
 				302956D2226728CF006D1613 /* MKCourseListModel.m in Sources */,
+				30E77DCB226EFEB80052DE5D /* HomePublicCourseModel.m in Sources */,
 				71A18E2B225072CA007B4C55 /* LYSDatePickerItem.m in Sources */,
 				3035B6AB224F2D4500A1AA98 /* UserTextView.m in Sources */,
 				3035B6D22252032800A1AA98 /* AppointmentTeacherReplyCell.m in Sources */,
@@ -2798,6 +2814,7 @@
 				3048D841223263AF00FE63B2 /* UIView+Layout.m in Sources */,
 				3048D7BD2232536F00FE63B2 /* main.m in Sources */,
 				3048D81D22325F7F00FE63B2 /* MKNavigationController.m in Sources */,
+				30E77DC8226DAD720052DE5D /* MKBannerModel.m in Sources */,
 				71A18E2A225072CA007B4C55 /* LYSDatePickerTypeTimeDelegate.m in Sources */,
 				30A2DA28224E00640030120D /* DiscoverPageViewController.m in Sources */,
 				3035B6A7224F2D4500A1AA98 /* BasicInfoCell.m in Sources */,
@@ -2807,6 +2824,7 @@
 				7127C086226808D700895D79 /* JKCountDownButton.m in Sources */,
 				3029571B226859E4006D1613 /* WYNetworkConfig.m in Sources */,
 				30A2013F2254A76300A6A232 /* ChangeClassEndViewController.m in Sources */,
+				30E77DC5226D9DC90052DE5D /* MKPlaceholderView.m in Sources */,
 				30A2014C2255F33800A6A232 /* MyBillListViewController.m in Sources */,
 				3035B6AD224F2D4500A1AA98 /* UpdateMessageController.m in Sources */,
 				30295725226859E4006D1613 /* WYNetworkUtils.m in Sources */,

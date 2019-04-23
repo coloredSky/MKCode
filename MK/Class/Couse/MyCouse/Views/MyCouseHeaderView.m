@@ -33,7 +33,7 @@
     [super awakeFromNib];
     self.VideoView.backgroundColor = K_BG_YellowColor;
     [_VideoTimeLab setFont:MKBoldFont(10) textColor:K_Text_grayColor withBackGroundColor:nil];
-    [_VideoTitleLab setFont:MKBoldFont(13) textColor:K_Text_BlackColor withBackGroundColor:nil];
+    [_VideoTitleLab setFont:MKBoldFont(12) textColor:K_Text_BlackColor withBackGroundColor:nil];
     [_VideoStatusLab setFont:MKBoldFont(14) textColor:K_Text_WhiteColor withBackGroundColor:nil];
     _lineIma.backgroundColor = K_Line_lineColor;
 }
