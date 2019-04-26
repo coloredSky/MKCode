@@ -25,13 +25,7 @@
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
     [self appConfig];
-    if (![self isUserLogin]) {
-        [ViewControllerManager showLoginViewController];
-    }
-    else
-    {
-        [ViewControllerManager showMainViewController];
-    }
+    [ViewControllerManager showMainViewController];
     return YES;
 }
 - (void)configKeyboard{

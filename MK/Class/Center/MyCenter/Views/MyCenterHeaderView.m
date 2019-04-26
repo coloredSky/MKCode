@@ -30,7 +30,7 @@
     self.backgroundColor =K_BG_deepGrayColor;
     _headerImage.image = KImageNamed(@"message_logo");
     _headerImage.backgroundColor = [UIColor whiteColor];
-     [_nameLabel setFont:MKBoldFont(18) textColor:K_Text_BlackColor withBackGroundColor:nil];
+     [_nameLabel setFont:MKBoldFont(17) textColor:K_Text_BlackColor withBackGroundColor:nil];
      [_emailLabel setFont:MKBoldFont(10) textColor:K_Text_BlackColor withBackGroundColor:nil];
     [_updateBtn setNormalTitle:@"编辑个人资料" font:MKBoldFont(10) titleColor:K_Text_BlackColor];
     self.bgView.layer.shadowColor = K_Text_DeepGrayColor.CGColor;
@@ -40,6 +40,14 @@
     self.bgView.layer.shadowOpacity = .5;
     self.topView.layer.cornerRadius=6.f;
     self.topView.layer.masksToBounds=YES;
+}
+
+-(void)refreshData
+{
+    LoginModel * model =[[UserManager shareInstance]getUser];
+    self.nameLabel.text =[NSString isEmptyWithStr:model.nickname]==YES?@"您尚未设置用户名":model.nickname;
+    self.emailLabel.text =[NSString isEmptyWithStr:model.email]==YES?@"您尚未设置邮箱":model.email;
+    [self.headerImage sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:KImageNamed(@"message_logo")];
 }
 -(IBAction)updateBtnClick:(id)sender
 {

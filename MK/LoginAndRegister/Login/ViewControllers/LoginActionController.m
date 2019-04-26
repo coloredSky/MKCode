@@ -70,7 +70,7 @@
         //登录
         [LoginManager callBackLoginDataWithHudShow:YES userName:self.phoneTF.text pwd:self.passwordTF.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, LoginModel * _Nonnull model) {
             if (isSuccess ==YES) {
-                [ViewControllerManager showMainViewController];
+                [self.navigationController popViewControllerAnimated:YES];
             }
         }];
     }

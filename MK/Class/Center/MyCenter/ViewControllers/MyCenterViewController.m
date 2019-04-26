@@ -87,6 +87,7 @@
         _headerView = [[NSBundle mainBundle]loadNibNamed:@"MyCenterHeaderView" owner:nil options:nil][0];
         _headerView.frame =CGRectMake(0, 0,KScreenWidth ,203);
         _headerView.delegate =self;
+        [_headerView refreshData];
     }
     return _headerView;
 }
@@ -188,7 +189,7 @@
 {
     if (indexPath.section ==0)
     {
-        if (!K_MK_IsHaveLoginKey) {
+        if (![self isLogin]) {
             [self loginAlterViewShow];
             return;
         }
@@ -314,12 +315,28 @@
 #pragma mark-headerViewDelegate
 -(void)headerViewBtnClick
 {
-    if (!K_MK_IsHaveLoginKey) {
-        [self loginAlterViewShow];
-        return;
+    if ([self isLogin ]==YES)
+    {
+        UpdateMessageController * uvc =[UpdateMessageController new];
+        uvc.hidesBottomBarWhenPushed =YES;
+        [self.navigationController pushViewController:uvc animated:YES];
     }
-    UpdateMessageController * uvc =[UpdateMessageController new];
-    [self.navigationController pushViewController:uvc animated:YES];
+    else
+    {
+        [self loginAlterViewShow];
+    }
+}
+-(BOOL)isLogin
+{
+    NSString * userId =[[UserManager shareInstance]getUserId];
+    if (userId != nil && userId.length> 0)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 @end

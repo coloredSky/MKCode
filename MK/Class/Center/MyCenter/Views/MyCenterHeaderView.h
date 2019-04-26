@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MyCenterHeaderView : UIView
 @property(nonatomic,assign)id<MyCenterHeaderViewDelegate>delegate;
+-(void)refreshData;
 @end
 
 NS_ASSUME_NONNULL_END
