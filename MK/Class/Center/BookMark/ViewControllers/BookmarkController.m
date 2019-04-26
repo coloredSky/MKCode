@@ -11,6 +11,7 @@
 @interface BookmarkController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UILabel * titleLabel;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
+@property (nonatomic, strong) NSMutableArray *dataArr;
 @end
 
 @implementation BookmarkController
@@ -19,12 +20,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self creatUICompents];
+    [self setUpRefresh];
+    self.dataArr = @[@"",@"",@"",@"",@""].mutableCopy;
 }
 #pragma mark-创建ui
 -(void)creatUICompents
 {
     [self.view addSubview:self.titleLabel];
     [self.view addSubview:self.contentTable];
+    [self reloadPlacehorldViewWithFrame:CGRectMake(0, self.titleLabel.bottomY, self.view.width, self.view.height-self.titleLabel.height) placehorldDisplayType:MKPlaceWorderViewDisplayTypeNoBookMark];
 }
 
 
@@ -36,11 +40,20 @@
     self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
         [self.contentTable.mj_header endRefreshing];
+        self.dataArr = @[@""].mutableCopy;
+        [self.contentTable reloadData];
+        self.placeholderViewShow = YES;
+        self.contentTable.hidden = YES;
     }];
     //上拉加载
-    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-    //                @strongObject(self);
-    //    }];
+        self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
+//            @strongObject(self);
+//            [self.contentTable.mj_footer endRefreshing];
+//            self.dataArr = @[@"",@"",@"",@"",@"",@""].mutableCopy;
+//            [self.contentTable reloadData];
+//            self.placeholderViewShow = NO;
+//            self.contentTable.hidden = NO;
+        }];
 }
 
 #pragma mark --  request
@@ -56,6 +69,7 @@
     if (!_contentTable) {
         _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, K_NaviHeight+77, KScreenWidth, KScreenHeight-77-K_NaviHeight) style:UITableViewStyleGrouped];
         [self.view addSubview:_contentTable];
+//        [_contentTable setNoDataTitleString:@"先去看看感兴趣的课程吧！" noDataImage:@"bookmark_nodata"];
         _contentTable.backgroundColor = [UIColor clearColor];
         [_contentTable registerNib:[UINib nibWithNibName:@"BookmarkCell" bundle:nil] forCellReuseIdentifier:@"BookmarkCell"];
         _contentTable.delegate = self;
@@ -88,7 +102,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return self.dataArr.count;
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,7 +121,6 @@
 {
 
     UIView * bgView= [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 40)];
-    
     UILabel  * label =[[UILabel alloc]initWithFrame:CGRectMake(23, 0, KScreenWidth-46, 40)];
     [label setFont:MKBoldFont(16) textColor:K_Text_grayColor withBackGroundColor:nil];
     label.text =section ==0?@"线上课程":@"线下课程";
@@ -143,15 +156,13 @@
 {
     
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark --  placeholderView-delegate
+-(void)placeholderViewClickWithDisplayType:(MKPlaceWorderViewDisplayType )placeholderDisplayType
+{
+    self.dataArr = @[@"",@"",@"",@"",@"",@""].mutableCopy;
+    [self.contentTable reloadData];
+    self.placeholderViewShow = NO;
+    self.contentTable.hidden = NO;
 }
-*/
 
 @end

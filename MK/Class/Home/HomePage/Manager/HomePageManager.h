@@ -8,6 +8,8 @@
 
 @class HomeCourseCategoryModel;
 @class MKCourseListModel;
+@class MKBannerModel;
+@class HomePublicCourseModel;
 
 #import <Foundation/Foundation.h>
 
@@ -23,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(void)callBackHomePageCouurseCategoryDataWithHUDShow:(BOOL)hudShow andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <HomeCourseCategoryModel *>*resultList, NSMutableArray <NSString *>*titleArr))completionBlock;
 
-+(void)callBackHomePageCouurseListDataWithHUDShow:(BOOL)hudShow categoryID:(NSString *)categoryID andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSMutableArray <MKCourseListModel *>*resultList))completionBlock;
++(void)callBackHomePageCouurseListDataWithHUDShow:(BOOL)hudShow categoryID:(NSString *)categoryID pageOffset:(NSInteger )pageOffset pageLimit:(NSInteger )pageLimit andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <MKBannerModel *>*bannerList,NSArray <HomePublicCourseModel *>*publicCourseList,NSArray <MKCourseListModel *>*recommentCourseList))completionBlock;
 
 @end
 

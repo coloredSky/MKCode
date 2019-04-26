@@ -7,6 +7,8 @@
 //
 
 #import "HomeCourseCollectionViewCell.h"
+#import "HomePublicCourseModel.h"
+
 @interface HomeCourseCollectionViewCell()
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
@@ -35,6 +37,7 @@
     [self.courseTitleLab setFont:K_Font_Text_Min_Max textColor:K_Text_grayColor withBackGroundColor:nil];
     [self.courseTimeLab setFont:K_Font_Text_Min textColor:K_Text_grayColor withBackGroundColor:nil];
     [self.courseTypeLab setFont:K_Font_Text_Min textColor:K_Text_grayColor withBackGroundColor:nil];
+    self.typeIma.hidden = YES;
 }
 -(void)layoutSubviews
 {
@@ -50,12 +53,13 @@
     self.typeIma.frame = CGRectMake(self.whiteView.width-10-24, 0, 24, 24);
 }
 
--(void)cellRefreshData
+-(void)cellRefreshDataWithModel:(HomePublicCourseModel *)model
 {
-    self.courseIma.image = KImageNamed(@"home_collection");
-    self.courseTitleLab.text = @"日语基础";
-    self.courseTypeLab.text = @"语态：可能态";
-    self.courseTimeLab.text = @"02-27 10:00-12:00";
-    self.typeIma.image = KImageNamed(@"homeCourse_live");
+    [self.courseIma sd_setImageWithURL:[NSURL URLWithString:model.courseImage] placeholderImage:K_placeholder_Image];
+//    self.courseIma.image = KImageNamed(@"home_collection");
+    self.courseTitleLab.text = model.courseName;
+    self.courseTypeLab.text = model.lectureName;
+    self.courseTimeLab.text = model.startTime;
+//    self.typeIma.image = KImageNamed(@"homeCourse_live");
 }
 @end

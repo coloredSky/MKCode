@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeCourseCollectionView : UIView
 @property (nonatomic, assign) id<HomeCourseCollectionViewDelegate> delegate;
--(void)homeCourseCollectionViewReloadDataWithCourseList:(NSMutableArray *)couseList;
+-(void)homeCourseCollectionViewReloadDataWithCourseList:(NSArray *)couseList;
 @end
 
 NS_ASSUME_NONNULL_END

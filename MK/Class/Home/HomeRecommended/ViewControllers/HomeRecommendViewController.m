@@ -18,24 +18,32 @@
 //manager
 #import "HomePageManager.h"
 //model
+#import "MKBannerModel.h"
+#import "HomePublicCourseModel.h"
 #import "MKCourseListModel.h"
+
 
 @interface HomeRecommendViewController ()<UITableViewDelegate,UITableViewDataSource,NewPagedFlowViewDelegate,NewPagedFlowViewDataSource,HomeCourseCollectionViewDelegate>
 
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong)NewPagedFlowView *bannerView;
-@property (nonatomic, strong) NSArray *bannerArr;//banner 图片
 @property (nonatomic, assign) CGSize bannerItemSize;//banner图片的大小
-@property (nonatomic, strong) NSMutableArray <MKCourseListModel *>*recommendCourseList;
-@property (nonatomic, strong) NSMutableArray <MKCourseListModel *>*publicCourseList;
+@property (nonatomic, strong) NSArray <MKBannerModel *>*bannerList;//banner 图片
+@property (nonatomic, strong) NSArray <HomePublicCourseModel *>*publicCourseList;//公开课
+@property (nonatomic, strong) NSMutableArray <MKCourseListModel *>*recommendCourseList;//推荐课
+//分页
+@property (nonatomic, assign) NSInteger pageOffset;//从第几条取数据
+@property (nonatomic, assign) NSInteger pageLimit;//取数据的条数
+
 @end
 
 @implementation HomeRecommendViewController
 -(instancetype)init
 {
     if (self = [super init]) {
-        self.bannerArr = @[@"home_banner",@"home_banner",@"home_banner",@"home_banner"];
         self.bannerItemSize = CGSizeMake(KScreenWidth-K_Padding_Home_LeftPadding*2, 451*(KScreenWidth-K_Padding_Home_LeftPadding*2)/324);
+        self.pageOffset = 1;
+        self.pageLimit = 5;
     }
     return self;
 }
@@ -50,8 +58,14 @@
 //    self.view.backgroundColor = [UIColor redColor];
     //refresh
         [self setUpRefresh];
-//    request
+    //request
+    [self startRequest];
+}
+-(void)homeRecommendfreshCourseListData
+{
+    if (self.recommendCourseList.count == 0) {
         [self startRequest];
+    }
 }
 
 #pragma mark --  refresh
@@ -61,21 +75,39 @@
     @weakObject(self);
     self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
-        [self.contentTable.mj_header endRefreshing];
+        self.pageOffset = 1;
+        [self startRequest];
     }];
     //上拉加载
-    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-    //                @strongObject(self);
-    //    }];
+    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
+        @strongObject(self);
+        self.pageOffset += self.pageLimit;
+        [self startRequest];
+    }];
 }
 
 #pragma mark --  request
 -(void)startRequest
 {
-    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:self.categoryID andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSMutableArray<MKCourseListModel *> * _Nonnull resultList) {
+    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:self.categoryID pageOffset:self.pageOffset pageLimit:self.pageLimit andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<MKBannerModel *> * _Nonnull bannerList, NSArray<HomePublicCourseModel *> * _Nonnull publicCourseList, NSArray<MKCourseListModel *> * _Nonnull recommentCourseList) {
+        [self.contentTable.mj_header endRefreshing];
+        [self.contentTable.mj_footer endRefreshing];
         if (isSuccess) {
-            self.recommendCourseList = resultList;
+            if (self.pageOffset == 1) {
+                self.bannerList = bannerList;
+                [self.bannerView reloadData];
+                self.publicCourseList = publicCourseList;
+                [self.recommendCourseList removeAllObjects];
+                [self.recommendCourseList addObjectsFromArray:recommentCourseList];
+            }else{
+                [self.recommendCourseList addObjectsFromArray:recommentCourseList];
+            }
+            if (recommentCourseList.count < self.pageLimit) {
+                [self.contentTable.mj_footer endRefreshingWithNoMoreData];
+            }
             [self.contentTable reloadData];
+        }else{
+            self.pageOffset -= self.pageLimit;
         }
     }];
 }
@@ -88,13 +120,7 @@
     }
     return _recommendCourseList;
 }
--(NSMutableArray <MKCourseListModel *>*)publicCourseList
-{
-    if (!_publicCourseList) {
-        _publicCourseList = [NSMutableArray array];
-    }
-    return _publicCourseList;
-}
+
 -(MKBaseTableView *)contentTable
 {
     if (!_contentTable) {
@@ -123,7 +149,6 @@
         _bannerView.isCarousel = YES;
         _bannerView.orientation = NewPagedFlowViewOrientationHorizontal;
         _bannerView.orginPageCount = 3;
-        [_bannerView reloadData];
     }
     return _bannerView;
 }
@@ -183,7 +208,7 @@
         UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(88)+10)];
         HomeCourseCollectionView *courseCollectionView = [[HomeCourseCollectionView alloc]initWithFrame:CGRectMake(0, 0, footerView.width, footerView.height)];
         courseCollectionView.delegate = self;
-        [courseCollectionView homeCourseCollectionViewReloadDataWithCourseList:@[@"",@"",@"",@"",@""].mutableCopy];
+        [courseCollectionView homeCourseCollectionViewReloadDataWithCourseList:self.publicCourseList];
         [footerView addSubview:courseCollectionView];
         return footerView;
     }
@@ -196,7 +221,7 @@
 }
 #pragma mark NewPagedFlowView Datasource
 - (NSInteger)numberOfPagesInFlowView:(NewPagedFlowView *)flowView {
-    return self.bannerArr.count;
+    return self.bannerList.count;
 }
 - (PGIndexBannerSubiew *)flowView:(NewPagedFlowView *)flowView cellForPageAtIndex:(NSInteger)index{
     PGIndexBannerSubiew *bannerView = [flowView dequeueReusableCell];
@@ -207,7 +232,8 @@
 //        bannerView.layer.masksToBounds = YES;
 //        [bannerView setSubviewsWithSuperViewBounds:CGRectMake(0, 0, KScaleWidth(308), KScaleWidth(228))];
     }
-    bannerView.mainImageView.image = [UIImage imageNamed:self.bannerArr[index]];
+    MKBannerModel *model = self.bannerList[index];
+    [bannerView.mainImageView sd_setImageWithURL:[NSURL URLWithString:model.bannerImage] placeholderImage:K_placeholder_Annoument_Banner_Image];
     return bannerView;
 }
 
@@ -228,6 +254,8 @@
 #pragma mark --  banner did selected
 - (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
     NewsViewController *newsDetailVC = [NewsViewController new];
+    MKBannerModel *model = self.bannerList[subIndex];
+    newsDetailVC.contentUrl = model.bannerILinkUrl;
     [self.navigationController pushViewController:newsDetailVC animated:YES];
 }
 

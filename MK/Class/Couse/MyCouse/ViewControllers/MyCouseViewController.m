@@ -82,7 +82,7 @@
 {
     if (!_headerView) {
             _headerView = [[NSBundle mainBundle]loadNibNamed:@"MyCouseHeaderView" owner:nil options:nil][0];
-        _headerView.frame =CGRectMake(0, 0,KScreenWidth ,KScreenWidth *136/375+60);
+        _headerView.frame =CGRectMake(0, 0,KScreenWidth ,KScaleWidth(136)+KScaleHeight(60));
         [_headerView cellRefreshData];
     }
     return _headerView;

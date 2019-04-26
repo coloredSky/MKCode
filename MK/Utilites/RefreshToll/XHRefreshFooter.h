@@ -6,11 +6,11 @@
 //  Copyright © 2018年 caoyong. All rights reserved.
 //
 
-#import "MJRefreshAutoFooter.h"
+#import "MJRefreshAutoNormalFooter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XHRefreshFooter : MJRefreshAutoFooter
+@interface XHRefreshFooter : MJRefreshAutoNormalFooter
 
 @end
 

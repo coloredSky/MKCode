@@ -108,11 +108,24 @@
 #pragma mark --  titleScroll-Delegate
 -(void)titleScrollView:(TitleScrollView *)titleView didSelectedIndex:(NSInteger)index
 {
+    [self childVCRefreshDataWithIndex:index];
     [self.contentScroll scrollToIndex:index];
 }
 #pragma mark --  contentScroll-delegate
 -(void)homeContentScrollViewScrollToIndex:(NSInteger )index
 {
+    [self childVCRefreshDataWithIndex:index];
     [self.titleView titleScrollViewScrollToIndex:index];
+}
+
+-(void)childVCRefreshDataWithIndex:(NSInteger )index
+{
+    if (index == 0) {
+        HomeRecommendViewController *recommendVC = (HomeRecommendViewController *)self.childVCs[index];
+        [recommendVC homeRecommendfreshCourseListData];
+    }else{
+        HomeCommonViewController *commonVC = (HomeCommonViewController *)self.childVCs[index];
+        [commonVC homeCommonrefreshCourseListData];
+    }
 }
 @end

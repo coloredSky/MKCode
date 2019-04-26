@@ -12,9 +12,8 @@
 // 当 JSON 转为 Model 完成后，该方法会被调用。
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic
 {
-    if (_lecturersList.count >0) {
-        MKLecturerListModel *lecturerListModel = _lecturersList[0];
-        _teacherNmae = [NSString stringWithFormat:@"%@、等",lecturerListModel.teacherName];
+    if (![NSString isEmptyWithStr:dic[@"detail"]]) {
+        _courseDescription = [NSString filterHTML:dic[@"detail"]];
     }
     return YES;
 }
@@ -26,21 +25,23 @@
              @"courseName" : @"name",
              @"coursePrice" : @"price",
              @"courseName" : @"name",
-             @"lecturersList" : @"lecturers"
+             @"teacherNmae" : @"lecturer_name",
+             @"courseImage" : @"url",
+             @"courseDescription" : @"detail"
              };
 }
 
-+ (NSDictionary *)modelContainerPropertyGenericClass
-{
-    return @{@"lecturersList" : [MKLecturerListModel class]};
-}
+//+ (NSDictionary *)modelContainerPropertyGenericClass
+//{
+//    return @{@"lecturersList" : [MKLecturerListModel class]};
+//}
 @end
 
-@implementation MKLecturerListModel
-+ (NSDictionary *)modelCustomPropertyMapper {
-    // 将personId映射到key为id的数据字段
-    return @{@"lecturerID":@"id",
-             @"teacherName" : @"name"
-             };
-}
-@end
+//@implementation MKLecturerListModel
+//+ (NSDictionary *)modelCustomPropertyMapper {
+//    // 将personId映射到key为id的数据字段
+//    return @{@"lecturerID":@"id",
+//             @"teacherName" : @"name"
+//             };
+//}
+//@end

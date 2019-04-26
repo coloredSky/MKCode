@@ -33,6 +33,9 @@
     self.contentCollectionView.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
         [self.contentCollectionView.mj_header endRefreshing];
+        [self reloadPlacehorldViewWithFrame:CGRectMake(0, self.headerView.bottomY, self.view.width, self.view.height-self.headerView.height) placehorldDisplayType:MKPlaceWorderViewDisplayTypeNoOrder];
+        self.placeholderViewShow = YES;
+        self.contentCollectionView.hidden = YES;
     }];
     //上拉加载
     //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{

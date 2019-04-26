@@ -27,9 +27,10 @@ static NSString *const responseMessage = @"msg";
         sharedManager = [[MKNetworkManager alloc] init];
         [WYNetworkConfig sharedConfig].baseUrl = KMKBaseServerRequestUrl;
         [WYNetworkConfig sharedConfig].debugMode = YES;//默认为NO，不开启
-        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-        NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-        [WYNetworkConfig sharedConfig].defailtParameters = @{@"version":appVersion, @"platform":@"iOS"};
+        [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"DeviceType":@"1"}];
+//        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+//        NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+//        [WYNetworkConfig sharedConfig].defailtParameters = @{@"version":appVersion, @"platform":@"iOS"};
         [WYNetworkConfig sharedConfig].timeoutSeconds = 20;//默认30s
     });
     return sharedManager;

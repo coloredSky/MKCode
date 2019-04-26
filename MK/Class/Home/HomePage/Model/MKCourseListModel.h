@@ -10,10 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MKLecturerListModel : NSObject
-@property (nonatomic, copy) NSString *lecturerID;
-@property (nonatomic, copy) NSString *teacherName;
-@end
+//@interface MKLecturerListModel : NSObject
+//@property (nonatomic, copy) NSString *lecturerID;
+//@property (nonatomic, copy) NSString *teacherName;
+//@end
 
 @interface MKCourseListModel : NSObject
 @property (nonatomic, copy) NSString *courseID;//课程ID
@@ -24,9 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *is_live;//是否是直播
 @property (nonatomic, copy) NSString *courseImage;//课程图片
 @property (nonatomic, copy) NSString *is_online;//线上线下课程
-@property (nonatomic, copy) NSString *days;
-@property (nonatomic, copy) NSString *price_jpy;//日元价格
-@property (nonatomic, strong) NSArray <MKLecturerListModel *>*lecturersList;//课时列表
+
 @end
 
 NS_ASSUME_NONNULL_END
