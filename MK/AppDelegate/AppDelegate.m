@@ -8,7 +8,9 @@
 #import "AppDelegate.h"
 #import "MKTarbarViewController.h"
 #import "LoginViewController.h"
+//键盘
 #import "IQKeyboardManager.h"
+#import <PLVVodSDK/PLVVodSDK.h>
 
 @interface AppDelegate ()
 
@@ -24,7 +26,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
-    [self appConfig];
+    [self MKAppConfig];
+    [self polyvVideoPlayConfig];
     if (![self isUserLogin]) {
         [ViewControllerManager showLoginViewController];
     }
@@ -34,32 +37,11 @@
     }
     return YES;
 }
-- (void)configKeyboard{
-    
-    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager]; // 获取类库的单例变量
-    
-    keyboardManager.enable = YES; // 控制整个功能是否启用
-    
-    keyboardManager.shouldResignOnTouchOutside = YES; // 控制点击背景是否收起键盘
-    
-    keyboardManager.shouldToolbarUsesTextFieldTintColor = YES; // 控制键盘上的工具条文字颜色是否用户自定义
-    
-    keyboardManager.toolbarManageBehaviour = IQAutoToolbarByPosition; // 有多个输入框时，可以通过点击Toolbar 上的“前一个”“后一个”按钮来实现移动到不同的输入框
-    
-    keyboardManager.enableAutoToolbar = YES; // 控制是否显示键盘上的工具条
-    
-    keyboardManager.shouldShowToolbarPlaceholder = YES; // 是否显示占位文字
-    
-    keyboardManager.placeholderFont = [UIFont boldSystemFontOfSize:14]; // 设置占位文字的字体
-    
-    keyboardManager.keyboardDistanceFromTextField = 10.0f; // 输入框距离键盘的距离
-}
+
 
 -(BOOL)isUserLogin
 {
-   
     NSString *userId =   [[UserManager shareInstance]getUserId ];
-    
     if (userId != nil && userId.length> 0)
     {
         //已经登录
@@ -67,13 +49,29 @@
     }
     return NO;
 }
--(void)appConfig
+-(void)MKAppConfig
 {
-    
-    [self  configKeyboard];
-//    if (@available(iOS 11.0, *)){
-//        [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
-//    }
+    [self  configKeyboard];//键盘
+}
+-(void)polyvVideoPlayConfig
+{
+    NSError *error = nil;
+    NSString *vodKey = @"B45m7CFRAKTKJyfX5UeMF6sXaRM2UY9ef9qHTrqHZCpnZgaL7asIn7QRxPKBSyQpldwYsCHIl3Dfgk0pggYyz5i1wKDOM3dOJpx/X3y2A/L2XSfldDF7nPWXPMGBDoMBSEZeiO/u+3DWKS79gt5BZQ==";
+    NSString *decodeKey = @"VXtlHmwfS2oYm0CZ";
+    NSString *decodeIv = @"2u9gDPKdX6GyQJKU";
+     [PLVVodSettings settingsWithConfigString:vodKey key:decodeKey iv:decodeIv error:&error];
+}
+
+- (void)configKeyboard{
+    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager]; // 获取类库的单例变量
+    keyboardManager.enable = YES; // 控制整个功能是否启用
+    keyboardManager.shouldResignOnTouchOutside = YES; // 控制点击背景是否收起键盘
+    keyboardManager.shouldToolbarUsesTextFieldTintColor = YES; // 控制键盘上的工具条文字颜色是否用户自定义
+    keyboardManager.toolbarManageBehaviour = IQAutoToolbarByPosition; // 有多个输入框时，可以通过点击Toolbar 上的“前一个”“后一个”按钮来实现移动到不同的输入框
+    keyboardManager.enableAutoToolbar = YES; // 控制是否显示键盘上的工具条
+    keyboardManager.shouldShowToolbarPlaceholder = YES; // 是否显示占位文字
+    keyboardManager.placeholderFont = [UIFont boldSystemFontOfSize:14]; // 设置占位文字的字体
+    keyboardManager.keyboardDistanceFromTextField = 10.0f; // 输入框距离键盘的距离
 }
 
 

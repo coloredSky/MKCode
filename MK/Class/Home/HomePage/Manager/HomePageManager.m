@@ -38,7 +38,7 @@
     }];
 }
 
-+(void)callBackHomePageCouurseListDataWithHUDShow:(BOOL)hudShow categoryID:(NSString *)categoryID pageOffset:(NSInteger )pageOffset pageLimit:(NSInteger )pageLimit andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <MKBannerModel *>*bannerList,NSArray <HomePublicCourseModel *>*publicCourseList,NSArray <MKCourseListModel *>*recommentCourseList))completionBlock;
++(void)callBackHomePageCouurseListDataWithHUDShow:(BOOL)hudShow categoryID:(NSString *)categoryID pageOffset:(NSInteger )pageOffset pageLimit:(NSInteger )pageLimit andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <HomeCourseCategoryModel *>*courseCategoryList,NSArray <MKBannerModel *>*bannerList,NSArray <HomePublicCourseModel *>*publicCourseList,NSArray <MKCourseListModel *>*recommentCourseList))completionBlock;
 {
     if ([NSString isEmptyWithStr:categoryID]) {
         return;
@@ -54,19 +54,20 @@
     [MKNetworkManager sendGetRequestWithUrl:K_MK_Home_CourseList_Url parameters:parameters hudIsShow:YES success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 0) {
             if (completionBlock) {
+                NSArray *categoryArr = [NSArray yy_modelArrayWithClass:[HomeCourseCategoryModel class] json:MKResult.dataResponseObject[@"categoryList"]];
                 NSArray *bannerArr = [NSArray yy_modelArrayWithClass:[MKBannerModel class] json:MKResult.dataResponseObject[@"bannerList"]];
                 NSArray *publicCourseArr =  [NSArray yy_modelArrayWithClass:[HomePublicCourseModel class] json:MKResult.dataResponseObject[@"liveList"]];
                 NSArray *courseArr = [NSArray yy_modelArrayWithClass:[MKCourseListModel class] json:MKResult.dataResponseObject[@"courseList"]];
-                completionBlock(YES, MKResult.message,bannerArr,publicCourseArr,courseArr);
+                completionBlock(YES, MKResult.message,categoryArr,bannerArr,publicCourseArr,courseArr);
             }
         }else{
             if (completionBlock) {
-                completionBlock(NO, MKResult.message,nil,nil,nil);
+                completionBlock(NO, MKResult.message,nil,nil,nil,nil);
             }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (completionBlock) {
-            completionBlock(NO, [NSString stringWithFormat:@"error code is %ld",statusCode],nil,nil,nil);
+            completionBlock(NO, [NSString stringWithFormat:@"error code is %ld",statusCode],nil,nil,nil,nil);
         }
     }];
 }

@@ -16,10 +16,14 @@
 #import "CourseOfflineListCell.h"
 #import "CourseOfflineTitleCell.h"
 
+#import "MKCourseDetailModel.h"
+
 @interface CourseDetailScrollView()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,WKUIDelegate,WKNavigationDelegate>
 @property (nonatomic, strong) UIScrollView *contentScroll;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
-@property (nonatomic, strong) WKWebView *contentWeb;
+@property (nonatomic, strong) WKWebView *contentWeb;//课程详情
+//model
+@property (nonatomic, strong) MKCourseDetailModel *courseDetailModel;
 @end
 @implementation CourseDetailScrollView
 @synthesize delegate;
@@ -49,15 +53,14 @@
 {
     if (!_contentTable) {
         _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, 0, self.contentScroll.width, self.contentScroll.height) style:UITableViewStyleGrouped];
-        [self.contentScroll addSubview:_contentTable];
         _contentTable.delegate = self;
         _contentTable.dataSource = self;
+        [self.contentScroll addSubview:_contentTable];
         [_contentTable registerNib:[UINib nibWithNibName:@"CourseOnlineTitleCell" bundle:nil] forCellReuseIdentifier:@"CourseOnlineTitleCell"];
         [_contentTable registerNib:[UINib nibWithNibName:@"CourseTeacherCell" bundle:nil] forCellReuseIdentifier:@"CourseTeacherCell"];
         [_contentTable registerNib:[UINib nibWithNibName:@"CourseOnlineListCell" bundle:nil] forCellReuseIdentifier:@"CourseOnlineListCell"];
         [_contentTable registerNib:[UINib nibWithNibName:@"CourseOfflineListCell" bundle:nil] forCellReuseIdentifier:@"CourseOfflineListCell"];
         [_contentTable registerNib:[UINib nibWithNibName:@"CourseOfflineTitleCell" bundle:nil] forCellReuseIdentifier:@"CourseOfflineTitleCell"];
-        
     }
     return _contentTable;
 }
@@ -82,7 +85,7 @@
     if (indexPath.section == 0) {
         if (self.courseType == CourseSituationTypeOnline) {
             CourseOnlineTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseOnlineTitleCell" forIndexPath:indexPath];
-            [cell cellRefreshData];
+            [cell cellRefreshDataWithCourseDetailModel:self.courseDetailModel];
             return cell;
         }else{
             CourseOfflineTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseOfflineTitleCell" forIndexPath:indexPath];
@@ -91,7 +94,7 @@
         }
     }else if(indexPath.section == 1){
         CourseTeacherCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseTeacherCell" forIndexPath:indexPath];
-        [cell cellRefreshData];
+        [cell cellRefreshDataWithCourseDetailModel:self.courseDetailModel];
         return cell;
     }else{
         if (self.courseType == CourseSituationTypeOnline) {
@@ -119,7 +122,7 @@
     if (section == 0||section == 1) {
         return 1;
     }
-    return 15;
+    return self.courseDetailModel.courseInfo.count;
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -192,9 +195,13 @@
 }
 
 #pragma mark --  数据刷新
--(void)CourseDetailScrollViewReloadData
+-(void)courseDetailScrollViewReloadDataWithMKCourseDetailModel:(MKCourseDetailModel *)courseDetailModel;
 {
+    self.courseDetailModel = courseDetailModel;
+    if (![NSString isEmptyWithStr:courseDetailModel.courseInfoDetail.courseDetail]) {
+            [self.contentWeb loadHTMLString:courseDetailModel.courseInfoDetail.courseDetail baseURL:nil];
+    }
     [self.contentTable reloadData];
-    [self.contentWeb loadHTMLString:@"背景：由于语言学校主要以日本老師教学为主，而且教授期间较长，虽然这样可以使学 生在听力和会话能力有所提高，但是在语法的讲解上由于主要以日语讲解和练习为主，导致学生对基础语法现象的理解不足，从而使学生在日语表达能力及听说读解等各方面能力受到限制。而国内的日语培训机构为了保证生源，课程的设计往往偏于“短平快”，加上学生的学习自主性和代课教师水平的参差不齐，很难保证教学质量。 对象：在国内结束基础阶段强化班课程（教材：《新标准日本语-初级》《大家的日本语-初级》；教学期间：3～4个月）的学员。 目的：巩固日语基础阶段学习中必须掌握的语法，为留考，校内考以及N1N2的学习打下良好的基础。 备注：由于国内的强化课程课时和课程过于集中，所以大部分学员对基础阶段语法的理解实际上处于一知半解囫囵吞枣的状态。但是正是因为觉得基础阶段的学习已经结束，才会导致很多学员在选择进学课程时忽视基础课程。可是事实表明没有打好基础想在留考、校内考以及日语能力考试中取得好成绩很困难。所以希望通过这个课程能让大家对在强化课程和语言学校中没有完全掌握的概念和语法有一个更深的理解，能帮助大家走得更远。" baseURL:nil];
+
 }
 @end

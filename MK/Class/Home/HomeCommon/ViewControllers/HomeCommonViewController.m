@@ -76,7 +76,7 @@
 #pragma mark --  request
 -(void)startRequest
 {
-    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:self.categoryID pageOffset:self.pageOffset pageLimit:self.pageLimit andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<MKBannerModel *> * _Nonnull bannerList, NSArray<HomePublicCourseModel *> * _Nonnull publicCourseList, NSArray<MKCourseListModel *> * _Nonnull recommentCourseList) {
+    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:self.categoryID pageOffset:self.pageOffset pageLimit:self.pageLimit andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message,NSArray<HomeCourseCategoryModel *> * _Nonnull courseCategoryList, NSArray<MKBannerModel *> * _Nonnull bannerList, NSArray<HomePublicCourseModel *> * _Nonnull publicCourseList, NSArray<MKCourseListModel *> * _Nonnull recommentCourseList) {
         [self.contentTable.mj_header endRefreshing];
         [self.contentTable.mj_footer endRefreshing];
         if (isSuccess) {

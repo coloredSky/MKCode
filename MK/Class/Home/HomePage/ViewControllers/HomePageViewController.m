@@ -52,10 +52,13 @@
 }
 -(void)startRequestWithHUDShow:(BOOL )hudShow
 {
-    
-    [HomePageManager callBackHomePageCouurseCategoryDataWithHUDShow:YES andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<HomeCourseCategoryModel *> * _Nonnull resultList, NSMutableArray<NSString *> * _Nonnull titleArr) {
+    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:@"100" pageOffset:1 pageLimit:1 andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message,NSArray<HomeCourseCategoryModel *> * _Nonnull courseCategoryList, NSArray<MKBannerModel *> * _Nonnull bannerList, NSArray<HomePublicCourseModel *> * _Nonnull publicCourseList, NSArray<MKCourseListModel *> * _Nonnull recommentCourseList) {
         if (isSuccess) {
-            self.courseCategoryList = resultList;
+            self.courseCategoryList = courseCategoryList;
+            NSMutableArray *titleArr = [NSMutableArray arrayWithCapacity:courseCategoryList.count];
+            for (HomeCourseCategoryModel *model in courseCategoryList) {
+                [titleArr addObject:model.categoryName];
+            }
             self.titleArr = titleArr;
             [self.titleView reloadDataWithTitleArr:self.titleArr];
             if (self.courseCategoryList.count > 0) {

@@ -28,6 +28,36 @@
 		30295726226859E4006D1613 /* WYNetworkCacheInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295714226859E3006D1613 /* WYNetworkCacheInfo.m */; };
 		30295727226859E4006D1613 /* WYNetworkDownloadEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295717226859E3006D1613 /* WYNetworkDownloadEngine.m */; };
 		3029572E22687102006D1613 /* HomeRecommendListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3029572D22687102006D1613 /* HomeRecommendListManager.m */; };
+		30354F8A227F02910045955D /* PLVVodPlayerSkin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30354F4E227F02910045955D /* PLVVodPlayerSkin.xib */; };
+		30354F8B227F02910045955D /* PLVVodDefinitionPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F50227F02910045955D /* PLVVodDefinitionPanelView.m */; };
+		30354F8C227F02910045955D /* PLVVodPlayTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F53227F02910045955D /* PLVVodPlayTipsView.m */; };
+		30354F8D227F02910045955D /* PLVVodRouteLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F57227F02910045955D /* PLVVodRouteLineView.m */; };
+		30354F8E227F02910045955D /* PLVVodDanmuSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F58227F02910045955D /* PLVVodDanmuSendView.m */; };
+		30354F8F227F02910045955D /* PLVVodCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F59227F02910045955D /* PLVVodCoverView.m */; };
+		30354F90227F02910045955D /* PLVVodFullscreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F5C227F02910045955D /* PLVVodFullscreenView.m */; };
+		30354F91227F02910045955D /* PLVVodGestureIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F5E227F02910045955D /* PLVVodGestureIndicatorView.m */; };
+		30354F92227F02910045955D /* PLVVodPlaybackRatePanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F5F227F02910045955D /* PLVVodPlaybackRatePanelView.m */; };
+		30354F93227F02910045955D /* PLVVodAudioCoverPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F64227F02910045955D /* PLVVodAudioCoverPanelView.m */; };
+		30354F94227F02910045955D /* PLVVodSettingPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F65227F02910045955D /* PLVVodSettingPanelView.m */; };
+		30354F95227F02910045955D /* PLVVodShrinkscreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F66227F02910045955D /* PLVVodShrinkscreenView.m */; };
+		30354F96227F02910045955D /* PLVVodLockScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F67227F02910045955D /* PLVVodLockScreenView.m */; };
+		30354F97227F02910045955D /* PLVVodPlayerSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F69227F02910045955D /* PLVVodPlayerSkin.m */; };
+		30354F98227F02910045955D /* PLVVodSkinPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F6A227F02910045955D /* PLVVodSkinPlayerController.m */; };
+		30354F99227F02910045955D /* NSString+PLVVod.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F6F227F02910045955D /* NSString+PLVVod.m */; };
+		30354F9A227F02910045955D /* UIColor+PLVVod.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F73227F02910045955D /* UIColor+PLVVod.m */; };
+		30354F9B227F02910045955D /* UINavigationController+PLVVod.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F74227F02910045955D /* UINavigationController+PLVVod.m */; };
+		30354F9C227F02910045955D /* UIControl+PLVVod.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F75227F02910045955D /* UIControl+PLVVod.m */; };
+		30354F9D227F02910045955D /* UIButton+EnlargeTouchArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F77227F02910045955D /* UIButton+EnlargeTouchArea.m */; };
+		30354F9E227F02910045955D /* PLVVodDanmu+PLVVod.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F78227F02910045955D /* PLVVodDanmu+PLVVod.m */; };
+		30354F9F227F02910045955D /* UIView+PLVVod.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F79227F02910045955D /* UIView+PLVVod.m */; };
+		30354FA0227F02910045955D /* PLVVodResources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30354F7A227F02910045955D /* PLVVodResources.xcassets */; };
+		30354FB7227F05D30045955D /* PLVVodExamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354FA9227F05D30045955D /* PLVVodExamViewController.m */; };
+		30354FB8227F05D30045955D /* PLVVodExamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30354FAA227F05D30045955D /* PLVVodExamViewController.xib */; };
+		30354FB9227F05D30045955D /* PLVVodQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354FAF227F05D30045955D /* PLVVodQuestion.m */; };
+		30354FBA227F05D30045955D /* PLVVodQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354FB0227F05D30045955D /* PLVVodQuestionView.m */; };
+		30354FBB227F05D30045955D /* PLVVodOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354FB1227F05D30045955D /* PLVVodOptionCell.m */; };
+		30354FBC227F05D30045955D /* PLVVodOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30354FB2227F05D30045955D /* PLVVodOptionCell.xib */; };
+		30354FBD227F05D30045955D /* PLVVodExplanationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354FB5227F05D30045955D /* PLVVodExplanationView.m */; };
 		3035B65B224F2C7D00A1AA98 /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B64D224F2C7D00A1AA98 /* RegisterController.xib */; };
 		3035B65C224F2C7D00A1AA98 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B64E224F2C7D00A1AA98 /* RegisterController.m */; };
 		3035B65D224F2C7D00A1AA98 /* LoginActionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B651224F2C7D00A1AA98 /* LoginActionController.xib */; };
@@ -133,6 +163,7 @@
 		30A2DA2F224E00640030120D /* DiscoverNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A2DA1A224E00640030120D /* DiscoverNewsCell.xib */; };
 		30A2DA30224E00640030120D /* CourseCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA1B224E00640030120D /* CourseCategoryCell.m */; };
 		30A2DA32224E00640030120D /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA20224E00640030120D /* NewsViewController.m */; };
+		30D54D092270489F0004D034 /* MKCourseDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D54D082270489F0004D034 /* MKCourseDetailModel.m */; };
 		30E77DC5226D9DC90052DE5D /* MKPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DC4226D9DC90052DE5D /* MKPlaceholderView.m */; };
 		30E77DC8226DAD720052DE5D /* MKBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DC7226DAD720052DE5D /* MKBannerModel.m */; };
 		30E77DCB226EFEB80052DE5D /* HomePublicCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DCA226EFEB80052DE5D /* HomePublicCourseModel.m */; };
@@ -294,6 +325,63 @@
 		3029571A226859E4006D1613 /* WYNetworkRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkRequestModel.h; sourceTree = "<group>"; };
 		3029572C22687102006D1613 /* HomeRecommendListManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeRecommendListManager.h; sourceTree = "<group>"; };
 		3029572D22687102006D1613 /* HomeRecommendListManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendListManager.m; sourceTree = "<group>"; };
+		30354F4C227F02910045955D /* PLVVodSkinPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodSkinPlayerController.h; sourceTree = "<group>"; };
+		30354F4D227F02910045955D /* PLVVodPlayerSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodPlayerSkin.h; sourceTree = "<group>"; };
+		30354F4E227F02910045955D /* PLVVodPlayerSkin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLVVodPlayerSkin.xib; sourceTree = "<group>"; };
+		30354F50227F02910045955D /* PLVVodDefinitionPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodDefinitionPanelView.m; sourceTree = "<group>"; };
+		30354F52227F02910045955D /* PLVVodPlayTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodPlayTipsView.h; sourceTree = "<group>"; };
+		30354F53227F02910045955D /* PLVVodPlayTipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodPlayTipsView.m; sourceTree = "<group>"; };
+		30354F54227F02910045955D /* PLVVodPlaybackRatePanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodPlaybackRatePanelView.h; sourceTree = "<group>"; };
+		30354F55227F02910045955D /* PLVVodGestureIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodGestureIndicatorView.h; sourceTree = "<group>"; };
+		30354F56227F02910045955D /* PLVVodAudioCoverPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodAudioCoverPanelView.h; sourceTree = "<group>"; };
+		30354F57227F02910045955D /* PLVVodRouteLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodRouteLineView.m; sourceTree = "<group>"; };
+		30354F58227F02910045955D /* PLVVodDanmuSendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodDanmuSendView.m; sourceTree = "<group>"; };
+		30354F59227F02910045955D /* PLVVodCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodCoverView.m; sourceTree = "<group>"; };
+		30354F5A227F02910045955D /* PLVVodShrinkscreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodShrinkscreenView.h; sourceTree = "<group>"; };
+		30354F5B227F02910045955D /* PLVVodSettingPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodSettingPanelView.h; sourceTree = "<group>"; };
+		30354F5C227F02910045955D /* PLVVodFullscreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodFullscreenView.m; sourceTree = "<group>"; };
+		30354F5D227F02910045955D /* PLVVodLockScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodLockScreenView.h; sourceTree = "<group>"; };
+		30354F5E227F02910045955D /* PLVVodGestureIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodGestureIndicatorView.m; sourceTree = "<group>"; };
+		30354F5F227F02910045955D /* PLVVodPlaybackRatePanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodPlaybackRatePanelView.m; sourceTree = "<group>"; };
+		30354F60227F02910045955D /* PLVVodDefinitionPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodDefinitionPanelView.h; sourceTree = "<group>"; };
+		30354F61227F02910045955D /* PLVVodCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodCoverView.h; sourceTree = "<group>"; };
+		30354F62227F02910045955D /* PLVVodDanmuSendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodDanmuSendView.h; sourceTree = "<group>"; };
+		30354F63227F02910045955D /* PLVVodRouteLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodRouteLineView.h; sourceTree = "<group>"; };
+		30354F64227F02910045955D /* PLVVodAudioCoverPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodAudioCoverPanelView.m; sourceTree = "<group>"; };
+		30354F65227F02910045955D /* PLVVodSettingPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodSettingPanelView.m; sourceTree = "<group>"; };
+		30354F66227F02910045955D /* PLVVodShrinkscreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodShrinkscreenView.m; sourceTree = "<group>"; };
+		30354F67227F02910045955D /* PLVVodLockScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodLockScreenView.m; sourceTree = "<group>"; };
+		30354F68227F02910045955D /* PLVVodFullscreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodFullscreenView.h; sourceTree = "<group>"; };
+		30354F69227F02910045955D /* PLVVodPlayerSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodPlayerSkin.m; sourceTree = "<group>"; };
+		30354F6A227F02910045955D /* PLVVodSkinPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodSkinPlayerController.m; sourceTree = "<group>"; };
+		30354F6C227F02910045955D /* UIControl+PLVVod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+PLVVod.h"; sourceTree = "<group>"; };
+		30354F6D227F02910045955D /* UIColor+PLVVod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PLVVod.h"; sourceTree = "<group>"; };
+		30354F6E227F02910045955D /* UINavigationController+PLVVod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+PLVVod.h"; sourceTree = "<group>"; };
+		30354F6F227F02910045955D /* NSString+PLVVod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PLVVod.m"; sourceTree = "<group>"; };
+		30354F70227F02910045955D /* PLVVodDanmu+PLVVod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PLVVodDanmu+PLVVod.h"; sourceTree = "<group>"; };
+		30354F71227F02910045955D /* UIButton+EnlargeTouchArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EnlargeTouchArea.h"; sourceTree = "<group>"; };
+		30354F72227F02910045955D /* UIView+PLVVod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PLVVod.h"; sourceTree = "<group>"; };
+		30354F73227F02910045955D /* UIColor+PLVVod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PLVVod.m"; sourceTree = "<group>"; };
+		30354F74227F02910045955D /* UINavigationController+PLVVod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+PLVVod.m"; sourceTree = "<group>"; };
+		30354F75227F02910045955D /* UIControl+PLVVod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+PLVVod.m"; sourceTree = "<group>"; };
+		30354F76227F02910045955D /* NSString+PLVVod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PLVVod.h"; sourceTree = "<group>"; };
+		30354F77227F02910045955D /* UIButton+EnlargeTouchArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EnlargeTouchArea.m"; sourceTree = "<group>"; };
+		30354F78227F02910045955D /* PLVVodDanmu+PLVVod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PLVVodDanmu+PLVVod.m"; sourceTree = "<group>"; };
+		30354F79227F02910045955D /* UIView+PLVVod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PLVVod.m"; sourceTree = "<group>"; };
+		30354F7A227F02910045955D /* PLVVodResources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PLVVodResources.xcassets; sourceTree = "<group>"; };
+		30354FA9227F05D30045955D /* PLVVodExamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodExamViewController.m; sourceTree = "<group>"; };
+		30354FAA227F05D30045955D /* PLVVodExamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLVVodExamViewController.xib; sourceTree = "<group>"; };
+		30354FAB227F05D30045955D /* PLVVodExamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodExamViewController.h; sourceTree = "<group>"; };
+		30354FAD227F05D30045955D /* PLVVodQuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodQuestionView.h; sourceTree = "<group>"; };
+		30354FAE227F05D30045955D /* PLVVodOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodOptionCell.h; sourceTree = "<group>"; };
+		30354FAF227F05D30045955D /* PLVVodQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodQuestion.m; sourceTree = "<group>"; };
+		30354FB0227F05D30045955D /* PLVVodQuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodQuestionView.m; sourceTree = "<group>"; };
+		30354FB1227F05D30045955D /* PLVVodOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodOptionCell.m; sourceTree = "<group>"; };
+		30354FB2227F05D30045955D /* PLVVodOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLVVodOptionCell.xib; sourceTree = "<group>"; };
+		30354FB3227F05D30045955D /* PLVVodQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodQuestion.h; sourceTree = "<group>"; };
+		30354FB5227F05D30045955D /* PLVVodExplanationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVVodExplanationView.m; sourceTree = "<group>"; };
+		30354FB6227F05D30045955D /* PLVVodExplanationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodExplanationView.h; sourceTree = "<group>"; };
+		30354FBE227F06B70045955D /* PolyvConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolyvConfig.h; sourceTree = "<group>"; };
 		3035B64C224F2C7D00A1AA98 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		3035B64D224F2C7D00A1AA98 /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 		3035B64E224F2C7D00A1AA98 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
@@ -483,6 +571,8 @@
 		30A2DA1B224E00640030120D /* CourseCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCategoryCell.m; sourceTree = "<group>"; };
 		30A2DA20224E00640030120D /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		30A2DA22224E00640030120D /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		30D54D072270489F0004D034 /* MKCourseDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKCourseDetailModel.h; sourceTree = "<group>"; };
+		30D54D082270489F0004D034 /* MKCourseDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKCourseDetailModel.m; sourceTree = "<group>"; };
 		30E77DBF226D96B70052DE5D /* MKPrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPrefix.h; sourceTree = "<group>"; };
 		30E77DC3226D9DC90052DE5D /* MKPlaceholderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKPlaceholderView.h; sourceTree = "<group>"; };
 		30E77DC4226D9DC90052DE5D /* MKPlaceholderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKPlaceholderView.m; sourceTree = "<group>"; };
@@ -759,6 +849,126 @@
 				3029572D22687102006D1613 /* HomeRecommendListManager.m */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		30354F4A227F02910045955D /* PolyvOpenSourceModule */ = {
+			isa = PBXGroup;
+			children = (
+				30354F6B227F02910045955D /* Category */,
+				30354FA8227F05D30045955D /* Exam */,
+				30354F7A227F02910045955D /* PLVVodResources.xcassets */,
+				30354FBE227F06B70045955D /* PolyvConfig.h */,
+				30354F4B227F02910045955D /* Skin */,
+			);
+			path = PolyvOpenSourceModule;
+			sourceTree = "<group>";
+		};
+		30354F4B227F02910045955D /* Skin */ = {
+			isa = PBXGroup;
+			children = (
+				30354F4C227F02910045955D /* PLVVodSkinPlayerController.h */,
+				30354F4D227F02910045955D /* PLVVodPlayerSkin.h */,
+				30354F4E227F02910045955D /* PLVVodPlayerSkin.xib */,
+				30354F4F227F02910045955D /* View */,
+				30354F69227F02910045955D /* PLVVodPlayerSkin.m */,
+				30354F6A227F02910045955D /* PLVVodSkinPlayerController.m */,
+			);
+			path = Skin;
+			sourceTree = "<group>";
+		};
+		30354F4F227F02910045955D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30354F50227F02910045955D /* PLVVodDefinitionPanelView.m */,
+				30354F51227F02910045955D /* PlayTips */,
+				30354F54227F02910045955D /* PLVVodPlaybackRatePanelView.h */,
+				30354F55227F02910045955D /* PLVVodGestureIndicatorView.h */,
+				30354F56227F02910045955D /* PLVVodAudioCoverPanelView.h */,
+				30354F57227F02910045955D /* PLVVodRouteLineView.m */,
+				30354F58227F02910045955D /* PLVVodDanmuSendView.m */,
+				30354F59227F02910045955D /* PLVVodCoverView.m */,
+				30354F5A227F02910045955D /* PLVVodShrinkscreenView.h */,
+				30354F5B227F02910045955D /* PLVVodSettingPanelView.h */,
+				30354F5C227F02910045955D /* PLVVodFullscreenView.m */,
+				30354F5D227F02910045955D /* PLVVodLockScreenView.h */,
+				30354F5E227F02910045955D /* PLVVodGestureIndicatorView.m */,
+				30354F5F227F02910045955D /* PLVVodPlaybackRatePanelView.m */,
+				30354F60227F02910045955D /* PLVVodDefinitionPanelView.h */,
+				30354F61227F02910045955D /* PLVVodCoverView.h */,
+				30354F62227F02910045955D /* PLVVodDanmuSendView.h */,
+				30354F63227F02910045955D /* PLVVodRouteLineView.h */,
+				30354F64227F02910045955D /* PLVVodAudioCoverPanelView.m */,
+				30354F65227F02910045955D /* PLVVodSettingPanelView.m */,
+				30354F66227F02910045955D /* PLVVodShrinkscreenView.m */,
+				30354F67227F02910045955D /* PLVVodLockScreenView.m */,
+				30354F68227F02910045955D /* PLVVodFullscreenView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		30354F51227F02910045955D /* PlayTips */ = {
+			isa = PBXGroup;
+			children = (
+				30354F52227F02910045955D /* PLVVodPlayTipsView.h */,
+				30354F53227F02910045955D /* PLVVodPlayTipsView.m */,
+			);
+			path = PlayTips;
+			sourceTree = "<group>";
+		};
+		30354F6B227F02910045955D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				30354F76227F02910045955D /* NSString+PLVVod.h */,
+				30354F6F227F02910045955D /* NSString+PLVVod.m */,
+				30354F70227F02910045955D /* PLVVodDanmu+PLVVod.h */,
+				30354F78227F02910045955D /* PLVVodDanmu+PLVVod.m */,
+				30354F71227F02910045955D /* UIButton+EnlargeTouchArea.h */,
+				30354F77227F02910045955D /* UIButton+EnlargeTouchArea.m */,
+				30354F6D227F02910045955D /* UIColor+PLVVod.h */,
+				30354F73227F02910045955D /* UIColor+PLVVod.m */,
+				30354F6C227F02910045955D /* UIControl+PLVVod.h */,
+				30354F75227F02910045955D /* UIControl+PLVVod.m */,
+				30354F6E227F02910045955D /* UINavigationController+PLVVod.h */,
+				30354F74227F02910045955D /* UINavigationController+PLVVod.m */,
+				30354F72227F02910045955D /* UIView+PLVVod.h */,
+				30354F79227F02910045955D /* UIView+PLVVod.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		30354FA8227F05D30045955D /* Exam */ = {
+			isa = PBXGroup;
+			children = (
+				30354FB4227F05D30045955D /* ExplanationView */,
+				30354FAB227F05D30045955D /* PLVVodExamViewController.h */,
+				30354FA9227F05D30045955D /* PLVVodExamViewController.m */,
+				30354FAA227F05D30045955D /* PLVVodExamViewController.xib */,
+				30354FAC227F05D30045955D /* QuestionView */,
+			);
+			path = Exam;
+			sourceTree = "<group>";
+		};
+		30354FAC227F05D30045955D /* QuestionView */ = {
+			isa = PBXGroup;
+			children = (
+				30354FAE227F05D30045955D /* PLVVodOptionCell.h */,
+				30354FB1227F05D30045955D /* PLVVodOptionCell.m */,
+				30354FB2227F05D30045955D /* PLVVodOptionCell.xib */,
+				30354FB3227F05D30045955D /* PLVVodQuestion.h */,
+				30354FAF227F05D30045955D /* PLVVodQuestion.m */,
+				30354FAD227F05D30045955D /* PLVVodQuestionView.h */,
+				30354FB0227F05D30045955D /* PLVVodQuestionView.m */,
+			);
+			path = QuestionView;
+			sourceTree = "<group>";
+		};
+		30354FB4227F05D30045955D /* ExplanationView */ = {
+			isa = PBXGroup;
+			children = (
+				30354FB5227F05D30045955D /* PLVVodExplanationView.m */,
+				30354FB6227F05D30045955D /* PLVVodExplanationView.h */,
+			);
+			path = ExplanationView;
 			sourceTree = "<group>";
 		};
 		3035B648224F2C7D00A1AA98 /* LoginAndRegister */ = {
@@ -1125,6 +1335,7 @@
 		3048D7E3223255B800FE63B2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				30354F4A227F02910045955D /* PolyvOpenSourceModule */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -2018,6 +2229,8 @@
 		30FBE35E2241F7FB0049C0DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				30D54D072270489F0004D034 /* MKCourseDetailModel.h */,
+				30D54D082270489F0004D034 /* MKCourseDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2532,6 +2745,7 @@
 				71244492225832A1005AF711 /* OrderDetailCell_2.xib in Resources */,
 				30FBE3B4224B5CF60049C0DE /* MessageCell.xib in Resources */,
 				7124448822582D8C005AF711 /* OrderDetailController.xib in Resources */,
+				30354FB8227F05D30045955D /* PLVVodExamViewController.xib in Resources */,
 				3035B6A4224F2D4500A1AA98 /* BookmarkCell.xib in Resources */,
 				3048D86722364F5F00FE63B2 /* MyCenterViewController.xib in Resources */,
 				3048D86222364F4E00FE63B2 /* AppointmentViewController.xib in Resources */,
@@ -2559,6 +2773,7 @@
 				3035B6D32252032800A1AA98 /* AppointmentTeacherReplyCell.xib in Resources */,
 				30FBE39522488C280049C0DE /* CourseOnlineListCell.xib in Resources */,
 				3035B65D224F2C7D00A1AA98 /* LoginActionController.xib in Resources */,
+				30354F8A227F02910045955D /* PLVVodPlayerSkin.xib in Resources */,
 				71A18E1C225072CA007B4C55 /* JapanDateVController.xib in Resources */,
 				30FBE39A224B26730049C0DE /* CourseOfflineListCell.xib in Resources */,
 				30FBE36A224213200049C0DE /* AppointmentCell.xib in Resources */,
@@ -2566,6 +2781,7 @@
 				3035B662224F2C7D00A1AA98 /* LoginDetailController.xib in Resources */,
 				3048D7BA2232536F00FE63B2 /* LaunchScreen.storyboard in Resources */,
 				3035B65B224F2C7D00A1AA98 /* RegisterController.xib in Resources */,
+				30354FBC227F05D30045955D /* PLVVodOptionCell.xib in Resources */,
 				30A2016E225D9F9C00A6A232 /* MyCourseOnlineListCollectionViewCell.xib in Resources */,
 				3035B6B1224F2D4500A1AA98 /* SupportController.xib in Resources */,
 				3035B6AE224F2D4500A1AA98 /* VersionUpdateController.xib in Resources */,
@@ -2578,6 +2794,7 @@
 				30FBE35A2241E83C0049C0DE /* SetPasswordController.xib in Resources */,
 				30FBE3562241E83C0049C0DE /* MessageNoticeController.xib in Resources */,
 				3048D7B52232536D00FE63B2 /* Main.storyboard in Resources */,
+				30354FA0227F02910045955D /* PLVVodResources.xcassets in Resources */,
 				30A2DA29224E00640030120D /* DiscoverPageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2697,6 +2914,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3029571D226859E4006D1613 /* WYNetworkBaseEngine.m in Sources */,
+				30354F8F227F02910045955D /* PLVVodCoverView.m in Sources */,
 				3048D8532236496000FE63B2 /* MKTarbarViewController.m in Sources */,
 				71A18E1F225072CA007B4C55 /* LYSDatePopViewController.m in Sources */,
 				71A18E26225072CA007B4C55 /* LYSDateBasicViewController.m in Sources */,
@@ -2733,6 +2951,7 @@
 				3048D7EC2232565500FE63B2 /* AppDelegate.m in Sources */,
 				30FBE3132240C2020049C0DE /* HomeRecommenCell.m in Sources */,
 				30FBE375224398620049C0DE /* AppointmentPopView.m in Sources */,
+				30354F92227F02910045955D /* PLVVodPlaybackRatePanelView.m in Sources */,
 				3035B660224F2C7D00A1AA98 /* LoginActionController.m in Sources */,
 				710CF97A22672D62004DAD9D /* RegisterManager.m in Sources */,
 				30FBE3BA224B771B0049C0DE /* MKMessageModel.m in Sources */,
@@ -2743,6 +2962,7 @@
 				30FBE399224B26730049C0DE /* CourseOfflineListCell.m in Sources */,
 				3048D82322325FAD00FE63B2 /* MKBaseTableView.m in Sources */,
 				30FBE31B2240E6B50049C0DE /* HomeCourseCollectionViewCell.m in Sources */,
+				30354F9A227F02910045955D /* UIColor+PLVVod.m in Sources */,
 				71A18E29225072CA007B4C55 /* LYSDatePickerTypeDayDelegate.m in Sources */,
 				30FBE3782244C50C0049C0DE /* CourseDetailScrollView.m in Sources */,
 				3048D86622364F5F00FE63B2 /* MyCenterViewController.m in Sources */,
@@ -2752,16 +2972,21 @@
 				30FBE3652242115F0049C0DE /* AppointmentChildViewController.m in Sources */,
 				3048D892223A2E9D00FE63B2 /* XHRefreshHeader.m in Sources */,
 				71A18E1E225072CA007B4C55 /* LYSDateContentView.m in Sources */,
+				30354F9E227F02910045955D /* PLVVodDanmu+PLVVod.m in Sources */,
 				30A201532255F74100A6A232 /* BillListCollectionViewCell.m in Sources */,
 				3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */,
 				712729392241EBC2006772BF /* RuquestManager.m in Sources */,
 				3048D8732239F77900FE63B2 /* HomePageCell.m in Sources */,
+				30354F94227F02910045955D /* PLVVodSettingPanelView.m in Sources */,
 				30FBE3172240E50A0049C0DE /* HomeCourseCollectionView.m in Sources */,
+				30354F9C227F02910045955D /* UIControl+PLVVod.m in Sources */,
 				3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */,
+				30354FBD227F05D30045955D /* PLVVodExplanationView.m in Sources */,
 				71A18E23225072CA007B4C55 /* LYSDateHeaderViewController.m in Sources */,
 				7124448C225831D3005AF711 /* OrderDetailCell.m in Sources */,
 				3035B65E224F2C7D00A1AA98 /* LoginViewController.m in Sources */,
 				30A2018E225DFD3B00A6A232 /* CourseDetailManager.m in Sources */,
+				30354F9B227F02910045955D /* UINavigationController+PLVVod.m in Sources */,
 				71A18E32225072CA007B4C55 /* ValuePickerView.m in Sources */,
 				3035B69E224F2D4500A1AA98 /* PropertyController.m in Sources */,
 				30A2014F2255F3B700A6A232 /* BillListCollectionViewFlowLayout.m in Sources */,
@@ -2769,11 +2994,14 @@
 				3048D843223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				71A18E2C225072CA007B4C55 /* LYSDatePickerTypeBase.m in Sources */,
 				30FBE2FC223F98250049C0DE /* SelectedCustomLab.m in Sources */,
+				30354FB9227F05D30045955D /* PLVVodQuestion.m in Sources */,
 				71A18E31225072CA007B4C55 /* LagAndSchController.m in Sources */,
 				30A2017F225DE36D00A6A232 /* UserCourseListManager.m in Sources */,
+				30354F93227F02910045955D /* PLVVodAudioCoverPanelView.m in Sources */,
 				30295514226493FF006D1613 /* AppointmentManager.m in Sources */,
 				30FBE3592241E83C0049C0DE /* SetPasswordController.m in Sources */,
 				30FBE369224213200049C0DE /* AppointmentCell.m in Sources */,
+				30354F98227F02910045955D /* PLVVodSkinPlayerController.m in Sources */,
 				3048D842223263AF00FE63B2 /* UILabelEdgeInset.m in Sources */,
 				71A18E25225072CA007B4C55 /* LYSDatePickerTypeDayAndTimeDelegate.m in Sources */,
 				302956762266DE95006D1613 /* HomePageManager.m in Sources */,
@@ -2781,23 +3009,30 @@
 				30A20192225F28FC00A6A232 /* UITextView+WJPlaceholder.m in Sources */,
 				30A2DA2E224E00640030120D /* DiscoverCourseCategoryView.m in Sources */,
 				30295727226859E4006D1613 /* WYNetworkDownloadEngine.m in Sources */,
+				30354F8B227F02910045955D /* PLVVodDefinitionPanelView.m in Sources */,
+				30354F97227F02910045955D /* PLVVodPlayerSkin.m in Sources */,
 				3048D85722364F2700FE63B2 /* HomePageViewController.m in Sources */,
+				30354F9F227F02910045955D /* UIView+PLVVod.m in Sources */,
 				30295722226859E4006D1613 /* WYNetworkManager.m in Sources */,
 				30FBE30C224092780049C0DE /* HomeContentScrollView.m in Sources */,
+				30354F8E227F02910045955D /* PLVVodDanmuSendView.m in Sources */,
 				71A18E1D225072CA007B4C55 /* JapanDateVController.m in Sources */,
 				3048D86122364F4E00FE63B2 /* AppointmentViewController.m in Sources */,
 				3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */,
 				71A18E20225072CA007B4C55 /* LYSDateBaseViewController.m in Sources */,
 				30A20195225F2CFE00A6A232 /* MKBaseScrollView.m in Sources */,
+				30354FBA227F05D30045955D /* PLVVodQuestionView.m in Sources */,
 				302955722266D2EA006D1613 /* MBHUDManager.m in Sources */,
 				30A2DA30224E00640030120D /* CourseCategoryCell.m in Sources */,
 				3035B6CD2251E27400A1AA98 /* MeetingEndQueryViewController.m in Sources */,
 				71A18E27225072CA007B4C55 /* LYSDateIndicatorViewController.m in Sources */,
 				30A201362254679400A6A232 /* AskForLeaveQueryViewController.m in Sources */,
+				30354F91227F02910045955D /* PLVVodGestureIndicatorView.m in Sources */,
 				3048D848223263AF00FE63B2 /* NSString+SizeOfString.m in Sources */,
 				7124F7BE2269719C00084346 /* UserManager.m in Sources */,
 				302956732266D83A006D1613 /* MKNetworkManager.m in Sources */,
 				3048D7B22232536D00FE63B2 /* ViewController.m in Sources */,
+				30354FB7227F05D30045955D /* PLVVodExamViewController.m in Sources */,
 				30A2DA2B224E00640030120D /* DiscoverNewsCell.m in Sources */,
 				3035B6A9224F2D4500A1AA98 /* FeedBackController.m in Sources */,
 				71A18E21225072CA007B4C55 /* LYSDateLogicViewController.m in Sources */,
@@ -2820,28 +3055,36 @@
 				3035B6A7224F2D4500A1AA98 /* BasicInfoCell.m in Sources */,
 				30A2013C2254A2AC00A6A232 /* ChangeClassQueryViewController.m in Sources */,
 				3029572E22687102006D1613 /* HomeRecommendListManager.m in Sources */,
+				30354F8D227F02910045955D /* PLVVodRouteLineView.m in Sources */,
 				71A18E24225072CA007B4C55 /* LYSDatePickerLabel.m in Sources */,
 				7127C086226808D700895D79 /* JKCountDownButton.m in Sources */,
 				3029571B226859E4006D1613 /* WYNetworkConfig.m in Sources */,
 				30A2013F2254A76300A6A232 /* ChangeClassEndViewController.m in Sources */,
+				30354F9D227F02910045955D /* UIButton+EnlargeTouchArea.m in Sources */,
 				30E77DC5226D9DC90052DE5D /* MKPlaceholderView.m in Sources */,
 				30A2014C2255F33800A6A232 /* MyBillListViewController.m in Sources */,
+				30354F95227F02910045955D /* PLVVodShrinkscreenView.m in Sources */,
 				3035B6AD224F2D4500A1AA98 /* UpdateMessageController.m in Sources */,
 				30295725226859E4006D1613 /* WYNetworkUtils.m in Sources */,
 				3048D82C2232633400FE63B2 /* BMPopView.m in Sources */,
 				71C36EAE2267279D0088885F /* LoginManager.m in Sources */,
 				3048D86B22364F6F00FE63B2 /* MyCouseViewController.m in Sources */,
+				30354F99227F02910045955D /* NSString+PLVVod.m in Sources */,
+				30354F96227F02910045955D /* PLVVodLockScreenView.m in Sources */,
 				30A20186225DF1AA00A6A232 /* MyCourseListViewController.m in Sources */,
 				712170D0223F43CC00BA1905 /* MyCenterTopCell.m in Sources */,
 				30FBE309223FA3E00049C0DE /* HomeRecommendViewController.m in Sources */,
 				3035B6AF224F2D4500A1AA98 /* VersionUpdateController.m in Sources */,
+				30354FBB227F05D30045955D /* PLVVodOptionCell.m in Sources */,
 				30FBE38F22488BFE0049C0DE /* CourseTeacherCell.m in Sources */,
 				30A20164225D94DB00A6A232 /* MyOnlineCourseListView.m in Sources */,
+				30D54D092270489F0004D034 /* MKCourseDetailModel.m in Sources */,
 				3035B6C02250725D00A1AA98 /* MKMeetingViewController.m in Sources */,
 				3035B6BD2250725000A1AA98 /* AskForLeaveViewController.m in Sources */,
 				71244491225832A1005AF711 /* OrderDetailCell_2.m in Sources */,
 				30295721226859E4006D1613 /* WYNetworkRequestModel.m in Sources */,
 				30FBE38722488AF30049C0DE /* CourseOnlineTitleCell.m in Sources */,
+				30354F8C227F02910045955D /* PLVVodPlayTipsView.m in Sources */,
 				30A201392254681100A6A232 /* AskForLeaveEndViewController.m in Sources */,
 				3035B6C7225078F100A1AA98 /* AppointmentTapView.m in Sources */,
 				30FBE3552241E83C0049C0DE /* MessageNoticeController.m in Sources */,
@@ -2856,6 +3099,7 @@
 				30FBE3622241F81D0049C0DE /* CourseDetailViewController.m in Sources */,
 				30A20160225B449700A6A232 /* BillDetailPayTimeCell.m in Sources */,
 				30A20158225B370A00A6A232 /* BillDetailCell.m in Sources */,
+				30354F90227F02910045955D /* PLVVodFullscreenView.m in Sources */,
 				712729362241EB9B006772BF /* MessageModel.m in Sources */,
 				30295720226859E4006D1613 /* WYNetworkCacheManager.m in Sources */,
 			);

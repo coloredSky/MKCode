@@ -18,12 +18,14 @@ typedef NS_ENUM(NSUInteger, CourseSituationType) {
     CourseSituationTypeOffline,
 };
 
+@class MKCourseDetailModel;
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CourseDetailManager : NSObject
 
++(void)callBackCourseDetailRequestWithHudShow:(BOOL )hudShow courseID:(NSString *)course_id andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message, MKCourseDetailModel *courseDetailModel))completionBlock;
 @end
 
 NS_ASSUME_NONNULL_END

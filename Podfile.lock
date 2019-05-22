@@ -15,18 +15,45 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - IQKeyboardManager (6.2.0)
+  - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.7)
+  - PLVMarquee (0.0.2)
+  - PLVNetworkDiagnosisTool (0.0.1)
+  - PLVSubtitle (0.1.1)
+  - PLVTimer (0.0.3)
+  - PLVVodDanmu (0.0.1)
+  - PolyvAliHttpDNS (1.6.7)
+  - PolyvIJKPlayer (0.4.0)
+  - PolyvVodSDK (2.5.6):
+    - PLVMarquee (~> 0.0.2)
+    - PLVNetworkDiagnosisTool (~> 0.0.1)
+    - PLVTimer (~> 0.0.2)
+    - PolyvAliHttpDNS (~> 1.6.7)
+    - PolyvIJKPlayer (~> 0.4.0)
+    - SSZipArchive (~> 2.1.1)
+    - WCDB (~> 1.0.6)
   - SDWebImage (5.0.1):
     - SDWebImage/Core (= 5.0.1)
   - SDWebImage/Core (5.0.1)
+  - SQLiteRepairKit (1.2.2):
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - SSZipArchive (2.1.5)
+  - WCDB (1.0.7.5):
+    - SQLiteRepairKit (~> 1.2.0)
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDBOptimizedSQLCipher (1.2.1)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
   - IQKeyboardManager
+  - Masonry
   - MBProgressHUD
   - MJRefresh
+  - PLVSubtitle
+  - PLVVodDanmu
+  - PolyvVodSDK
   - SDWebImage
   - YYModel
 
@@ -34,19 +61,45 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - IQKeyboardManager
+    - Masonry
     - MBProgressHUD
     - MJRefresh
+    - PLVMarquee
+    - PLVNetworkDiagnosisTool
+    - PLVSubtitle
+    - PLVTimer
+    - PLVVodDanmu
+    - PolyvAliHttpDNS
+    - PolyvIJKPlayer
+    - PolyvVodSDK
     - SDWebImage
+    - SQLiteRepairKit
+    - SSZipArchive
+    - WCDB
+    - WCDBOptimizedSQLCipher
     - YYModel
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  PLVMarquee: fa5b52812d3772ca5fcaa50733d549b5b1e6fbf6
+  PLVNetworkDiagnosisTool: e8a098546d30c12f7d1c917d8e43f10941f1bc5d
+  PLVSubtitle: e2466b1be11abe3290aee18a130f9143f48ae90f
+  PLVTimer: 134c9e234b9e8b6f521d7920eb504e1bd2f4fe1c
+  PLVVodDanmu: 7f6663e2bbc3bf93a94b9bd3a404e1760b3d3511
+  PolyvAliHttpDNS: 0fbbbcd3aab07a48305d36884681ca33849cc0b7
+  PolyvIJKPlayer: 42fccc693f21a89e6b5229430f0afb9b43fbcd0f
+  PolyvVodSDK: e82b6d7067d215dc1aaa5e51b4b3e4f2ecc8cfa6
   SDWebImage: 27dd2c9ea07a2252f94557c9fbb6105ee94b74c9
+  SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
+  SSZipArchive: cefe1364104a0231268a5deb8495bdf2861f52f0
+  WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
+  WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 8369418266e4edfff55cd6e0d15412092eabd99a
+PODFILE CHECKSUM: 1af9870ea9ceeeb4bd29c5c43e1a587efc155e27
 
 COCOAPODS: 1.5.3

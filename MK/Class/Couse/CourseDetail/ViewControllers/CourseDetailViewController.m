@@ -7,23 +7,40 @@
 //
 
 #import "CourseDetailViewController.h"
+#import <PLVVodSDK/PLVVodSDK.h>
+#import "PLVVodSkinPlayerController.h"
+//View
 #import "CourseDetailTipView.h"
 #import "CourseDetailScrollView.h"
+
 
 @interface CourseDetailViewController ()<CourseDetailScrollViewDelegate,CourseDetailTipViewDelegate>
 @property (nullable,nonatomic, strong) UIScrollView *contentScroll;
 @property (nonatomic, strong) CourseDetailTipView *courseTipView;
 @property (nonatomic, strong) CourseDetailScrollView *detailScroll;
+@property (nonatomic, strong) UIView *placeholderView;
+@property (nonatomic, strong) PLVVodSkinPlayerController *player;
 @end
 
 @implementation CourseDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.detailScroll CourseDetailScrollViewReloadData];
+    //Request
+    [self startRequest];
+//    [self.detailScroll CourseDetailScrollViewReloadData];
 }
 
+-(void)startRequest
+{
+    [CourseDetailManager callBackCourseDetailRequestWithHudShow:YES courseID:self.course_id andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, MKCourseDetailModel * _Nonnull courseDetailModel) {
+        if (isSuccess) {
+            [self.detailScroll courseDetailScrollViewReloadDataWithMKCourseDetailModel:courseDetailModel];
+        }else{
+            [MBHUDManager showBriefAlert:message];
+        }
+    }];
+}
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -43,6 +60,9 @@
         }
         [self.view addSubview:_contentScroll];
         
+        _placeholderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(278))];
+        [_contentScroll addSubview:_placeholderView];
+        
         UIImageView *playView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(278))];
         playView.image = [UIImage imageNamed:@"playIma"];
         [_contentScroll addSubview:playView];
@@ -56,8 +76,33 @@
         [_contentScroll addSubview:playIcon];
         playIcon.image = KImageNamed(@"courseDetail_playIcon");
         
+        [self setUpVideo];
     }
     return _contentScroll;
+}
+
+-(void)setUpVideo
+{
+    // 初始化播放器
+    PLVVodSkinPlayerController *player = [[PLVVodSkinPlayerController alloc] initWithNibName:nil bundle:nil];
+    [player addPlayerOnPlaceholderView:self.placeholderView rootViewController:self];
+    player.rememberLastPosition = YES;
+    player.enableBackgroundPlayback = YES;
+    player.reachEndHandler = ^(PLVVodPlayerViewController *player) {
+        NSLog(@"%@ finish handler.", player.video.vid);
+    };
+    self.player = player;
+    
+    // 有网情况下，也可以调用此接口，只要存在本地视频，都会优先播放本地视频
+    __weak typeof(self) weakSelf = self;
+    [PLVVodVideo requestVideoWithVid:@"d0b728f5b9977070874be417f3a88e66_d" completion:^(PLVVodVideo *video, NSError *error) {
+//        if (!video.available) return;
+        weakSelf.player.video = video;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.title = video.title;
+        });
+    }];
+ 
 }
 
 -(CourseDetailTipView *)courseTipView
@@ -76,12 +121,6 @@
         _detailScroll = [[CourseDetailScrollView alloc]initWithFrame:CGRectMake(0, self.courseTipView.bottomY, KScreenWidth, KScreenHeight-self.courseTipView.bottomY)];
         _detailScroll.delegate = self;
         _detailScroll.courseType = self.courseType;
-//        NSInteger type = arc4random()%2;
-//        if (type == 0) {
-//            _detailScroll.courseType = CourseSituationTypeOffline;
-//        }else{
-//            _detailScroll.courseType = CourseSituationTypeOnline;
-//        }
         [self.contentScroll addSubview:_detailScroll];
     }
     return _detailScroll;

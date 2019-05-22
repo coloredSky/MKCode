@@ -12,8 +12,7 @@
 
 + (NSDictionary *)modelCustomPropertyMapper {
     // 将personId映射到key为id的数据字段
-    return @{@"categoryID":@"id",
-             @"categoryName" : @"name"
+    return @{@"categoryID":@"category_id"
              };
 }
 @end

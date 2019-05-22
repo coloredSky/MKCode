@@ -251,6 +251,7 @@
         return @"";
     }
     NSScanner * scanner = [NSScanner scannerWithString:html];
+    scanner.charactersToBeSkipped = [NSCharacterSet characterSetWithCharactersInString:@"&nbsp&ldquo"];
     NSString * text = nil;
     while([scanner isAtEnd]==NO)
     {
