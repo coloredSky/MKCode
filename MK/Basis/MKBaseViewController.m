@@ -111,9 +111,9 @@
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setBool:YES forKey:KMKLoginKey];
         [userDefaults synchronize];
-//        __strong typeof(weakSelf) strongSelf = weakSelf;
-//        LoginActionController *loginVC = [LoginActionController new];
-//        [strongSelf.navigationController pushViewController:loginVC animated:YES];
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        LoginActionController *loginVC = [LoginActionController new];
+        [strongSelf.navigationController pushViewController:loginVC animated:YES];
     }];
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:cancleAction];
