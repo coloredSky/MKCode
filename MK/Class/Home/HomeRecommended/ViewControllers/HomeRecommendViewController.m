@@ -89,7 +89,7 @@
 #pragma mark --  request
 -(void)startRequest
 {
-    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:self.categoryID pageOffset:self.pageOffset pageLimit:self.pageLimit andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<MKBannerModel *> * _Nonnull bannerList, NSArray<HomePublicCourseModel *> * _Nonnull publicCourseList, NSArray<MKCourseListModel *> * _Nonnull recommentCourseList) {
+    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:self.categoryID pageOffset:self.pageOffset pageLimit:self.pageLimit andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message,NSArray<HomeCourseCategoryModel *> * _Nonnull courseCategoryList, NSArray<MKBannerModel *> * _Nonnull bannerList, NSArray<HomePublicCourseModel *> * _Nonnull publicCourseList, NSArray<MKCourseListModel *> * _Nonnull recommentCourseList) {
         [self.contentTable.mj_header endRefreshing];
         [self.contentTable.mj_footer endRefreshing];
         if (isSuccess) {
@@ -242,19 +242,27 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    MKCourseListModel *model = self.recommendCourseList[indexPath.row];
     CourseDetailViewController *courseDetailVC = [CourseDetailViewController new];
+    courseDetailVC.course_id = model.courseID;
     [self.navigationController pushViewController:courseDetailVC animated:YES];
 }
 #pragma mark --  collection-DidSelected
 -(void)homeCourseCollectionViewDidSelectedWithIndexPath:(NSIndexPath *)indexPath
 {
-    CourseDetailViewController *courseDetailVC = [CourseDetailViewController new];
-    [self.navigationController pushViewController:courseDetailVC animated:YES];
+    HomePublicCourseModel *model = self.publicCourseList[indexPath.row];
+//    CourseDetailViewController *courseDetailVC = [CourseDetailViewController new];
+//    [self.navigationController pushViewController:courseDetailVC animated:YES];
+    NewsViewController *newsDetailVC = [NewsViewController new];
+    newsDetailVC.titleString = model.courseName;
+    newsDetailVC.contentUrl = model.courseUrl;
+    [self.navigationController pushViewController:newsDetailVC animated:YES];
 }
 #pragma mark --  banner did selected
 - (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
     NewsViewController *newsDetailVC = [NewsViewController new];
     MKBannerModel *model = self.bannerList[subIndex];
+    newsDetailVC.titleString = model.bannerTitle;
     newsDetailVC.contentUrl = model.bannerILinkUrl;
     [self.navigationController pushViewController:newsDetailVC animated:YES];
 }

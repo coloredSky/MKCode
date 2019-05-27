@@ -12,9 +12,18 @@
 //View
 #import "DiscoverNewsCell.h"
 #import "DiscoverCourseCategoryView.h"
+//manager
+#import "DiscoverManager.h"
+//Model
+#import "DiscoverNewsModel.h"
 
 @interface DiscoverPageViewController ()<UITableViewDelegate,UITableViewDataSource,DiscoverCourseCategoryViewDelegate>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
+@property (nonatomic, strong) NSMutableArray <DiscoverNewsModel *> *dicoverNewsList;
+@property (nonatomic, strong) NSArray <DiscoverNewsModel *> *feelingNewsList;
+//分页
+@property (nonatomic, assign) NSInteger pageOffset;//从第几条取数据
+@property (nonatomic, assign) NSInteger pageLimit;//取数据的条数
 @end
 
 @implementation DiscoverPageViewController
@@ -23,6 +32,9 @@
 -(instancetype)init
 {
     if (self = [super init]) {
+        self.pageOffset = 1;
+        self.pageLimit = 5;
+        self.dicoverNewsList = [NSMutableArray array];
     }
     return self;
 }
@@ -30,13 +42,17 @@
 #pragma mark --- destruct method
 -(void)dealloc
 {
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self startRequest];
     [self setUpRefresh];
 }
+
+
 #pragma mark --  refresh
 -(void)setUpRefresh
 {
@@ -44,17 +60,57 @@
     @weakObject(self);
     self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
-        [self.contentTable.mj_header endRefreshing];
+        self.pageOffset = 1;
+        [self requestActivity];
     }];
     //上拉加载
-    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-    //                @strongObject(self);
-    //    }];
+    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
+        @strongObject(self);
+        self.pageOffset += self.pageLimit;
+        [self requestActivity];
+    }];
 }
+
 
 #pragma mark --  request
 -(void)startRequest
 {
+    [self requestActivity];
+    [self requestFeeling];
+}
+
+//请求活动
+-(void)requestActivity
+{
+    [DiscoverManager callBackDiscoverNewsListDataWithHUDShow:NO type:@"activity" pageOffset:self.pageOffset pageLimit:self.pageLimit andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<DiscoverNewsModel *> * _Nonnull newsList) {
+        [self.contentTable.mj_header endRefreshing];
+        [self.contentTable.mj_footer endRefreshing];
+        if (isSuccess) {
+            if (self.pageOffset == 1) {
+                [self.dicoverNewsList removeAllObjects];
+                self.dicoverNewsList = newsList.mutableCopy;
+            }else{
+                [self.dicoverNewsList addObjectsFromArray:newsList];
+            }
+            if (newsList.count < self.pageLimit) {
+                [self.contentTable.mj_footer endRefreshingWithNoMoreData];
+            }
+            [self.contentTable reloadData];
+        }else{
+            self.pageOffset -= self.pageLimit;
+        }
+    }];
+}
+
+//请求学生感言
+-(void)requestFeeling
+{
+    [DiscoverManager callBackDiscoverNewsListDataWithHUDShow:NO type:@"activity" pageOffset:1 pageLimit:4 andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<DiscoverNewsModel *> * _Nonnull newsList) {
+        if (isSuccess) {
+            self.feelingNewsList = newsList;
+            [self.contentTable reloadData];
+        }
+    }];
 }
 
 #pragma mark --  lazy
@@ -76,12 +132,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DiscoverNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DiscoverNewsCell" forIndexPath:indexPath];
-    [cell cellRefreshData];
+    DiscoverNewsModel *newsModel = self.dicoverNewsList[indexPath.section];
+    [cell cellRefreshDataWithDiscoverNewsModel:newsModel];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return self.dicoverNewsList.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -118,18 +175,18 @@
         }else{
             headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(127-10));
         }
-        
+        DiscoverNewsModel *newsModel = self.dicoverNewsList[section];
         UILabel *weekDayLab = [UILabel new];
         weekDayLab.frame = CGRectMake(K_Padding_LeftPadding, headerView.height-KScaleHeight(section == 0 ? KScaleHeight(6) : KScaleHeight(10) )-KScaleHeight(40), 200, KScaleHeight(40));
         [headerView addSubview:weekDayLab];
         [weekDayLab setFont:K_Font_WeekDay_Text textColor:K_Text_BlackColor withBackGroundColor:nil];
-        weekDayLab.text = @"星期四";
+        weekDayLab.text = newsModel.newsCreateWeek;
         
         UILabel *timeLab = [UILabel new];
         timeLab.frame = CGRectMake(weekDayLab.leftX, weekDayLab.topY-KScaleHeight(20), weekDayLab.width, KScaleHeight(20));
         [headerView addSubview:timeLab];
         [timeLab setFont:K_Font_Text_Min_Max textColor:K_Text_grayColor withBackGroundColor:nil];
-        timeLab.text = @"1月10日";
+        timeLab.text = newsModel.newsCreateDate;
         
         return  headerView;
     }
@@ -142,6 +199,7 @@
         CGFloat itemWidth = (KScreenWidth-25*2-18*3)/4;
         DiscoverCourseCategoryView *categoryView = [[DiscoverCourseCategoryView alloc]initWithFrame:CGRectMake(0, fotterView.height/2-itemWidth/2, fotterView.width, itemWidth)];
         categoryView.delegate = self;
+        [categoryView CourseCategoryViewReloadDataWithList:self.feelingNewsList];
         [fotterView addSubview:categoryView];
         return fotterView;
     }
@@ -152,14 +210,20 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DiscoverNewsModel *newsModel = self.dicoverNewsList[indexPath.section];
     NewsViewController *newsVC = [NewsViewController new];
+    newsVC.contentString = newsModel.newsContent;
+    newsVC.loadType = WebViewLoadTypeLoadTheRichText;
     [self.navigationController pushViewController:newsVC animated:YES];
 }
 #pragma mark -- course category did selected
 -(void)itemDidSelectedWithIndex:(NSUInteger )index
 {
-    CourseDetailViewController *courseDetailVC = [CourseDetailViewController new];
-    [self.navigationController pushViewController:courseDetailVC animated:YES];
+     DiscoverNewsModel *newsModel = self.feelingNewsList[index];
+    NewsViewController *newsVC = [NewsViewController new];
+    newsVC.contentString = newsModel.newsContent;
+    newsVC.loadType = WebViewLoadTypeLoadTheRichText;
+    [self.navigationController pushViewController:newsVC animated:YES];
 }
 
 @end

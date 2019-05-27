@@ -18,7 +18,7 @@
     }
     NSDictionary * param =@{@"mobile":phone};
     [MKNetworkManager sendPostRequestWithUrl:K_MK_GetPhoneCode_url parameters:param hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
-        if (MKResult.responseCode == 1) {
+        if (MKResult.responseCode == 0) {
             if (completionBlock) {
                 completionBlock(YES,MKResult.message,@"发送成功");
             }
@@ -51,7 +51,7 @@
     
     NSDictionary * param_dic =@{@"mobile":phone,@"code":code,@"passwd":pwd};
     [MKNetworkManager sendPostRequestWithUrl:K_MK_Register_Url parameters:param_dic hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
-        if (MKResult.responseCode ==1) {
+        if (MKResult.responseCode ==0) {
             completionBlock(YES,MKResult.message,@"注册成功");
         }
         else

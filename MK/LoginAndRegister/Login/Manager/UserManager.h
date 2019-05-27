@@ -14,10 +14,15 @@ NS_ASSUME_NONNULL_BEGIN
 //用户对象归档路径
 #define kUserPath [kSandBoxDocumentPath stringByAppendingPathComponent:@"user"]
 #define kUserIdKey @"userIdKey"
+
 @interface UserManager : NSObject
+//是否登录
+@property (nonatomic, assign, readonly) BOOL isLogin;
+
 + (instancetype)shareInstance;
 
-////用户
+-(void)loginOut;
+//用户
 - (void)saveUser:(LoginModel *)user;
 - (LoginModel *)getUser;
 - (NSString *)getUserId;

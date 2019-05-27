@@ -15,10 +15,10 @@
 
 //+ (instancetype)shareInstance;
 
-+(void)showLoginViewController;
+//+(void)showLoginViewController;
 
-+ (void)showMainViewController;
+//+ (void)showMainViewController;
 
-+ (void)showIndexViewController;
+//+ (void)showIndexViewController;
 
 @end

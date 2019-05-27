@@ -187,19 +187,20 @@
 // 选中某item
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (![[UserManager shareInstance]isLogin]) {
+        [self loginAlterViewShow];
+        return;
+    }
     if (indexPath.section ==0)
     {
+
         if (![self isLogin]) {
             [self loginAlterViewShow];
             return;
         }
+
         if (indexPath.item ==0)
         {
-
-//            OrderDetailController * ovc= [OrderDetailController new];
-//            ovc.hidesBottomBarWhenPushed =YES;
-//            [self.navigationController pushViewController:ovc animated:YES];
-
             MyBillListViewController *billVC = [MyBillListViewController new];
             [self.navigationController pushViewController:billVC animated:YES];
 
@@ -315,6 +316,7 @@
 #pragma mark-headerViewDelegate
 -(void)headerViewBtnClick
 {
+<<<<<<< HEAD
     if ([self isLogin ]==YES)
     {
         UpdateMessageController * uvc =[UpdateMessageController new];
@@ -323,6 +325,9 @@
     }
     else
     {
+=======
+    if (![[UserManager shareInstance]isLogin]) {
+>>>>>>> 62e54cb4d819420e5375bc3359fada88681aa4fd
         [self loginAlterViewShow];
     }
 }

@@ -12,7 +12,8 @@
 
 + (NSDictionary *)modelCustomPropertyMapper {
     // 将personId映射到key为id的数据字段
-    return @{@"courseImage":@"img"
+    return @{@"courseImage":@"img",
+             @"courseUrl" : @"url",
              };
 }
 

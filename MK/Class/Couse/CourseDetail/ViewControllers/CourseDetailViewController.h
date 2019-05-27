@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CourseDetailViewController : MKNavViewController
+@property (nonatomic, copy) NSString *course_id;
 @property (nonatomic, assign) CourseSituationType courseType;
 @end
 

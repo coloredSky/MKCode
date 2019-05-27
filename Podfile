@@ -8,6 +8,11 @@ target 'MK' do
    pod 'MBProgressHUD'
    pod 'YYModel'
    pod 'SDWebImage'
+   pod 'PolyvVodSDK'
+   pod 'Masonry'
+   pod 'PLVVodDanmu'
+   pod 'PLVSubtitle'
+
 
   # Pods for MK
 

@@ -16,9 +16,9 @@ static id instance = nil;
     if (!instance) {
         instance =  [[UserManager alloc]init];
     }
-    
     return instance;
 }
+
 +(instancetype)allocWithZone:(struct _NSZone *)zone{
     if (!instance) {
         static dispatch_once_t onceToken;
@@ -28,8 +28,8 @@ static id instance = nil;
     }
     return instance;
 }
-#pragma mark - user
 
+#pragma mark - user
 - (void)saveUser:(LoginModel *)user{
     
     MKLog(@"%@",kUserPath);
@@ -37,33 +37,37 @@ static id instance = nil;
     if ([user1.id isEqualToString:user.id]) {
         user.username = user1.username;
     }
-    
     if (user) {
         [NSKeyedArchiver archiveRootObject:user toFile:kUserPath];
         [self saveUserId:user.id];
     }else{
-        
         [self removeUser];
     }
 }
 
+-(BOOL )isLogin
+{
+    NSString *userId =   [[UserManager shareInstance]getUserId];
+    if ([NSString isEmptyWithStr:userId]) {
+        return NO;
+    }
+    return YES;
+}
+
 - (LoginModel *)getUser{
     LoginModel *user = [NSKeyedUnarchiver unarchiveObjectWithFile:kUserPath];
-    
     return user;
 }
 
 - (void)removeUser{
     NSError *error = nil;
     [[NSFileManager defaultManager] removeItemAtPath:kUserPath error:&error];
-    
     if (error) {
         MKLog(@"%@",error.description);
     }
 }
 
 - (NSString *)getUserId{
-    
     return [[NSUserDefaults standardUserDefaults] stringForKey:kUserIdKey];
 }
 
@@ -71,6 +75,7 @@ static id instance = nil;
 {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserIdKey];
 }
+
 - (void)saveUserId:(NSString *)userId{
     if (userId != nil) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -81,12 +86,12 @@ static id instance = nil;
     }
 }
 
-
 - (void)removeUserId{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:kUserIdKey];
     [defaults synchronize];
 }
+
 ///token
 - (void)saveToken:(NSString *)token{
     if (token != nil) {
@@ -104,4 +109,10 @@ static id instance = nil;
     return [[NSUserDefaults standardUserDefaults] stringForKey:@"kTOKEN"];
 }
 
+-(void)loginOut
+{
+    [self removeUser];
+    [self removeToken];
+    [self removeUserId];
+}
 @end

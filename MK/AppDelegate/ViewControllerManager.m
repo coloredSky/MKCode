@@ -35,31 +35,31 @@
 //    return instance;
 //}
 
-+ (void)showLoginViewController
-{
-    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
-    
-    if (app.window.rootViewController)
-    {
-        LoginActionController *lVC = [LoginActionController new];
-
-        UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:lVC];
-
-        [app.window.rootViewController presentViewController: navC animated:NO completion:nil];
-    }
-}
-
-+ (void)showMainViewController
-{
-    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
-    
-    if (app.window.rootViewController)
-    {
-        MKTarbarViewController *tabVC = [MKTarbarViewController new];
-
-        app.window.rootViewController = tabVC ;
-    }
-}
+//+ (void)showLoginViewController
+//{
+//    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
+//
+//    if (app.window.rootViewController)
+//    {
+//        LoginActionController *lVC = [LoginActionController new];
+//
+//        UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:lVC];
+//
+//        [app.window.rootViewController presentViewController: navC animated:NO completion:nil];
+//    }
+//}
+//
+//+ (void)showMainViewController
+//{
+//    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
+//    
+//    if (app.window.rootViewController)
+//    {
+//        MKTarbarViewController *tabVC = [MKTarbarViewController new];
+//
+//        app.window.rootViewController = tabVC ;
+//    }
+//}
 
 + (void)showIndexViewController
 {    

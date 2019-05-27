@@ -13,7 +13,8 @@
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic
 {
     if (![NSString isEmptyWithStr:dic[@"detail"]]) {
-        _courseDescription = [NSString filterHTML:dic[@"detail"]];
+        NSString *courseDescription = [NSString htmlStringTransToString:dic[@"detail"]];
+        _courseDescription = [NSString filterHTML:courseDescription];
     }
     return YES;
 }

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DiscoverNewsModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,8 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @protocol DiscoverCourseCategoryViewDelegate;
 @interface DiscoverCourseCategoryView : UIView
+
 @property (nonatomic, assign) id<DiscoverCourseCategoryViewDelegate>delegate;
--(void)CourseCategoryViewReloadData;
+
+-(void)CourseCategoryViewReloadDataWithList:(NSArray <DiscoverNewsModel *>*)dataList;
+
 @end
 
 @protocol DiscoverCourseCategoryViewDelegate <NSObject>

@@ -7,6 +7,8 @@
 //
 
 
+@class MKCourseDetailModel;
+@class MKLessonModel;
 
 #import <UIKit/UIKit.h>
 #import "CourseDetailManager.h"
@@ -22,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) id<CourseDetailScrollViewDelegate>delegate;
 @property (nonatomic, assign) CourseSituationType courseType;
 //数据刷新
--(void)CourseDetailScrollViewReloadData;
+-(void)courseDetailScrollViewReloadDataWithMKCourseDetailModel:(MKCourseDetailModel *)courseDetailModel;
 //使scrollView翻页
 -(void)scrollToIndex:(NSInteger )index;
 @end
@@ -35,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 //监测滑动e页数
 -(void)CourseDetailScrollViewScrollToIndex:(NSInteger )index;
 //cell 课程点击
--(void)courseDidSelectedWithIndexPath:(NSIndexPath *)indexPath;
+-(void)courseDidSelectedWithIndexPath:(NSIndexPath *)indexPath andLessonModel:(MKLessonModel *)lessonModel;
 @end
 
 NS_ASSUME_NONNULL_END

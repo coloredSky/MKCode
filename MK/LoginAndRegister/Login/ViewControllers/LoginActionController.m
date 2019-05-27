@@ -68,9 +68,16 @@
     else if(sender.tag==2)
     {
         //登录
+        [MBHUDManager showLoading];
         [LoginManager callBackLoginDataWithHudShow:YES userName:self.phoneTF.text pwd:self.passwordTF.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, LoginModel * _Nonnull model) {
+            [MBHUDManager hideAlert];
             if (isSuccess ==YES) {
                 [self.navigationController popViewControllerAnimated:YES];
+
+            }else{
+                if ([NSString isEmptyWithStr:message]) {
+                    [MBHUDManager showBriefAlert:message];
+                }
             }
         }];
     }

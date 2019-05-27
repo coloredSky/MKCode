@@ -91,7 +91,7 @@
         
         _sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
         _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
-            _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
+        _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
         
     } else if (serializer == WYJSONHTTPRequestSerializer){
         

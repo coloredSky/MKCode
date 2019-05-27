@@ -7,6 +7,8 @@
 //
 
 #import "CourseOfflineListCell.h"
+#import "MKCourseDetailModel.h"
+
 @interface CourseOfflineListCell()
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
 @property (weak, nonatomic) IBOutlet UILabel *courseNumLab;//课程编号
@@ -35,10 +37,10 @@
     self.courseDecriptionLab.frame = CGRectMake(self.courseTimeLab.leftX, self.courseTimeLab.bottomY, self.courseTimeLab.width, KScaleHeight(40));
 }
 
--(void)cellRefreshData
+-(void)cellRefreshDataWithLessonModel:(MKLessonModel *)model
 {
-    self.courseSelectedIma.image = KImageNamed(@"courseDetail_selected");
-    self.courseNumLab.text = @"1";
+    [self.courseSelectedIma sd_setImageWithURL:[NSURL URLWithString:model.lessonImage] placeholderImage:nil];
+    self.courseNumLab.text = [NSString stringWithFormat:@"%ld",[model.order_list integerValue]];
     self.courseTimeLab.text = @"03月14日   17:00-19:00";
     self.courseDecriptionLab.text = @"概述大学院美术进学的概念，介绍确认研究课题的方法，通过随堂练习导入方法 …";
 }

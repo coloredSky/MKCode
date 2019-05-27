@@ -7,6 +7,7 @@
 //
 
 #import "CourseOnlineTitleCell.h"
+#import "MKCourseDetailModel.h"
 @interface CourseOnlineTitleCell()
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
@@ -47,12 +48,12 @@
     self.lineIma.frame = CGRectMake(KScaleWidth(20), self.bottomView.height-K_Line_lineWidth, self.bottomView.width-KScaleWidth(20*2), K_Line_lineWidth);
 }
 
--(void)cellRefreshData
+-(void)cellRefreshDataWithCourseDetailModel:(MKCourseDetailModel *)courseDetailMode
 {
-    NSString *text = @"巩固日语基础阶段学习中必须掌握的语法，为留考，校内考以及N1N2的学习打下良好的基础。";
+    NSString *text = [NSString filterHTML:courseDetailMode.courseInfoDetail.courseDetail];
     self.titleLab.attributedText = [NSString setStringSpaceWithText:text andLineSpacValue:5 andWordSpace:0 withFont:self.titleLab.font];
-    self.timeConsumingLab.text = @"55h";
-    self.personsLab.text = @"23人";
+    self.timeConsumingLab.text = [NSString stringWithFormat:@"%@h",courseDetailMode.courseInfoDetail.courseConsumingTime];
+    self.personsLab.text =  [NSString stringWithFormat:@"%@人",courseDetailMode.courseInfoDetail.totalStudyNum];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
