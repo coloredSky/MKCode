@@ -20,45 +20,26 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UIViewController *vc = [UIViewController new];
-    vc.view.backgroundColor = [UIColor whiteColor];
-    self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = vc;
-    [self.window makeKeyAndVisible];
     [self MKAppConfig];
-    [self polyvVideoPlayConfig];
-    if (![self isUserLogin]) {
-        [ViewControllerManager showLoginViewController];
-    }
-    else
-    {
-        [ViewControllerManager showMainViewController];
-    }
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    MKTarbarViewController *mkTarbarVC = [MKTarbarViewController new];
+    self.window.rootViewController = mkTarbarVC;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
-
--(BOOL)isUserLogin
-{
-    NSString *userId =   [[UserManager shareInstance]getUserId ];
-    if (userId != nil && userId.length> 0)
-    {
-        //已经登录
-        return YES;
-    }
-    return NO;
-}
 -(void)MKAppConfig
 {
-    [self  configKeyboard];//键盘
+    [self configKeyboard];//键盘
+    [self polyvVideoPlayConfig];//第三方播放视频
 }
+
 -(void)polyvVideoPlayConfig
 {
     NSError *error = nil;
-    NSString *vodKey = @"B45m7CFRAKTKJyfX5UeMF6sXaRM2UY9ef9qHTrqHZCpnZgaL7asIn7QRxPKBSyQpldwYsCHIl3Dfgk0pggYyz5i1wKDOM3dOJpx/X3y2A/L2XSfldDF7nPWXPMGBDoMBSEZeiO/u+3DWKS79gt5BZQ==";
-    NSString *decodeKey = @"VXtlHmwfS2oYm0CZ";
-    NSString *decodeIv = @"2u9gDPKdX6GyQJKU";
+    NSString *vodKey = @"n0U70JWs5/Y8JfJ19sDvmG77hSjMcndG2lopb/5Bw4a6ZS118jiETAcQXWka5u0dSGHCPYrtjKcKNTnrMN32/Zazjxb70wG6sqDKlDCjiz270R53o6i22OPDaHthdSmNiAzjg+thN+YhOyj/etPN7Q==";
+    NSString *decodeKey = @"CBm2slFGXpCLXsgq";
+    NSString *decodeIv = @"vXsHPN3fodcWqQ6u";
      [PLVVodSettings settingsWithConfigString:vodKey key:decodeKey iv:decodeIv error:&error];
 }
 

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
  发现中的课程分类item
  */
 @interface CourseCategoryCell : UICollectionViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *contentIma;
 @end
 
 NS_ASSUME_NONNULL_END

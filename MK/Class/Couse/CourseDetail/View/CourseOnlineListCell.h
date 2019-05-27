@@ -7,6 +7,7 @@
 //
 
 #import "MKBaseTableViewCell.h"
+@class MKLessonModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  线上课程视频列表
  */
 @interface CourseOnlineListCell : MKBaseTableViewCell
--(void)cellRefreshWithData:(BOOL )selected;
+-(void)cellRefreshDataWithLessonModel:(MKLessonModel *)model;
 @end
 
 NS_ASSUME_NONNULL_END

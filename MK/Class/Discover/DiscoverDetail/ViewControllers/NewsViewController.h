@@ -12,7 +12,7 @@
  - WebViewLoadTypeLoadURL: URL
  */
 typedef NS_ENUM(NSUInteger, WebViewLoadType) {
-        WebViewLoadTypeLoadURL,
+    WebViewLoadTypeLoadURL,
     WebViewLoadTypeLoadTheRichText
 };
 

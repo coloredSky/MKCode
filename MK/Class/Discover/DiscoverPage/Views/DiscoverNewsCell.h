@@ -7,6 +7,7 @@
 //
 
 #import "MKBaseTableViewCell.h"
+@class DiscoverNewsModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface DiscoverNewsCell : MKBaseTableViewCell
 
--(void)cellRefreshData;
+-(void)cellRefreshDataWithDiscoverNewsModel:(DiscoverNewsModel *)newsModel;
 @end
 
 NS_ASSUME_NONNULL_END

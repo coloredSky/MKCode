@@ -26,6 +26,8 @@ static NSString * const K_MK_Home_CourseList_Url  = @"/api/course/courseList";
 //课程详情
 static NSString * const K_MK_Course_CourseDetail_Url  = @"/api/course/courseDetail";
 
+//发现
+static NSString * const K_MK_Discover_NewsList_Url  = @"/api/posts/getposts";
 
 
 /*

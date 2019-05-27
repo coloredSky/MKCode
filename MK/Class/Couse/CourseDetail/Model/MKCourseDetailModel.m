@@ -10,13 +10,22 @@
 
 @implementation MKLessonModel
 
+- (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic
+{
+    if ([NSString isEmptyWithStr:_video_time]) {
+        
+    }
+    return YES;
+}
+
 + (NSDictionary *)modelCustomPropertyMapper
 {
     // 将personId映射到key为id的数据字段
     return @{@"lessonID":@"id",
              @"lessonName" : @"name",
              @"lessonTarget" : @"target",
-             @"lessonDetail" : @"detail"
+             @"lessonDetail" : @"detail",
+             @"lessonImage" : @"img",
              };
 }
 @end
@@ -26,6 +35,9 @@
 {
     if ([NSString isEmptyWithStr:_courseDetail]) {
         _courseDetail = @"";
+    }
+    if ([NSString isEmptyWithStr:_courseConsumingTime]) {
+        _courseConsumingTime = @"";
     }
     return YES;
 }
@@ -39,7 +51,9 @@
              @"coursePrice" : @"price",
              @"courseLevel" : @"level",
              @"courseConsumingTime" : @"days",
-             @"courseDetail" : @"detail"
+             @"courseDetail" : @"detail",
+             @"courseImage" : @"img",
+             @"totalStudyNum" : @"total_study_num",
              };
 }
 @end
@@ -47,9 +61,6 @@
 @implementation MKCourseDetailModel
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic
 {
-    if (_courseInfo.count > 0) {
-        _courseInfoDetail = _courseInfo[0];
-    }
     return YES;
 }
 
@@ -64,11 +75,14 @@
              @"teacher_name" : @"lecturerInfo.name",
              @"teacher_avatar" : @"lecturerInfo.avatar",
              @"teacher_detail" : @"lecturerInfo.detail",
+             @"courseInfoDetail" : @"courseInfo",
              };
 }
 
 + (NSDictionary *)modelContainerPropertyGenericClass
 {
-    return @{@"lessonList" : [MKLessonModel class], @"courseInfo" : [MKCourseInfoModel class]};
+    return @{@"lessonList" : [MKLessonModel class],
+             @"courseInfo" : [MKCourseInfoModel class],
+             };
 }
 @end

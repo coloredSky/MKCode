@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomePublicCourseModel : NSObject
 @property (nonatomic, copy) NSString *courseName;//课程名字
+@property (nonatomic, copy) NSString *courseUrl;//课程Url
 @property (nonatomic, copy) NSString *lectureName;//课时名字
 @property (nonatomic, copy) NSString *startTime;//开始时间
 @property (nonatomic, copy) NSString *endTime;//结束时间

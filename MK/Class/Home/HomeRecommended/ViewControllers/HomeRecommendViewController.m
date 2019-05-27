@@ -250,10 +250,13 @@
 #pragma mark --  collection-DidSelected
 -(void)homeCourseCollectionViewDidSelectedWithIndexPath:(NSIndexPath *)indexPath
 {
-#warning 跳转没做，还没有courseID
-//    HomePublicCourseModel *model = self.publicCourseList[indexPath.row];
+    HomePublicCourseModel *model = self.publicCourseList[indexPath.row];
 //    CourseDetailViewController *courseDetailVC = [CourseDetailViewController new];
 //    [self.navigationController pushViewController:courseDetailVC animated:YES];
+    NewsViewController *newsDetailVC = [NewsViewController new];
+    newsDetailVC.titleString = model.courseName;
+    newsDetailVC.contentUrl = model.courseUrl;
+    [self.navigationController pushViewController:newsDetailVC animated:YES];
 }
 #pragma mark --  banner did selected
 - (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {

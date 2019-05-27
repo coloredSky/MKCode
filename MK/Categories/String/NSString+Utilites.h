@@ -139,4 +139,44 @@
  *  @return 时间字符串
  */
 + (NSString *)stringFromDate:(NSDate *)date formate:(NSDateFormatter *)formate;
+
+
+/**
+ 秒转分钟  00:00:00 或 00:00
+
+ @param secondsString 秒
+ @return 转化后的字符
+ */
++(NSString *)stringTurnSecondsStringIntoMinutesString:(NSString *)secondsString;
+
+
+
+/**
+ 时间字符串转星期几
+
+ @param dateString 时间字符
+ @param dateFormatString 时间字符的格式
+ @return 星期几
+ */
++(NSString *)weekdayStringWithDateString:(NSString *)dateString  andDateFormatString:(NSString *)dateFormatString;
+
+/**
+ 时间格式转换
+
+ @param dateStr 需要转换的时间字符
+ @param formModel 转换字符的时间格式
+ @param toModel 转换后的时间格式
+ @return 字符串
+ */
++(NSString*)timeTransformWithDate:(NSString *)dateStr  WithFormModel:(NSString *)formModel toModel:(NSString *)toModel;
+
+
+/**
+ 给HTML字符串转译
+
+ @param htmlString 传入的HTML字符
+ @return 返回转以后的字符
+ */
++(NSString *)htmlStringTransToString:(NSString *)htmlString;
+
 @end

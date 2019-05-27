@@ -7,6 +7,8 @@
 //
 
 #import "CourseOnlineListCell.h"
+#import "MKCourseDetailModel.h"
+
 @interface CourseOnlineListCell()
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
 @property (weak, nonatomic) IBOutlet UIImageView *selectedLeftIma;//选中播放 右侧展示图
@@ -42,19 +44,21 @@
     
 }
 
--(void)cellRefreshWithData:(BOOL )selected
+-(void)cellRefreshDataWithLessonModel:(MKLessonModel *)model
 {
-    self.courseIma.image = KImageNamed(@"billList");
-    self.courseNameLab.text = @"语态：可能态";
-    self.courseTimeLab.text = @"23:34";
-    if (selected) {
+    [self.courseIma sd_setImageWithURL:[NSURL URLWithString:model.lessonImage] placeholderImage:nil];
+    self.courseNameLab.text = model.lessonName;
+    self.courseTimeLab.text = [NSString stringTurnSecondsStringIntoMinutesString:model.video_time];
+    
+    self.courseNumLab.text = [NSString stringWithFormat:@"%ld",[model.order_list integerValue]];
+    if (model.isSelected) {
         self.whiteView.backgroundColor = K_BG_YellowColor;
-        self.courseNumLab.hidden = YES;
+//        self.courseNumLab.hidden = YES;
+        self.selectedLeftIma.hidden = NO;
     }else{
         self.whiteView.backgroundColor = K_BG_deepGrayColor;
         self.selectedLeftIma.hidden = YES;
         self.playIma.hidden = YES;
-        self.courseNumLab.text = @"1.";
     }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

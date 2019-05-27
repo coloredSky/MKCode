@@ -24,6 +24,7 @@
 @property (nonatomic, strong) WKWebView *contentWeb;//课程详情
 //model
 @property (nonatomic, strong) MKCourseDetailModel *courseDetailModel;
+@property (nonatomic, strong) MKLessonModel *selectedLessonModel;
 @end
 @implementation CourseDetailScrollView
 @synthesize delegate;
@@ -99,15 +100,13 @@
     }else{
         if (self.courseType == CourseSituationTypeOnline) {
             CourseOnlineListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseOnlineListCell" forIndexPath:indexPath];
-            if (indexPath.row == 0) {
-                [cell cellRefreshWithData:YES];
-            }else{
-                [cell cellRefreshWithData:NO];
-            }
+            MKLessonModel *lessonModel =  self.courseDetailModel.lessonList[indexPath.row];
+            [cell cellRefreshDataWithLessonModel:lessonModel];
             return cell;
         }else{
             CourseOfflineListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseOfflineListCell" forIndexPath:indexPath];
-            [cell cellRefreshData];
+            MKLessonModel *lessonModel =  self.courseDetailModel.lessonList[indexPath.row];
+            [cell cellRefreshDataWithLessonModel:lessonModel];
             return cell;
         }
     }
@@ -122,7 +121,7 @@
     if (section == 0||section == 1) {
         return 1;
     }
-    return self.courseDetailModel.courseInfo.count;
+    return self.courseDetailModel.lessonList.count;
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -183,9 +182,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 2) {
-        if ([delegate respondsToSelector:@selector(courseDidSelectedWithIndexPath:)]) {
-            [delegate courseDidSelectedWithIndexPath:indexPath];
+        MKLessonModel *lessonModel =  self.courseDetailModel.lessonList[indexPath.row];
+        if (self.selectedLessonModel == lessonModel) {
+            return;
         }
+        [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+        self.selectedLessonModel.isSelected = NO;
+        lessonModel.isSelected = YES;
+        self.selectedLessonModel = lessonModel;
+        if ([delegate respondsToSelector:@selector(courseDidSelectedWithIndexPath: andLessonModel:)]) {
+            [delegate courseDidSelectedWithIndexPath:indexPath andLessonModel:lessonModel];
+        }
+        [tableView reloadData];
     }
 }
 

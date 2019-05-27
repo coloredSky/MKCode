@@ -163,6 +163,8 @@
 		30A2DA2F224E00640030120D /* DiscoverNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A2DA1A224E00640030120D /* DiscoverNewsCell.xib */; };
 		30A2DA30224E00640030120D /* CourseCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA1B224E00640030120D /* CourseCategoryCell.m */; };
 		30A2DA32224E00640030120D /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA20224E00640030120D /* NewsViewController.m */; };
+		30BA54922297C62200E9A6A0 /* DiscoverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BA54912297C62200E9A6A0 /* DiscoverManager.m */; };
+		30BA54952297C73A00E9A6A0 /* DiscoverNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BA54942297C73A00E9A6A0 /* DiscoverNewsModel.m */; };
 		30D54D092270489F0004D034 /* MKCourseDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D54D082270489F0004D034 /* MKCourseDetailModel.m */; };
 		30E77DC5226D9DC90052DE5D /* MKPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DC4226D9DC90052DE5D /* MKPlaceholderView.m */; };
 		30E77DC8226DAD720052DE5D /* MKBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DC7226DAD720052DE5D /* MKBannerModel.m */; };
@@ -571,6 +573,10 @@
 		30A2DA1B224E00640030120D /* CourseCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCategoryCell.m; sourceTree = "<group>"; };
 		30A2DA20224E00640030120D /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		30A2DA22224E00640030120D /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		30BA54902297C62200E9A6A0 /* DiscoverManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverManager.h; sourceTree = "<group>"; };
+		30BA54912297C62200E9A6A0 /* DiscoverManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverManager.m; sourceTree = "<group>"; };
+		30BA54932297C73A00E9A6A0 /* DiscoverNewsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverNewsModel.h; sourceTree = "<group>"; };
+		30BA54942297C73A00E9A6A0 /* DiscoverNewsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverNewsModel.m; sourceTree = "<group>"; };
 		30D54D072270489F0004D034 /* MKCourseDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKCourseDetailModel.h; sourceTree = "<group>"; };
 		30D54D082270489F0004D034 /* MKCourseDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKCourseDetailModel.m; sourceTree = "<group>"; };
 		30E77DBF226D96B70052DE5D /* MKPrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPrefix.h; sourceTree = "<group>"; };
@@ -1970,19 +1976,12 @@
 		30A2DA09224E00640030120D /* DiscoverPage */ = {
 			isa = PBXGroup;
 			children = (
-				30A2DA0A224E00640030120D /* Manager */,
+				30BA548F2297C61500E9A6A0 /* Model */,
+				30BA548E2297C60500E9A6A0 /* Manager */,
 				30A2DA0C224E00640030120D /* ViewControllers */,
-				30A2DA10224E00640030120D /* Model */,
 				30A2DA12224E00640030120D /* Views */,
 			);
 			path = DiscoverPage;
-			sourceTree = "<group>";
-		};
-		30A2DA0A224E00640030120D /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		30A2DA0C224E00640030120D /* ViewControllers */ = {
@@ -1993,13 +1992,6 @@
 				30A2DA0E224E00640030120D /* DiscoverPageViewController.xib */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		30A2DA10224E00640030120D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		30A2DA12224E00640030120D /* Views */ = {
@@ -2056,6 +2048,24 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		30BA548E2297C60500E9A6A0 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				30BA54902297C62200E9A6A0 /* DiscoverManager.h */,
+				30BA54912297C62200E9A6A0 /* DiscoverManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		30BA548F2297C61500E9A6A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30BA54932297C73A00E9A6A0 /* DiscoverNewsModel.h */,
+				30BA54942297C73A00E9A6A0 /* DiscoverNewsModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		30FBE2FD223FA3B20049C0DE /* HomeCommon */ = {
@@ -2977,6 +2987,7 @@
 				3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */,
 				712729392241EBC2006772BF /* RuquestManager.m in Sources */,
 				3048D8732239F77900FE63B2 /* HomePageCell.m in Sources */,
+				30BA54922297C62200E9A6A0 /* DiscoverManager.m in Sources */,
 				30354F94227F02910045955D /* PLVVodSettingPanelView.m in Sources */,
 				30FBE3172240E50A0049C0DE /* HomeCourseCollectionView.m in Sources */,
 				30354F9C227F02910045955D /* UIControl+PLVVod.m in Sources */,
@@ -3008,6 +3019,7 @@
 				30FBE371224238090049C0DE /* AppointmentCollectionViewCell.m in Sources */,
 				30A20192225F28FC00A6A232 /* UITextView+WJPlaceholder.m in Sources */,
 				30A2DA2E224E00640030120D /* DiscoverCourseCategoryView.m in Sources */,
+				30BA54952297C73A00E9A6A0 /* DiscoverNewsModel.m in Sources */,
 				30295727226859E4006D1613 /* WYNetworkDownloadEngine.m in Sources */,
 				30354F8B227F02910045955D /* PLVVodDefinitionPanelView.m in Sources */,
 				30354F97227F02910045955D /* PLVVodPlayerSkin.m in Sources */,

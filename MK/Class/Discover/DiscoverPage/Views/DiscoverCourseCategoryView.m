@@ -9,9 +9,11 @@
 #import "DiscoverCourseCategoryView.h"
 //View
 #import "CourseCategoryCell.h"
+#import "DiscoverNewsModel.h"
 
 @interface DiscoverCourseCategoryView()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *contentCollectionView;
+@property (nonatomic, strong) NSArray <DiscoverNewsModel *>*dataList;
 @end
 
 @implementation DiscoverCourseCategoryView
@@ -40,11 +42,13 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     CourseCategoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CourseCategoryCell" forIndexPath:indexPath];
+    DiscoverNewsModel *newsModel = self.dataList[indexPath.row];
+    [cell.contentIma sd_setImageWithURL:[NSURL URLWithString:newsModel.newsImage] placeholderImage:KImageNamed(@"discover_category1")];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 4;
+    return self.dataList.count;
 }
 
 #pragma mark --  cell did selected
@@ -55,8 +59,9 @@
     }
 }
 #pragma mark --  reload data
--(void)CourseCategoryViewReloadData
+-(void)CourseCategoryViewReloadDataWithList:(NSArray <DiscoverNewsModel *>*)dataList
 {
+    self.dataList = dataList;
     [self.contentCollectionView reloadData];
 }
 @end

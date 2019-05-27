@@ -12,6 +12,9 @@
 //View
 #import "CourseDetailTipView.h"
 #import "CourseDetailScrollView.h"
+#import "MKCourseDetailModel.h"
+//model
+#import "MKCourseDetailModel.h"
 
 
 @interface CourseDetailViewController ()<CourseDetailScrollViewDelegate,CourseDetailTipViewDelegate>
@@ -19,7 +22,9 @@
 @property (nonatomic, strong) CourseDetailTipView *courseTipView;
 @property (nonatomic, strong) CourseDetailScrollView *detailScroll;
 @property (nonatomic, strong) UIView *placeholderView;
+@property (nonatomic, strong) UIImageView *courseIma;
 @property (nonatomic, strong) PLVVodSkinPlayerController *player;
+@property (nonatomic, strong) MKLessonModel *selectedLessonModel;
 @end
 
 @implementation CourseDetailViewController
@@ -36,6 +41,7 @@
     [CourseDetailManager callBackCourseDetailRequestWithHudShow:YES courseID:self.course_id andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, MKCourseDetailModel * _Nonnull courseDetailModel) {
         if (isSuccess) {
             [self.detailScroll courseDetailScrollViewReloadDataWithMKCourseDetailModel:courseDetailModel];
+            [self.courseIma sd_setImageWithURL:[NSURL URLWithString:courseDetailModel.courseInfoDetail.courseImage] placeholderImage:nil];
         }else{
             [MBHUDManager showBriefAlert:message];
         }
@@ -48,6 +54,7 @@
     self.courseTipView.frame = CGRectMake(0, KScaleWidth(278), KScreenWidth, 60);
     self.detailScroll.frame = CGRectMake(0, self.courseTipView.bottomY, KScreenWidth, KScreenHeight-self.courseTipView.bottomY);
 }
+
 #pragma mark --  lazy
 -(UIScrollView *)contentScroll
 {
@@ -59,50 +66,38 @@
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
         [self.view addSubview:_contentScroll];
-        
         _placeholderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(278))];
         [_contentScroll addSubview:_placeholderView];
-        
-        UIImageView *playView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(278))];
-        playView.image = [UIImage imageNamed:@"playIma"];
-        [_contentScroll addSubview:playView];
-        playView.backgroundColor = K_BG_YellowColor;
-        
-        UIImageView *bgIma = [[UIImageView alloc]initWithFrame:CGRectMake(playView.leftX, playView.topY, playView.width, playView.height)];
+        UIImageView *courseIma = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(278))];
+        courseIma.image = [UIImage imageNamed:@"playIma"];
+        [_contentScroll addSubview:courseIma];
+        courseIma.backgroundColor = K_BG_YellowColor;
+        UIImageView *bgIma = [[UIImageView alloc]initWithFrame:CGRectMake(courseIma.leftX, courseIma.topY, courseIma.width, courseIma.height)];
         [_contentScroll addSubview:bgIma];
         bgIma.backgroundColor = [UIColor colorWithWhite:.2 alpha:.4];
-        
-        UIImageView *playIcon = [[UIImageView alloc]initWithFrame:CGRectMake(playView.centerX-KScaleWidth(50), playView.centerY-KScaleWidth(30), KScaleWidth(100), KScaleWidth(100))];
+        UIImageView *playIcon = [[UIImageView alloc]initWithFrame:CGRectMake(courseIma.centerX-KScaleWidth(50), courseIma.centerY-KScaleWidth(30), KScaleWidth(100), KScaleWidth(100))];
         [_contentScroll addSubview:playIcon];
         playIcon.image = KImageNamed(@"courseDetail_playIcon");
         
-        [self setUpVideo];
+//        [self setUpVideo];
     }
     return _contentScroll;
 }
 
--(void)setUpVideo
+-(PLVVodSkinPlayerController *)player
 {
-    // 初始化播放器
-    PLVVodSkinPlayerController *player = [[PLVVodSkinPlayerController alloc] initWithNibName:nil bundle:nil];
-    [player addPlayerOnPlaceholderView:self.placeholderView rootViewController:self];
-    player.rememberLastPosition = YES;
-    player.enableBackgroundPlayback = YES;
-    player.reachEndHandler = ^(PLVVodPlayerViewController *player) {
-        NSLog(@"%@ finish handler.", player.video.vid);
-    };
-    self.player = player;
-    
-    // 有网情况下，也可以调用此接口，只要存在本地视频，都会优先播放本地视频
-    __weak typeof(self) weakSelf = self;
-    [PLVVodVideo requestVideoWithVid:@"d0b728f5b9977070874be417f3a88e66_d" completion:^(PLVVodVideo *video, NSError *error) {
-//        if (!video.available) return;
-        weakSelf.player.video = video;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            weakSelf.title = video.title;
-        });
-    }];
- 
+    if (!_player) {
+        // 初始化播放器
+        PLVVodSkinPlayerController *player = [[PLVVodSkinPlayerController alloc] initWithNibName:nil bundle:nil];
+        [player addPlayerOnPlaceholderView:self.placeholderView rootViewController:self];
+        player.rememberLastPosition = YES;
+        player.enableBackgroundPlayback = YES;
+        player.reachEndHandler = ^(PLVVodPlayerViewController *player) {
+            MKLog(@"%@ finish handler.", player.video.vid);
+        };
+        _player = player;
+    }
+    return _player;
 }
 
 -(CourseDetailTipView *)courseTipView
@@ -145,9 +140,32 @@
     [self.courseTipView courseButtonSeletedWithIndex:index];
 }
 #pragma mark --  课程点击
--(void)courseDidSelectedWithIndexPath:(NSIndexPath *)indexPath
+-(void)courseDidSelectedWithIndexPath:(NSIndexPath *)indexPath andLessonModel:(MKLessonModel *)lessonModel
 {
-    [self loginAlterViewShow];
+    if (![[UserManager shareInstance]isLogin]) {
+        [self loginAlterViewShow];
+    }
+    [self setUpVideoWithVideoID:lessonModel.video_id];
+}
+
+-(void)setUpVideoWithVideoID:(NSString *)videoID
+{
+    MKLog(@"%@",self.player);
+    // 有网情况下，也可以调用此接口，只要存在本地视频，都会优先播放本地视频
+    __weak typeof(self) weakSelf = self;
+    [PLVVodVideo requestVideoWithVid:videoID completion:^(PLVVodVideo *video, NSError *error) {
+        if (!video.available){
+            NSString *errorMessage = video.error.userInfo[@"NSHelpAnchor"];
+            if (![NSString isEmptyWithStr:errorMessage]) {
+                [MBHUDManager showBriefAlert:errorMessage];
+            }
+            return;
+        }
+        weakSelf.player.video = video;
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            weakSelf.title = video.title;
+//        });
+    }];
 }
 
 @end

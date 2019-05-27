@@ -186,19 +186,14 @@
 // 选中某item
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (![[UserManager shareInstance]isLogin]) {
+        [self loginAlterViewShow];
+        return;
+    }
     if (indexPath.section ==0)
     {
-        if (!K_MK_IsHaveLoginKey) {
-            [self loginAlterViewShow];
-            return;
-        }
         if (indexPath.item ==0)
         {
-
-//            OrderDetailController * ovc= [OrderDetailController new];
-//            ovc.hidesBottomBarWhenPushed =YES;
-//            [self.navigationController pushViewController:ovc animated:YES];
-
             MyBillListViewController *billVC = [MyBillListViewController new];
             [self.navigationController pushViewController:billVC animated:YES];
 
@@ -314,7 +309,7 @@
 #pragma mark-headerViewDelegate
 -(void)headerViewBtnClick
 {
-    if (!K_MK_IsHaveLoginKey) {
+    if (![[UserManager shareInstance]isLogin]) {
         [self loginAlterViewShow];
         return;
     }

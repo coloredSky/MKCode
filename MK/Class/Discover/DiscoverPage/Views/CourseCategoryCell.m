@@ -10,7 +10,7 @@
 @interface CourseCategoryCell()
 
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
-@property (weak, nonatomic) IBOutlet UIImageView *contentIma;
+
 
 @end
 @implementation CourseCategoryCell
@@ -27,7 +27,7 @@
     
     self.contentIma.layer.masksToBounds = YES;
     self.contentIma.layer.cornerRadius = KScaleWidth(16);
-    self.contentIma.image = KImageNamed(@"discover_category1");
+    
 }
 
 @end

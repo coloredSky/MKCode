@@ -444,4 +444,77 @@
     
     return datestring;
 }
+
++(NSString *)stringTurnSecondsStringIntoMinutesString:(NSString *)secondsString
+{
+    NSString *format_time = @"00:00";
+    NSInteger seconds = [secondsString integerValue];
+    if (seconds == 0) {
+        return format_time;
+    }
+    NSString *str_hour = @"00";
+    NSString *str_minute = @"00";
+    NSString *str_second = @"00";
+    //format of hour
+    str_hour = [NSString stringWithFormat:@"%02ld",seconds/3600];
+    //format of minute
+    str_minute = [NSString stringWithFormat:@"%02ld",(seconds%3600)/60];
+    //format of second
+    str_second = [NSString stringWithFormat:@"%02ld",seconds%60];
+    //format of time
+    if (seconds/3600 > 0) {
+        format_time = [NSString stringWithFormat:@"%@:%@:%@",str_hour,str_minute,str_second];
+    }else{
+         format_time = [NSString stringWithFormat:@"%@:%@",str_minute,str_second];
+    }
+    return format_time;
+}
+
+ +(NSString *)weekdayStringWithDateString:(NSString *)dateString  andDateFormatString:(NSString *)dateFormatString{
+     if ([NSString isEmptyWithStr:dateString]) {
+         return @"";
+     }
+    // 实例化NSDateFormatter
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // 设置日期格式
+    [formatter setDateFormat:dateFormatString];
+    // 设置为UTC时区
+    // 这里如果不设置为UTC时区，会把要转换的时间字符串定为当前时区的时间（东八区）转换为UTC时区的时间
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+     NSDate *date = [formatter dateFromString:dateString];
+    //获取星期几
+    NSDateComponents *componets = [[NSCalendar autoupdatingCurrentCalendar] components:NSCalendarUnitWeekday fromDate:date];
+    NSInteger weekday = [componets weekday];//1代表星期日，2代表星期一，后面依次
+    NSArray *weekArray = @[@"星期日",@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六"];
+    NSString *weekStr = weekArray[weekday-1];
+    return weekStr;
+}
+
++(NSString*)timeTransformWithDate:(NSString *)dateStr  WithFormModel:(NSString *)formModel toModel:(NSString *)toModel
+{
+    if ([NSString isEmptyWithStr:dateStr]) {
+        return @"";
+    }
+    NSDateFormatter *formDF = [[NSDateFormatter alloc] init];//格式化
+    [formDF setDateFormat:formModel];
+    NSDate *formDate = [formDF dateFromString:dateStr];
+    
+    NSDateFormatter *toDF = [[NSDateFormatter alloc]init];
+    [toDF setDateFormat:toModel];
+    toDF.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    NSString *toTimeStr = [toDF stringFromDate:formDate];
+    
+    return toTimeStr;
+}
+
++(NSString *)htmlStringTransToString:(NSString *)htmlString
+{
+    if ([NSString isEmptyWithStr:htmlString]) {
+        return @"";
+    }
+    NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
+    NSAttributedString *contentString = [[NSAttributedString alloc]initWithData:htmlData options:@{NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:@(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
+    return  contentString.string;
+}
+
 @end

@@ -78,6 +78,8 @@
         }else{
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
+        _contentWeb.scrollView.showsVerticalScrollIndicator = NO;
+        _contentWeb.scrollView.showsHorizontalScrollIndicator = NO;
         _contentWeb.UIDelegate = self;
         _contentWeb.navigationDelegate = self;
         _contentWeb.backgroundColor = [UIColor whiteColor];

@@ -53,7 +53,7 @@
     NSString *text = [NSString filterHTML:courseDetailMode.courseInfoDetail.courseDetail];
     self.titleLab.attributedText = [NSString setStringSpaceWithText:text andLineSpacValue:5 andWordSpace:0 withFont:self.titleLab.font];
     self.timeConsumingLab.text = [NSString stringWithFormat:@"%@h",courseDetailMode.courseInfoDetail.courseConsumingTime];
-    self.personsLab.text = @"00人";
+    self.personsLab.text =  [NSString stringWithFormat:@"%@人",courseDetailMode.courseInfoDetail.totalStudyNum];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

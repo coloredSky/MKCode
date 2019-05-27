@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MKLessonModel : NSObject
 @property (nonatomic, copy) NSString *lessonID;//课时ID
+@property (nonatomic, copy) NSString *lessonImage;//课时图片
 @property (nonatomic, copy) NSString *lessonName;//课时名字
 @property (nonatomic, copy) NSString *lessonTarget;//
 @property (nonatomic, copy) NSString *video_id;//视频ID
@@ -19,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *video_time;//课时耗时
 @property (nonatomic, copy) NSString *order_list;//课时排序
 @property (nonatomic, copy) NSString *lessonDetail;//课时简介
+@property (nonatomic, assign) BOOL isSelected;
 @end
 
 @interface MKCourseInfoModel : NSObject
@@ -29,6 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *coursePrice;//课程价格
 @property (nonatomic, copy) NSString *courseConsumingTime;//课程耗时
 @property (nonatomic, copy) NSString *courseDetail;//课程简介
+@property (nonatomic, copy) NSString *courseImage;//课程简介图片
+@property (nonatomic, copy) NSString *totalStudyNum;//课程学习人数
+
+
 @end
 
 @interface MKCourseDetailModel : NSObject
@@ -41,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *teacher_detail;//讲师简介
 @property (nonatomic, strong)MKCourseInfoModel *courseInfoDetail;
 
-@property (nonatomic, strong) NSArray <MKCourseInfoModel *>*courseInfo;
+//@property (nonatomic, strong) NSArray <MKCourseInfoModel *>*courseInfo;
 @property (nonatomic, strong) NSArray <MKLessonModel *>*lessonList;//课时列表
 @end
 

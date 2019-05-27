@@ -7,6 +7,8 @@
 //
 
 #import "DiscoverNewsCell.h"
+#import "DiscoverNewsModel.h"
+
 @interface DiscoverNewsCell()
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
@@ -34,11 +36,11 @@
     self.contentLab.numberOfLines = 2;
 }
 
--(void)cellRefreshData
+-(void)cellRefreshDataWithDiscoverNewsModel:(DiscoverNewsModel *)newsModel
 {
-    self.contentIma.image = KImageNamed(@"dicover_contentimage");
-    self.titleLab.text = @"今日应试技巧";
-    self.contentLab.text = @"关于面试，各位同学是否已经做到胸有成竹了呢？";
+    [self.contentIma sd_setImageWithURL:[NSURL URLWithString:newsModel.newsImage] placeholderImage:nil];
+    self.titleLab.text = newsModel.newsTitle;
+    self.contentLab.text = newsModel.newsDigest;
 }
 
 -(void)layoutSubviews

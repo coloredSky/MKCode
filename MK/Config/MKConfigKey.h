@@ -23,8 +23,8 @@
 //static BOOL KIsHaveLogin(){
 //    return [[NSUserDefaults standardUserDefaults]boolForKey:KMKLoginKey];
 //}
-#define KMKLoginKey @"KMKLoginKey"
-#define K_MK_IsHaveLoginKey [[NSUserDefaults standardUserDefaults]boolForKey:KMKLoginKey]
+//#define KMKLoginKey @"KMKLoginKey"
+//#define K_MK_IsHaveLoginKey [[NSUserDefaults standardUserDefaults]boolForKey:KMKLoginKey]
 
 
 #endif /* MKConfigKey_h */

@@ -23,8 +23,20 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param completionBlock 回调
  */
+
 +(void)callBackHomePageCouurseCategoryDataWithHUDShow:(BOOL)hudShow andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <HomeCourseCategoryModel *>*resultList, NSMutableArray <NSString *>*titleArr))completionBlock;
 
+
+
+/**
+ 首页课程列表
+
+ @param hudShow 是否显示Loading
+ @param categoryID 分类ID
+ @param pageOffset 第几条
+ @param pageLimit 每页显示条数
+ @param completionBlock 回调
+ */
 +(void)callBackHomePageCouurseListDataWithHUDShow:(BOOL)hudShow categoryID:(NSString *)categoryID pageOffset:(NSInteger )pageOffset pageLimit:(NSInteger )pageLimit andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <HomeCourseCategoryModel *>*courseCategoryList,NSArray <MKBannerModel *>*bannerList,NSArray <HomePublicCourseModel *>*publicCourseList,NSArray <MKCourseListModel *>*recommentCourseList))completionBlock;
 
 @end
