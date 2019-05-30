@@ -237,9 +237,12 @@
 		71244491225832A1005AF711 /* OrderDetailCell_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124448F225832A1005AF711 /* OrderDetailCell_2.m */; };
 		71244492225832A1005AF711 /* OrderDetailCell_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71244490225832A1005AF711 /* OrderDetailCell_2.xib */; };
 		7124F7BE2269719C00084346 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124F7BD2269719C00084346 /* UserManager.m */; };
+		7124F7C52269798D00084346 /* FindPwdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124F7C32269798D00084346 /* FindPwdController.m */; };
+		7124F7C62269798E00084346 /* FindPwdController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7124F7C42269798D00084346 /* FindPwdController.xib */; };
 		712729362241EB9B006772BF /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729352241EB9B006772BF /* MessageModel.m */; };
 		712729392241EBC2006772BF /* RuquestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729382241EBC2006772BF /* RuquestManager.m */; };
 		7127C086226808D700895D79 /* JKCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7127C085226808D700895D79 /* JKCountDownButton.m */; };
+		712BFB1122729B18004EAA6E /* MyBillManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 712BFB1022729B18004EAA6E /* MyBillManager.m */; };
 		71A18E1A225072CA007B4C55 /* LagAbilityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A18DD8225072CA007B4C55 /* LagAbilityController.m */; };
 		71A18E1B225072CA007B4C55 /* LagAbilityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A18DD9225072CA007B4C55 /* LagAbilityController.xib */; };
 		71A18E1C225072CA007B4C55 /* JapanDateVController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A18DE1225072CA007B4C55 /* JapanDateVController.xib */; };
@@ -711,12 +714,17 @@
 		71244490225832A1005AF711 /* OrderDetailCell_2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailCell_2.xib; sourceTree = "<group>"; };
 		7124F7BC2269719C00084346 /* UserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
 		7124F7BD2269719C00084346 /* UserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
+		7124F7C22269798D00084346 /* FindPwdController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindPwdController.h; sourceTree = "<group>"; };
+		7124F7C32269798D00084346 /* FindPwdController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindPwdController.m; sourceTree = "<group>"; };
+		7124F7C42269798D00084346 /* FindPwdController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindPwdController.xib; sourceTree = "<group>"; };
 		712729342241EB9B006772BF /* MessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
 		712729352241EB9B006772BF /* MessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
 		712729372241EBC2006772BF /* RuquestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuquestManager.h; sourceTree = "<group>"; };
 		712729382241EBC2006772BF /* RuquestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuquestManager.m; sourceTree = "<group>"; };
 		7127C084226808D700895D79 /* JKCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKCountDownButton.h; sourceTree = "<group>"; };
 		7127C085226808D700895D79 /* JKCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCountDownButton.m; sourceTree = "<group>"; };
+		712BFB0F22729B18004EAA6E /* MyBillManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyBillManager.h; sourceTree = "<group>"; };
+		712BFB1022729B18004EAA6E /* MyBillManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyBillManager.m; sourceTree = "<group>"; };
 		71A18DD8225072CA007B4C55 /* LagAbilityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LagAbilityController.m; sourceTree = "<group>"; };
 		71A18DD9225072CA007B4C55 /* LagAbilityController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LagAbilityController.xib; sourceTree = "<group>"; };
 		71A18DDA225072CA007B4C55 /* LagAbilityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LagAbilityController.h; sourceTree = "<group>"; };
@@ -1006,6 +1014,7 @@
 		3035B648224F2C7D00A1AA98 /* LoginAndRegister */ = {
 			isa = PBXGroup;
 			children = (
+				7124F7C0226978D100084346 /* FindPassword */,
 				3035B64A224F2C7D00A1AA98 /* Register */,
 				3035B64F224F2C7D00A1AA98 /* Login */,
 			);
@@ -1864,9 +1873,8 @@
 		30A201402255F2DC00A6A232 /* MyBill */ = {
 			isa = PBXGroup;
 			children = (
+				712BFB0E22729B04004EAA6E /* Manager */,
 				30A201412255F2DC00A6A232 /* ViewCotroller */,
-				30A201422255F2DC00A6A232 /* Manager */,
-				30A201432255F2DC00A6A232 /* Model */,
 				30A201442255F2DC00A6A232 /* View */,
 			);
 			path = MyBill;
@@ -1879,20 +1887,6 @@
 				30A2014B2255F33800A6A232 /* MyBillListViewController.m */,
 			);
 			path = ViewCotroller;
-			sourceTree = "<group>";
-		};
-		30A201422255F2DC00A6A232 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		30A201432255F2DC00A6A232 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		30A201442255F2DC00A6A232 /* View */ = {
@@ -2473,6 +2467,24 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		7124F7C0226978D100084346 /* FindPassword */ = {
+			isa = PBXGroup;
+			children = (
+				7124F7C12269793200084346 /* ViewControllers */,
+			);
+			path = FindPassword;
+			sourceTree = "<group>";
+		};
+		7124F7C12269793200084346 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7124F7C22269798D00084346 /* FindPwdController.h */,
+				7124F7C32269798D00084346 /* FindPwdController.m */,
+				7124F7C42269798D00084346 /* FindPwdController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		712729322241EA2A006772BF /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2498,6 +2510,15 @@
 				7127C085226808D700895D79 /* JKCountDownButton.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		712BFB0E22729B04004EAA6E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				712BFB0F22729B18004EAA6E /* MyBillManager.h */,
+				712BFB1022729B18004EAA6E /* MyBillManager.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		71A18DD5225072CA007B4C55 /* LanguageAbility  */ = {
@@ -2899,6 +2920,7 @@
 				3048D86C22364F6F00FE63B2 /* MyCouseViewController.xib in Resources */,
 				30A2018B225DF20700A6A232 /* MyCourseListCell.xib in Resources */,
 				71A18E30225072CA007B4C55 /* LagAndSchController.xib in Resources */,
+				7124F7C62269798E00084346 /* FindPwdController.xib in Resources */,
 				30A2DA2F224E00640030120D /* DiscoverNewsCell.xib in Resources */,
 				30A2DA2C224E00640030120D /* CourseCategoryCell.xib in Resources */,
 				30FBE35A2241E83C0049C0DE /* SetPasswordController.xib in Resources */,
@@ -3058,6 +3080,7 @@
 				3035B6AB224F2D4500A1AA98 /* UserTextView.m in Sources */,
 				3035B6D22252032800A1AA98 /* AppointmentTeacherReplyCell.m in Sources */,
 				3035B6B0224F2D4500A1AA98 /* SupportController.m in Sources */,
+				7124F7C52269798D00084346 /* FindPwdController.m in Sources */,
 				3035B6A3224F2D4500A1AA98 /* BookmarkCell.m in Sources */,
 				3048D7EC2232565500FE63B2 /* AppDelegate.m in Sources */,
 				30FBE3132240C2020049C0DE /* HomeRecommenCell.m in Sources */,
@@ -3106,6 +3129,7 @@
 				71A18E32225072CA007B4C55 /* ValuePickerView.m in Sources */,
 				3035B69E224F2D4500A1AA98 /* PropertyController.m in Sources */,
 				30A2014F2255F3B700A6A232 /* BillListCollectionViewFlowLayout.m in Sources */,
+				712BFB1122729B18004EAA6E /* MyBillManager.m in Sources */,
 				3035B65C224F2C7D00A1AA98 /* RegisterController.m in Sources */,
 				3048D843223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				30957B12229E69B6009DDAAA /* MKDropDownMenu.m in Sources */,

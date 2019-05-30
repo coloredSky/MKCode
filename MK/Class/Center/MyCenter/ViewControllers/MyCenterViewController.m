@@ -87,6 +87,7 @@
         _headerView = [[NSBundle mainBundle]loadNibNamed:@"MyCenterHeaderView" owner:nil options:nil][0];
         _headerView.frame =CGRectMake(0, 0,KScreenWidth ,203);
         _headerView.delegate =self;
+        [_headerView refreshData];
     }
     return _headerView;
 }
@@ -314,6 +315,7 @@
         return;
     }
     UpdateMessageController * uvc =[UpdateMessageController new];
+    uvc.hidesBottomBarWhenPushed =YES;
     [self.navigationController pushViewController:uvc animated:YES];
 }
 

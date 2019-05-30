@@ -19,21 +19,23 @@
 #pragma mark --- instancetype method
 -(instancetype)init
 {
-    if (self = [super init]) {
+    if (self = [super init])
+    {
         self.dataAry =@[@"单号",@"套餐",@"缴费日期",@"下次缴费日期",@"登录时间",@"登录人",@"备注"];
     }
     return self;
 }
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.view.backgroundColor =K_BG_WhiteColor;
     [self.bgView addSubview:self.contentTable];
 }
 #pragma mark --  lazy
 -(MKBaseTableView *)contentTable
 {
-    if (!_contentTable) {
+    if (!_contentTable)
+    {
         _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, 5, KScreenWidth-40,self.bgView.size.height-5) style:UITableViewStyleGrouped];
         [self.view addSubview:_contentTable];
         _contentTable.backgroundColor = [UIColor clearColor];
@@ -44,12 +46,12 @@
     }
     return _contentTable;
 }
-
 #pragma mark - UITableViewDataSource
 #pragma mark - cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row==2) {
+    if (indexPath.row==2)
+    {
         OrderDetailCell_2 *cell = [tableView dequeueReusableCellWithIdentifier:@"OrderDetailCell_2" forIndexPath:indexPath];
           cell.titleLab.text =self.dataAry[indexPath.row];
         cell.selectionStyle =UITableViewCellSelectionStyleNone;
@@ -75,7 +77,8 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row ==2) {
+    if (indexPath.row ==2)
+    {
         return 94.f;
     }
     return 40.f;
@@ -96,16 +99,11 @@
 {
     return nil;
 }
-
 #pragma mark --  EVENT
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
-}
+{}
 #pragma mark -- course category did selected
 -(void)itemDidSelectedWithIndex:(NSUInteger )index
-{
-    
-}
+{}
 @end

@@ -61,5 +61,7 @@ static NSString * const K_MK_Login_url  = @"/api/user/login";
 static NSString * const K_MK_GetPhoneCode_url  = @"/api/user/sms";
 //注册接口
 static NSString * const K_MK_Register_Url  = @"/api/user/reg";
+//获取账单接口
+static NSString * const K_MK_MyBillList_Url =@"/user/order/paymentLogList";
 
 #endif /* MKRequestUrl_h */

@@ -73,6 +73,7 @@
             [MBHUDManager hideAlert];
             if (isSuccess ==YES) {
                 [self.navigationController popViewControllerAnimated:YES];
+
             }else{
                 if ([NSString isEmptyWithStr:message]) {
                     [MBHUDManager showBriefAlert:message];

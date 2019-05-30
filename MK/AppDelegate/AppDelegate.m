@@ -40,7 +40,7 @@
     NSString *vodKey = @"n0U70JWs5/Y8JfJ19sDvmG77hSjMcndG2lopb/5Bw4a6ZS118jiETAcQXWka5u0dSGHCPYrtjKcKNTnrMN32/Zazjxb70wG6sqDKlDCjiz270R53o6i22OPDaHthdSmNiAzjg+thN+YhOyj/etPN7Q==";
     NSString *decodeKey = @"CBm2slFGXpCLXsgq";
     NSString *decodeIv = @"vXsHPN3fodcWqQ6u";
-     [PLVVodSettings settingsWithConfigString:vodKey key:decodeKey iv:decodeIv error:&error];
+    [PLVVodSettings settingsWithConfigString:vodKey key:decodeKey iv:decodeIv error:&error];
 }
 
 - (void)configKeyboard{

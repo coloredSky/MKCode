@@ -12,7 +12,8 @@
 #import "BillListCollectionViewFlowLayout.h"
 //View
 #import "BillListCollectionViewCell.h"
-
+//manager
+#import "MyBillManager.h"
 @interface MyBillListViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UICollectionView *contentCollectionView;
@@ -23,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpRefresh];
+    [self startRequest];
 }
 
 #pragma mark --  refresh
@@ -32,6 +34,7 @@
     @weakObject(self);
     self.contentCollectionView.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
+        [self startRequest];
         [self.contentCollectionView.mj_header endRefreshing];
         [self reloadPlacehorldViewWithFrame:CGRectMake(0, self.headerView.bottomY, self.view.width, self.view.height-self.headerView.height) placehorldDisplayType:MKPlaceWorderViewDisplayTypeNoOrder];
         self.placeholderViewShow = YES;
@@ -46,6 +49,9 @@
 #pragma mark --  request
 -(void)startRequest
 {
+    [MyBillManager callBackMyBillDataWithHudShow:YES CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, LoginModel * _Nonnull model) {
+        
+    }];
 }
 
 #pragma mark --  lazy
