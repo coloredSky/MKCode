@@ -13,6 +13,9 @@
 //category
 #import "UITextView+WJPlaceholder.h"
 
+#import "ChangeClassManager.h"
+#import "ChangeClassCouseModel.h"
+
 
 @interface ChangeClassViewController ()<AppointmentTapViewDelegate,XDSDropDownMenuDelegate>
 @property (nonatomic, strong) MKBaseScrollView *contentScroll;
@@ -36,7 +39,18 @@
     
     [self initData];
     [self creatSubVuew];
+    [self startRequest];
 }
+
+-(void)startRequest
+{
+    [ChangeClassManager callBackChangeClassCourseListRequestWithCompletionBlock:^(BOOL isSuccess, NSArray<ChangeClassCouseModel *> * _Nonnull courseList, NSString * _Nonnull message) {
+        if (isSuccess) {
+            
+        }
+    }];
+}
+
 -(void)initData
 {
     self.downMenuArr = @[self.originalClasssDownMenu,self.otherClasssDownMenu];
@@ -145,7 +159,7 @@
     }
 }
 #pragma mark --  下拉表点击
--(void)XDSDropDownMenu:(XDSDropDownMenu *)downMenuView didSelectedWithIndex:(NSInteger )index
+-(void)dropDownMenu:(XDSDropDownMenu *)downMenuView didSelectedWithIndex:(NSInteger )index
 {
     if (downMenuView == self.originalClasssDownMenu) {
         AppointmentTapView *tapView = self.tapViewArr[0];

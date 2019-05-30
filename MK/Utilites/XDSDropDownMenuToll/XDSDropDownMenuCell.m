@@ -8,8 +8,6 @@
 
 #import "XDSDropDownMenuCell.h"
 @interface XDSDropDownMenuCell()
-@property (weak, nonatomic) IBOutlet UILabel *titleLab;
-@property (weak, nonatomic) IBOutlet UIImageView *lineIma;
 
 @end
 @implementation XDSDropDownMenuCell
@@ -28,9 +26,5 @@
     self.lineIma.frame = CGRectMake(0, self.contentView.height-K_Line_lineWidth, self.contentView.width, K_Line_lineWidth);
 }
 
--(void)cellRefreshDataWithContentString:(NSString *)contentString
-{
-    self.titleLab.text = contentString;
-}
 
 @end

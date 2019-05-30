@@ -124,6 +124,7 @@
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":@""}];
         [[UserManager shareInstance]loginOut];
+        [MBHUDManager showBriefAlert:@"退出登录成功！！"];
     }];
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:cancleAction];

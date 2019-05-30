@@ -10,10 +10,13 @@
 //View
 #import "AppointmentHeaderView.h"
 #import "AppointmentTapView.h"
+#import "MKDropDownMenu.h"
 //category
 #import "UITextView+WJPlaceholder.h"
+#import "ApplyLeaveManager.h"
+#import "ApplyLeaveCourseModel.h"
 
-@interface AskForLeaveViewController ()<XDSDropDownMenuDelegate,AppointmentTapViewDelegate>
+@interface AskForLeaveViewController ()<XDSDropDownMenuDelegate, AppointmentTapViewDelegate>
 @property (nonatomic, strong) MKBaseScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) UITextView *reasonTextView;
@@ -24,8 +27,10 @@
 @property (nonatomic, strong) XDSDropDownMenu *courseDownMenu;//休息的课程
 @property (nonatomic, strong) NSArray *downMenuArr;//装载下拉控件
 @property (nonatomic, strong) NSMutableArray *tapViewArr;//装载点击控件
-@property (nonatomic, strong) NSArray *classArr;
-@property (nonatomic, strong) NSArray *courseArr;
+@property (nonatomic, strong) NSArray *courseList;//数据
+@property (nonatomic, strong) NSMutableArray *courseNameArr;//请假的班级名字
+@property (nonatomic, strong) ApplyLeaveCourseModel *selectedCourseModel;//
+@property (nonatomic, strong) ApplyLeaveLessonModel *selectedLessonModel;//
 @end
 
 @implementation AskForLeaveViewController
@@ -33,18 +38,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_YellowColor;
-    [self initData];
     [self creatSubVuew];
+    [self startRequest];
 }
--(void)initData
+
+-(void)startRequest
 {
-    self.downMenuArr = @[self.classsDownMenu,self.courseDownMenu];
-    self.tapViewArr = [NSMutableArray arrayWithCapacity:2];
-    self.classArr = @[@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班"];
-    self.courseArr = @[@"第一课时",@"第一课时"];
+    [ApplyLeaveManager callBackApplyLeaveCourseListWithParameter:@"0" completionBlock:^(BOOL isSuccess, NSArray<ApplyLeaveCourseModel *> * _Nonnull courseList, NSString * _Nonnull message) {
+        if (isSuccess) {
+            self.courseList = courseList;
+            for (ApplyLeaveCourseModel *model in courseList) {
+                [self.courseNameArr addObject:model.class_name];
+            }
+        }
+    }];
 }
+
 -(void)creatSubVuew
 {
+    self.courseNameArr = [NSMutableArray array];
+    self.downMenuArr = @[self.classsDownMenu,self.courseDownMenu];
+    self.tapViewArr = [NSMutableArray arrayWithCapacity:2];
     [self.view addSubview:self.contentScroll];
     [self.contentScroll addSubview:self.headerView];
     [self.contentScroll addSubview:self.reasonTextView];
@@ -70,7 +84,7 @@
 -(NSArray *)tipStringArr
 {
     if (!_tipStringArr) {
-        _tipStringArr = @[@"XXX班",@"选择要休息的课程"];
+        _tipStringArr = @[@"选择要休息的班级",@"选择要休息的课程"];
     }
     return _tipStringArr;
 }
@@ -97,6 +111,7 @@
             //底部按钮
             if (i == self.tipStringArr.count-1) {
                 UIButton *submitBtn = [UIButton getBottomBtnWithBtnX:tapView.leftX btnY:tapView.bottomY+KScaleHeight(130) btnTitle:@"发送"];
+                [submitBtn addTarget:self action:@selector(submitTarget:) forControlEvents:UIControlEventTouchUpInside];
                 [self.contentScroll addSubview:submitBtn];
             }
         }
@@ -137,21 +152,37 @@
 {
     if (tapView.tag == 1) {//原有班级
         //初始化选择菜单
-        [self showDropDownMenuWithView:tapView withTapViewFrame:tapView.frame downMenu:self.classsDownMenu titleArr:self.classArr];
+        if (self.courseNameArr.count > 0) {
+            [self showDropDownMenuWithView:tapView withTapViewFrame:tapView.frame downMenu:self.classsDownMenu titleArr:self.courseNameArr];
+        }else{
+            [MBHUDManager showBriefAlert:@"您还没有需要请假的课程！"];
+        }
     }else{
         //更改后的班级
-        [self showDropDownMenuWithView:tapView withTapViewFrame:tapView.frame downMenu:self.courseDownMenu titleArr:self.courseArr];
+        if (self.selectedCourseModel.lessonNameList.count >0) {
+           [self showDropDownMenuWithView:tapView withTapViewFrame:tapView.frame downMenu:self.courseDownMenu titleArr:self.selectedCourseModel.lessonNameList];
+        }else{
+            if (self.selectedCourseModel) {
+                [MBHUDManager showBriefAlert:@"请先选择需要请假的班级！"];
+            }else{
+                [MBHUDManager showBriefAlert:@"您还没有需要请假的课程！"];
+            }
+            
+        }
     }
 }
+
 #pragma mark --  下拉表点击
--(void)XDSDropDownMenu:(XDSDropDownMenu *)downMenuView didSelectedWithIndex:(NSInteger )index
+-(void)dropDownMenu:(XDSDropDownMenu *)downMenuView didSelectedWithIndex:(NSInteger )index
 {
     if (downMenuView == self.classsDownMenu) {
         AppointmentTapView *tapView = self.tapViewArr[0];
-        tapView.textString = self.classArr[index];
+        tapView.textString = self.courseNameArr[index];
+        self.selectedCourseModel = self.courseList[index];
     }else{
         AppointmentTapView *tapView = self.tapViewArr[1];
-        tapView.textString = self.courseArr[index];
+        self.selectedLessonModel = self.selectedCourseModel.lessonList[index];
+        tapView.textString = self.selectedCourseModel.lessonNameList[index];
     }
 }
 
@@ -166,10 +197,43 @@
     }
     if (downMenue.isShow ==NO) {
         [downMenue showDropDownMenu:tapView withTapViewFrame:tapView.frame arrayOfTitle:titleArr arrayOfImage:nil animationDirection:@"down"];
+//    [downMenue showDropDownMenuWithViewFrame:tapView.frame arrayOfTitle:titleArr];
         //添加到主视图上
         [self.view addSubview:downMenue];
     }else{
         [downMenue  hideDropDownMenuWithBtnFrame:tapView.frame];
     }
+}
+
+#pragma mark --  提交
+-(void)submitTarget:(UIButton *)sender
+{
+    if ([NSString isEmptyWithStr:self.reasonTextView.text]) {
+        [MBHUDManager showBriefAlert:@"请填写您请假的理由！"];
+        return;
+    }
+    if (!self.selectedCourseModel) {
+        [MBHUDManager showBriefAlert:@"请选择您要请假的班级！"];
+        return;
+    }
+    if (!self.selectedLessonModel) {
+        [MBHUDManager showBriefAlert:@"请选择您要请假的课程！"];
+        return;
+    }
+    [self.reasonTextView endEditing:YES];
+    [MBHUDManager showLoading];
+    [ApplyLeaveManager callBackAddApplyLeaveWithParameterClass_id:self.selectedCourseModel.class_id lesson_id:self.selectedLessonModel.lesson_id detail:self.reasonTextView.text completionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
+        if (isSuccess) {
+            [MBHUDManager showBriefAlert:@"请假成功！"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }else{
+                [MBHUDManager showBriefAlert:@"请假失败！"];
+            }
+        }
+    }];
 }
 @end

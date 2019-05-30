@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XDSDropDownMenuCell : UITableViewCell
--(void)cellRefreshDataWithContentString:(NSString *)contentString;
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property (weak, nonatomic) IBOutlet UIImageView *lineIma;
+
 @end
 
 NS_ASSUME_NONNULL_END

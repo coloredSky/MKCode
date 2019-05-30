@@ -28,6 +28,9 @@ static NSString *const responseMessage = @"msg";
         [WYNetworkConfig sharedConfig].baseUrl = KMKBaseServerRequestUrl;
         [WYNetworkConfig sharedConfig].debugMode = YES;//默认为NO，不开启
         [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"DeviceType":@"1"}];
+        if ([[UserManager shareInstance]isLogin]) {
+            [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":[[UserManager shareInstance] getToken]}];
+        }
 //        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
 //        NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
 //        [WYNetworkConfig sharedConfig].defailtParameters = @{@"version":appVersion, @"platform":@"iOS"};

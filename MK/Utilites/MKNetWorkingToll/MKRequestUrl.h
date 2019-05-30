@@ -29,15 +29,37 @@ static NSString * const K_MK_Course_CourseDetail_Url  = @"/api/course/courseDeta
 //发现
 static NSString * const K_MK_Discover_NewsList_Url  = @"/api/posts/getposts";
 
+/*
+ *预约
+ */
+//请假
+//获取请假课程列表
+static NSString * const K_MK_AskForLeave_CourseList_Url  = @"/api/user/getUserClass";
+//x新增请假申请
+static NSString * const K_MK_AddAskForLeave_Url  = @"/api/user/AddApplyLeave";
+//编辑请假申请
+static NSString * const K_MK_EditAskForLeave_Url  = @"/api/user/UpdateApplyLeave";
+
+//预约
+//获取预约时间
+static NSString * const K_MK_MeetingTime_Url  = @"/api/user/getReservationTimeList";
+//获取预约目的
+static NSString * const K_MK_MeetingReservation_Url  = @"/api/user/getReservationList";
+//新增预约相谈
+static NSString * const K_MK_AddMeeting_Url  = @"/api/user/AddApplyReservation";
+
+//换班
+//换班列表
+static NSString * const K_MK_ChangeClass_CourseList_Url  = @"/api/user/getStudentClass";
 
 /*
  *登录、注册
  */
 //登录
-static NSString * const K_MK_Login_url  = @"/user/base/auth";
+static NSString * const K_MK_Login_url  = @"/api/user/login";
 //获取验证码
-static NSString * const K_MK_GetPhoneCode_url  = @"/user/base/sms";
+static NSString * const K_MK_GetPhoneCode_url  = @"/api/user/sms";
 //注册接口
-static NSString * const K_MK_Register_Url  = @"/user/base/reg";
+static NSString * const K_MK_Register_Url  = @"/api/user/reg";
 
 #endif /* MKRequestUrl_h */
