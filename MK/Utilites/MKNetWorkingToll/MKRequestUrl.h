@@ -32,6 +32,9 @@ static NSString * const K_MK_Discover_NewsList_Url  = @"/api/posts/getposts";
 /*
  *预约
  */
+//获取各类申请列表
+static NSString * const K_MK_GetApplyList_Url  = @"/api/user/getApplyList";
+
 //请假
 //获取请假课程列表
 static NSString * const K_MK_AskForLeave_CourseList_Url  = @"/api/user/getUserClass";
@@ -51,6 +54,8 @@ static NSString * const K_MK_AddMeeting_Url  = @"/api/user/AddApplyReservation";
 //换班
 //换班列表
 static NSString * const K_MK_ChangeClass_CourseList_Url  = @"/api/user/getStudentClass";
+//新增换班申请
+static NSString * const K_MK_AddChangeClass_Url  = @"/api/user/addEditClassChangeApply";
 
 /*
  *登录、注册

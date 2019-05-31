@@ -14,6 +14,7 @@
 {
     if (self = [super init]) {
         self.changeClassList = [NSMutableArray array];
+        self.changeClassStringList = [NSMutableArray array];
     }
     return self;
 }

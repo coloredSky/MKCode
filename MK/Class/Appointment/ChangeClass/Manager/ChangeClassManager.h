@@ -13,7 +13,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ChangeClassManager : NSObject
 
-+(void)callBackChangeClassCourseListRequestWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <ChangeClassCouseModel *>*courseList,NSString *message))completionBlock;
+
+/**
+ 得到更换班级列表
+
+ @param completionBlock 回调
+ */
++(void)callBackChangeClassCourseListRequestWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <ChangeClassCouseModel *>*courseList,NSArray <NSString *>*courseStringList,NSString *message))completionBlock;
+
+
++(void)callBackChangeClassRequestWithParameterClass_id:(NSString *)class_id new_class_id:(NSString *)new_class_id reason:(NSString *)reason  CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
 
 @end
 

@@ -178,6 +178,7 @@
 		30E77DC5226D9DC90052DE5D /* MKPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DC4226D9DC90052DE5D /* MKPlaceholderView.m */; };
 		30E77DC8226DAD720052DE5D /* MKBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DC7226DAD720052DE5D /* MKBannerModel.m */; };
 		30E77DCB226EFEB80052DE5D /* HomePublicCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DCA226EFEB80052DE5D /* HomePublicCourseModel.m */; };
+		30F2ADF322A1366600AB29EC /* ApplyListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F2ADF222A1366600AB29EC /* ApplyListModel.m */; };
 		30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2EF223F7AEB0049C0DE /* MKNavViewController.m */; };
 		30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2F7223F98240049C0DE /* TitleScrollView.m */; };
 		30FBE2FC223F98250049C0DE /* SelectedCustomLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2F8223F98250049C0DE /* SelectedCustomLab.m */; };
@@ -615,6 +616,8 @@
 		30E77DC7226DAD720052DE5D /* MKBannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKBannerModel.m; sourceTree = "<group>"; };
 		30E77DC9226EFEB80052DE5D /* HomePublicCourseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePublicCourseModel.h; sourceTree = "<group>"; };
 		30E77DCA226EFEB80052DE5D /* HomePublicCourseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePublicCourseModel.m; sourceTree = "<group>"; };
+		30F2ADF122A1366600AB29EC /* ApplyListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyListModel.h; sourceTree = "<group>"; };
+		30F2ADF222A1366600AB29EC /* ApplyListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyListModel.m; sourceTree = "<group>"; };
 		30FBE2EE223F7AEB0049C0DE /* MKNavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKNavViewController.h; sourceTree = "<group>"; };
 		30FBE2EF223F7AEB0049C0DE /* MKNavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKNavViewController.m; sourceTree = "<group>"; };
 		30FBE2F7223F98240049C0DE /* TitleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScrollView.m; sourceTree = "<group>"; };
@@ -1854,6 +1857,8 @@
 			children = (
 				30957B0C229E2E67009DDAAA /* ApplyLeaveCourseModel.h */,
 				30957B0D229E2E67009DDAAA /* ApplyLeaveCourseModel.m */,
+				30F2ADF122A1366600AB29EC /* ApplyListModel.h */,
+				30F2ADF222A1366600AB29EC /* ApplyListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3093,6 +3098,7 @@
 				30295726226859E4006D1613 /* WYNetworkCacheInfo.m in Sources */,
 				30295724226859E4006D1613 /* WYNetworkDownloadResumeDataInfo.m in Sources */,
 				7124448622582D6B005AF711 /* OrderDetailController.m in Sources */,
+				30F2ADF322A1366600AB29EC /* ApplyListModel.m in Sources */,
 				30FBE399224B26730049C0DE /* CourseOfflineListCell.m in Sources */,
 				3048D82322325FAD00FE63B2 /* MKBaseTableView.m in Sources */,
 				30FBE31B2240E6B50049C0DE /* HomeCourseCollectionViewCell.m in Sources */,

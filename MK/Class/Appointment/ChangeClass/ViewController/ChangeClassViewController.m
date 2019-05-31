@@ -27,8 +27,12 @@
 @property (nonatomic, strong) XDSDropDownMenu *otherClasssDownMenu;//更改后的班级
 @property (nonatomic, strong) NSArray *downMenuArr;//装载下拉控件
 @property (nonatomic, strong) NSMutableArray *tapViewArr;//装载点击控件
-@property (nonatomic, strong) NSArray *originalClassArr;
-@property (nonatomic, strong) NSArray *otherClassArr;
+//@property (nonatomic, strong) NSArray *originalClassArr;
+//@property (nonatomic, strong) NSArray *otherClassArr;
+@property (nonatomic, strong) NSArray *originalClassList;//原有课程
+@property (nonatomic, strong) NSArray *originalClassStringList;//原有课程名字
+@property (nonatomic, strong) ChangeClassCouseModel *selectedOriginalCouseModel;
+@property (nonatomic, strong) ChangeClassCouseModel *selectedChangeCouseModel;
 @end
 
 @implementation ChangeClassViewController
@@ -44,9 +48,12 @@
 
 -(void)startRequest
 {
-    [ChangeClassManager callBackChangeClassCourseListRequestWithCompletionBlock:^(BOOL isSuccess, NSArray<ChangeClassCouseModel *> * _Nonnull courseList, NSString * _Nonnull message) {
+    [MBHUDManager showLoading];
+    [ChangeClassManager callBackChangeClassCourseListRequestWithCompletionBlock:^(BOOL isSuccess, NSArray<ChangeClassCouseModel *> * _Nonnull courseList,NSArray <NSString *>*courseStringList, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
         if (isSuccess) {
-            
+            self.originalClassList = courseList;
+            self.originalClassStringList = courseStringList;
         }
     }];
 }
@@ -55,8 +62,8 @@
 {
     self.downMenuArr = @[self.originalClasssDownMenu,self.otherClasssDownMenu];
     self.tapViewArr = [NSMutableArray arrayWithCapacity:2];
-    self.originalClassArr = @[@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班"];
-    self.otherClassArr = @[@"美术B班",@"美术B班"];
+//    self.originalClassArr = @[@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班"];
+//    self.otherClassArr = @[@"美术B班",@"美术B班"];
 }
 -(void)creatSubVuew
 {
@@ -112,6 +119,7 @@
             //底部按钮
             if (i == self.tipStringArr.count-1) {
                 UIButton *submitBtn = [UIButton getBottomBtnWithBtnX:tapView.leftX btnY:tapView.bottomY+KScaleHeight(130) btnTitle:@"发送"];
+                [submitBtn addTarget:self action:@selector(submitTarget:) forControlEvents:UIControlEventTouchUpInside];
                 [self.contentScroll addSubview:submitBtn];
             }
         }
@@ -152,21 +160,43 @@
 {
     if (tapView.tag == 1) {//原有班级
         //初始化选择菜单
-        [self showDropDownMenuWithView:tapView withTapViewFrame:tapView.frame downMenu:self.originalClasssDownMenu titleArr:self.originalClassArr];
+        [self showDropDownMenuWithView:tapView withTapViewFrame:tapView.frame downMenu:self.originalClasssDownMenu titleArr:self.originalClassStringList];
     }else{
         //更改后的班级
-        [self showDropDownMenuWithView:tapView withTapViewFrame:tapView.frame downMenu:self.otherClasssDownMenu titleArr:self.otherClassArr];
+        if (self.selectedOriginalCouseModel == nil) {
+            [MBHUDManager showBriefAlert:@"请先选择原有班级！！"];
+            return;
+        }
+        if (self.selectedOriginalCouseModel.changeClassStringList.count == 0) {
+            [MBHUDManager showBriefAlert:@"目前没有能更换的班级班级！！"];
+            return;
+        }
+        [self showDropDownMenuWithView:tapView withTapViewFrame:tapView.frame downMenu:self.otherClasssDownMenu titleArr:self.selectedOriginalCouseModel.changeClassStringList];
     }
 }
 #pragma mark --  下拉表点击
 -(void)dropDownMenu:(XDSDropDownMenu *)downMenuView didSelectedWithIndex:(NSInteger )index
 {
     if (downMenuView == self.originalClasssDownMenu) {
+        ChangeClassCouseModel *originalCourseModel =  self.originalClassList[index];
+        if (originalCourseModel == self.selectedOriginalCouseModel) {
+            return;
+        }
         AppointmentTapView *tapView = self.tapViewArr[0];
-        tapView.textString = self.originalClassArr[index];
+        tapView.textString = self.originalClassStringList[index];
+        self.selectedOriginalCouseModel = originalCourseModel;
+        
+        AppointmentTapView *changeClassTapView = self.tapViewArr[1];
+        changeClassTapView.textString = @"选择希望更改的班级";
+        self.selectedChangeCouseModel = nil;
     }else{
+        ChangeClassCouseModel *changeCourseModel =  self.selectedOriginalCouseModel.changeClassList[index];
+        if (changeCourseModel == self.selectedChangeCouseModel) {
+            return;
+        }
         AppointmentTapView *tapView = self.tapViewArr[1];
-        tapView.textString = self.otherClassArr[index];
+        tapView.textString = self.selectedOriginalCouseModel.changeClassStringList[index];
+        self.selectedChangeCouseModel = changeCourseModel;
     }
 }
 
@@ -187,4 +217,32 @@
         [downMenue  hideDropDownMenuWithBtnFrame:tapView.frame];
     }
 }
+
+#pragma mark --  申请换班
+-(void)submitTarget:(UIButton *)sender
+{
+    if ([NSString isEmptyWithStr:self.reasonTextView.text]) {
+        [MBHUDManager showBriefAlert:@"请填写换班的理由！！"];
+        return;
+    }
+    if (self.selectedOriginalCouseModel == nil) {
+        [MBHUDManager showBriefAlert:@"请选择原有班级！！"];
+        return;
+    }
+    if (self.selectedChangeCouseModel == nil) {
+        [MBHUDManager showBriefAlert:@"请选择希望更换的班级！！"];
+        return;
+    }
+    [ChangeClassManager callBackChangeClassRequestWithParameterClass_id:self.selectedOriginalCouseModel.changeID new_class_id:self.selectedChangeCouseModel.changeID reason:self.reasonTextView.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        if (isSuccess) {
+            [MBHUDManager showBriefAlert:@"换班申请成功！！"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }
+        }
+    }];
+}
+
 @end

@@ -22,9 +22,29 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(void)callBackApplyLeaveCourseListWithParameter:(NSString *)is_studying_lesson completionBlock:(void(^)(BOOL isSuccess,NSArray <ApplyLeaveCourseModel *>*courseList,NSString *message))completionBlock;
 
+/**
+ 新增请假申请
+
+ @param class_id 班级
+ @param lesson_id 课程
+ @param detail 理由
+ @param completionBlock 回调
+ */
 +(void)callBackAddApplyLeaveWithParameterClass_id:(NSString *)class_id lesson_id:(NSString *)lesson_id detail:(NSString *)detail completionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
 
+
+/**
+ 编辑请假申请
+
+ @param apply_id 申请ID
+ @param class_id 班级
+ @param lesson_id 课程
+ @param detail 理由
+ @param completionBlock 回调
+ */
 +(void)callBackEditApplyLeaveWithParameterApply_id:(NSString *)apply_id class_id:(NSString *)class_id lesson_id:(NSString *)lesson_id detail:(NSString *)detail completionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
+
++(void)callBackAllApplyListWithParameteApply_type:(NSInteger )applyType completionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
 @end
 
 NS_ASSUME_NONNULL_END
