@@ -31,7 +31,6 @@ static id instance = nil;
 
 #pragma mark - user
 - (void)saveUser:(LoginModel *)user{
-    
     MKLog(@"%@",kUserPath);
     LoginModel *user1 = [self getUser];
     if ([user1.id isEqualToString:user.id]) {

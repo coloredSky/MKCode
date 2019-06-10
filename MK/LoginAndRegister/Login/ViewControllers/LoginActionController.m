@@ -73,7 +73,7 @@
             [MBHUDManager hideAlert];
             if (isSuccess ==YES) {
                 [self.navigationController popViewControllerAnimated:YES];
-
+                [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginInNotifcationKey object:nil];
             }else{
                 if ([NSString isEmptyWithStr:message]) {
                     [MBHUDManager showBriefAlert:message];

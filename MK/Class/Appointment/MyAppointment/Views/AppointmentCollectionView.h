@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppointmentManager.h"
+@class AppointmentListModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AppointmentCollectionView : UIView
 @property (nonatomic, assign) AppointmentDisplayType dispayType;
 @property (nonatomic, assign) id<AppointmentCollectionViewDelegate>delegate;
--(void)appointmentCollectionViewReloadData;
+-(void)appointmentCollectionViewReloadDataWithAppointmentList:(NSArray *)appointmentList;
 @end
 
 NS_ASSUME_NONNULL_END

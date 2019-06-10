@@ -407,6 +407,15 @@
     [outStr addAttributes:@{NSFontAttributeName : font} range:range];
     return outStr;
 }
+
+- (NSAttributedString *)attributStrWithTargetStr:(NSString *)str color:(UIColor *)color
+{
+    NSRange range = [self rangeOfString:str];
+    NSMutableAttributedString *outStr = [[NSMutableAttributedString alloc] initWithString:self];
+    [outStr addAttributes:@{NSForegroundColorAttributeName : color} range:range];
+    return outStr;
+}
+
 - (NSAttributedString *)attributStrWithFontTargetStr:(NSString *)fontStr font:(UIFont *)font andColorTargetStr:(NSString *)colorStr color:(UIColor *)color
 {
     NSMutableAttributedString *outStr = [[NSMutableAttributedString alloc] initWithString:self];

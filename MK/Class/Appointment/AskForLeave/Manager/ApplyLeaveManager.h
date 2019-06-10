@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class ApplyLeaveCourseModel;
 
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ApplyLeaveManager : NSObject
@@ -44,7 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(void)callBackEditApplyLeaveWithParameterApply_id:(NSString *)apply_id class_id:(NSString *)class_id lesson_id:(NSString *)lesson_id detail:(NSString *)detail completionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
 
-+(void)callBackAllApplyListWithParameteApply_type:(NSInteger )applyType completionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

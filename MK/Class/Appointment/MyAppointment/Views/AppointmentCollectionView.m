@@ -8,8 +8,10 @@
 
 #import "AppointmentCollectionView.h"
 #import "AppointmentCollectionViewCell.h"
+#import "AppointmentListModel.h"
 @interface AppointmentCollectionView()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *contentCollectionView;
+@property (nonatomic, strong) NSArray *appointmentList;
 @end
 @implementation AppointmentCollectionView
 @synthesize delegate;
@@ -48,12 +50,13 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     AppointmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"AppointmentCollectionViewCell" forIndexPath:indexPath];
-    [cell cellRefreshDataWithDisplayType:self.dispayType];
+    AppointmentListModel *model = self.appointmentList[indexPath.row];
+    [cell cellRefreshDataWithDisplayType:self.dispayType andAppointmentListModel:model];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 4;
+    return self.appointmentList.count;
 }
 
 #pragma mark --  cell did selected
@@ -64,7 +67,7 @@
         }
 }
 #pragma mark --  reload data
--(void)appointmentCollectionViewReloadData
+-(void)appointmentCollectionViewReloadDataWithAppointmentList:(NSArray *)appointmentList
 {
     [self.contentCollectionView reloadData];
 }

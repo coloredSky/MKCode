@@ -105,7 +105,7 @@
  @return 改变g后的字符
  */
 -(NSAttributedString *)attributStrWithTargetStr:(NSString *)str font:(UIFont *)font;
-
+- (NSAttributedString *)attributStrWithTargetStr:(NSString *)str color:(UIColor *)color;
 
 /**
  改变字符串的大小 颜色

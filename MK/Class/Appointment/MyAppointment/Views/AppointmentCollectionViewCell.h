@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "AppointmentManager.h"
+@class AppointmentListModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AppointmentCollectionViewCell : UICollectionViewCell
--(void)cellRefreshDataWithDisplayType:(AppointmentDisplayType )displayType;
+-(void)cellRefreshDataWithDisplayType:(AppointmentDisplayType )displayType andAppointmentListModel:(AppointmentListModel *)appointmentModel;
 @end
 
 NS_ASSUME_NONNULL_END

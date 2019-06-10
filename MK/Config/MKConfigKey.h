@@ -26,5 +26,7 @@
 //#define KMKLoginKey @"KMKLoginKey"
 //#define K_MK_IsHaveLoginKey [[NSUserDefaults standardUserDefaults]boolForKey:KMKLoginKey]
 
+#define kMKLoginInNotifcationKey @"kMKLoginInNotifcationKey"
+#define kMKLoginOutNotifcationKey @"kMKLoginOutNotifcationKey"
 
 #endif /* MKConfigKey_h */

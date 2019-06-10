@@ -7,6 +7,8 @@
 //
 
 #import "AppointmentCell.h"
+#import "AppointmentListModel.h"
+
 @interface AppointmentCell()
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
 @property (weak, nonatomic) IBOutlet UIImageView *courseNameIma;
@@ -50,17 +52,19 @@
     self.applyTypeLab.frame = CGRectMake(self.whiteView.width-KScaleWidth(20)-KScaleWidth(5)-KScaleWidth(60), self.timeLab.topY-KScaleHeight(20), KScaleWidth(60), KScaleHeight(20));
 }
 
--(void)cellRefreshData
+-(void)cellRefreshDataWithDisplayType:(AppointmentDisplayType )displayType andAppointmentListModel:(AppointmentListModel *)appointmentModel
 {
+    NSArray *titleArr = @[@"换班成功",@"请假成功",@"预约成功"];
+    self.applyTypeLab.text = titleArr[displayType];
     self.courseNameIma.image = KImageNamed(@"appointment_changeClass_gray");
     self.timeIma.image = KImageNamed(@"appointment_Coursetime_gray");
     self.teacherIma.image = KImageNamed(@"appointment_Teacher_gray");
     self.addressIma.image = KImageNamed(@"appointment_address_gray");
-    self.courseNameLab.text = @"日语基础";
-    self.timeLab.text = @"12月24日 19:00";
-    self.teacherLab.text = @"大学院美术 施晋昊";
-    self.addressLab.text = @"双爱4F日语教室";
-    self.applyTypeLab.text = @"请假成功";
+    self.courseNameLab.text = @"--";
+    self.timeLab.text = appointmentModel.add_time;
+    self.teacherLab.text = @"--";
+    self.addressLab.text = appointmentModel.address;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

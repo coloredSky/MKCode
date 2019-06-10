@@ -8,7 +8,7 @@
 
 #import "ApplyLeaveManager.h"
 #import "ApplyLeaveCourseModel.h"
-#import "ApplyListModel.h"
+
 
 @implementation ApplyLeaveManager
 
@@ -108,26 +108,5 @@
     }];
 }
 
-+(void)callBackAllApplyListWithParameteApply_type:(NSInteger )applyType completionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock
-{
-    NSDictionary *parameter = @{
-                                @"apply_type":@(applyType),
-                                };
-    [MKNetworkManager sendGetRequestWithUrl:K_MK_GetApplyList_Url parameters:parameter hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
-        if (MKResult.responseCode == 0) {
-            if (completionBlock) {
-                NSArray *courseList = [NSArray yy_modelArrayWithClass:[ApplyLeaveCourseModel class] json:MKResult.dataResponseObject];
-//                completionBlock(YES,courseList,MKResult.message);
-            }
-        }else{
-            if (completionBlock) {
-//                completionBlock(NO,nil,MKResult.message);
-            }
-        }
-    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
-        if (completionBlock) {
-//            completionBlock(NO,nil,error.userInfo[NSLocalizedDescriptionKey]);
-        }
-    }];
-}
+
 @end
