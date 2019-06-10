@@ -72,7 +72,7 @@
         return;
     }
     
-    [AppointmentManager callBackAllApplyListWithParameteApply_type:self.dispayType+1 completionBlock:^(BOOL isSuccess, NSArray<AppointmentListModel *> * _Nonnull ongoingApplyList, NSArray<AppointmentListModel *> * _Nonnull completeApplyList, NSString * _Nonnull message) {
+    [AppointmentManager callBackAllApplyListWithParameteApply_type:self.dispayType completionBlock:^(BOOL isSuccess, NSArray<AppointmentListModel *> * _Nonnull ongoingApplyList, NSArray<AppointmentListModel *> * _Nonnull completeApplyList, NSString * _Nonnull message) {
         if (isSuccess) {
             self.ongoningList = ongoingApplyList;
             self.completeList = completeApplyList;
@@ -81,7 +81,7 @@
         }
         if (ongoingApplyList.count==0&&ongoingApplyList.count == 0) {
             self.emptyView.hidden = NO;
-            self.emptyView.showType = EmptyViewShowTypeNoAppointment;
+            self.emptyView.showType = self.dispayType+1;
             self.contentTable.hidden = YES;
         }else{
             self.emptyView.hidden = YES;
@@ -99,10 +99,6 @@
         @strongObject(self);
         [self requestData];
     }];
-    //上拉加载
-    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-    //                @strongObject(self);
-    //    }];
 }
 
 #pragma mark --  request
@@ -209,6 +205,7 @@
 #pragma mark --  collectionItem-didSelected
 -(void)appointmentCollectionViewItemDidSelectedWithIndexPath:(NSIndexPath *)indexPath
 {
+    AppointmentListModel *appointmentModel = self.ongoningList[indexPath.row];
     if (self.dispayType == AppointmentDisplayTypeChangeClass) {
         ChangeClassQueryViewController *changeClassQuaryVC = [ChangeClassQueryViewController new];
         [self.navigationController pushViewController:changeClassQuaryVC animated:YES];
@@ -217,6 +214,8 @@
         [self.navigationController pushViewController:askForLeaveQuaryVC animated:YES];
     }else if (self.dispayType == AppointmentDisplayTypeMeeting){
         MeetingQueryViewController *meetingQuaryVC = [MeetingQueryViewController new];
+        meetingQuaryVC.appointmentModel = appointmentModel;
+        meetingQuaryVC.showType = AppointmentDisplayTypeMeeting;
         [self.navigationController pushViewController:meetingQuaryVC animated:YES];
     }
 }

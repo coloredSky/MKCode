@@ -22,8 +22,9 @@
 @property (nonatomic, strong) NSMutableArray <DiscoverNewsModel *> *dicoverNewsList;
 @property (nonatomic, strong) NSArray <DiscoverNewsModel *> *feelingNewsList;
 //分页
-@property (nonatomic, assign) NSInteger pageOffset;//从第几条取数据
-@property (nonatomic, assign) NSInteger pageLimit;//取数据的条数
+@property (nonatomic, assign) NSInteger totalPage;//总页数
+@property (nonatomic, assign) NSInteger currentPage;//页码
+@property (nonatomic, assign) NSInteger pageSize;//取数据的条数
 @end
 
 @implementation DiscoverPageViewController
@@ -32,8 +33,8 @@
 -(instancetype)init
 {
     if (self = [super init]) {
-        self.pageOffset = 1;
-        self.pageLimit = 5;
+        self.currentPage = 1;
+        self.pageSize = 5;
         self.dicoverNewsList = [NSMutableArray array];
     }
     return self;
@@ -48,67 +49,57 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self startRequest];
-    [self setUpRefresh];
+    [self startRequestTheArticleList];
+    [self setUpHeaderRefresh];
 }
 
 
 #pragma mark --  refresh
--(void)setUpRefresh
+-(void)setUpHeaderRefresh
 {
     //下拉刷新
     @weakObject(self);
     self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
-        self.pageOffset = 1;
-        [self requestActivity];
+        self.currentPage = 1;
+        [self startRequestTheArticleList];
     }];
+}
+-(void)setUpFooterRefresh
+{
     //上拉加载
+    @weakObject(self);
     self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
         @strongObject(self);
-        self.pageOffset += self.pageLimit;
-        [self requestActivity];
+        self.currentPage ++;
+        [self startRequestTheArticleList];
     }];
 }
 
 
 #pragma mark --  request
--(void)startRequest
+-(void)startRequestTheArticleList
 {
-    [self requestActivity];
-    [self requestFeeling];
-}
-
-//请求活动
--(void)requestActivity
-{
-    [DiscoverManager callBackDiscoverNewsListDataWithHUDShow:NO type:@"activity" pageOffset:self.pageOffset pageLimit:self.pageLimit andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<DiscoverNewsModel *> * _Nonnull newsList) {
+    [DiscoverManager callBackDiscoverNewsListDataWithHUDShow:NO page:self.currentPage page_size:self.pageSize andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<DiscoverNewsModel *> * _Nonnull newsList, NSInteger totalpage) {
         [self.contentTable.mj_header endRefreshing];
         [self.contentTable.mj_footer endRefreshing];
         if (isSuccess) {
-            if (self.pageOffset == 1) {
+            if (self.currentPage == 1) {
+                self.totalPage = totalpage;
                 [self.dicoverNewsList removeAllObjects];
                 self.dicoverNewsList = newsList.mutableCopy;
+                if (self.currentPage < totalpage) {
+                    [self setUpFooterRefresh];
+                }
             }else{
                 [self.dicoverNewsList addObjectsFromArray:newsList];
             }
-            if (newsList.count < self.pageLimit) {
+            if (self.currentPage >= self.totalPage) {
                 [self.contentTable.mj_footer endRefreshingWithNoMoreData];
             }
             [self.contentTable reloadData];
         }else{
-            self.pageOffset -= self.pageLimit;
-        }
-    }];
-}
-
-//请求学生感言
--(void)requestFeeling
-{
-    [DiscoverManager callBackDiscoverNewsListDataWithHUDShow:NO type:@"activity" pageOffset:1 pageLimit:4 andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<DiscoverNewsModel *> * _Nonnull newsList) {
-        if (isSuccess) {
-            self.feelingNewsList = newsList;
-            [self.contentTable reloadData];
+            self.currentPage --;
         }
     }];
 }
@@ -211,10 +202,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DiscoverNewsModel *newsModel = self.dicoverNewsList[indexPath.section];
-    NewsViewController *newsVC = [NewsViewController new];
-    newsVC.contentString = newsModel.newsContent;
-    newsVC.loadType = WebViewLoadTypeLoadTheRichText;
-    [self.navigationController pushViewController:newsVC animated:YES];
+    [MBHUDManager showLoading];
+    [DiscoverManager callBackDiscoverNewsDetailDataWithHUDShow:NO newsID:newsModel.newsID andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, DiscoverNewsModel * _Nonnull newsDetailModel) {
+        [MBHUDManager hideAlert];
+        if (isSuccess) {
+            NewsViewController *newsVC = [NewsViewController new];
+            newsVC.contentString = newsDetailModel.newsContent;
+            newsVC.loadType = WebViewLoadTypeLoadTheRichText;
+            [self.navigationController pushViewController:newsVC animated:YES];
+        }else{
+            [MBHUDManager showBriefAlert:message];
+        }
+    }];
 }
 #pragma mark -- course category did selected
 -(void)itemDidSelectedWithIndex:(NSUInteger )index

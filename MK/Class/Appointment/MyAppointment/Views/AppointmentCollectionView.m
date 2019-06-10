@@ -69,6 +69,7 @@
 #pragma mark --  reload data
 -(void)appointmentCollectionViewReloadDataWithAppointmentList:(NSArray *)appointmentList
 {
+    self.appointmentList = appointmentList;
     [self.contentCollectionView reloadData];
 }
 

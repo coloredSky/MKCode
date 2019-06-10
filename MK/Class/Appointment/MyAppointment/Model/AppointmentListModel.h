@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *confirm_staff_id;
 @property (nonatomic, copy) NSString *confirm_time;
 @property (nonatomic, copy) NSString *confirm_detail;
+@property (nonatomic, copy) NSString *status_msg;
+
 @end
 
 NS_ASSUME_NONNULL_END

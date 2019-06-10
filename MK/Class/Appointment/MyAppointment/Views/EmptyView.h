@@ -6,9 +6,19 @@
 //  Copyright © 2019 周洋. All rights reserved.
 //
 
-typedef NS_ENUM(NSUInteger, EmptyViewShowType) {
-    EmptyViewShowTypeUnknown,
+
+/**
+ 默认视图显示
+
+ - EmptyViewShowTypeUnknown: unknow
+ - EmptyViewShowTypeAppointmentNoLogin: 未登录
+ - EmptyViewShowTypeNoAppointment: 没有预约的课程
+ */
+typedef NS_ENUM(NSInteger, EmptyViewShowType) {
+    EmptyViewShowTypeUnknown = -1,
     EmptyViewShowTypeAppointmentNoLogin,
+    EmptyViewShowTypeNoAskForLeave,
+    EmptyViewShowTypeNoChangeClass,
     EmptyViewShowTypeNoAppointment,
 };
 

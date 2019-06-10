@@ -11,6 +11,7 @@ static NSString *const responseData = @"data";
 static NSString *const responseMessage = @"msg";
 
 #import "MKNetworkManager.h"
+#import "AppDelegate.h"
 
 @interface MKNetworkManager()
 
@@ -55,6 +56,11 @@ static NSString *const responseMessage = @"msg";
             result.dataResponseObject = responseObject[responseData];
             result.message = responseObject[responseMessage];
             successBlock(result,isCacheObject);
+            if (result.responseCode == 999) {
+                [[UserManager shareInstance] loginOut];
+                [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginOutNotifcationKey object:nil];
+                [[AppDelegate instance] pb_presentShowLoginViewController];
+            }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (hudShow) {
@@ -82,6 +88,11 @@ static NSString *const responseMessage = @"msg";
             result.dataResponseObject = responseObject[responseData];
             result.message = responseObject[responseMessage];
             successBlock(result,isCacheObject);
+            if (result.responseCode == 999) {
+                [[UserManager shareInstance] loginOut];
+                [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginOutNotifcationKey object:nil];
+                [[AppDelegate instance] pb_presentShowLoginViewController];
+            }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (hudShow) {

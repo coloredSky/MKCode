@@ -22,6 +22,11 @@
 
 @implementation MKTarbarViewController
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -29,7 +34,14 @@
     self.tabBar.backgroundColor=[UIColor whiteColor];
     self.tabBar.barTintColor=[UIColor whiteColor];
     [self configTabbar];
+    [self addNoti];
 }
+
+-(void)addNoti
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginOutTarget:) name:kMKLoginOutNotifcationKey object:nil];
+}
+
 -(void)configTabbar
 {
     NSArray *titleArr = @[@"首页",@"发现",@"预约",@"课程",@"我的"];
@@ -58,5 +70,10 @@
     return tabBarImage;
 }
 
+-(void)loginOutTarget:(NSNotification *)noti
+{
+    MKNavigationController *nav = self.viewControllers[self.selectedIndex];
+    [nav popToRootViewControllerAnimated:YES];
+}
 
 @end

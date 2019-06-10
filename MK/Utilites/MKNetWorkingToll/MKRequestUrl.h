@@ -26,14 +26,18 @@ static NSString * const K_MK_Home_CourseList_Url  = @"/api/course/courseList";
 //课程详情
 static NSString * const K_MK_Course_CourseDetail_Url  = @"/api/course/courseDetail";
 
-//发现
-static NSString * const K_MK_Discover_NewsList_Url  = @"/api/posts/getposts";
+//发现列表
+static NSString * const K_MK_Discover_NewsList_Url  = @"/api/posts/getlist";
+//发现新闻详情
+static NSString * const K_MK_Discover_NewsDetail_Url  = @"/api/posts/getcontent";
 
 /*
  *预约
  */
 //获取各类申请列表
 static NSString * const K_MK_GetApplyList_Url  = @"/api/user/getApplyList";
+//获取各类申请的回复
+static NSString * const K_MK_GetApplyReplayInformation_Url  = @"/api/user/getApplyReply";
 
 //请假
 //获取请假课程列表

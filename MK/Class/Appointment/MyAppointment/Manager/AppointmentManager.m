@@ -13,8 +13,16 @@
 
 +(void)callBackAllApplyListWithParameteApply_type:(NSInteger )applyType completionBlock:(void(^)(BOOL isSuccess,NSArray <AppointmentListModel *>*ongoingApplyList, NSArray <AppointmentListModel *> *completeApplyList,NSString *message))completionBlock
 {
+    NSInteger type = 0;
+    if (applyType == 0) {
+        type = 3;
+    }else if (applyType == 1){
+        type = 2;
+    }else if (applyType == 2){
+        type = 1;
+    }
     NSDictionary *parameter = @{
-                                @"apply_type":@(applyType),
+                                @"apply_type":@(type),
                                 };
     [MKNetworkManager sendGetRequestWithUrl:K_MK_GetApplyList_Url parameters:parameter hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 0) {
@@ -43,4 +51,48 @@
     }];
 }
 
+
++(void)callBackAllApplyReplyInformationWithParameteApply_type:(NSInteger )applyType apply_id:(NSString *)apply_id completionBlock:(void(^)(BOOL isSuccess,NSArray <AppointmentListModel *>*ongoingApplyList, NSArray <AppointmentListModel *> *completeApplyList,NSString *message))completionBlock
+{
+    NSInteger type = 0;
+    if (applyType == 0) {
+        type = 3;
+    }else if (applyType == 1){
+        type = 2;
+    }else if (applyType == 2){
+        type = 1;
+    }
+    if ([NSString isEmptyWithStr:apply_id]) {
+        return;
+    }
+    NSDictionary *parameter = @{
+                                @"apply_type":@(type),
+                                @"apply_id":apply_id,
+                                };
+    [MKNetworkManager sendGetRequestWithUrl:K_MK_GetApplyReplayInformation_Url parameters:parameter hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode == 0) {
+            if (completionBlock) {
+//                NSArray *applyList = [NSArray yy_modelArrayWithClass:[AppointmentListModel class] json:MKResult.dataResponseObject[@"applySetList"][@"un_finish"]];
+//                NSMutableArray *ongoingArr = [NSMutableArray array];
+//                NSMutableArray *completeArr = [NSMutableArray array];
+//                for (AppointmentListModel *model in applyList) {
+//                    if ([model.status integerValue]==1) {
+//                        [completeArr addObject:model];
+//                    }else{
+//                        [ongoingArr addObject:model];
+//                    }
+//                }
+//                completionBlock(YES,ongoingArr.copy,completeArr.copy,MKResult.message);
+            }
+        }else{
+            if (completionBlock) {
+                completionBlock(NO,nil,nil,MKResult.message);
+            }
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        if (completionBlock) {
+            completionBlock(NO,nil,nil,error.userInfo[NSLocalizedDescriptionKey]);
+        }
+    }];
+}
 @end

@@ -16,6 +16,9 @@
     if (![NSString isEmptyWithStr:_add_time]) {
         _add_time = [NSString timeTransformWithDate:_add_time WithFormModel:@"YYYY-MM-dd HH:mm:ss" toModel:@"MM月dd日 HH:mm"];;
     }
+    if ([NSString isEmptyWithStr:_address]) {
+        _address = @"---";
+    }
     return YES;
 }
 

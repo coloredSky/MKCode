@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MKNavViewController : MKBaseViewController
 
+
+/**返回前一个界面*/
+-(void)backToPreviousViewController;
 @end
 
 NS_ASSUME_NONNULL_END

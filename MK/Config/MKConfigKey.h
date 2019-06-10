@@ -19,14 +19,10 @@
 #define kXHBorrowBugConfigChannel @"APP Store"
 #endif
 
-//static NSString *const KMKLoginKey = @"KMKLoginKey";
-//static BOOL KIsHaveLogin(){
-//    return [[NSUserDefaults standardUserDefaults]boolForKey:KMKLoginKey];
-//}
-//#define KMKLoginKey @"KMKLoginKey"
-//#define K_MK_IsHaveLoginKey [[NSUserDefaults standardUserDefaults]boolForKey:KMKLoginKey]
 
+/**用户登录通知*/
 #define kMKLoginInNotifcationKey @"kMKLoginInNotifcationKey"
+/**用户退出登录通知*/
 #define kMKLoginOutNotifcationKey @"kMKLoginOutNotifcationKey"
 
 #endif /* MKConfigKey_h */

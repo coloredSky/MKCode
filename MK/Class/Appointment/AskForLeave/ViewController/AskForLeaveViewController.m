@@ -54,7 +54,7 @@
 
 -(void)startRequest
 {
-    [ApplyLeaveManager callBackApplyLeaveCourseListWithParameter:@"0" completionBlock:^(BOOL isSuccess, NSArray<ApplyLeaveCourseModel *> * _Nonnull courseList, NSString * _Nonnull message) {
+    [ApplyLeaveManager callBackApplyLeaveCourseListWithParameter:@"1" completionBlock:^(BOOL isSuccess, NSArray<ApplyLeaveCourseModel *> * _Nonnull courseList, NSString * _Nonnull message) {
         if (isSuccess) {
             self.courseList = courseList;
             for (ApplyLeaveCourseModel *model in courseList) {

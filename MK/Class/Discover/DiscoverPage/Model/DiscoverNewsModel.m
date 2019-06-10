@@ -16,7 +16,6 @@
     if (![NSString isEmptyWithStr:_newsCreateTime]) {
         _newsCreateWeek = [NSString weekdayStringWithDateString:_newsCreateTime andDateFormatString:@"YYYY-MM-dd HH:mm:ss"];
         _newsCreateDate = [NSString timeTransformWithDate:_newsCreateTime WithFormModel:@"YYYY-MM-dd HH:mm:ss" toModel:@"MM月dd日"];;
-//        [_newsCreateWeek getStrWidthWithfont:@""];
     }
     if (![NSString isEmptyWithStr:_newsContent]) {
         _newsContent = [NSString htmlStringTransToString:_newsContent];

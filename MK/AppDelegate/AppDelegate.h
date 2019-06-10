@@ -13,5 +13,17 @@
 @property (strong, nonatomic) UIWindow *window;
 
 
+/**
+ 得到 appdelegate
+
+ @return appdelegate
+ */
++(AppDelegate*)instance;
+
+/**
+ 登录界面弹出
+ */
+-(void)pb_presentShowLoginViewController;
+
 @end
 

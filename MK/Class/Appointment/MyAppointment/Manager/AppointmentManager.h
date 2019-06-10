@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(void)callBackAllApplyListWithParameteApply_type:(NSInteger )applyType completionBlock:(void(^)(BOOL isSuccess,NSArray <AppointmentListModel *>*ongoingApplyList, NSArray <AppointmentListModel *> *completeApplyList,NSString *message))completionBlock;
 
++(void)callBackAllApplyReplyInformationWithParameteApply_type:(NSInteger )applyType apply_id:(NSString *)apply_id completionBlock:(void(^)(BOOL isSuccess,NSArray <AppointmentListModel *>*ongoingApplyList, NSArray <AppointmentListModel *> *completeApplyList,NSString *message))completionBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -13,6 +13,8 @@
 #import "AppointmentTapView.h"
 #import "AppointmentTeacherReplyCell.h"
 
+#import "AppointmentListModel.h"
+
 @interface MeetingQueryViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
@@ -24,6 +26,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_YellowColor;
+    [self startRequest];
+}
+
+-(void)startRequest
+{
+    [AppointmentManager callBackAllApplyReplyInformationWithParameteApply_type:self.showType apply_id:self.appointmentModel.applyID completionBlock:^(BOOL isSuccess, NSArray<AppointmentListModel *> * _Nonnull ongoingApplyList, NSArray<AppointmentListModel *> * _Nonnull completeApplyList, NSString * _Nonnull message) {
+        if (isSuccess) {
+            
+        }
+    }];
 }
 
 -(NSArray *)tipStringArr

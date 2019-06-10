@@ -33,7 +33,9 @@
     _whiteView.layer.cornerRadius = 16;
     
     [_titleLab setFont:MKBoldFont(14) textColor:K_Text_grayColor withBackGroundColor:nil];[_contentLab setFont:K_Font_Text_Min_Max textColor:K_Text_grayColor withBackGroundColor:nil];
-    self.contentLab.numberOfLines = 2;
+    _titleLab.numberOfLines = 2;
+    self.contentLab.hidden = YES;
+//    self.contentLab.numberOfLines = 2;
 }
 
 -(void)cellRefreshDataWithDiscoverNewsModel:(DiscoverNewsModel *)newsModel
@@ -49,7 +51,7 @@
     self.shadowView.frame = CGRectMake(K_Padding_LeftPadding, KScaleHeight(5), self.contentView.width-K_Padding_LeftPadding*2, self.contentView.height-KScaleHeight(10));
     self.whiteView.frame = CGRectMake(0, 0, self.shadowView.width, self.shadowView.height);
     self.contentIma.frame = CGRectMake(0, 0, self.whiteView.width, 257*self.whiteView.width/342);
-    self.titleLab.frame = CGRectMake(KScaleHeight(16), self.contentIma.bottomY+ KScaleHeight(14), self.whiteView.width-KScaleHeight(16), KScaleHeight(20));
-    self.contentLab.frame = CGRectMake(self.titleLab.leftX, self.titleLab.bottomY+KScaleHeight(5), self.titleLab.width, KScaleHeight(20));
+    self.titleLab.frame = CGRectMake(KScaleWidth(16), self.contentIma.bottomY+ KScaleHeight(14), self.whiteView.width-KScaleWidth(16*2), KScaleHeight(40));
+//    self.contentLab.frame = CGRectMake(self.titleLab.leftX, self.titleLab.bottomY+KScaleHeight(5), self.titleLab.width, KScaleHeight(20));
 }
 @end
