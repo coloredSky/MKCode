@@ -14,19 +14,39 @@
 #import "AppointmentTeacherReplyCell.h"
 
 #import "AppointmentListModel.h"
+#import "MakeMeetingManager.h"
 
 @interface MeetingQueryViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
-@property (nonatomic, strong) NSArray *tipStringArr;
+@property (nonatomic, strong) NSMutableArray *tipStringArr;
 @end
 
 @implementation MeetingQueryViewController
+
+-(instancetype)init
+{
+    if (self = [super init]) {
+        _tipStringArr = [NSMutableArray array];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_YellowColor;
     [self startRequest];
+    [self initDta];
+}
+
+-(void)initDta
+{
+    [self.tipStringArr addObject:self.appointmentModel.type];
+    [self.tipStringArr addObject:self.appointmentModel.staff_name];
+    [self.tipStringArr addObject:self.appointmentModel.show_time_one];
+    [self.tipStringArr addObject:self.appointmentModel.show_time_two];
+    [self.tipStringArr addObject:self.appointmentModel.show_time_three];
 }
 
 -(void)startRequest
@@ -38,13 +58,7 @@
     }];
 }
 
--(NSArray *)tipStringArr
-{
-    if (!_tipStringArr) {
-        _tipStringArr = @[@"心理咨询",@"大学院美术 施晋昊",@"2019年 2月 4日 14:00",@"2019年 2月 4日 14:00",@"2019年 2月 4日 14:00"];
-    }
-    return _tipStringArr;
-}
+
 -(MKBaseScrollView *)contentScroll
 {
     if (!_contentScroll) {
@@ -90,12 +104,15 @@
             if (operationType == AppointmentHeaderViewOperationTypeEdit) {
                 MKMeetingViewController *meetingVC = [MKMeetingViewController new];
                 meetingVC.operationType = MeetingOperationTypeEdit;
+                meetingVC.appointmentModel = strongSelf.appointmentModel;
                 [strongSelf.navigationController pushViewController:meetingVC animated:YES];
             }else{
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否确认取消申请" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您确认删除申请？" preferredStyle:UIAlertControllerStyleAlert];
                 [strongSelf presentViewController:alert animated:YES completion:nil];
+                __weak typeof(self) weakSelf = strongSelf;
                 UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
+                    __strong typeof(weakSelf) strongSelf = weakSelf;
+                    [strongSelf deleteApplyMeeting];
                 }];
                 UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
                 [alert addAction:cancleAction];
@@ -105,13 +122,13 @@
     }
     return _headerView;
 }
+
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
     self.contentScroll.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
     self.headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight);
 }
-
 
 #pragma mark - UITableViewDataSource
 #pragma mark - cell
@@ -121,27 +138,33 @@
     [cell cellRefreshData];
     return cell;
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 0;
 }
+
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return KScaleHeight(95);
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return KScaleHeight(48);
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return CGFLOAT_MIN;
 }
+
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(48))];
@@ -152,13 +175,36 @@
     titleLab.text = @"暂无回复";
     return headerView;
 }
+
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     return nil;
 }
+
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
+
+#pragma mark --  删除申请
+-(void)deleteApplyMeeting
+{
+    [MBHUDManager showLoading];
+    [MakeMeetingManager callBackDeleteMeetingRequestWithParameteApply_id:self.appointmentModel.applyID withCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
+        if (isSuccess) {
+            [MBHUDManager showBriefAlert:@"删除预约相谈成功"];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kMKApplyMeetingListRefreshNotifcationKey object:nil];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self backToPreviousViewController];
+            });
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }
+        }
+    }];
+}
+
 @end

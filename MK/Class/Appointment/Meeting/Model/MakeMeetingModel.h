@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray *time3List;
 @property (nonatomic, strong) NSArray <NSString *>*purposeStringList;
 @property (nonatomic, strong) NSArray <NSDictionary *>*purposeList;
+
 @end
 
 NS_ASSUME_NONNULL_END

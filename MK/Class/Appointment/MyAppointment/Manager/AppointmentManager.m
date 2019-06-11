@@ -8,6 +8,7 @@
 
 #import "AppointmentManager.h"
 #import "AppointmentListModel.h"
+#import "AppointmentDetailModel.h"
 
 @implementation AppointmentManager
 
@@ -92,6 +93,46 @@
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (completionBlock) {
             completionBlock(NO,nil,nil,error.userInfo[NSLocalizedDescriptionKey]);
+        }
+    }];
+}
+
++(void)callBackAllApplyDetailWithParameteApply_type:(NSInteger )applyType apply_id:(NSString *)apply_id completionBlock:(void(^)(BOOL isSuccess,AppointmentDetailModel *detailmodel, NSString *message))completionBlock
+{
+    NSInteger type = 0;
+    if (applyType == 0) {
+        type = 3;
+    }else if (applyType == 1){
+        type = 2;
+    }else if (applyType == 2){
+        type = 1;
+    }
+    if ([NSString isEmptyWithStr:apply_id]) {
+        return;
+    }
+    NSDictionary *parameter = @{
+                                @"apply_type":@(type),
+                                @"apply_id":apply_id,
+                                };
+    [MKNetworkManager sendGetRequestWithUrl:K_MK_GetApplyDetail_Url parameters:parameter hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode == 0) {
+            NSArray *applyInfo = MKResult.dataResponseObject[@"applyInfo"];
+            if ([applyInfo isKindOfClass:[NSArray class]]) {
+                if (applyInfo.count > 0) {
+                  AppointmentDetailModel *detailModel = [AppointmentDetailModel yy_modelWithJSON:applyInfo[0]];
+                    if (completionBlock) {
+                        completionBlock(YES,detailModel,MKResult.message);
+                    }
+                }
+            }
+        }else{
+            if (completionBlock) {
+                completionBlock(NO,nil,MKResult.message);
+            }
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        if (completionBlock) {
+            completionBlock(NO,nil,error.userInfo[NSLocalizedDescriptionKey]);
         }
     }];
 }

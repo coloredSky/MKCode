@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface ChangeClassViewController : MKNavViewController
 @property (nonatomic, assign) ChangeClassOperationType operationType;
+
 @end
 
 NS_ASSUME_NONNULL_END

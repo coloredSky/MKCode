@@ -57,6 +57,7 @@ static NSString *const responseMessage = @"msg";
             result.message = responseObject[responseMessage];
             successBlock(result,isCacheObject);
             if (result.responseCode == 999) {
+                [MBHUDManager showBriefAlert:result.message];
                 [[UserManager shareInstance] loginOut];
                 [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginOutNotifcationKey object:nil];
                 [[AppDelegate instance] pb_presentShowLoginViewController];
@@ -89,6 +90,7 @@ static NSString *const responseMessage = @"msg";
             result.message = responseObject[responseMessage];
             successBlock(result,isCacheObject);
             if (result.responseCode == 999) {
+                [MBHUDManager showBriefAlert:result.message];
                 [[UserManager shareInstance] loginOut];
                 [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginOutNotifcationKey object:nil];
                 [[AppDelegate instance] pb_presentShowLoginViewController];

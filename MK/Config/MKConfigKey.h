@@ -24,5 +24,10 @@
 #define kMKLoginInNotifcationKey @"kMKLoginInNotifcationKey"
 /**用户退出登录通知*/
 #define kMKLoginOutNotifcationKey @"kMKLoginOutNotifcationKey"
-
+/**预约相谈列表刷新通知*/
+#define kMKApplyMeetingListRefreshNotifcationKey @"kMKApplyMeetingListRefreshNotifcationKey"
+/**请假列表刷新通知*/
+#define kMKApplyAskForLeaveListRefreshNotifcationKey @"kMKApplyAskForLeaveListRefreshNotifcationKey"
+/**换班列表刷新通知*/
+#define kMKApplyChangeClassListRefreshNotifcationKey @"kMKApplyChangeClassListRefreshNotifcationKey"
 #endif /* MKConfigKey_h */

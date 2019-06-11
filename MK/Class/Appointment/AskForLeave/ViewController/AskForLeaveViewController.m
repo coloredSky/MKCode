@@ -15,12 +15,13 @@
 #import "UITextView+WJPlaceholder.h"
 #import "ApplyLeaveManager.h"
 #import "ApplyLeaveCourseModel.h"
+#import "AppointmentDetailModel.h"
 
 @interface AskForLeaveViewController ()<XDSDropDownMenuDelegate, AppointmentTapViewDelegate>
 @property (nonatomic, strong) MKBaseScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) UITextView *reasonTextView;
-@property (nonatomic, strong) NSArray *tipStringArr;
+@property (nonatomic, strong) NSMutableArray *tipStringArr;
 
 //下拉
 @property (nonatomic, strong) XDSDropDownMenu *classsDownMenu;//班级
@@ -40,7 +41,6 @@
     if (self = [super init]) {
         self.courseNameArr = [NSMutableArray array];
         self.tapViewArr = [NSMutableArray arrayWithCapacity:2];
-        self.tipStringArr = @[@"选择要休息的班级",@"选择要休息的课程"];
     }
     return self;
 }
@@ -54,10 +54,22 @@
 
 -(void)startRequest
 {
+    [MBHUDManager showLoading];
     [ApplyLeaveManager callBackApplyLeaveCourseListWithParameter:@"1" completionBlock:^(BOOL isSuccess, NSArray<ApplyLeaveCourseModel *> * _Nonnull courseList, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
         if (isSuccess) {
             self.courseList = courseList;
             for (ApplyLeaveCourseModel *model in courseList) {
+                if (self.operationType == AskForLeaveOperationTypeEdit) {
+                    if ([model.class_id integerValue] == [self.detailModel.class_id integerValue]) {
+                        self.selectedCourseModel = model;
+                        for (ApplyLeaveLessonModel *lessonModel in model.lessonList) {
+                            if ([lessonModel.lesson_id integerValue] == [self.detailModel.lesson_id integerValue]) {
+                                self.selectedLessonModel = lessonModel;
+                            }
+                        }
+                    }
+                }
                 [self.courseNameArr addObject:model.class_name];
             }
         }
@@ -73,6 +85,21 @@
 }
 
 #pragma mark --  lazy
+
+-(NSMutableArray *)tipStringArr
+{
+    if (!_tipStringArr) {
+        if (self.operationType == AskForLeaveOperationTypeNew) {
+            _tipStringArr = @[@"选择要休息的班级",@"选择要休息的课程"].mutableCopy;
+        }else{
+            _tipStringArr = [NSMutableArray arrayWithCapacity:2];
+            [_tipStringArr addObject:self.detailModel.class_name];
+            [_tipStringArr addObject:self.detailModel.lesson_name];
+        }
+    }
+    return _tipStringArr;
+}
+
 -(XDSDropDownMenu *)classsDownMenu
 {
     if (!_classsDownMenu) {
@@ -142,6 +169,9 @@
         _reasonTextView.textColor = K_Text_WhiteColor;
         _reasonTextView.font = K_Font_Text_Normal;
         _reasonTextView.placeholder = @"理由";
+        if (self.operationType == AskForLeaveOperationTypeEdit) {
+            _reasonTextView.text = self.detailModel.detail;
+        }
         _reasonTextView.placeholdFont = K_Font_Text_Normal;
         _reasonTextView.placeholderColor = K_Text_DeepGrayColor;
     }

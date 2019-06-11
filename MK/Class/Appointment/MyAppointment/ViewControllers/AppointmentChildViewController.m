@@ -61,7 +61,15 @@
 {
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginInTarget:) name:kMKLoginInNotifcationKey object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginOutTarget:) name:kMKLoginOutNotifcationKey object:nil];
-    
+    NSString *notiName = @"";
+    if (self.dispayType == AppointmentDisplayTypeChangeClass) {
+        notiName = kMKApplyChangeClassListRefreshNotifcationKey;
+    }else if (self.dispayType == AppointmentDisplayTypeAskForLeave) {
+        notiName = kMKApplyAskForLeaveListRefreshNotifcationKey;
+    }else if (self.dispayType == AppointmentDisplayTypeMeeting) {
+        notiName = kMKApplyMeetingListRefreshNotifcationKey;
+    }
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(requestData) name:notiName object:nil];
 }
 -(void)requestData
 {
@@ -71,7 +79,6 @@
         self.contentTable.hidden = YES;
         return;
     }
-    
     [AppointmentManager callBackAllApplyListWithParameteApply_type:self.dispayType completionBlock:^(BOOL isSuccess, NSArray<AppointmentListModel *> * _Nonnull ongoingApplyList, NSArray<AppointmentListModel *> * _Nonnull completeApplyList, NSString * _Nonnull message) {
         if (isSuccess) {
             self.ongoningList = ongoingApplyList;
@@ -208,9 +215,12 @@
     AppointmentListModel *appointmentModel = self.ongoningList[indexPath.row];
     if (self.dispayType == AppointmentDisplayTypeChangeClass) {
         ChangeClassQueryViewController *changeClassQuaryVC = [ChangeClassQueryViewController new];
+        changeClassQuaryVC.showType = AppointmentDisplayTypeChangeClass;
         [self.navigationController pushViewController:changeClassQuaryVC animated:YES];
     }else if (self.dispayType == AppointmentDisplayTypeAskForLeave){
         AskForLeaveQueryViewController *askForLeaveQuaryVC = [AskForLeaveQueryViewController new];
+        askForLeaveQuaryVC.appointmentModel = appointmentModel;
+        askForLeaveQuaryVC.showType = AppointmentDisplayTypeAskForLeave;
         [self.navigationController pushViewController:askForLeaveQuaryVC animated:YES];
     }else if (self.dispayType == AppointmentDisplayTypeMeeting){
         MeetingQueryViewController *meetingQuaryVC = [MeetingQueryViewController new];

@@ -11,6 +11,7 @@ typedef NS_ENUM(NSUInteger, AskForLeaveOperationType) {
     AskForLeaveOperationTypeEdit,
 };
 
+@class AppointmentDetailModel;
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -21,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface AskForLeaveViewController : MKNavViewController
 @property (nonatomic, assign) AskForLeaveOperationType operationType;
+@property (nonatomic, strong) AppointmentDetailModel *detailModel;
 @end
 
 NS_ASSUME_NONNULL_END

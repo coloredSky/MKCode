@@ -38,6 +38,9 @@ static NSString * const K_MK_Discover_NewsDetail_Url  = @"/api/posts/getcontent"
 static NSString * const K_MK_GetApplyList_Url  = @"/api/user/getApplyList";
 //获取各类申请的回复
 static NSString * const K_MK_GetApplyReplayInformation_Url  = @"/api/user/getApplyReply";
+//获取各类申请的详情
+static NSString * const K_MK_GetApplyDetail_Url  = @"/api/user/getApplyInfo";
+
 
 //请假
 //获取请假课程列表
@@ -46,6 +49,8 @@ static NSString * const K_MK_AskForLeave_CourseList_Url  = @"/api/user/getUserCl
 static NSString * const K_MK_AddAskForLeave_Url  = @"/api/user/AddApplyLeave";
 //编辑请假申请
 static NSString * const K_MK_EditAskForLeave_Url  = @"/api/user/UpdateApplyLeave";
+//删除请假申请
+static NSString * const K_MK_DeleteAskForLeave_Url  = @"/api/user/DelApplyLeave";
 
 //预约
 //获取预约时间
@@ -54,6 +59,8 @@ static NSString * const K_MK_MeetingTime_Url  = @"/api/user/getReservationTimeLi
 static NSString * const K_MK_MeetingReservation_Url  = @"/api/user/getReservationList";
 //新增预约相谈
 static NSString * const K_MK_AddMeeting_Url  = @"/api/user/AddApplyReservation";
+//删除预约相谈
+static NSString * const K_MK_DeleteMeeting_Url  = @"/api/user/DelApplyReservation";
 
 //换班
 //换班列表

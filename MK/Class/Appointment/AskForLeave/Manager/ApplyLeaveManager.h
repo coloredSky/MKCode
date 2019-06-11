@@ -46,6 +46,13 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)callBackEditApplyLeaveWithParameterApply_id:(NSString *)apply_id class_id:(NSString *)class_id lesson_id:(NSString *)lesson_id detail:(NSString *)detail completionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
 
 
+/**
+ 删除请假申请
+ 
+ @param apply_id 申请ID
+ @param completionBlock 回调
+ */
++(void)callBackDeleteAskForLeaveRequestWithParameteApply_id:(NSString *)apply_id withCompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
 
 @end
 

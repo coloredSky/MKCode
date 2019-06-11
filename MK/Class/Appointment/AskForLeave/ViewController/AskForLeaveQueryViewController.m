@@ -15,12 +15,22 @@
 //category
 #import "UITextView+WJPlaceholder.h"
 
+#import "AppointmentManager.h"
+#import "ApplyLeaveManager.h"
+#import "AppointmentDetailModel.h"
+#import "AppointmentListModel.h"
+
 @interface AskForLeaveQueryViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong) UITextView *reasonTextView;
-@property (nonatomic, strong) NSArray *tipStringArr;
+@property (nonatomic, strong) NSMutableArray *tipStringArr;
+@property (nonatomic, strong) AppointmentTapView *classTapView;
+@property (nonatomic, strong) AppointmentTapView *lessonTapView;
+
+
+@property (nonatomic, strong) AppointmentDetailModel *detailModel;
 @end
 
 @implementation AskForLeaveQueryViewController
@@ -30,7 +40,31 @@
     self.view.backgroundColor = K_BG_YellowColor;
     
     [self creatSubVuew];
+    [self startRequest];
 }
+
+-(void)startRequest
+{
+    [MBHUDManager showLoading];
+    [AppointmentManager callBackAllApplyDetailWithParameteApply_type:self.showType apply_id:self.appointmentModel.applyID completionBlock:^(BOOL isSuccess, AppointmentDetailModel * _Nonnull detailmodel, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
+        if (isSuccess) {
+            [self.tipStringArr removeAllObjects];
+            [self.tipStringArr addObject:detailmodel.class_name];
+            [self.tipStringArr addObject:detailmodel.lesson_name];
+            self.detailModel = detailmodel;
+            [self reloadData];
+        }
+    }];
+}
+
+-(void)reloadData
+{
+    self.classTapView.textString = self.detailModel.class_name;
+    self.lessonTapView.textString = self.detailModel.lesson_name;
+    self.reasonTextView.text = self.detailModel.detail;
+}
+
 -(void)creatSubVuew
 {
     [self.view addSubview:self.contentScroll];
@@ -42,7 +76,7 @@
 -(NSArray *)tipStringArr
 {
     if (!_tipStringArr) {
-        _tipStringArr = @[@"XXX班",@"选择要休息的课程"];
+        _tipStringArr = @[@"XXX班",@"选择要休息的课程"].mutableCopy;
     }
     return _tipStringArr;
 }
@@ -63,6 +97,11 @@
             tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
             tapView.textString = self.tipStringArr[i];
             [self.contentScroll addSubview:tapView];
+            if (i == 0) {
+                self.classTapView  = tapView;
+            }else{
+                self.lessonTapView  = tapView;
+            }
             //底部消息列表
             if (i == self.tipStringArr.count-1) {
                 _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, tapView.bottomY+KScaleHeight(35), KScreenWidth, KScreenHeight-tapView.bottomY-KScaleHeight(35)) style:UITableViewStyleGrouped];
@@ -77,6 +116,7 @@
     }
     return  _contentScroll;
 }
+
 -(AppointmentHeaderView *)headerView
 {
     if (!_headerView) {
@@ -90,12 +130,15 @@
             if (operationType == AppointmentHeaderViewOperationTypeEdit) {
                 AskForLeaveViewController *askForLeaveVC = [AskForLeaveViewController new];
                 askForLeaveVC.operationType = AskForLeaveOperationTypeEdit;
+                askForLeaveVC.detailModel = strongSelf.detailModel;
                 [strongSelf.navigationController pushViewController:askForLeaveVC animated:YES];
             }else{
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否确认取消申请" preferredStyle:UIAlertControllerStyleAlert];
                 [strongSelf presentViewController:alert animated:YES completion:nil];
+                __weak typeof(self) weakSelf = strongSelf;
                 UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
+                    __strong typeof(weakSelf) strongSelf = weakSelf;
+                    [strongSelf deleteApplyAskForLeave];
                 }];
                 UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
                 [alert addAction:cancleAction];
@@ -105,6 +148,24 @@
     }
     return _headerView;
 }
+
+-(void)deleteApplyAskForLeave
+{
+    [ApplyLeaveManager callBackDeleteAskForLeaveRequestWithParameteApply_id:self.appointmentModel.applyID withCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        if (isSuccess) {
+            [MBHUDManager showBriefAlert:@"删除请假申请成功！"];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kMKApplyAskForLeaveListRefreshNotifcationKey object:nil];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self backToPreviousViewController];
+            });
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }
+        }
+    }];
+}
+
 -(UITextView *)reasonTextView
 {
     if (!_reasonTextView) {

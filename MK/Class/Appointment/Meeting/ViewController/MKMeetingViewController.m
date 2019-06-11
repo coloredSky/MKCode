@@ -14,12 +14,13 @@
 #import "MakeMeetingManager.h"
 
 #import "MakeMeetingModel.h"
+#import "AppointmentListModel.h"
 
 @interface MKMeetingViewController ()<XDSDropDownMenuDelegate,AppointmentTapViewDelegate>
 @property (nonatomic, strong) MKBaseScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 //下拉
-@property (nonatomic, strong) NSArray *tipStringArr;
+@property (nonatomic, strong) NSMutableArray *tipStringArr;
 @property (nonatomic, strong)AppointmentTapView *teacherTapView;
 @property (nonatomic, strong) XDSDropDownMenu *purposeDownMenu;//目的选择
 @property (nonatomic, strong) XDSDropDownMenu *time1DownMenu;//时间选择
@@ -40,7 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_YellowColor;
-    [self initData];
+    self.downMenuArr = @[self.purposeDownMenu,self.time1DownMenu,self.time2DownMenu,self.time3DownMenu];
     [self startRequest];
 }
 
@@ -52,6 +53,15 @@
         if (isSuccess) {
             self.meetingModel.purposeList  = purposeList;
             self.meetingModel.purposeStringList = purposeStringList;
+            if (self.operationType == MeetingOperationTypeEdit) {
+                self.meetingModel.teacherName = self.appointmentModel.staff_name;
+                for (NSDictionary *dic in purposeList) {
+                    if ([dic[@"name"] isEqualToString:self.appointmentModel.type]) {
+                        self.meetingModel.purposeType = [dic[@"id"] integerValue];
+                        self.meetingModel.purposeString = dic[@"name"];
+                    }
+                }
+            }
         }
     }];
     
@@ -66,18 +76,42 @@
     }];
 }
 
--(void)initData
+#pragma mark --  lazy
+-(NSMutableArray *)tapViewArr
 {
-    self.downMenuArr = @[self.purposeDownMenu,self.time1DownMenu,self.time2DownMenu,self.time3DownMenu];
-    self.tapViewArr = [NSMutableArray arrayWithCapacity:4];
-    self.meetingModel = [MakeMeetingModel new];
+    if (!_tapViewArr) {
+        _tapViewArr = [NSMutableArray arrayWithCapacity:4];
+    }
+    return _tapViewArr;
 }
 
-#pragma mark --  lazy
--(NSArray *)tipStringArr
+-(MakeMeetingModel *)meetingModel
+{
+    if (!_meetingModel) {
+        _meetingModel = [MakeMeetingModel new];
+        if (self.operationType == MeetingOperationTypeEdit) {
+            self.meetingModel.meetingTime1 = self.appointmentModel.select_time_one;
+            self.meetingModel.meetingTime2 = self.appointmentModel.select_time_two;
+            self.meetingModel.meetingTime3 = self.appointmentModel.select_time_three;
+        }
+    }
+    return _meetingModel;
+}
+
+-(NSMutableArray *)tipStringArr
 {
     if (!_tipStringArr) {
-        _tipStringArr = @[@"目的选择",@"相谈老师填写",@"希望时间选择1",@"希望时间选择2",@"希望时间选择3"];
+        if (self.operationType == MeetingOperationTypeNew) {
+            _tipStringArr = @[@"目的选择",@"相谈老师填写",@"希望时间选择1",@"希望时间选择2",@"希望时间选择3"].mutableCopy;
+        }else{
+           _tipStringArr = [NSMutableArray arrayWithCapacity:5];
+            [_tipStringArr addObject:self.appointmentModel.type];
+            [_tipStringArr addObject:self.appointmentModel.staff_name];
+            [_tipStringArr addObject:self.appointmentModel.show_time_one];
+            [_tipStringArr addObject:self.appointmentModel.show_time_two];
+            [_tipStringArr addObject:self.appointmentModel.show_time_three];
+        }
+        
     }
     return _tipStringArr;
 }
@@ -236,7 +270,13 @@
 #pragma mark --  提交
 -(void)submitTarget:(UIButton *)sender
 {
-    self.meetingModel.teacherName = self.teacherTapView.textString;
+    if (self.operationType == MeetingOperationTypeNew) {
+        self.meetingModel.teacherName = self.teacherTapView.textString;
+    }else{
+        if (![NSString isEmptyWithStr:self.teacherTapView.textString]) {
+            self.meetingModel.teacherName = self.teacherTapView.textString;
+        }
+    }
     if ([NSString isEmptyWithStr:self.meetingModel.purposeString]) {
         [MBHUDManager showBriefAlert:@"请选择您预约相谈的目的"];
         return;
@@ -261,6 +301,7 @@
         if (isSuccess) {
             [MBHUDManager showBriefAlert:@"新增预约相谈成功！！"];
             [self.navigationController popViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kMKApplyMeetingListRefreshNotifcationKey object:nil];
         }else{
             if (![NSString isEmptyWithStr:message]) {
                 [MBHUDManager showBriefAlert:message];

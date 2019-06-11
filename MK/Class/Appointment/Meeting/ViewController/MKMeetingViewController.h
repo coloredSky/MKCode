@@ -12,6 +12,7 @@ typedef NS_ENUM(NSUInteger, MeetingOperationType) {
 };
 
 #import <UIKit/UIKit.h>
+@class AppointmentListModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface MKMeetingViewController : MKNavViewController
 @property (nonatomic, assign) MeetingOperationType operationType;
+@property (nonatomic, strong) AppointmentListModel *appointmentModel;
 @end
 
 NS_ASSUME_NONNULL_END
