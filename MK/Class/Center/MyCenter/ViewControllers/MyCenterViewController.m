@@ -316,7 +316,7 @@
 #pragma mark-headerViewDelegate
 -(void)headerViewBtnClick
 {
-<<<<<<< HEAD
+
     if ([self isLogin ]==YES)
     {
         UpdateMessageController * uvc =[UpdateMessageController new];
@@ -325,10 +325,10 @@
     }
     else
     {
-=======
+
     if (![[UserManager shareInstance]isLogin]) {
->>>>>>> 62e54cb4d819420e5375bc3359fada88681aa4fd
         [self loginAlterViewShow];
+    }
     }
 }
 -(BOOL)isLogin

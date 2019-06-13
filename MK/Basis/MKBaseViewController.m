@@ -110,10 +110,10 @@
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setBool:YES forKey:KMKLoginKey];
+       // [userDefaults setBool:YES forKey:KMKLoginKey];
         [userDefaults synchronize];
         LoginActionController *loginVC = [LoginActionController new];
-        [strongSelf.navigationController pushViewController:loginVC animated:YES];
+        [weakSelf.navigationController pushViewController:loginVC animated:YES];
     }];
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:cancleAction];

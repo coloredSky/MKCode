@@ -101,8 +101,6 @@
     self.menuTableView.frame = CGRectMake(0, 0, btnFrame.size.width, 0);
     [UIView commitAnimations];
 }
-
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
