@@ -14,6 +14,9 @@
 #import "AppointmentTeacherReplyCell.h"
 //category
 #import "UITextView+WJPlaceholder.h"
+#import "AppointmentListModel.h"
+
+#import "ChangeClassManager.h"
 
 @interface ChangeClassQueryViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseScrollView *contentScroll;
@@ -43,7 +46,7 @@
 -(NSArray *)tipStringArr
 {
     if (!_tipStringArr) {
-        _tipStringArr = @[@"选择原有班级",@"选择希望更改的班级"];
+        _tipStringArr = @[self.appointmentModel.class_name,self.appointmentModel.classNewName];
     }
     return _tipStringArr;
 }
@@ -91,12 +94,15 @@
             if (operationType == AppointmentHeaderViewOperationTypeEdit) {
                 ChangeClassViewController *changeClassVC = [ChangeClassViewController new];
                 changeClassVC.operationType = ChangeClassOperationTypeEdit;
+                changeClassVC.appointmentModel = strongSelf.appointmentModel;
                 [strongSelf.navigationController pushViewController:changeClassVC animated:YES];
             }else{
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否确认取消申请" preferredStyle:UIAlertControllerStyleAlert];
                 [strongSelf presentViewController:alert animated:YES completion:nil];
+//                __weak typeof(self) weakSelf = self;
                 UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
+                    __strong typeof(weakSelf) strongSelf = weakSelf;
+                    [strongSelf deleteChangeClassRequest];
                 }];
                 UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
                 [alert addAction:cancleAction];
@@ -116,7 +122,9 @@
         _reasonTextView.layer.cornerRadius = KScaleWidth(8);
         _reasonTextView.textColor = K_Text_WhiteColor;
         _reasonTextView.font = K_Font_Text_Normal;
+        _reasonTextView.editable = NO;
         _reasonTextView.placeholder = @"理由";
+        _reasonTextView.text = self.appointmentModel.reason;
         _reasonTextView.placeholdFont = K_Font_Text_Normal;
         _reasonTextView.placeholderColor = K_Text_DeepGrayColor;
     }
@@ -170,5 +178,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+
+-(void)deleteChangeClassRequest
+{
+    [MBHUDManager showLoading];
+    [ChangeClassManager callBackDeleteChangeClassRequestWithParameteApply_id:self.appointmentModel.applyID completionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
+        if (isSuccess) {
+            [MBHUDManager showBriefAlert:@"删除换班申请成功！"];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kMKApplyChangeClassListRefreshNotifcationKey object:nil];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self backToPreviousViewController];
+            });
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }
+        }
+    }];
 }
 @end

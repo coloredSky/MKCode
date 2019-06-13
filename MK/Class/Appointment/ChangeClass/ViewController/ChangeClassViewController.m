@@ -15,6 +15,7 @@
 
 #import "ChangeClassManager.h"
 #import "ChangeClassCouseModel.h"
+#import "AppointmentListModel.h"
 
 
 @interface ChangeClassViewController ()<AppointmentTapViewDelegate,XDSDropDownMenuDelegate>
@@ -44,6 +45,14 @@
     [self initData];
     [self creatSubVuew];
     [self startRequest];
+    if (self.operationType == ChangeClassOperationTypeEdit) {
+        self.reasonTextView.text = self.appointmentModel.reason;
+        self.reasonTextView.placeholder = @"理由";
+        AppointmentTapView *originalTapView = self.tapViewArr[0];
+        originalTapView.textString = self.appointmentModel.class_name;
+        AppointmentTapView *otherTapView = self.tapViewArr[1];
+        otherTapView.textString = self.appointmentModel.classNewName;
+    }
 }
 
 -(void)startRequest
@@ -54,6 +63,18 @@
         if (isSuccess) {
             self.originalClassList = courseList;
             self.originalClassStringList = courseStringList;
+            if (self.operationType == ChangeClassOperationTypeEdit) {
+                for (ChangeClassCouseModel *classModel in courseList) {
+                    if ([classModel.course_id integerValue] == [self.appointmentModel.class_id integerValue]) {
+                        self.selectedOriginalCouseModel = classModel;
+                    }
+                }
+                for (ChangeClassCouseModel *classModel in self.selectedOriginalCouseModel.changeClassList) {
+                    if ([classModel.course_id integerValue] == [self.appointmentModel.classNewID integerValue]) {
+                        self.selectedChangeCouseModel = classModel;
+                    }
+                }
+            }
         }
     }];
 }
@@ -62,8 +83,6 @@
 {
     self.downMenuArr = @[self.originalClasssDownMenu,self.otherClasssDownMenu];
     self.tapViewArr = [NSMutableArray arrayWithCapacity:2];
-//    self.originalClassArr = @[@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班",@"美术A班"];
-//    self.otherClassArr = @[@"美术B班",@"美术B班"];
 }
 -(void)creatSubVuew
 {
@@ -159,6 +178,10 @@
 -(void)appointmentTapViewTapClickWithView:(AppointmentTapView *)tapView
 {
     if (tapView.tag == 1) {//原有班级
+        if (self.selectedOriginalCouseModel == nil) {
+            [MBHUDManager showBriefAlert:@"您目前没有能选择的班级！！"];
+            return;
+        }
         //初始化选择菜单
         [self showDropDownMenuWithView:tapView withTapViewFrame:tapView.frame downMenu:self.originalClasssDownMenu titleArr:self.originalClassStringList];
     }else{

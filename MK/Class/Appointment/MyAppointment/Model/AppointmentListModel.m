@@ -40,6 +40,9 @@
     if ([NSString isEmptyWithStr:_address]) {
         _address = @"---";
     }
+    if ([NSString isEmptyWithStr:_class_room_name]) {
+        _class_room_name = @"---";
+    }
     return YES;
 }
 
@@ -47,6 +50,7 @@
     // 将personId映射到key为id的数据字段
     return @{@"classNewID":@"new_class_id",
              @"applyID" : @"id",
+             @"classNewName":@"new_class_name",
              };
 }
 

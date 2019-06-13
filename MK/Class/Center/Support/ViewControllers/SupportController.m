@@ -7,6 +7,7 @@
 //
 
 #import "SupportController.h"
+#import "NewsViewController.h"
 
 @interface SupportController ()
 
@@ -44,6 +45,10 @@
         case 4:
         {
             //联系我们
+            NewsViewController *webVC = [NewsViewController new];
+            webVC.loadType = WebViewLoadTypeLoadURL;
+            webVC.contentUrl = kMKPhoneServiceUrl;
+            [self.navigationController pushViewController:webVC animated:YES];
         }
             break;
             

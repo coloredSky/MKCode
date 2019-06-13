@@ -67,4 +67,29 @@
         }
     }];
 }
+
++(void)callBackDeleteChangeClassRequestWithParameteApply_id:(NSString *)apply_id  completionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock
+{
+    if ([NSString isEmptyWithStr:apply_id]) {
+        return;
+    }
+    NSDictionary *parameter = @{
+                                @"apply_id":apply_id,
+                                };
+    [MKNetworkManager sendPostRequestWithUrl:K_MK_DeleteChangeClass_Url parameters:parameter hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode == 0) {
+            if (completionBlock) {
+                completionBlock(YES, MKResult.message);
+            }
+        }else{
+            if (completionBlock) {
+                completionBlock(NO,MKResult.message);
+            }
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        if (completionBlock) {
+            completionBlock(NO,error.userInfo[NSLocalizedDescriptionKey]);
+        }
+    }];
+}
 @end

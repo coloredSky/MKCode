@@ -67,6 +67,9 @@ static NSString * const K_MK_DeleteMeeting_Url  = @"/api/user/DelApplyReservatio
 static NSString * const K_MK_ChangeClass_CourseList_Url  = @"/api/user/getStudentClass";
 //新增换班申请
 static NSString * const K_MK_AddChangeClass_Url  = @"/api/user/addEditClassChangeApply";
+//删除换班申请
+static NSString * const K_MK_DeleteChangeClass_Url  = @"/api/user/deleteChangeClassApply";
+
 
 /*
  *登录、注册

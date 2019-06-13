@@ -28,17 +28,18 @@
     [MKNetworkManager sendGetRequestWithUrl:K_MK_GetApplyList_Url parameters:parameter hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 0) {
             if (completionBlock) {
-                NSArray *applyList = [NSArray yy_modelArrayWithClass:[AppointmentListModel class] json:MKResult.dataResponseObject[@"applySetList"][@"un_finish"]];
-                NSMutableArray *ongoingArr = [NSMutableArray array];
-                NSMutableArray *completeArr = [NSMutableArray array];
-                for (AppointmentListModel *model in applyList) {
-                    if ([model.status integerValue]==1) {
-                        [completeArr addObject:model];
-                    }else{
-                        [ongoingArr addObject:model];
-                    }
+                NSArray *un_finishApplyList = [NSArray yy_modelArrayWithClass:[AppointmentListModel class] json:MKResult.dataResponseObject[@"applySetList"][@"un_finish"]];
+                NSArray *finishApplyList = [NSArray yy_modelArrayWithClass:[AppointmentListModel class] json:MKResult.dataResponseObject[@"applySetList"][@"finish"]];
+                NSArray *rejectApplyList = [NSArray yy_modelArrayWithClass:[AppointmentListModel class] json:MKResult.dataResponseObject[@"applySetList"][@"reject"]];
+                
+                NSMutableArray *resultArr = [NSMutableArray array];
+                for (AppointmentListModel *model in un_finishApplyList) {
+                    [resultArr addObject:model];
                 }
-                completionBlock(YES,ongoingArr.copy,completeArr.copy,MKResult.message);
+                for (AppointmentListModel *model in rejectApplyList) {
+                    [resultArr addObject:model];
+                }
+                completionBlock(YES,resultArr.copy,finishApplyList.copy,MKResult.message);
             }
         }else{
             if (completionBlock) {

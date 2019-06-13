@@ -83,10 +83,12 @@
         if (isSuccess) {
             self.ongoningList = ongoingApplyList;
             self.completeList = completeApplyList;
+//            self.completeList = ongoingApplyList;
             [self.contentTable reloadData];
             [self.contentTable.mj_header endRefreshing];
         }
-        if (ongoingApplyList.count==0&&ongoingApplyList.count == 0) {
+        
+        if (ongoingApplyList.count==0&&completeApplyList.count == 0) {
             self.emptyView.hidden = NO;
             self.emptyView.showType = self.dispayType+1;
             self.contentTable.hidden = YES;
@@ -216,6 +218,7 @@
     if (self.dispayType == AppointmentDisplayTypeChangeClass) {
         ChangeClassQueryViewController *changeClassQuaryVC = [ChangeClassQueryViewController new];
         changeClassQuaryVC.showType = AppointmentDisplayTypeChangeClass;
+        changeClassQuaryVC.appointmentModel = appointmentModel;
         [self.navigationController pushViewController:changeClassQuaryVC animated:YES];
     }else if (self.dispayType == AppointmentDisplayTypeAskForLeave){
         AskForLeaveQueryViewController *askForLeaveQuaryVC = [AskForLeaveQueryViewController new];
@@ -233,14 +236,18 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    AppointmentListModel *appointmentModel = self.completeList[indexPath.row];
     if (self.dispayType == AppointmentDisplayTypeChangeClass) {
         ChangeClassEndViewController *changClassEndVC = [ChangeClassEndViewController new];
+        changClassEndVC.appointmentModel = appointmentModel;
         [self.navigationController pushViewController:changClassEndVC animated:YES];
     }else if (self.dispayType == AppointmentDisplayTypeAskForLeave){
         AskForLeaveEndViewController *askForLeaveEndVC = [AskForLeaveEndViewController new];
+        askForLeaveEndVC.appointmentModel = appointmentModel;
         [self.navigationController pushViewController:askForLeaveEndVC animated:YES];
     }else{
         MeetingEndQueryViewController *meetingEndVC = [MeetingEndQueryViewController new];
+        meetingEndVC.appointmentModel = appointmentModel;
         [self.navigationController pushViewController:meetingEndVC animated:YES];
     }
 }

@@ -12,6 +12,7 @@ typedef NS_ENUM(NSUInteger, ChangeClassOperationType) {
 };
 
 #import <UIKit/UIKit.h>
+@class AppointmentListModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface ChangeClassViewController : MKNavViewController
 @property (nonatomic, assign) ChangeClassOperationType operationType;
-
+@property (nonatomic, strong) AppointmentListModel *appointmentModel;
 @end
 
 NS_ASSUME_NONNULL_END

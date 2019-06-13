@@ -30,4 +30,10 @@
 #define kMKApplyAskForLeaveListRefreshNotifcationKey @"kMKApplyAskForLeaveListRefreshNotifcationKey"
 /**换班列表刷新通知*/
 #define kMKApplyChangeClassListRefreshNotifcationKey @"kMKApplyChangeClassListRefreshNotifcationKey"
+
+
+//URL
+/**客服URL*/
+#define kMKPhoneServiceUrl @"https://dct.zoosnet.net/LR/Chatpre.aspx?id=DCT42909734&cid=4148acc6e0374d9988ae3b2e963f860d&lng=cn&sid=4148acc6e0374d9988ae3b2e963f860d&p=about%3Ablank&rf1=&rf2=&msg=&d=1560242584360"
+
 #endif /* MKConfigKey_h */

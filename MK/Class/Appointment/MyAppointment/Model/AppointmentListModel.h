@@ -16,14 +16,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *user_id;
 @property (nonatomic, copy) NSString *class_id;
 @property (nonatomic, copy) NSString *classNewID;
-@property (nonatomic, copy) NSString *reason;
-@property (nonatomic, copy) NSString *reject_reason;
+@property (nonatomic, copy) NSString *reason;//申请理由
+@property (nonatomic, copy) NSString *reject_reason;//拒绝理由
 @property (nonatomic, copy) NSString *status;
 @property (nonatomic, copy) NSString *add_time;//添加的时间
-@property (nonatomic, copy) NSString *update_time;
+@property (nonatomic, copy) NSString *update_time;//申请更新时间
+
+@property (nonatomic, copy) NSString *uname;
+@property (nonatomic, copy) NSString *class_name;//换班原班级
+@property (nonatomic, copy) NSString *classNewName;//换办后的班级
+@property (nonatomic, copy) NSString *course_name;//课程名
+@property (nonatomic, copy) NSString *lesson_name;//课时z名字
+@property (nonatomic, copy) NSString *class_room_name;//教室名字
+@property (nonatomic, copy) NSString *sname;
 
 @property (nonatomic, copy) NSString *type;//预约相谈的类型名字
-@property (nonatomic, copy) NSString *staff_name;//老师名字
+@property (nonatomic, copy) NSString *staff_name;//预约相谈中老师名字
 @property (nonatomic, copy) NSString *selected_time;
 @property (nonatomic, copy) NSString *select_time_one;//预约时间1
 @property (nonatomic, copy) NSString *select_time_two;//预约时间2

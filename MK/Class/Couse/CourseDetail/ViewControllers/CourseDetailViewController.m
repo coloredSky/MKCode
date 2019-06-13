@@ -47,6 +47,7 @@
         }
     }];
 }
+
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -129,16 +130,19 @@
 //        [self.contentScroll setContentOffset:CGPointMake(0, offsetY)];
 //    }
 }
+
 #pragma mark --  tip标头点击
 -(void)CourseDetailTipViewClickBtnWithSelectedIndex:(NSInteger )index
 {
     [self.detailScroll scrollToIndex:index];
 }
+
 #pragma mark --  内容scroll 滑动
 -(void)CourseDetailScrollViewScrollToIndex:(NSInteger)index
 {
     [self.courseTipView courseButtonSeletedWithIndex:index];
 }
+
 #pragma mark --  课程点击
 -(void)courseDidSelectedWithIndexPath:(NSIndexPath *)indexPath andLessonModel:(MKLessonModel *)lessonModel
 {

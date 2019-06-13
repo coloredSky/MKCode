@@ -99,7 +99,7 @@
             }
             [self.contentTable reloadData];
         }else{
-            self.currentPage --;
+            self.currentPage--;
         }
     }];
 }
@@ -195,6 +195,14 @@
         return fotterView;
     }
     return nil;
+}
+
+-(NSString *)urlEncodeWithUrlString:(NSString *)urlString
+{
+    NSString *charactersToEscape = @"?!@#$^&%*+,:;='\"`<>()[]{}/\\| ";
+    NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:charactersToEscape] invertedSet];
+    NSString *encodeValue = [urlString stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
+    return encodeValue;
 }
 
 #pragma mark --  EVENT

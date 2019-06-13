@@ -114,7 +114,7 @@
                     __strong typeof(weakSelf) strongSelf = weakSelf;
                     [strongSelf deleteApplyMeeting];
                 }];
-                UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+                UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style :UIAlertActionStyleDefault handler:nil];
                 [alert addAction:cancleAction];
                 [alert addAction:sureAction];
             }

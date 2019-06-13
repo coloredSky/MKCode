@@ -11,28 +11,55 @@
 #import "AppointmentHeaderView.h"
 #import "AppointmentTapView.h"
 #import "AppointmentTeacherReplyCell.h"
+#import "AppointmentListModel.h"
 
 @interface MeetingEndQueryViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
+@property (nonatomic, strong) NSMutableArray *tapViewArr;
 @property (nonatomic, strong) NSArray *tipStringArr;
 
 @end
 
 @implementation MeetingEndQueryViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_YellowColor;
+    self.contentScroll.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
+    self.headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight);
+    [self reloadData];
+}
+
+-(void)reloadData
+{
+    AppointmentTapView *typeTapView = self.tapViewArr[0];
+    typeTapView.textString = self.appointmentModel.type;
+    AppointmentTapView *teacherTapView = self.tapViewArr[1];
+    teacherTapView.textString = self.appointmentModel.staff_name;
+    AppointmentTapView *timeTapView = self.tapViewArr[2];
+    timeTapView.textString = [NSString timeTransformWithDate:self.appointmentModel.selected_time WithFormModel:@"YY-MM-dd HH:mm:ss" toModel:@"YY年MM月dd日 HH:mm"];
+    AppointmentTapView *addressTapView = self.tapViewArr[3];
+    addressTapView.textString = self.appointmentModel.address;
 }
 
 -(NSArray *)tipStringArr
 {
     if (!_tipStringArr) {
-        _tipStringArr = @[@"进学相谈",@"大学院美术 施晋昊",@"2019年 2月 4日 14:00",@"双爱3F 办公室"];
+        _tipStringArr = @[@"",@"",@"",@""];
     }
     return _tipStringArr;
 }
+
+-(NSMutableArray *)tapViewArr
+{
+    if (!_tapViewArr) {
+        _tapViewArr = [NSMutableArray arrayWithCapacity:2];
+    }
+    return _tapViewArr;
+}
+
 -(MKBaseScrollView *)contentScroll
 {
     if (!_contentScroll) {
@@ -42,6 +69,7 @@
         //
         for (int i=0; i < self.tipStringArr.count; i++) {
             AppointmentTapView *tapView = [AppointmentTapView new];
+            [self.tapViewArr addObject:tapView];
             CGFloat tapViewY = 0;
             tapViewY = KScaleHeight(86)+K_NaviHeight+KScaleHeight(35)+(KScaleHeight(33+15)*i);
             tapView.normalColor = K_Text_YellowColor;
@@ -62,6 +90,7 @@
     }
     return  _contentScroll;
 }
+
 -(AppointmentHeaderView *)headerView
 {
     if (!_headerView) {
@@ -71,11 +100,11 @@
     }
     return _headerView;
 }
+
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    self.contentScroll.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
-    self.headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight);
+
 }
 
 
