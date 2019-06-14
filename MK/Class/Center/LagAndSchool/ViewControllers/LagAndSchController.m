@@ -8,9 +8,11 @@
 
 #import "LagAndSchController.h"
 #import "ValuePickerView.h"
+#import "LanguageSchoolList.h"
 @interface LagAndSchController ()
 @property (nonatomic, strong) ValuePickerView *pickerView;
 @property(nonatomic,weak)IBOutlet UITextField * schField;
+@property(nonatomic,weak)IBOutlet UIButton  * timeBtn;
 @end
 
 @implementation LagAndSchController
@@ -45,7 +47,41 @@
    }
 }
 
+-(void)setModel:(PersonModel *)model
+{
+    _model =model;
 
+}
+
+
+-(NSString *)getSchoolName:(NSString * )school_id
+{
+    LanguageSchoolList * sch ;
+    for (LanguageSchoolList * school in _model.languageSchoolList)
+    {
+        if (school_id .length )
+        {
+            if ([school.id isEqualToString:school_id])
+            {
+                sch =school;
+            }
+        }
+    }
+    return sch.name;
+}
+
+
+
+#pragma mark -viewappear
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear: animated];
+    if (_model !=nil)
+    {
+        self.schField.text =[self getSchoolName:_model.userInfo.jp_school_id];
+        [self.timeBtn setTitle:_model.userInfo.jp_school_time forState:UIControlStateNormal];
+    }
+}
 /*
 #pragma mark - Navigation
 

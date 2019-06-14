@@ -18,10 +18,12 @@
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:NO];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self layoutNavView];
 }
+
 -(void)layoutNavView
 {
     if([self pr_isRootViewControllerWithCurrentViewController]){
@@ -42,9 +44,13 @@
         }
     }
 }
+
 //current viewcontroller index...
 -(BOOL)pr_isRootViewControllerWithCurrentViewController
 {
+    if ([NSStringFromClass(self.class) isEqualToString:@"LoginActionController"]) {
+        return YES;
+    }
     return  [self.navigationController.viewControllers indexOfObject:self] > 0;
 }
 

@@ -12,6 +12,8 @@
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong) NSArray *titleArr;//标题数组
 @property (nonatomic, strong) NSArray *sectionArr;//区头数组
+
+@property(nonatomic,strong)NSArray * contentArr;//内容数组
 @end
 
 @implementation BasicInfoController
@@ -44,7 +46,22 @@
     //                @strongObject(self);
     //    }];
 }
-
+-(void)setModel:(PersonModel *)model
+{
+    _model =model;
+    if (!_model.userInfo.firstname.length) _model.userInfo.firstname =@"";
+    if (!_model.userInfo.lastname.length) _model.userInfo.lastname =@"";
+    if (!_model.userInfo.firstkana.length) _model.userInfo.firstkana =@"";
+    if (!_model.userInfo.lastkana.length) _model.userInfo.lastkana =@"";
+    if (!_model.userInfo.mobile.length) _model.userInfo.mobile =@"";
+    if (!_model.userInfo.mobile_jp.length) _model.userInfo.mobile_jp =@"";
+    if (!_model.userInfo.email.length) _model.userInfo.email =@"";
+    if (!_model.userInfo.weixin.length) _model.userInfo.weixin =@"";
+    if (!_model.userInfo.qq.length) _model.userInfo.qq =@"";
+    if (!_model.userInfo.city.length) _model.userInfo.city =@"";
+    self.contentArr = @[@[_model.userInfo.firstname,_model.userInfo.lastname],@[_model.userInfo.firstkana,_model.userInfo.lastkana],@[_model.userInfo.mobile,_model.userInfo.mobile_jp,_model.userInfo.email,_model.userInfo.weixin,_model.userInfo.qq,_model.userInfo.city]];
+    [self.contentTable reloadData];
+}
 #pragma mark --  request
 -(void)startRequest
 {
@@ -68,7 +85,9 @@
 {
     BasicInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BasicInfoCell" forIndexPath:indexPath];
     NSArray * ary =self.titleArr[indexPath.section];
+    NSArray * arr =self.contentArr [indexPath.section];
     cell.ttLabel.text =ary[indexPath.row];
+    cell.textField.text =arr[indexPath.row];
     cell.selectionStyle =UITableViewCellSelectionStyleNone;
     return cell;
 }

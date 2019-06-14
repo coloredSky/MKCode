@@ -11,6 +11,7 @@ static NSString *const responseData = @"data";
 static NSString *const responseMessage = @"msg";
 
 #import "MKNetworkManager.h"
+#import "AppDelegate.h"
 
 @interface MKNetworkManager()
 
@@ -28,6 +29,9 @@ static NSString *const responseMessage = @"msg";
         [WYNetworkConfig sharedConfig].baseUrl = KMKBaseServerRequestUrl;
         [WYNetworkConfig sharedConfig].debugMode = YES;//默认为NO，不开启
         [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"DeviceType":@"1"}];
+        if ([[UserManager shareInstance]isLogin]) {
+            [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":[[UserManager shareInstance] getToken]}];
+        }
 //        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
 //        NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
 //        [WYNetworkConfig sharedConfig].defailtParameters = @{@"version":appVersion, @"platform":@"iOS"};
@@ -52,6 +56,12 @@ static NSString *const responseMessage = @"msg";
             result.dataResponseObject = responseObject[responseData];
             result.message = responseObject[responseMessage];
             successBlock(result,isCacheObject);
+            if (result.responseCode == 999) {
+                [MBHUDManager showBriefAlert:result.message];
+                [[UserManager shareInstance] loginOut];
+                [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginOutNotifcationKey object:nil];
+                [[AppDelegate instance] pb_presentShowLoginViewController];
+            }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (hudShow) {
@@ -79,6 +89,12 @@ static NSString *const responseMessage = @"msg";
             result.dataResponseObject = responseObject[responseData];
             result.message = responseObject[responseMessage];
             successBlock(result,isCacheObject);
+            if (result.responseCode == 999) {
+                [MBHUDManager showBriefAlert:result.message];
+                [[UserManager shareInstance] loginOut];
+                [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginOutNotifcationKey object:nil];
+                [[AppDelegate instance] pb_presentShowLoginViewController];
+            }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (hudShow) {

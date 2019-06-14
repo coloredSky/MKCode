@@ -17,6 +17,7 @@
 #import "FeedBackController.h"//反馈
 #import "UpdateMessageController.h"//编辑个人资料
 #import "OrderDetailController.h"//订单
+#import "LoginActionController.h"
 //views
 #import "MyCenterTopCell.h"
 #import "MyCenterBottomoCell.h"
@@ -29,6 +30,13 @@
 @end
 
 @implementation MyCenterViewController
+
+#pragma mark --- destruct method
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
 #pragma mark --- instancetype method
 -(instancetype)init
 {
@@ -37,11 +45,6 @@
         self.bannerArr = @[@[@"MyCenter_Cash",@"MyCenter_bookmark",@"MyCenter_message",@"MyCenter_password"],@[@"MyCenter_secure",@"MyCenter_help",@"MyCenter_feedback",@"MyCenter_update",@"MyCenter_service",@"MyCenter_log out"]];
     }
     return self;
-}
-
-#pragma mark --- destruct method
--(void)dealloc
-{
 }
 
 - (void)viewDidLoad {
@@ -53,9 +56,14 @@
     //    [self setUpRefresh];
     //request
     [self startRequest];
+    [self addCenterNoti];
 }
 
-
+-(void)addCenterNoti
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(logoinTarget:) name:kMKLoginInNotifcationKey object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(logoOutTarget:) name:kMKLoginOutNotifcationKey object:nil];
+}
 
 #pragma mark --  request
 -(void)startRequest
@@ -176,14 +184,6 @@
     return YES;
 }
 
-// 点击高亮
-//- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-//    cell.backgroundColor = [UIColor greenColor];
-//}
-
-
 // 选中某item
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -193,12 +193,6 @@
     }
     if (indexPath.section ==0)
     {
-
-        if (![self isLogin]) {
-            [self loginAlterViewShow];
-            return;
-        }
-
         if (indexPath.item ==0)
         {
             MyBillListViewController *billVC = [MyBillListViewController new];
@@ -314,34 +308,49 @@
 
 
 #pragma mark-headerViewDelegate
--(void)headerViewBtnClick
+-(void)headerViewBtnClickWithOperationType:(MyCenterHeaderViewOperationType )operationType
 {
-
-    if ([self isLogin ]==YES)
+    if ([[UserManager shareInstance] isLogin ]==YES)
     {
+
+    if (operationType == MyCenterHeaderViewOperationTypeLoginIn)
+    {
+          LoginActionController *loginVC = [LoginActionController new];
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
+    else
+    {
+        if (![[UserManager shareInstance]isLogin])
+        {
+            [self loginAlterViewShow];
+            return;
+        }
+
         UpdateMessageController * uvc =[UpdateMessageController new];
         uvc.hidesBottomBarWhenPushed =YES;
         [self.navigationController pushViewController:uvc animated:YES];
+       }
     }
     else
     {
 
     if (![[UserManager shareInstance]isLogin]) {
         [self loginAlterViewShow];
+       }
     }
-    }
+
 }
--(BOOL)isLogin
+
+#pragma mark --  登录
+-(void)logoinTarget:(NSNotification *)noti
 {
-    NSString * userId =[[UserManager shareInstance]getUserId];
-    if (userId != nil && userId.length> 0)
-    {
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
+    [self.headerView refreshData];
+}
+
+#pragma mark --  登出
+-(void)logoOutTarget:(NSNotification *)noti
+{
+    [self.headerView refreshData];
 }
 
 @end

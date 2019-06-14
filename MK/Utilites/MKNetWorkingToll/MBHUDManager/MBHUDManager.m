@@ -9,15 +9,6 @@
 #import "MBHUDManager.h"
 #import <MBProgressHUD.h>
 
-//手机屏幕的宽度
-#define KScreenWidth                                                                \
-MIN([UIScreen mainScreen].bounds.size.width,                                 \
-[UIScreen mainScreen].bounds.size.height)
-//手机屏幕的高度
-#define KScreenHeight                                                               \
-MAX([UIScreen mainScreen].bounds.size.height,                                \
-[UIScreen mainScreen].bounds.size.width)
-
 #define kDefaultRect     CGRectMake(0, 0, KScreenWidth, KScreenHeight)
 #define kDefaultView [[UIApplication sharedApplication] keyWindow]
 /* 默认网络提示，可在这统一修改 */
@@ -43,7 +34,7 @@ BOOL isShowGloomy;//是否显示深色背景
 #pragma mark - 初始化gloomyView
 +(void)customView {
     gloomyView = [[GloomyView alloc] initWithFrame:kDefaultRect];
-    gloomyView.backgroundColor = [UIColor colorWithWhite:.5 alpha:.5];
+    gloomyView.backgroundColor = UIColorFromRGB_A(0, 0, 0, 0.5);
     gloomyView.hidden = YES;
     isShowGloomy = NO;
 }
@@ -100,7 +91,8 @@ BOOL isShowGloomy;//是否显示深色背景
     dispatch_async(dispatch_get_main_queue(), ^{
         prestrainView = view;
         MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:gloomyView];
-        hud.label.text = kLoadingMessage;
+       hud.label.text = kLoadingMessage;
+       hud.label.font = MKFont(13.f);
         hud.removeFromSuperViewOnHide = YES;
         gloomyView.frame = view ? CGRectMake(0, 0, view.frame.size.width, view.frame.size.height):
         kDefaultRect;
@@ -118,7 +110,9 @@ BOOL isShowGloomy;//是否显示深色背景
     dispatch_async(dispatch_get_main_queue(), ^{
         prestrainView = view;
         MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:gloomyView];
+        hud.frame = CGRectMake(0, 0, 100, 100);
         hud.label.text = title;
+        hud.label.font = MKFont(13.f);
         hud.removeFromSuperViewOnHide = YES;
         gloomyView.frame = view ? CGRectMake(0, 0, view.frame.size.width, view.frame.size.height):
         kDefaultRect;
@@ -169,11 +163,11 @@ BOOL isShowGloomy;//是否显示深色背景
 }
 #pragma mark -   GloomyView背景色
 + (void)showBlackGloomyView {
-    gloomyView.backgroundColor = [UIColor colorWithWhite:.5 alpha:.5];
+    gloomyView.backgroundColor = UIColorFromRGB_A(0, 0, 0, 0.5);
     [self gloomyConfig];
 }
 + (void)showClearGloomyView {
-    gloomyView.backgroundColor = [UIColor colorWithWhite:1 alpha:.5];
+    gloomyView.backgroundColor = UIColorFromRGB_A(1, 1, 1, 0);
     dispatch_async(dispatch_get_main_queue(), ^{
         [self gloomyConfig];
     });

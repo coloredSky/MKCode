@@ -120,6 +120,10 @@
 #pragma mark --  预约按钮
 -(void)appointmentBtnTarget:(UIButton *)sender
 {
+    if (![[UserManager shareInstance]isLogin]) {
+        [self loginAlterViewShow];
+        return;
+    }
     AppointmentPopView *appointmentView = [[AppointmentPopView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
     appointmentView.delegate = self;
     BMPopView *popToll = [BMPopView shareInstance];
@@ -131,6 +135,10 @@
 #pragma mark --  消息中心
 -(void)messageTarget:(UIButton *)sender
 {
+    if (![[UserManager shareInstance]isLogin]) {
+        [self loginAlterViewShow];
+        return;
+    }
     MessageViewController *messageVC = [MessageViewController new];
     [self.navigationController pushViewController:messageVC animated:YES];
 }

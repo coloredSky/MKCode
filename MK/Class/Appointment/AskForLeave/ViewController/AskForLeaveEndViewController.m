@@ -11,12 +11,14 @@
 #import "AppointmentHeaderView.h"
 #import "AppointmentTapView.h"
 #import "AppointmentTeacherReplyCell.h"
+#import "AppointmentListModel.h"
 
 @interface AskForLeaveEndViewController()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseScrollView *contentScroll;
 @property (nonatomic, strong) AppointmentHeaderView *headerView;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
-//@property (nonatomic, strong) UITextView *reasonTextView;
+@property (nonatomic, strong) NSMutableArray *tapViewArr;
+@property (nonatomic, strong) UITextView *reasonTextView;
 @property (nonatomic, strong) NSArray *tipStringArr;
 @end
 
@@ -28,22 +30,57 @@
     self.view.backgroundColor = K_BG_YellowColor;
     
     [self creatSubVuew];
+    [self reloadData];
 }
+
+-(void)reloadData
+{
+    AppointmentTapView *changeClassTapView = self.tapViewArr[0];
+    changeClassTapView.textString = self.appointmentModel.class_name;
+    AppointmentTapView *originalTapView = self.tapViewArr[1];
+    originalTapView.textString = self.appointmentModel.lesson_name;
+    self.reasonTextView.text = self.appointmentModel.reason;
+}
+
 -(void)creatSubVuew
 {
     [self.view addSubview:self.contentScroll];
     [self.contentScroll addSubview:self.headerView];
-//    [self.contentScroll addSubview:self.reasonTextView];
 }
 
 #pragma mark --  lazy
+
 -(NSArray *)tipStringArr
 {
     if (!_tipStringArr) {
-        _tipStringArr = @[@"XXX班",@"2月18日语法"];
+        _tipStringArr = @[@"",@""];
     }
     return _tipStringArr;
 }
+
+-(NSMutableArray *)tapViewArr
+{
+    if (!_tapViewArr) {
+        _tapViewArr = [NSMutableArray arrayWithCapacity:2];
+    }
+    return _tapViewArr;
+}
+
+-(UITextView *)reasonTextView
+{
+    if (!_reasonTextView) {
+        _reasonTextView = [UITextView new];
+        [self.contentScroll addSubview:_reasonTextView];
+        _reasonTextView.backgroundColor = K_BG_blackColor;
+        _reasonTextView.layer.masksToBounds = YES;
+        _reasonTextView.layer.cornerRadius = KScaleWidth(8);
+        _reasonTextView.textColor = K_Text_WhiteColor;
+        _reasonTextView.font = K_Font_Text_Normal;
+        _reasonTextView.editable = NO;
+    }
+    return _reasonTextView;
+}
+
 -(MKBaseScrollView *)contentScroll
 {
     if (!_contentScroll) {
@@ -57,6 +94,7 @@
         
         for (int i=0; i < self.tipStringArr.count; i++) {
             AppointmentTapView *tapView = [AppointmentTapView new];
+            [self.tapViewArr addObject:tapView];
             CGFloat tapViewY = tapViewY = courseTitleLab.bottomY+ KScaleHeight(13)+(KScaleHeight(33+15)*i);
             tapView.normalColor = K_Text_YellowColor;
             tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
@@ -69,19 +107,17 @@
         [reasonTitleLab setFont:K_Font_Text_Normal textColor:K_Text_grayColor withBackGroundColor:nil];
         reasonTitleLab.text = @"请假理由";
         //理由
-        NSString *reasonString = @"因2月14日家中有急事需回国，所以2月份课程想要请假，望批准";
-        CGSize size = [reasonString getStrSizeWithSize:CGSizeMake(_contentScroll.width-K_Padding_Home_LeftPadding*2, 300) font:K_Font_Text_Normal];
+        CGSize size = [self.appointmentModel.reason getStrSizeWithSize:CGSizeMake(_contentScroll.width-K_Padding_Home_LeftPadding*2, 300) font:K_Font_Text_Normal];
         CGFloat height = 33;
         if (size.height+20 > 33) {
             height = size.height+20;
         }
-        AppointmentTapView *reasonTapView = [AppointmentTapView new];
-        [_contentScroll addSubview:reasonTapView];
-        reasonTapView.frame = CGRectMake(K_Padding_Home_LeftPadding, reasonTitleLab.bottomY+ KScaleHeight(13), KScreenWidth-K_Padding_Home_LeftPadding*2, height);
-        reasonTapView.textString = reasonString;
-        reasonTapView.normalColor = K_Text_YellowColor;
+        if (size.height > 80) {
+            height = 80;
+        }
+        self.reasonTextView.frame = CGRectMake(K_Padding_Home_LeftPadding, reasonTitleLab.bottomY+ KScaleHeight(13), KScreenWidth-K_Padding_Home_LeftPadding*2, height);
         //底部消息列表
-        _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, reasonTapView.bottomY+KScaleHeight(35), KScreenWidth, KScreenHeight-reasonTapView.bottomY-KScaleHeight(35)) style:UITableViewStyleGrouped];
+        _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, self.reasonTextView.bottomY+KScaleHeight(35), KScreenWidth, KScreenHeight-self.reasonTextView.bottomY-KScaleHeight(35)) style:UITableViewStyleGrouped];
         _contentTable.delegate = self;
         _contentTable.dataSource = self;
         [self.contentScroll addSubview:_contentTable];
@@ -100,18 +136,6 @@
     }
     return _headerView;
 }
-//-(UITextView *)reasonTextView
-//{
-//    if (!_reasonTextView) {
-//        _reasonTextView = [[UITextView alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, self.headerView.bottomY+KScaleHeight(30), KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(122))];
-//        _reasonTextView.backgroundColor = K_BG_blackColor;
-//        _reasonTextView.layer.masksToBounds = YES;
-//        _reasonTextView.layer.cornerRadius = KScaleWidth(8);
-//        _reasonTextView.textColor = K_Text_WhiteColor;
-//        _reasonTextView.text = @"理由";
-//    }
-//    return _reasonTextView;
-//}
 
 #pragma mark - UITableViewDataSource
 #pragma mark - cell
@@ -127,7 +151,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 0;
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

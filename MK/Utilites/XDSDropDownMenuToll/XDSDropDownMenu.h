@@ -12,14 +12,15 @@
 
 @class XDSDropDownMenu;
 
-@protocol XDSDropDownMenuDelegate
+@protocol XDSDropDownMenuDelegate <NSObject>
 @optional
--(void)XDSDropDownMenu:(XDSDropDownMenu *)downMenuView didSelectedWithIndex:(NSInteger )index;
+-(void)dropDownMenu:(XDSDropDownMenu *)downMenuView didSelectedWithIndex:(NSInteger )index;
 @end
 
 @interface XDSDropDownMenu : UIView 
 @property (nonatomic, assign) BOOL isShow;
 @property (nonatomic, assign) id<XDSDropDownMenuDelegate>delegate;//代理
+
 @property (nonatomic, copy) NSString *animationDirection;//动画方向
 @property (nonatomic, strong) UIImageView *imageView;//图片视图
 

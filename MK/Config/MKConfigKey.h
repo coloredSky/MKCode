@@ -19,12 +19,21 @@
 #define kXHBorrowBugConfigChannel @"APP Store"
 #endif
 
-//static NSString *const KMKLoginKey = @"KMKLoginKey";
-//static BOOL KIsHaveLogin(){
-//    return [[NSUserDefaults standardUserDefaults]boolForKey:KMKLoginKey];
-//}
-//#define KMKLoginKey @"KMKLoginKey"
-//#define K_MK_IsHaveLoginKey [[NSUserDefaults standardUserDefaults]boolForKey:KMKLoginKey]
 
+/**用户登录通知*/
+#define kMKLoginInNotifcationKey @"kMKLoginInNotifcationKey"
+/**用户退出登录通知*/
+#define kMKLoginOutNotifcationKey @"kMKLoginOutNotifcationKey"
+/**预约相谈列表刷新通知*/
+#define kMKApplyMeetingListRefreshNotifcationKey @"kMKApplyMeetingListRefreshNotifcationKey"
+/**请假列表刷新通知*/
+#define kMKApplyAskForLeaveListRefreshNotifcationKey @"kMKApplyAskForLeaveListRefreshNotifcationKey"
+/**换班列表刷新通知*/
+#define kMKApplyChangeClassListRefreshNotifcationKey @"kMKApplyChangeClassListRefreshNotifcationKey"
+
+
+//URL
+/**客服URL*/
+#define kMKPhoneServiceUrl @"https://dct.zoosnet.net/LR/Chatpre.aspx?id=DCT42909734&cid=4148acc6e0374d9988ae3b2e963f860d&lng=cn&sid=4148acc6e0374d9988ae3b2e963f860d&p=about%3Ablank&rf1=&rf2=&msg=&d=1560242584360"
 
 #endif /* MKConfigKey_h */

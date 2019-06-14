@@ -7,7 +7,8 @@
 //
 #import "AppDelegate.h"
 #import "MKTarbarViewController.h"
-#import "LoginViewController.h"
+#import "LoginActionController.h"
+#import "MKNavigationController.h"
 //键盘
 #import "IQKeyboardManager.h"
 #import <PLVVodSDK/PLVVodSDK.h>
@@ -25,6 +26,7 @@
     MKTarbarViewController *mkTarbarVC = [MKTarbarViewController new];
     self.window.rootViewController = mkTarbarVC;
     [self.window makeKeyAndVisible];
+
     [self MKAppConfig];
    // [ViewControllerManager showMainViewController];
 
@@ -43,7 +45,7 @@
     NSString *vodKey = @"n0U70JWs5/Y8JfJ19sDvmG77hSjMcndG2lopb/5Bw4a6ZS118jiETAcQXWka5u0dSGHCPYrtjKcKNTnrMN32/Zazjxb70wG6sqDKlDCjiz270R53o6i22OPDaHthdSmNiAzjg+thN+YhOyj/etPN7Q==";
     NSString *decodeKey = @"CBm2slFGXpCLXsgq";
     NSString *decodeIv = @"vXsHPN3fodcWqQ6u";
-     [PLVVodSettings settingsWithConfigString:vodKey key:decodeKey iv:decodeIv error:&error];
+    [PLVVodSettings settingsWithConfigString:vodKey key:decodeKey iv:decodeIv error:&error];
 }
 
 - (void)configKeyboard{
@@ -57,7 +59,6 @@
     keyboardManager.placeholderFont = [UIFont boldSystemFontOfSize:14]; // 设置占位文字的字体
     keyboardManager.keyboardDistanceFromTextField = 10.0f; // 输入框距离键盘的距离
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -83,6 +84,45 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+
++(AppDelegate*)instance
+{
+    return (AppDelegate*)[UIApplication sharedApplication].delegate;
+}
+
+-(void)pb_presentShowLoginViewController
+{
+    @synchronized (self){
+        if (![self pb_isHasShowLoginViewController]){
+            LoginActionController * loginVC = [[LoginActionController alloc]init];
+            MKNavigationController * navigationVC = [[MKNavigationController alloc]initWithRootViewController:loginVC];
+//            navigationVC.modalPresentationStyle=UIModalPresentationFullScreen;
+            if (self.window.rootViewController.presentedViewController != nil){
+                [self.window.rootViewController.presentedViewController presentViewController:navigationVC animated:YES completion:nil];
+            }else{
+                [self.window.rootViewController presentViewController:navigationVC animated:YES completion:nil];
+            }
+        }
+    }
+}
+
+-(BOOL)pb_isHasShowLoginViewController
+{
+    UINavigationController * navigationVC = nil;
+    if (self.window.rootViewController.presentedViewController != nil){
+        navigationVC = (UINavigationController*)self.window.rootViewController.presentedViewController;
+    }else{
+        navigationVC = (UINavigationController *)self.window.rootViewController;
+    }
+    if ([navigationVC isKindOfClass:[UINavigationController class]]){
+        return [[navigationVC.viewControllers firstObject] isKindOfClass:[UIViewController class]];
+    }
+    else{
+        return NO;
+    }
 }
 
 

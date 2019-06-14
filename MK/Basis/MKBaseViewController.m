@@ -109,9 +109,13 @@
     __weak typeof(self) weakSelf = self;
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
+
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
        // [userDefaults setBool:YES forKey:KMKLoginKey];
         [userDefaults synchronize];
+
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+
         LoginActionController *loginVC = [LoginActionController new];
         [weakSelf.navigationController pushViewController:loginVC animated:YES];
     }];
@@ -127,6 +131,12 @@
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":@""}];
         [[UserManager shareInstance]loginOut];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginOutNotifcationKey object:nil];
+        [MBHUDManager showLoading];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+             [MBHUDManager showBriefAlert:@"退出登录成功！！"];
+            [MBHUDManager hideAlert];
+        });
     }];
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:cancleAction];

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2DF4FA5813FDC7022BE50883 /* libPods-MKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EC22067BFBE5FAFDA1AA9E /* libPods-MKTests.a */; };
 		30295514226493FF006D1613 /* AppointmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295513226493FF006D1613 /* AppointmentManager.m */; };
-		302955722266D2EA006D1613 /* MBHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 302955712266D2E9006D1613 /* MBHUDManager.m */; };
 		302956732266D83A006D1613 /* MKNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956722266D83A006D1613 /* MKNetworkManager.m */; };
 		302956762266DE95006D1613 /* HomePageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956752266DE95006D1613 /* HomePageManager.m */; };
 		302956792266DFAD006D1613 /* HomeCourseCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 302956782266DFAD006D1613 /* HomeCourseCategoryModel.m */; };
@@ -125,6 +124,12 @@
 		3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D891223A2E9C00FE63B2 /* XHRefreshFooter.m */; };
 		3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89B223A2F5900FE63B2 /* PGIndexBannerSubiew.m */; };
 		3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */; };
+		3080171622AE9AC100112E28 /* AppointmentDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3080171522AE9AC100112E28 /* AppointmentDetailModel.m */; };
+		30957B0B229E2DA7009DDAAA /* ApplyLeaveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30957B0A229E2DA7009DDAAA /* ApplyLeaveManager.m */; };
+		30957B0E229E2E67009DDAAA /* ApplyLeaveCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30957B0D229E2E67009DDAAA /* ApplyLeaveCourseModel.m */; };
+		30957B12229E69B6009DDAAA /* MKDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 30957B11229E69B6009DDAAA /* MKDropDownMenu.m */; };
+		30957B16229E9CAB009DDAAA /* DropDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30957B14229E9CAB009DDAAA /* DropDownCell.m */; };
+		30957B17229E9CAC009DDAAA /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30957B15229E9CAB009DDAAA /* DropDownCell.xib */; };
 		30A201362254679400A6A232 /* AskForLeaveQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A201352254679400A6A232 /* AskForLeaveQueryViewController.m */; };
 		30A201392254681100A6A232 /* AskForLeaveEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A201382254681100A6A232 /* AskForLeaveEndViewController.m */; };
 		30A2013C2254A2AC00A6A232 /* ChangeClassQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2013B2254A2AC00A6A232 /* ChangeClassQueryViewController.m */; };
@@ -163,12 +168,19 @@
 		30A2DA2F224E00640030120D /* DiscoverNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A2DA1A224E00640030120D /* DiscoverNewsCell.xib */; };
 		30A2DA30224E00640030120D /* CourseCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA1B224E00640030120D /* CourseCategoryCell.m */; };
 		30A2DA32224E00640030120D /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2DA20224E00640030120D /* NewsViewController.m */; };
+		30B26C17229EB292004A8F81 /* MBHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B26C16229EB292004A8F81 /* MBHUDManager.m */; };
+		30B26C1B229F7553004A8F81 /* MakeMeetingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B26C1A229F7553004A8F81 /* MakeMeetingManager.m */; };
+		30B26C1F229F8377004A8F81 /* MakeMeetingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B26C1E229F8377004A8F81 /* MakeMeetingModel.m */; };
+		30B26C28229FF9D5004A8F81 /* ChangeClassManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B26C27229FF9D5004A8F81 /* ChangeClassManager.m */; };
+		30B26C2C229FFA8A004A8F81 /* ChangeClassCouseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B26C2B229FFA8A004A8F81 /* ChangeClassCouseModel.m */; };
 		30BA54922297C62200E9A6A0 /* DiscoverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BA54912297C62200E9A6A0 /* DiscoverManager.m */; };
 		30BA54952297C73A00E9A6A0 /* DiscoverNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BA54942297C73A00E9A6A0 /* DiscoverNewsModel.m */; };
 		30D54D092270489F0004D034 /* MKCourseDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D54D082270489F0004D034 /* MKCourseDetailModel.m */; };
 		30E77DC5226D9DC90052DE5D /* MKPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DC4226D9DC90052DE5D /* MKPlaceholderView.m */; };
 		30E77DC8226DAD720052DE5D /* MKBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DC7226DAD720052DE5D /* MKBannerModel.m */; };
 		30E77DCB226EFEB80052DE5D /* HomePublicCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DCA226EFEB80052DE5D /* HomePublicCourseModel.m */; };
+		30F2ADF622A5062500AB29EC /* AppointmentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F2ADF522A5062500AB29EC /* AppointmentListModel.m */; };
+		30F2ADF922A51B2600AB29EC /* EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F2ADF822A51B2600AB29EC /* EmptyView.m */; };
 		30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2EF223F7AEB0049C0DE /* MKNavViewController.m */; };
 		30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2F7223F98240049C0DE /* TitleScrollView.m */; };
 		30FBE2FC223F98250049C0DE /* SelectedCustomLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE2F8223F98250049C0DE /* SelectedCustomLab.m */; };
@@ -233,6 +245,18 @@
 		712729362241EB9B006772BF /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729352241EB9B006772BF /* MessageModel.m */; };
 		712729392241EBC2006772BF /* RuquestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 712729382241EBC2006772BF /* RuquestManager.m */; };
 		7127C086226808D700895D79 /* JKCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7127C085226808D700895D79 /* JKCountDownButton.m */; };
+		71296FA422B1DE7100BB8E7D /* SetPasswordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FA322B1DE7100BB8E7D /* SetPasswordManager.m */; };
+		71296FA822B1E39E00BB8E7D /* FeedBackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FA722B1E39E00BB8E7D /* FeedBackManager.m */; };
+		71296FAC22B1EAEF00BB8E7D /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FAB22B1EAEF00BB8E7D /* PersonModel.m */; };
+		71296FB022B1EB4F00BB8E7D /* GetPersonnalInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FAF22B1EB4F00BB8E7D /* GetPersonnalInfoManager.m */; };
+		71296FB322B1F39200BB8E7D /* userInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FB222B1F39200BB8E7D /* userInfo.m */; };
+		71296FB622B1F4B600BB8E7D /* JapaneseLanguageAbilityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FB522B1F4B600BB8E7D /* JapaneseLanguageAbilityList.m */; };
+		71296FB922B1F4C200BB8E7D /* LanguageSchoolList.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FB822B1F4C200BB8E7D /* LanguageSchoolList.m */; };
+		71296FBC22B1F4CE00BB8E7D /* LanguageSchoolTimeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FBB22B1F4CE00BB8E7D /* LanguageSchoolTimeList.m */; };
+		71296FBF22B1F4DB00BB8E7D /* VolunteerUniversityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FBE22B1F4DB00BB8E7D /* VolunteerUniversityList.m */; };
+		71296FC222B1F4E900BB8E7D /* VolunteerFacultyList.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FC122B1F4E900BB8E7D /* VolunteerFacultyList.m */; };
+		71296FC522B1F4F700BB8E7D /* VolunteerDisciplineList.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FC422B1F4F700BB8E7D /* VolunteerDisciplineList.m */; };
+		71296FC822B1F5CF00BB8E7D /* university.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FC722B1F5CF00BB8E7D /* university.m */; };
 		712BFB1122729B18004EAA6E /* MyBillManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 712BFB1022729B18004EAA6E /* MyBillManager.m */; };
 		71A18E1A225072CA007B4C55 /* LagAbilityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A18DD8225072CA007B4C55 /* LagAbilityController.m */; };
 		71A18E1B225072CA007B4C55 /* LagAbilityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A18DD9225072CA007B4C55 /* LagAbilityController.xib */; };
@@ -289,8 +313,6 @@
 		30295513226493FF006D1613 /* AppointmentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentManager.m; sourceTree = "<group>"; };
 		3029556D2265C91B006D1613 /* MKNetworkingConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKNetworkingConfig.h; sourceTree = "<group>"; };
 		3029556E2265C9FD006D1613 /* MKRequestUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKRequestUrl.h; sourceTree = "<group>"; };
-		302955702266D2E9006D1613 /* MBHUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBHUDManager.h; sourceTree = "<group>"; };
-		302955712266D2E9006D1613 /* MBHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHUDManager.m; sourceTree = "<group>"; };
 		302956712266D83A006D1613 /* MKNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKNetworkManager.h; sourceTree = "<group>"; };
 		302956722266D83A006D1613 /* MKNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKNetworkManager.m; sourceTree = "<group>"; };
 		302956742266DE95006D1613 /* HomePageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageManager.h; sourceTree = "<group>"; };
@@ -510,6 +532,17 @@
 		3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPagedFlowView.m; sourceTree = "<group>"; };
 		3048D89D223A2F5900FE63B2 /* PGIndexBannerSubiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGIndexBannerSubiew.h; sourceTree = "<group>"; };
 		3048D89E223A2F5900FE63B2 /* NewPagedFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
+		3080171422AE9AC100112E28 /* AppointmentDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentDetailModel.h; sourceTree = "<group>"; };
+		3080171522AE9AC100112E28 /* AppointmentDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentDetailModel.m; sourceTree = "<group>"; };
+		30957B09229E2DA7009DDAAA /* ApplyLeaveManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyLeaveManager.h; sourceTree = "<group>"; };
+		30957B0A229E2DA7009DDAAA /* ApplyLeaveManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyLeaveManager.m; sourceTree = "<group>"; };
+		30957B0C229E2E67009DDAAA /* ApplyLeaveCourseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyLeaveCourseModel.h; sourceTree = "<group>"; };
+		30957B0D229E2E67009DDAAA /* ApplyLeaveCourseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyLeaveCourseModel.m; sourceTree = "<group>"; };
+		30957B10229E69B6009DDAAA /* MKDropDownMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKDropDownMenu.h; sourceTree = "<group>"; };
+		30957B11229E69B6009DDAAA /* MKDropDownMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKDropDownMenu.m; sourceTree = "<group>"; };
+		30957B13229E9CAB009DDAAA /* DropDownCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DropDownCell.h; sourceTree = "<group>"; };
+		30957B14229E9CAB009DDAAA /* DropDownCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DropDownCell.m; sourceTree = "<group>"; };
+		30957B15229E9CAB009DDAAA /* DropDownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownCell.xib; sourceTree = "<group>"; };
 		30A201342254679400A6A232 /* AskForLeaveQueryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskForLeaveQueryViewController.h; sourceTree = "<group>"; };
 		30A201352254679400A6A232 /* AskForLeaveQueryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskForLeaveQueryViewController.m; sourceTree = "<group>"; };
 		30A201372254681100A6A232 /* AskForLeaveEndViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskForLeaveEndViewController.h; sourceTree = "<group>"; };
@@ -576,6 +609,16 @@
 		30A2DA1B224E00640030120D /* CourseCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCategoryCell.m; sourceTree = "<group>"; };
 		30A2DA20224E00640030120D /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		30A2DA22224E00640030120D /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		30B26C15229EB292004A8F81 /* MBHUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBHUDManager.h; sourceTree = "<group>"; };
+		30B26C16229EB292004A8F81 /* MBHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHUDManager.m; sourceTree = "<group>"; };
+		30B26C19229F7553004A8F81 /* MakeMeetingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MakeMeetingManager.h; sourceTree = "<group>"; };
+		30B26C1A229F7553004A8F81 /* MakeMeetingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MakeMeetingManager.m; sourceTree = "<group>"; };
+		30B26C1D229F8377004A8F81 /* MakeMeetingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MakeMeetingModel.h; sourceTree = "<group>"; };
+		30B26C1E229F8377004A8F81 /* MakeMeetingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MakeMeetingModel.m; sourceTree = "<group>"; };
+		30B26C26229FF9D5004A8F81 /* ChangeClassManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeClassManager.h; sourceTree = "<group>"; };
+		30B26C27229FF9D5004A8F81 /* ChangeClassManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeClassManager.m; sourceTree = "<group>"; };
+		30B26C2A229FFA8A004A8F81 /* ChangeClassCouseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeClassCouseModel.h; sourceTree = "<group>"; };
+		30B26C2B229FFA8A004A8F81 /* ChangeClassCouseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeClassCouseModel.m; sourceTree = "<group>"; };
 		30BA54902297C62200E9A6A0 /* DiscoverManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverManager.h; sourceTree = "<group>"; };
 		30BA54912297C62200E9A6A0 /* DiscoverManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverManager.m; sourceTree = "<group>"; };
 		30BA54932297C73A00E9A6A0 /* DiscoverNewsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverNewsModel.h; sourceTree = "<group>"; };
@@ -589,6 +632,10 @@
 		30E77DC7226DAD720052DE5D /* MKBannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKBannerModel.m; sourceTree = "<group>"; };
 		30E77DC9226EFEB80052DE5D /* HomePublicCourseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePublicCourseModel.h; sourceTree = "<group>"; };
 		30E77DCA226EFEB80052DE5D /* HomePublicCourseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePublicCourseModel.m; sourceTree = "<group>"; };
+		30F2ADF422A5062500AB29EC /* AppointmentListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentListModel.h; sourceTree = "<group>"; };
+		30F2ADF522A5062500AB29EC /* AppointmentListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentListModel.m; sourceTree = "<group>"; };
+		30F2ADF722A51B2600AB29EC /* EmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyView.h; sourceTree = "<group>"; };
+		30F2ADF822A51B2600AB29EC /* EmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyView.m; sourceTree = "<group>"; };
 		30FBE2EE223F7AEB0049C0DE /* MKNavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKNavViewController.h; sourceTree = "<group>"; };
 		30FBE2EF223F7AEB0049C0DE /* MKNavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKNavViewController.m; sourceTree = "<group>"; };
 		30FBE2F7223F98240049C0DE /* TitleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScrollView.m; sourceTree = "<group>"; };
@@ -697,6 +744,30 @@
 		712729382241EBC2006772BF /* RuquestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuquestManager.m; sourceTree = "<group>"; };
 		7127C084226808D700895D79 /* JKCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKCountDownButton.h; sourceTree = "<group>"; };
 		7127C085226808D700895D79 /* JKCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCountDownButton.m; sourceTree = "<group>"; };
+		71296FA222B1DE7100BB8E7D /* SetPasswordManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetPasswordManager.h; sourceTree = "<group>"; };
+		71296FA322B1DE7100BB8E7D /* SetPasswordManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetPasswordManager.m; sourceTree = "<group>"; };
+		71296FA622B1E39E00BB8E7D /* FeedBackManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedBackManager.h; sourceTree = "<group>"; };
+		71296FA722B1E39E00BB8E7D /* FeedBackManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedBackManager.m; sourceTree = "<group>"; };
+		71296FAA22B1EAEF00BB8E7D /* PersonModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonModel.h; sourceTree = "<group>"; };
+		71296FAB22B1EAEF00BB8E7D /* PersonModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonModel.m; sourceTree = "<group>"; };
+		71296FAE22B1EB4F00BB8E7D /* GetPersonnalInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetPersonnalInfoManager.h; sourceTree = "<group>"; };
+		71296FAF22B1EB4F00BB8E7D /* GetPersonnalInfoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetPersonnalInfoManager.m; sourceTree = "<group>"; };
+		71296FB122B1F39200BB8E7D /* userInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = userInfo.h; sourceTree = "<group>"; };
+		71296FB222B1F39200BB8E7D /* userInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = userInfo.m; sourceTree = "<group>"; };
+		71296FB422B1F4B600BB8E7D /* JapaneseLanguageAbilityList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JapaneseLanguageAbilityList.h; sourceTree = "<group>"; };
+		71296FB522B1F4B600BB8E7D /* JapaneseLanguageAbilityList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JapaneseLanguageAbilityList.m; sourceTree = "<group>"; };
+		71296FB722B1F4C200BB8E7D /* LanguageSchoolList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageSchoolList.h; sourceTree = "<group>"; };
+		71296FB822B1F4C200BB8E7D /* LanguageSchoolList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageSchoolList.m; sourceTree = "<group>"; };
+		71296FBA22B1F4CE00BB8E7D /* LanguageSchoolTimeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageSchoolTimeList.h; sourceTree = "<group>"; };
+		71296FBB22B1F4CE00BB8E7D /* LanguageSchoolTimeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageSchoolTimeList.m; sourceTree = "<group>"; };
+		71296FBD22B1F4DB00BB8E7D /* VolunteerUniversityList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VolunteerUniversityList.h; sourceTree = "<group>"; };
+		71296FBE22B1F4DB00BB8E7D /* VolunteerUniversityList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VolunteerUniversityList.m; sourceTree = "<group>"; };
+		71296FC022B1F4E900BB8E7D /* VolunteerFacultyList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VolunteerFacultyList.h; sourceTree = "<group>"; };
+		71296FC122B1F4E900BB8E7D /* VolunteerFacultyList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VolunteerFacultyList.m; sourceTree = "<group>"; };
+		71296FC322B1F4F700BB8E7D /* VolunteerDisciplineList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VolunteerDisciplineList.h; sourceTree = "<group>"; };
+		71296FC422B1F4F700BB8E7D /* VolunteerDisciplineList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VolunteerDisciplineList.m; sourceTree = "<group>"; };
+		71296FC622B1F5CF00BB8E7D /* university.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = university.h; sourceTree = "<group>"; };
+		71296FC722B1F5CF00BB8E7D /* university.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = university.m; sourceTree = "<group>"; };
 		712BFB0F22729B18004EAA6E /* MyBillManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyBillManager.h; sourceTree = "<group>"; };
 		712BFB1022729B18004EAA6E /* MyBillManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyBillManager.m; sourceTree = "<group>"; };
 		71A18DD8225072CA007B4C55 /* LagAbilityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LagAbilityController.m; sourceTree = "<group>"; };
@@ -814,8 +885,8 @@
 		3029556F2266D2E5006D1613 /* MBHUDManager */ = {
 			isa = PBXGroup;
 			children = (
-				302955702266D2E9006D1613 /* MBHUDManager.h */,
-				302955712266D2E9006D1613 /* MBHUDManager.m */,
+				30B26C15229EB292004A8F81 /* MBHUDManager.h */,
+				30B26C16229EB292004A8F81 /* MBHUDManager.m */,
 			);
 			path = MBHUDManager;
 			sourceTree = "<group>";
@@ -1117,6 +1188,7 @@
 		3035B687224F2D4500A1AA98 /* FeedBack */ = {
 			isa = PBXGroup;
 			children = (
+				71296FA522B1E38900BB8E7D /* Manager */,
 				3035B688224F2D4500A1AA98 /* ViewControllers */,
 				3035B68C224F2D4500A1AA98 /* Views */,
 			);
@@ -1145,6 +1217,8 @@
 		3035B68F224F2D4500A1AA98 /* UpdatePersonnalMessage */ = {
 			isa = PBXGroup;
 			children = (
+				71296FAD22B1EB3600BB8E7D /* Manager */,
+				71296FA922B1EAE000BB8E7D /* Model */,
 				3035B690224F2D4500A1AA98 /* ViewControllers */,
 			);
 			path = UpdatePersonnalMessage;
@@ -1199,6 +1273,8 @@
 		3035B6B4225071EE00A1AA98 /* AskForLeave */ = {
 			isa = PBXGroup;
 			children = (
+				30957B08229E2D91009DDAAA /* Model */,
+				30957B07229E2D85009DDAAA /* Manager */,
 				3035B6BA2250724000A1AA98 /* ViewController */,
 			);
 			path = AskForLeave;
@@ -1207,6 +1283,8 @@
 		3035B6B5225071F200A1AA98 /* Meeting */ = {
 			isa = PBXGroup;
 			children = (
+				30B26C1C229F8361004A8F81 /* Model */,
+				30B26C18229F7529004A8F81 /* MakeMeetingManager */,
 				3035B6B92250722800A1AA98 /* ViewController */,
 				3035B6CE2251FB6000A1AA98 /* View */,
 			);
@@ -1358,6 +1436,7 @@
 		3048D7E4223255BC00FE63B2 /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				30957B0F229E697E009DDAAA /* MKDropDownMenu */,
 				30295515226591C4006D1613 /* MKNetWorkingToll */,
 				30A20196225F32BB00A6A232 /* XDSDropDownMenuToll */,
 				3048D89A223A2F5900FE63B2 /* NewPagedFlowView */,
@@ -1575,6 +1654,10 @@
 		3048D80A22325E2700FE63B2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				30F2ADF422A5062500AB29EC /* AppointmentListModel.h */,
+				30F2ADF522A5062500AB29EC /* AppointmentListModel.m */,
+				3080171422AE9AC100112E28 /* AppointmentDetailModel.h */,
+				3080171522AE9AC100112E28 /* AppointmentDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1592,6 +1675,8 @@
 				30FBE370224238090049C0DE /* AppointmentCollectionViewCell.xib */,
 				30FBE373224398620049C0DE /* AppointmentPopView.h */,
 				30FBE374224398620049C0DE /* AppointmentPopView.m */,
+				30F2ADF722A51B2600AB29EC /* EmptyView.h */,
+				30F2ADF822A51B2600AB29EC /* EmptyView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1809,6 +1894,36 @@
 			path = NewPagedFlowView;
 			sourceTree = "<group>";
 		};
+		30957B07229E2D85009DDAAA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				30957B09229E2DA7009DDAAA /* ApplyLeaveManager.h */,
+				30957B0A229E2DA7009DDAAA /* ApplyLeaveManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		30957B08229E2D91009DDAAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30957B0C229E2E67009DDAAA /* ApplyLeaveCourseModel.h */,
+				30957B0D229E2E67009DDAAA /* ApplyLeaveCourseModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30957B0F229E697E009DDAAA /* MKDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				30957B10229E69B6009DDAAA /* MKDropDownMenu.h */,
+				30957B11229E69B6009DDAAA /* MKDropDownMenu.m */,
+				30957B13229E9CAB009DDAAA /* DropDownCell.h */,
+				30957B14229E9CAB009DDAAA /* DropDownCell.m */,
+				30957B15229E9CAB009DDAAA /* DropDownCell.xib */,
+			);
+			path = MKDropDownMenu;
+			sourceTree = "<group>";
+		};
 		30A201402255F2DC00A6A232 /* MyBill */ = {
 			isa = PBXGroup;
 			children = (
@@ -1947,6 +2062,8 @@
 		30A2D9EF224DFB790030120D /* ChangeClass */ = {
 			isa = PBXGroup;
 			children = (
+				30B26C29229FFA77004A8F81 /* Model */,
+				30B26C25229FF9B4004A8F81 /* Manager */,
 				30A2D9F0224DFB790030120D /* ViewController */,
 				3035B6C12250729700A1AA98 /* View */,
 			);
@@ -2042,6 +2159,42 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		30B26C18229F7529004A8F81 /* MakeMeetingManager */ = {
+			isa = PBXGroup;
+			children = (
+				30B26C19229F7553004A8F81 /* MakeMeetingManager.h */,
+				30B26C1A229F7553004A8F81 /* MakeMeetingManager.m */,
+			);
+			path = MakeMeetingManager;
+			sourceTree = "<group>";
+		};
+		30B26C1C229F8361004A8F81 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30B26C1D229F8377004A8F81 /* MakeMeetingModel.h */,
+				30B26C1E229F8377004A8F81 /* MakeMeetingModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30B26C25229FF9B4004A8F81 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				30B26C26229FF9D5004A8F81 /* ChangeClassManager.h */,
+				30B26C27229FF9D5004A8F81 /* ChangeClassManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		30B26C29229FFA77004A8F81 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30B26C2A229FFA8A004A8F81 /* ChangeClassCouseModel.h */,
+				30B26C2B229FFA8A004A8F81 /* ChangeClassCouseModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		30BA548E2297C60500E9A6A0 /* Manager */ = {
@@ -2186,6 +2339,7 @@
 		30FBE3502241E83C0049C0DE /* SetPassword */ = {
 			isa = PBXGroup;
 			children = (
+				71296FA122B1DE4E00BB8E7D /* Manager */,
 				30FBE3512241E83C0049C0DE /* ViewControllers */,
 			);
 			path = SetPassword;
@@ -2411,6 +2565,58 @@
 				7127C085226808D700895D79 /* JKCountDownButton.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		71296FA122B1DE4E00BB8E7D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				71296FA222B1DE7100BB8E7D /* SetPasswordManager.h */,
+				71296FA322B1DE7100BB8E7D /* SetPasswordManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		71296FA522B1E38900BB8E7D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				71296FA622B1E39E00BB8E7D /* FeedBackManager.h */,
+				71296FA722B1E39E00BB8E7D /* FeedBackManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		71296FA922B1EAE000BB8E7D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				71296FAA22B1EAEF00BB8E7D /* PersonModel.h */,
+				71296FAB22B1EAEF00BB8E7D /* PersonModel.m */,
+				71296FB122B1F39200BB8E7D /* userInfo.h */,
+				71296FB222B1F39200BB8E7D /* userInfo.m */,
+				71296FC622B1F5CF00BB8E7D /* university.h */,
+				71296FC722B1F5CF00BB8E7D /* university.m */,
+				71296FB422B1F4B600BB8E7D /* JapaneseLanguageAbilityList.h */,
+				71296FB522B1F4B600BB8E7D /* JapaneseLanguageAbilityList.m */,
+				71296FB722B1F4C200BB8E7D /* LanguageSchoolList.h */,
+				71296FB822B1F4C200BB8E7D /* LanguageSchoolList.m */,
+				71296FBA22B1F4CE00BB8E7D /* LanguageSchoolTimeList.h */,
+				71296FBB22B1F4CE00BB8E7D /* LanguageSchoolTimeList.m */,
+				71296FBD22B1F4DB00BB8E7D /* VolunteerUniversityList.h */,
+				71296FBE22B1F4DB00BB8E7D /* VolunteerUniversityList.m */,
+				71296FC022B1F4E900BB8E7D /* VolunteerFacultyList.h */,
+				71296FC122B1F4E900BB8E7D /* VolunteerFacultyList.m */,
+				71296FC322B1F4F700BB8E7D /* VolunteerDisciplineList.h */,
+				71296FC422B1F4F700BB8E7D /* VolunteerDisciplineList.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71296FAD22B1EB3600BB8E7D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				71296FAE22B1EB4F00BB8E7D /* GetPersonnalInfoManager.h */,
+				71296FAF22B1EB4F00BB8E7D /* GetPersonnalInfoManager.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		712BFB0E22729B04004EAA6E /* Manager */ = {
@@ -2816,6 +3022,7 @@
 				30A2016E225D9F9C00A6A232 /* MyCourseOnlineListCollectionViewCell.xib in Resources */,
 				3035B6B1224F2D4500A1AA98 /* SupportController.xib in Resources */,
 				3035B6AE224F2D4500A1AA98 /* VersionUpdateController.xib in Resources */,
+				30957B17229E9CAC009DDAAA /* DropDownCell.xib in Resources */,
 				3048D7B72232536F00FE63B2 /* Assets.xcassets in Resources */,
 				3048D86C22364F6F00FE63B2 /* MyCouseViewController.xib in Resources */,
 				30A2018B225DF20700A6A232 /* MyCourseListCell.xib in Resources */,
@@ -2958,6 +3165,7 @@
 				30FBE2F0223F7AEB0049C0DE /* MKNavViewController.m in Sources */,
 				30A20199225F32BC00A6A232 /* XDSDropDownMenu.m in Sources */,
 				712170D5223F465700BA1905 /* MyCenterBottomoCell.m in Sources */,
+				71296FB022B1EB4F00BB8E7D /* GetPersonnalInfoManager.m in Sources */,
 				30FBE30F2240976D0049C0DE /* HomeCommonViewController.m in Sources */,
 				30FBE3AE224B5C000049C0DE /* MessageViewController.m in Sources */,
 				30FBE36D224236DA0049C0DE /* AppointmentCollectionView.m in Sources */,
@@ -2971,8 +3179,10 @@
 				3048D846223263AF00FE63B2 /* UIButton+layout.m in Sources */,
 				3048D847223263AF00FE63B2 /* NSString+Utilites.m in Sources */,
 				30A2018A225DF20700A6A232 /* MyCourseListCell.m in Sources */,
+				71296FA822B1E39E00BB8E7D /* FeedBackManager.m in Sources */,
 				30FBE37B2244C5700049C0DE /* CourseDetailTipView.m in Sources */,
 				712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */,
+				30957B0B229E2DA7009DDAAA /* ApplyLeaveManager.m in Sources */,
 				302956D2226728CF006D1613 /* MKCourseListModel.m in Sources */,
 				30E77DCB226EFEB80052DE5D /* HomePublicCourseModel.m in Sources */,
 				71A18E2B225072CA007B4C55 /* LYSDatePickerItem.m in Sources */,
@@ -3000,7 +3210,9 @@
 				30FBE3782244C50C0049C0DE /* CourseDetailScrollView.m in Sources */,
 				3048D86622364F5F00FE63B2 /* MyCenterViewController.m in Sources */,
 				3035B6A2224F2D4500A1AA98 /* BookmarkController.m in Sources */,
+				30957B16229E9CAB009DDAAA /* DropDownCell.m in Sources */,
 				71A18E22225072CA007B4C55 /* LYSDatePickerViewController.m in Sources */,
+				71296FB922B1F4C200BB8E7D /* LanguageSchoolList.m in Sources */,
 				71A18E2D225072CA007B4C55 /* LYSDatePickerController.m in Sources */,
 				30FBE3652242115F0049C0DE /* AppointmentChildViewController.m in Sources */,
 				3048D892223A2E9D00FE63B2 /* XHRefreshHeader.m in Sources */,
@@ -3008,6 +3220,7 @@
 				30354F9E227F02910045955D /* PLVVodDanmu+PLVVod.m in Sources */,
 				30A201532255F74100A6A232 /* BillListCollectionViewCell.m in Sources */,
 				3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */,
+				30B26C1F229F8377004A8F81 /* MakeMeetingModel.m in Sources */,
 				712729392241EBC2006772BF /* RuquestManager.m in Sources */,
 				3048D8732239F77900FE63B2 /* HomePageCell.m in Sources */,
 				30BA54922297C62200E9A6A0 /* DiscoverManager.m in Sources */,
@@ -3019,14 +3232,19 @@
 				71A18E23225072CA007B4C55 /* LYSDateHeaderViewController.m in Sources */,
 				7124448C225831D3005AF711 /* OrderDetailCell.m in Sources */,
 				3035B65E224F2C7D00A1AA98 /* LoginViewController.m in Sources */,
+				71296FAC22B1EAEF00BB8E7D /* PersonModel.m in Sources */,
+				30B26C28229FF9D5004A8F81 /* ChangeClassManager.m in Sources */,
 				30A2018E225DFD3B00A6A232 /* CourseDetailManager.m in Sources */,
 				30354F9B227F02910045955D /* UINavigationController+PLVVod.m in Sources */,
+				30B26C1B229F7553004A8F81 /* MakeMeetingManager.m in Sources */,
 				71A18E32225072CA007B4C55 /* ValuePickerView.m in Sources */,
 				3035B69E224F2D4500A1AA98 /* PropertyController.m in Sources */,
 				30A2014F2255F3B700A6A232 /* BillListCollectionViewFlowLayout.m in Sources */,
 				712BFB1122729B18004EAA6E /* MyBillManager.m in Sources */,
 				3035B65C224F2C7D00A1AA98 /* RegisterController.m in Sources */,
+				71296FC522B1F4F700BB8E7D /* VolunteerDisciplineList.m in Sources */,
 				3048D843223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
+				30957B12229E69B6009DDAAA /* MKDropDownMenu.m in Sources */,
 				71A18E2C225072CA007B4C55 /* LYSDatePickerTypeBase.m in Sources */,
 				30FBE2FC223F98250049C0DE /* SelectedCustomLab.m in Sources */,
 				30354FB9227F05D30045955D /* PLVVodQuestion.m in Sources */,
@@ -3055,24 +3273,29 @@
 				71A18E1D225072CA007B4C55 /* JapanDateVController.m in Sources */,
 				3048D86122364F4E00FE63B2 /* AppointmentViewController.m in Sources */,
 				3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */,
+				71296FBF22B1F4DB00BB8E7D /* VolunteerUniversityList.m in Sources */,
 				71A18E20225072CA007B4C55 /* LYSDateBaseViewController.m in Sources */,
 				30A20195225F2CFE00A6A232 /* MKBaseScrollView.m in Sources */,
 				30354FBA227F05D30045955D /* PLVVodQuestionView.m in Sources */,
-				302955722266D2EA006D1613 /* MBHUDManager.m in Sources */,
 				30A2DA30224E00640030120D /* CourseCategoryCell.m in Sources */,
 				3035B6CD2251E27400A1AA98 /* MeetingEndQueryViewController.m in Sources */,
 				71A18E27225072CA007B4C55 /* LYSDateIndicatorViewController.m in Sources */,
+				3080171622AE9AC100112E28 /* AppointmentDetailModel.m in Sources */,
 				30A201362254679400A6A232 /* AskForLeaveQueryViewController.m in Sources */,
 				30354F91227F02910045955D /* PLVVodGestureIndicatorView.m in Sources */,
+				30957B0E229E2E67009DDAAA /* ApplyLeaveCourseModel.m in Sources */,
 				3048D848223263AF00FE63B2 /* NSString+SizeOfString.m in Sources */,
+				30F2ADF922A51B2600AB29EC /* EmptyView.m in Sources */,
 				7124F7BE2269719C00084346 /* UserManager.m in Sources */,
 				302956732266D83A006D1613 /* MKNetworkManager.m in Sources */,
 				3048D7B22232536D00FE63B2 /* ViewController.m in Sources */,
+				71296FC822B1F5CF00BB8E7D /* university.m in Sources */,
 				30354FB7227F05D30045955D /* PLVVodExamViewController.m in Sources */,
 				30A2DA2B224E00640030120D /* DiscoverNewsCell.m in Sources */,
 				3035B6A9224F2D4500A1AA98 /* FeedBackController.m in Sources */,
 				71A18E21225072CA007B4C55 /* LYSDateLogicViewController.m in Sources */,
 				3035B661224F2C7D00A1AA98 /* LoginDetailController.m in Sources */,
+				71296FB322B1F39200BB8E7D /* userInfo.m in Sources */,
 				71A18E2E225072CA007B4C55 /* LYSDatePickerHeaderView.m in Sources */,
 				30A20171225DA8CA00A6A232 /* MyOnlineCourseListFlowLayout.m in Sources */,
 				3035B6A5224F2D4500A1AA98 /* BasicInfoController.m in Sources */,
@@ -3080,8 +3303,10 @@
 				30FBE39422488C280049C0DE /* CourseOnlineListCell.m in Sources */,
 				30A2016D225D9F9C00A6A232 /* MyCourseOnlineListCollectionViewCell.m in Sources */,
 				30A2015C225B3B3500A6A232 /* MKBillDetailViewController.m in Sources */,
+				71296FC222B1F4E900BB8E7D /* VolunteerFacultyList.m in Sources */,
 				3029571F226859E4006D1613 /* WYNetworkRequestEngine.m in Sources */,
 				302956792266DFAD006D1613 /* HomeCourseCategoryModel.m in Sources */,
+				71296FB622B1F4B600BB8E7D /* JapaneseLanguageAbilityList.m in Sources */,
 				3048D841223263AF00FE63B2 /* UIView+Layout.m in Sources */,
 				3048D7BD2232536F00FE63B2 /* main.m in Sources */,
 				3048D81D22325F7F00FE63B2 /* MKNavigationController.m in Sources */,
@@ -3094,6 +3319,7 @@
 				30354F8D227F02910045955D /* PLVVodRouteLineView.m in Sources */,
 				71A18E24225072CA007B4C55 /* LYSDatePickerLabel.m in Sources */,
 				7127C086226808D700895D79 /* JKCountDownButton.m in Sources */,
+				30B26C17229EB292004A8F81 /* MBHUDManager.m in Sources */,
 				3029571B226859E4006D1613 /* WYNetworkConfig.m in Sources */,
 				30A2013F2254A76300A6A232 /* ChangeClassEndViewController.m in Sources */,
 				30354F9D227F02910045955D /* UIButton+EnlargeTouchArea.m in Sources */,
@@ -3119,6 +3345,7 @@
 				3035B6BD2250725000A1AA98 /* AskForLeaveViewController.m in Sources */,
 				71244491225832A1005AF711 /* OrderDetailCell_2.m in Sources */,
 				30295721226859E4006D1613 /* WYNetworkRequestModel.m in Sources */,
+				71296FA422B1DE7100BB8E7D /* SetPasswordManager.m in Sources */,
 				30FBE38722488AF30049C0DE /* CourseOnlineTitleCell.m in Sources */,
 				30354F8C227F02910045955D /* PLVVodPlayTipsView.m in Sources */,
 				30A201392254681100A6A232 /* AskForLeaveEndViewController.m in Sources */,
@@ -3134,10 +3361,13 @@
 				30FBE39E224B2F890049C0DE /* CourseOfflineTitleCell.m in Sources */,
 				30FBE3622241F81D0049C0DE /* CourseDetailViewController.m in Sources */,
 				30A20160225B449700A6A232 /* BillDetailPayTimeCell.m in Sources */,
+				30B26C2C229FFA8A004A8F81 /* ChangeClassCouseModel.m in Sources */,
+				71296FBC22B1F4CE00BB8E7D /* LanguageSchoolTimeList.m in Sources */,
 				30A20158225B370A00A6A232 /* BillDetailCell.m in Sources */,
 				30354F90227F02910045955D /* PLVVodFullscreenView.m in Sources */,
 				712729362241EB9B006772BF /* MessageModel.m in Sources */,
 				30295720226859E4006D1613 /* WYNetworkCacheManager.m in Sources */,
+				30F2ADF622A5062500AB29EC /* AppointmentListModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3310,7 +3540,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SM9A2WCYC3;
+				DEVELOPMENT_TEAM = A9VG9KGP8J;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MK/Config/MKPrefix.h";
 				HEADER_SEARCH_PATHS = (
@@ -3336,7 +3566,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SM9A2WCYC3;
+				DEVELOPMENT_TEAM = A9VG9KGP8J;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MK/Config/MKPrefix.h";
 				HEADER_SEARCH_PATHS = (

@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LagAndSchController">
             <connections>
                 <outlet property="schField" destination="Ccp-cn-tPi" id="6aR-hZ-e6x"/>
+                <outlet property="timeBtn" destination="yYw-NU-3yK" id="KyF-Nl-OTG"/>
                 <outlet property="view" destination="oYy-oW-0UH" id="hxC-1P-pwy"/>
             </connections>
         </placeholder>

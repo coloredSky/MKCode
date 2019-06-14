@@ -60,28 +60,30 @@
     NSAttributedString *attributedString = [[NSAttributedString alloc]initWithString:signString attributes:@{NSShadowAttributeName : signShadow,NSFontAttributeName : textFont}];
     return attributedString;
 }
+
 -(IBAction)btnClick:(UIButton *)sender
 {
     if (sender.tag ==1) {
-          [self dismissViewControllerAnimated:YES completion:nil];
+//          [self dismissViewControllerAnimated:YES completion:nil];
     }
-    else if(sender.tag==2)
-    {
+    else if(sender.tag==2){
         //登录
         [MBHUDManager showLoading];
         [LoginManager callBackLoginDataWithHudShow:YES userName:self.phoneTF.text pwd:self.passwordTF.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, LoginModel * _Nonnull model) {
             [MBHUDManager hideAlert];
             if (isSuccess ==YES) {
-                [self.navigationController popViewControllerAnimated:YES];
-
+                [self backToPreviousViewController];
+                [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginInNotifcationKey object:nil];
             }else{
                 if ([NSString isEmptyWithStr:message]) {
                     [MBHUDManager showBriefAlert:message];
                 }
             }
         }];
+    }else if (sender.tag == 3){
+        //忘记密码
+        
     }
-  
 }
 
 - (IBAction)registerTarget:(id)sender

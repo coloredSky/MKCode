@@ -8,10 +8,13 @@
 
 #import "ValSchController.h"
 #import "BasicInfoCell.h"
+#import "university.h"
 @interface ValSchController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong) NSArray *titleArr;//标题数组
 @property (nonatomic, strong) NSArray *sectionArr;//区头数组
+
+@property (nonatomic, strong) NSMutableArray *contentArr;//区头数组
 @end
 
 @implementation ValSchController
@@ -22,6 +25,7 @@
     if (self = [super init]) {
         self.titleArr = @[@[@"学校名称",@"学部/研究科",@"学科/专攻"],@[@"学校名称",@"学部/研究科",@"学科/专攻"],@[@"学校名称",@"学部/研究科",@"学科/专攻"]];
         self.sectionArr =@[@"第一志愿",@"第二志愿",@"第三志愿"];
+        self.contentArr =[NSMutableArray array];
     }
     return self;
 }
@@ -49,6 +53,11 @@
 #pragma mark --  request
 -(void)startRequest
 {
+    
+}
+-(void)setModel:(PersonModel *)model
+{
+    _model =model;
 }
 #pragma mark --  lazy
 -(MKBaseTableView *)contentTable
@@ -71,6 +80,24 @@
     NSArray * ary =self.titleArr[indexPath.section];
     cell.ttLabel.text =ary[indexPath.row];
     cell.selectionStyle =UITableViewCellSelectionStyleNone;
+    if (self.contentArr.count)
+    {
+        if (self.contentArr.count ==1&&indexPath.section ==0)
+        {
+            NSArray * arr =self.contentArr[0];
+            cell.textField.text =arr[indexPath.row];
+        }
+        else if (self.contentArr.count==2 && indexPath.section <2)
+        {
+            NSArray * arr =self.contentArr[indexPath.section];
+            cell.textField.text =arr [indexPath.row];
+        }
+        else if (self.contentArr.count ==3)
+        {
+            NSArray * arr =self.contentArr[indexPath.section];
+            cell.textField.text =arr [indexPath.row];
+        }
+    }
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -133,4 +160,33 @@
 {
     
 }
+
+
+#pragma mark - modelDatasource
+-(void)createDataSource
+{
+
+    if (self.model.userInfo.university.count)
+    {
+        for (university * uni in self.model.userInfo.university) {
+            NSMutableArray * u =[NSMutableArray array];
+            [u  addObject:uni.university_name];
+            [u addObject:uni.faculty_name];
+            [u addObject:uni.discipline_name];
+           [ self.contentArr addObject:u];
+        }
+    }
+    if (self.contentArr.count>3) {
+        [self.contentArr removeObjectsInRange:NSMakeRange(3, self.contentArr.count-3)];
+    }
+    [self.contentTable reloadData];
+}
+#pragma mark -viewappear
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self createDataSource];
+}
+
+
 @end

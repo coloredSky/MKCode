@@ -13,16 +13,29 @@
 #import "AskForLeaveEndViewController.h"
 #import "ChangeClassQueryViewController.h"
 #import "ChangeClassEndViewController.h"
+#import "LoginActionController.h"
 //View
 #import "AppointmentCell.h"
 #import "AppointmentCollectionView.h"
-@interface AppointmentChildViewController ()<UITableViewDelegate,UITableViewDataSource,AppointmentCollectionViewDelegate>
+#import "EmptyView.h"
+
+@interface AppointmentChildViewController ()<UITableViewDelegate,UITableViewDataSource,AppointmentCollectionViewDelegate,EmptyViewDelegate>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
+@property (nonatomic, strong) EmptyView *emptyView;
 @property (nonatomic, strong) NSArray *sectionOneTitleArr;
 @property (nonatomic, strong) NSArray *sectionTwoTitleArr;
+
+@property (nonatomic, strong) NSArray *ongoningList;
+@property (nonatomic, strong) NSArray *completeList;
 @end
 
 @implementation AppointmentChildViewController
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
 -(instancetype)init
 {
     if (self = [super init]) {
@@ -31,10 +44,61 @@
     }
     return self;
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpRefresh];
+    [self requestData];
+    [self addNotification];
 }
+
+-(void)addNotification
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginInTarget:) name:kMKLoginInNotifcationKey object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginOutTarget:) name:kMKLoginOutNotifcationKey object:nil];
+    NSString *notiName = @"";
+    if (self.dispayType == AppointmentDisplayTypeChangeClass) {
+        notiName = kMKApplyChangeClassListRefreshNotifcationKey;
+    }else if (self.dispayType == AppointmentDisplayTypeAskForLeave) {
+        notiName = kMKApplyAskForLeaveListRefreshNotifcationKey;
+    }else if (self.dispayType == AppointmentDisplayTypeMeeting) {
+        notiName = kMKApplyMeetingListRefreshNotifcationKey;
+    }
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(requestData) name:notiName object:nil];
+}
+-(void)requestData
+{
+    if (![[UserManager shareInstance]isLogin]) {
+        self.emptyView.hidden = NO;
+        self.emptyView.showType = EmptyViewShowTypeAppointmentNoLogin;
+        self.contentTable.hidden = YES;
+        return;
+    }
+    [AppointmentManager callBackAllApplyListWithParameteApply_type:self.dispayType completionBlock:^(BOOL isSuccess, NSArray<AppointmentListModel *> * _Nonnull ongoingApplyList, NSArray<AppointmentListModel *> * _Nonnull completeApplyList, NSString * _Nonnull message) {
+        if (isSuccess) {
+            self.ongoningList = ongoingApplyList;
+            self.completeList = completeApplyList;
+//            self.completeList = ongoingApplyList;
+            [self.contentTable reloadData];
+            [self.contentTable.mj_header endRefreshing];
+        }
+        
+        if (ongoingApplyList.count==0&&completeApplyList.count == 0) {
+            self.emptyView.hidden = NO;
+            self.emptyView.showType = self.dispayType+1;
+            self.contentTable.hidden = YES;
+        }else{
+            self.emptyView.hidden = YES;
+            self.contentTable.hidden = NO;
+        }
+    }];
+}
+
 #pragma mark --  refresh
 -(void)setUpRefresh
 {
@@ -42,12 +106,8 @@
     @weakObject(self);
     self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
-        [self.contentTable.mj_header endRefreshing];
+        [self requestData];
     }];
-    //上拉加载
-    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-    //                @strongObject(self);
-    //    }];
 }
 
 #pragma mark --  request
@@ -69,12 +129,23 @@
     return _contentTable;
 }
 
+-(EmptyView *)emptyView
+{
+    if (!_emptyView) {
+        _emptyView = [[EmptyView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth,KScreenHeight-(K_NaviHeight+KScaleHeight(20))-K_TabbarHeight)];
+        [self.view addSubview:_emptyView];
+        _emptyView.delegate = self;
+    }
+    return _emptyView;
+}
+
 #pragma mark - UITableViewDataSource
 #pragma mark - cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AppointmentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AppointmentCell" forIndexPath:indexPath];
-    [cell cellRefreshData];
+    AppointmentListModel *model = self.completeList[indexPath.row];
+    [cell cellRefreshDataWithDisplayType:self.dispayType andAppointmentListModel:model];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -86,7 +157,7 @@
     if (section == 0) {
         return 0;
     }
-    return 5;
+    return self.completeList.count;
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -135,7 +206,7 @@
         AppointmentCollectionView *fotterView = [[AppointmentCollectionView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(145))];
         fotterView.delegate = self;
         fotterView.dispayType = self.dispayType;
-        [fotterView appointmentCollectionViewReloadData];
+        [fotterView appointmentCollectionViewReloadDataWithAppointmentList:self.ongoningList];
         return fotterView;
     }
     return nil;
@@ -143,29 +214,66 @@
 #pragma mark --  collectionItem-didSelected
 -(void)appointmentCollectionViewItemDidSelectedWithIndexPath:(NSIndexPath *)indexPath
 {
+    AppointmentListModel *appointmentModel = self.ongoningList[indexPath.row];
     if (self.dispayType == AppointmentDisplayTypeChangeClass) {
         ChangeClassQueryViewController *changeClassQuaryVC = [ChangeClassQueryViewController new];
+        changeClassQuaryVC.showType = AppointmentDisplayTypeChangeClass;
+        changeClassQuaryVC.appointmentModel = appointmentModel;
         [self.navigationController pushViewController:changeClassQuaryVC animated:YES];
     }else if (self.dispayType == AppointmentDisplayTypeAskForLeave){
         AskForLeaveQueryViewController *askForLeaveQuaryVC = [AskForLeaveQueryViewController new];
+        askForLeaveQuaryVC.appointmentModel = appointmentModel;
+        askForLeaveQuaryVC.showType = AppointmentDisplayTypeAskForLeave;
         [self.navigationController pushViewController:askForLeaveQuaryVC animated:YES];
     }else if (self.dispayType == AppointmentDisplayTypeMeeting){
         MeetingQueryViewController *meetingQuaryVC = [MeetingQueryViewController new];
+        meetingQuaryVC.appointmentModel = appointmentModel;
+        meetingQuaryVC.showType = AppointmentDisplayTypeMeeting;
         [self.navigationController pushViewController:meetingQuaryVC animated:YES];
     }
 }
+
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    AppointmentListModel *appointmentModel = self.completeList[indexPath.row];
     if (self.dispayType == AppointmentDisplayTypeChangeClass) {
         ChangeClassEndViewController *changClassEndVC = [ChangeClassEndViewController new];
+        changClassEndVC.appointmentModel = appointmentModel;
         [self.navigationController pushViewController:changClassEndVC animated:YES];
     }else if (self.dispayType == AppointmentDisplayTypeAskForLeave){
         AskForLeaveEndViewController *askForLeaveEndVC = [AskForLeaveEndViewController new];
+        askForLeaveEndVC.appointmentModel = appointmentModel;
         [self.navigationController pushViewController:askForLeaveEndVC animated:YES];
     }else{
         MeetingEndQueryViewController *meetingEndVC = [MeetingEndQueryViewController new];
+        meetingEndVC.appointmentModel = appointmentModel;
         [self.navigationController pushViewController:meetingEndVC animated:YES];
+    }
+}
+
+#pragma mark --  emptyView
+-(void)emptyViewClickTargetWithView:(EmptyView *)view
+{
+    if (![[UserManager shareInstance]isLogin]) {
+        LoginActionController *loginVC = [LoginActionController new];
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
+}
+
+#pragma mark --  登录
+-(void)loginInTarget:(NSNotification *)noti
+{
+    [self requestData];
+}
+
+#pragma mark --  登录
+-(void)loginOutTarget:(NSNotification *)noti
+{
+    if (![[UserManager shareInstance]isLogin]) {
+        self.emptyView.hidden = NO;
+        self.emptyView.showType = EmptyViewShowTypeAppointmentNoLogin;
+        self.contentTable.hidden = YES;
     }
 }
 

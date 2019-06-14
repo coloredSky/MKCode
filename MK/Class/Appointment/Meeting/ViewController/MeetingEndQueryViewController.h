@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class AppointmentListModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  预约结束--结果查询
  */
 @interface MeetingEndQueryViewController : MKNavViewController
-
+@property (nonatomic, strong) AppointmentListModel *appointmentModel;
 @end
 
 NS_ASSUME_NONNULL_END

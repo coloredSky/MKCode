@@ -16,13 +16,18 @@
 //view
 #import "TitleScrollView.h"
 #import "HomeContentScrollView.h"
-
+//manager
+#import "GetPersonnalInfoManager.h"
+//model
+#import "PersonModel.h"
 @interface UpdateMessageController ()<TitleScrollViewDelegate,HomeContentScrollViewDelegate>
 @property (nonatomic, strong) TitleScrollView *titleView;//标题scroll
 @property (nonatomic, strong) HomeContentScrollView *contentScroll;//内容scroll
 @property (nonatomic, weak)IBOutlet UIView *midView;
 @property (nonatomic, strong) NSArray *titleArr;//标题数组
 @property (nonatomic, strong) NSArray *childVCs;//视图数组
+
+@property(nonatomic,strong)PersonModel * model;
 @end
 
 @implementation UpdateMessageController
@@ -31,8 +36,7 @@
 -(instancetype)init
 {
     if (self = [super init]) {
-        self.titleArr = @[@"基本信息",@"语言学校",@"属性",@"外语能力",@"赴日日期",@"志愿学校"];
-        self.childVCs = @[[BasicInfoController new],[LagAndSchController new],[PropertyController new],[LagAbilityController new],[JapanDateVController new],[ValSchController new]];
+        self.titleArr = @[@"基本信息",@"语言学校",@"外语能力",@"赴日日期",@"志愿学校"];
     }
     return self;
 }
@@ -40,6 +44,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self creatUICompoents];
+    [self startRequest];
 }
 
 
@@ -64,7 +69,7 @@
     if (!_contentScroll) {
         _contentScroll = [[HomeContentScrollView alloc]initWithFrame:CGRectMake(0, 200+K_NaviHeight, KScreenWidth, KScreenHeight-(190+K_NaviHeight))];
         _contentScroll.delegate = self;
-    [_contentScroll AddChildViewWithTitleArr:self.childVCs.mutableCopy andRootViewController:self];
+//    [_contentScroll AddChildViewWithTitleArr:self.childVCs.mutableCopy andRootViewController:self];
     }
     return _contentScroll;
 }
@@ -79,6 +84,44 @@
 -(void)homeContentScrollViewScrollToIndex:(NSInteger )index
 {
     [self.titleView titleScrollViewScrollToIndex:index];
+}
+
+
+#pragma mark -request
+-(void)startRequest
+{
+    [MBHUDManager showLoading ];
+    [GetPersonnalInfoManager callBackGetPerMessageWithHudShow:YES CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, PersonModel * _Nonnull model) {
+        [MBHUDManager hideAlert];
+        if (isSuccess  ==YES)
+        {
+            self.model =model;
+            [self setVCDataSource];
+        }
+        else
+        {
+            [MBHUDManager showBriefAlert:message];
+        }
+    }];
+}
+
+
+-(void)setVCDataSource
+{
+//    self.childVCs = @[[BasicInfoController new],[LagAndSchController new],[PropertyController new],[LagAbilityController new],[JapanDateVController new],[ValSchController new]];
+    BasicInfoController * bvc =[BasicInfoController new];
+    LagAndSchController * lvc =[LagAndSchController new];
+    LagAbilityController *  lavc =[LagAbilityController new];
+    JapanDateVController * jdvc =[JapanDateVController new];
+    ValSchController * vsvc =[ValSchController new];
+    
+    bvc.model =self.model;
+    lvc.model =self.model;
+    lavc.model =self.model;
+    jdvc.model =self.model;
+    vsvc.model =self.model ;
+    self.childVCs  =@[bvc,lvc,lavc,jdvc,vsvc];
+    [self.contentScroll AddChildViewWithTitleArr:self.childVCs.mutableCopy andRootViewController:self];
 }
 /*
 #pragma mark - Navigation

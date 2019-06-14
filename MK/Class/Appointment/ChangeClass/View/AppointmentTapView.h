@@ -18,8 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AppointmentTapView : UIView
 @property (nonatomic, assign) id<AppointmentTapViewDelegate> delegate;
 
-@property (nonatomic, assign) BOOL isSelected;
-@property (nonatomic, copy) NSString *textString;
+@property (nonatomic, assign) BOOL isSelected;//选中
+@property (nonatomic, assign) BOOL canEditing;//是否能编辑
+@property (nonatomic, copy) NSString *textString;//设置字
+@property (nonatomic, copy) NSString *placeholderString;//设置默认字
 @property (nonatomic, strong) UIColor *normalColor;
 @property (nonatomic, strong) UIColor *selectedColor;
 @end

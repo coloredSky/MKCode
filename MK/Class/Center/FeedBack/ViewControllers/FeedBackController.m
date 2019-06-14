@@ -8,12 +8,17 @@
 
 #import "FeedBackController.h"
 #import "UserTextView.h"
+#import "FeedBackManager.h"
 @interface FeedBackController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property(nonatomic,weak)IBOutlet UserTextView * textView;
 @property(nonatomic,weak)IBOutlet UIButton * btn_1;
 @property(nonatomic,weak)IBOutlet UIButton * btn_2;
 @property(nonatomic,weak)IBOutlet UIButton * btn_3;
 @property(nonatomic,strong) NSArray * btnAry;
+
+
+//参数
+@property(nonatomic,strong)NSString * type;
 @end
 
 @implementation FeedBackController
@@ -25,6 +30,7 @@
 }
 -(void)setUICompoents
 {
+    self.type =@"1";
     self.textView.placeholder=@"请填写你的功能建议，感谢您的支持（必填）";
     self.textView.placeholderColor  =K_Text_grayColor;
     
@@ -42,10 +48,18 @@
         }
         [sender setTitleColor:K_Text_WhiteColor  forState:UIControlStateNormal];
         [sender setBackgroundColor:UIColorFromRGB_0x(0xf7ee15)];
+        
+        self.type =[NSString stringWithFormat:@"%ld",sender.tag+1];
     }
     else
     {
         //提交
+        if (self.textView.text.length ==0  || [self.textView.text isEqualToString:@"请填写你的功能建议，感谢您的支持（必填）"]) {
+            [MBHUDManager showBriefAlert:@"请输入反馈信息"];
+        }
+        [FeedBackManager callBackFeedBackWithHudShow:YES feedType:self.type feedDetail:self.textView.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+            [MBHUDManager showBriefAlert:message];
+        }];
     }
 
 }
