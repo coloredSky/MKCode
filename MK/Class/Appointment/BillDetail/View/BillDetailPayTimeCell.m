@@ -7,6 +7,8 @@
 //
 
 #import "BillDetailPayTimeCell.h"
+#import "UserBillListModel.h"
+
 @interface BillDetailPayTimeCell()
 @property (weak, nonatomic) IBOutlet UILabel *leftTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *rightContentLab;
@@ -23,25 +25,53 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [_leftTitleLab setFont:K_Font_Text_Normal_Max textColor:K_Text_grayColor withBackGroundColor:nil];
-    _leftTitleLab.text = @"交费日期";
-    [_rightContentLab setFont:K_Font_Text_Normal_Max textColor:K_Text_grayColor withBackGroundColor:nil];
-    _rightContentLab.textAlignment = NSTextAlignmentRight;
-    _rightContentLab.numberOfLines = 0;
+    [_leftTitleLab setFont:MKFont(13) textColor:K_Text_grayColor withBackGroundColor:nil];
+    _leftTitleLab.text = @"";
+    [_rightContentLab setFont:MKFont(13) textColor:K_Text_grayColor withBackGroundColor:nil];
+    _rightContentLab.text = @"";
 }
 
--(void)layoutSubviews
+-(void)cellRefreshOrderDataWithUserBillListModel:(UserBillListModel *)billModel
 {
-    [super layoutSubviews];
-    self.leftTitleLab.frame = CGRectMake(K_Padding_LeftPadding, KScaleHeight(28)-KScaleHeight(10), KScaleWidth(100), KScaleHeight(20));
-    CGSize size = [self.rightContentLab.text getStrSizeWithSize:CGSizeMake(KScaleWidth(150), 3000) font:self.rightContentLab.font];
-    self.rightContentLab.frame = CGRectMake(self.contentView.width-K_Padding_LeftPadding-KScaleWidth(150), self.leftTitleLab.topY, KScaleWidth(150), size.height);
+    self.leftTitleLab.text =  billModel.trade_no;
+    self.rightContentLab.text = [NSString stringWithFormat:@"JPY %@",billModel.unpaid_amount_jpy];
 }
 
--(void)cellRefreshDataWithIndexPath:(NSIndexPath *)indexPath
+-(void)cellRefreshPayRecordDataWithIndexPath:(NSIndexPath *)indexPath sectionTitleArr:(NSArray <NSString *>*)titleArr UserBillListModel:(UserBillListModel *)billModel
 {
-    self.leftTitleLab.text = @"交费日期";
-    self.rightContentLab.text = @"2019-01-18 23:49:21\nJPY 300,000\n 支付宝 \n单号9581\n剩余 JPY 215,200\n状态 未确认";
+    UserBillPaymentModel *paymentModel  = billModel.payments[indexPath.section -2];
+    self.leftTitleLab.text = titleArr[indexPath.row];
+    switch (indexPath.row) {
+        case 0:
+            {
+                self.leftTitleLab.textColor = K_Text_BlackColor;
+                self.leftTitleLab.text = paymentModel.pay_time;
+            }
+            break;
+        case 1:
+        {
+            self.rightContentLab.text = [NSString stringWithFormat:@"%@ %@%@",paymentModel.pay_type,paymentModel.currency,paymentModel.amount];
+        }
+            break;
+        case 2:
+        {
+            self.rightContentLab.text = paymentModel.pay_sn;
+        }
+            break;
+        case 3:
+        {
+            self.rightContentLab.text = paymentModel.status_zh;
+        }
+            break;
+        case 4:
+        {
+            self.rightContentLab.text = [NSString timeTransformWithDate:paymentModel.pay_time WithFormModel:@"YYYY-MM-dd HH:mm:ss" toModel:@"YYYY-MM-dd"];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

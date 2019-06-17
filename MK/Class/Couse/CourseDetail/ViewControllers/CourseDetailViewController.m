@@ -23,7 +23,7 @@
 @property (nonatomic, strong) CourseDetailScrollView *detailScroll;
 @property (nonatomic, strong) UIView *placeholderView;
 @property (nonatomic, strong) UIImageView *courseIma;
-//@property (nonatomic, strong) PLVVodSkinPlayerController *player;
+@property (nonatomic, strong) PLVVodSkinPlayerController *player;
 @property (nonatomic, strong) MKLessonModel *selectedLessonModel;
 @end
 
@@ -31,17 +31,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self createSubViews];
     //Request
-//    [self startRequest];
+    [self startRequest];
 //    [self.detailScroll CourseDetailScrollViewReloadData];
-}
-
--(void)createSubViews
-{
-    [self.view addSubview:self.contentScroll];
-    [self.contentScroll addSubview:self.courseTipView];
-    [self.contentScroll addSubview:self.detailScroll];
 }
 
 -(void)startRequest
@@ -59,9 +51,9 @@
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-//    self.contentScroll.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
-//    self.courseTipView.frame = CGRectMake(0, KScaleWidth(278), KScreenWidth, 60);
-//    self.detailScroll.frame = CGRectMake(0, self.courseTipView.bottomY, KScreenWidth, KScreenHeight-self.courseTipView.bottomY);
+    self.contentScroll.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
+    self.courseTipView.frame = CGRectMake(0, KScaleWidth(278), KScreenWidth, 60);
+    self.detailScroll.frame = CGRectMake(0, self.courseTipView.bottomY, KScreenWidth, KScreenHeight-self.courseTipView.bottomY);
 }
 
 #pragma mark --  lazy
@@ -74,7 +66,7 @@
         }else{
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
-//        [self.view addSubview:_contentScroll];
+        [self.view addSubview:_contentScroll];
         _placeholderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(278))];
         [_contentScroll addSubview:_placeholderView];
         UIImageView *courseIma = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(278))];
@@ -93,28 +85,28 @@
     return _contentScroll;
 }
 
-//-(PLVVodSkinPlayerController *)player
-//{
-//    if (!_player) {
-//        // 初始化播放器
-//        PLVVodSkinPlayerController *player = [[PLVVodSkinPlayerController alloc] initWithNibName:nil bundle:nil];
-//        [player addPlayerOnPlaceholderView:self.placeholderView rootViewController:self];
-//        player.rememberLastPosition = YES;
-//        player.enableBackgroundPlayback = YES;
-//        player.reachEndHandler = ^(PLVVodPlayerViewController *player) {
-//            MKLog(@"%@ finish handler.", player.video.vid);
-//        };
-//        _player = player;
-//    }
-//    return _player;
-//}
+-(PLVVodSkinPlayerController *)player
+{
+    if (!_player) {
+        // 初始化播放器
+        PLVVodSkinPlayerController *player = [[PLVVodSkinPlayerController alloc] initWithNibName:nil bundle:nil];
+        [player addPlayerOnPlaceholderView:self.placeholderView rootViewController:self];
+        player.rememberLastPosition = YES;
+        player.enableBackgroundPlayback = YES;
+        player.reachEndHandler = ^(PLVVodPlayerViewController *player) {
+            MKLog(@"%@ finish handler.", player.video.vid);
+        };
+        _player = player;
+    }
+    return _player;
+}
 
 -(CourseDetailTipView *)courseTipView
 {
     if (!_courseTipView) {
         _courseTipView = [[CourseDetailTipView alloc]initWithFrame:CGRectMake(0, KScaleWidth(278), KScreenWidth, 60)];
         _courseTipView.delegate = self;
-//        [self.contentScroll addSubview:_courseTipView];
+        [self.contentScroll addSubview:_courseTipView];
     }
     return _courseTipView;
 }
@@ -125,7 +117,7 @@
         _detailScroll = [[CourseDetailScrollView alloc]initWithFrame:CGRectMake(0, self.courseTipView.bottomY, KScreenWidth, KScreenHeight-self.courseTipView.bottomY)];
         _detailScroll.delegate = self;
         _detailScroll.courseType = self.courseType;
-//        [self.contentScroll addSubview:_detailScroll];
+        [self.contentScroll addSubview:_detailScroll];
     }
     return _detailScroll;
 }
@@ -157,27 +149,27 @@
     if (![[UserManager shareInstance]isLogin]) {
         [self loginAlterViewShow];
     }
-//    [self setUpVideoWithVideoID:lessonModel.video_id];
+    [self setUpVideoWithVideoID:lessonModel.video_id];
 }
 
-//-(void)setUpVideoWithVideoID:(NSString *)videoID
-//{
-//    MKLog(@"%@",self.player);
-//    // 有网情况下，也可以调用此接口，只要存在本地视频，都会优先播放本地视频
-//    __weak typeof(self) weakSelf = self;
-//    [PLVVodVideo requestVideoWithVid:videoID completion:^(PLVVodVideo *video, NSError *error) {
-//        if (!video.available){
-//            NSString *errorMessage = video.error.userInfo[@"NSHelpAnchor"];
-//            if (![NSString isEmptyWithStr:errorMessage]) {
-//                [MBHUDManager showBriefAlert:errorMessage];
-//            }
-//            return;
-//        }
-//        weakSelf.player.video = video;
-////        dispatch_async(dispatch_get_main_queue(), ^{
-////            weakSelf.title = video.title;
-////        });
-//    }];
-//}
+-(void)setUpVideoWithVideoID:(NSString *)videoID
+{
+    MKLog(@"%@",self.player);
+    // 有网情况下，也可以调用此接口，只要存在本地视频，都会优先播放本地视频
+    __weak typeof(self) weakSelf = self;
+    [PLVVodVideo requestVideoWithVid:videoID completion:^(PLVVodVideo *video, NSError *error) {
+        if (!video.available){
+            NSString *errorMessage = video.error.userInfo[@"NSHelpAnchor"];
+            if (![NSString isEmptyWithStr:errorMessage]) {
+                [MBHUDManager showBriefAlert:errorMessage];
+            }
+            return;
+        }
+        weakSelf.player.video = video;
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            weakSelf.title = video.title;
+//        });
+    }];
+}
 
 @end

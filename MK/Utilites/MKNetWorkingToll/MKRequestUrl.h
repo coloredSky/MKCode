@@ -74,6 +74,11 @@ static NSString * const K_MK_AddChangeClass_Url  = @"/api/user/addEditClassChang
 //删除换班申请
 static NSString * const K_MK_DeleteChangeClass_Url  = @"/api/user/deleteChangeClassApply";
 
+/*
+ *订单
+ */
+//获取订单列表
+static NSString * const K_MK_MyBillList_Url =@"/api/user/getOrders";
 
 /*
  *登录、注册
@@ -84,7 +89,6 @@ static NSString * const K_MK_Login_url  = @"/api/user/login";
 static NSString * const K_MK_GetPhoneCode_url  = @"/api/user/sms";
 //注册接口
 static NSString * const K_MK_Register_Url  = @"/api/user/reg";
-//获取账单接口
-static NSString * const K_MK_MyBillList_Url =@"/user/order/paymentLogList";
+
 
 #endif /* MKRequestUrl_h */

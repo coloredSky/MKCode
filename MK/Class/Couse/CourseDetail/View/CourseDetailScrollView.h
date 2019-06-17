@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol CourseDetailScrollViewDelegate;
 
 @interface CourseDetailScrollView : UIView
-@property (nonatomic, strong) id<CourseDetailScrollViewDelegate>delegate;
+@property (nonatomic, assign) id<CourseDetailScrollViewDelegate>delegate;
 @property (nonatomic, assign) CourseSituationType courseType;
 //数据刷新
 -(void)courseDetailScrollViewReloadDataWithMKCourseDetailModel:(MKCourseDetailModel *)courseDetailModel;
