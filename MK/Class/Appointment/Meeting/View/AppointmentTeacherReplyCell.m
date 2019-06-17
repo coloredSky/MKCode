@@ -7,6 +7,9 @@
 //
 
 #import "AppointmentTeacherReplyCell.h"
+#import "AppoinementReplyModel.h"
+
+
 @interface AppointmentTeacherReplyCell()
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconIma;
@@ -22,24 +25,27 @@
     _whiteView.layer.cornerRadius = KScaleWidth(10);
     _whiteView.backgroundColor = K_BG_deepGrayColor;
     
-    [_courseNameLab setFont:K_Font_Text_Min_Max textColor:K_Text_grayColor withBackGroundColor:nil];
-    [_replyContentLab setFont:K_Font_Text_Normal textColor:K_Text_BlackColor withBackGroundColor:nil];
-    _replyContentLab.numberOfLines = 2;
+    [_courseNameLab setFont:MKFont(12) textColor:K_Text_grayColor withBackGroundColor:nil];
+    [_replyContentLab setFont:MKFont(13) textColor:K_Text_BlackColor withBackGroundColor:nil];
+    _replyContentLab.numberOfLines = 0;
+    
+    self.iconIma.layer.masksToBounds = YES;
+    self.iconIma.layer.cornerRadius = KScaleWidth(18);
 }
 
 -(void)layoutSubviews
 {
     [super layoutSubviews];
     self.whiteView.frame = CGRectMake(K_Padding_Home_LeftPadding, 0, self.contentView.width-K_Padding_Home_LeftPadding*2, self.contentView.height-KScaleHeight(15));
-    self.iconIma.frame = CGRectMake(KScaleWidth(15), KScaleHeight(10), KScaleWidth(35), KScaleWidth(35));
+    self.iconIma.frame = CGRectMake(KScaleWidth(15), KScaleHeight(10), KScaleWidth(36), KScaleWidth(36));
     self.courseNameLab.frame = CGRectMake(self.iconIma.rightX+KScaleWidth(15), self.iconIma.topY, self.whiteView.width-self.iconIma.rightX-KScaleWidth(15), KScaleHeight(20));
-    self.replyContentLab.frame = CGRectMake(self.courseNameLab.leftX, self.courseNameLab.bottomY, self.courseNameLab.width, KScaleHeight(40));
+    self.replyContentLab.frame = CGRectMake(self.courseNameLab.leftX, self.courseNameLab.bottomY, self.courseNameLab.width, self.whiteView.height-self.courseNameLab.bottomY);
 }
 
--(void)cellRefreshData
+-(void)cellRefreshDataWithAppoinementReplyModel:(AppoinementReplyModel *)replyModel
 {
-    self.iconIma.image = KImageNamed(@"course_Teacher");
-    self.courseNameLab.text = @"每刻美术学院";
-    self.replyContentLab.text = @"张同学放心，按照我们的课程来没有问题的。加 油！";
+    self.iconIma.image = KImageNamed(@"message_logo");
+    self.courseNameLab.text = replyModel.uname;
+    self.replyContentLab.text = replyModel.content;
 }
 @end

@@ -86,6 +86,15 @@
     if (indexPath.section == 0) {
         if (self.courseType == CourseSituationTypeOnline) {
             CourseOnlineTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseOnlineTitleCell" forIndexPath:indexPath];
+            __weak typeof(self) weakSelf = self;
+            cell.courseCollectionBlock = ^(UIButton * _Nonnull sender) {
+                __strong typeof(weakSelf) strongSelf = weakSelf;
+                if (strongSelf.courseDetailModel.courseInfoDetail.isCollected) {
+                    [strongSelf courseCancleCollected];
+                }else{
+                    [strongSelf courseCollected];
+                }
+            };
             [cell cellRefreshDataWithCourseDetailModel:self.courseDetailModel];
             return cell;
         }else{
@@ -210,6 +219,39 @@
             [self.contentWeb loadHTMLString:courseDetailModel.courseInfoDetail.courseDetail baseURL:nil];
     }
     [self.contentTable reloadData];
+}
 
+-(void)courseCollected
+{
+    [MBHUDManager showLoading];
+    [CourseDetailManager callBackCourseCollectionRequestWithCourseID:self.courseDetailModel.courseInfoDetail.courseID type:1 andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
+        if (isSuccess) {
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }else{
+             [MBHUDManager showBriefAlert:@"课程收藏成功！"];
+            }
+            self.courseDetailModel.courseInfoDetail.isCollected = YES;
+            [self.contentTable reloadData];
+        }
+    }];
+}
+
+-(void)courseCancleCollected
+{
+    [MBHUDManager showLoading];
+    [CourseDetailManager callBackCourseCancleCollectionRequestWithCourseID:self.courseDetailModel.courseInfoDetail.courseID type:1 andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
+        if (isSuccess) {
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }else{
+                [MBHUDManager showBriefAlert:@"取消收藏成功！"];
+            }
+            self.courseDetailModel.courseInfoDetail.isCollected = NO;
+            [self.contentTable reloadData];
+        }
+    }];
 }
 @end

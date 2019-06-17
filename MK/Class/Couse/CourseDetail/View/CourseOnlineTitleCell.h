@@ -14,7 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
  课程介绍-名字-课时-人数
  */
 @interface CourseOnlineTitleCell : MKBaseTableViewCell
+@property (nonatomic, copy) void(^courseCollectionBlock)(UIButton *sender);
+
 -(void)cellRefreshDataWithCourseDetailModel:(MKCourseDetailModel *)courseDetailMode;
+
 @end
 
 NS_ASSUME_NONNULL_END

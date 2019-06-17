@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *courseDetail;//课程简介
 @property (nonatomic, copy) NSString *courseImage;//课程简介图片
 @property (nonatomic, copy) NSString *totalStudyNum;//课程学习人数
-
+@property (nonatomic, assign) BOOL isCollected;//课程是否收藏
 
 @end
 

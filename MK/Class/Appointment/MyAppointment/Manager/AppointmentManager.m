@@ -9,6 +9,8 @@
 #import "AppointmentManager.h"
 #import "AppointmentListModel.h"
 #import "AppointmentDetailModel.h"
+#import "AppoinementReplyModel.h"
+
 
 @implementation AppointmentManager
 
@@ -54,7 +56,7 @@
 }
 
 
-+(void)callBackAllApplyReplyInformationWithParameteApply_type:(NSInteger )applyType apply_id:(NSString *)apply_id completionBlock:(void(^)(BOOL isSuccess,NSArray <AppointmentListModel *>*ongoingApplyList, NSArray <AppointmentListModel *> *completeApplyList,NSString *message))completionBlock
++(void)callBackAllApplyAppointmentReplyListWithParameteApply_type:(NSInteger )applyType apply_id:(NSString *)apply_id completionBlock:(void(^)(BOOL isSuccess,NSArray <AppoinementReplyModel *> *applyList, NSString *message))completionBlock
 {
     NSInteger type = 0;
     if (applyType == 0) {
@@ -73,27 +75,20 @@
                                 };
     [MKNetworkManager sendGetRequestWithUrl:K_MK_GetApplyReplayInformation_Url parameters:parameter hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 0) {
-            if (completionBlock) {
-//                NSArray *applyList = [NSArray yy_modelArrayWithClass:[AppointmentListModel class] json:MKResult.dataResponseObject[@"applySetList"][@"un_finish"]];
-//                NSMutableArray *ongoingArr = [NSMutableArray array];
-//                NSMutableArray *completeArr = [NSMutableArray array];
-//                for (AppointmentListModel *model in applyList) {
-//                    if ([model.status integerValue]==1) {
-//                        [completeArr addObject:model];
-//                    }else{
-//                        [ongoingArr addObject:model];
-//                    }
-//                }
-//                completionBlock(YES,ongoingArr.copy,completeArr.copy,MKResult.message);
+            if ([MKResult.dataResponseObject isKindOfClass:[NSArray class]]) {
+                NSArray *applyList = [NSArray yy_modelArrayWithClass:[AppoinementReplyModel class] json:MKResult.dataResponseObject];
+                if (completionBlock) {
+                    completionBlock(YES,applyList,MKResult.message);
+                }
             }
         }else{
             if (completionBlock) {
-                completionBlock(NO,nil,nil,MKResult.message);
+                completionBlock(NO,nil,MKResult.message);
             }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (completionBlock) {
-            completionBlock(NO,nil,nil,error.userInfo[NSLocalizedDescriptionKey]);
+            completionBlock(NO,nil,error.userInfo[NSLocalizedDescriptionKey]);
         }
     }];
 }

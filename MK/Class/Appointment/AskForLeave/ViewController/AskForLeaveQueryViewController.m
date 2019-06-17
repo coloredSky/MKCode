@@ -19,6 +19,7 @@
 #import "ApplyLeaveManager.h"
 #import "AppointmentDetailModel.h"
 #import "AppointmentListModel.h"
+#import "AppoinementReplyModel.h"
 
 @interface AskForLeaveQueryViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseScrollView *contentScroll;
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) NSMutableArray *tipStringArr;
 @property (nonatomic, strong) AppointmentTapView *classTapView;
 @property (nonatomic, strong) AppointmentTapView *lessonTapView;
+@property (nonatomic, strong) NSArray *applyList;
 
 
 @property (nonatomic, strong) AppointmentDetailModel *detailModel;
@@ -45,6 +47,7 @@
 
 -(void)startRequest
 {
+    //得到申请详情
     [MBHUDManager showLoading];
     [AppointmentManager callBackAllApplyDetailWithParameteApply_type:self.showType apply_id:self.appointmentModel.applyID completionBlock:^(BOOL isSuccess, AppointmentDetailModel * _Nonnull detailmodel, NSString * _Nonnull message) {
         [MBHUDManager hideAlert];
@@ -54,6 +57,13 @@
             [self.tipStringArr addObject:detailmodel.lesson_name];
             self.detailModel = detailmodel;
             [self reloadData];
+        }
+    }];
+    //得到回复列表
+    [AppointmentManager callBackAllApplyAppointmentReplyListWithParameteApply_type:self.showType apply_id:self.appointmentModel.applyID completionBlock:^(BOOL isSuccess, NSArray<AppoinementReplyModel *> * _Nonnull applyList, NSString * _Nonnull message) {
+        if (isSuccess) {
+            self.applyList = applyList;
+            [self.contentTable reloadData];
         }
     }];
 }
@@ -121,7 +131,8 @@
 {
     if (!_headerView) {
         _headerView = [[AppointmentHeaderView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight)];
-        _headerView.titleString = @"等待回复";
+//        _headerView.titleString = @"等待回复";
+        _headerView.titleString = self.appointmentModel.status_msg;
         [self.contentScroll addSubview:_headerView];
         _headerView.showType = AppointmentHeaderViewShowTypeEditting;
         __weak typeof(self) weakSelf = self;
@@ -188,7 +199,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AppointmentTeacherReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AppointmentTeacherReplyCell" forIndexPath:indexPath];
-    [cell cellRefreshData];
+    AppoinementReplyModel *replyModel = self.applyList[indexPath.row];
+    [cell cellRefreshDataWithAppoinementReplyModel:replyModel];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -197,15 +209,17 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.applyList.count;
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return KScaleHeight(95);
+    AppoinementReplyModel *replyModel = self.applyList[indexPath.row];
+    return replyModel.rowHeight;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    
     return KScaleHeight(48);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section

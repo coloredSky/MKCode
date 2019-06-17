@@ -14,6 +14,37 @@
 
 @implementation MKNavigationController
 
+
+#pragma mark --- 析构方法
+-(void)dealloc
+{
+    //获取当前类下的全部子类
+    NSArray * childClassArray = [self findCurrenViewControllerAllSubClass:[self class]];
+    NSString * subClassName = [NSString stringWithCString:object_getClassName([childClassArray lastObject]) encoding:NSUTF8StringEncoding];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    MKLog(@"subClass --%@ is dealloc...",subClassName);
+}
+
+-(nonnull NSArray<UIViewController*>*)findCurrenViewControllerAllSubClass:(Class)defaultsClass
+{
+    int count = objc_getClassList(NULL, 0);
+    if (count <= 0){
+        return [NSArray arrayWithObject:defaultsClass];
+    }
+    NSMutableArray * mutabArray = [NSMutableArray arrayWithObject:defaultsClass];
+    Class * classes = (Class*)malloc(sizeof(Class) * count);
+    objc_getClassList(classes, count);
+    //获取子类对象
+    for (int i =0; i< count; ++i){
+        if (defaultsClass == class_getSuperclass(classes[i])){
+            [mutabArray addObject:classes[i]];
+        }
+    }
+    free(classes);
+    return [NSArray arrayWithArray:mutabArray];
+}
+
 +(void)initialize
 {
     //设置默认的导航栏

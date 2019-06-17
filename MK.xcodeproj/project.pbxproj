@@ -125,6 +125,7 @@
 		3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89B223A2F5900FE63B2 /* PGIndexBannerSubiew.m */; };
 		3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */; };
 		3080171622AE9AC100112E28 /* AppointmentDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3080171522AE9AC100112E28 /* AppointmentDetailModel.m */; };
+		3080171922B2303D00112E28 /* AppoinementReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3080171822B2303D00112E28 /* AppoinementReplyModel.m */; };
 		30957B0B229E2DA7009DDAAA /* ApplyLeaveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30957B0A229E2DA7009DDAAA /* ApplyLeaveManager.m */; };
 		30957B0E229E2E67009DDAAA /* ApplyLeaveCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30957B0D229E2E67009DDAAA /* ApplyLeaveCourseModel.m */; };
 		30957B12229E69B6009DDAAA /* MKDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 30957B11229E69B6009DDAAA /* MKDropDownMenu.m */; };
@@ -522,6 +523,8 @@
 		3048D89E223A2F5900FE63B2 /* NewPagedFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
 		3080171422AE9AC100112E28 /* AppointmentDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentDetailModel.h; sourceTree = "<group>"; };
 		3080171522AE9AC100112E28 /* AppointmentDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentDetailModel.m; sourceTree = "<group>"; };
+		3080171722B2303D00112E28 /* AppoinementReplyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppoinementReplyModel.h; sourceTree = "<group>"; };
+		3080171822B2303D00112E28 /* AppoinementReplyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppoinementReplyModel.m; sourceTree = "<group>"; };
 		30957B09229E2DA7009DDAAA /* ApplyLeaveManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyLeaveManager.h; sourceTree = "<group>"; };
 		30957B0A229E2DA7009DDAAA /* ApplyLeaveManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyLeaveManager.m; sourceTree = "<group>"; };
 		30957B0C229E2E67009DDAAA /* ApplyLeaveCourseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyLeaveCourseModel.h; sourceTree = "<group>"; };
@@ -1619,6 +1622,8 @@
 				30F2ADF522A5062500AB29EC /* AppointmentListModel.m */,
 				3080171422AE9AC100112E28 /* AppointmentDetailModel.h */,
 				3080171522AE9AC100112E28 /* AppointmentDetailModel.m */,
+				3080171722B2303D00112E28 /* AppoinementReplyModel.h */,
+				3080171822B2303D00112E28 /* AppoinementReplyModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3252,6 +3257,7 @@
 				3048D844223263AF00FE63B2 /* UILabel+layout.m in Sources */,
 				3029571E226859E4006D1613 /* WYImageScaleTool.m in Sources */,
 				3035B6CA2251E25600A1AA98 /* MeetingQueryViewController.m in Sources */,
+				3080171922B2303D00112E28 /* AppoinementReplyModel.m in Sources */,
 				30FBE3572241E83C0049C0DE /* PolicyViewController.m in Sources */,
 				30A2DA32224E00640030120D /* NewsViewController.m in Sources */,
 				30FBE2FB223F98250049C0DE /* TitleScrollView.m in Sources */,

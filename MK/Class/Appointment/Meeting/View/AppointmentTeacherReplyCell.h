@@ -7,11 +7,12 @@
 //
 
 #import "MKBaseTableViewCell.h"
+@class AppoinementReplyModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AppointmentTeacherReplyCell : MKBaseTableViewCell
--(void)cellRefreshData;
+-(void)cellRefreshDataWithAppoinementReplyModel:(AppoinementReplyModel *)replyModel;
 @end
 
 NS_ASSUME_NONNULL_END

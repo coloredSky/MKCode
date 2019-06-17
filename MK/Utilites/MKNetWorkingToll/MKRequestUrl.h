@@ -25,6 +25,10 @@ static NSString * const K_MK_Home_AllCategoryList_Url  = @"/base/course/category
 static NSString * const K_MK_Home_CourseList_Url  = @"/api/course/courseList";
 //课程详情
 static NSString * const K_MK_Course_CourseDetail_Url  = @"/api/course/courseDetail";
+//课程收藏
+static NSString * const K_MK_Course_Collection_Url  = @"/api/user/focusCourse";
+//课程取消收藏
+static NSString * const K_MK_Course_CancleCollection_Url  = @"/api/user/cancelFocusCourse";
 
 //发现列表
 static NSString * const K_MK_Discover_NewsList_Url  = @"/api/posts/getlist";
@@ -36,7 +40,7 @@ static NSString * const K_MK_Discover_NewsDetail_Url  = @"/api/posts/getcontent"
  */
 //获取各类申请列表
 static NSString * const K_MK_GetApplyList_Url  = @"/api/user/getApplyList";
-//获取各类申请的回复
+//获取各类申请的回复列表
 static NSString * const K_MK_GetApplyReplayInformation_Url  = @"/api/user/getApplyReply";
 //获取各类申请的详情
 static NSString * const K_MK_GetApplyDetail_Url  = @"/api/user/getApplyInfo";

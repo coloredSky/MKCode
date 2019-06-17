@@ -54,6 +54,7 @@
              @"courseDetail" : @"detail",
              @"courseImage" : @"img",
              @"totalStudyNum" : @"total_study_num",
+             @"isCollected" : @"focus_id",
              };
 }
 @end

@@ -25,7 +25,35 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CourseDetailManager : NSObject
 
+
+/**
+ k课程详情
+
+ @param hudShow 是否loading
+ @param course_id 课程ID
+ @param completionBlock 回调
+ */
 +(void)callBackCourseDetailRequestWithHudShow:(BOOL )hudShow courseID:(NSString *)course_id andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message, MKCourseDetailModel *courseDetailModel))completionBlock;
+
+
+/**
+ 课程收藏
+
+ @param course_id 课程ID
+ @param type 课程类型：1 - 线上课程；2 - 线下课程
+ @param completionBlock 回调
+ */
++(void)callBackCourseCollectionRequestWithCourseID:(NSString *)course_id type:(NSInteger )type andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message))completionBlock;
+
+/**
+ 课程x取消收藏
+ 
+ @param course_id 课程ID
+ @param type 课程类型：1 - 线上课程；2 - 线下课程
+ @param completionBlock 回调
+ */
++(void)callBackCourseCancleCollectionRequestWithCourseID:(NSString *)course_id type:(NSInteger )type andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message))completionBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

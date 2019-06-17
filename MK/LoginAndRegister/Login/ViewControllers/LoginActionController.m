@@ -75,7 +75,7 @@
                 [self backToPreviousViewController];
                 [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginInNotifcationKey object:nil];
             }else{
-                if ([NSString isEmptyWithStr:message]) {
+                if (![NSString isEmptyWithStr:message]) {
                     [MBHUDManager showBriefAlert:message];
                 }
             }
