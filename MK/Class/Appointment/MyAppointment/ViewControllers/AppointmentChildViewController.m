@@ -71,6 +71,7 @@
     }
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(requestData) name:notiName object:nil];
 }
+
 -(void)requestData
 {
     if (![[UserManager shareInstance]isLogin]) {
@@ -267,7 +268,7 @@
     [self requestData];
 }
 
-#pragma mark --  登录
+#pragma mark --  退出登录
 -(void)loginOutTarget:(NSNotification *)noti
 {
     if (![[UserManager shareInstance]isLogin]) {

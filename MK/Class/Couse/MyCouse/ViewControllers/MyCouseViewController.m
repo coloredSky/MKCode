@@ -10,15 +10,26 @@
 #import "CourseDetailViewController.h"
 #import "MyCourseListViewController.h"
 #import "CourseDetailViewController.h"
+#import "LoginActionController.h"
 //View
 #import "MyCouseHeaderView.h"
 #import "MyOnlineCourseListView.h"
+#import "EmptyView.h"
+//manager
+#import "UserCourseListManager.h"
+//model
+#import "MKCourseListModel.h"
 
-@interface MyCouseViewController()<UITableViewDelegate,UITableViewDataSource,MyOnlineCourseListViewDelagate>
+
+@interface MyCouseViewController()<UITableViewDelegate,UITableViewDataSource,MyOnlineCourseListViewDelagate,EmptyViewDelegate>
 
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong)MyCouseHeaderView *headerView;
 @property (nonatomic, strong) NSArray *titleArr;//区头标题
+@property (nonatomic, strong) NSArray<NSArray *> *allCourseList;
+@property (nonatomic, strong) NSArray<MKCourseListModel *> *onlineCourseList;
+@property (nonatomic, strong) NSArray<MKCourseListModel *> *offlineCourseList;
+@property (nonatomic, strong) EmptyView *emptyView;
 @end
 
 @implementation MyCouseViewController
@@ -28,6 +39,7 @@
 #pragma mark --- destruct method
 -(void)dealloc
 {
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 - (void)viewDidLoad {
@@ -37,6 +49,13 @@
     [self setUpRefresh];
     //request
     [self startRequest];
+    [self addNotification];
+}
+
+-(void)addNotification
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginInTarget:) name:kMKLoginInNotifcationKey object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginOutTarget:) name:kMKLoginOutNotifcationKey object:nil];
 }
 
 #pragma mark --  refresh
@@ -46,20 +65,49 @@
     @weakObject(self);
     self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
-        [self.contentTable.mj_header endRefreshing];
+        [self startRequest];
     }];
-    //上拉加载
-    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-    //                @strongObject(self);
-    //    }];
 }
 
 #pragma mark --  request
 -(void)startRequest
 {
+    if (![[UserManager shareInstance]isLogin]) {
+        self.emptyView.hidden = NO;
+        self.emptyView.showType = EmptyViewShowTypeUserCourseNoLogin; 
+        self.contentTable.hidden = YES;
+        return;
+    }
+    self.emptyView.hidden = YES;
+    self.contentTable.hidden = NO;
+    [UserCourseListManager callBackUserCourseListWithCompletionBlock:^(BOOL isSuccess, NSArray<NSArray *> * _Nonnull userCourseList, NSArray<MKCourseListModel *> * _Nonnull onLineCourseList, NSArray<MKCourseListModel *> * _Nonnull offLineCourseList, NSString * _Nonnull message) {
+        [self.contentTable.mj_header endRefreshing];
+        if (isSuccess) {
+            self.allCourseList = userCourseList;
+            self.onlineCourseList = onLineCourseList;
+            self.offlineCourseList = offLineCourseList;
+            [self.contentTable reloadData];
+        }
+        if (self.onlineCourseList.count == 0 && self.offlineCourseList.count == 0) {
+            self.emptyView.hidden = NO;
+            self.emptyView.showType = EmptyViewShowTypeNoUserCourse;
+            self.contentTable.hidden = YES;
+        }
+    }];
 }
 
 #pragma mark --  lazy
+
+-(EmptyView *)emptyView
+{
+    if (!_emptyView) {
+        _emptyView = [[EmptyView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth,KScreenHeight-K_TabbarHeight)];
+        [self.view addSubview:_emptyView];
+        _emptyView.delegate = self;
+    }
+    return _emptyView;
+}
+
 -(MKBaseTableView *)contentTable
 {
     if (!_contentTable) {
@@ -78,6 +126,7 @@
     }
     return _contentTable;
 }
+
 -(MyCouseHeaderView *)headerView
 {
     if (!_headerView) {
@@ -92,12 +141,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
-//    [cell cellRefreshDataWithIndexPath:indexPath];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return self.allCourseList.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -106,7 +154,7 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return KScaleHeight(60);
+    return CGFLOAT_MIN;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -188,12 +236,12 @@
     UIImageView *bottomLine = [UIImageView new];
     [headerView addSubview:bottomLine];
     bottomLine.backgroundColor = K_Line_lineColor;
-//        self.lineIma.frame = CGRectMake(_courseNameLab.leftX, self.contentView.height-K_Line_lineWidth, self.contentView.width-_courseNameLab.leftX-K_Padding_LeftPadding, K_Line_lineWidth);
-//    bottomLine.frame = CGRectMake(KScaleWidth(110), headerView.height-K_Line_lineWidth, headerView.width-KScaleWidth(110)-K_Padding_LeftPadding-KScaleWidth(50), K_Line_lineWidth);
     return headerView;
 }
+
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
+    NSArray *courseList = self.allCourseList[section];
     UIView *headerView = [UIView new];
     if (section ==0) {
         headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(180));
@@ -201,27 +249,24 @@
         onlineListView.delegate = self;
         onlineListView.listViewShowType = UserCourseListViewShowTypeOnline;
         [headerView addSubview:onlineListView];
-        [onlineListView onlineCourseListViewRefreshDataWithContentArr:[NSArray array].mutableCopy];
+        [onlineListView onlineCourseListViewRefreshDataWithContentArr:courseList];
     }else if (section == 1){
         headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(180));
         MyOnlineCourseListView *onlineListView = [[MyOnlineCourseListView alloc]initWithFrame:CGRectMake(0, 0, headerView.width, headerView.height)];
         onlineListView.delegate = self;
         onlineListView.listViewShowType = UserCourseListViewShowTypeOfflineUnderWay;
         [headerView addSubview:onlineListView];
-        [onlineListView onlineCourseListViewRefreshDataWithContentArr:[NSArray array].mutableCopy];
+        [onlineListView onlineCourseListViewRefreshDataWithContentArr:courseList];
     }else{
         headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(180));
         MyOnlineCourseListView *onlineListView = [[MyOnlineCourseListView alloc]initWithFrame:CGRectMake(0, 0, headerView.width, headerView.height)];
         onlineListView.delegate = self;
         onlineListView.listViewShowType = UserCourseListViewShowTypeOfflineNotStart;
         [headerView addSubview:onlineListView];
-        [onlineListView onlineCourseListViewRefreshDataWithContentArr:[NSArray array].mutableCopy];
+        [onlineListView onlineCourseListViewRefreshDataWithContentArr:courseList];
     }
     return headerView;
 }
-
-
-
 
 #pragma mark --  EVENT
 #pragma mark - cell did selected
@@ -236,21 +281,50 @@
     MyCourseListViewController *courseListVC = [MyCourseListViewController new];
     if (sender.tag == 0) {
         courseListVC.courseListShowType = UserCourseListViewShowTypeOnline;
+        courseListVC.courseList = self.onlineCourseList;
     }else{
+        courseListVC.courseList = self.offlineCourseList;
         courseListVC.courseListShowType = UserCourseListViewShowTypeOfflineUnderWay;
     }
     [self.navigationController pushViewController:courseListVC animated:YES];
 }
+
 #pragma mark --  Course-DidSelected
--(void)myOnlineCourseListViewDidSelectedCourseWithIndexPath:(NSIndexPath *)indexPath andUserCourseListViewShowType:(UserCourseListViewShowType)listViewShowType
+-(void)myOnlineCourseListViewDidSelectedCourseWithIndexPath:(NSIndexPath *)indexPath andUserCourseListViewShowType:(UserCourseListViewShowType)listViewShowType withCourseModel:(nonnull MKCourseListModel *)courseModel
 {
     CourseDetailViewController *detailVC = [CourseDetailViewController new];
+    detailVC.course_id = courseModel.courseID;
     if (listViewShowType == UserCourseListViewShowTypeOnline) {
         detailVC.courseType = CourseSituationTypeOnline;
     }else{
         detailVC.courseType = CourseSituationTypeOffline;
     }
     [self.navigationController pushViewController:detailVC animated:YES];
+}
+
+#pragma mark --  emptyView
+-(void)emptyViewClickTargetWithView:(EmptyView *)view
+{
+    if (![[UserManager shareInstance]isLogin]) {
+        LoginActionController *loginVC = [LoginActionController new];
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
+}
+
+#pragma mark --  登录
+-(void)loginInTarget:(NSNotification *)noti
+{
+    [self startRequest];
+}
+
+#pragma mark --  退出登录
+-(void)loginOutTarget:(NSNotification *)noti
+{
+    if (![[UserManager shareInstance]isLogin]) {
+        self.emptyView.hidden = NO;
+        self.emptyView.showType = EmptyViewShowTypeUserCourseNoLogin;
+        self.contentTable.hidden = YES;
+    }
 }
 
 @end

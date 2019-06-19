@@ -18,6 +18,9 @@
 //layout
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineHeightConstraints;
 
+@property (weak, nonatomic) IBOutlet UIImageView *timeIma;
+@property (weak, nonatomic) IBOutlet UILabel *tipLab;
+
 @end
 @implementation MyCouseHeaderView
 
@@ -36,19 +39,32 @@
     [_VideoTitleLab setFont:MKBoldFont(12) textColor:K_Text_BlackColor withBackGroundColor:nil];
     [_VideoStatusLab setFont:MKBoldFont(14) textColor:K_Text_WhiteColor withBackGroundColor:nil];
     _lineIma.backgroundColor = K_Line_lineColor;
+    
+    [_tipLab setFont:MKBoldFont(15) textColor:K_Text_WhiteColor withBackGroundColor:nil];
+    self.tipLab.text = @"还没有观看视频";
+//    _timeIma.image = [UIImage imageNamed:@"appointment_btn"];
+//    _timeIma.backgroundColor = [UIColor redColor];
 }
 -(void)layoutSubviews
 {
     [super layoutSubviews];
     self.lineHeightConstraints.constant = K_Line_lineWidth;
 }
+
 -(void)cellRefreshData
 {
-    self.lineIma.hidden = YES;
-    self.courseIma.image = KImageNamed(@"timg.jpeg");
-    self.coursePlayIma.image = KImageNamed(@"Course_list_play");
-    self.VideoTimeLab.text = @"23:49";
-    self.VideoTitleLab.text = @"语态：可能态";
-    self.VideoStatusLab.text = @"继续观看";
+    self.VideoTitleLab.hidden = YES;
+      self.lineIma.hidden = YES;
+      self.courseIma.hidden = YES;
+      self.coursePlayIma.hidden = YES;
+      self.VideoStatusLab.hidden = YES;
+    self.VideoTimeLab.hidden = YES;
+//
+//    self.lineIma.hidden = YES;
+//    self.courseIma.image = KImageNamed(@"timg.jpeg");
+//    self.coursePlayIma.image = KImageNamed(@"Course_list_play");
+//    self.VideoTimeLab.text = @"23:49";
+//    self.VideoTitleLab.text = @"语态：可能态";
+//    self.VideoStatusLab.text = @"继续观看";
 }
 @end

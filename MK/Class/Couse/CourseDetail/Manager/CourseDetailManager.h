@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger, CourseSituationType) {
 };
 
 @class MKCourseDetailModel;
+@class MKOfflineCourseDetail;
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -27,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- k课程详情
+ k线上课程详情
 
  @param hudShow 是否loading
  @param course_id 课程ID
@@ -35,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(void)callBackCourseDetailRequestWithHudShow:(BOOL )hudShow courseID:(NSString *)course_id andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message, MKCourseDetailModel *courseDetailModel))completionBlock;
 
+
++(void)callBackOfflineCourseDetailRequestWithCourseID:(NSString *)course_id andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message, MKOfflineCourseDetail *courseDetailModel))completionBlock;
 
 /**
  课程收藏

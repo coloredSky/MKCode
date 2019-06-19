@@ -48,9 +48,10 @@
 -(void)startRequest
 {
     [MBHUDManager showLoading];
-    [MakeMeetingManager callBackMeetingPurposeListWithCompletionBlock:^(BOOL isSuccess, NSArray<NSDictionary *> * _Nonnull purposeList, NSArray <NSString *>*purposeStringList, NSString * _Nonnull message) {
+    [MakeMeetingManager callBackMeetingSettingWithCompletionBlock:^(BOOL isSuccess, NSArray<NSDictionary *> * _Nonnull purposeList, NSArray<NSString *> * _Nonnull purposeStringList, NSArray<NSString *> * _Nonnull timeList, NSString * _Nonnull message) {
         [MBHUDManager hideAlert];
         if (isSuccess) {
+            //预约相谈目的
             self.meetingModel.purposeList  = purposeList;
             self.meetingModel.purposeStringList = purposeStringList;
             if (self.operationType == MeetingOperationTypeEdit) {
@@ -62,18 +63,40 @@
                     }
                 }
             }
+            //预约相谈时间
+            self.meetingModel.time1List = timeList;
+            self.meetingModel.time2List = timeList;
+            self.meetingModel.time3List = timeList;
         }
     }];
-    
-    [MBHUDManager showLoading];
-    [MakeMeetingManager callBackMeetingTimeListWithCompletionBlock:^(BOOL isSuccess, NSArray<NSString *> * _Nonnull time1List, NSArray<NSString *> * _Nonnull time2List, NSArray<NSString *> * _Nonnull time3List, NSString * _Nonnull message) {
-        [MBHUDManager hideAlert];
-        if (isSuccess) {
-            self.meetingModel.time1List = time1List;
-            self.meetingModel.time2List = time2List;
-            self.meetingModel.time3List = time3List;
-        }
-    }];
+//    
+//    [MBHUDManager showLoading];
+//    [MakeMeetingManager callBackMeetingPurposeListWithCompletionBlock:^(BOOL isSuccess, NSArray<NSDictionary *> * _Nonnull purposeList, NSArray <NSString *>*purposeStringList, NSString * _Nonnull message) {
+//        [MBHUDManager hideAlert];
+//        if (isSuccess) {
+//            self.meetingModel.purposeList  = purposeList;
+//            self.meetingModel.purposeStringList = purposeStringList;
+//            if (self.operationType == MeetingOperationTypeEdit) {
+//                self.meetingModel.teacherName = self.appointmentModel.staff_name;
+//                for (NSDictionary *dic in purposeList) {
+//                    if ([dic[@"name"] isEqualToString:self.appointmentModel.type]) {
+//                        self.meetingModel.purposeType = [dic[@"id"] integerValue];
+//                        self.meetingModel.purposeString = dic[@"name"];
+//                    }
+//                }
+//            }
+//        }
+//    }];
+//    
+//    [MBHUDManager showLoading];
+//    [MakeMeetingManager callBackMeetingTimeListWithCompletionBlock:^(BOOL isSuccess, NSArray<NSString *> * _Nonnull time1List, NSArray<NSString *> * _Nonnull time2List, NSArray<NSString *> * _Nonnull time3List, NSString * _Nonnull message) {
+//        [MBHUDManager hideAlert];
+//        if (isSuccess) {
+//            self.meetingModel.time1List = time1List;
+//            self.meetingModel.time2List = time2List;
+//            self.meetingModel.time3List = time3List;
+//        }
+//    }];
 }
 
 #pragma mark --  lazy

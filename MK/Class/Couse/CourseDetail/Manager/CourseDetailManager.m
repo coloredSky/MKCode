@@ -8,6 +8,7 @@
 
 #import "CourseDetailManager.h"
 #import "MKCourseDetailModel.h"
+#import "MKOfflineCourseDetail.h"
 
 @implementation CourseDetailManager
 
@@ -35,6 +36,32 @@
         }
     }];
 }
+
++(void)callBackOfflineCourseDetailRequestWithCourseID:(NSString *)course_id andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message, MKOfflineCourseDetail *courseDetailModel))completionBlock
+{
+    if ([NSString isEmptyWithStr:course_id]) {
+        return;
+    }
+    NSDictionary *parameters = @{@"course_id" : course_id,
+                                 };
+    [MKNetworkManager sendGetRequestWithUrl:K_MK_OfflineCourse_CourseDetail_Url parameters:parameters hudIsShow:YES success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode == 0) {
+            if (completionBlock) {
+                MKOfflineCourseDetail *detailModel = [MKOfflineCourseDetail yy_modelWithJSON:MKResult.dataResponseObject];
+                completionBlock(YES,MKResult.message,detailModel);
+            }
+        }else{
+            if (completionBlock) {
+                completionBlock(NO,MKResult.message,nil);
+            }
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        if (completionBlock) {
+            completionBlock(NO,@"error",nil);
+        }
+    }];
+}
+
 
 +(void)callBackCourseCollectionRequestWithCourseID:(NSString *)course_id type:(NSInteger )type andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message))completionBlock
 {

@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface MyCourseOnlineListCollectionViewCell : UICollectionViewCell
 
--(void)cellRefreshDataWithIndexPath:(NSIndexPath *)indexPath withShowType:(UserCourseListViewShowType )listViewShowType;
+-(void)cellRefreshDataWithIndexPath:(NSIndexPath *)indexPath withShowType:(UserCourseListViewShowType )listViewShowType courseModel:(MKCourseListModel *)courseModel;
 @end
 
 NS_ASSUME_NONNULL_END

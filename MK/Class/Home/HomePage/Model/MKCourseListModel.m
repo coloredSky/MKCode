@@ -21,13 +21,14 @@
 
 + (NSDictionary *)modelCustomPropertyMapper
 {
+//    @"bookID" : @[@"ID",@"id",@"book_id"]
     // 将personId映射到key为id的数据字段
-    return @{@"courseID":@"id",
-             @"courseName" : @"name",
+    return @{
+             @"courseID" : @[@"id",@"course_id"],
+             @"courseName" : @[@"name",@"course_name"],
+             @"teacherNmae" : @[@"lecturer_name",@"teacher_name"],
+             @"courseImage" : @[@"img",@"url"],
              @"coursePrice" : @"price",
-             @"courseName" : @"name",
-             @"teacherNmae" : @"lecturer_name",
-             @"courseImage" : @"url",
              @"courseDescription" : @"detail"
              };
 }

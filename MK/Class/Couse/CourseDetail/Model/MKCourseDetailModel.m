@@ -12,9 +12,6 @@
 
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic
 {
-    if ([NSString isEmptyWithStr:_video_time]) {
-        
-    }
     return YES;
 }
 
@@ -31,6 +28,7 @@
 @end
 
 @implementation MKCourseInfoModel
+
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic
 {
     if ([NSString isEmptyWithStr:_courseDetail]) {
@@ -41,6 +39,7 @@
     }
     return YES;
 }
+
 + (NSDictionary *)modelCustomPropertyMapper
 {
     // 将personId映射到key为id的数据字段
@@ -60,8 +59,14 @@
 @end
 
 @implementation MKCourseDetailModel
+
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic
 {
+    if (![NSString isEmptyWithStr:_teacher_detail]) {
+       _teacher_detail =  [NSString filterHTML:_teacher_detail];
+    }else{
+        _teacher_detail = @"";
+    }
     return YES;
 }
 

@@ -28,6 +28,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(void)callBackMeetingPurposeListWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <NSDictionary *>*purposeList,NSArray <NSString *>*purposeStringList,NSString *message))completionBlock;
 
+
+/**
+ 预约相谈配置--目的、时间
+
+ @param completionBlock 回调
+ */
++(void)callBackMeetingSettingWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <NSDictionary *>*purposeList,NSArray <NSString *>*purposeStringList, NSArray <NSString *>*timeList,NSString *message))completionBlock;
+
+
 /**
  新增预约相谈
 

@@ -7,6 +7,8 @@
 //
 
 #import "MyCourseListCell.h"
+#import "MKCourseListModel.h"
+
 @interface MyCourseListCell()
 @property (weak, nonatomic) IBOutlet UIImageView *courseIma;
 @property (weak, nonatomic) IBOutlet UIImageView *lineIma;
@@ -35,27 +37,24 @@
     self.courseTeacherLab.frame = CGRectMake(_courseNameLab.leftX, _courseIma.bottomY-KScaleHeight(20), _courseNameLab.width, KScaleHeight(20));
     
     self.lineIma.frame = CGRectMake(_courseNameLab.leftX, self.contentView.height-K_Line_lineWidth, self.contentView.width-_courseNameLab.leftX-K_Padding_Home_LeftPadding, K_Line_lineWidth);
-    self.courseStatusLab.frame = CGRectMake(self.lineIma.rightX-KScaleWidth(40), 0, KScaleWidth(40), self.contentView.height);
+    self.courseStatusLab.frame = CGRectMake(self.lineIma.rightX-KScaleWidth(40), self.contentView.height/2-6, KScaleWidth(40), 20);
 }
 
--(void)cellRefreshDataWithIndexPath:(NSIndexPath *)indexPath withShowType:(UserCourseListViewShowType )listViewShowType
+-(void)cellRefreshDataWithIndexPath:(NSIndexPath *)indexPath withShowType:(UserCourseListViewShowType )listViewShowType courseList:(NSArray <MKCourseListModel *>*)courseLst
 {
-    if (indexPath.row==6) {
+    if (indexPath.row==courseLst.count -1) {
         self.lineIma.hidden = YES;
     }else{
         self.lineIma.hidden = NO;
     }
-    self.courseIma.image = [UIImage imageNamed:@"home_course"];
-    self.courseNameLab.text = @"日语基础";
-    self.courseTeacherLab.text = @"大阪大学博士";
+    MKCourseListModel *courseModel = courseLst[indexPath.row];
+    [self.courseIma sd_setImageWithURL:[NSURL URLWithString:courseModel.courseImage] placeholderImage:nil];
+    self.courseNameLab.text = courseModel.courseName;
+    self.courseTeacherLab.text = courseModel.teacherNmae;
     if (listViewShowType == UserCourseListViewShowTypeOnline) {
         self.courseStatusLab.text = @"";
-    }else if (listViewShowType == UserCourseListViewShowTypeOfflineUnderWay) {
-        self.courseStatusLab.text = @"99%";
-    }else if (listViewShowType == UserCourseListViewShowTypeOfflineNotStart) {
-        self.courseStatusLab.text = @"未开";
-    }else if (listViewShowType == UserCourseListViewShowTypeOfflineHaveEnd) {
-        self.courseStatusLab.text = @"完结";
+    }else{
+        self.courseStatusLab.text = courseModel.process;
     }
 }
 

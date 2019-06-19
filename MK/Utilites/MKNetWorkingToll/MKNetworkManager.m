@@ -52,7 +52,11 @@ static NSString *const responseMessage = @"msg";
         if (successBlock) {
             MKResponseResult *result = [MKResponseResult new];
             result.responseObject = responseObject;
-            result.responseCode = [responseObject[responseCode] integerValue];
+            if (![NSString isEmptyWithStr:responseObject[responseCode]]) {
+                result.responseCode = [responseObject[responseCode] integerValue];
+            }else{
+                result.responseCode = 1;
+            }
             result.dataResponseObject = responseObject[responseData];
             result.message = responseObject[responseMessage];
             successBlock(result,isCacheObject);
@@ -85,7 +89,11 @@ static NSString *const responseMessage = @"msg";
         if (successBlock) {
             MKResponseResult *result = [MKResponseResult new];
             result.responseObject = responseObject;
-            result.responseCode = [responseObject[responseCode] integerValue];
+            if (![NSString isEmptyWithStr:responseObject[responseCode]]) {
+                result.responseCode = [responseObject[responseCode] integerValue];
+            }else{
+                result.responseCode = 1;
+            }
             result.dataResponseObject = responseObject[responseData];
             result.message = responseObject[responseMessage];
             successBlock(result,isCacheObject);

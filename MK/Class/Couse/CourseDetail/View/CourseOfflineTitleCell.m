@@ -7,6 +7,8 @@
 //
 
 #import "CourseOfflineTitleCell.h"
+#import "MKOfflineCourseDetail.h"
+
 @interface CourseOfflineTitleCell()
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
 @property (weak, nonatomic) IBOutlet UIButton *calendarBtn;
@@ -72,16 +74,14 @@
     self.lineIma.frame = CGRectMake(KScaleWidth(20), self.bottomView.height-K_Line_lineWidth, self.bottomView.width-KScaleWidth(20*2), K_Line_lineWidth);
 }
 
--(void)cellRefreshData
+-(void)cellRefreshDataWithMKOfflineCourseDetail:(MKOfflineCourseDetail *)offlineCourseModel
 {
-    NSString *text = @"大学院美术研究计划书辅导\n2019年3月A班";
+    NSString *text = offlineCourseModel.course_name;
     self.titleLab.attributedText = [NSString setStringSpaceWithText:text andLineSpacValue:5 andWordSpace:0 withFont:self.titleLab.font];
-//    self.titleLab.text = @"大学院美术研究计划书辅导\n2019年3月A班";
-    self.timeConsumingLab.text = @"55h";
-    self.addressLab.text = @"双爱3F讲义室";
-    self.attendanceLab.text = @"90%";
-    self.personsLab.text = @"15人";
-    self.personsLab.text = @"23人";
+    self.timeConsumingLab.text =  [NSString stringWithFormat:@"%@h",offlineCourseModel.total_hour];
+    self.addressLab.text = offlineCourseModel.classroom_name;
+    self.attendanceLab.text = offlineCourseModel.progress;
+    self.personsLab.text = [NSString stringWithFormat:@"%@人",offlineCourseModel.maximun_number];
 }
 
 @end
