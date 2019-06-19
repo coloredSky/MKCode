@@ -7,6 +7,8 @@
 //
 
 #import "MessageCell.h"
+#import "MKMessageModel.h"
+
 @interface MessageCell()
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
@@ -52,23 +54,23 @@
     self.shadowView.frame = CGRectMake(K_Padding_Home_LeftPadding, 0, self.contentView.width-K_Padding_Home_LeftPadding*2, self.contentView.height);
     self.whiteView.frame = CGRectMake(0, 0, self.shadowView.width, self.shadowView.height);
     
-    self.meeeageTimeLab.frame = CGRectMake(self.whiteView.width-100-K_Padding_LeftPadding, KScaleHeight(10), 100, KScaleHeight(15));
+    self.meeeageTimeLab.frame = CGRectMake(self.whiteView.width-200-K_Padding_LeftPadding, KScaleHeight(10), 200, KScaleHeight(15));
     self.messageIconIma.frame = CGRectMake(K_Padding_LeftPadding, self.meeeageTimeLab.bottomY, KScaleWidth(40), KScaleWidth(40));
     self.meeeageTitleLab.frame = CGRectMake(self.messageIconIma.rightX+KScaleWidth(22), self.messageIconIma.topY, self.whiteView.width-(self.messageIconIma.rightX+KScaleWidth(22))-KScaleWidth(12), KScaleHeight(20));
     self.messageShowIma.frame = CGRectMake(self.whiteView.centerX-KScaleWidth(16), self.whiteView.height-KScaleWidth(8)-KScaleHeight(15), KScaleWidth(16), KScaleWidth(16));
     self.messageContentLab.frame = CGRectMake(self.meeeageTitleLab.leftX, self.meeeageTitleLab.bottomY+KScaleHeight(15), self.meeeageTitleLab.width, self.messageShowIma.topY-(self.meeeageTitleLab.bottomY+KScaleHeight(15))-KScaleHeight(15));
 }
 
--(void)cellRefreshDataWithSelected:(BOOL )selected
+-(void)cellRefreshDataWithMKMessageMode:(MKMessageModel *)messageModel
 {
-    if (selected) {
+    if (messageModel.cellSelected) {
         self.messageShowIma.image = KImageNamed(@"bookmark_show");
     }else{
         self.messageShowIma.image = KImageNamed(@"bookmark_notshow");
     }
-    self.meeeageTimeLab.text = @"03/15";
-    self.messageContentLab.text = @"1. 新增功能 ：增加了课程预约和调换班级，使用 每刻小管家即可轻松解决各种课程相关问题。\n1. 新增功能 ：增加了课程预约和调换班级，使用 每刻小管家即可轻松解决各种课程相关问题。";
-    self.meeeageTitleLab.text = @"更换班级申请成功";
+    self.meeeageTimeLab.text = messageModel.add_time;
+    self.messageContentLab.text = messageModel.content;
+    self.meeeageTitleLab.text = messageModel.title;
 }
 
 @end

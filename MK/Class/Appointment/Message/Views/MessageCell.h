@@ -7,11 +7,14 @@
 //
 
 #import "MKBaseTableViewCell.h"
+@class MKMessageModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MessageCell : MKBaseTableViewCell
--(void)cellRefreshDataWithSelected:(BOOL )selected;
+
+-(void)cellRefreshDataWithMKMessageMode:(MKMessageModel *)messageModel;
+
 @end
 
 NS_ASSUME_NONNULL_END

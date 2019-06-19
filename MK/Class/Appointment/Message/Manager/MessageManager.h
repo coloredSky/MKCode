@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param completionBlock 回调
  */
-+(void)callBackMessageListDataWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <MKMessageModel *>*messageList,NSString *message))completionBlock;
++(void)callBackMessageListDataWithLimit:(NSInteger )limit offset:(NSInteger )offset completionBlock:(void(^)(BOOL isSuccess,NSArray <MKMessageModel *>*messageList,NSString *message))completionBlock;
 
 @end
 

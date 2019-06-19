@@ -11,23 +11,26 @@
 
 @implementation MessageManager
 
-+(void)callBackMessageListDataWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <MKMessageModel *>*messageList,NSString *message))completionBlock
++(void)callBackMessageListDataWithLimit:(NSInteger )limit offset:(NSInteger )offset completionBlock:(void(^)(BOOL isSuccess,NSArray <MKMessageModel *>*messageList,NSString *message))completionBlock
 {
-    [MKNetworkManager sendGetRequestWithUrl:K_MK_GetMessageList_Url parameters:nil hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+    NSDictionary *parameter = @{
+                                @"limit":@(limit),
+                                @"offset":@(offset),
+                                };
+    [MKNetworkManager sendPostRequestWithUrl:K_MK_GetMessageList_Url parameters:parameter hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 0) {
             if (completionBlock) {
-                
-//                MKCourseDetailModel *detailModel = [MKCourseDetailModel yy_modelWithJSON:MKResult.dataResponseObject];
-//                completionBlock(YES,MKResult.message,detailModel);
+                NSArray *messageList = [NSArray yy_modelArrayWithClass:[MKMessageModel class] json:MKResult.dataResponseObject];
+                completionBlock(YES,messageList,MKResult.message);
             }
         }else{
             if (completionBlock) {
-//                completionBlock(NO,MKResult.message,nil);
+                completionBlock(NO,nil,MKResult.message);
             }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (completionBlock) {
-//            completionBlock(NO,@"error",nil);
+            completionBlock(NO,nil,error.userInfo[NSLocalizedDescriptionKey]);
         }
     }];
 }

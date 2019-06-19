@@ -10,45 +10,84 @@
 //View
 #import "MessageCell.h"
 //Model
+#import "MessageManager.h"
 #import "MKMessageModel.h"
 
 @interface MessageViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
-@property (nonatomic, strong) NSMutableArray *messageArr;
 @property (nonatomic, strong) MKMessageModel *selectedMessageModel;
+
+@property (nonatomic, assign) NSInteger pageOffset;//条数起始值
+@property (nonatomic, assign) NSInteger pageLimit;//条数
+@property (nonatomic, strong) NSMutableArray *messageList;
 @end
 
 @implementation MessageViewController
 
+-(instancetype)init
+{
+    if (self = [super init]) {
+        self.pageLimit = 5;
+        self.pageOffset = 0;
+        self.messageList = [NSMutableArray array];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_YellowColor;
-    for (int i=0; i<5; i++) {
-        MKMessageModel *model = [[MKMessageModel alloc]init];
-        [self.messageArr addObject:model];
-        [self.contentTable reloadData];
-    }
-    [self setUpRefresh];
+    [self startRequest];
+    [self setUpHeaderRefresh];
 }
 
 #pragma mark --  refresh
--(void)setUpRefresh
+-(void)setUpHeaderRefresh
 {
     //下拉刷新
     @weakObject(self);
     self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
-        [self.contentTable.mj_header endRefreshing];
+        self.pageLimit = 5;
+        self.pageOffset = 0;
+        [self startRequest];
     }];
+}
+-(void)setUpFooterRefresh
+{
     //上拉加载
-    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-    //                @strongObject(self);
-    //    }];
+    @weakObject(self);
+    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
+        @strongObject(self);
+        self.pageOffset += self.pageLimit;
+        [self startRequest];
+    }];
 }
 
 #pragma mark --  request
 -(void)startRequest
 {
+    [MessageManager callBackMessageListDataWithLimit:self.pageLimit offset:self.pageOffset completionBlock:^(BOOL isSuccess, NSArray<MKMessageModel *> * _Nonnull messageList, NSString * _Nonnull message) {
+        [self.contentTable.mj_header endRefreshing];
+        if (isSuccess) {
+            if (self.pageOffset == 0) {
+                [self.messageList removeAllObjects];
+                if (messageList.count == self.pageLimit) {
+                    [self setUpFooterRefresh];
+                }
+            }
+            if (messageList.count < self.pageLimit) {
+                [self.contentTable.mj_footer endRefreshingWithNoMoreData];
+            }else{
+                [self.contentTable.mj_footer endRefreshing];
+            }
+            [self.messageList addObjectsFromArray:messageList];
+            [self.contentTable reloadData];
+        }else{
+            self.pageOffset -= self.pageLimit;
+            [self.contentTable.mj_footer endRefreshingWithNoMoreData];
+        }
+    }];
 }
 
 #pragma mark --  lazy
@@ -75,25 +114,19 @@
     }
     return _contentTable;
 }
--(NSMutableArray *)messageArr
-{
-    if (!_messageArr) {
-        _messageArr = [NSMutableArray array];
-    }
-    return _messageArr;
-}
+
 #pragma mark - UITableViewDataSource
 #pragma mark - cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
-    MKMessageModel *model = self.messageArr[indexPath.section];
-    [cell cellRefreshDataWithSelected:model.cellSelected];
+    MKMessageModel *model = self.messageList[indexPath.section];
+    [cell cellRefreshDataWithMKMessageMode:model];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.messageArr.count;
+    return self.messageList.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -102,7 +135,7 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MKMessageModel *model = self.messageArr[indexPath.section];
+    MKMessageModel *model = self.messageList[indexPath.section];
     if (model.cellSelected) {
         return model.cellHeight;
     }
@@ -127,8 +160,7 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"====");
-    MKMessageModel *model = self.messageArr[indexPath.section];
+    MKMessageModel *model = self.messageList[indexPath.section];
     if (self.selectedMessageModel == model) {
         model.cellSelected = !model.cellSelected;
         [self.contentTable reloadData];

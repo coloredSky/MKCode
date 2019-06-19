@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *messageID;
 @property (nonatomic, copy) NSString *add_time;//添加事件
 @property (nonatomic, copy) NSString *status_msg;//读取状态
-@property (nonatomic, copy) NSString *content;
+@property (nonatomic, copy) NSString *content;//消息内容
+@property (nonatomic, copy) NSString *title;//消息标题
 @property (nonatomic, assign) CGFloat cellHeight;
 @property (nonatomic, assign) BOOL cellSelected;
 
