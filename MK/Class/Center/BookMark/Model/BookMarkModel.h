@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *add_time;
 @property (nonatomic, copy) NSString *category;
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *course_Image;
+@property (nonatomic, copy) NSString *course_img;
 
 @end
 

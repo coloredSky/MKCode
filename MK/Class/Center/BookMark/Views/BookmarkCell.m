@@ -22,7 +22,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    _courseImage.contentMode = UIViewContentModeScaleToFill;
     [_courseName setFont:MKBoldFont(12) textColor:K_Text_BlackColor withBackGroundColor:nil];
+//    _courseImage.backgroundColor = [UIColor redColor];
     [_coursePlace setFont:MKFont(10) textColor:K_Text_grayColor withBackGroundColor:nil];
     [_coursePage setFont:MKFont(9) textColor:K_Text_grayColor withBackGroundColor:nil];
     self.lineIma.height = K_Line_lineWidth;
@@ -31,15 +33,10 @@
 
 -(void)cellRefreshDataWithBookMarkListModel:(BookMarkListModel *)bookModel
 {
-    [self.courseImage sd_setImageWithURL:[NSURL URLWithString:bookModel.course_Image] placeholderImage:nil];
+    [self.courseImage sd_setImageWithURL:[NSURL URLWithString:bookModel.course_img] placeholderImage:nil];
     self.courseName.text = bookModel.category;
     self.coursePlace.text = bookModel.name;
     self.coursePage.text =@"";
-}
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end
