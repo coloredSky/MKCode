@@ -7,17 +7,27 @@
 //
 
 #import "MyBillManager.h"
+#import "UserBillListModel.h"
 
 @implementation MyBillManager
-+(void)callBackMyBillDataWithHudShow:(BOOL)hudShow  CompletionBlock:(void(^)(BOOL isSuccess,NSString *message, LoginModel *model))completionBlock
+
++(void)callBackMyBillDataWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <UserBillListModel *> *billList,NSString *message))completionBlock
 {
-    [MKNetworkManager sendGetRequestWithUrl:K_MK_MyBillList_Url parameters:@{} hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
-        if (MKResult.responseCode ==1)
-        {
-            
+    [MKNetworkManager sendGetRequestWithUrl:K_MK_MyBillList_Url parameters:nil hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode == 0) {
+            if (completionBlock) {
+                NSArray *billList = [NSArray yy_modelArrayWithClass:[UserBillListModel class] json:MKResult.dataResponseObject];
+                completionBlock(YES,billList,MKResult.message);
+            }
+        }else{
+            if (completionBlock) {
+                completionBlock(NO,nil,MKResult.message);
+            }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
-        
+        if (completionBlock) {
+            completionBlock(NO,nil,error.userInfo[NSLocalizedDescriptionKey]);
+        }
     }];
     
 }

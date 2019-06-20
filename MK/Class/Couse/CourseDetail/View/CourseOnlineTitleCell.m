@@ -54,7 +54,17 @@
     self.titleLab.attributedText = [NSString setStringSpaceWithText:text andLineSpacValue:5 andWordSpace:0 withFont:self.titleLab.font];
     self.timeConsumingLab.text = [NSString stringWithFormat:@"%@h",courseDetailMode.courseInfoDetail.courseConsumingTime];
     self.personsLab.text =  [NSString stringWithFormat:@"%@人",courseDetailMode.courseInfoDetail.totalStudyNum];
+    self.likeBtn.selected = courseDetailMode.courseInfoDetail.isCollected;
 }
+
+
+- (IBAction)courseCollectionTarget:(UIButton *)sender {
+    if (self.courseCollectionBlock) {
+        self.courseCollectionBlock(sender);
+    }
+}
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

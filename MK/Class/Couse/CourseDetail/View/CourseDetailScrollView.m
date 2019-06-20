@@ -17,15 +17,20 @@
 #import "CourseOfflineTitleCell.h"
 
 #import "MKCourseDetailModel.h"
+#import "MKOfflineCourseDetail.h"
 
 @interface CourseDetailScrollView()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,WKUIDelegate,WKNavigationDelegate>
+
 @property (nonatomic, strong) UIScrollView *contentScroll;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong) WKWebView *contentWeb;//课程详情
 //model
 @property (nonatomic, strong) MKCourseDetailModel *courseDetailModel;
+@property (nonatomic, strong) MKOfflineCourseDetail *offlineCourseModel;
 @property (nonatomic, strong) MKLessonModel *selectedLessonModel;
+
 @end
+
 @implementation CourseDetailScrollView
 @synthesize delegate;
 
@@ -86,16 +91,37 @@
     if (indexPath.section == 0) {
         if (self.courseType == CourseSituationTypeOnline) {
             CourseOnlineTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseOnlineTitleCell" forIndexPath:indexPath];
+            __weak typeof(self) weakSelf = self;
+            cell.courseCollectionBlock = ^(UIButton * _Nonnull sender) {
+                __strong typeof(weakSelf) strongSelf = weakSelf;
+                if (strongSelf.courseDetailModel.courseInfoDetail.isCollected) {
+                    [strongSelf courseCancleCollected];
+                }else{
+                    [strongSelf courseCollected];
+                }
+            };
             [cell cellRefreshDataWithCourseDetailModel:self.courseDetailModel];
             return cell;
         }else{
             CourseOfflineTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseOfflineTitleCell" forIndexPath:indexPath];
-            [cell cellRefreshData];
+            [cell cellRefreshDataWithMKOfflineCourseDetail:self.offlineCourseModel];
             return cell;
         }
     }else if(indexPath.section == 1){
         CourseTeacherCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseTeacherCell" forIndexPath:indexPath];
-        [cell cellRefreshDataWithCourseDetailModel:self.courseDetailModel];
+        NSString *teacherName = @"";
+        NSString *teacherIma = @"";
+        NSString *teacherDescription = @"";
+        if (self.courseType == CourseSituationTypeOnline) {
+            teacherName = self.courseDetailModel.teacher_name;
+            teacherIma = self.courseDetailModel.teacher_avatar;
+            teacherDescription = self.courseDetailModel.teacher_detail;
+        }else{
+            teacherName = self.offlineCourseModel.class_adviser;
+            teacherIma = self.offlineCourseModel.advisor_avatar;
+            teacherDescription = self.offlineCourseModel.teacher_description;
+        }
+        [cell cellRefreshDataWithTeacherName:teacherName teacherIma:teacherIma teacherDescription:teacherDescription];
         return cell;
     }else{
         if (self.courseType == CourseSituationTypeOnline) {
@@ -105,7 +131,7 @@
             return cell;
         }else{
             CourseOfflineListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseOfflineListCell" forIndexPath:indexPath];
-            MKLessonModel *lessonModel =  self.courseDetailModel.lessonList[indexPath.row];
+            MKOfflineLesson *lessonModel =  self.offlineCourseModel.lessons[indexPath.row];
             [cell cellRefreshDataWithLessonModel:lessonModel];
             return cell;
         }
@@ -121,7 +147,11 @@
     if (section == 0||section == 1) {
         return 1;
     }
-    return self.courseDetailModel.lessonList.count;
+    if (self.courseType == CourseSituationTypeOnline) {
+        return self.courseDetailModel.lessonList.count;
+    }else{
+        return self.offlineCourseModel.lessons.count;
+    }
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -162,7 +192,6 @@
 #pragma mark --  scroll-Delegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    MKLog(@"-------%f",scrollView.contentOffset.y);
     if (scrollView.contentOffset.x == 0) {
         if ([delegate respondsToSelector:@selector(CourseDetailScrollViewScrollOffsetY:)]) {
             [delegate CourseDetailScrollViewScrollOffsetY:scrollView.contentOffset.y];
@@ -181,6 +210,9 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.courseType == CourseSituationTypeOffline) {
+        return;
+    }
     if (indexPath.section == 2) {
         MKLessonModel *lessonModel =  self.courseDetailModel.lessonList[indexPath.row];
         if (self.selectedLessonModel == lessonModel) {
@@ -203,13 +235,66 @@
 }
 
 #pragma mark --  数据刷新
--(void)courseDetailScrollViewReloadDataWithMKCourseDetailModel:(MKCourseDetailModel *)courseDetailModel;
+-(void)courseDetailScrollViewReloadDataWithMKCourseDetailModel:(MKCourseDetailModel *)courseDetailModel offlineCourseDetailModel:(MKOfflineCourseDetail *)offlineCourseDetailModel
 {
     self.courseDetailModel = courseDetailModel;
-    if (![NSString isEmptyWithStr:courseDetailModel.courseInfoDetail.courseDetail]) {
-            [self.contentWeb loadHTMLString:courseDetailModel.courseInfoDetail.courseDetail baseURL:nil];
+    self.offlineCourseModel = offlineCourseDetailModel;
+    NSString *webContent = @"";
+    if (self.courseType == CourseSituationTypeOnline) {
+        if (![NSString isEmptyWithStr:courseDetailModel.courseInfoDetail.courseDetail]) {
+            webContent = courseDetailModel.courseInfoDetail.courseDetail;
+        }
+    }else{
+        if (![NSString isEmptyWithStr:offlineCourseDetailModel.course_description]) {
+            webContent = offlineCourseDetailModel.course_description;
+        }
     }
+    [self.contentWeb loadHTMLString:offlineCourseDetailModel.course_description baseURL:nil];
     [self.contentTable reloadData];
+}
 
+
+-(void)courseCollected
+{
+    [MBHUDManager showLoading];
+    [CourseDetailManager callBackCourseCollectionRequestWithCourseID:self.courseDetailModel.courseInfoDetail.courseID type:1 andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
+        if (isSuccess) {
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }else{
+             [MBHUDManager showBriefAlert:@"课程收藏成功！"];
+            }
+            self.courseDetailModel.courseInfoDetail.isCollected = YES;
+            [self.contentTable reloadData];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kMKUserCollectionClassListRefreshNotifcationKey object:nil];
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }
+        }
+    }];
+}
+
+-(void)courseCancleCollected
+{
+    [MBHUDManager showLoading];
+    [CourseDetailManager callBackCourseCancleCollectionRequestWithCourseID:self.courseDetailModel.courseInfoDetail.courseID type:1 andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
+        if (isSuccess) {
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }else{
+                [MBHUDManager showBriefAlert:@"取消收藏成功！"];
+            }
+            self.courseDetailModel.courseInfoDetail.isCollected = NO;
+            [self.contentTable reloadData];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kMKUserCollectionClassListRefreshNotifcationKey object:nil];
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }
+        }
+    }];
 }
 @end

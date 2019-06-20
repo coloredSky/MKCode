@@ -9,6 +9,7 @@
 #import "LoginActionController.h"
 #import "RegisterController.h"
 #import "MKTarbarViewController.h"
+#import "FindPwdController.h"
 #import "LoginManager.h"
 
 @interface LoginActionController ()
@@ -75,14 +76,15 @@
                 [self backToPreviousViewController];
                 [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginInNotifcationKey object:nil];
             }else{
-                if ([NSString isEmptyWithStr:message]) {
+                if (![NSString isEmptyWithStr:message]) {
                     [MBHUDManager showBriefAlert:message];
                 }
             }
         }];
     }else if (sender.tag == 3){
         //忘记密码
-        
+        FindPwdController *findPwdVC = [FindPwdController new];
+        [self.navigationController pushViewController:findPwdVC animated:YES];
     }
 }
 

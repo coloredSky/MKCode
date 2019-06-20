@@ -69,7 +69,6 @@
             [_codeBtn startWithSecond:60];
             [_codeBtn didChange:^NSString *(JKCountDownButton *countDownButton,int second) {
                 NSString *title = [NSString stringWithFormat:@"剩余%d秒",second];
-                
                 return title;
             }];
             [_codeBtn didFinished:^NSString *(JKCountDownButton *countDownButton, int second) {

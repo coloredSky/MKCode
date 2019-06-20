@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "UserCourseListManager.h"
+@class MKCourseListModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MyCourseListViewController : MKNavViewController
 
+@property (nonatomic, strong) NSArray<MKCourseListModel *> *courseList;
 @property (nonatomic, assign) UserCourseListViewShowType courseListShowType;
 @end
 

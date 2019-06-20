@@ -59,6 +59,33 @@
     }];
 }
 
++(void)callBackMeetingSettingWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <NSDictionary *>*purposeList,NSArray <NSString *>*purposeStringList, NSArray <NSString *>*timeList,NSString *message))completionBlock
+{
+    [MKNetworkManager sendGetRequestWithUrl:K_MK_MeetingConfig_Url parameters:nil hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode == 0) {
+            if (completionBlock) {
+                NSArray *timeList = MKResult.dataResponseObject[@"reservationTimeList"];
+                NSArray *purposeList = MKResult.dataResponseObject[@"reservationTypeList"];
+                NSMutableArray *purposeStringArr = [NSMutableArray array];
+                if ([purposeList isKindOfClass:[NSArray class]]) {
+                    for (NSDictionary *dic in purposeList) {
+                        [purposeStringArr addObject:dic[@"name"]];
+                    }
+                }
+                completionBlock(YES,purposeList,purposeStringArr.copy,timeList, MKResult.message);
+            }
+        }else{
+            if (completionBlock) {
+                completionBlock(NO,nil,nil,nil,MKResult.message);
+            }
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        if (completionBlock) {
+            completionBlock(NO,nil,nil,nil,error.userInfo[NSLocalizedDescriptionKey]);
+        }
+    }];
+}
+
 +(void)callBackAddMeetingRequestWithParameterType:(NSInteger )type teacherName:(NSString *)staff_name select_time_one:(NSString *)select_time_one select_time_two:(NSString *)select_time_two select_time_three:(NSString *)select_time_three withCompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock
 {
     NSDictionary *parameter = @{

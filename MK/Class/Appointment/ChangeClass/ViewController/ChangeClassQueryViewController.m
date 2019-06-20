@@ -15,6 +15,7 @@
 //category
 #import "UITextView+WJPlaceholder.h"
 #import "AppointmentListModel.h"
+#import "AppoinementReplyModel.h"
 
 #import "ChangeClassManager.h"
 
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong) UITextView *reasonTextView;
 @property (nonatomic, strong) NSArray *tipStringArr;
+@property (nonatomic, strong) NSArray *applyList;
 @end
 
 @implementation ChangeClassQueryViewController
@@ -34,7 +36,20 @@
     self.view.backgroundColor = K_BG_YellowColor;
     
     [self creatSubVuew];
+    [self startRequest];
 }
+
+-(void)startRequest
+{
+    //得到回复列表
+    [AppointmentManager callBackAllApplyAppointmentReplyListWithParameteApply_type:self.showType apply_id:self.appointmentModel.applyID completionBlock:^(BOOL isSuccess, NSArray<AppoinementReplyModel *> * _Nonnull applyList, NSString * _Nonnull message) {
+        if (isSuccess) {
+            self.applyList = applyList;
+            [self.contentTable reloadData];
+        }
+    }];
+}
+
 -(void)creatSubVuew
 {
     [self.view addSubview:self.contentScroll];
@@ -43,6 +58,7 @@
 }
 
 #pragma mark --  lazy
+
 -(NSArray *)tipStringArr
 {
     if (!_tipStringArr) {
@@ -50,6 +66,7 @@
     }
     return _tipStringArr;
 }
+
 -(MKBaseScrollView *)contentScroll
 {
     if (!_contentScroll) {
@@ -85,7 +102,8 @@
 {
     if (!_headerView) {
         _headerView = [[AppointmentHeaderView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight)];
-        _headerView.titleString = @"等待回复";
+//        _headerView.titleString = @"等待回复";
+        _headerView.titleString = self.appointmentModel.status_msg;
         [self.contentScroll addSubview:_headerView];
         _headerView.showType = AppointmentHeaderViewShowTypeEditting;
         __weak typeof(self) weakSelf = self;
@@ -136,7 +154,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AppointmentTeacherReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AppointmentTeacherReplyCell" forIndexPath:indexPath];
-    [cell cellRefreshData];
+    AppoinementReplyModel *replyModel = self.applyList[indexPath.row];
+    [cell cellRefreshDataWithAppoinementReplyModel:replyModel];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -145,12 +164,13 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.applyList.count;
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return KScaleHeight(95);
+    AppoinementReplyModel *replyModel = self.applyList[indexPath.row];
+    return replyModel.rowHeight;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -167,7 +187,11 @@
     [headerView addSubview:titleLab];
     titleLab.textAlignment = NSTextAlignmentCenter;
     [titleLab setFont:K_Font_Text_Min_Max textColor:K_Text_grayColor withBackGroundColor:nil];
-    titleLab.text = @"暂无回复";
+    if (self.applyList.count >0) {
+        titleLab.text = @"回复";
+    }else{
+     titleLab.text = @"暂无回复";
+    }
     return headerView;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section

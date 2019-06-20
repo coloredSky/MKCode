@@ -7,11 +7,13 @@
 //
 
 #import "MKNavViewController.h"
+@class UserBillListModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MKBillDetailViewController : MKNavViewController
 
+@property (nonatomic, strong) UserBillListModel *billModel;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,19 +11,23 @@
 #import <UIKit/UIKit.h>
 #import "UserCourseListManager.h"
 
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol MyOnlineCourseListViewDelagate <NSObject>
 @optional
--(void)myOnlineCourseListViewDidSelectedCourseWithIndexPath:(NSIndexPath *)indexPath andUserCourseListViewShowType:(UserCourseListViewShowType )listViewShowType;
+-(void)myOnlineCourseListViewDidSelectedCourseWithIndexPath:(NSIndexPath *)indexPath andUserCourseListViewShowType:(UserCourseListViewShowType )listViewShowType withCourseModel:(MKCourseListModel *)courseModel;
 @end
 /**
  线上课程List
  */
 @interface MyOnlineCourseListView : UIView
+
 @property (nonatomic, assign) id<MyOnlineCourseListViewDelagate> delegate;
 @property (nonatomic, assign) UserCourseListViewShowType listViewShowType;
--(void)onlineCourseListViewRefreshDataWithContentArr:(NSMutableArray *)courseList;
+
+-(void)onlineCourseListViewRefreshDataWithContentArr:(NSArray<MKCourseListModel *> *)courseList;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,6 +8,7 @@
 
 #import "CourseOfflineListCell.h"
 #import "MKCourseDetailModel.h"
+#import "MKOfflineCourseDetail.h"
 
 @interface CourseOfflineListCell()
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
@@ -22,7 +23,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.whiteView.backgroundColor = K_BG_deepGrayColor;
-    [self.courseNumLab setFont:K_Font_Text_Normal textColor:K_Text_grayColor withBackGroundColor:nil];
+    [self.courseNumLab setFont:K_Font_Text_Normal_little textColor:K_Text_grayColor withBackGroundColor:nil];
     [self.courseTimeLab setFont:MKBoldFont(13) textColor:K_Text_grayColor withBackGroundColor:nil];
     [self.courseDecriptionLab setFont:K_Font_Text_Min_Max textColor:K_Text_grayColor withBackGroundColor:nil];
     self.courseDecriptionLab.numberOfLines = 2;
@@ -31,17 +32,29 @@
 {
     [super layoutSubviews];
     self.whiteView.frame = CGRectMake(K_Padding_LeftPadding, 0, self.contentView.width-K_Padding_LeftPadding*2, self.contentView.height-KScaleHeight(10));
-    self.courseNumLab.frame = CGRectMake(K_Padding_LeftPadding, 0, KScaleWidth(30), self.whiteView.height);
+    self.courseNumLab.frame = CGRectMake(K_Padding_LeftPadding, 0, KScaleWidth(80), self.whiteView.height);
     self.courseSelectedIma.frame = CGRectMake(self.whiteView.width-K_Padding_LeftPadding-KScaleWidth(22), self.whiteView.height/2-KScaleWidth(11), KScaleWidth(22), KScaleWidth(22));
     self.courseTimeLab.frame = CGRectMake(self.courseNumLab.rightX, KScaleHeight(6), self.courseSelectedIma.leftX-self.courseNumLab.rightX-K_Padding_LeftPadding*2, KScaleHeight(20));
     self.courseDecriptionLab.frame = CGRectMake(self.courseTimeLab.leftX, self.courseTimeLab.bottomY, self.courseTimeLab.width, KScaleHeight(40));
 }
 
--(void)cellRefreshDataWithLessonModel:(MKLessonModel *)model
+-(void)cellRefreshDataWithLessonModel:(MKOfflineLesson *)model
 {
-    [self.courseSelectedIma sd_setImageWithURL:[NSURL URLWithString:model.lessonImage] placeholderImage:nil];
-    self.courseNumLab.text = [NSString stringWithFormat:@"%ld",[model.order_list integerValue]];
-    self.courseTimeLab.text = @"03月14日   17:00-19:00";
-    self.courseDecriptionLab.text = @"概述大学院美术进学的概念，介绍确认研究课题的方法，通过随堂练习导入方法 …";
+//    [self.courseSelectedIma sd_setImageWithURL:[NSURL URLWithString:model.lessonImage] placeholderImage:nil];
+    if ([model.is_over integerValue] == 1) {
+        self.courseSelectedIma.image = KImageNamed(@"courseDetail_selected");
+    }else{
+        self.courseSelectedIma.image = KImageNamed(@"");
+    }
+    self.courseNumLab.text = model.name;
+    NSString *timeString = model.date;
+    if (![NSString isEmptyWithStr:model.start_time]) {
+     timeString = [timeString stringByAppendingString:[NSString stringWithFormat:@"   %@",model.start_time]];
+    }
+    if (![NSString isEmptyWithStr:model.end_time]) {
+       timeString = [timeString stringByAppendingString:[NSString stringWithFormat:@"-%@",model.end_time]];
+    }
+    self.courseTimeLab.text = timeString;
+    self.courseDecriptionLab.text = model.lessonDecription;
 }
 @end

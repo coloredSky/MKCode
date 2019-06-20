@@ -7,6 +7,8 @@
 //
 
 #import "BillListCollectionViewCell.h"
+#import "UserBillListModel.h"
+
 @interface BillListCollectionViewCell()
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
@@ -46,10 +48,10 @@
     self.timeLab.frame = CGRectMake(self.courseNameLab.leftX, self.courseNameLab.bottomY, self.courseNameLab.width, self.courseNameLab.height);
 }
 
--(void)cellRefreshData
+-(void)cellRefreshDataWithUserBillListModel:(UserBillListModel *)billModel
 {
-    self.courseNameLab.text = @"历史基础课程";
-    self.timeLab.text = @"2019-01-18 23:49:21";
-    self.contentIma.image = KImageNamed(@"billList");
+     [self.contentIma sd_setImageWithURL:[NSURL URLWithString:billModel.course_post] placeholderImage:nil];
+    self.courseNameLab.text = billModel.course_name;
+    self.timeLab.text = billModel.log_date;
 }
 @end

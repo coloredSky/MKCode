@@ -30,7 +30,8 @@
 #define kMKApplyAskForLeaveListRefreshNotifcationKey @"kMKApplyAskForLeaveListRefreshNotifcationKey"
 /**换班列表刷新通知*/
 #define kMKApplyChangeClassListRefreshNotifcationKey @"kMKApplyChangeClassListRefreshNotifcationKey"
-
+/*收藏课程列表刷新通知*/
+#define kMKUserCollectionClassListRefreshNotifcationKey @"kMKUserCollectionClassListRefreshNotifcationKey"
 
 //URL
 /**客服URL*/

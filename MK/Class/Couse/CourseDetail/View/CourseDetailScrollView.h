@@ -9,9 +9,11 @@
 
 @class MKCourseDetailModel;
 @class MKLessonModel;
+@class MKOfflineCourseDetail;
 
 #import <UIKit/UIKit.h>
 #import "CourseDetailManager.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,10 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol CourseDetailScrollViewDelegate;
 
 @interface CourseDetailScrollView : UIView
-@property (nonatomic, strong) id<CourseDetailScrollViewDelegate>delegate;
+@property (nonatomic, assign) id<CourseDetailScrollViewDelegate>delegate;
 @property (nonatomic, assign) CourseSituationType courseType;
 //数据刷新
--(void)courseDetailScrollViewReloadDataWithMKCourseDetailModel:(MKCourseDetailModel *)courseDetailModel;
+-(void)courseDetailScrollViewReloadDataWithMKCourseDetailModel:(MKCourseDetailModel *)courseDetailModel offlineCourseDetailModel:(MKOfflineCourseDetail *)offlineCourseDetailModel;
 //使scrollView翻页
 -(void)scrollToIndex:(NSInteger )index;
 @end

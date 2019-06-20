@@ -7,11 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+@class UserBillListModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MyBillManager : NSObject
-+(void)callBackMyBillDataWithHudShow:(BOOL)hudShow  CompletionBlock:(void(^)(BOOL isSuccess,NSString *message, LoginModel *model))completionBlock;
+
+
+/**
+ 获取订单列表
+ @param completionBlock 回调
+ */
++(void)callBackMyBillDataWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <UserBillListModel *> *billList,NSString *message))completionBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,22 +7,40 @@
 //
 
 #import "BookmarkController.h"
+#import "CourseDetailViewController.h"
 #import "BookmarkCell.h"
+#import "BookMarkManager.h"
+#import "BookMarkModel.h"
+
 @interface BookmarkController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UILabel * titleLabel;
 @property (nonatomic, strong) MKBaseTableView *contentTable;
-@property (nonatomic, strong) NSMutableArray *dataArr;
+
+@property (nonatomic, strong) NSArray <BookMarkModel *> *bookMarkList;
+
 @end
 
 @implementation BookmarkController
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self creatUICompents];
     [self setUpRefresh];
-    self.dataArr = @[@"",@"",@"",@"",@""].mutableCopy;
+    [self startRequest];
+    [self addNoti];
 }
+
+-(void)addNoti
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(bookMarkListRefresh:) name:kMKUserCollectionClassListRefreshNotifcationKey object:nil];
+}
+
 #pragma mark-创建ui
 -(void)creatUICompents
 {
@@ -39,29 +57,28 @@
     @weakObject(self);
     self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
-        [self.contentTable.mj_header endRefreshing];
-        self.dataArr = @[@""].mutableCopy;
-        [self.contentTable reloadData];
-        self.placeholderViewShow = YES;
-        self.contentTable.hidden = YES;
+        [self startRequest];
     }];
-    //上拉加载
-        self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-//            @strongObject(self);
-//            [self.contentTable.mj_footer endRefreshing];
-//            self.dataArr = @[@"",@"",@"",@"",@"",@""].mutableCopy;
-//            [self.contentTable reloadData];
-//            self.placeholderViewShow = NO;
-//            self.contentTable.hidden = NO;
-        }];
 }
 
 #pragma mark --  request
 -(void)startRequest
 {
+    [BookMarkManager callBackUserBookMarkListRequesWithCompletionBlock:^(BOOL isSuccess, NSArray<BookMarkModel *> * _Nonnull bookMarkList, NSString * _Nonnull message) {
+        if (isSuccess) {
+            [self.contentTable.mj_header endRefreshing];
+            self.bookMarkList = bookMarkList;
+            if (bookMarkList.count == 0) {
+                self.placeholderViewShow = YES;
+                self.contentTable.hidden = YES;
+            }else{
+                self.placeholderViewShow = NO;
+                self.contentTable.hidden = NO;
+            }
+            [self.contentTable reloadData];
+        }
+    }];
 }
-
-
 
 #pragma mark --  lazy
 -(MKBaseTableView *)contentTable
@@ -69,7 +86,6 @@
     if (!_contentTable) {
         _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, K_NaviHeight+77, KScreenWidth, KScreenHeight-77-K_NaviHeight) style:UITableViewStyleGrouped];
         [self.view addSubview:_contentTable];
-//        [_contentTable setNoDataTitleString:@"先去看看感兴趣的课程吧！" noDataImage:@"bookmark_nodata"];
         _contentTable.backgroundColor = [UIColor clearColor];
         [_contentTable registerNib:[UINib nibWithNibName:@"BookmarkCell" bundle:nil] forCellReuseIdentifier:@"BookmarkCell"];
         _contentTable.delegate = self;
@@ -93,16 +109,26 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BookmarkCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BookmarkCell" forIndexPath:indexPath];
-    [cell cellRefreshData];
+    BookMarkModel *model = self.bookMarkList[indexPath.section];
+    BookMarkListModel *listModel = model.bookMarkList[indexPath.row];
+    [cell cellRefreshDataWithBookMarkListModel:listModel];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return self.bookMarkList.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataArr.count;
+    BookMarkModel *model = self.bookMarkList[section];
+    if (model.bookMarkList.count <= 3) {
+        return model.bookMarkList.count;
+    }else{
+        if (model.isSpread) {
+            return model.bookMarkList.count;
+        }
+        return 3;
+    }
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -119,29 +145,33 @@
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-
     UIView * bgView= [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 40)];
     UILabel  * label =[[UILabel alloc]initWithFrame:CGRectMake(23, 0, KScreenWidth-46, 40)];
     [label setFont:MKBoldFont(16) textColor:K_Text_grayColor withBackGroundColor:nil];
-    label.text =section ==0?@"线上课程":@"线下课程";
+    BookMarkModel *model = self.bookMarkList[section];
+    label.text = model.titleString;
     [bgView addSubview:label];
     
     return bgView;
 }
+
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
+    BookMarkModel *model = self.bookMarkList[section];
     UIView * bgView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 30)];
-    
+    UIImageView *spreadIma = [[UIImageView alloc]initWithFrame:CGRectMake(bgView.width/2-8, bgView.height/2-8, 16, 16)];
+    [bgView addSubview:spreadIma];
+    if (model.isSpread) {
+        spreadIma.image = KImageNamed(@"bookmark_show");
+    }else{
+        spreadIma.image = KImageNamed(@"bookmark_notshow");
+    }
     UIButton * moreBtn =[UIButton buttonWithType:UIButtonTypeCustom];
     moreBtn.backgroundColor =[UIColor clearColor];
     moreBtn.frame =CGRectMake(0, 0, KScreenWidth, 30);
     [bgView addSubview:moreBtn];
-    
-    UIView * lineView =[UIView new];
-    lineView.bounds =CGRectMake(0, 0, 24, 4);
-    lineView.center =CGPointMake(KScreenWidth/2, 15);
-    lineView.backgroundColor =UIColorFromRGB_0x(0X727272);
-    [bgView addSubview:lineView];
+    moreBtn.tag = section;
+    [moreBtn addTarget:self action:@selector(moreShowHandleTarget:) forControlEvents:UIControlEventTouchUpInside];
     return bgView;
 }
 
@@ -149,7 +179,22 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
+    BookMarkModel *model = self.bookMarkList[indexPath.section];
+    BookMarkListModel *listModel = model.bookMarkList[indexPath.row];
+    CourseDetailViewController *courseDetailVC = [CourseDetailViewController new];
+    courseDetailVC.course_id = listModel.course_id;
+    [self.navigationController pushViewController:courseDetailVC animated:YES];
+}
+#pragma mark --  展开
+-(void)moreShowHandleTarget:(UIButton *)sender
+{
+    BookMarkModel *model = self.bookMarkList[sender.tag];
+    if (model.bookMarkList.count <= 3) {
+        [MBHUDManager showBriefAlert:@"没有更多课程了！"];
+        return;
+    }
+    model.isSpread = !model.isSpread;
+    [self.contentTable reloadData];
 }
 #pragma mark -- course category did selected
 -(void)itemDidSelectedWithIndex:(NSUInteger )index
@@ -159,10 +204,12 @@
 #pragma mark --  placeholderView-delegate
 -(void)placeholderViewClickWithDisplayType:(MKPlaceWorderViewDisplayType )placeholderDisplayType
 {
-    self.dataArr = @[@"",@"",@"",@"",@"",@""].mutableCopy;
-    [self.contentTable reloadData];
-    self.placeholderViewShow = NO;
-    self.contentTable.hidden = NO;
+    
 }
 
+#pragma mark --  通知
+-(void)bookMarkListRefresh:(NSNotification *)noti
+{
+    [self startRequest];
+}
 @end

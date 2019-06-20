@@ -69,11 +69,13 @@
     }
     return _placeholderView;
 }
+
 -(void)reloadPlacehorldViewWithFrame:(CGRect )frame placehorldDisplayType:(MKPlaceWorderViewDisplayType )displayType
 {
     self.placeholderView.frame = frame;
     self.placeholderView.displayType = displayType;
 }
+
 -(void)setPlaceholderViewShow:(BOOL)placeholderViewShow
 {
     if (placeholderViewShow) {

@@ -30,11 +30,11 @@
 //    CGSize teacherIntroduceLabSize = [self.teacherIntroduceLab.text getStrSizeWithSize:CGSizeMake(self.teacherNameLab.width, 3000) font:self.teacherIntroduceLab.font];
     self.teacherIntroduceLab.frame = CGRectMake(self.teacherNameLab.leftX, self.teacherNameLab.bottomY, self.teacherNameLab.width, self.teacherHeaderIma.height-self.teacherNameLab.height);
 }
--(void)cellRefreshDataWithCourseDetailModel:(MKCourseDetailModel *)courseDetailMode
+-(void)cellRefreshDataWithTeacherName:(NSString *)teacherNmae teacherIma:(NSString *)teacherIma teacherDescription:(NSString *)teacherDescription
 {
-    [self.teacherHeaderIma sd_setImageWithURL:[NSURL URLWithString:courseDetailMode.teacher_avatar] placeholderImage:K_placeholder_Image];
-    self.teacherNameLab.text = courseDetailMode.teacher_name;
-    self.teacherIntroduceLab.text = [NSString filterHTML:courseDetailMode.teacher_detail];
+    [self.teacherHeaderIma sd_setImageWithURL:[NSURL URLWithString:teacherIma] placeholderImage:K_placeholder_Image];
+    self.teacherNameLab.text = teacherNmae;
+    self.teacherIntroduceLab.text = teacherDescription;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

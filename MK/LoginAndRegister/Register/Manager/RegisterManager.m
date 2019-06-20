@@ -28,7 +28,9 @@
             }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
-        
+        if (completionBlock) {
+            completionBlock(NO,error.userInfo[NSLocalizedDescriptionKey],@"获取验证码失败");
+        }
     }];
 }
 +(void)callBackRegisterWithHudShow:(BOOL)hudShow phone:(NSString *)phone code:(NSString *)code pwd:(NSString * )pwd CompletionBlock:(void(^)(BOOL isSuccess,NSString *message, NSString *status))completionBlock
@@ -59,7 +61,32 @@
             completionBlock(NO,MKResult.message,@"注册失败");
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
-        
+        if (completionBlock) {
+            completionBlock(NO,error.userInfo[NSLocalizedDescriptionKey],@"注册失败");
+        }
+    }];
+}
+
++(void)callBackFindPasswordRequestWithMobile:(NSString * )mobile code:(NSString * )code passwd:(NSString * )passwd repasswd:(NSString * )repasswd andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock
+{
+    NSDictionary *parameter = @{
+                                @"mobile":mobile,
+                                @"code":code,
+                                @"passwd":passwd,
+                                @"repasswd":repasswd,
+                                };
+    [MKNetworkManager sendPostRequestWithUrl:K_MK_UserFindPassword_Url parameters:parameter hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode ==0) {
+            completionBlock(YES,MKResult.message);
+        }
+        else
+        {
+            completionBlock(NO,MKResult.message);
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        if (completionBlock) {
+            completionBlock(NO,error.userInfo[NSLocalizedDescriptionKey]);
+        }
     }];
 }
 @end

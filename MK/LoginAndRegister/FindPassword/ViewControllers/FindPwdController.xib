@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FindPwdController">
             <connections>
+                <outlet property="bgIma" destination="sue-PC-qsP" id="sKR-lw-3tq"/>
+                <outlet property="codeSignLab" destination="0mH-dP-Zhv" id="WzD-oz-Jp4"/>
+                <outlet property="codeTF" destination="rm3-qd-6dK" id="WOT-ZU-bMu"/>
+                <outlet property="passwordSignLab" destination="P20-ox-1kx" id="Ltf-QK-FL3"/>
+                <outlet property="passwordTF" destination="smC-Pf-IDN" id="eVo-uF-UcJ"/>
+                <outlet property="phoneSignLab" destination="08y-lv-kr0" id="kI5-Ne-Jsg"/>
+                <outlet property="phoneTF" destination="WyA-4q-z8o" id="42D-gi-2jJ"/>
+                <outlet property="sendCodeBtn" destination="uiZ-id-kCj" id="4aj-N5-Ra9"/>
+                <outlet property="titleSignLab" destination="ai6-D5-num" id="cUg-5c-oP9"/>
                 <outlet property="view" destination="qds-il-nOy" id="5We-BT-pCq"/>
             </connections>
         </placeholder>
@@ -52,7 +61,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ai6-D5-num">
-                    <rect key="frame" x="26" y="144" width="187" height="36"/>
+                    <rect key="frame" x="26" y="90" width="187" height="36"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -63,7 +72,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="PIp-rR-fdg"/>
                     </constraints>
-                    <state key="normal" title="注 册">
+                    <state key="normal" title="修改密码">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -71,6 +80,9 @@
                             <integer key="value" value="6"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="submitHandleTarget:" destination="-1" eventType="touchUpInside" id="BTP-rX-UC5"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WyA-4q-z8o">
                     <rect key="frame" x="26" y="304" width="120" height="17"/>
@@ -81,13 +93,14 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiZ-id-kCj" customClass="JKCountDownButton">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiZ-id-kCj">
                     <rect key="frame" x="179" y="299" width="100" height="27"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="f6J-Dk-a8R"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="接收验证码">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -96,13 +109,9 @@
                             <integer key="value" value="3"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7f-wt-2h2">
-                    <rect key="frame" x="12" y="0.0" width="14" height="26"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="26" id="Lig-Qq-K58"/>
-                        <constraint firstAttribute="width" constant="14" id="g62-AM-giy"/>
-                    </constraints>
+                    <connections>
+                        <action selector="sendCodeHandleTarget:" destination="-1" eventType="touchUpInside" id="pRt-eE-Lnw"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="smC-Pf-IDN">
                     <rect key="frame" x="26" y="466" width="120" height="17"/>
@@ -113,39 +122,27 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwD-J2-eay">
-                    <rect key="frame" x="313" y="28" width="46" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Nwn-y5-ijc"/>
-                        <constraint firstAttribute="width" constant="46" id="gyH-DH-JKA"/>
-                    </constraints>
-                    <state key="normal" image="navBack_black_image"/>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="wwD-J2-eay" firstAttribute="top" secondItem="qds-il-nOy" secondAttribute="top" constant="28" id="0ya-y0-W7i"/>
                 <constraint firstAttribute="bottom" secondItem="x1V-mK-1bF" secondAttribute="bottom" constant="100" id="16l-dp-NST"/>
                 <constraint firstItem="0mH-dP-Zhv" firstAttribute="leading" secondItem="qds-il-nOy" secondAttribute="leading" constant="26" id="1EI-ys-BBW"/>
                 <constraint firstItem="zYf-jY-yJa" firstAttribute="leading" secondItem="qds-il-nOy" secondAttribute="leading" id="2F1-ca-6qE"/>
                 <constraint firstItem="smC-Pf-IDN" firstAttribute="top" secondItem="P20-ox-1kx" secondAttribute="bottom" constant="23" id="2qo-vN-ywj"/>
                 <constraint firstAttribute="trailing" secondItem="zYf-jY-yJa" secondAttribute="trailing" id="91l-Xq-tHn"/>
                 <constraint firstItem="sue-PC-qsP" firstAttribute="leading" secondItem="qds-il-nOy" secondAttribute="leading" id="B4u-EW-5ax"/>
-                <constraint firstItem="ai6-D5-num" firstAttribute="top" secondItem="vzi-Fr-bjj" secondAttribute="top" constant="124" id="F5a-bH-4tN"/>
+                <constraint firstItem="ai6-D5-num" firstAttribute="top" secondItem="vzi-Fr-bjj" secondAttribute="top" constant="70" id="F5a-bH-4tN"/>
                 <constraint firstItem="P20-ox-1kx" firstAttribute="leading" secondItem="qds-il-nOy" secondAttribute="leading" constant="26" id="Hbh-nr-18a"/>
                 <constraint firstItem="WyA-4q-z8o" firstAttribute="top" secondItem="08y-lv-kr0" secondAttribute="bottom" constant="28" id="Iuq-1L-eTN"/>
-                <constraint firstItem="b7f-wt-2h2" firstAttribute="leading" secondItem="qds-il-nOy" secondAttribute="leading" constant="12" id="KFO-ZJ-bTl"/>
                 <constraint firstAttribute="bottom" secondItem="sue-PC-qsP" secondAttribute="bottom" id="Kyb-8B-IYE"/>
                 <constraint firstItem="x1V-mK-1bF" firstAttribute="leading" secondItem="qds-il-nOy" secondAttribute="leading" constant="26" id="LWt-hS-29F"/>
                 <constraint firstItem="uiZ-id-kCj" firstAttribute="centerY" secondItem="WyA-4q-z8o" secondAttribute="centerY" id="WVq-Zy-35E"/>
                 <constraint firstItem="rm3-qd-6dK" firstAttribute="leading" secondItem="qds-il-nOy" secondAttribute="leading" constant="26" id="XAG-jq-neJ"/>
                 <constraint firstAttribute="trailing" secondItem="sue-PC-qsP" secondAttribute="trailing" id="XsS-mH-upN"/>
-                <constraint firstItem="b7f-wt-2h2" firstAttribute="top" secondItem="qds-il-nOy" secondAttribute="top" id="bRN-KW-Zkh"/>
                 <constraint firstItem="rm3-qd-6dK" firstAttribute="top" secondItem="0mH-dP-Zhv" secondAttribute="bottom" constant="34" id="ccS-Zs-i3t"/>
                 <constraint firstItem="x1V-mK-1bF" firstAttribute="top" secondItem="smC-Pf-IDN" secondAttribute="bottom" constant="24" id="cwk-WQ-g1G"/>
                 <constraint firstAttribute="trailing" secondItem="x1V-mK-1bF" secondAttribute="trailing" constant="26" id="em7-HA-Ho4"/>
                 <constraint firstAttribute="bottom" secondItem="zYf-jY-yJa" secondAttribute="bottom" id="eoe-Aa-KOt"/>
-                <constraint firstAttribute="trailing" secondItem="wwD-J2-eay" secondAttribute="trailing" constant="16" id="ir8-AC-9kd"/>
                 <constraint firstItem="uiZ-id-kCj" firstAttribute="leading" secondItem="WyA-4q-z8o" secondAttribute="trailing" constant="33" id="jkK-UT-NKx"/>
                 <constraint firstItem="0mH-dP-Zhv" firstAttribute="top" secondItem="WyA-4q-z8o" secondAttribute="bottom" constant="17" id="leK-bF-FDa"/>
                 <constraint firstItem="08y-lv-kr0" firstAttribute="leading" secondItem="qds-il-nOy" secondAttribute="leading" constant="26" id="met-49-nsV"/>
@@ -163,6 +160,5 @@
     </objects>
     <resources>
         <image name="login_app" width="375" height="812"/>
-        <image name="navBack_black_image" width="25" height="25"/>
     </resources>
 </document>

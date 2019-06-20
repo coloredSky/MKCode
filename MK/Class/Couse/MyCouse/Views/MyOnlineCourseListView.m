@@ -12,7 +12,7 @@
 #import "MyOfflineCourseListFlowLayout.h"
 @interface MyOnlineCourseListView()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *courseListCollection;
-@property (nonatomic, strong) NSMutableArray *courseListArr;
+@property (nonatomic, strong) NSArray *courseListArr;
 @end
 @implementation MyOnlineCourseListView
 @synthesize delegate;
@@ -45,20 +45,6 @@
     }
     return _courseListCollection;
 }
--(NSMutableArray *)courseListArr
-{
-    if (!_courseListArr) {
-        _courseListArr = [NSMutableArray array];
-        if (self.listViewShowType == UserCourseListViewShowTypeOnline) {
-            _courseListArr = @[@"",@"",@"",@"",@"",@"",@"",@""].mutableCopy;
-        }else if (self.listViewShowType == UserCourseListViewShowTypeOfflineUnderWay) {
-            _courseListArr = @[@"",@"",@"",@"",@"",@"",@"",@""].mutableCopy;
-        }else if (self.listViewShowType == UserCourseListViewShowTypeOfflineNotStart) {
-            _courseListArr = @[@"",@"",@"",@"",@"",@"",@"",@""].mutableCopy;
-        }
-    }
-    return _courseListArr;
-}
 
 -(void)layoutSubviews
 {
@@ -76,20 +62,22 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MyCourseOnlineListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCourseOnlineListCollectionViewCell" forIndexPath:indexPath];
-    [cell cellRefreshDataWithIndexPath:indexPath withShowType:self.listViewShowType];
+    [cell cellRefreshDataWithIndexPath:indexPath withShowType:self.listViewShowType courseModel:self.courseListArr[indexPath.row]];
     return cell;
 }
 
 -(void)onlineCourseListViewRefreshDataWithContentArr:(NSMutableArray *)courseList
 {
+    self.courseListArr = courseList;
     [self.courseListCollection reloadData];
 }
 
 #pragma mark --  EVENT
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([delegate respondsToSelector:@selector(myOnlineCourseListViewDidSelectedCourseWithIndexPath: andUserCourseListViewShowType:)]) {
-        [delegate myOnlineCourseListViewDidSelectedCourseWithIndexPath:indexPath andUserCourseListViewShowType:self.listViewShowType];
+    if ([delegate respondsToSelector:@selector(myOnlineCourseListViewDidSelectedCourseWithIndexPath: andUserCourseListViewShowType: withCourseModel:)]) {
+        MKCourseListModel *courseModel =  self.courseListArr[indexPath.row];
+        [delegate myOnlineCourseListViewDidSelectedCourseWithIndexPath:indexPath andUserCourseListViewShowType:self.listViewShowType withCourseModel:courseModel];
     }
 }
 @end

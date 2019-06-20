@@ -46,7 +46,7 @@
 {
     if (!_noDataView) {
         _noDataView = [UIView new];
-        _noDataView.backgroundColor = K_BG_WhiteColor;
+        _noDataView.backgroundColor = K_BG_deepGrayColor;
         [self addSubview:_noDataView];
     }
     return _noDataView;

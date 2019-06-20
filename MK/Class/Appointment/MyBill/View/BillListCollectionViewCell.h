@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class UserBillListModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BillListCollectionViewCell : UICollectionViewCell
--(void)cellRefreshData;
+-(void)cellRefreshDataWithUserBillListModel:(UserBillListModel *)billModel;
 @end
 
 NS_ASSUME_NONNULL_END

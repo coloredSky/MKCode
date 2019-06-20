@@ -10,6 +10,8 @@
 #import "CourseDetailViewController.h"
 
 #import "MyCourseListCell.h"
+#import "MKCourseListModel.h"
+
 @interface MyCourseListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong) UIView *headerView;
@@ -21,7 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_WhiteColor;
-    [self setUpRefresh];
+//    [self setUpRefresh];
+    [self.contentTable reloadData];
 }
 #pragma mark --  refresh
 -(void)setUpRefresh
@@ -32,10 +35,6 @@
         @strongObject(self);
         [self.contentTable.mj_header endRefreshing];
     }];
-    //上拉加载
-    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-    //                @strongObject(self);
-    //    }];
 }
 
 #pragma mark --  request
@@ -83,7 +82,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
         MyCourseListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCourseListCell" forIndexPath:indexPath];
-        [cell cellRefreshDataWithIndexPath:indexPath withShowType:self.courseListShowType];
+        [cell cellRefreshDataWithIndexPath:indexPath withShowType:self.courseListShowType courseList:self.courseList];
         return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -92,7 +91,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    return self.courseList.count;
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -121,6 +120,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CourseDetailViewController *detailVC = [CourseDetailViewController new];
+    if (self.courseListShowType == UserCourseListViewShowTypeOnline) {
+        detailVC.courseType = CourseSituationTypeOnline;
+    }else{
+        detailVC.courseType = CourseSituationTypeOffline;
+    }
+    MKCourseListModel *courseModel = self.courseList[indexPath.row];
+    detailVC.course_id = courseModel.courseID;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 @end

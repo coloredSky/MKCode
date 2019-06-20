@@ -14,9 +14,11 @@
 #import "BillListCollectionViewCell.h"
 //manager
 #import "MyBillManager.h"
+#import "UserBillListModel.h"
 @interface MyBillListViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UICollectionView *contentCollectionView;
+@property (nonatomic, strong) NSArray <UserBillListModel *>*billList;
 @end
 
 @implementation MyBillListViewController
@@ -40,17 +42,14 @@
         self.placeholderViewShow = YES;
         self.contentCollectionView.hidden = YES;
     }];
-    //上拉加载
-    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-    //                @strongObject(self);
-    //    }];
 }
 
 #pragma mark --  request
 -(void)startRequest
 {
-    [MyBillManager callBackMyBillDataWithHudShow:YES CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, LoginModel * _Nonnull model) {
-        
+    [MyBillManager callBackMyBillDataWithCompletionBlock:^(BOOL isSuccess, NSArray<UserBillListModel *> * _Nonnull billList, NSString * _Nonnull message) {
+        self.billList = billList;
+        [self.contentCollectionView reloadData];
     }];
 }
 
@@ -87,7 +86,8 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     BillListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BillListCollectionViewCell" forIndexPath:indexPath];
-    [cell cellRefreshData];
+    UserBillListModel *model = self.billList[indexPath.row];
+    [cell cellRefreshDataWithUserBillListModel:model];
     return cell;
 }
 
@@ -97,14 +97,16 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return self.billList.count;
 }
 
 #pragma mark --  EVENT
 #pragma mark --  collection-didSelected
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    UserBillListModel *model = self.billList[indexPath.row];
     MKBillDetailViewController *billDetailVC  = [MKBillDetailViewController new];
+    billDetailVC.billModel = model;
     [self.navigationController pushViewController:billDetailVC animated:YES];
 }
 @end
