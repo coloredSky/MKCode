@@ -9,6 +9,7 @@
 #import "LoginActionController.h"
 #import "RegisterController.h"
 #import "MKTarbarViewController.h"
+#import "FindPwdController.h"
 #import "LoginManager.h"
 
 @interface LoginActionController ()
@@ -82,7 +83,8 @@
         }];
     }else if (sender.tag == 3){
         //忘记密码
-        
+        FindPwdController *findPwdVC = [FindPwdController new];
+        [self.navigationController pushViewController:findPwdVC animated:YES];
     }
 }
 

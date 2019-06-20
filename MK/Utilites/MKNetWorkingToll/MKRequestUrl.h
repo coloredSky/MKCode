@@ -31,9 +31,11 @@ static NSString * const K_MK_OfflineCourse_CourseDetail_Url  = @"/api/user/getOf
 static NSString * const K_MK_Course_Collection_Url  = @"/api/user/focusCourse";
 //课程取消收藏
 static NSString * const K_MK_Course_CancleCollection_Url  = @"/api/user/cancelFocusCourse";
+//获取课程收藏列表
+static NSString * const K_MK_UserBookMarkList_Url =@"/api/user/focusCourseList";
 
 //发现列表
-static NSString * const K_MK_Discover_NewsList_Url  = @"/api/posts/getlist";
+static NSString * const K_MK_Discover_NewsList_Url  = @"/api/article/getlist";
 //发现新闻详情
 static NSString * const K_MK_Discover_NewsDetail_Url  = @"/api/posts/getcontent";
 
@@ -100,6 +102,8 @@ static NSString * const K_MK_Login_url  = @"/api/user/login";
 static NSString * const K_MK_GetPhoneCode_url  = @"/api/user/sms";
 //注册接口
 static NSString * const K_MK_Register_Url  = @"/api/user/reg";
+//找回密码
+static NSString * const K_MK_UserFindPassword_Url  = @"/api/user/findPwd";
 
 //我的课程
 static NSString * const K_MK_UserCourseList_Url  = @"/api/user/courseList";

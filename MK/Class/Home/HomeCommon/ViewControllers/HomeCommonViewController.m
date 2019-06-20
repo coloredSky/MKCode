@@ -160,7 +160,9 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    MKCourseListModel *model = self.commonCourseList[indexPath.row];
     CourseDetailViewController *courseDetailVC = [CourseDetailViewController new];
+    courseDetailVC.course_id = model.courseID;
     [self.navigationController pushViewController:courseDetailVC animated:YES];
 }
 

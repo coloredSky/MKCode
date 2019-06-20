@@ -7,11 +7,12 @@
 //
 
 #import "MKBaseTableViewCell.h"
+@class BookMarkListModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BookmarkCell : MKBaseTableViewCell
--(void)cellRefreshData;
+-(void)cellRefreshDataWithBookMarkListModel:(BookMarkListModel *)bookModel;
 @end
 
 NS_ASSUME_NONNULL_END

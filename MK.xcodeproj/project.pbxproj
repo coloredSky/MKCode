@@ -137,6 +137,8 @@
 		30A19D3822B8FA96006D46EC /* UserBillListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A19D3722B8FA96006D46EC /* UserBillListModel.m */; };
 		30A19D3E22B9EB8B006D46EC /* MessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A19D3D22B9EB8B006D46EC /* MessageManager.m */; };
 		30A19D4122BA2BB7006D46EC /* MKOfflineCourseDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A19D4022BA2BB7006D46EC /* MKOfflineCourseDetail.m */; };
+		30A19D4422BB2F4D006D46EC /* UIButton+Countdown.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A19D4222BB2F4D006D46EC /* UIButton+Countdown.m */; };
+		30A19D4822BB5CCF006D46EC /* BookMarkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A19D4722BB5CCF006D46EC /* BookMarkModel.m */; };
 		30A201362254679400A6A232 /* AskForLeaveQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A201352254679400A6A232 /* AskForLeaveQueryViewController.m */; };
 		30A201392254681100A6A232 /* AskForLeaveEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A201382254681100A6A232 /* AskForLeaveEndViewController.m */; };
 		30A2013C2254A2AC00A6A232 /* ChangeClassQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A2013B2254A2AC00A6A232 /* ChangeClassQueryViewController.m */; };
@@ -549,6 +551,10 @@
 		30A19D3D22B9EB8B006D46EC /* MessageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageManager.m; sourceTree = "<group>"; };
 		30A19D3F22BA2BB7006D46EC /* MKOfflineCourseDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKOfflineCourseDetail.h; sourceTree = "<group>"; };
 		30A19D4022BA2BB7006D46EC /* MKOfflineCourseDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKOfflineCourseDetail.m; sourceTree = "<group>"; };
+		30A19D4222BB2F4D006D46EC /* UIButton+Countdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Countdown.m"; sourceTree = "<group>"; };
+		30A19D4322BB2F4D006D46EC /* UIButton+Countdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Countdown.h"; sourceTree = "<group>"; };
+		30A19D4622BB5CCF006D46EC /* BookMarkModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookMarkModel.h; sourceTree = "<group>"; };
+		30A19D4722BB5CCF006D46EC /* BookMarkModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookMarkModel.m; sourceTree = "<group>"; };
 		30A201342254679400A6A232 /* AskForLeaveQueryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskForLeaveQueryViewController.h; sourceTree = "<group>"; };
 		30A201352254679400A6A232 /* AskForLeaveQueryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskForLeaveQueryViewController.m; sourceTree = "<group>"; };
 		30A201372254681100A6A232 /* AskForLeaveEndViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskForLeaveEndViewController.h; sourceTree = "<group>"; };
@@ -1111,6 +1117,7 @@
 		3035B673224F2D4500A1AA98 /* BookMark */ = {
 			isa = PBXGroup;
 			children = (
+				30A19D4522BB5CBC006D46EC /* Model */,
 				3087BC6F22B76E8700145833 /* Manager */,
 				3035B674224F2D4500A1AA98 /* ViewControllers */,
 				3035B677224F2D4500A1AA98 /* Views */,
@@ -1130,8 +1137,8 @@
 		3035B677224F2D4500A1AA98 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3035B678224F2D4500A1AA98 /* BookmarkCell.m */,
 				3035B679224F2D4500A1AA98 /* BookmarkCell.h */,
+				3035B678224F2D4500A1AA98 /* BookmarkCell.m */,
 				3035B67A224F2D4500A1AA98 /* BookmarkCell.xib */,
 			);
 			path = Views;
@@ -1834,6 +1841,8 @@
 		3048D837223263AF00FE63B2 /* UIButton */ = {
 			isa = PBXGroup;
 			children = (
+				30A19D4322BB2F4D006D46EC /* UIButton+Countdown.h */,
+				30A19D4222BB2F4D006D46EC /* UIButton+Countdown.m */,
 				3048D83B223263AF00FE63B2 /* UIButton+layout.h */,
 				3048D839223263AF00FE63B2 /* UIButton+layout.m */,
 			);
@@ -1917,6 +1926,15 @@
 			children = (
 				30A19D3622B8FA96006D46EC /* UserBillListModel.h */,
 				30A19D3722B8FA96006D46EC /* UserBillListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30A19D4522BB5CBC006D46EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30A19D4622BB5CCF006D46EC /* BookMarkModel.h */,
+				30A19D4722BB5CCF006D46EC /* BookMarkModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3208,6 +3226,7 @@
 				30A20192225F28FC00A6A232 /* UITextView+WJPlaceholder.m in Sources */,
 				30A2DA2E224E00640030120D /* DiscoverCourseCategoryView.m in Sources */,
 				30BA54952297C73A00E9A6A0 /* DiscoverNewsModel.m in Sources */,
+				30A19D4422BB2F4D006D46EC /* UIButton+Countdown.m in Sources */,
 				30295727226859E4006D1613 /* WYNetworkDownloadEngine.m in Sources */,
 				30354F8B227F02910045955D /* PLVVodDefinitionPanelView.m in Sources */,
 				30354F97227F02910045955D /* PLVVodPlayerSkin.m in Sources */,
@@ -3269,6 +3288,7 @@
 				30E77DC5226D9DC90052DE5D /* MKPlaceholderView.m in Sources */,
 				30A2014C2255F33800A6A232 /* MyBillListViewController.m in Sources */,
 				30354F95227F02910045955D /* PLVVodShrinkscreenView.m in Sources */,
+				30A19D4822BB5CCF006D46EC /* BookMarkModel.m in Sources */,
 				3035B6AD224F2D4500A1AA98 /* UpdateMessageController.m in Sources */,
 				30295725226859E4006D1613 /* WYNetworkUtils.m in Sources */,
 				3048D82C2232633400FE63B2 /* BMPopView.m in Sources */,

@@ -267,6 +267,11 @@
             }
             self.courseDetailModel.courseInfoDetail.isCollected = YES;
             [self.contentTable reloadData];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kMKUserCollectionClassListRefreshNotifcationKey object:nil];
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }
         }
     }];
 }
@@ -284,6 +289,11 @@
             }
             self.courseDetailModel.courseInfoDetail.isCollected = NO;
             [self.contentTable reloadData];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kMKUserCollectionClassListRefreshNotifcationKey object:nil];
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }
         }
     }];
 }

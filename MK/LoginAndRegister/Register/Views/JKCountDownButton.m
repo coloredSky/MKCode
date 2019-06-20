@@ -40,6 +40,7 @@
         _second--;
         if (_didChangeBlock)
         {
+            self.titleLabel.text = _didChangeBlock(self,_second);
             [self setTitle:_didChangeBlock(self,_second) forState:UIControlStateNormal];
         }
         else
@@ -74,6 +75,7 @@
 -(void)didChange:(DidChangeBlock)didChangeBlock{
     _didChangeBlock = [didChangeBlock copy];
 }
+
 -(void)didFinished:(DidFinishedBlock)didFinishedBlock{
     _didFinishedBlock = [didFinishedBlock copy];
 }

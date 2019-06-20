@@ -124,6 +124,7 @@
     [cell cellRefreshDataWithMKMessageMode:model];
     return cell;
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.messageList.count;

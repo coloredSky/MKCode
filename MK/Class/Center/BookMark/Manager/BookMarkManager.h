@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@class BookMarkModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BookMarkManager : NSObject
 
-//+(void)callBackUserBookMarkListReques andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message, MKCourseDetailModel *courseDetailModel))completionBlock;
++(void)callBackUserBookMarkListRequesWithCompletionBlock:(void(^)(BOOL isSuccess, NSArray <BookMarkModel *>*bookMarkList,NSString *message))completionBlock;
 
 @end
 

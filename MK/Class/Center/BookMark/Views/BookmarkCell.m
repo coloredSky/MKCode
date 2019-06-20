@@ -7,11 +7,15 @@
 //
 
 #import "BookmarkCell.h"
+#import "BookMarkModel.h"
+
 @interface BookmarkCell()
 @property(nonatomic,weak)IBOutlet UIImageView * courseImage;
 @property(nonatomic,weak)IBOutlet UILabel * courseName;
 @property(nonatomic,weak)IBOutlet UILabel * coursePlace;
 @property(nonatomic,weak)IBOutlet UILabel * coursePage;
+@property (weak, nonatomic) IBOutlet UIView *lineIma;
+
 @end
 @implementation BookmarkCell
 
@@ -21,13 +25,16 @@
     [_courseName setFont:MKBoldFont(12) textColor:K_Text_BlackColor withBackGroundColor:nil];
     [_coursePlace setFont:MKFont(10) textColor:K_Text_grayColor withBackGroundColor:nil];
     [_coursePage setFont:MKFont(9) textColor:K_Text_grayColor withBackGroundColor:nil];
+    self.lineIma.height = K_Line_lineWidth;
+    self.lineIma.backgroundColor = K_Line_lineColor;
 }
--(void)cellRefreshData
+
+-(void)cellRefreshDataWithBookMarkListModel:(BookMarkListModel *)bookModel
 {
-    self.courseImage.image = KImageNamed(@"home_course");
-    self.courseName.text = @"日本美术大学面试指南";
-    self.coursePlace.text = @"每刻美术学院";
-    self.coursePage.text =@"24";
+    [self.courseImage sd_setImageWithURL:[NSURL URLWithString:bookModel.course_Image] placeholderImage:nil];
+    self.courseName.text = bookModel.category;
+    self.coursePlace.text = bookModel.name;
+    self.coursePage.text =@"";
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
