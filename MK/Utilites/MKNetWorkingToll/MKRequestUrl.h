@@ -96,4 +96,9 @@ static NSString * const K_MK_SetPwd_url  = @"/api/user/updatePwd";
 static NSString * const K_MK_FeedBack_url  = @"api/user/insertUserFeedback";
 //获取个人信息
 static NSString * const K_MK_GetUserInfo_url  = @"/api/user/GetUserInfo";
+/*
+ 更改个人信息接口功能如下
+ 1.可以修改外语能力
+ */
+static NSString * const K_MK_UpdateUserInfo_url  = @"/api/user/UpdateUserInfo";
 #endif /* MKRequestUrl_h */

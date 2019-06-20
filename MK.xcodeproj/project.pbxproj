@@ -283,6 +283,11 @@
 		71A18E30225072CA007B4C55 /* LagAndSchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A18E14225072CA007B4C55 /* LagAndSchController.xib */; };
 		71A18E31225072CA007B4C55 /* LagAndSchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A18E15225072CA007B4C55 /* LagAndSchController.m */; };
 		71A18E32225072CA007B4C55 /* ValuePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A18E18225072CA007B4C55 /* ValuePickerView.m */; };
+		71C28F1D22B72FE900BBAF96 /* LanguageAblelityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C28F1C22B72FE900BBAF96 /* LanguageAblelityManager.m */; };
+		71C28F2122B7329A00BBAF96 /* BasicInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C28F2022B7329A00BBAF96 /* BasicInfoManager.m */; };
+		71C28F2522B7360B00BBAF96 /* ValSchoolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C28F2422B7360B00BBAF96 /* ValSchoolManager.m */; };
+		71C28F2922B7374400BBAF96 /* LanAndSchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C28F2822B7374400BBAF96 /* LanAndSchManager.m */; };
+		71C28F2D22B7380100BBAF96 /* JapanDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C28F2C22B7380100BBAF96 /* JapanDateManager.m */; };
 		71C36EAE2267279D0088885F /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C36EAD2267279D0088885F /* LoginManager.m */; };
 		71C36EB2226728900088885F /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C36EB1226728900088885F /* LoginModel.m */; };
 		B035F6116DCEE497F7AF27BA /* libPods-MK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D4FAE1EC8FF073E76DC7C0 /* libPods-MK.a */; };
@@ -818,6 +823,16 @@
 		71A18E15225072CA007B4C55 /* LagAndSchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LagAndSchController.m; sourceTree = "<group>"; };
 		71A18E18225072CA007B4C55 /* ValuePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValuePickerView.m; sourceTree = "<group>"; };
 		71A18E19225072CA007B4C55 /* ValuePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValuePickerView.h; sourceTree = "<group>"; };
+		71C28F1B22B72FE900BBAF96 /* LanguageAblelityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageAblelityManager.h; sourceTree = "<group>"; };
+		71C28F1C22B72FE900BBAF96 /* LanguageAblelityManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageAblelityManager.m; sourceTree = "<group>"; };
+		71C28F1F22B7329A00BBAF96 /* BasicInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicInfoManager.h; sourceTree = "<group>"; };
+		71C28F2022B7329A00BBAF96 /* BasicInfoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicInfoManager.m; sourceTree = "<group>"; };
+		71C28F2322B7360B00BBAF96 /* ValSchoolManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValSchoolManager.h; sourceTree = "<group>"; };
+		71C28F2422B7360B00BBAF96 /* ValSchoolManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ValSchoolManager.m; sourceTree = "<group>"; };
+		71C28F2722B7374400BBAF96 /* LanAndSchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanAndSchManager.h; sourceTree = "<group>"; };
+		71C28F2822B7374400BBAF96 /* LanAndSchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanAndSchManager.m; sourceTree = "<group>"; };
+		71C28F2B22B7380100BBAF96 /* JapanDateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JapanDateManager.h; sourceTree = "<group>"; };
+		71C28F2C22B7380100BBAF96 /* JapanDateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JapanDateManager.m; sourceTree = "<group>"; };
 		71C36EAC2267279D0088885F /* LoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginManager.h; sourceTree = "<group>"; };
 		71C36EAD2267279D0088885F /* LoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
 		71C36EB0226728900088885F /* LoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginModel.h; sourceTree = "<group>"; };
@@ -1160,6 +1175,7 @@
 		3035B67B224F2D4500A1AA98 /* BasicInfo */ = {
 			isa = PBXGroup;
 			children = (
+				71C28F1E22B7328900BBAF96 /* manager */,
 				3035B67F224F2D4500A1AA98 /* Views */,
 				3035B67C224F2D4500A1AA98 /* ViewControllers */,
 			);
@@ -2631,19 +2647,10 @@
 		71A18DD5225072CA007B4C55 /* LanguageAbility  */ = {
 			isa = PBXGroup;
 			children = (
-				71A18DD6225072CA007B4C55 /* Manager */,
+				71C28F1A22B72FCA00BBAF96 /* Manager */,
 				71A18DD7225072CA007B4C55 /* ViewControllers */,
-				71A18DDB225072CA007B4C55 /* Model */,
-				71A18DDC225072CA007B4C55 /* Views */,
 			);
 			path = "LanguageAbility ";
-			sourceTree = "<group>";
-		};
-		71A18DD6225072CA007B4C55 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		71A18DD7225072CA007B4C55 /* ViewControllers */ = {
@@ -2656,36 +2663,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		71A18DDB225072CA007B4C55 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		71A18DDC225072CA007B4C55 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		71A18DDD225072CA007B4C55 /* JapanDate */ = {
 			isa = PBXGroup;
 			children = (
-				71A18DDE225072CA007B4C55 /* Manager */,
+				71C28F2A22B737EC00BBAF96 /* Manager */,
 				71A18DDF225072CA007B4C55 /* ViewControllers */,
-				71A18DE3225072CA007B4C55 /* Model */,
 				71A18DE4225072CA007B4C55 /* Views */,
 			);
 			path = JapanDate;
-			sourceTree = "<group>";
-		};
-		71A18DDE225072CA007B4C55 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		71A18DDF225072CA007B4C55 /* ViewControllers */ = {
@@ -2696,13 +2681,6 @@
 				71A18DE2225072CA007B4C55 /* JapanDateVController.m */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		71A18DE3225072CA007B4C55 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		71A18DE4225072CA007B4C55 /* Views */ = {
@@ -2758,19 +2736,10 @@
 		71A18E09225072CA007B4C55 /* VoluntarySchools  */ = {
 			isa = PBXGroup;
 			children = (
-				71A18E0A225072CA007B4C55 /* Manager */,
+				71C28F2222B735DF00BBAF96 /* Manager */,
 				71A18E0B225072CA007B4C55 /* ViewControllers */,
-				71A18E0E225072CA007B4C55 /* Model */,
-				71A18E0F225072CA007B4C55 /* Views */,
 			);
 			path = "VoluntarySchools ";
-			sourceTree = "<group>";
-		};
-		71A18E0A225072CA007B4C55 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		71A18E0B225072CA007B4C55 /* ViewControllers */ = {
@@ -2782,36 +2751,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		71A18E0E225072CA007B4C55 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		71A18E0F225072CA007B4C55 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		71A18E10225072CA007B4C55 /* LagAndSchool */ = {
 			isa = PBXGroup;
 			children = (
-				71A18E11225072CA007B4C55 /* Manager */,
+				71C28F2622B7373300BBAF96 /* Manager */,
 				71A18E12225072CA007B4C55 /* ViewControllers */,
-				71A18E16225072CA007B4C55 /* Model */,
 				71A18E17225072CA007B4C55 /* Views */,
 			);
 			path = LagAndSchool;
-			sourceTree = "<group>";
-		};
-		71A18E11225072CA007B4C55 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		71A18E12225072CA007B4C55 /* ViewControllers */ = {
@@ -2824,13 +2771,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		71A18E16225072CA007B4C55 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		71A18E17225072CA007B4C55 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -2838,6 +2778,51 @@
 				71A18E19225072CA007B4C55 /* ValuePickerView.h */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		71C28F1A22B72FCA00BBAF96 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				71C28F1B22B72FE900BBAF96 /* LanguageAblelityManager.h */,
+				71C28F1C22B72FE900BBAF96 /* LanguageAblelityManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		71C28F1E22B7328900BBAF96 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				71C28F1F22B7329A00BBAF96 /* BasicInfoManager.h */,
+				71C28F2022B7329A00BBAF96 /* BasicInfoManager.m */,
+			);
+			path = manager;
+			sourceTree = "<group>";
+		};
+		71C28F2222B735DF00BBAF96 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				71C28F2322B7360B00BBAF96 /* ValSchoolManager.h */,
+				71C28F2422B7360B00BBAF96 /* ValSchoolManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		71C28F2622B7373300BBAF96 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				71C28F2722B7374400BBAF96 /* LanAndSchManager.h */,
+				71C28F2822B7374400BBAF96 /* LanAndSchManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		71C28F2A22B737EC00BBAF96 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				71C28F2B22B7380100BBAF96 /* JapanDateManager.h */,
+				71C28F2C22B7380100BBAF96 /* JapanDateManager.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		71C36EAB226727770088885F /* Manager */ = {
@@ -3183,6 +3168,7 @@
 				30FBE37B2244C5700049C0DE /* CourseDetailTipView.m in Sources */,
 				712170D9223F67FE00BA1905 /* MyCenterHeaderView.m in Sources */,
 				30957B0B229E2DA7009DDAAA /* ApplyLeaveManager.m in Sources */,
+				71C28F1D22B72FE900BBAF96 /* LanguageAblelityManager.m in Sources */,
 				302956D2226728CF006D1613 /* MKCourseListModel.m in Sources */,
 				30E77DCB226EFEB80052DE5D /* HomePublicCourseModel.m in Sources */,
 				71A18E2B225072CA007B4C55 /* LYSDatePickerItem.m in Sources */,
@@ -3241,6 +3227,7 @@
 				3035B69E224F2D4500A1AA98 /* PropertyController.m in Sources */,
 				30A2014F2255F3B700A6A232 /* BillListCollectionViewFlowLayout.m in Sources */,
 				712BFB1122729B18004EAA6E /* MyBillManager.m in Sources */,
+				71C28F2122B7329A00BBAF96 /* BasicInfoManager.m in Sources */,
 				3035B65C224F2C7D00A1AA98 /* RegisterController.m in Sources */,
 				71296FC522B1F4F700BB8E7D /* VolunteerDisciplineList.m in Sources */,
 				3048D843223263AF00FE63B2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
@@ -3260,11 +3247,13 @@
 				302956762266DE95006D1613 /* HomePageManager.m in Sources */,
 				30FBE371224238090049C0DE /* AppointmentCollectionViewCell.m in Sources */,
 				30A20192225F28FC00A6A232 /* UITextView+WJPlaceholder.m in Sources */,
+				71C28F2522B7360B00BBAF96 /* ValSchoolManager.m in Sources */,
 				30A2DA2E224E00640030120D /* DiscoverCourseCategoryView.m in Sources */,
 				30BA54952297C73A00E9A6A0 /* DiscoverNewsModel.m in Sources */,
 				30295727226859E4006D1613 /* WYNetworkDownloadEngine.m in Sources */,
 				30354F8B227F02910045955D /* PLVVodDefinitionPanelView.m in Sources */,
 				30354F97227F02910045955D /* PLVVodPlayerSkin.m in Sources */,
+				71C28F2922B7374400BBAF96 /* LanAndSchManager.m in Sources */,
 				3048D85722364F2700FE63B2 /* HomePageViewController.m in Sources */,
 				30354F9F227F02910045955D /* UIView+PLVVod.m in Sources */,
 				30295722226859E4006D1613 /* WYNetworkManager.m in Sources */,
@@ -3347,6 +3336,7 @@
 				30295721226859E4006D1613 /* WYNetworkRequestModel.m in Sources */,
 				71296FA422B1DE7100BB8E7D /* SetPasswordManager.m in Sources */,
 				30FBE38722488AF30049C0DE /* CourseOnlineTitleCell.m in Sources */,
+				71C28F2D22B7380100BBAF96 /* JapanDateManager.m in Sources */,
 				30354F8C227F02910045955D /* PLVVodPlayTipsView.m in Sources */,
 				30A201392254681100A6A232 /* AskForLeaveEndViewController.m in Sources */,
 				3035B6C7225078F100A1AA98 /* AppointmentTapView.m in Sources */,

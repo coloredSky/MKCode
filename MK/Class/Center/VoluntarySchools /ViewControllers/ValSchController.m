@@ -86,6 +86,7 @@
         {
             NSArray * arr =self.contentArr[0];
             cell.textField.text =arr[indexPath.row];
+            
         }
         else if (self.contentArr.count==2 && indexPath.section <2)
         {
