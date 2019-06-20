@@ -110,9 +110,16 @@
     [self presentViewController:alert animated:YES completion:nil];
     __weak typeof(self) weakSelf = self;
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+       // [userDefaults setBool:YES forKey:KMKLoginKey];
+        [userDefaults synchronize];
+
         __strong typeof(weakSelf) strongSelf = weakSelf;
+
         LoginActionController *loginVC = [LoginActionController new];
-        [strongSelf.navigationController pushViewController:loginVC animated:YES];
+        [weakSelf.navigationController pushViewController:loginVC animated:YES];
     }];
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:cancleAction];

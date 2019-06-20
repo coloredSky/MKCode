@@ -7,11 +7,11 @@
 //
 
 #import "MKBaseViewController.h"
-
+#import "PersonModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JapanDateVController : MKNavViewController
-
+@property(nonatomic,strong)PersonModel * model;
 @end
 
 NS_ASSUME_NONNULL_END

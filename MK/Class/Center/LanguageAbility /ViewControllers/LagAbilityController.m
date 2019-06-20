@@ -21,7 +21,23 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor =K_BG_WhiteColor;
 }
+-(void)setModel:(PersonModel *)model
+{
+    _model =model;
 
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear: animated];
+    if (_model !=nil)
+    {
+        self.TOEIC.text =_model.userInfo.toeic;
+        self.TOEFL.text =_model.userInfo.toefl;
+        self.JapField.text =_model.userInfo.jlpt;
+    }
+}
 /*
 #pragma mark - Navigation
 

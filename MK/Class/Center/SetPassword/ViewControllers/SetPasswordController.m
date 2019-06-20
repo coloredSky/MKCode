@@ -7,9 +7,9 @@
 //
 
 #import "SetPasswordController.h"
-
+#import "SetPasswordManager.h"
 @interface SetPasswordController ()
-@property(weak,nonatomic)IBOutlet UITextField * idTf;
+@property(weak,nonatomic)IBOutlet UITextField * oldPwdTf;
 @property(weak,nonatomic)IBOutlet UITextField * pwdTf;//密码
 @property(weak,nonatomic)IBOutlet UITextField * cPwdTf;//确认密码
 @end
@@ -24,7 +24,20 @@
 #pragma mark-event
 -(IBAction)saveClick:(UIButton* )sender
 {
-    //保存
+    if (![self.pwdTf.text  isEqualToString:self.cPwdTf.text])
+    {
+        [MBHUDManager showBriefAlert:@"密码与确认密码不一致！"];
+    }
+    [SetPasswordManager callBackSetPwdWithHudShow:YES oldPwd:self.oldPwdTf.text newPwd:self.pwdTf.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        if (isSuccess==YES)
+        {
+            [MBHUDManager showBriefAlert:message];
+        }
+        else
+        {
+            [MBHUDManager showBriefAlert:message];
+        }
+    }];
 }
 /*
 #pragma mark - Navigation

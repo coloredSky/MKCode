@@ -112,6 +112,7 @@
     }];
 }
 
+
 #pragma mark --  lazy
 -(NSMutableArray <MKCourseListModel *>*)recommendCourseList
 {

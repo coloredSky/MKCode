@@ -26,6 +26,10 @@
     MKTarbarViewController *mkTarbarVC = [MKTarbarViewController new];
     self.window.rootViewController = mkTarbarVC;
     [self.window makeKeyAndVisible];
+
+    [self MKAppConfig];
+   // [ViewControllerManager showMainViewController];
+
     return YES;
 }
 

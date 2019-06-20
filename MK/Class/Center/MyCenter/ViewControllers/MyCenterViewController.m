@@ -310,18 +310,35 @@
 #pragma mark-headerViewDelegate
 -(void)headerViewBtnClickWithOperationType:(MyCenterHeaderViewOperationType )operationType
 {
-    if (operationType == MyCenterHeaderViewOperationTypeLoginIn) {
+    if ([[UserManager shareInstance] isLogin ]==YES)
+    {
+
+    if (operationType == MyCenterHeaderViewOperationTypeLoginIn)
+    {
           LoginActionController *loginVC = [LoginActionController new];
         [self.navigationController pushViewController:loginVC animated:YES];
-    }else{
-        if (![[UserManager shareInstance]isLogin]) {
+    }
+    else
+    {
+        if (![[UserManager shareInstance]isLogin])
+        {
             [self loginAlterViewShow];
             return;
         }
+
         UpdateMessageController * uvc =[UpdateMessageController new];
         uvc.hidesBottomBarWhenPushed =YES;
         [self.navigationController pushViewController:uvc animated:YES];
+       }
     }
+    else
+    {
+
+    if (![[UserManager shareInstance]isLogin]) {
+        [self loginAlterViewShow];
+       }
+    }
+
 }
 
 #pragma mark --  登录

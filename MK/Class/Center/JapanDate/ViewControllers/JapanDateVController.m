@@ -36,6 +36,21 @@
         //保存
     }
 }
+
+-(void)setModel:(PersonModel *)model
+{
+    _model =model;
+  
+}
+#pragma mark -viewappear
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear: animated];
+    if (_model !=nil)
+    {
+         [self.timeBtn  setTitle:_model.userInfo.arrive_jp forState:UIControlStateNormal];
+    }
+}
 /*
 #pragma mark - Navigation
 
