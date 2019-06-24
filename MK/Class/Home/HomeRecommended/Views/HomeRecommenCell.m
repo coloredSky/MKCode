@@ -64,7 +64,7 @@
 
 -(void)cellRefreshDataWithMKCourseListModel:(MKCourseListModel *)model
 {
-    [self.contentIma sd_setImageWithURL:[NSURL URLWithString:model.courseImage] placeholderImage:K_placeholder_Image_HomeRecommendImage];
+    [self.contentIma sd_setImageWithURL:[NSURL URLWithString:model.courseImage] placeholderImage:K_MKPlaceholderImage2_1];
     self.titleLab.text = model.courseName;
     self.discriptionLab.text = model.courseDescription;
 }

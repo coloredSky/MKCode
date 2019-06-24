@@ -24,6 +24,26 @@
 #pragma mark-event
 -(IBAction)saveClick:(UIButton* )sender
 {
+    if ([NSString isEmptyWithStr:self.oldPwdTf.text]){
+        [MBHUDManager showBriefAlert:@"请输入旧密码！"];
+        return;
+    }
+    if (self.oldPwdTf.text.length < 6 || self.oldPwdTf.text.length >16){
+        [MBHUDManager showBriefAlert:@"密码为6到16位的字母或数字！"];
+        return;
+    }
+    if ([NSString isEmptyWithStr:self.pwdTf.text]){
+        [MBHUDManager showBriefAlert:@"请输入新密码！"];
+        return;
+    }
+    if (self.pwdTf.text.length < 6 || self.pwdTf.text.length >16){
+        [MBHUDManager showBriefAlert:@"请输入6到16位的新密码！"];
+        return;
+    }
+    if ([NSString isEmptyWithStr:self.cPwdTf.text]){
+        [MBHUDManager showBriefAlert:@"请再次输入新密码！"];
+        return;
+    }
     if (![self.pwdTf.text  isEqualToString:self.cPwdTf.text])
     {
         [MBHUDManager showBriefAlert:@"密码与确认密码不一致！"];

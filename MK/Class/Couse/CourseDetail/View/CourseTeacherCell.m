@@ -32,7 +32,7 @@
 }
 -(void)cellRefreshDataWithTeacherName:(NSString *)teacherNmae teacherIma:(NSString *)teacherIma teacherDescription:(NSString *)teacherDescription
 {
-    [self.teacherHeaderIma sd_setImageWithURL:[NSURL URLWithString:teacherIma] placeholderImage:K_placeholder_Image];
+    [self.teacherHeaderIma sd_setImageWithURL:[NSURL URLWithString:teacherIma] placeholderImage:K_MKPlaceholderImage1_1];
     self.teacherNameLab.text = teacherNmae;
     self.teacherIntroduceLab.text = teacherDescription;
 }

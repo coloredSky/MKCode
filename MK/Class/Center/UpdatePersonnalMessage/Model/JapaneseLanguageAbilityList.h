@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JapaneseLanguageAbilityList : NSObject
-@property(nonatomic,strong)NSString * id;
+
+@property(nonatomic,strong)NSString * japaneseAbilityID;
 @property(nonatomic,strong)NSString * name;
 
 @end

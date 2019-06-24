@@ -31,13 +31,11 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-//    _whiteView.frame = CGRectMake(K_Padding_LeftPadding, KScaleHeight(15), KScreenWidth-K_Padding_LeftPadding*2, KScaleHeight(60));
-//    _courseIma.frame = CGRectMake(KScaleWidth(12), <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
 }
 
 -(void)cellRefreshDataWithMKCourseListModel:(MKCourseListModel *)model
 {
-    [self.courseIma sd_setImageWithURL:[NSURL URLWithString:model.courseImage] placeholderImage:K_placeholder_Image];
+    [self.courseIma sd_setImageWithURL:[NSURL URLWithString:model.courseImage] placeholderImage:K_MKPlaceholderImage3_2];
 //    .image = [UIImage imageNamed:@"home_course"];
     self.courseNameLab.text = model.courseName;
     self.courseTeacherLab.text = model.teacherNmae;

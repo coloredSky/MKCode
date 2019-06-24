@@ -219,7 +219,9 @@
             newsVC.loadType = WebViewLoadTypeLoadTheRichText;
             [self.navigationController pushViewController:newsVC animated:YES];
         }else{
-            [MBHUDManager showBriefAlert:message];
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }
         }
     }];
 }

@@ -7,11 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+@class FeedBackTypeModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FeedBackManager : NSObject
-+(void)callBackFeedBackWithHudShow:(BOOL)hudShow feedType:(NSString *)type feedDetail:(NSString *)detail CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
+
+
++(void)callBackGetFeedBackTypeWithCompletionBlock:(void(^)(BOOL isSuccess, NSArray <FeedBackTypeModel *> *typeList,NSString *message))completionBlock;
+
+/**
+用户反馈
+
+
+ @param type 反馈类型
+ @param detail 内容
+ @param completionBlock 回调
+ */
++(void)callBackFeedBackWithHudShow:(BOOL)hudShow feedType:(NSInteger )type feedDetail:(NSString *)detail CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

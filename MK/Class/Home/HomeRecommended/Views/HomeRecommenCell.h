@@ -12,7 +12,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeRecommenCell : MKBaseTableViewCell
+
 -(void)cellRefreshDataWithMKCourseListModel:(MKCourseListModel *)model;
+
 @end
 
 NS_ASSUME_NONNULL_END

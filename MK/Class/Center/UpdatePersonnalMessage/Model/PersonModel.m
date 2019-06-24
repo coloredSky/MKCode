@@ -10,13 +10,18 @@
 
 
 @implementation PersonModel
+
+
+
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{@"japaneseLanguageAbilityList" : [JapaneseLanguageAbilityList class],
              @"languageSchoolList" : [LanguageSchoolList class],
+             @"languageSchoolTimeList" : [LanguageSchoolTimeList class],
              @"volunteerUniversityList" : [VolunteerUniversityList class],
              @"volunteerFacultyList" : [VolunteerFacultyList class],
              @"volunteerDisciplineList" : [VolunteerDisciplineList class],
              @"userInfo" : [userInfo class],
              };
 }
+
 @end

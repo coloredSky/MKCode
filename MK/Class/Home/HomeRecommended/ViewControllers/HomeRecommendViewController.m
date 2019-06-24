@@ -94,7 +94,11 @@
         [self.contentTable.mj_footer endRefreshing];
         if (isSuccess) {
             if (self.pageOffset == 1) {
-                self.bannerList = bannerList;
+                if (bannerList.count <= 0) {
+                    self.bannerList = @[[MKBannerModel new]];
+                }else{
+                 self.bannerList = bannerList;
+                }
                 [self.bannerView reloadData];
                 self.publicCourseList = publicCourseList;
                 [self.recommendCourseList removeAllObjects];
@@ -163,6 +167,7 @@
     [cell cellRefreshDataWithMKCourseListModel:model];
     return cell;
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
@@ -224,6 +229,7 @@
 - (NSInteger)numberOfPagesInFlowView:(NewPagedFlowView *)flowView {
     return self.bannerList.count;
 }
+
 - (PGIndexBannerSubiew *)flowView:(NewPagedFlowView *)flowView cellForPageAtIndex:(NSInteger)index{
     PGIndexBannerSubiew *bannerView = [flowView dequeueReusableCell];
     if (!bannerView) {
@@ -234,7 +240,7 @@
 //        [bannerView setSubviewsWithSuperViewBounds:CGRectMake(0, 0, KScaleWidth(308), KScaleWidth(228))];
     }
     MKBannerModel *model = self.bannerList[index];
-    [bannerView.mainImageView sd_setImageWithURL:[NSURL URLWithString:model.bannerImage] placeholderImage:K_placeholder_Annoument_Banner_Image];
+    [bannerView.mainImageView sd_setImageWithURL:[NSURL URLWithString:model.bannerImage] placeholderImage:K_MKPlaceholder_Annoument_Banner_Image];
     return bannerView;
 }
 

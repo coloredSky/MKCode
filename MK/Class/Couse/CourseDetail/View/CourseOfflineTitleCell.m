@@ -84,4 +84,10 @@
     self.personsLab.text = [NSString stringWithFormat:@"%@人",offlineCourseModel.maximun_number];
 }
 
+- (IBAction)calendarAddHandleTarget:(UIButton *)sender {
+    if (self.CourseOfflineTitleCellCalendarAddBlock) {
+        self.CourseOfflineTitleCellCalendarAddBlock(sender.selected);
+    }
+}
+
 @end

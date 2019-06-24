@@ -46,7 +46,7 @@
     [super viewDidLoad];
     //    self.view.backgroundColor = [UIColor redColor];
     //refresh
-    [self setUpRefresh];
+    [self setUpHeaderRefresh];
 }
 -(void)homeCommonrefreshCourseListData
 {
@@ -56,7 +56,7 @@
 }
 
 #pragma mark --  refresh
--(void)setUpRefresh
+-(void)setUpHeaderRefresh
 {
     //下拉刷新
     @weakObject(self);
@@ -65,7 +65,12 @@
         self.pageOffset = 1;
         [self startRequest];
     }];
+}
+
+-(void)setUpFooterRefresh
+{
     //上拉加载
+    @weakObject(self);
     self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
         @strongObject(self);
         self.pageOffset += self.pageLimit;
@@ -78,7 +83,6 @@
 {
     [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:self.categoryID pageOffset:self.pageOffset pageLimit:self.pageLimit andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message,NSArray<HomeCourseCategoryModel *> * _Nonnull courseCategoryList, NSArray<MKBannerModel *> * _Nonnull bannerList, NSArray<HomePublicCourseModel *> * _Nonnull publicCourseList, NSArray<MKCourseListModel *> * _Nonnull recommentCourseList) {
         [self.contentTable.mj_header endRefreshing];
-        [self.contentTable.mj_footer endRefreshing];
         if (isSuccess) {
             if (self.pageOffset == 1) {
                 [self.commonCourseList removeAllObjects];
@@ -86,11 +90,22 @@
             }else{
                 [self.commonCourseList addObjectsFromArray:recommentCourseList];
             }
+            
+            if (self.pageLimit == recommentCourseList.count) {
+                [self setUpFooterRefresh];
+            }
             if (recommentCourseList.count < self.pageLimit) {
                 [self.contentTable.mj_footer endRefreshingWithNoMoreData];
+            }else{
+                [self.contentTable.mj_footer endRefreshing];
             }
             [self.contentTable reloadData];
         }else{
+            if (self.pageOffset > self.pageLimit) {
+                [self.contentTable.mj_footer endRefreshingWithNoMoreData];
+            }else{
+                [self.contentTable.mj_footer endRefreshing];
+            }
             self.pageOffset -= self.pageLimit;
         }
     }];

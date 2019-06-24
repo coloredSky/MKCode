@@ -37,6 +37,10 @@
     if ([NSString isEmptyWithStr:_courseConsumingTime]) {
         _courseConsumingTime = @"";
     }
+    if ([NSString isEmptyWithStr:_totalStudyNum]) {
+        _totalStudyNum = @"";
+    }
+    
     return YES;
 }
 

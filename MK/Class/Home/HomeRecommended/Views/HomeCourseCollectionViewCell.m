@@ -55,7 +55,7 @@
 
 -(void)cellRefreshDataWithModel:(HomePublicCourseModel *)model
 {
-    [self.courseIma sd_setImageWithURL:[NSURL URLWithString:model.courseImage] placeholderImage:K_placeholder_Image];
+    [self.courseIma sd_setImageWithURL:[NSURL URLWithString:model.courseImage] placeholderImage:K_MKPlaceholderImage1_1];
 //    self.courseIma.image = KImageNamed(@"home_collection");
     self.courseTitleLab.text = model.courseName;
     self.courseTypeLab.text = model.lectureName;

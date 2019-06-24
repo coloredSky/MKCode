@@ -40,7 +40,7 @@
 
 -(void)cellRefreshDataWithDiscoverNewsModel:(DiscoverNewsModel *)newsModel
 {
-    [self.contentIma sd_setImageWithURL:[NSURL URLWithString:newsModel.newsImage] placeholderImage:nil];
+    [self.contentIma sd_setImageWithURL:[NSURL URLWithString:newsModel.newsImage] placeholderImage:K_MKPlaceholderImage4_3];
     self.titleLab.text = newsModel.newsTitle;
     self.contentLab.text = newsModel.newsDigest;
 }

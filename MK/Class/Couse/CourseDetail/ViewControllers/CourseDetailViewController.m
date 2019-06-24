@@ -26,7 +26,7 @@
 @property (nonatomic, strong) UIImageView *courseIma;
 @property (nonatomic, strong) PLVVodSkinPlayerController *player;
 @property (nonatomic, strong) UIView *maskView;
-@property (nonatomic, strong) MKLessonModel *selectedLessonModel;
+@property (nonatomic, strong) MKCourseDetailModel *onlineCourseDetailModel;
 
 /// 播放刷新定时器
 @property (nonatomic, strong) PLVTimer *playbackTimer;
@@ -72,8 +72,9 @@
 {
     [CourseDetailManager callBackCourseDetailRequestWithHudShow:YES courseID:self.course_id andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, MKCourseDetailModel * _Nonnull courseDetailModel) {
         if (isSuccess) {
+            self.onlineCourseDetailModel = courseDetailModel;
             [self.detailScroll courseDetailScrollViewReloadDataWithMKCourseDetailModel:courseDetailModel offlineCourseDetailModel:nil];
-            [self.courseIma sd_setImageWithURL:[NSURL URLWithString:courseDetailModel.courseInfoDetail.courseImage] placeholderImage:nil];
+            [self.courseIma sd_setImageWithURL:[NSURL URLWithString:courseDetailModel.courseInfoDetail.courseImage] placeholderImage:K_MKPlaceholderImage4_3];
         }else{
             [MBHUDManager showBriefAlert:message];
         }
@@ -104,6 +105,7 @@
         
         _courseIma = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(278))];
         [_contentScroll addSubview:_courseIma];
+        _courseIma.image = K_MKPlaceholderImage4_3;
         
         UIImageView *bgIma = [[UIImageView alloc]initWithFrame:CGRectMake(_courseIma.leftX, _courseIma.topY, _courseIma.width, _courseIma.height)];
         [_contentScroll addSubview:bgIma];
@@ -111,6 +113,8 @@
         UIImageView *playIcon = [[UIImageView alloc]initWithFrame:CGRectMake(_courseIma.centerX-KScaleWidth(50), _courseIma.centerY-KScaleWidth(30), KScaleWidth(100), KScaleWidth(100))];
         [_contentScroll addSubview:playIcon];
         playIcon.image = KImageNamed(@"courseDetail_playIcon");
+        playIcon.userInteractionEnabled = YES;
+        [playIcon addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(videoPlayerTarget:)]];
         if (self.courseType == CourseSituationTypeOffline) {
             playIcon.hidden = YES;
         }
@@ -210,6 +214,19 @@
     [self setUpVideoWithVideoID:lessonModel.video_id];
 }
 
+#pragma mark --  线下课程添加日历提醒
+-(void)offlineCourseAddCalendar
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您确认为该课程添加日历提醒？" preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style :UIAlertActionStyleDefault handler:nil];
+    [alert addAction:cancleAction];
+    [alert addAction:sureAction];
+}
+
 -(void)setUpVideoWithVideoID:(NSString *)videoID
 {
     MKLog(@"%@",self.player);
@@ -230,4 +247,16 @@
     }];
 }
 
+#pragma mark --  播放按钮点击
+-(void)videoPlayerTarget:(UITapGestureRecognizer *)tap
+{
+    if (self.onlineCourseDetailModel.lessonList.count > 0) {
+        MKLessonModel *lessonModel = self.onlineCourseDetailModel.lessonList[0];
+        lessonModel.isSelected = YES;
+        [self setUpVideoWithVideoID:lessonModel.video_id];
+        [self.detailScroll courseDetailScrollViewReloadDataWithMKCourseDetailModel:self.onlineCourseDetailModel offlineCourseDetailModel:nil];
+    }else{
+        [MBHUDManager showBriefAlert:@"没有可以播放的课程！"];
+    }
+}
 @end

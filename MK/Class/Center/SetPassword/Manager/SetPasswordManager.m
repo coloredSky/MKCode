@@ -11,15 +11,6 @@
 @implementation SetPasswordManager
 +(void)callBackSetPwdWithHudShow:(BOOL)hudShow oldPwd:(NSString *)oldPwd newPwd:(NSString *)newPwd CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock
 {
-    if ([NSString isEmptyWithStr:oldPwd] ==YES){
-        [MBHUDManager showBriefAlert:@"请输入旧密码"];
-        return;
-    }
-    if ([NSString isEmptyWithStr:newPwd]==YES){
-        [MBHUDManager showBriefAlert:@"请输入新密码"];
-        return;
-    }
-
     NSDictionary * param =@{@"passwd":newPwd,@"old_passwd":oldPwd};
     [MKNetworkManager sendPostRequestWithUrl:K_MK_SetPwd_url parameters:param hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode ==0) {

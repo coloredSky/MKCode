@@ -48,7 +48,7 @@
         self.lineIma.hidden = NO;
     }
     MKCourseListModel *courseModel = courseLst[indexPath.row];
-    [self.courseIma sd_setImageWithURL:[NSURL URLWithString:courseModel.courseImage] placeholderImage:nil];
+    [self.courseIma sd_setImageWithURL:[NSURL URLWithString:courseModel.courseImage] placeholderImage:K_MKPlaceholderImage4_3];
     self.courseNameLab.text = courseModel.courseName;
     self.courseTeacherLab.text = courseModel.teacherNmae;
     if (listViewShowType == UserCourseListViewShowTypeOnline) {

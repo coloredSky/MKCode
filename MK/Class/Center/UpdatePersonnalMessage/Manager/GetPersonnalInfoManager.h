@@ -11,7 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GetPersonnalInfoManager : NSObject
-+(void)callBackGetPerMessageWithHudShow:(BOOL)hudShow  CompletionBlock:(void(^)(BOOL isSuccess,NSString *message,PersonModel * model))completionBlock;  
+
+/**
+ 得到个人信息
+ */
++(void)callBackGetPerMessageWithHudShow:(BOOL)hudShow  CompletionBlock:(void(^)(BOOL isSuccess,NSString *message,PersonModel * model))completionBlock;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

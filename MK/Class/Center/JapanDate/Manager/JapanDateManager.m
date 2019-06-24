@@ -9,11 +9,16 @@
 #import "JapanDateManager.h"
 
 @implementation JapanDateManager
-+(void)callBackUpdateJapanDateWithHudShow:(BOOL)hudShow arrive_jp:(NSString *)arrive_jp CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock
+
++(void)callBackUpdateJapanDateWithArrive_jp:(NSString *)arrive_jp mobile:(NSString *)mobile mobile_jp:(NSString *)mobile_jp completionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock
 {
     
-    NSDictionary * param =@{@"arrive_jp":arrive_jp};
-    [MKNetworkManager sendPostRequestWithUrl:K_MK_UpdateUserInfo_url parameters:param hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+    NSDictionary * param =@{
+                            @"arrive_jp":arrive_jp,
+                            @"mobile": mobile,
+                            @"mobile_jp": mobile_jp,
+                            };
+    [MKNetworkManager sendPostRequestWithUrl:K_MK_UpdateUserInfo_url parameters:param hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode ==0) {
             if (completionBlock)
             {
@@ -27,7 +32,7 @@
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (completionBlock)
         {
-            completionBlock(NO,nil);
+            completionBlock(NO,error.userInfo[NSLocalizedDescriptionKey]);
         }
     }];
 }

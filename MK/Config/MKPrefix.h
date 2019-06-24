@@ -20,6 +20,8 @@
 #import "MKFont.h"
 #import "MKShareInstance.h"
 #import "MKConfigKey.h"
+#import "MKImageConfig.h"
+
 
 //category 扩展
 #import "UIView+Layout.h"
@@ -38,6 +40,7 @@
 #import <UIImageView+WebCache.h>
 #import "UserManager.h"
 #import "ViewControllerManager.h"
+
 //网络请求
 #import "MKNetworkManager.h"
 #import "MKRequestUrl.h"

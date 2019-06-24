@@ -33,7 +33,7 @@
 
 -(void)cellRefreshDataWithBookMarkListModel:(BookMarkListModel *)bookModel
 {
-    [self.courseImage sd_setImageWithURL:[NSURL URLWithString:bookModel.course_img] placeholderImage:nil];
+    [self.courseImage sd_setImageWithURL:[NSURL URLWithString:bookModel.course_img] placeholderImage:K_MKPlaceholderImage3_2];
     self.courseName.text = bookModel.category;
     self.coursePlace.text = bookModel.name;
     self.coursePage.text =@"";

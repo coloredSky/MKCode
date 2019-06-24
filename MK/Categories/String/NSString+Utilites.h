@@ -179,4 +179,11 @@
  */
 +(NSString *)htmlStringTransToString:(NSString *)htmlString;
 
+
+/**
+ 得到APP版本号
+ */
++(NSString *)getAppVersion;
+
++ (NSInteger)compareVersion:(NSString *)v2;
 @end

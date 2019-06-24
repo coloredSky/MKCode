@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JapanDateVController : MKNavViewController
-@property(nonatomic,strong)PersonModel * model;
+
+@property(nonatomic,strong)PersonModel * originalModel;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -37,7 +37,7 @@ static NSString * const K_MK_UserBookMarkList_Url =@"/api/user/focusCourseList";
 //发现列表
 static NSString * const K_MK_Discover_NewsList_Url  = @"/api/article/getlist";
 //发现新闻详情
-static NSString * const K_MK_Discover_NewsDetail_Url  = @"/api/posts/getcontent";
+static NSString * const K_MK_Discover_NewsDetail_Url  = @"/api/article/getcontent";
 
 
 /*
@@ -109,21 +109,28 @@ static NSString * const K_MK_UserFindPassword_Url  = @"/api/user/findPwd";
 static NSString * const K_MK_UserCourseList_Url  = @"/api/user/courseList";
 
 
-
-
-
 /*
  个人中心
  */
 //修改密码
 static NSString * const K_MK_SetPwd_url  = @"/api/user/updatePwd";
+//意见反馈类型
+static NSString * const K_MK_GetFeedBackType_url  = @"api/user/getFeedbackTypeList";
 //意见反馈
 static NSString * const K_MK_FeedBack_url  = @"api/user/insertUserFeedback";
 //获取个人信息
 static NSString * const K_MK_GetUserInfo_url  = @"/api/user/GetUserInfo";
 /*
  更改个人信息接口功能如下
- 1.可以修改外语能力
  */
 static NSString * const K_MK_UpdateUserInfo_url  = @"/api/user/UpdateUserInfo";
+
+////修改用户基本信息
+//static NSString * const K_MK_UpdateBasicUserInfo_url  = @"/api/user/UpdateUserInfo";
+////修改用户外语能力
+//static NSString * const K_MK_UpdateUserLanguage_url  = @"/api/user/UpdateUserInfo";
+
+//版本更新
+static NSString * const K_MK_APPVersionUpdate_url  = @"/api/base/getVersionInfo";
+
 #endif /* MKRequestUrl_h */

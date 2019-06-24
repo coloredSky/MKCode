@@ -10,4 +10,14 @@
 
 @implementation university
 
+-(instancetype)init
+{
+    if (self = [super init]) {
+        self.university_name = @"";
+        self.faculty_name = @"";
+        self.discipline_name = @"";
+    }
+    return self;
+}
+
 @end

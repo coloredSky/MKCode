@@ -50,7 +50,7 @@
 
 -(void)cellRefreshDataWithUserBillListModel:(UserBillListModel *)billModel
 {
-     [self.contentIma sd_setImageWithURL:[NSURL URLWithString:billModel.course_post] placeholderImage:nil];
+     [self.contentIma sd_setImageWithURL:[NSURL URLWithString:billModel.course_post] placeholderImage:K_MKPlaceholderImage2_1];
     self.courseNameLab.text = billModel.course_name;
     self.timeLab.text = billModel.log_date;
 }

@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString * weixin;
 @property(nonatomic,strong)NSString * sex;
 @property(nonatomic,strong)NSString * school;
-@property(nonatomic,strong)NSString * arrive_jp;
+@property(nonatomic,strong)NSString * arrive_jp;//赴日q日期
 @property(nonatomic,strong)NSString * wish_faculty;
 @property(nonatomic,strong)NSString * city;
 @property(nonatomic,strong)NSString * always;

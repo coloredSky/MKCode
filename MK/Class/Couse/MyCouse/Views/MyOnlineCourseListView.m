@@ -59,6 +59,7 @@
 {
     return self.courseListArr.count;
 }
+
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MyCourseOnlineListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCourseOnlineListCollectionViewCell" forIndexPath:indexPath];

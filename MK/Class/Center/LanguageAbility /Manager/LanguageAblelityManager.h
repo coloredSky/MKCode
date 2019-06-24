@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LanguageAblelityManager : NSObject
-+(void)callBackUpdateLanguageAblelityWithHudShow:(BOOL)hudShow toeic:(NSString *)toeic toefl:(NSString *)toefl jlpt:(NSString *)jlpt  CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;  
+
++(void)callBackUpdateLanguageAblelityWithToeic:(NSString *)toeic toefl:(NSString *)toefl jlpt:(NSString *)jlpt mobile:(NSString *)mobile mobile_jp:(NSString *)mobile_jp CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

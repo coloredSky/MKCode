@@ -8,12 +8,18 @@
 
 #import "BasicInfoController.h"
 #import "BasicInfoCell.h"
+#import "BasicInfoManager.h"
+#import "userInfo.h"
+
 @interface BasicInfoController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
-@property (nonatomic, strong) NSArray *titleArr;//标题数组
-@property (nonatomic, strong) NSArray *sectionArr;//区头数组
-
+@property (nonatomic, strong) NSArray *celltitleArr;//标题数组
+@property (nonatomic, strong) NSArray *sectionTileArr;//区头数组
 @property(nonatomic,strong)NSArray * contentArr;//内容数组
+@property(nonatomic,strong)userInfo * userInfoModel;
+
+
+
 @end
 
 @implementation BasicInfoController
@@ -21,8 +27,8 @@
 -(instancetype)init
 {
     if (self = [super init]) {
-        self.titleArr = @[@[@"姓",@"名"],@[@"姓",@"名"],@[@"中国手机",@"日本手机",@"Email",@"微信",@"QQ",@"城市"]];
-        self.sectionArr =@[@"汉字",@"读音",@"联系方式"];
+        self.celltitleArr = @[@[@"姓",@"名"],@[@"姓",@"名"],@[@"中国手机",@"日本手机",@"Email",@"微信",@"QQ",@"城市"]];
+        self.sectionTileArr =@[@"汉字",@"读音",@"联系方式"];
     }
     return self;
 }
@@ -30,52 +36,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor =K_BG_WhiteColor;
-    [self.view addSubview:self.contentTable];
-}
-#pragma mark --  refresh
--(void)setUpRefresh
-{
-    //下拉刷新
-    @weakObject(self);
-    self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
-        @strongObject(self);
-        [self.contentTable.mj_header endRefreshing];
-    }];
-    //上拉加载
-    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-    //                @strongObject(self);
-    //    }];
-}
--(void)setModel:(PersonModel *)model
-{
-    _model =model;
-    if (!_model.userInfo.firstname.length) _model.userInfo.firstname =@"";
-    if (!_model.userInfo.lastname.length) _model.userInfo.lastname =@"";
-    if (!_model.userInfo.firstkana.length) _model.userInfo.firstkana =@"";
-    if (!_model.userInfo.lastkana.length) _model.userInfo.lastkana =@"";
-    if (!_model.userInfo.mobile.length) _model.userInfo.mobile =@"";
-    if (!_model.userInfo.mobile_jp.length) _model.userInfo.mobile_jp =@"";
-    if (!_model.userInfo.email.length) _model.userInfo.email =@"";
-    if (!_model.userInfo.weixin.length) _model.userInfo.weixin =@"";
-    if (!_model.userInfo.qq.length) _model.userInfo.qq =@"";
-    if (!_model.userInfo.city.length) _model.userInfo.city =@"";
-    self.contentArr = @[@[_model.userInfo.firstname,_model.userInfo.lastname],@[_model.userInfo.firstkana,_model.userInfo.lastkana],@[_model.userInfo.mobile,_model.userInfo.mobile_jp,_model.userInfo.email,_model.userInfo.weixin,_model.userInfo.qq,_model.userInfo.city]];
     [self.contentTable reloadData];
 }
-#pragma mark --  request
--(void)startRequest
+
+-(void)setOriginalModel:(PersonModel *)originalModel
 {
+    _originalModel =originalModel;
+    self.userInfoModel = [_originalModel.userInfo copy];
+    [self.contentTable reloadData];
 }
+
 #pragma mark --  lazy
 -(MKBaseTableView *)contentTable
 {
     if (!_contentTable) {
         _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight-(K_NaviHeight+190)) style:UITableViewStyleGrouped];
+        _contentTable.delegate = self;
+        _contentTable.dataSource = self;
+        _contentTable.showsVerticalScrollIndicator = NO;
+        _contentTable.showsHorizontalScrollIndicator = NO;
+        _contentTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _contentTable.tableFooterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0.01)];
+        _contentTable.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0.01)];
         [self.view addSubview:_contentTable];
         _contentTable.backgroundColor = K_BG_WhiteColor;
         [_contentTable registerNib:[UINib nibWithNibName:@"BasicInfoCell" bundle:nil] forCellReuseIdentifier:@"BasicInfoCell"];
-        _contentTable.delegate = self;
-        _contentTable.dataSource = self;
     }
     return _contentTable;
 }
@@ -84,21 +69,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BasicInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BasicInfoCell" forIndexPath:indexPath];
-    NSArray * ary =self.titleArr[indexPath.section];
-    NSArray * arr =self.contentArr [indexPath.section];
-    cell.ttLabel.text =ary[indexPath.row];
-    cell.textField.text =arr[indexPath.row];
-    cell.selectionStyle =UITableViewCellSelectionStyleNone;
+//    @weakObject(self);
+    cell.BasicInfoCellTFContentChangeBlock = ^(NSString * _Nonnull contentString, UITextField * _Nonnull sender) {
+    };
+    cell.ttLabel.text = self.celltitleArr[indexPath.section][indexPath.row];
+    [cell cellBasicInfoRefreshDataWithUserInfo:self.userInfoModel indexPath:indexPath];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.titleArr.count;
+    return self.sectionTileArr.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSArray * ary =self.titleArr[section];
-    return ary.count;
+    NSArray * titleAry =self.celltitleArr[section];
+    return titleAry.count;
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -111,35 +96,36 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (section ==self.sectionArr.count-1) {
+    if (section == self.sectionTileArr.count-1) {
         return 130;
     }
-    return .1f;
+    return CGFLOAT_MIN;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView * bgView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 40)];
     bgView.backgroundColor =K_BG_WhiteColor;
-    
     UILabel  * label  =[[UILabel alloc]initWithFrame:CGRectMake(26, 15, KScreenWidth-52, 25)];
     [label setFont:MKFont(13) textColor:UIColorFromRGB_0x(0x707070) withBackGroundColor:[UIColor clearColor]];
-    label.text =self.sectionArr [section];
+    label.text =self.sectionTileArr [section];
     [bgView addSubview:label];
     return bgView;
+    return nil;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    if (section ==self.sectionArr.count-1) {
+    if (section == self.sectionTileArr.count-1) {
         UIView * bgView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 130)];
         bgView.backgroundColor =K_BG_WhiteColor;
         
         UIButton * btn =[UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame =CGRectMake(26, 55, KScreenWidth-52, 60);
-        [btn setNormalTitle:@"保存" font:MKFont(13) titleColor:K_Text_DeepGrayColor];
+        [btn setNormalTitle:@"保存" font:MKFont(14) titleColor:K_Text_DeepGrayColor];
        btn.backgroundColor =UIColorFromRGB_0x(0xfdf303);
         btn.layer.cornerRadius =5.f;
         btn.layer.masksToBounds =YES;
         [bgView addSubview:btn];
+        [btn addTarget:self action:@selector(submitTarget:) forControlEvents:UIControlEventTouchUpInside];
         return bgView;
     }
     return nil;
@@ -152,6 +138,33 @@
     
 }
 
+#pragma mark --  提交
+-(void)submitTarget:(UIButton *)sender
+{
+    if (self.userInfoModel.firstname == self.originalModel.userInfo.firstname &&
+        self.userInfoModel.lastname == self.originalModel.userInfo.lastname &&
+        self.userInfoModel.firstkana == self.originalModel.userInfo.firstkana &&
+        self.userInfoModel.lastkana == self.originalModel.userInfo.lastkana &&
+        self.userInfoModel.mobile == self.originalModel.userInfo.mobile &&
+        self.userInfoModel.mobile_jp == self.originalModel.userInfo.mobile_jp &&
+        self.userInfoModel.email == self.originalModel.userInfo.email &&
+        self.userInfoModel.weixin == self.originalModel.userInfo.weixin &&
+        self.userInfoModel.qq == self.originalModel.userInfo.qq &&
+        self.userInfoModel.city == self.originalModel.userInfo.city) {
+        [MBHUDManager showBriefAlert:@"请修改后保存！"];
+        return;
+    }
+    [BasicInfoManager callBackUpdateBasicInfoWithHudShow:NO lastname:self.userInfoModel.lastname firstname:self.userInfoModel.firstname lastkana:self.userInfoModel.lastkana firstkana:self.userInfoModel.firstkana mobile:self.userInfoModel.mobile mobile_jp:self.userInfoModel.mobile_jp email:self.userInfoModel.email weixin:self.userInfoModel.weixin qq:self.userInfoModel.qq province:@"" city:self.userInfoModel.city CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        if (isSuccess) {
+            [MBHUDManager showBriefAlert:@"修改成功！"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }
+        }
+    }];
+}
 
 /*
 #pragma mark - Navigation

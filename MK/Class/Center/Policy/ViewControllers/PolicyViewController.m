@@ -38,9 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.contentUrl = @"https://www.baidu.com";
     self.titleLab.text = self.titleString;
-    
     if (self.loadType == WebViewLoadTypeLoadTheRichText){
         //加载富文本
         [self loadRichHtmlText];

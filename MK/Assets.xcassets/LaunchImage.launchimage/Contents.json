@@ -1,0 +1,53 @@
+{
+  "images" : [
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "2688h",
+      "filename" : "iphonexs max.png",
+      "minimum-system-version" : "12.0",
+      "orientation" : "portrait",
+      "scale" : "3x"
+    },
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "1792h",
+      "filename" : "iphonexr.png",
+      "minimum-system-version" : "12.0",
+      "orientation" : "portrait",
+      "scale" : "2x"
+    },
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "2436h",
+      "filename" : "iphonex.png",
+      "minimum-system-version" : "11.0",
+      "orientation" : "portrait",
+      "scale" : "3x"
+    },
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "736h",
+      "filename" : "iphone5:6:7 plus.png",
+      "minimum-system-version" : "8.0",
+      "orientation" : "portrait",
+      "scale" : "3x"
+    },
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "667h",
+      "filename" : "iphone5:6:7.png",
+      "minimum-system-version" : "8.0",
+      "orientation" : "portrait",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

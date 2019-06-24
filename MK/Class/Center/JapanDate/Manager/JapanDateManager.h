@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JapanDateManager : NSObject
-+(void)callBackUpdateJapanDateWithHudShow:(BOOL)hudShow arrive_jp:(NSString *)arrive_jp CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
+
++(void)callBackUpdateJapanDateWithArrive_jp:(NSString *)arrive_jp mobile:(NSString *)mobile mobile_jp:(NSString *)mobile_jp completionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

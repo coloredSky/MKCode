@@ -7,17 +7,34 @@
 //
 
 #import "FeedBackManager.h"
+#import "FeedBackTypeModel.h"
 
 @implementation FeedBackManager
-+(void)callBackFeedBackWithHudShow:(BOOL)hudShow feedType:(NSString *)type feedDetail:(NSString *)detail CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock
+
++(void)callBackGetFeedBackTypeWithCompletionBlock:(void(^)(BOOL isSuccess, NSArray <FeedBackTypeModel *> *typeList,NSString *message))completionBlock
 {
-    if ([NSString isEmptyWithStr:detail]==YES)
-    {
-        [MBHUDManager showBriefAlert:@"请输入反馈信息"];
-        return;
-    }
-    
-    NSDictionary * param =@{@"type":type,@"detail":detail};
+    [MKNetworkManager sendGetRequestWithUrl:K_MK_GetFeedBackType_url parameters:nil hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode == 0) {
+            if (completionBlock) {
+                NSArray *typeList = [NSArray yy_modelArrayWithClass:[FeedBackTypeModel class] json:MKResult.dataResponseObject];
+                completionBlock(YES,typeList,MKResult.message);
+            }
+        }else{
+            if (completionBlock) {
+                completionBlock(NO,nil,MKResult.message);
+            }
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        if (completionBlock) {
+            completionBlock(NO,nil,error.userInfo[NSLocalizedDescriptionKey]);
+        }
+    }];
+}
+
+
++(void)callBackFeedBackWithHudShow:(BOOL)hudShow feedType:(NSInteger )type feedDetail:(NSString *)detail CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock
+{
+    NSDictionary * param =@{@"type":@(type),@"detail":detail};
     [MKNetworkManager sendPostRequestWithUrl:K_MK_FeedBack_url parameters:param hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode ==0) {
             if (completionBlock)
@@ -32,24 +49,8 @@
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (completionBlock)
         {
-            completionBlock(NO,nil);
+            completionBlock(NO,error.userInfo[NSLocalizedDescriptionKey]);
         }
     }];
-    //    [MKNetworkManager sendGetRequestWithUrl:K_MK_Home_AllCategoryList_Url hudIsShow:YES success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
-    //        if (MKResult.responseCode == 0) {
-    //            if (completionBlock) {
-    //                NSArray *courseCayegoryList = [NSArray yy_modelArrayWithClass:[HomeCourseCategoryModel class] json:MKResult.dataResponseObject];
-    //                completionBlock(YES, MKResult.message,courseCayegoryList);
-    //            }
-    //        }else{
-    //            if (completionBlock) {
-    //                completionBlock(NO, MKResult.message,[NSArray array]);
-    //            }
-    //        }
-    //    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
-    //        if (completionBlock) {
-    //            completionBlock(NO, [NSString stringWithFormat:@"error code is %ld",statusCode],[NSArray array]);
-    //        }
-    //    }];
 }
 @end

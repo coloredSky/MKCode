@@ -46,7 +46,7 @@
 
 -(void)cellRefreshDataWithLessonModel:(MKLessonModel *)model
 {
-    [self.courseIma sd_setImageWithURL:[NSURL URLWithString:model.lessonImage] placeholderImage:nil];
+    [self.courseIma sd_setImageWithURL:[NSURL URLWithString:model.lessonImage] placeholderImage:K_MKPlaceholderImage3_2];
     self.courseNameLab.text = model.lessonName;
     self.courseTimeLab.text = [NSString stringTurnSecondsStringIntoMinutesString:model.video_time];
     

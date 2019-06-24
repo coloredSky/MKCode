@@ -15,6 +15,7 @@ typedef NS_ENUM(NSUInteger, UserCourseListViewShowType) {
 
 #import <Foundation/Foundation.h>
 @class MKCourseListModel;
+@class UserCourseModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,7 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param completionBlock 回调
  */
-+(void)callBackUserCourseListWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <NSArray *>*userCourseList,NSArray < MKCourseListModel*>*onLineCourseList,NSArray <MKCourseListModel *>*offLineCourseList,NSString *message))completionBlock;
+//+(void)callBackUserCourseListWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <NSArray *>*userCourseList,NSArray < MKCourseListModel*>*onLineCourseList,NSArray <MKCourseListModel *>*offLineCourseList,NSString *message))completionBlock;
+
++(void)callBackUserCourseListWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <UserCourseModel *>*userCourseList,NSArray <MKCourseListModel *>*offLineCourseList,NSString *message))completionBlock;
 
 @end
 

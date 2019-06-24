@@ -8,6 +8,11 @@
 
 #pragma mark - 选择菜单封装类
 
+typedef NS_ENUM(NSUInteger, XDSDropDownMenuShowType) {
+    XDSDropDownMenuShowTypeAppointment,
+    XDSDropDownMenuShowTypeUserInforEdit,
+};
+
 #import <UIKit/UIKit.h>
 
 @class XDSDropDownMenu;
@@ -17,7 +22,10 @@
 -(void)dropDownMenu:(XDSDropDownMenu *)downMenuView didSelectedWithIndex:(NSInteger )index;
 @end
 
-@interface XDSDropDownMenu : UIView 
+@interface XDSDropDownMenu : UIView
+
+@property (nonatomic, assign) XDSDropDownMenuShowType menuShowType;
+
 @property (nonatomic, assign) BOOL isShow;
 @property (nonatomic, assign) id<XDSDropDownMenuDelegate>delegate;//代理
 

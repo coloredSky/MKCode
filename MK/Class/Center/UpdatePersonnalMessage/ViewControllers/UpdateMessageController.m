@@ -20,7 +20,15 @@
 #import "GetPersonnalInfoManager.h"
 //model
 #import "PersonModel.h"
+
+ #import <SDWebImage/UIButton+WebCache.h>
+
 @interface UpdateMessageController ()<TitleScrollViewDelegate,HomeContentScrollViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIButton *headerIma;
+@property (weak, nonatomic) IBOutlet UILabel *nickNameLab;
+@property (weak, nonatomic) IBOutlet UILabel *emailLab;
+
 @property (nonatomic, strong) TitleScrollView *titleView;//标题scroll
 @property (nonatomic, strong) HomeContentScrollView *contentScroll;//内容scroll
 @property (nonatomic, weak)IBOutlet UIView *midView;
@@ -47,13 +55,13 @@
     [self startRequest];
 }
 
-
 -(void)creatUICompoents
 {
     self.view.backgroundColor =K_BG_WhiteColor;
     [self.midView addSubview:self.titleView];
     [self.view addSubview:self.contentScroll];
 }
+
 #pragma mark-lazy
 -(TitleScrollView * )titleView
 {
@@ -64,6 +72,7 @@
     }
     return _titleView;
 }
+
 -(HomeContentScrollView *)contentScroll
 {
     if (!_contentScroll) {
@@ -96,6 +105,9 @@
         if (isSuccess  ==YES)
         {
             self.model =model;
+            [self.headerIma sd_setImageWithURL:[NSURL URLWithString:model.userInfo.avatar] forState:UIControlStateNormal placeholderImage:KImageNamed(@"MyCenter_header")];
+            self.nickNameLab.text = model.userInfo.nickname;
+            self.emailLab.text = model.userInfo.email;
             [self setVCDataSource];
         }
         else
@@ -108,19 +120,18 @@
 
 -(void)setVCDataSource
 {
-//    self.childVCs = @[[BasicInfoController new],[LagAndSchController new],[PropertyController new],[LagAbilityController new],[JapanDateVController new],[ValSchController new]];
-    BasicInfoController * bvc =[BasicInfoController new];
-    LagAndSchController * lvc =[LagAndSchController new];
-    LagAbilityController *  lavc =[LagAbilityController new];
-    JapanDateVController * jdvc =[JapanDateVController new];
-    ValSchController * vsvc =[ValSchController new];
+    BasicInfoController * basicInfoVC =[BasicInfoController new];
+    LagAndSchController * languageScrollVC =[LagAndSchController new];
+    LagAbilityController *  languageVC =[LagAbilityController new];
+    JapanDateVController * jpArriveDateVC =[JapanDateVController new];
+    ValSchController * universityVC =[ValSchController new];
     
-    bvc.model =self.model;
-    lvc.model =self.model;
-    lavc.model =self.model;
-    jdvc.model =self.model;
-    vsvc.model =self.model ;
-    self.childVCs  =@[bvc,lvc,lavc,jdvc,vsvc];
+    basicInfoVC.originalModel =self.model;
+    languageScrollVC.originalModel =self.model;
+    languageVC.originalModel =self.model;
+    jpArriveDateVC.originalModel =self.model;
+    universityVC.originalModel =self.model ;
+    self.childVCs  =@[basicInfoVC,languageScrollVC,languageVC,jpArriveDateVC,universityVC];
     [self.contentScroll AddChildViewWithTitleArr:self.childVCs.mutableCopy andRootViewController:self];
 }
 /*

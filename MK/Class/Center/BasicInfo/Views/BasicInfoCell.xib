@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="BasicInfoCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="120" id="KGk-i7-Jjw" customClass="BasicInfoCell">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="42.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="342" height="119.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBR-sq-yti">
-                        <rect key="frame" x="26" y="0.0" width="268" height="32.5"/>
+                        <rect key="frame" x="26" y="0.0" width="290" height="109.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2e-rW-Qa2">
-                                <rect key="frame" x="8" y="9" width="70" height="14.5"/>
+                                <rect key="frame" x="8" y="47.5" width="70" height="14.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="VKz-8n-JmU"/>
                                 </constraints>
@@ -31,8 +31,9 @@
                                 <color key="textColor" red="0.32549019607843138" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iqW-0f-SVI">
-                                <rect key="frame" x="87.5" y="8" width="172.5" height="17"/>
+                            <textField opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iqW-0f-SVI">
+                                <rect key="frame" x="87.5" y="0.0" width="202.5" height="109.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -41,8 +42,10 @@
                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iqW-0f-SVI" firstAttribute="leading" secondItem="n2e-rW-Qa2" secondAttribute="trailing" constant="9.5" id="54i-Qf-znL"/>
+                            <constraint firstAttribute="bottom" secondItem="iqW-0f-SVI" secondAttribute="bottom" id="Em2-A5-pOu"/>
                             <constraint firstItem="iqW-0f-SVI" firstAttribute="centerY" secondItem="n2e-rW-Qa2" secondAttribute="centerY" id="FI1-pd-wxr"/>
-                            <constraint firstAttribute="trailing" secondItem="iqW-0f-SVI" secondAttribute="trailing" constant="8" id="aFH-VK-DXN"/>
+                            <constraint firstAttribute="trailing" secondItem="iqW-0f-SVI" secondAttribute="trailing" id="aFH-VK-DXN"/>
+                            <constraint firstItem="iqW-0f-SVI" firstAttribute="top" secondItem="WBR-sq-yti" secondAttribute="top" id="bm9-zR-9G1"/>
                             <constraint firstItem="n2e-rW-Qa2" firstAttribute="centerY" secondItem="WBR-sq-yti" secondAttribute="centerY" id="qUf-Cl-U2R"/>
                             <constraint firstItem="n2e-rW-Qa2" firstAttribute="leading" secondItem="WBR-sq-yti" secondAttribute="leading" constant="8" id="qo5-OV-ldz"/>
                         </constraints>
@@ -60,7 +63,7 @@
                 <outlet property="textField" destination="iqW-0f-SVI" id="Rpu-JD-ZWB"/>
                 <outlet property="ttLabel" destination="n2e-rW-Qa2" id="JdA-l2-am7"/>
             </connections>
-            <point key="canvasLocation" x="137.59999999999999" y="118.29085457271366"/>
+            <point key="canvasLocation" x="155.19999999999999" y="152.92353823088456"/>
         </tableViewCell>
     </objects>
 </document>

@@ -52,8 +52,16 @@
 {
     NSString *text = [NSString filterHTML:courseDetailMode.courseInfoDetail.courseDetail];
     self.titleLab.attributedText = [NSString setStringSpaceWithText:text andLineSpacValue:5 andWordSpace:0 withFont:self.titleLab.font];
-    self.timeConsumingLab.text = [NSString stringWithFormat:@"%@h",courseDetailMode.courseInfoDetail.courseConsumingTime];
-    self.personsLab.text =  [NSString stringWithFormat:@"%@人",courseDetailMode.courseInfoDetail.totalStudyNum];
+    if ([NSString isEmptyWithStr:courseDetailMode.courseInfoDetail.courseConsumingTime]) {
+        self.timeConsumingLab.text = @"--h";
+    }else{
+        self.timeConsumingLab.text = [NSString stringWithFormat:@"%@h",courseDetailMode.courseInfoDetail.courseConsumingTime];
+    }
+    if ([NSString isEmptyWithStr:courseDetailMode.courseInfoDetail.totalStudyNum]) {
+        self.personsLab.text = @"--人";
+    }else{
+     self.personsLab.text =  [NSString stringWithFormat:@"%@人",courseDetailMode.courseInfoDetail.totalStudyNum];
+    }
     self.likeBtn.selected = courseDetailMode.courseInfoDetail.isCollected;
 }
 

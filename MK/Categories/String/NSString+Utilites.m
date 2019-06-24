@@ -526,4 +526,52 @@
     return  contentString.string;
 }
 
++(NSString *)getAppVersion
+{
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    return appVersion;
+}
+
++ (NSInteger)compareVersion:(NSString *)v2
+{
+    NSString *v1 = [self getAppVersion];
+    // 都为空，相等，返回0
+    if (!v1 && !v2) {
+        return 0;
+    }
+    // v1为空，v2不为空，返回-1
+    if (!v1 && v2) {
+        return -1;
+    }
+    // v2为空，v1不为空，返回1
+    if (v1 && !v2) {
+        return 1;
+    }
+    // 获取版本号字段
+    NSArray *v1Array = [v1 componentsSeparatedByString:@"."];
+    NSArray *v2Array = [v2 componentsSeparatedByString:@"."];
+    //版本号1转数字
+    NSString *v1Str = @"";
+    NSInteger v1Version;
+    for (NSString *everyStr in v1Array){
+        v1Str = [v1Str stringByAppendingString:everyStr];
+    }
+    v1Version = [v1Str integerValue];
+    //版本号2转数字
+    NSString *v2Str = @"";
+    NSInteger v2Version;
+    for (NSString *everyStr in v2Array){
+        v2Str = [v2Str stringByAppendingString:everyStr];
+    }
+    v2Version = [v2Str integerValue];
+    if (v1Version==v2Version){
+        return 0;
+    }else if (v1Version<v2Version){
+        return -1;
+    }else{
+        return 1;
+    }
+}
+
 @end

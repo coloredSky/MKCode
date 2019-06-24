@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LanguageSchoolList : NSObject
-@property(nonatomic,strong)NSString * id;
+@property(nonatomic,strong)NSString * schoolID;
 @property(nonatomic,strong)NSString * name;
 @end
 

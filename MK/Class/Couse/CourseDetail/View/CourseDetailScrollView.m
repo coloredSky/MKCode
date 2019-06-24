@@ -104,6 +104,13 @@
             return cell;
         }else{
             CourseOfflineTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseOfflineTitleCell" forIndexPath:indexPath];
+            __weak typeof(self) weakSelf = self;
+            cell.CourseOfflineTitleCellCalendarAddBlock = ^(BOOL isClick) {
+                __strong typeof(weakSelf) strongSelf = weakSelf;
+                if ([strongSelf.delegate respondsToSelector:@selector(offlineCourseAddCalendar)]) {
+                    [strongSelf.delegate offlineCourseAddCalendar];
+                }
+            };
             [cell cellRefreshDataWithMKOfflineCourseDetail:self.offlineCourseModel];
             return cell;
         }
@@ -249,7 +256,7 @@
             webContent = offlineCourseDetailModel.course_description;
         }
     }
-    [self.contentWeb loadHTMLString:offlineCourseDetailModel.course_description baseURL:nil];
+    [self.contentWeb loadHTMLString:webContent baseURL:nil];
     [self.contentTable reloadData];
 }
 

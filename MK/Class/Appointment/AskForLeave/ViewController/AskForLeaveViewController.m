@@ -108,6 +108,7 @@
     }
     return _classsDownMenu;
 }
+
 -(XDSDropDownMenu *)courseDownMenu
 {
     if (!_courseDownMenu) {

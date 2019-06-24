@@ -7,14 +7,20 @@
 //
 
 #import "ValSchController.h"
+#import "SchoolListViewController.h"
 #import "BasicInfoCell.h"
 #import "university.h"
+
 @interface ValSchController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong) NSArray *titleArr;//标题数组
 @property (nonatomic, strong) NSArray *sectionArr;//区头数组
 
-@property (nonatomic, strong) NSMutableArray *contentArr;//区头数组
+@property(nonatomic,strong)userInfo * userInfoModel;
+@property(nonatomic,strong)university * firstUniversityModel;
+@property(nonatomic,strong)university * secondUniversityModel;
+@property(nonatomic,strong)university * thirdUniversityModel;
+
 @end
 
 @implementation ValSchController
@@ -25,79 +31,71 @@
     if (self = [super init]) {
         self.titleArr = @[@[@"学校名称",@"学部/研究科",@"学科/专攻"],@[@"学校名称",@"学部/研究科",@"学科/专攻"],@[@"学校名称",@"学部/研究科",@"学科/专攻"]];
         self.sectionArr =@[@"第一志愿",@"第二志愿",@"第三志愿"];
-        self.contentArr =[NSMutableArray array];
     }
     return self;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.view.backgroundColor =K_BG_WhiteColor;
-    [self.view addSubview:self.contentTable];
-}
-#pragma mark --  refresh
--(void)setUpRefresh
-{
-    //下拉刷新
-    @weakObject(self);
-    self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
-        @strongObject(self);
-        [self.contentTable.mj_header endRefreshing];
-    }];
-    //上拉加载
-    //    self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
-    //                @strongObject(self);
-    //    }];
+    [self.contentTable reloadData];
 }
 
-#pragma mark --  request
--(void)startRequest
+-(void)setOriginalModel:(PersonModel *)originalModel
 {
-    
+    _originalModel = originalModel;
+    self.userInfoModel = [originalModel.userInfo copy];
+    if (originalModel.userInfo.university.count <= 0) {
+        self.firstUniversityModel = [university new];
+        self.secondUniversityModel = [university new];
+        self.thirdUniversityModel = [university new];
+    }else if (originalModel.userInfo.university.count == 1){
+        self.firstUniversityModel = originalModel.userInfo.university[0];
+        self.secondUniversityModel = [university new];
+        self.thirdUniversityModel = [university new];
+    }else if (originalModel.userInfo.university.count == 2){
+        self.firstUniversityModel = originalModel.userInfo.university[0];
+        self.secondUniversityModel = originalModel.userInfo.university[1];
+        self.thirdUniversityModel = [university new];
+    }else if (originalModel.userInfo.university.count == 3){
+        self.firstUniversityModel = originalModel.userInfo.university[0];
+        self.secondUniversityModel = originalModel.userInfo.university[1];
+        self.thirdUniversityModel = originalModel.userInfo.university[2];
+    }
 }
--(void)setModel:(PersonModel *)model
-{
-    _model =model;
-}
+
 #pragma mark --  lazy
 -(MKBaseTableView *)contentTable
 {
     if (!_contentTable) {
         _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight-(K_NaviHeight+190)) style:UITableViewStyleGrouped];
+        _contentTable.delegate = self;
+        _contentTable.dataSource = self;
+        _contentTable.showsVerticalScrollIndicator = NO;
+        _contentTable.showsHorizontalScrollIndicator = NO;
+        _contentTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _contentTable.tableFooterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0.01)];
+        _contentTable.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0.01)];
         [self.view addSubview:_contentTable];
         _contentTable.backgroundColor = K_BG_WhiteColor;
         [_contentTable registerNib:[UINib nibWithNibName:@"BasicInfoCell" bundle:nil] forCellReuseIdentifier:@"BasicInfoCell"];
-        _contentTable.delegate = self;
-        _contentTable.dataSource = self;
     }
     return _contentTable;
 }
+
 #pragma mark - UITableViewDataSource
 #pragma mark - cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BasicInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BasicInfoCell" forIndexPath:indexPath];
-    NSArray * ary =self.titleArr[indexPath.section];
-    cell.ttLabel.text =ary[indexPath.row];
-    cell.selectionStyle =UITableViewCellSelectionStyleNone;
-    if (self.contentArr.count)
-    {
-        if (self.contentArr.count ==1&&indexPath.section ==0)
-        {
-            NSArray * arr =self.contentArr[0];
-            cell.textField.text =arr[indexPath.row];
-            
-        }
-        else if (self.contentArr.count==2 && indexPath.section <2)
-        {
-            NSArray * arr =self.contentArr[indexPath.section];
-            cell.textField.text =arr [indexPath.row];
-        }
-        else if (self.contentArr.count ==3)
-        {
-            NSArray * arr =self.contentArr[indexPath.section];
-            cell.textField.text =arr [indexPath.row];
-        }
+    NSArray * subTitleArr =self.titleArr[indexPath.section];
+    cell.ttLabel.text =subTitleArr[indexPath.row];
+    cell.textField.userInteractionEnabled = NO;
+    if (indexPath.section == 0) {
+        [cell cellUniversityRefreshDataWithUniversity:self.firstUniversityModel indexPath:indexPath];
+    }else if (indexPath.section == 1){
+        [cell cellUniversityRefreshDataWithUniversity:self.secondUniversityModel indexPath:indexPath];
+    }else{
+        [cell cellUniversityRefreshDataWithUniversity:self.thirdUniversityModel indexPath:indexPath];
     }
     return cell;
 }
@@ -159,35 +157,60 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-}
-
-
-#pragma mark - modelDatasource
--(void)createDataSource
-{
-
-    if (self.model.userInfo.university.count)
-    {
-        for (university * uni in self.model.userInfo.university) {
-            NSMutableArray * u =[NSMutableArray array];
-            [u  addObject:uni.university_name];
-            [u addObject:uni.faculty_name];
-            [u addObject:uni.discipline_name];
-           [ self.contentArr addObject:u];
+    SchoolListViewController *schoolVC = [SchoolListViewController new];
+    schoolVC.originalModel = self.originalModel;
+    schoolVC.showType = indexPath.row;
+    @weakObject(self);
+    schoolVC.schoolValueSelectedBlock = ^(NSInteger index, SchoolListViewShowType showType) {
+      @strongObject(self);
+        if (indexPath.section == 0) {//第一志愿
+            if (showType == SchoolListViewShowTypeUniversity) {
+                VolunteerUniversityList *universityModel = self.originalModel.volunteerUniversityList[index];
+                self.firstUniversityModel.university_name = universityModel.name;
+                self.firstUniversityModel.university_id = universityModel.universityID;
+            }else if (showType == SchoolListViewShowTypeFaculty){
+                
+            }else{
+                
+            }
+        }else if (indexPath.section == 1){
+            
+        }else{
+            
         }
-    }
-    if (self.contentArr.count>3) {
-        [self.contentArr removeObjectsInRange:NSMakeRange(3, self.contentArr.count-3)];
-    }
-    [self.contentTable reloadData];
+    };
+    [self.navigationController pushViewController:schoolVC animated:YES];
+    
+//    VolunteerUniversityList *universityModel =  self.universityList[indexPath.row];
+//    cell.contentLab.text = universityModel.name;
+//}else if (self.showType == SchoolListViewShowTypeFaculty){
+//    VolunteerFacultyList *facultyListModel =  self.facultyList[indexPath.row];
+//    cell.contentLab.text = facultyListModel.name;
+//}else{
+//    VolunteerDisciplineList *disciplineModel =  self.disciplineList[indexPath.row];
+//    cell.contentLab.text = disciplineModel.name;
 }
-#pragma mark -viewappear
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self createDataSource];
-}
+
+
+//#pragma mark - modelDatasource
+//-(void)createDataSource
+//{
+//    if (self.model.userInfo.university.count)
+//    {
+//        for (university * uni in self.model.userInfo.university) {
+//            NSMutableArray * u =[NSMutableArray array];
+//            [u  addObject:uni.university_name];
+//            [u addObject:uni.faculty_name];
+//            [u addObject:uni.discipline_name];
+//           [ self.contentArr addObject:u];
+//        }
+//    }
+//    if (self.contentArr.count>3) {
+//        [self.contentArr removeObjectsInRange:NSMakeRange(3, self.contentArr.count-3)];
+//    }
+//    [self.contentTable reloadData];
+//}
+
 
 
 @end

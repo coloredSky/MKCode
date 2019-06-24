@@ -40,6 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)CourseDetailScrollViewScrollToIndex:(NSInteger )index;
 //cell 课程点击
 -(void)courseDidSelectedWithIndexPath:(NSIndexPath *)indexPath andLessonModel:(MKLessonModel *)lessonModel;
+//线下课程添加日历提醒
+-(void)offlineCourseAddCalendar;
 @end
 
 NS_ASSUME_NONNULL_END

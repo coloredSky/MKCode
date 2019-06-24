@@ -41,8 +41,8 @@
 -(instancetype)init
 {
     if (self = [super init]) {
-        self.titleArr = @[@[@"我的账单",@"bookmark",@"通知设置",@"更改密码"],@[@"隐私声明",@"support",@"Feedback",@"更新",@"服务条款",@"Logout"]];
-        self.bannerArr = @[@[@"MyCenter_Cash",@"MyCenter_bookmark",@"MyCenter_message",@"MyCenter_password"],@[@"MyCenter_secure",@"MyCenter_help",@"MyCenter_feedback",@"MyCenter_update",@"MyCenter_service",@"MyCenter_log out"]];
+        self.titleArr = @[@[@"我的账单",@"bookmark",@"通知设置",@"更改密码"],@[@"隐私声明",@"Feedback",@"更新",@"服务条款",@"Logout"]];
+        self.bannerArr = @[@[@"MyCenter_Cash",@"MyCenter_bookmark",@"MyCenter_message",@"MyCenter_password"],@[@"MyCenter_secure",@"MyCenter_feedback",@"MyCenter_update",@"MyCenter_service",@"MyCenter_log out"]];
     }
     return self;
 }
@@ -224,33 +224,30 @@
         {
             PolicyViewController * policyVC =[PolicyViewController new];
             policyVC.titleString = @"隐私声明";
+            //隐私声明地址
+            policyVC.contentUrl = kMKPrivacyStatementUrl;
             [self.navigationController pushViewController:policyVC animated:YES];
         }
         if (indexPath.item ==1)
-        {
-            SupportController * svc =[SupportController new];
-            svc.hidesBottomBarWhenPushed=YES;
-            [self.navigationController pushViewController:svc animated:YES];
-        }
-        if (indexPath.item ==2)
         {
             FeedBackController *fvc =[FeedBackController new];
             fvc.hidesBottomBarWhenPushed =YES;
             [self.navigationController pushViewController:fvc animated:YES];
         }
-        if (indexPath.item ==3)
+        if (indexPath.item ==2)
         {
             VersionUpdateController * vc =[VersionUpdateController new];
             vc.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
-        if (indexPath.item ==4)
+        if (indexPath.item ==3)
         {
             PolicyViewController *policyVC = [PolicyViewController new];
             policyVC.titleString = @"服务条款";
+            policyVC.contentUrl = kMKTheTermsOfServiceUrl;
             [self.navigationController pushViewController:policyVC animated:YES];
         }
-        if (indexPath.item ==5)
+        if (indexPath.item ==4)
         {
             [self loginOutAlterViewShow];
         }
@@ -310,35 +307,23 @@
 #pragma mark-headerViewDelegate
 -(void)headerViewBtnClickWithOperationType:(MyCenterHeaderViewOperationType )operationType
 {
-    if ([[UserManager shareInstance] isLogin ]==YES)
-    {
-
-    if (operationType == MyCenterHeaderViewOperationTypeLoginIn)
-    {
+    if ([[UserManager shareInstance] isLogin ]==YES){
+    if (operationType == MyCenterHeaderViewOperationTypeLoginIn){
           LoginActionController *loginVC = [LoginActionController new];
         [self.navigationController pushViewController:loginVC animated:YES];
-    }
-    else
-    {
-        if (![[UserManager shareInstance]isLogin])
-        {
+    }else{
+        if (![[UserManager shareInstance]isLogin]){
             [self loginAlterViewShow];
             return;
         }
-
         UpdateMessageController * uvc =[UpdateMessageController new];
-        uvc.hidesBottomBarWhenPushed =YES;
         [self.navigationController pushViewController:uvc animated:YES];
        }
-    }
-    else
-    {
-
+    }else{
     if (![[UserManager shareInstance]isLogin]) {
         [self loginAlterViewShow];
        }
     }
-
 }
 
 #pragma mark --  登录
