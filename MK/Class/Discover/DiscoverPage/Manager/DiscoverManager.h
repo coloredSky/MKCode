@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class DiscoverNewsModel;
+@class MKCourseListModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param page_size 条数
  @param completionBlock 回调
  */
-+(void)callBackDiscoverNewsListDataWithHUDShow:(BOOL)hudShow  page:(NSInteger )page page_size:(NSInteger )page_size andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <DiscoverNewsModel *>*newsList, NSInteger totalpage))completionBlock;
++(void)callBackDiscoverNewsListDataWithHUDShow:(BOOL)hudShow  page:(NSInteger )page page_size:(NSInteger )page_size andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <DiscoverNewsModel *>*newsList, NSInteger totalpage,NSArray <MKCourseListModel *>*liveList))completionBlock;
 
 
 

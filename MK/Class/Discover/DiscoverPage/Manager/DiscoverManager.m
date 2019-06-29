@@ -8,10 +8,11 @@
 
 #import "DiscoverManager.h"
 #import "DiscoverNewsModel.h"
+#import "MKCourseListModel.h"
 
 @implementation DiscoverManager
 
-+(void)callBackDiscoverNewsListDataWithHUDShow:(BOOL)hudShow  page:(NSInteger )page page_size:(NSInteger )page_size andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <DiscoverNewsModel *>*newsList, NSInteger totalpage))completionBlock
++(void)callBackDiscoverNewsListDataWithHUDShow:(BOOL)hudShow  page:(NSInteger )page page_size:(NSInteger )page_size andCompletionBlock:(void(^)(BOOL isSuccess,NSString *message,NSArray <DiscoverNewsModel *>*newsList, NSInteger totalpage,NSArray <MKCourseListModel *>*liveList))completionBlock
 {
     NSDictionary *parameter = @{
                                 @"page":@(page),
@@ -19,19 +20,24 @@
                                     };
     [MKNetworkManager sendGetRequestWithUrl:K_MK_Discover_NewsList_Url parameters:parameter hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 0) {
+            NSArray *liveList;
+            if ([MKResult.dataResponseObject[@"article_course"] isKindOfClass:[NSArray class]]) {
+                liveList = [NSArray yy_modelArrayWithClass:[MKCourseListModel class] json:MKResult.dataResponseObject[@"article_course"]];
+            }
+            NSDictionary *posts_list = MKResult.dataResponseObject[@"posts_list"];
+            NSArray *newsList = [NSArray yy_modelArrayWithClass:[DiscoverNewsModel class] json:posts_list[@"list"]];
+            NSInteger totalpage =[posts_list[@"totalpage"] integerValue];
             if (completionBlock) {
-                NSArray *newsList = [NSArray yy_modelArrayWithClass:[DiscoverNewsModel class] json:MKResult.dataResponseObject[@"list"]];
-                 NSInteger totalpage =[MKResult.dataResponseObject[@"totalpage"] integerValue];
-                completionBlock(YES,MKResult.message,newsList,totalpage);
+                completionBlock(YES,MKResult.message,newsList,totalpage,liveList);
             }
         }else{
             if (completionBlock) {
-                completionBlock(NO,MKResult.message,nil,0);
+                completionBlock(NO,MKResult.message,nil,0,nil);
             }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (completionBlock) {
-            completionBlock(NO,error.userInfo[NSLocalizedDescriptionKey],nil,0);
+            completionBlock(NO,error.userInfo[NSLocalizedDescriptionKey],nil,0,nil);
         }
     }];
 }

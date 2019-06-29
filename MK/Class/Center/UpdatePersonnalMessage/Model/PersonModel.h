@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MKUniversityModel.h"
 #import "userInfo.h"
 #import "JapaneseLanguageAbilityList.h"
 #import "LanguageSchoolList.h"
 #import "LanguageSchoolTimeList.h"
 #import "VolunteerUniversityList.h"
-#import "VolunteerFacultyList.h"
-#import "VolunteerDisciplineList.h"
+//#import "VolunteerFacultyList.h"
+//#import "VolunteerDisciplineList.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PersonModel : NSObject
@@ -23,9 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSArray <LanguageSchoolList *>*languageSchoolList;//语言学校选择
 @property(nonatomic,strong)NSArray <LanguageSchoolTimeList *>*languageSchoolTimeList;//语言学校时间选择
 
-@property(nonatomic,strong)NSArray <VolunteerUniversityList *>*volunteerUniversityList;//志愿学校
-@property(nonatomic,strong)NSArray <VolunteerFacultyList *>*volunteerFacultyList;//志愿学部
-@property(nonatomic,strong)NSArray <VolunteerDisciplineList *>*volunteerDisciplineList;//志愿学科
+@property(nonatomic,strong)NSArray <MKUniversityModel *>*volunteerUniversityList;//志愿学校
+//@property(nonatomic,strong)NSArray <VolunteerFacultyList *>*volunteerFacultyList;//志愿学部
+//@property(nonatomic,strong)NSArray <VolunteerDisciplineList *>*volunteerDisciplineList;//志愿学科
 
 @property(nonatomic,strong)userInfo * userInfo;//用户个人信息
 

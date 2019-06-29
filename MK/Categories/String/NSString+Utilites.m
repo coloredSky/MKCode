@@ -567,7 +567,7 @@
     v2Version = [v2Str integerValue];
     if (v1Version==v2Version){
         return 0;
-    }else if (v1Version<v2Version){
+    }else if (v1Version > v2Version){
         return -1;
     }else{
         return 1;

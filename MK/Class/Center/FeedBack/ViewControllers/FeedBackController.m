@@ -134,7 +134,9 @@
         [MBHUDManager showBriefAlert:@"请选择您要反馈的内容！"];
         return;
     }
+    [MBHUDManager showLoading];
     [FeedBackManager callBackFeedBackWithHudShow:NO feedType:[self.selectedTypeModel.feedBackID integerValue]  feedDetail:self.feedBackTextView.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
         if (isSuccess) {
             [MBHUDManager showBriefAlert:@"感谢您的反馈！"];
             [self.navigationController popViewControllerAnimated:YES];

@@ -66,11 +66,11 @@
 
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic
 {
-    if (![NSString isEmptyWithStr:_teacher_detail]) {
-       _teacher_detail =  [NSString filterHTML:_teacher_detail];
-    }else{
-        _teacher_detail = @"";
-    }
+//    if (![NSString isEmptyWithStr:_teacher_detail]) {
+//       _teacher_detail =  [NSString filterHTML:_teacher_detail];
+//    }else{
+//        _teacher_detail = @"";
+//    }
     return YES;
 }
 

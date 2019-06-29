@@ -11,19 +11,14 @@
 
 @interface SchoolListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
-@property (nonatomic, strong) NSArray *universityList;//学校
-@property (nonatomic, strong) NSArray *facultyList;//学部
-@property (nonatomic, strong) NSArray *disciplineList;//学科
+
 @end
 
 @implementation SchoolListViewController
-
+@synthesize delegate;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_WhiteColor;
-    self.universityList = self.originalModel.volunteerUniversityList;
-    self.facultyList = self.originalModel.volunteerFacultyList;
-    self.disciplineList = self.originalModel.volunteerDisciplineList;
     [self.contentTable reloadData];
 }
 
@@ -45,13 +40,13 @@
 {
     SchoolSelectedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SchoolSelectedCell" forIndexPath:indexPath];
     if (self.showType == SchoolListViewShowTypeUniversity) {
-        VolunteerUniversityList *universityModel =  self.universityList[indexPath.row];
-        cell.contentLab.text = universityModel.name;
+        MKUniversityModel *universityModel = self.universityList[indexPath.row];
+        cell.contentLab.text = universityModel.zh_name;
     }else if (self.showType == SchoolListViewShowTypeFaculty){
-        VolunteerFacultyList *facultyListModel =  self.facultyList[indexPath.row];
+        MKUniversityFacultyListModel *facultyListModel =  self.facultyList[indexPath.row];
         cell.contentLab.text = facultyListModel.name;
     }else{
-        VolunteerDisciplineList *disciplineModel =  self.disciplineList[indexPath.row];
+        MKUniversityDisciplineListModel *disciplineModel =  self.disciplineList[indexPath.row];
         cell.contentLab.text = disciplineModel.name;
     }
     return cell;
@@ -73,7 +68,7 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return KScaleHeight(35);
+    return KScaleHeight(45);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -95,8 +90,12 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([delegate respondsToSelector:@selector(schoolListViewClickWithIndex:schoolListViewShowType: )]) {
+        [delegate schoolListViewClickWithIndex:indexPath.row schoolListViewShowType:self.showType];
+    }
     if (self.schoolValueSelectedBlock) {
         self.schoolValueSelectedBlock(indexPath.row, self.showType);
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

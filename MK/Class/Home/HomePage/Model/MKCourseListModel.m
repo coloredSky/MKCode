@@ -26,7 +26,7 @@
     return @{
              @"courseID" : @[@"id",@"course_id"],
              @"courseName" : @[@"name",@"course_name"],
-             @"teacherNmae" : @[@"lecturer_name",@"teacher_name"],
+             @"teacherNmae" : @[@"lecturer_name",@"teacher_name",@"lectureName"],
              @"courseImage" : @[@"img",@"url"],
              @"coursePrice" : @"price",
              @"courseDescription" : @"detail"

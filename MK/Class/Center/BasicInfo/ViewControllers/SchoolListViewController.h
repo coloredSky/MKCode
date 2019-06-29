@@ -22,10 +22,21 @@ typedef NS_ENUM(NSUInteger, SchoolListViewShowType) {
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol SchoolListViewControllerDelegate <NSObject>
+
+-(void)schoolListViewClickWithIndex:(NSInteger )index schoolListViewShowType:(SchoolListViewShowType )showType;
+
+@end
+
 @interface SchoolListViewController : MKNavViewController
 @property (nonatomic, copy)void(^schoolValueSelectedBlock)(NSInteger index,SchoolListViewShowType showType);
 
-@property(nonatomic,strong)PersonModel * originalModel;
+@property (nonatomic, assign) id<SchoolListViewControllerDelegate> delegate;
+
+//@property(nonatomic,strong)PersonModel * originalModel;
+@property (nonatomic, strong) NSArray *universityList;//学校
+@property (nonatomic, strong) NSArray *facultyList;//学部
+@property (nonatomic, strong) NSArray *disciplineList;//学科
 @property (nonatomic, assign) SchoolListViewShowType showType;
 
 

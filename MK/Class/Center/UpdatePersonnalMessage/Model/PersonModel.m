@@ -17,9 +17,7 @@
     return @{@"japaneseLanguageAbilityList" : [JapaneseLanguageAbilityList class],
              @"languageSchoolList" : [LanguageSchoolList class],
              @"languageSchoolTimeList" : [LanguageSchoolTimeList class],
-             @"volunteerUniversityList" : [VolunteerUniversityList class],
-             @"volunteerFacultyList" : [VolunteerFacultyList class],
-             @"volunteerDisciplineList" : [VolunteerDisciplineList class],
+             @"volunteerUniversityList" : [MKUniversityModel class],
              @"userInfo" : [userInfo class],
              };
 }

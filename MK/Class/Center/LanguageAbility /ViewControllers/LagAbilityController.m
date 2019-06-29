@@ -80,9 +80,9 @@
         [self.view addSubview:_submitBtn];
         _submitBtn.backgroundColor = K_BG_YellowColor;
         _submitBtn.layer.masksToBounds = YES;
-        _submitBtn.layer.cornerRadius = 6;
-         _submitBtn.frame =CGRectMake(26, 55, KScreenWidth-52, 55);
-        [_submitBtn setNormalTitle:@"保存" font:MKFont(14) titleColor:K_Text_WhiteColor];
+        _submitBtn.layer.cornerRadius = 10.0f;
+        _submitBtn.frame =CGRectMake(K_Padding_Home_LeftPadding, 40, KScreenWidth-K_Padding_Home_LeftPadding*2, (KScreenWidth-K_Padding_Home_LeftPadding*2)/6);
+        [_submitBtn setNormalTitle:@"保存" font:MKFont(14) titleColor:K_Text_BlackColor];
         [_submitBtn addTarget:self action:@selector(submitBtnTarget:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _submitBtn;
@@ -174,7 +174,9 @@
         [MBHUDManager showBriefAlert:@"请输入日语等级"];
         return;
     }
+    [MBHUDManager showLoading];
     [LanguageAblelityManager callBackUpdateLanguageAblelityWithToeic:self.toeicEditView.contentTF.text toefl:self.toeicEditView.contentTF.text jlpt:self.jpEditView.contentTF.text mobile:self.userInfoModel.mobile mobile_jp:self.userInfoModel.mobile_jp CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
         if (isSuccess) {
             [MBHUDManager showBriefAlert:@"修改成功！"];
             [self.navigationController popViewControllerAnimated:YES];

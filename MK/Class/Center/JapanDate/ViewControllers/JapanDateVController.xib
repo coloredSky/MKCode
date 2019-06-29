@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JapanDateVController">
             <connections>
+                <outlet property="bgView" destination="BtU-kp-Dza" id="9BN-HA-nOc"/>
+                <outlet property="bgViewHeightConstraint" destination="X7v-cQ-7pD" id="jgX-L7-XEm"/>
                 <outlet property="timeBtn" destination="FZW-fc-Bc6" id="jGz-Md-vty"/>
                 <outlet property="view" destination="TWm-SB-NTB" id="sPG-z7-E9K"/>
             </connections>
@@ -58,17 +60,18 @@
                     </constraints>
                 </view>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RER-Th-yqm">
-                    <rect key="frame" x="26" y="113" width="323" height="60"/>
+                    <rect key="frame" x="25" y="103" width="325" height="54"/>
                     <color key="backgroundColor" red="0.99215686270000003" green="0.95294117649999999" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="pxq-ns-YVY"/>
+                        <constraint firstAttribute="width" secondItem="RER-Th-yqm" secondAttribute="height" multiplier="6:1" id="vmE-xn-MCy"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="保 存">
-                        <color key="titleColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="5"/>
+                            <real key="value" value="10.5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -78,12 +81,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="RER-Th-yqm" firstAttribute="leading" secondItem="7FN-GS-Q7p" secondAttribute="leading" constant="26" id="1x2-n7-niR"/>
+                <constraint firstItem="RER-Th-yqm" firstAttribute="leading" secondItem="7FN-GS-Q7p" secondAttribute="leading" constant="25" id="1x2-n7-niR"/>
                 <constraint firstItem="BtU-kp-Dza" firstAttribute="top" secondItem="7FN-GS-Q7p" secondAttribute="top" constant="10" id="JkK-ac-lJ0"/>
                 <constraint firstItem="BtU-kp-Dza" firstAttribute="leading" secondItem="7FN-GS-Q7p" secondAttribute="leading" constant="26" id="MNK-c2-Yru"/>
                 <constraint firstItem="7FN-GS-Q7p" firstAttribute="trailing" secondItem="BtU-kp-Dza" secondAttribute="trailing" constant="26" id="UXR-Mh-NdN"/>
-                <constraint firstItem="7FN-GS-Q7p" firstAttribute="trailing" secondItem="RER-Th-yqm" secondAttribute="trailing" constant="26" id="ZVh-JZ-rlh"/>
-                <constraint firstItem="RER-Th-yqm" firstAttribute="top" secondItem="BtU-kp-Dza" secondAttribute="bottom" constant="50" id="iy6-U9-HFG"/>
+                <constraint firstItem="7FN-GS-Q7p" firstAttribute="trailing" secondItem="RER-Th-yqm" secondAttribute="trailing" constant="25" id="ZVh-JZ-rlh"/>
+                <constraint firstItem="RER-Th-yqm" firstAttribute="top" secondItem="BtU-kp-Dza" secondAttribute="bottom" constant="40" id="iy6-U9-HFG"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="7FN-GS-Q7p"/>
             <point key="canvasLocation" x="165.59999999999999" y="-3.1484257871064472"/>

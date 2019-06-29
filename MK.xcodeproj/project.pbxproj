@@ -27,6 +27,7 @@
 		30295726226859E4006D1613 /* WYNetworkCacheInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295714226859E3006D1613 /* WYNetworkCacheInfo.m */; };
 		30295727226859E4006D1613 /* WYNetworkDownloadEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295717226859E3006D1613 /* WYNetworkDownloadEngine.m */; };
 		3029572E22687102006D1613 /* HomeRecommendListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3029572D22687102006D1613 /* HomeRecommendListManager.m */; };
+		302C11BF22C5F37D0007EA43 /* MKAlterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 302C11BE22C5F37D0007EA43 /* MKAlterView.m */; };
 		30354F8A227F02910045955D /* PLVVodPlayerSkin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30354F4E227F02910045955D /* PLVVodPlayerSkin.xib */; };
 		30354F8B227F02910045955D /* PLVVodDefinitionPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F50227F02910045955D /* PLVVodDefinitionPanelView.m */; };
 		30354F8C227F02910045955D /* PLVVodPlayTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F53227F02910045955D /* PLVVodPlayTipsView.m */; };
@@ -65,7 +66,6 @@
 		3035B660224F2C7D00A1AA98 /* LoginActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B656224F2C7D00A1AA98 /* LoginActionController.m */; };
 		3035B661224F2C7D00A1AA98 /* LoginDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B657224F2C7D00A1AA98 /* LoginDetailController.m */; };
 		3035B662224F2C7D00A1AA98 /* LoginDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B659224F2C7D00A1AA98 /* LoginDetailController.xib */; };
-		3035B69E224F2D4500A1AA98 /* PropertyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B666224F2D4400A1AA98 /* PropertyController.m */; };
 		3035B6A2224F2D4500A1AA98 /* BookmarkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B676224F2D4500A1AA98 /* BookmarkController.m */; };
 		3035B6A3224F2D4500A1AA98 /* BookmarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B678224F2D4500A1AA98 /* BookmarkCell.m */; };
 		3035B6A4224F2D4500A1AA98 /* BookmarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B67A224F2D4500A1AA98 /* BookmarkCell.xib */; };
@@ -88,7 +88,6 @@
 		3035B6CD2251E27400A1AA98 /* MeetingEndQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B6CC2251E27400A1AA98 /* MeetingEndQueryViewController.m */; };
 		3035B6D22252032800A1AA98 /* AppointmentTeacherReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B6D02252032800A1AA98 /* AppointmentTeacherReplyCell.m */; };
 		3035B6D32252032800A1AA98 /* AppointmentTeacherReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B6D12252032800A1AA98 /* AppointmentTeacherReplyCell.xib */; };
-		3048D7B22232536D00FE63B2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D7B12232536D00FE63B2 /* ViewController.m */; };
 		3048D7B52232536D00FE63B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3048D7B32232536D00FE63B2 /* Main.storyboard */; };
 		3048D7B72232536F00FE63B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3048D7B62232536F00FE63B2 /* Assets.xcassets */; };
 		3048D7BA2232536F00FE63B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3048D7B82232536F00FE63B2 /* LaunchScreen.storyboard */; };
@@ -123,6 +122,8 @@
 		3048D893223A2E9D00FE63B2 /* XHRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D891223A2E9C00FE63B2 /* XHRefreshFooter.m */; };
 		3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89B223A2F5900FE63B2 /* PGIndexBannerSubiew.m */; };
 		3048D8A0223A2F5900FE63B2 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */; };
+		304EDFEC22C4B14D00E5B28B /* NSArray+Utilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 304EDFEB22C4B14D00E5B28B /* NSArray+Utilites.m */; };
+		304EDFEF22C4B85000E5B28B /* UniversityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 304EDFEE22C4B85000E5B28B /* UniversityModel.m */; };
 		3080171622AE9AC100112E28 /* AppointmentDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3080171522AE9AC100112E28 /* AppointmentDetailModel.m */; };
 		3080171922B2303D00112E28 /* AppoinementReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3080171822B2303D00112E28 /* AppoinementReplyModel.m */; };
 		3087BC7222B76EA900145833 /* BookMarkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3087BC7122B76EA900145833 /* BookMarkManager.m */; };
@@ -189,6 +190,7 @@
 		30BA54952297C73A00E9A6A0 /* DiscoverNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BA54942297C73A00E9A6A0 /* DiscoverNewsModel.m */; };
 		30D54D092270489F0004D034 /* MKCourseDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D54D082270489F0004D034 /* MKCourseDetailModel.m */; };
 		30DC170C22C0FDDE00C201F8 /* UserCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DC170B22C0FDDE00C201F8 /* UserCourseModel.m */; };
+		30DC171022C224B700C201F8 /* MKUniversityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DC170F22C224B700C201F8 /* MKUniversityModel.m */; };
 		30E77DC5226D9DC90052DE5D /* MKPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DC4226D9DC90052DE5D /* MKPlaceholderView.m */; };
 		30E77DC8226DAD720052DE5D /* MKBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DC7226DAD720052DE5D /* MKBannerModel.m */; };
 		30E77DCB226EFEB80052DE5D /* HomePublicCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77DCA226EFEB80052DE5D /* HomePublicCourseModel.m */; };
@@ -269,7 +271,6 @@
 		71296FBF22B1F4DB00BB8E7D /* VolunteerUniversityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FBE22B1F4DB00BB8E7D /* VolunteerUniversityList.m */; };
 		71296FC222B1F4E900BB8E7D /* VolunteerFacultyList.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FC122B1F4E900BB8E7D /* VolunteerFacultyList.m */; };
 		71296FC522B1F4F700BB8E7D /* VolunteerDisciplineList.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FC422B1F4F700BB8E7D /* VolunteerDisciplineList.m */; };
-		71296FC822B1F5CF00BB8E7D /* university.m in Sources */ = {isa = PBXBuildFile; fileRef = 71296FC722B1F5CF00BB8E7D /* university.m */; };
 		712BFB1122729B18004EAA6E /* MyBillManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 712BFB1022729B18004EAA6E /* MyBillManager.m */; };
 		71A18E1A225072CA007B4C55 /* LagAbilityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A18DD8225072CA007B4C55 /* LagAbilityController.m */; };
 		71A18E1C225072CA007B4C55 /* JapanDateVController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A18DE1225072CA007B4C55 /* JapanDateVController.xib */; };
@@ -368,6 +369,8 @@
 		3029571A226859E4006D1613 /* WYNetworkRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYNetworkRequestModel.h; sourceTree = "<group>"; };
 		3029572C22687102006D1613 /* HomeRecommendListManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeRecommendListManager.h; sourceTree = "<group>"; };
 		3029572D22687102006D1613 /* HomeRecommendListManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendListManager.m; sourceTree = "<group>"; };
+		302C11BD22C5F37D0007EA43 /* MKAlterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKAlterView.h; sourceTree = "<group>"; };
+		302C11BE22C5F37D0007EA43 /* MKAlterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKAlterView.m; sourceTree = "<group>"; };
 		30354F4C227F02910045955D /* PLVVodSkinPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodSkinPlayerController.h; sourceTree = "<group>"; };
 		30354F4D227F02910045955D /* PLVVodPlayerSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodPlayerSkin.h; sourceTree = "<group>"; };
 		30354F4E227F02910045955D /* PLVVodPlayerSkin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLVVodPlayerSkin.xib; sourceTree = "<group>"; };
@@ -437,8 +440,6 @@
 		3035B657224F2C7D00A1AA98 /* LoginDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginDetailController.m; sourceTree = "<group>"; };
 		3035B658224F2C7D00A1AA98 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3035B659224F2C7D00A1AA98 /* LoginDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginDetailController.xib; sourceTree = "<group>"; };
-		3035B665224F2D4400A1AA98 /* PropertyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyController.h; sourceTree = "<group>"; };
-		3035B666224F2D4400A1AA98 /* PropertyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyController.m; sourceTree = "<group>"; };
 		3035B675224F2D4500A1AA98 /* BookmarkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkController.h; sourceTree = "<group>"; };
 		3035B676224F2D4500A1AA98 /* BookmarkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkController.m; sourceTree = "<group>"; };
 		3035B678224F2D4500A1AA98 /* BookmarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkCell.m; sourceTree = "<group>"; };
@@ -480,8 +481,6 @@
 		3048D7AA2232536D00FE63B2 /* MK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3048D7AD2232536D00FE63B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3048D7AE2232536D00FE63B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3048D7B02232536D00FE63B2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3048D7B12232536D00FE63B2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3048D7B42232536D00FE63B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3048D7B62232536F00FE63B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3048D7B92232536F00FE63B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -547,6 +546,10 @@
 		3048D89C223A2F5900FE63B2 /* NewPagedFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPagedFlowView.m; sourceTree = "<group>"; };
 		3048D89D223A2F5900FE63B2 /* PGIndexBannerSubiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGIndexBannerSubiew.h; sourceTree = "<group>"; };
 		3048D89E223A2F5900FE63B2 /* NewPagedFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
+		304EDFEA22C4B14D00E5B28B /* NSArray+Utilites.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utilites.h"; sourceTree = "<group>"; };
+		304EDFEB22C4B14D00E5B28B /* NSArray+Utilites.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utilites.m"; sourceTree = "<group>"; };
+		304EDFED22C4B85000E5B28B /* UniversityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UniversityModel.h; sourceTree = "<group>"; };
+		304EDFEE22C4B85000E5B28B /* UniversityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniversityModel.m; sourceTree = "<group>"; };
 		3080171422AE9AC100112E28 /* AppointmentDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentDetailModel.h; sourceTree = "<group>"; };
 		3080171522AE9AC100112E28 /* AppointmentDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentDetailModel.m; sourceTree = "<group>"; };
 		3080171722B2303D00112E28 /* AppoinementReplyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppoinementReplyModel.h; sourceTree = "<group>"; };
@@ -668,6 +671,8 @@
 		30D54D082270489F0004D034 /* MKCourseDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKCourseDetailModel.m; sourceTree = "<group>"; };
 		30DC170A22C0FDDE00C201F8 /* UserCourseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserCourseModel.h; sourceTree = "<group>"; };
 		30DC170B22C0FDDE00C201F8 /* UserCourseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserCourseModel.m; sourceTree = "<group>"; };
+		30DC170E22C224B700C201F8 /* MKUniversityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKUniversityModel.h; sourceTree = "<group>"; };
+		30DC170F22C224B700C201F8 /* MKUniversityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKUniversityModel.m; sourceTree = "<group>"; };
 		30E77DBF226D96B70052DE5D /* MKPrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPrefix.h; sourceTree = "<group>"; };
 		30E77DC3226D9DC90052DE5D /* MKPlaceholderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKPlaceholderView.h; sourceTree = "<group>"; };
 		30E77DC4226D9DC90052DE5D /* MKPlaceholderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKPlaceholderView.m; sourceTree = "<group>"; };
@@ -809,8 +814,6 @@
 		71296FC122B1F4E900BB8E7D /* VolunteerFacultyList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VolunteerFacultyList.m; sourceTree = "<group>"; };
 		71296FC322B1F4F700BB8E7D /* VolunteerDisciplineList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VolunteerDisciplineList.h; sourceTree = "<group>"; };
 		71296FC422B1F4F700BB8E7D /* VolunteerDisciplineList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VolunteerDisciplineList.m; sourceTree = "<group>"; };
-		71296FC622B1F5CF00BB8E7D /* university.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = university.h; sourceTree = "<group>"; };
-		71296FC722B1F5CF00BB8E7D /* university.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = university.m; sourceTree = "<group>"; };
 		712BFB0F22729B18004EAA6E /* MyBillManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyBillManager.h; sourceTree = "<group>"; };
 		712BFB1022729B18004EAA6E /* MyBillManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyBillManager.m; sourceTree = "<group>"; };
 		71A18DD8225072CA007B4C55 /* LagAbilityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LagAbilityController.m; sourceTree = "<group>"; };
@@ -985,6 +988,15 @@
 				3029572D22687102006D1613 /* HomeRecommendListManager.m */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		302C11BC22C5F3640007EA43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				302C11BD22C5F37D0007EA43 /* MKAlterView.h */,
+				302C11BE22C5F37D0007EA43 /* MKAlterView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		30354F4A227F02910045955D /* PolyvOpenSourceModule */ = {
@@ -1163,23 +1175,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		3035B663224F2D4400A1AA98 /* Property */ = {
-			isa = PBXGroup;
-			children = (
-				3035B664224F2D4400A1AA98 /* ViewControllers */,
-			);
-			path = Property;
-			sourceTree = "<group>";
-		};
-		3035B664224F2D4400A1AA98 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				3035B665224F2D4400A1AA98 /* PropertyController.h */,
-				3035B666224F2D4400A1AA98 /* PropertyController.m */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
 		3035B673224F2D4500A1AA98 /* BookMark */ = {
 			isa = PBXGroup;
 			children = (
@@ -1249,7 +1244,6 @@
 			isa = PBXGroup;
 			children = (
 				30A19D4A22BB849E006D46EC /* Model */,
-				30A19D4922BB847B006D46EC /* New Group */,
 				71296FA522B1E38900BB8E7D /* Manager */,
 				3035B688224F2D4500A1AA98 /* ViewControllers */,
 				3035B68C224F2D4500A1AA98 /* Views */,
@@ -1436,8 +1430,6 @@
 				3048D7E2223255AE00FE63B2 /* Resources */,
 				3048D7E1223255A900FE63B2 /* Frameworks */,
 				3048D7E0223255A300FE63B2 /* APPEntry */,
-				3048D7B02232536D00FE63B2 /* ViewController.h */,
-				3048D7B12232536D00FE63B2 /* ViewController.m */,
 				30A19D5322BE5292006D46EC /* UpdateVersion */,
 				3048D7B62232536F00FE63B2 /* Assets.xcassets */,
 			);
@@ -1511,6 +1503,7 @@
 		3048D7E5223255C200FE63B2 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				304EDFE922C4B10C00E5B28B /* NSArrary */,
 				30A2018F225F28FB00A6A232 /* UITextView */,
 				3048D82D223263AF00FE63B2 /* AutoLayout */,
 				3048D83C223263AF00FE63B2 /* String */,
@@ -1825,7 +1818,6 @@
 				3035B67B224F2D4500A1AA98 /* BasicInfo */,
 				3035B673224F2D4500A1AA98 /* BookMark */,
 				3035B687224F2D4500A1AA98 /* FeedBack */,
-				3035B663224F2D4400A1AA98 /* Property */,
 				3035B699224F2D4500A1AA98 /* Support */,
 				3035B68F224F2D4500A1AA98 /* UpdatePersonnalMessage */,
 				3035B694224F2D4500A1AA98 /* VersionUpdate */,
@@ -1963,6 +1955,15 @@
 			path = NewPagedFlowView;
 			sourceTree = "<group>";
 		};
+		304EDFE922C4B10C00E5B28B /* NSArrary */ = {
+			isa = PBXGroup;
+			children = (
+				304EDFEA22C4B14D00E5B28B /* NSArray+Utilites.h */,
+				304EDFEB22C4B14D00E5B28B /* NSArray+Utilites.m */,
+			);
+			path = NSArrary;
+			sourceTree = "<group>";
+		};
 		3087BC6F22B76E8700145833 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2020,13 +2021,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		30A19D4922BB847B006D46EC /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		30A19D4A22BB849E006D46EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -2055,6 +2049,7 @@
 		30A19D5322BE5292006D46EC /* UpdateVersion */ = {
 			isa = PBXGroup;
 			children = (
+				302C11BC22C5F3640007EA43 /* View */,
 				30A19D5422BE52A6006D46EC /* Manager */,
 			);
 			path = UpdateVersion;
@@ -2357,6 +2352,15 @@
 			children = (
 				30BA54932297C73A00E9A6A0 /* DiscoverNewsModel.h */,
 				30BA54942297C73A00E9A6A0 /* DiscoverNewsModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30DC170D22C2248300C201F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30DC170E22C224B700C201F8 /* MKUniversityModel.h */,
+				30DC170F22C224B700C201F8 /* MKUniversityModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2742,8 +2746,8 @@
 				71296FAB22B1EAEF00BB8E7D /* PersonModel.m */,
 				71296FB122B1F39200BB8E7D /* userInfo.h */,
 				71296FB222B1F39200BB8E7D /* userInfo.m */,
-				71296FC622B1F5CF00BB8E7D /* university.h */,
-				71296FC722B1F5CF00BB8E7D /* university.m */,
+				304EDFED22C4B85000E5B28B /* UniversityModel.h */,
+				304EDFEE22C4B85000E5B28B /* UniversityModel.m */,
 				71296FB422B1F4B600BB8E7D /* JapaneseLanguageAbilityList.h */,
 				71296FB522B1F4B600BB8E7D /* JapaneseLanguageAbilityList.m */,
 				71296FB722B1F4C200BB8E7D /* LanguageSchoolList.h */,
@@ -2870,6 +2874,7 @@
 		71A18E09225072CA007B4C55 /* VoluntarySchools  */ = {
 			isa = PBXGroup;
 			children = (
+				30DC170D22C2248300C201F8 /* Model */,
 				71C28F2222B735DF00BBAF96 /* Manager */,
 				71A18E0B225072CA007B4C55 /* ViewControllers */,
 			);
@@ -3313,6 +3318,7 @@
 				3048D7EC2232565500FE63B2 /* AppDelegate.m in Sources */,
 				30FBE3132240C2020049C0DE /* HomeRecommenCell.m in Sources */,
 				30FBE375224398620049C0DE /* AppointmentPopView.m in Sources */,
+				304EDFEC22C4B14D00E5B28B /* NSArray+Utilites.m in Sources */,
 				30354F92227F02910045955D /* PLVVodPlaybackRatePanelView.m in Sources */,
 				3035B660224F2C7D00A1AA98 /* LoginActionController.m in Sources */,
 				710CF97A22672D62004DAD9D /* RegisterManager.m in Sources */,
@@ -3335,6 +3341,7 @@
 				71296FB922B1F4C200BB8E7D /* LanguageSchoolList.m in Sources */,
 				71A18E2D225072CA007B4C55 /* LYSDatePickerController.m in Sources */,
 				30FBE3652242115F0049C0DE /* AppointmentChildViewController.m in Sources */,
+				302C11BF22C5F37D0007EA43 /* MKAlterView.m in Sources */,
 				3048D892223A2E9D00FE63B2 /* XHRefreshHeader.m in Sources */,
 				71A18E1E225072CA007B4C55 /* LYSDateContentView.m in Sources */,
 				30354F9E227F02910045955D /* PLVVodDanmu+PLVVod.m in Sources */,
@@ -3345,6 +3352,7 @@
 				3048D8732239F77900FE63B2 /* HomePageCell.m in Sources */,
 				30BA54922297C62200E9A6A0 /* DiscoverManager.m in Sources */,
 				30354F94227F02910045955D /* PLVVodSettingPanelView.m in Sources */,
+				30DC171022C224B700C201F8 /* MKUniversityModel.m in Sources */,
 				30FBE3172240E50A0049C0DE /* HomeCourseCollectionView.m in Sources */,
 				30354F9C227F02910045955D /* UIControl+PLVVod.m in Sources */,
 				3048D89F223A2F5900FE63B2 /* PGIndexBannerSubiew.m in Sources */,
@@ -3359,7 +3367,6 @@
 				3087BC7F22B78D5F00145833 /* BillDetailHeaderCell.m in Sources */,
 				30B26C1B229F7553004A8F81 /* MakeMeetingManager.m in Sources */,
 				71A18E32225072CA007B4C55 /* ValuePickerView.m in Sources */,
-				3035B69E224F2D4500A1AA98 /* PropertyController.m in Sources */,
 				30A2014F2255F3B700A6A232 /* BillListCollectionViewFlowLayout.m in Sources */,
 				712BFB1122729B18004EAA6E /* MyBillManager.m in Sources */,
 				71C28F2122B7329A00BBAF96 /* BasicInfoManager.m in Sources */,
@@ -3414,8 +3421,6 @@
 				30F2ADF922A51B2600AB29EC /* EmptyView.m in Sources */,
 				7124F7BE2269719C00084346 /* UserManager.m in Sources */,
 				302956732266D83A006D1613 /* MKNetworkManager.m in Sources */,
-				3048D7B22232536D00FE63B2 /* ViewController.m in Sources */,
-				71296FC822B1F5CF00BB8E7D /* university.m in Sources */,
 				30354FB7227F05D30045955D /* PLVVodExamViewController.m in Sources */,
 				30A19D4122BA2BB7006D46EC /* MKOfflineCourseDetail.m in Sources */,
 				30A2DA2B224E00640030120D /* DiscoverNewsCell.m in Sources */,
@@ -3478,6 +3483,7 @@
 				71244491225832A1005AF711 /* OrderDetailCell_2.m in Sources */,
 				30295721226859E4006D1613 /* WYNetworkRequestModel.m in Sources */,
 				71296FA422B1DE7100BB8E7D /* SetPasswordManager.m in Sources */,
+				304EDFEF22C4B85000E5B28B /* UniversityModel.m in Sources */,
 				30FBE38722488AF30049C0DE /* CourseOnlineTitleCell.m in Sources */,
 				71C28F2D22B7380100BBAF96 /* JapanDateManager.m in Sources */,
 				30A19D3E22B9EB8B006D46EC /* MessageManager.m in Sources */,
@@ -3676,6 +3682,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9VG9KGP8J;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MK/Config/MKPrefix.h";
 				HEADER_SEARCH_PATHS = (
@@ -3703,6 +3710,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9VG9KGP8J;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MK/Config/MKPrefix.h";
 				HEADER_SEARCH_PATHS = (

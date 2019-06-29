@@ -9,11 +9,12 @@
 #import "DiscoverCourseCategoryView.h"
 //View
 #import "CourseCategoryCell.h"
-#import "DiscoverNewsModel.h"
+#import "MKCourseListModel.h"
+
 
 @interface DiscoverCourseCategoryView()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *contentCollectionView;
-@property (nonatomic, strong) NSArray <DiscoverNewsModel *>*dataList;
+@property (nonatomic, strong) NSArray <MKCourseListModel *>*dataList;
 @end
 
 @implementation DiscoverCourseCategoryView
@@ -42,8 +43,8 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     CourseCategoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CourseCategoryCell" forIndexPath:indexPath];
-    DiscoverNewsModel *newsModel = self.dataList[indexPath.row];
-    [cell.contentIma sd_setImageWithURL:[NSURL URLWithString:newsModel.newsImage] placeholderImage:KImageNamed(@"discover_category1")];
+    MKCourseListModel *courseModel = self.dataList[indexPath.row];
+    [cell.contentIma sd_setImageWithURL:[NSURL URLWithString:courseModel.courseImage] placeholderImage:K_MKPlaceholderImage1_1];
     return cell;
 }
 
@@ -59,7 +60,7 @@
     }
 }
 #pragma mark --  reload data
--(void)CourseCategoryViewReloadDataWithList:(NSArray <DiscoverNewsModel *>*)dataList
+-(void)CourseCategoryViewReloadDataWithList:(NSArray <MKCourseListModel  *>*)dataList
 {
     self.dataList = dataList;
     [self.contentCollectionView reloadData];

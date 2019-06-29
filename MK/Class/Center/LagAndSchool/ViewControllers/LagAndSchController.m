@@ -103,9 +103,9 @@
         [self.view addSubview:_submitBtn];
         _submitBtn.backgroundColor = K_BG_YellowColor;
         _submitBtn.layer.masksToBounds = YES;
-        _submitBtn.layer.cornerRadius = 6;
-        _submitBtn.frame =CGRectMake(26, 55, KScreenWidth-52, 55);
-        [_submitBtn setNormalTitle:@"保存" font:MKFont(14) titleColor:K_Text_WhiteColor];
+        _submitBtn.layer.cornerRadius = 10.0f;
+        _submitBtn.frame =CGRectMake(K_Padding_Home_LeftPadding, 40, KScreenWidth-K_Padding_Home_LeftPadding*2, (KScreenWidth-K_Padding_Home_LeftPadding*2)/6);
+        [_submitBtn setNormalTitle:@"保存" font:MKFont(14) titleColor:K_Text_BlackColor];
         [_submitBtn addTarget:self action:@selector(submitBtnTarget:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _submitBtn;
@@ -192,7 +192,9 @@
         [MBHUDManager showBriefAlert:@"请选择语言学校时间！"];
         return;
     }
+    [MBHUDManager showLoading];
     [LanAndSchManager callBackUpdateLanguageAndSchoolWithJp_school_id:self.selectedLanguageSchoolModel.schoolID  jp_school_time:self.userInfoModel.jp_school_time mobile:self.originalModel.userInfo.mobile mobile_jp:self.originalModel.userInfo.mobile_jp completionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
         if (isSuccess) {
             [MBHUDManager showBriefAlert:@"修改成功！"];
             [self.navigationController popViewControllerAnimated:YES];

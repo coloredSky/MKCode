@@ -14,7 +14,8 @@
 
 @implementation userInfo
 
-- (id)copyWithZone:(NSZone *)zone {
+- (instancetype)copyWithZone:(NSZone *)zone {
+    
     userInfo *userModel = [[self class]allocWithZone:zone];
     userModel.userID = self.userID;
     userModel.username = self.username;
@@ -43,7 +44,13 @@
     userModel.discipline_id_1 = self.discipline_id_1;
     userModel.discipline_id_2 = self.discipline_id_2;
     userModel.discipline_id_3 = self.discipline_id_3;
-    userModel.university = self.university;
+    
+    NSMutableArray *universityList = [NSMutableArray arrayWithCapacity:self.university.count];
+    for (UniversityModel *universityModel in self.university) {
+        [universityList addObject:[universityModel copy]];
+    }
+    userModel.university = [universityList copy];
+    
     return userModel;
 }
 
@@ -121,7 +128,7 @@
 }
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"university" : [university class]
+    return @{@"university" : [UniversityModel class]
              };
 }
 @end

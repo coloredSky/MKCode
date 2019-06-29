@@ -9,7 +9,6 @@
 #import "UpdateMessageController.h"
 #import "BasicInfoController.h"
 #import "LagAndSchController.h"
-#import "PropertyController.h"
 #import "LagAbilityController.h"
 #import "JapanDateVController.h"
 #import "ValSchController.h"
@@ -17,11 +16,11 @@
 #import "TitleScrollView.h"
 #import "HomeContentScrollView.h"
 //manager
+#import <SDWebImage/UIButton+WebCache.h>
 #import "GetPersonnalInfoManager.h"
 //model
 #import "PersonModel.h"
 
- #import <SDWebImage/UIButton+WebCache.h>
 
 @interface UpdateMessageController ()<TitleScrollViewDelegate,HomeContentScrollViewDelegate>
 

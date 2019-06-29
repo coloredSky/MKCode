@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "university.h"
+#import "UniversityModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface userInfo : NSObject
@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString * discipline_id_2 ;//第二志愿学校
 @property(nonatomic,strong)NSString * discipline_id_3 ;//第三志愿学校
 
-@property(nonatomic,strong)NSArray <university *>* university ;
+@property(nonatomic,strong)NSArray <UniversityModel *>* university ;
 
 
 

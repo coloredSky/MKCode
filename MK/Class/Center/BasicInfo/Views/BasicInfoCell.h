@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class userInfo;
-@class university;
+@class UniversityModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)cellBasicInfoRefreshDataWithUserInfo:(userInfo *)userInfoModel indexPath:(NSIndexPath *)indexPath;
 
 //志愿
--(void)cellUniversityRefreshDataWithUniversity:(university *)universityModel indexPath:(NSIndexPath *)indexPath;
+-(void)cellUniversityRefreshDataWithUniversity:(UniversityModel *)universityModel indexPath:(NSIndexPath *)indexPath;
 
 @end
 

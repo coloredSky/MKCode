@@ -44,15 +44,12 @@
     if ([NSString isEmptyWithStr:categoryID]) {
         return;
     }
-    if (pageOffset != 1) {
-        hudShow = NO;
-    }
     NSDictionary *parameters = @{@"language" : @"zh-cn",
                                                 @"category_id" : categoryID,
-                                                @"offset" : [NSString stringWithFormat:@"%ld",pageOffset],
-                                                @"limit" : [NSString stringWithFormat:@"%ld",pageLimit]
+                                                @"offset" : @(pageOffset),
+                                                @"limit" : @(pageLimit)
                                  };
-    [MKNetworkManager sendGetRequestWithUrl:K_MK_Home_CourseList_Url parameters:parameters hudIsShow:YES success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+    [MKNetworkManager sendGetRequestWithUrl:K_MK_Home_CourseList_Url parameters:parameters hudIsShow:hudShow success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 0) {
             if (completionBlock) {
                 NSArray *categoryArr = [NSArray yy_modelArrayWithClass:[HomeCourseCategoryModel class] json:MKResult.dataResponseObject[@"categoryList"]];

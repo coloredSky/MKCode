@@ -16,11 +16,13 @@
 #import "DiscoverManager.h"
 //Model
 #import "DiscoverNewsModel.h"
+#import "MKCourseListModel.h"
+
 
 @interface DiscoverPageViewController ()<UITableViewDelegate,UITableViewDataSource,DiscoverCourseCategoryViewDelegate>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong) NSMutableArray <DiscoverNewsModel *> *dicoverNewsList;
-@property (nonatomic, strong) NSArray <DiscoverNewsModel *> *feelingNewsList;
+@property (nonatomic, strong) NSArray <MKCourseListModel *> *liveList;
 //分页
 @property (nonatomic, assign) NSInteger totalPage;//总页数
 @property (nonatomic, assign) NSInteger currentPage;//页码
@@ -80,7 +82,7 @@
 #pragma mark --  request
 -(void)startRequestTheArticleList
 {
-    [DiscoverManager callBackDiscoverNewsListDataWithHUDShow:NO page:self.currentPage page_size:self.pageSize andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<DiscoverNewsModel *> * _Nonnull newsList, NSInteger totalpage) {
+    [DiscoverManager callBackDiscoverNewsListDataWithHUDShow:NO page:self.currentPage page_size:self.pageSize andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSArray<DiscoverNewsModel *> * _Nonnull newsList, NSInteger totalpage, NSArray <MKCourseListModel *>* _Nonnull liveList) {
         [self.contentTable.mj_header endRefreshing];
         [self.contentTable.mj_footer endRefreshing];
         if (isSuccess) {
@@ -88,6 +90,7 @@
                 self.totalPage = totalpage;
                 [self.dicoverNewsList removeAllObjects];
                 self.dicoverNewsList = newsList.mutableCopy;
+                self.liveList = liveList;
                 if (self.currentPage < totalpage) {
                     [self setUpFooterRefresh];
                 }
@@ -190,7 +193,7 @@
         CGFloat itemWidth = (KScreenWidth-25*2-18*3)/4;
         DiscoverCourseCategoryView *categoryView = [[DiscoverCourseCategoryView alloc]initWithFrame:CGRectMake(0, fotterView.height/2-itemWidth/2, fotterView.width, itemWidth)];
         categoryView.delegate = self;
-        [categoryView CourseCategoryViewReloadDataWithList:self.feelingNewsList];
+        [categoryView CourseCategoryViewReloadDataWithList:self.liveList];
         [fotterView addSubview:categoryView];
         return fotterView;
     }
@@ -228,11 +231,11 @@
 #pragma mark -- course category did selected
 -(void)itemDidSelectedWithIndex:(NSUInteger )index
 {
-     DiscoverNewsModel *newsModel = self.feelingNewsList[index];
-    NewsViewController *newsVC = [NewsViewController new];
-    newsVC.contentString = newsModel.newsContent;
-    newsVC.loadType = WebViewLoadTypeLoadTheRichText;
-    [self.navigationController pushViewController:newsVC animated:YES];
+     MKCourseListModel *courseModel = self.liveList[index];
+    CourseDetailViewController *courseDetailVC = [CourseDetailViewController new];
+    courseDetailVC.course_id = courseModel.courseID;
+    courseDetailVC.courseType = CourseSituationTypeOnline;
+    [self.navigationController pushViewController:courseDetailVC animated:YES];
 }
 
 @end

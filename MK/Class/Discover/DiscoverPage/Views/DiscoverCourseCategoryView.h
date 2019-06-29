@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class DiscoverNewsModel;
+@class MKCourseListModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) id<DiscoverCourseCategoryViewDelegate>delegate;
 
--(void)CourseCategoryViewReloadDataWithList:(NSArray <DiscoverNewsModel *>*)dataList;
+-(void)CourseCategoryViewReloadDataWithList:(NSArray <MKCourseListModel *>*)dataList;
 
 @end
 

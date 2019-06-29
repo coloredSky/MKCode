@@ -60,6 +60,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="bgView" destination="WBR-sq-yti" id="zhB-3g-ZlB"/>
                 <outlet property="textField" destination="iqW-0f-SVI" id="Rpu-JD-ZWB"/>
                 <outlet property="ttLabel" destination="n2e-rW-Qa2" id="JdA-l2-am7"/>
             </connections>

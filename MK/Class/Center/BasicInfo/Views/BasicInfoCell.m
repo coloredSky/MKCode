@@ -8,10 +8,11 @@
 
 #import "BasicInfoCell.h"
 #import "userInfo.h"
-#import "university.h"
+#import "UniversityModel.h"
 
 @interface BasicInfoCell()
 
+@property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, strong) userInfo *userInfoModel;
 
@@ -27,6 +28,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.selectionStyle =UITableViewCellSelectionStyleNone;
+    self.bgView.layer.masksToBounds = YES;
+    self.bgView.layer.cornerRadius = 6.0f;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(contentTFValueChange:) name:UITextFieldTextDidChangeNotification object:self.textField];
 }
 
@@ -104,7 +107,7 @@
 }
 
 //志愿
--(void)cellUniversityRefreshDataWithUniversity:(university *)universityModel indexPath:(NSIndexPath *)indexPath
+-(void)cellUniversityRefreshDataWithUniversity:(UniversityModel *)universityModel indexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
         self.textField.text = universityModel.university_name;

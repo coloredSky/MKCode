@@ -25,16 +25,18 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    self.teacherHeaderIma.frame = CGRectMake(KScaleWidth(25), self.contentView.centerY-KScaleWidth(25), KScaleWidth(50), KScaleWidth(50));
+    self.teacherHeaderIma.frame = CGRectMake(KScaleWidth(25), KScaleWidth(10), self.contentView.height-KScaleWidth(20), self.contentView.height-KScaleWidth(20));
     self.teacherNameLab.frame = CGRectMake(self.teacherHeaderIma.rightX+KScaleWidth(10), self.teacherHeaderIma.topY, self.contentView.width-self.teacherHeaderIma.rightX-KScaleWidth(10+25), KScaleWidth(20));
 //    CGSize teacherIntroduceLabSize = [self.teacherIntroduceLab.text getStrSizeWithSize:CGSizeMake(self.teacherNameLab.width, 3000) font:self.teacherIntroduceLab.font];
     self.teacherIntroduceLab.frame = CGRectMake(self.teacherNameLab.leftX, self.teacherNameLab.bottomY, self.teacherNameLab.width, self.teacherHeaderIma.height-self.teacherNameLab.height);
 }
 -(void)cellRefreshDataWithTeacherName:(NSString *)teacherNmae teacherIma:(NSString *)teacherIma teacherDescription:(NSString *)teacherDescription
 {
+//    self.teacherIntroduceLab.text = teacherDescription;
     [self.teacherHeaderIma sd_setImageWithURL:[NSURL URLWithString:teacherIma] placeholderImage:K_MKPlaceholderImage1_1];
     self.teacherNameLab.text = teacherNmae;
-    self.teacherIntroduceLab.text = teacherDescription;
+    NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[teacherDescription dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    self.teacherIntroduceLab.attributedText = attrStr;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

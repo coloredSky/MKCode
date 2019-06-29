@@ -38,6 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = K_BG_deepGrayColor;
     self.titleLab.text = self.titleString;
     if (self.loadType == WebViewLoadTypeLoadTheRichText){
         //加载富文本
@@ -90,9 +91,9 @@
 -(UIProgressView *)progressView
 {
     if (!_progressView) {
-        _progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 1)];
+        _progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, K_StatusBarHeight, KScreenWidth, 1)];
         [self.view addSubview:_progressView];
-        _progressView.trackTintColor = [UIColor whiteColor];
+        _progressView.trackTintColor = K_BG_deepGrayColor;
         _progressView.progressTintColor = K_BG_YellowColor;
         _progressView.progressViewStyle = UIProgressViewStyleDefault;
     }

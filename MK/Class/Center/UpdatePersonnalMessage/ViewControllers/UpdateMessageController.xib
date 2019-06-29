@@ -30,7 +30,7 @@
                         <constraint firstAttribute="width" constant="80" id="ghF-xA-rpS"/>
                         <constraint firstAttribute="height" constant="80" id="nRh-MS-nlr"/>
                     </constraints>
-                    <state key="normal" image="MyCenter_header"/>
+                    <state key="normal" image="placeholder1-1"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="3"/>
@@ -73,6 +73,6 @@
         </view>
     </objects>
     <resources>
-        <image name="MyCenter_header" width="71" height="67"/>
+        <image name="placeholder1-1" width="3126" height="3126"/>
     </resources>
 </document>

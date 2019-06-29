@@ -13,6 +13,9 @@
 @interface JapanDateVController ()<LYSDatePickerSelectDelegate>
 @property(nonatomic,weak)IBOutlet UIButton  * timeBtn;
 @property(nonatomic,strong)userInfo * userInfoModel;//用户信息
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bgViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+
 @end
 
 @implementation JapanDateVController
@@ -20,8 +23,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor =K_BG_WhiteColor;
+    self.bgView.layer.masksToBounds = YES;
+    self.bgView.layer.cornerRadius = 6.0f;
+    self.bgViewHeightConstraint.constant = KScaleHeight(33);
     [self.timeBtn  setTitle:self.originalModel.userInfo.arrive_jp forState:UIControlStateNormal];
+    
 }
+
+-(void)viewWillLayoutSubviews
+{
+    
+}
+
 -(IBAction)btnClick:(UIButton * )sender
 {
     if (sender.tag ==0)
@@ -38,7 +51,9 @@
             [MBHUDManager showBriefAlert:@"请修改赴日日期后保存！"];
             return;
         }
+        [MBHUDManager showLoading];
         [JapanDateManager callBackUpdateJapanDateWithArrive_jp:self.userInfoModel.arrive_jp mobile:self.originalModel.userInfo.mobile mobile_jp:self.originalModel.userInfo.mobile_jp completionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+            [MBHUDManager hideAlert];
             if (isSuccess) {
                 [MBHUDManager showBriefAlert:@"修改成功！"];
                 [self.navigationController popViewControllerAnimated:YES];

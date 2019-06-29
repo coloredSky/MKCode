@@ -246,6 +246,11 @@
 {
     self.courseDetailModel = courseDetailModel;
     self.offlineCourseModel = offlineCourseDetailModel;
+    for (MKLessonModel *lessonModel in courseDetailModel.lessonList) {
+        if (lessonModel.isSelected) {
+            self.selectedLessonModel = lessonModel;
+        }
+    }
     NSString *webContent = @"";
     if (self.courseType == CourseSituationTypeOnline) {
         if (![NSString isEmptyWithStr:courseDetailModel.courseInfoDetail.courseDetail]) {

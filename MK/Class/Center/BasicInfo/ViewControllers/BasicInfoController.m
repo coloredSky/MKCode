@@ -88,7 +88,7 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 43;
+    return KScaleHeight(43);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -119,10 +119,10 @@
         bgView.backgroundColor =K_BG_WhiteColor;
         
         UIButton * btn =[UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame =CGRectMake(26, 55, KScreenWidth-52, 60);
-        [btn setNormalTitle:@"保存" font:MKFont(14) titleColor:K_Text_DeepGrayColor];
+        btn.frame =CGRectMake(K_Padding_Home_LeftPadding, 40, KScreenWidth-K_Padding_Home_LeftPadding*2, (KScreenWidth-K_Padding_Home_LeftPadding*2)/6);
+        [btn setNormalTitle:@"保存" font:MKFont(14) titleColor:K_Text_BlackColor];
        btn.backgroundColor =UIColorFromRGB_0x(0xfdf303);
-        btn.layer.cornerRadius =5.f;
+        btn.layer.cornerRadius =10.f;
         btn.layer.masksToBounds =YES;
         [bgView addSubview:btn];
         [btn addTarget:self action:@selector(submitTarget:) forControlEvents:UIControlEventTouchUpInside];
@@ -154,7 +154,9 @@
         [MBHUDManager showBriefAlert:@"请修改后保存！"];
         return;
     }
+    [MBHUDManager showLoading];
     [BasicInfoManager callBackUpdateBasicInfoWithHudShow:NO lastname:self.userInfoModel.lastname firstname:self.userInfoModel.firstname lastkana:self.userInfoModel.lastkana firstkana:self.userInfoModel.firstkana mobile:self.userInfoModel.mobile mobile_jp:self.userInfoModel.mobile_jp email:self.userInfoModel.email weixin:self.userInfoModel.weixin qq:self.userInfoModel.qq province:@"" city:self.userInfoModel.city CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
         if (isSuccess) {
             [MBHUDManager showBriefAlert:@"修改成功！"];
             [self.navigationController popViewControllerAnimated:YES];

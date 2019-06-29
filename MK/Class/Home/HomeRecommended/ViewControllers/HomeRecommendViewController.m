@@ -9,7 +9,6 @@
 #import "HomeRecommendViewController.h"
 #import "CourseDetailViewController.h"
 #import "NewsViewController.h"
-#import "CourseDetailViewController.h"
 //View
 #import "HomePageCell.h"
 #import "NewPagedFlowView.h"
@@ -55,62 +54,76 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.view.backgroundColor = [UIColor redColor];
     //refresh
-        [self setUpRefresh];
+        [self setUpHeaderRefresh];
     //request
-    [self startRequest];
+    [self startRequestWithHUDShow:YES];
 }
 -(void)homeRecommendfreshCourseListData
 {
     if (self.recommendCourseList.count == 0) {
-        [self startRequest];
+        [self startRequestWithHUDShow:YES];
     }
 }
 
 #pragma mark --  refresh
--(void)setUpRefresh
+-(void)setUpHeaderRefresh
 {
     //下拉刷新
     @weakObject(self);
     self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
         self.pageOffset = 1;
-        [self startRequest];
+        [self startRequestWithHUDShow:NO];
     }];
+}
+
+-(void)setUpFooterRefresh
+{
     //上拉加载
+    @weakObject(self);
     self.contentTable.mj_footer = [XHRefreshFooter footerWithRefreshingBlock:^{
         @strongObject(self);
         self.pageOffset += self.pageLimit;
-        [self startRequest];
+        [self startRequestWithHUDShow:NO];
     }];
 }
 
 #pragma mark --  request
--(void)startRequest
+-(void)startRequestWithHUDShow:(BOOL)HUDShow
 {
-    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:self.categoryID pageOffset:self.pageOffset pageLimit:self.pageLimit andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message,NSArray<HomeCourseCategoryModel *> * _Nonnull courseCategoryList, NSArray<MKBannerModel *> * _Nonnull bannerList, NSArray<HomePublicCourseModel *> * _Nonnull publicCourseList, NSArray<MKCourseListModel *> * _Nonnull recommentCourseList) {
+    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:HUDShow categoryID:self.categoryID pageOffset:self.pageOffset pageLimit:self.pageLimit andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message,NSArray<HomeCourseCategoryModel *> * _Nonnull courseCategoryList, NSArray<MKBannerModel *> * _Nonnull bannerList, NSArray<HomePublicCourseModel *> * _Nonnull publicCourseList, NSArray<MKCourseListModel *> * _Nonnull recommentCourseList) {
         [self.contentTable.mj_header endRefreshing];
-        [self.contentTable.mj_footer endRefreshing];
         if (isSuccess) {
             if (self.pageOffset == 1) {
-                if (bannerList.count <= 0) {
-                    self.bannerList = @[[MKBannerModel new]];
+                if (bannerList.count > 0) {
+                    self.contentTable.tableHeaderView = self.bannerView;
+                    self.bannerList = bannerList;
+                    [self.bannerView reloadData];
                 }else{
-                 self.bannerList = bannerList;
+                    self.contentTable.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.size.width, CGFLOAT_MIN)];
                 }
-                [self.bannerView reloadData];
                 self.publicCourseList = publicCourseList;
                 [self.recommendCourseList removeAllObjects];
                 [self.recommendCourseList addObjectsFromArray:recommentCourseList];
+                if (recommentCourseList.count == self.pageLimit) {
+                    [self setUpFooterRefresh];
+                }
             }else{
                 [self.recommendCourseList addObjectsFromArray:recommentCourseList];
             }
             if (recommentCourseList.count < self.pageLimit) {
                 [self.contentTable.mj_footer endRefreshingWithNoMoreData];
+            }else{
+                [self.contentTable.mj_footer endRefreshing];
             }
             [self.contentTable reloadData];
         }else{
+            if (self.pageOffset > self.pageLimit) {
+                [self.contentTable.mj_footer endRefreshingWithNoMoreData];
+            }else{
+                [self.contentTable.mj_footer endRefreshing];
+            }
             self.pageOffset -= self.pageLimit;
         }
     }];
@@ -129,15 +142,13 @@
 -(MKBaseTableView *)contentTable
 {
     if (!_contentTable) {
-        _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth,KScreenHeight-(K_NaviHeight+KScaleHeight(35)+KScaleHeight(20))-K_TabbarHeight) style:UITableViewStyleGrouped];
-        [self.view addSubview:_contentTable];
-        [_contentTable registerNib:[UINib nibWithNibName:@"HomeRecommenCell" bundle:nil] forCellReuseIdentifier:@"HomeRecommenCell"];
-        
-        UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, self.bannerItemSize.height)];
-        [headerView addSubview:self.bannerView];
-        _contentTable.tableHeaderView = headerView;
+        _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth,KScreenHeight-(KScaleHeight(91)+KScaleHeight(20))-K_TabbarHeight) style:UITableViewStyleGrouped];
         _contentTable.delegate = self;
         _contentTable.dataSource = self;
+        [self.view addSubview:_contentTable];
+        _contentTable.sectionHeaderHeight = 0.1;
+        _contentTable.sectionFooterHeight = 0.1;
+        [_contentTable registerNib:[UINib nibWithNibName:@"HomeRecommenCell" bundle:nil] forCellReuseIdentifier:@"HomeRecommenCell"];
     }
     return _contentTable;
 }
@@ -145,7 +156,6 @@
 -(NewPagedFlowView *)bannerView
 {
     if (!_bannerView) {
-//        _bannerView = [[NewPagedFlowView alloc]initWithFrame:CGRectMake(KScreenWidth/2-KScaleWidth(308)/2-20, 44, KScaleWidth(308)+40, KScaleWidth(228))];
         _bannerView = [[NewPagedFlowView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, self.bannerItemSize.height)];
         _bannerView.delegate = self;
         _bannerView.dataSource = self;
@@ -184,6 +194,7 @@
 {
     return (KScreenWidth-K_Padding_Home_LeftPadding*2)/2+15;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return KScaleHeight(50);
@@ -235,9 +246,6 @@
     if (!bannerView) {
         bannerView = [[PGIndexBannerSubiew alloc] init];
         bannerView.tag = index;
-//        bannerView.layer.cornerRadius = 8;
-//        bannerView.layer.masksToBounds = YES;
-//        [bannerView setSubviewsWithSuperViewBounds:CGRectMake(0, 0, KScaleWidth(308), KScaleWidth(228))];
     }
     MKBannerModel *model = self.bannerList[index];
     [bannerView.mainImageView sd_setImageWithURL:[NSURL URLWithString:model.bannerImage] placeholderImage:K_MKPlaceholder_Annoument_Banner_Image];
@@ -265,6 +273,7 @@
     newsDetailVC.contentUrl = model.courseUrl;
     [self.navigationController pushViewController:newsDetailVC animated:YES];
 }
+
 #pragma mark --  banner did selected
 - (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
     NewsViewController *newsDetailVC = [NewsViewController new];

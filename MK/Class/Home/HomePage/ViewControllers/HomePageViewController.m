@@ -15,6 +15,7 @@
 #import "HomeContentScrollView.h"
 //manager
 #import "HomePageManager.h"
+#import "VersionUpdateManager.h"
 //model
 #import "HomeCourseCategoryModel.h"
 
@@ -26,6 +27,9 @@
 @property (nonatomic, strong) HomeContentScrollView *contentScroll;//内容scroll
 //数据
 @property (nonatomic, strong) NSArray <HomeCourseCategoryModel *>*courseCategoryList;//课程类型list
+
+//更新
+@property (nonatomic, strong) VersionUpdateManager *updateManager;
 @end
 
 @implementation HomePageViewController
@@ -48,11 +52,14 @@
     self.view.backgroundColor = K_BG_deepGrayColor;
     //navView
     [self laoutTopView];
-    [self startRequestWithHUDShow:YES]; 
+    [self startRequestWithHUDShow:YES];
+    [self.updateManager checkUpXHBorrowAppVersionUpdateWhenFoundNewsVersion];
 }
 -(void)startRequestWithHUDShow:(BOOL )hudShow
 {
-    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:YES categoryID:@"100" pageOffset:1 pageLimit:1 andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message,NSArray<HomeCourseCategoryModel *> * _Nonnull courseCategoryList, NSArray<MKBannerModel *> * _Nonnull bannerList, NSArray<HomePublicCourseModel *> * _Nonnull publicCourseList, NSArray<MKCourseListModel *> * _Nonnull recommentCourseList) {
+    [MBHUDManager showLoading];
+    [HomePageManager callBackHomePageCouurseListDataWithHUDShow:NO categoryID:@"100" pageOffset:1 pageLimit:1 andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message,NSArray<HomeCourseCategoryModel *> * _Nonnull courseCategoryList, NSArray<MKBannerModel *> * _Nonnull bannerList, NSArray<HomePublicCourseModel *> * _Nonnull publicCourseList, NSArray<MKCourseListModel *> * _Nonnull recommentCourseList) {
+        [MBHUDManager hideAlert];
         if (isSuccess) {
             self.courseCategoryList = courseCategoryList;
             NSMutableArray *titleArr = [NSMutableArray arrayWithCapacity:courseCategoryList.count];
@@ -90,6 +97,14 @@
 }
 
 #pragma mark --  lazy
+-(VersionUpdateManager *)updateManager
+{
+    if (!_updateManager) {
+        _updateManager = [VersionUpdateManager new];
+    }
+    return _updateManager;
+}
+
 -(NSMutableArray <UIViewController *>*)childVCs
 {
     if (!_childVCs) {
@@ -97,6 +112,7 @@
     }
     return _childVCs;
 }
+
 -(HomeContentScrollView *)contentScroll
 {
     if (!_contentScroll) {
@@ -128,7 +144,7 @@
         [recommendVC homeRecommendfreshCourseListData];
     }else{
         HomeCommonViewController *commonVC = (HomeCommonViewController *)self.childVCs[index];
-        [commonVC homeCommonrefreshCourseListData];
+        [commonVC homeCommonrefreshCourseListDataWithTitle:self.titleArr[index]];
     }
 }
 @end

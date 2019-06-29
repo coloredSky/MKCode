@@ -1,16 +1,17 @@
 //
-//  university.h
+//  UniversityModel.h
 //  MK
 //
-//  Created by ginluck on 2019/6/13.
-//  Copyright © 2019年 周洋. All rights reserved.
+//  Created by 周洋 on 2019/6/27.
+//  Copyright © 2019 周洋. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface university : NSObject
+@interface UniversityModel : NSObject
+
 
 @property(nonatomic,strong)NSString * university_name;
 @property(nonatomic,strong)NSString * university_id;

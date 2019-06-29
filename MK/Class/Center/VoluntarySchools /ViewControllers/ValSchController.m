@@ -9,17 +9,26 @@
 #import "ValSchController.h"
 #import "SchoolListViewController.h"
 #import "BasicInfoCell.h"
-#import "university.h"
+#import "MKUniversityModel.h"
+#import "UniversityModel.h"
+#import "ValSchoolManager.h"
 
-@interface ValSchController ()<UITableViewDelegate,UITableViewDataSource>
+#import "NSArray+Utilites.h"
+
+@interface ValSchController ()<UITableViewDelegate,UITableViewDataSource,SchoolListViewControllerDelegate>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong) NSArray *titleArr;//标题数组
 @property (nonatomic, strong) NSArray *sectionArr;//区头数组
 
 @property(nonatomic,strong)userInfo * userInfoModel;
-@property(nonatomic,strong)university * firstUniversityModel;
-@property(nonatomic,strong)university * secondUniversityModel;
-@property(nonatomic,strong)university * thirdUniversityModel;
+
+@property(nonatomic,strong)UniversityModel * firstUniversityModel;//显示和传值第一志愿
+@property(nonatomic,strong)UniversityModel * secondUniversityModel;//显示和传值第二志愿
+@property(nonatomic,strong)UniversityModel * thirdUniversityModel;////显示和传值第三志愿
+
+@property (nonatomic, strong) MKUniversityModel *firstSelectedModel;//选中的第一志愿
+@property (nonatomic, strong) MKUniversityModel *secondSelectedModel;//选中的第二志愿
+@property (nonatomic, strong) MKUniversityModel *thirdSelectedModel;//选中的第三志愿
 
 @end
 
@@ -43,24 +52,66 @@
 -(void)setOriginalModel:(PersonModel *)originalModel
 {
     _originalModel = originalModel;
-    self.userInfoModel = [originalModel.userInfo copy];
+    _userInfoModel = [originalModel.userInfo copy];
+    
     if (originalModel.userInfo.university.count <= 0) {
-        self.firstUniversityModel = [university new];
-        self.secondUniversityModel = [university new];
-        self.thirdUniversityModel = [university new];
+        self.firstUniversityModel = [UniversityModel new];
+        self.secondUniversityModel = [UniversityModel new];
+        self.thirdUniversityModel = [UniversityModel new];
     }else if (originalModel.userInfo.university.count == 1){
-        self.firstUniversityModel = originalModel.userInfo.university[0];
-        self.secondUniversityModel = [university new];
-        self.thirdUniversityModel = [university new];
+        self.firstUniversityModel = self.userInfoModel.university[0];
+        self.secondUniversityModel = [UniversityModel new];
+        self.thirdUniversityModel = [UniversityModel new];
+        self.firstSelectedModel = [self getSelectedUniversityModelWithUniversityID:self.firstUniversityModel];
     }else if (originalModel.userInfo.university.count == 2){
-        self.firstUniversityModel = originalModel.userInfo.university[0];
-        self.secondUniversityModel = originalModel.userInfo.university[1];
-        self.thirdUniversityModel = [university new];
+        self.firstUniversityModel = self.userInfoModel.university[0];
+        self.secondUniversityModel = self.userInfoModel.university[1];
+        self.thirdUniversityModel = [UniversityModel new];
+        self.firstSelectedModel = [self getSelectedUniversityModelWithUniversityID:self.firstUniversityModel];
+        self.secondSelectedModel = [self getSelectedUniversityModelWithUniversityID:self.secondUniversityModel];
     }else if (originalModel.userInfo.university.count == 3){
-        self.firstUniversityModel = originalModel.userInfo.university[0];
-        self.secondUniversityModel = originalModel.userInfo.university[1];
-        self.thirdUniversityModel = originalModel.userInfo.university[2];
+        self.firstUniversityModel = self.userInfoModel.university[0];
+        self.secondUniversityModel = self.userInfoModel.university[1];
+        self.thirdUniversityModel = self.userInfoModel.university[2];
+        self.firstSelectedModel = [self getSelectedUniversityModelWithUniversityID:self.firstUniversityModel];
+        self.secondSelectedModel = [self getSelectedUniversityModelWithUniversityID:self.secondUniversityModel];
+        self.thirdSelectedModel = [self getSelectedUniversityModelWithUniversityID:self.thirdUniversityModel];
     }
+}
+
+-(MKUniversityModel *)getSelectedUniversityModelWithUniversityID:(UniversityModel *)university
+{
+    MKUniversityModel *resultUniversityModel;
+    //找到大学
+    for (MKUniversityModel *universityModel in self.originalModel.volunteerUniversityList) {
+        if ([universityModel.universityID integerValue] == [university.university_id integerValue]) {
+            resultUniversityModel = universityModel;
+            break;
+        }
+    }
+    //找到学部
+    MKUniversityFacultyListModel *resultFacultyListModel;
+    if (resultUniversityModel) {
+        for (MKUniversityFacultyListModel *facultyListModel in resultUniversityModel.facultyList) {
+            if ([facultyListModel.faculty_id integerValue] == [university.faculty_id integerValue]) {
+                resultFacultyListModel = facultyListModel;
+//                resultFacultyListModel.isSelected = YES;
+                resultUniversityModel.selectedFacultyListModel = facultyListModel;
+                break;
+            }
+        }
+    }
+    //找到学科
+    if (resultFacultyListModel) {
+        for (MKUniversityDisciplineListModel *disciplineListModel in resultFacultyListModel.disciplineList) {
+            if ([disciplineListModel.faculty_id integerValue] == [university.discipline_id integerValue]) {
+//                disciplineListModel.isSelected = YES;
+                resultFacultyListModel.selectedDisciplineListModel = disciplineListModel;
+                break;
+            }
+        }
+    }
+    return resultUniversityModel;
 }
 
 #pragma mark --  lazy
@@ -111,7 +162,7 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 43;
+    return KScaleHeight(43);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -142,10 +193,11 @@
         bgView.backgroundColor =K_BG_WhiteColor;
         
         UIButton * btn =[UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setNormalTitle:@"保存" font:MKFont(13) titleColor:K_Text_DeepGrayColor];
+        [btn setNormalTitle:@"保存" font:MKFont(14) titleColor:K_Text_BlackColor];
+        [btn addTarget:self action:@selector(submitHandleTarget:) forControlEvents:UIControlEventTouchUpInside];
         btn.backgroundColor =UIColorFromRGB_0x(0xfdf303);
-        btn.frame =CGRectMake(26, 55, KScreenWidth-52, 60);
-        btn.layer.cornerRadius =5.f;
+        btn.layer.cornerRadius = 10.0f;
+        btn.frame =CGRectMake(K_Padding_Home_LeftPadding, 40, KScreenWidth-K_Padding_Home_LeftPadding*2, (KScreenWidth-K_Padding_Home_LeftPadding*2)/6);
         btn.layer.masksToBounds =YES;
         [bgView addSubview:btn];
         return bgView;
@@ -153,64 +205,126 @@
     return nil;
 }
 
+-(void)UniversityClickWithIndexPath:(NSIndexPath *)indexPath schoolListVC:(SchoolListViewController *)schoolVC universityModel:(MKUniversityModel *)universityModel
+{
+    schoolVC.showType = indexPath.row;
+    if (indexPath.row == 0) {
+        schoolVC.universityList = self.originalModel.volunteerUniversityList;
+    }else if (indexPath.row == 1){
+        if (!universityModel) {
+            [MBHUDManager showBriefAlert:@"请先选择学校！"];
+            return;
+        }
+        schoolVC.facultyList = universityModel.facultyList;
+    }else{
+        if (!universityModel) {
+            [MBHUDManager showBriefAlert:@"请先选择学校！"];
+            return;
+        }
+        if (!universityModel.selectedFacultyListModel) {
+            [MBHUDManager showBriefAlert:@"请先选择学部！"];
+            return;
+        }
+        if (universityModel.selectedFacultyListModel.disciplineList.count == 0) {
+            [MBHUDManager showBriefAlert:@"该学部暂无学科可供选择！"];
+            return;
+        }
+        schoolVC.disciplineList = universityModel.selectedFacultyListModel.disciplineList;
+    }
+    [self.navigationController pushViewController:schoolVC animated:YES];
+}
+
 #pragma mark --  EVENT
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SchoolListViewController *schoolVC = [SchoolListViewController new];
-    schoolVC.originalModel = self.originalModel;
+    schoolVC.delegate = self;
     schoolVC.showType = indexPath.row;
+    if (indexPath.section == 0) {
+        [self UniversityClickWithIndexPath:indexPath schoolListVC:schoolVC universityModel:self.firstSelectedModel];
+    }else if (indexPath.section == 1){
+       [self UniversityClickWithIndexPath:indexPath schoolListVC:schoolVC universityModel:self.secondSelectedModel];
+    }else if (indexPath.section == 2){
+        [self UniversityClickWithIndexPath:indexPath schoolListVC:schoolVC universityModel:self.thirdSelectedModel];
+    }
     @weakObject(self);
     schoolVC.schoolValueSelectedBlock = ^(NSInteger index, SchoolListViewShowType showType) {
       @strongObject(self);
         if (indexPath.section == 0) {//第一志愿
-            if (showType == SchoolListViewShowTypeUniversity) {
-                VolunteerUniversityList *universityModel = self.originalModel.volunteerUniversityList[index];
-                self.firstUniversityModel.university_name = universityModel.name;
-                self.firstUniversityModel.university_id = universityModel.universityID;
-            }else if (showType == SchoolListViewShowTypeFaculty){
-                
-            }else{
-                
-            }
+            [self universitySelectedHandleCallbackWithSchoolViewShowType:showType clickIndex:index cellSection:indexPath.section selectedUniversityModel:self.firstSelectedModel showUniversity:self.firstUniversityModel];
         }else if (indexPath.section == 1){
-            
+            [self universitySelectedHandleCallbackWithSchoolViewShowType:showType clickIndex:index cellSection:indexPath.section selectedUniversityModel:self.secondSelectedModel showUniversity:self.secondUniversityModel];
         }else{
-            
+            [self universitySelectedHandleCallbackWithSchoolViewShowType:showType clickIndex:index cellSection:indexPath.section selectedUniversityModel:self.thirdSelectedModel showUniversity:self.thirdUniversityModel];
         }
+        [self.contentTable reloadData];
     };
-    [self.navigationController pushViewController:schoolVC animated:YES];
-    
-//    VolunteerUniversityList *universityModel =  self.universityList[indexPath.row];
-//    cell.contentLab.text = universityModel.name;
-//}else if (self.showType == SchoolListViewShowTypeFaculty){
-//    VolunteerFacultyList *facultyListModel =  self.facultyList[indexPath.row];
-//    cell.contentLab.text = facultyListModel.name;
-//}else{
-//    VolunteerDisciplineList *disciplineModel =  self.disciplineList[indexPath.row];
-//    cell.contentLab.text = disciplineModel.name;
 }
 
+-(void)universitySelectedHandleCallbackWithSchoolViewShowType:(SchoolListViewShowType )showType clickIndex:(NSInteger )index cellSection:(NSInteger )section selectedUniversityModel:(MKUniversityModel *)selectedUniversityModel  showUniversity:(UniversityModel *)showUniversityModel;
 
-//#pragma mark - modelDatasource
-//-(void)createDataSource
-//{
-//    if (self.model.userInfo.university.count)
-//    {
-//        for (university * uni in self.model.userInfo.university) {
-//            NSMutableArray * u =[NSMutableArray array];
-//            [u  addObject:uni.university_name];
-//            [u addObject:uni.faculty_name];
-//            [u addObject:uni.discipline_name];
-//           [ self.contentArr addObject:u];
-//        }
-//    }
-//    if (self.contentArr.count>3) {
-//        [self.contentArr removeObjectsInRange:NSMakeRange(3, self.contentArr.count-3)];
-//    }
-//    [self.contentTable reloadData];
-//}
+{
+    if (showType == SchoolListViewShowTypeUniversity) {
+        //重新选择学校后置为充实状态
+    selectedUniversityModel.selectedFacultyListModel.selectedDisciplineListModel = nil;
+        selectedUniversityModel.selectedFacultyListModel = nil;
+        showUniversityModel.faculty_name = @"";
+        showUniversityModel.faculty_id = @"";
+        showUniversityModel.discipline_name = @"";
+        showUniversityModel.discipline_id = @"";
+        
+        selectedUniversityModel = self.originalModel.volunteerUniversityList[index];
+        //赋值
+        if (section == 0) {
+            self.firstSelectedModel = selectedUniversityModel;
+        }else if (section == 1){
+            self.secondSelectedModel = selectedUniversityModel;
+        }else{
+            self.thirdSelectedModel = selectedUniversityModel;
+        }
+        showUniversityModel.university_id = selectedUniversityModel.universityID;
+        showUniversityModel.university_name = selectedUniversityModel.name;
+    }else if (showType == SchoolListViewShowTypeFaculty){
+        //重新选择学校后置为充实状态
+        selectedUniversityModel.selectedFacultyListModel.selectedDisciplineListModel = nil;
+        showUniversityModel.discipline_name = @"";
+        showUniversityModel.discipline_id = @"";
+        //赋值
+        selectedUniversityModel.selectedFacultyListModel = selectedUniversityModel.facultyList[index];
+        showUniversityModel.faculty_id = selectedUniversityModel.selectedFacultyListModel.faculty_id;
+        showUniversityModel.faculty_name = selectedUniversityModel.selectedFacultyListModel.name;
+    }else{
+        selectedUniversityModel.selectedFacultyListModel.selectedDisciplineListModel = selectedUniversityModel.selectedFacultyListModel.disciplineList[index];;
+        showUniversityModel.discipline_id = selectedUniversityModel.selectedFacultyListModel.selectedDisciplineListModel.discipline_id;
+        showUniversityModel.discipline_name = selectedUniversityModel.selectedFacultyListModel.selectedDisciplineListModel.name;
+    }
+}
 
+-(void)schoolListViewClickWithIndex:(NSInteger )index schoolListViewShowType:(SchoolListViewShowType )showType
+{
+    //nil
+}
 
+#pragma mark --  保存
+-(void)submitHandleTarget:(UIButton *)sender
+{
+    if ([self.userInfoModel.university isEqualToArray:self.originalModel.userInfo.university]) {
+        [MBHUDManager showBriefAlert:@"请修改后保存！"];
+        return;
+    }
+    [MBHUDManager showLoading];
+    [ValSchoolManager callBackUpdateValSchoolUniversity_id_1:self.firstUniversityModel.university_id faculty_id_1:self.firstUniversityModel.faculty_id discipline_id_1:self.firstUniversityModel.discipline_id university_id_2:self.secondUniversityModel.university_id faculty_id_2:self.secondUniversityModel.faculty_id discipline_id_2:self.secondUniversityModel.discipline_id university_id_3:self.thirdUniversityModel.university_id faculty_id_3:self.thirdUniversityModel.faculty_id discipline_id_3:self.thirdUniversityModel.discipline_id mobile:self.originalModel.userInfo.mobile completionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
+        if (isSuccess) {
+            [MBHUDManager showBriefAlert:@"修改成功！"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }
+        }
+    }];
+}
 
 @end
