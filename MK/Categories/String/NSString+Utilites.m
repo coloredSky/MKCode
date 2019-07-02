@@ -526,12 +526,20 @@
     return  contentString.string;
 }
 
++(NSString *)getAppName
+{
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+    return app_Name;
+}
+
 +(NSString *)getAppVersion
 {
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
     return appVersion;
 }
+
 
 + (NSInteger)compareVersion:(NSString *)v2
 {

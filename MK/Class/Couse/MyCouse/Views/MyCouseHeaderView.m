@@ -7,6 +7,8 @@
 //
 
 #import "MyCouseHeaderView.h"
+#import "MKCourseListModel.h"
+
 @interface MyCouseHeaderView()
 @property (weak, nonatomic) IBOutlet UIView *VideoView;
 @property (weak, nonatomic) IBOutlet UILabel *VideoStatusLab;
@@ -23,6 +25,7 @@
 
 @end
 @implementation MyCouseHeaderView
+@synthesize delegate;
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -41,9 +44,10 @@
     _lineIma.backgroundColor = K_Line_lineColor;
     
     [_tipLab setFont:MKBoldFont(15) textColor:K_Text_WhiteColor withBackGroundColor:nil];
-    self.tipLab.text = @"还没有观看视频";
-//    _timeIma.image = [UIImage imageNamed:@"appointment_btn"];
-//    _timeIma.backgroundColor = [UIColor redColor];
+    self.tipLab.text = @"";
+    
+    _courseIma.userInteractionEnabled = YES;
+    [_courseIma addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(userCoursePlay:)]];
 }
 -(void)layoutSubviews
 {
@@ -51,20 +55,37 @@
     self.lineHeightConstraints.constant = K_Line_lineWidth;
 }
 
--(void)cellRefreshData
+-(void)userCourseHeaderViewRefreshDataWithMKCourseListModel:(MKCourseListModel *)courseListModel
 {
-    self.VideoTitleLab.hidden = YES;
-      self.lineIma.hidden = YES;
-      self.courseIma.hidden = YES;
-      self.coursePlayIma.hidden = YES;
-      self.VideoStatusLab.hidden = YES;
-    self.VideoTimeLab.hidden = YES;
-//
-//    self.lineIma.hidden = YES;
-//    self.courseIma.image = KImageNamed(@"timg.jpeg");
-//    self.coursePlayIma.image = KImageNamed(@"Course_list_play");
-//    self.VideoTimeLab.text = @"23:49";
-//    self.VideoTitleLab.text = @"语态：可能态";
-//    self.VideoStatusLab.text = @"继续观看";
+    if (!courseListModel) {
+        self.tipLab.text = @"还没有观看视频";
+        self.VideoTitleLab.hidden = YES;
+        self.lineIma.hidden = YES;
+        self.courseIma.hidden = YES;
+        self.coursePlayIma.hidden = YES;
+        self.VideoStatusLab.hidden = YES;
+        self.VideoTimeLab.hidden = YES;
+    }else{
+        self.VideoTitleLab.hidden = NO;
+        self.lineIma.hidden = NO;
+        self.courseIma.hidden = NO;
+        self.coursePlayIma.hidden = NO;
+        self.VideoStatusLab.hidden = NO;
+        self.VideoTimeLab.hidden = NO;
+        
+        [self.courseIma sd_setImageWithURL:[NSURL URLWithString:courseListModel.courseImage] placeholderImage:K_MKPlaceholderImage3_2];
+            self.coursePlayIma.image = KImageNamed(@"Course_list_play");
+            self.VideoTimeLab.text = courseListModel.view_time;
+            self.VideoTitleLab.text = [NSString stringWithFormat:@"%@-%@",courseListModel.courseName,courseListModel.video_name];
+            self.VideoStatusLab.text = @"继续观看";
+    }
 }
+
+-(void)userCoursePlay:(UITapGestureRecognizer *)tap
+{
+    if ([delegate respondsToSelector:@selector(userCouseHeaderViewVideoPlay)]) {
+        [delegate userCouseHeaderViewVideoPlay];
+    }
+}
+
 @end

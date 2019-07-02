@@ -21,6 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *courseImage;//课程图片
 @property (nonatomic, copy) NSString *is_online;//线上线下课程
 
+//我的课程中最上部的视频播放用到
+@property (nonatomic, copy) NSString *video_name;//视频名称
+@property (nonatomic, copy) NSString *view_time;//视频时间
+@property (nonatomic, copy) NSString *lessonID;//课时ID
+
+
 //线下课程
 //@property (nonatomic, copy) NSString *course_id;//
 //@property (nonatomic, copy) NSString *course_name;//

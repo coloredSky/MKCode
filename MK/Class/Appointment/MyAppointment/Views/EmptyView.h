@@ -27,22 +27,40 @@ typedef NS_ENUM(NSInteger, EmptyViewShowType) {
     EmptyViewShowTypeUserCourseNoLogin,
 };
 
+
+/**
+ 默认视图操作类型
+
+ - EmptyViewOperationTypeLogin: 登录
+ - EmptyViewOperationVideoPlay: 视频播放
+ - EmptyViewOperationDataRefresh: 刷新数据
+ */
+typedef NS_ENUM(NSUInteger, EmptyViewOperationType) {
+    EmptyViewOperationTypeLogin,
+    EmptyViewOperationVideoPlay,
+    EmptyViewOperationDataRefresh,
+};
+
 #import <UIKit/UIKit.h>
 @class EmptyView;
+@class MKCourseListModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol EmptyViewDelegate <NSObject>
 
--(void)emptyViewClickTargetWithView:(EmptyView *)view;
+-(void)emptyViewClickTargetWithView:(EmptyView *)view withEmptyViewOperationType:(EmptyViewOperationType )operationType;
 
 @end
 
 @interface EmptyView : UIView
+
 @property (nonatomic, assign) EmptyViewShowType showType;
 @property (nonatomic, assign) id<EmptyViewDelegate> delegate;
 
 //-(void)EmptyViewConfigWithImage:(NSString *)contentImage signString:(NSString *)signString viewShowType:(EmptyViewShowType )showType;
+
+-(void)EmptyViewReloadDataWithMKCourseListModel:(MKCourseListModel *)courseModel;
 @end
 
 NS_ASSUME_NONNULL_END

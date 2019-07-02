@@ -28,6 +28,8 @@
 		30295727226859E4006D1613 /* WYNetworkDownloadEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 30295717226859E3006D1613 /* WYNetworkDownloadEngine.m */; };
 		3029572E22687102006D1613 /* HomeRecommendListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3029572D22687102006D1613 /* HomeRecommendListManager.m */; };
 		302C11BF22C5F37D0007EA43 /* MKAlterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 302C11BE22C5F37D0007EA43 /* MKAlterView.m */; };
+		302C11C222C9B3830007EA43 /* MKCalendarsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 302C11C122C9B3830007EA43 /* MKCalendarsManager.m */; };
+		302C11C622CB05720007EA43 /* NSDate+Utilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 302C11C522CB05720007EA43 /* NSDate+Utilites.m */; };
 		30354F8A227F02910045955D /* PLVVodPlayerSkin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30354F4E227F02910045955D /* PLVVodPlayerSkin.xib */; };
 		30354F8B227F02910045955D /* PLVVodDefinitionPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F50227F02910045955D /* PLVVodDefinitionPanelView.m */; };
 		30354F8C227F02910045955D /* PLVVodPlayTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30354F53227F02910045955D /* PLVVodPlayTipsView.m */; };
@@ -61,11 +63,7 @@
 		3035B65B224F2C7D00A1AA98 /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B64D224F2C7D00A1AA98 /* RegisterController.xib */; };
 		3035B65C224F2C7D00A1AA98 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B64E224F2C7D00A1AA98 /* RegisterController.m */; };
 		3035B65D224F2C7D00A1AA98 /* LoginActionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B651224F2C7D00A1AA98 /* LoginActionController.xib */; };
-		3035B65E224F2C7D00A1AA98 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B653224F2C7D00A1AA98 /* LoginViewController.m */; };
-		3035B65F224F2C7D00A1AA98 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B655224F2C7D00A1AA98 /* LoginViewController.xib */; };
 		3035B660224F2C7D00A1AA98 /* LoginActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B656224F2C7D00A1AA98 /* LoginActionController.m */; };
-		3035B661224F2C7D00A1AA98 /* LoginDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B657224F2C7D00A1AA98 /* LoginDetailController.m */; };
-		3035B662224F2C7D00A1AA98 /* LoginDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B659224F2C7D00A1AA98 /* LoginDetailController.xib */; };
 		3035B6A2224F2D4500A1AA98 /* BookmarkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B676224F2D4500A1AA98 /* BookmarkController.m */; };
 		3035B6A3224F2D4500A1AA98 /* BookmarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B678224F2D4500A1AA98 /* BookmarkCell.m */; };
 		3035B6A4224F2D4500A1AA98 /* BookmarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B67A224F2D4500A1AA98 /* BookmarkCell.xib */; };
@@ -239,7 +237,6 @@
 		30FBE3BA224B771B0049C0DE /* MKMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3B9224B771B0049C0DE /* MKMessageModel.m */; };
 		6C55296C556EB2F911F5F752 /* libPods-MKUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9672EE5833F0CB4B2091726 /* libPods-MKUITests.a */; };
 		710CF97A22672D62004DAD9D /* RegisterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 710CF97922672D62004DAD9D /* RegisterManager.m */; };
-		7117325B226862C10065772B /* ViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71173259226862C10065772B /* ViewControllerManager.m */; };
 		712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170C4223F326100BA1905 /* MyCouseHeaderView.m */; };
 		712170CC223F3A1C00BA1905 /* MyCouseHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712170CB223F3A1C00BA1905 /* MyCouseHeaderView.xib */; };
 		712170D0223F43CC00BA1905 /* MyCenterTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712170CE223F43CC00BA1905 /* MyCenterTopCell.m */; };
@@ -371,6 +368,10 @@
 		3029572D22687102006D1613 /* HomeRecommendListManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendListManager.m; sourceTree = "<group>"; };
 		302C11BD22C5F37D0007EA43 /* MKAlterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKAlterView.h; sourceTree = "<group>"; };
 		302C11BE22C5F37D0007EA43 /* MKAlterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKAlterView.m; sourceTree = "<group>"; };
+		302C11C022C9B3830007EA43 /* MKCalendarsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKCalendarsManager.h; sourceTree = "<group>"; };
+		302C11C122C9B3830007EA43 /* MKCalendarsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKCalendarsManager.m; sourceTree = "<group>"; };
+		302C11C422CB05720007EA43 /* NSDate+Utilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilites.h"; sourceTree = "<group>"; };
+		302C11C522CB05720007EA43 /* NSDate+Utilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilites.m"; sourceTree = "<group>"; };
 		30354F4C227F02910045955D /* PLVVodSkinPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodSkinPlayerController.h; sourceTree = "<group>"; };
 		30354F4D227F02910045955D /* PLVVodPlayerSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVVodPlayerSkin.h; sourceTree = "<group>"; };
 		30354F4E227F02910045955D /* PLVVodPlayerSkin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLVVodPlayerSkin.xib; sourceTree = "<group>"; };
@@ -433,13 +434,7 @@
 		3035B64E224F2C7D00A1AA98 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
 		3035B651224F2C7D00A1AA98 /* LoginActionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginActionController.xib; sourceTree = "<group>"; };
 		3035B652224F2C7D00A1AA98 /* LoginActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginActionController.h; sourceTree = "<group>"; };
-		3035B653224F2C7D00A1AA98 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		3035B654224F2C7D00A1AA98 /* LoginDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginDetailController.h; sourceTree = "<group>"; };
-		3035B655224F2C7D00A1AA98 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		3035B656224F2C7D00A1AA98 /* LoginActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginActionController.m; sourceTree = "<group>"; };
-		3035B657224F2C7D00A1AA98 /* LoginDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginDetailController.m; sourceTree = "<group>"; };
-		3035B658224F2C7D00A1AA98 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		3035B659224F2C7D00A1AA98 /* LoginDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginDetailController.xib; sourceTree = "<group>"; };
 		3035B675224F2D4500A1AA98 /* BookmarkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkController.h; sourceTree = "<group>"; };
 		3035B676224F2D4500A1AA98 /* BookmarkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkController.m; sourceTree = "<group>"; };
 		3035B678224F2D4500A1AA98 /* BookmarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkCell.m; sourceTree = "<group>"; };
@@ -758,8 +753,6 @@
 		6C807C83E01E6A12BC783DB2 /* Pods-MKUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKUITests/Pods-MKUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		710CF97822672D62004DAD9D /* RegisterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterManager.h; sourceTree = "<group>"; };
 		710CF97922672D62004DAD9D /* RegisterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterManager.m; sourceTree = "<group>"; };
-		71173259226862C10065772B /* ViewControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerManager.m; sourceTree = "<group>"; };
-		7117325A226862C10065772B /* ViewControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerManager.h; sourceTree = "<group>"; };
 		712170C3223F326100BA1905 /* MyCouseHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCouseHeaderView.h; sourceTree = "<group>"; };
 		712170C4223F326100BA1905 /* MyCouseHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCouseHeaderView.m; sourceTree = "<group>"; };
 		712170CB223F3A1C00BA1905 /* MyCouseHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCouseHeaderView.xib; sourceTree = "<group>"; };
@@ -999,6 +992,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		302C11C322CB05720007EA43 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				302C11C422CB05720007EA43 /* NSDate+Utilites.h */,
+				302C11C522CB05720007EA43 /* NSDate+Utilites.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
 		30354F4A227F02910045955D /* PolyvOpenSourceModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -1162,15 +1164,9 @@
 		3035B650224F2C7D00A1AA98 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3035B658224F2C7D00A1AA98 /* LoginViewController.h */,
-				3035B653224F2C7D00A1AA98 /* LoginViewController.m */,
-				3035B655224F2C7D00A1AA98 /* LoginViewController.xib */,
 				3035B652224F2C7D00A1AA98 /* LoginActionController.h */,
 				3035B656224F2C7D00A1AA98 /* LoginActionController.m */,
 				3035B651224F2C7D00A1AA98 /* LoginActionController.xib */,
-				3035B654224F2C7D00A1AA98 /* LoginDetailController.h */,
-				3035B657224F2C7D00A1AA98 /* LoginDetailController.m */,
-				3035B659224F2C7D00A1AA98 /* LoginDetailController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1503,6 +1499,7 @@
 		3048D7E5223255C200FE63B2 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				302C11C322CB05720007EA43 /* NSDate */,
 				304EDFE922C4B10C00E5B28B /* NSArrary */,
 				30A2018F225F28FB00A6A232 /* UITextView */,
 				3048D82D223263AF00FE63B2 /* AutoLayout */,
@@ -1575,8 +1572,6 @@
 			children = (
 				3048D7AD2232536D00FE63B2 /* AppDelegate.h */,
 				3048D7AE2232536D00FE63B2 /* AppDelegate.m */,
-				7117325A226862C10065772B /* ViewControllerManager.h */,
-				71173259226862C10065772B /* ViewControllerManager.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -2521,6 +2516,8 @@
 			children = (
 				30A2018C225DFD3B00A6A232 /* CourseDetailManager.h */,
 				30A2018D225DFD3B00A6A232 /* CourseDetailManager.m */,
+				302C11C022C9B3830007EA43 /* MKCalendarsManager.h */,
+				302C11C122C9B3830007EA43 /* MKCalendarsManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -3111,7 +3108,6 @@
 				30A19D6B22BF9C81006D46EC /* SchoolSelectedCell.xib in Resources */,
 				3048D86222364F4E00FE63B2 /* AppointmentViewController.xib in Resources */,
 				30FBE39022488BFE0049C0DE /* CourseTeacherCell.xib in Resources */,
-				3035B65F224F2C7D00A1AA98 /* LoginViewController.xib in Resources */,
 				3048D85822364F2700FE63B2 /* HomePageViewController.xib in Resources */,
 				30A2019E225F490400A6A232 /* XDSDropDownMenuCell.xib in Resources */,
 				7124448D225831D3005AF711 /* OrderDetailCell.xib in Resources */,
@@ -3136,7 +3132,6 @@
 				30FBE39A224B26730049C0DE /* CourseOfflineListCell.xib in Resources */,
 				30FBE36A224213200049C0DE /* AppointmentCell.xib in Resources */,
 				30FBE372224238090049C0DE /* AppointmentCollectionViewCell.xib in Resources */,
-				3035B662224F2C7D00A1AA98 /* LoginDetailController.xib in Resources */,
 				3048D7BA2232536F00FE63B2 /* LaunchScreen.storyboard in Resources */,
 				3035B65B224F2C7D00A1AA98 /* RegisterController.xib in Resources */,
 				30354FBC227F05D30045955D /* PLVVodOptionCell.xib in Resources */,
@@ -3296,7 +3291,6 @@
 				30A2019D225F490400A6A232 /* XDSDropDownMenuCell.m in Sources */,
 				30A2017C225DDDB900A6A232 /* MyOfflineCourseListFlowLayout.m in Sources */,
 				30A19D5A22BE5321006D46EC /* VersionUpdateManager.m in Sources */,
-				7117325B226862C10065772B /* ViewControllerManager.m in Sources */,
 				712170C5223F326100BA1905 /* MyCouseHeaderView.m in Sources */,
 				30295723226859E4006D1613 /* WYNetworkUploadEngine.m in Sources */,
 				3048D846223263AF00FE63B2 /* UIButton+layout.m in Sources */,
@@ -3320,6 +3314,7 @@
 				30FBE375224398620049C0DE /* AppointmentPopView.m in Sources */,
 				304EDFEC22C4B14D00E5B28B /* NSArray+Utilites.m in Sources */,
 				30354F92227F02910045955D /* PLVVodPlaybackRatePanelView.m in Sources */,
+				302C11C222C9B3830007EA43 /* MKCalendarsManager.m in Sources */,
 				3035B660224F2C7D00A1AA98 /* LoginActionController.m in Sources */,
 				710CF97A22672D62004DAD9D /* RegisterManager.m in Sources */,
 				30A19D6622BF9BE1006D46EC /* SchoolListViewController.m in Sources */,
@@ -3334,6 +3329,7 @@
 				30354F9A227F02910045955D /* UIColor+PLVVod.m in Sources */,
 				71A18E29225072CA007B4C55 /* LYSDatePickerTypeDayDelegate.m in Sources */,
 				30FBE3782244C50C0049C0DE /* CourseDetailScrollView.m in Sources */,
+				302C11C622CB05720007EA43 /* NSDate+Utilites.m in Sources */,
 				3048D86622364F5F00FE63B2 /* MyCenterViewController.m in Sources */,
 				3035B6A2224F2D4500A1AA98 /* BookmarkController.m in Sources */,
 				30957B16229E9CAB009DDAAA /* DropDownCell.m in Sources */,
@@ -3359,7 +3355,6 @@
 				30354FBD227F05D30045955D /* PLVVodExplanationView.m in Sources */,
 				71A18E23225072CA007B4C55 /* LYSDateHeaderViewController.m in Sources */,
 				7124448C225831D3005AF711 /* OrderDetailCell.m in Sources */,
-				3035B65E224F2C7D00A1AA98 /* LoginViewController.m in Sources */,
 				71296FAC22B1EAEF00BB8E7D /* PersonModel.m in Sources */,
 				30B26C28229FF9D5004A8F81 /* ChangeClassManager.m in Sources */,
 				30A2018E225DFD3B00A6A232 /* CourseDetailManager.m in Sources */,
@@ -3426,7 +3421,6 @@
 				30A2DA2B224E00640030120D /* DiscoverNewsCell.m in Sources */,
 				3035B6A9224F2D4500A1AA98 /* FeedBackController.m in Sources */,
 				71A18E21225072CA007B4C55 /* LYSDateLogicViewController.m in Sources */,
-				3035B661224F2C7D00A1AA98 /* LoginDetailController.m in Sources */,
 				71296FB322B1F39200BB8E7D /* userInfo.m in Sources */,
 				71A18E2E225072CA007B4C55 /* LYSDatePickerHeaderView.m in Sources */,
 				30A20171225DA8CA00A6A232 /* MyOnlineCourseListFlowLayout.m in Sources */,

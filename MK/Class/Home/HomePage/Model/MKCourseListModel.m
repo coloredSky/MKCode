@@ -27,9 +27,10 @@
              @"courseID" : @[@"id",@"course_id"],
              @"courseName" : @[@"name",@"course_name"],
              @"teacherNmae" : @[@"lecturer_name",@"teacher_name",@"lectureName"],
-             @"courseImage" : @[@"img",@"url"],
+             @"courseImage" : @[@"img",@"url",@"course_img"],
              @"coursePrice" : @"price",
-             @"courseDescription" : @"detail"
+             @"courseDescription" : @"detail",
+             @"lessonID" : @"video_id",
              };
 }
 

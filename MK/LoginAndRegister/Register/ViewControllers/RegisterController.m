@@ -23,6 +23,10 @@
 @property(nonatomic,weak)IBOutlet UITextField * phoneTextfield;
 @property(nonatomic,weak)IBOutlet UITextField * codeTextfield;
 @property(nonatomic,weak)IBOutlet UITextField * pwdTextfield;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *phoneStringLabTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *registerBtnTopHeightConstraint;
+
 @end
 
 @implementation RegisterController
@@ -31,10 +35,18 @@
     [super viewDidLoad];
     [self layoutSubViewAttributtes];
 }
+
 -(void)layoutSubViewAttributtes
 {
+    self.phoneStringLabTopConstraint.constant = KScaleHeight(self.phoneStringLabTopConstraint.constant);
+    self.registerBtnTopHeightConstraint.constant = KScaleHeight(self.registerBtnTopHeightConstraint.constant);
+    
     [self.codeTextfield setValue:K_Text_grayColor forKeyPath:@"_placeholderLabel.textColor"];
     [self.codeTextfield setValue:[UIFont systemFontOfSize:12] forKeyPath:@"_placeholderLabel.font"];
+    [self.phoneTextfield setValue:K_Text_grayColor forKeyPath:@"_placeholderLabel.textColor"];
+    [self.phoneTextfield setValue:[UIFont systemFontOfSize:12] forKeyPath:@"_placeholderLabel.font"];
+    [self.pwdTextfield setValue:K_Text_grayColor forKeyPath:@"_placeholderLabel.textColor"];
+    [self.pwdTextfield setValue:[UIFont systemFontOfSize:12] forKeyPath:@"_placeholderLabel.font"];
     self.bgIma.backgroundColor = [UIColor colorWithWhite:.8 alpha:.3];
     self.helloLab.attributedText = [self getAttributedStringWithString:@"Hello！" textFont:MKFont(30)];
     self.signLab.attributedText = [self getAttributedStringWithString:@"Sign in to continue" textFont:MKFont(30)];
@@ -53,40 +65,66 @@
 -(IBAction)btnClick:(UIButton *)sender
 {
     switch (sender.tag) {
-        case 0:
-        {
-            //返回
-               [self.navigationController popViewControllerAnimated:YES];
-        }
-            break;
         case 1:
         {
             //获取验证码
-            if ([NSString isEmptyWithStr:self.phoneTextfield.text]==YES) {
+            if ([NSString isEmptyWithStr:self.phoneTextfield.text]) {
                 [MBHUDManager showBriefAlert:@"请输入手机号"];
                 return;
             }
-            [_codeBtn startWithSecond:60];
-            [_codeBtn didChange:^NSString *(JKCountDownButton *countDownButton,int second) {
-                NSString *title = [NSString stringWithFormat:@"剩余%d秒",second];
-                return title;
-            }];
+            if (self.phoneTextfield.text.length != 11) {
+                [MBHUDManager showBriefAlert:@"请输入正确的手机号"];
+                return;
+            }
             [_codeBtn didFinished:^NSString *(JKCountDownButton *countDownButton, int second) {
                 countDownButton.enabled = YES;
                 return @"重新获取";
             }];
-            [RegisterManager callBackPhoneCodeWithHudShow:YES phone:self.phoneTextfield.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSString * _Nonnull code) {
-                [MBHUDManager showBriefAlert:code];
+            [RegisterManager callBackPhoneCodeWithHudShow:YES phone:self.phoneTextfield.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+                if (isSuccess) {
+                    [MBHUDManager showBriefAlert:@"获取验证码成功"];
+                    [self.codeBtn startWithSecond:60];
+                    [self.codeBtn didChange:^NSString *(JKCountDownButton *countDownButton,int second) {
+                        NSString *title = [NSString stringWithFormat:@"剩余%d秒",second];
+                        return title;
+                    }];
+                }else{
+                     [MBHUDManager showBriefAlert:message];
+                }
             }];
         }
             break;
         case 2:
         {
             //注册
-            [RegisterManager callBackRegisterWithHudShow:YES phone:self.phoneTextfield.text code:self.codeTextfield.text pwd:self.pwdTextfield.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSString * _Nonnull status) {
-                [MBHUDManager showBriefAlert:status];
-                if (isSuccess ==YES) {
+            if ([NSString isEmptyWithStr:self.phoneTextfield.text]) {
+                [MBHUDManager showBriefAlert:@"请输入手机号"];
+                return;
+            }
+            if ([NSString isEmptyWithStr:self.codeTextfield.text])
+            {
+                [MBHUDManager showBriefAlert:@"请填写验证码"];
+                return;
+            }
+            if ([NSString isEmptyWithStr:self.pwdTextfield.text])
+            {
+                [MBHUDManager showBriefAlert:@"请填写密码"];
+                return;
+            }
+            if (self.phoneTextfield.text.length != 11) {
+                [MBHUDManager showBriefAlert:@"请输入正确的手机号"];
+                return;
+            }
+            if (self.pwdTextfield.text.length < 6 || self.pwdTextfield.text.length > 16) {
+                [MBHUDManager showBriefAlert:@"请输入6到16位的密码"];
+                return;
+            }
+            [RegisterManager callBackRegisterWithHudShow:YES phone:self.phoneTextfield.text code:self.codeTextfield.text pwd:self.pwdTextfield.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+                if (isSuccess) {
+                    [MBHUDManager showBriefAlert:@"注册成功"];
                     [self.navigationController popViewControllerAnimated:YES];
+                }else{
+                    [MBHUDManager showBriefAlert:message];
                 }
             }];
         }
@@ -97,24 +135,5 @@
     }
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-}
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-}
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -25,6 +25,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *passwordSignLab;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *submitBtnTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *phoneSignTopConstraint;
+
+
 @end
 
 @implementation FindPwdController
@@ -41,6 +45,8 @@
 
 -(void)configSubViews
 {
+    self.submitBtnTopConstraint.constant = KScaleHeight(self.submitBtnTopConstraint.constant);
+    self.phoneSignTopConstraint.constant = KScaleHeight(self.phoneSignTopConstraint.constant);
     self.bgIma.backgroundColor = [UIColor colorWithWhite:.8 alpha:.3];
     self.titleSignLab.attributedText = [self getAttributedStringWithString:@"Find Password" textFont:MKFont(30)];
     self.phoneSignLab.attributedText = [self getAttributedStringWithString:@"可接收验证码的手机号" textFont:MKBoldFont(15)];
@@ -70,7 +76,7 @@
         return;
     }
     [MBHUDManager showLoading];
-    [RegisterManager callBackPhoneCodeWithHudShow:NO phone:phoneString CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, NSString * _Nonnull code) {
+    [RegisterManager callBackPhoneCodeWithHudShow:NO phone:phoneString CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
         [MBHUDManager hideAlert];
         if (isSuccess) {
             [MBHUDManager showBriefAlert:@"验证码发送成功！"];

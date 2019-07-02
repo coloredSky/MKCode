@@ -32,6 +32,8 @@
 #define kMKApplyChangeClassListRefreshNotifcationKey @"kMKApplyChangeClassListRefreshNotifcationKey"
 /*收藏课程列表刷新通知*/
 #define kMKUserCollectionClassListRefreshNotifcationKey @"kMKUserCollectionClassListRefreshNotifcationKey"
+/*我的课程列表刷新通知*/
+#define kMKUserCourseListRefreshNotifcationKey @"kMKUserCourseListRefreshNotifcationKey"
 
 //URL
 /**客服URL*/

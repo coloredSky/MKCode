@@ -149,8 +149,6 @@
  */
 +(NSString *)stringTurnSecondsStringIntoMinutesString:(NSString *)secondsString;
 
-
-
 /**
  时间字符串转星期几
 
@@ -180,6 +178,12 @@
 +(NSString *)htmlStringTransToString:(NSString *)htmlString;
 
 
+/**
+ 获取APP名字
+
+ @return APP名字
+ */
++(NSString *)getAppName;
 /**
  得到APP版本号
  */

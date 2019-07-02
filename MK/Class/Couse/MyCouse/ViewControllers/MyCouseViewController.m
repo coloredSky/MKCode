@@ -22,16 +22,14 @@
 #import "UserCourseModel.h"
 
 
-@interface MyCouseViewController()<UITableViewDelegate,UITableViewDataSource,MyOnlineCourseListViewDelagate,EmptyViewDelegate>
+@interface MyCouseViewController()<UITableViewDelegate,UITableViewDataSource,MyOnlineCourseListViewDelagate,EmptyViewDelegate,MyCouseHeaderViewDelegate>
 
 @property (nonatomic, strong) MKBaseTableView *contentTable;
 @property (nonatomic, strong)MyCouseHeaderView *headerView;
 @property (nonatomic, strong) NSArray *titleArr;//区头标题
-//@property (nonatomic, strong) NSArray<NSArray *> *allCourseList;
 
-
+@property (nonatomic, strong) MKCourseListModel *userLastCourse;
 @property (nonatomic, strong) NSArray <UserCourseModel *>*userCourseList;
-//@property (nonatomic, strong) NSArray<MKCourseListModel *> *onlineCourseList;
 @property (nonatomic, strong) NSArray<MKCourseListModel *> *offlineCourseList;
 @property (nonatomic, strong) EmptyView *emptyView;
 @end
@@ -60,6 +58,7 @@
 {
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginInTarget:) name:kMKLoginInNotifcationKey object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginOutTarget:) name:kMKLoginOutNotifcationKey object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userCouseListRefresh:) name:kMKUserCourseListRefreshNotifcationKey object:nil];
 }
 
 #pragma mark --  refresh
@@ -85,16 +84,20 @@
     self.emptyView.hidden = YES;
     self.contentTable.hidden = NO;
     
-    [UserCourseListManager callBackUserCourseListWithCompletionBlock:^(BOOL isSuccess, NSArray<UserCourseModel *> * _Nonnull userCourseList, NSArray<MKCourseListModel *> * _Nonnull offLineCourseList, NSString * _Nonnull message) {
+    [UserCourseListManager callBackUserCourseListWithCompletionBlock:^(BOOL isSuccess,MKCourseListModel *lastCourseListModel, NSArray<UserCourseModel *> * _Nonnull userCourseList, NSArray<MKCourseListModel *> * _Nonnull offLineCourseList, NSString * _Nonnull message) {
         [self.contentTable.mj_header endRefreshing];
         if (isSuccess) {
+            self.userLastCourse = lastCourseListModel;
             self.userCourseList = userCourseList;
             self.offlineCourseList = offLineCourseList;
             [self.contentTable reloadData];
             if (self.userCourseList.count == 0) {
                 self.emptyView.hidden = NO;
                 self.emptyView.showType = EmptyViewShowTypeNoUserCourse;
+                [self.emptyView EmptyViewReloadDataWithMKCourseListModel:lastCourseListModel];
                 self.contentTable.hidden = YES;
+            }else{
+                [self.headerView userCourseHeaderViewRefreshDataWithMKCourseListModel:self.userLastCourse];
             }
         }
     }];
@@ -150,8 +153,8 @@
 {
     if (!_headerView) {
             _headerView = [[NSBundle mainBundle]loadNibNamed:@"MyCouseHeaderView" owner:nil options:nil][0];
+        _headerView.delegate = self;
         _headerView.frame =CGRectMake(0, 0,KScreenWidth ,KScaleWidth(136)+KScaleHeight(60));
-        [_headerView cellRefreshData];
     }
     return _headerView;
 }
@@ -322,13 +325,32 @@
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
-#pragma mark --  emptyView
--(void)emptyViewClickTargetWithView:(EmptyView *)view
+#pragma mark --  emptyView-delegate
+-(void)emptyViewClickTargetWithView:(EmptyView *)view withEmptyViewOperationType:(EmptyViewOperationType )operationType;
 {
-    if (![[UserManager shareInstance]isLogin]) {
-        LoginActionController *loginVC = [LoginActionController new];
-        [self.navigationController pushViewController:loginVC animated:YES];
+    if (operationType == EmptyViewOperationTypeLogin) {
+        if (![[UserManager shareInstance]isLogin]) {
+            LoginActionController *loginVC = [LoginActionController new];
+            [self.navigationController pushViewController:loginVC animated:YES];
+        }
+    }else{
+        CourseDetailViewController *detailVC = [CourseDetailViewController new];
+        detailVC.course_id = self.userLastCourse.courseID;
+        detailVC.lessonID = self.userLastCourse.lessonID;
+        detailVC.courseType = CourseSituationTypeOnline;
+        detailVC.autoPlay = YES;
+        [self.navigationController pushViewController:detailVC animated:YES];
     }
+}
+#pragma mark --  视频播放-点击
+-(void)userCouseHeaderViewVideoPlay
+{
+    CourseDetailViewController *detailVC = [CourseDetailViewController new];
+    detailVC.course_id = self.userLastCourse.courseID;
+    detailVC.lessonID = self.userLastCourse.lessonID;
+    detailVC.courseType = CourseSituationTypeOnline;
+    detailVC.autoPlay = YES;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 #pragma mark --  登录
@@ -345,6 +367,12 @@
         self.emptyView.showType = EmptyViewShowTypeUserCourseNoLogin;
         self.contentTable.hidden = YES;
     }
+}
+
+#pragma mark --  列表刷新
+-(void)userCouseListRefresh:(NSNotification *)noti
+{
+    [self startRequest];
 }
 
 @end

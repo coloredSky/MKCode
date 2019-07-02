@@ -9,7 +9,7 @@
 #import "EmptyView.h"
 #import "MyCouseHeaderView.h"
 
-@interface EmptyView()
+@interface EmptyView()<MyCouseHeaderViewDelegate>
 @property (nonatomic, strong) MyCouseHeaderView *headerView;
 
 @property (nonatomic, strong) UIView *contentView;
@@ -57,7 +57,6 @@
     if (!_headerView) {
         _headerView = [[NSBundle mainBundle]loadNibNamed:@"MyCouseHeaderView" owner:nil options:nil][0];
         _headerView.frame =CGRectMake(0, 0,KScreenWidth ,KScaleWidth(136)+KScaleHeight(60));
-        [_headerView cellRefreshData];
         [self addSubview:_headerView];
     }
     return _headerView;
@@ -65,8 +64,8 @@
 
 -(void)clickBtnTarget:(UIButton *)sender
 {
-    if ([delegate respondsToSelector:@selector(emptyViewClickTargetWithView:)]) {
-        [delegate emptyViewClickTargetWithView:self];
+    if ([delegate respondsToSelector:@selector(emptyViewClickTargetWithView: withEmptyViewOperationType:)]) {
+        [delegate emptyViewClickTargetWithView:self withEmptyViewOperationType:EmptyViewOperationTypeLogin];
     }
 }
 
@@ -95,10 +94,26 @@
         NSString *contentString = self.tipTextArr[showType];
         self.contentLab.attributedText = [contentString attributStrWithTargetStr:@"登录" color:K_Text_YellowColor];
         self.headerView.hidden = NO;
+        self.headerView.delegate = self;
         self.contentView.topY = self.height/2-KScaleHeight(50);
         self.backgroundColor = K_BG_WhiteColor;
     }
 }
+
+
+-(void)EmptyViewReloadDataWithMKCourseListModel:(MKCourseListModel *)courseModel
+{
+    [self.headerView userCourseHeaderViewRefreshDataWithMKCourseListModel:courseModel];
+}
+
+#pragma mark --  video-header-delegate
+-(void)userCouseHeaderViewVideoPlay
+{
+    if ([delegate respondsToSelector:@selector(emptyViewClickTargetWithView: withEmptyViewOperationType:)]) {
+        [delegate emptyViewClickTargetWithView:self withEmptyViewOperationType:EmptyViewOperationVideoPlay];
+    }
+}
+
 
 //-(void)EmptyViewConfigWithImage:(NSString *)contentImage signString:(NSString *)signString viewShowType:(EmptyViewShowType )showType
 //{

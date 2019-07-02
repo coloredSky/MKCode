@@ -17,7 +17,8 @@
     if ([NSString isEmptyWithStr:course_id]) {
         return;
     }
-    NSDictionary *parameters = @{@"course_id" : course_id,
+    NSDictionary *parameters = @{
+                                 @"course_id" : course_id,
                                  };
     [MKNetworkManager sendGetRequestWithUrl:K_MK_Course_CourseDetail_Url parameters:parameters hudIsShow:YES success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 0) {
@@ -114,4 +115,30 @@
         }
     }];
 }
+
++(void)callBackRecordLessonPlayRequestWithVideo_id:(NSString *)video_id andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message))completionBlock
+{
+    if ([NSString isEmptyWithStr:video_id]) {
+        return;
+    }
+    NSDictionary *parameters = @{
+                                 @"video_id" : video_id,
+                                 };
+    [MKNetworkManager sendPostRequestWithUrl:K_MK_RecordLessonVideoPlay_Url parameters:parameters hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode == 0) {
+            if (completionBlock) {
+                completionBlock(YES,MKResult.message);
+            }
+        }else{
+            if (completionBlock) {
+                completionBlock(NO,MKResult.message);
+            }
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        if (completionBlock) {
+            completionBlock(NO,error.userInfo[NSLocalizedDescriptionKey]);
+        }
+    }];
+}
+
 @end

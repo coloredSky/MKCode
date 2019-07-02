@@ -58,6 +58,7 @@
         _advisor_highest_education = @"";
     }
     _teacher_description = [NSString stringWithFormat:@"%@ %@",_advisor_school,_advisor_highest_education];
+    
     return YES;
 }
 

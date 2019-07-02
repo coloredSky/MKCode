@@ -8,16 +8,17 @@
 
 #import "CourseDetailScrollView.h"
 #import <WebKit/WebKit.h>
-//View c线上课程
+//View 线上课程
 #import "CourseOnlineTitleCell.h"
 #import "CourseTeacherCell.h"
 #import "CourseOnlineListCell.h"
 //View 线下课程
 #import "CourseOfflineListCell.h"
 #import "CourseOfflineTitleCell.h"
-
+//model
 #import "MKCourseDetailModel.h"
 #import "MKOfflineCourseDetail.h"
+
 
 @interface CourseDetailScrollView()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,WKUIDelegate,WKNavigationDelegate>
 
@@ -92,6 +93,7 @@
         if (self.courseType == CourseSituationTypeOnline) {
             CourseOnlineTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseOnlineTitleCell" forIndexPath:indexPath];
             __weak typeof(self) weakSelf = self;
+            #pragma mark --  课程收藏
             cell.courseCollectionBlock = ^(UIButton * _Nonnull sender) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
                 if (strongSelf.courseDetailModel.courseInfoDetail.isCollected) {
@@ -104,6 +106,7 @@
             return cell;
         }else{
             CourseOfflineTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseOfflineTitleCell" forIndexPath:indexPath];
+            #pragma mark --  课程添加提醒
             __weak typeof(self) weakSelf = self;
             cell.CourseOfflineTitleCellCalendarAddBlock = ^(BOOL isClick) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
@@ -196,6 +199,7 @@
     MKLog(@"页面加载完成");
     [webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '250%'" completionHandler:nil];
 }
+
 #pragma mark --  scroll-Delegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {

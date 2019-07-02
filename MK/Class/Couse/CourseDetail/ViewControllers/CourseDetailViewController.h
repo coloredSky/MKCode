@@ -7,13 +7,19 @@
 //
 
 #import "MKBaseViewController.h"
-#import "CourseDetailManager.h"
+#import "CourseDetailScrollView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CourseDetailViewController : MKNavViewController
-@property (nonatomic, copy) NSString *course_id;
-@property (nonatomic, assign) CourseSituationType courseType;
+
+@property (nonatomic, copy) NSString *course_id;//课程ID
+@property (nonatomic, assign) CourseSituationType courseType;//显示类型：线上、线下
+
+//从我的课程push过来  当有视频需要自动播放时
+@property (nonatomic, copy) NSString *lessonID;
+@property (nonatomic, assign) BOOL autoPlay;//自动播放
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -53,12 +53,13 @@
 //    }];
 //}
 
-+(void)callBackUserCourseListWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <UserCourseModel *>*userCourseList,NSArray <MKCourseListModel *>*offLineCourseList,NSString *message))completionBlock
++(void)callBackUserCourseListWithCompletionBlock:(void(^)(BOOL isSuccess,MKCourseListModel *lastCourseListModel,NSArray <UserCourseModel *>*userCourseList,NSArray <MKCourseListModel *>*offLineCourseList,NSString *message))completionBlock
 {
     [MKNetworkManager sendGetRequestWithUrl:K_MK_UserCourseList_Url parameters:nil hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 0) {
             NSMutableArray *userCourseArr = [NSMutableArray array];
             if (completionBlock) {
+                MKCourseListModel *lastCourseListModel = [MKCourseListModel yy_modelWithJSON:MKResult.dataResponseObject[@"last_video_log"]];
                 NSArray *userOnlineCourseList = [NSArray yy_modelArrayWithClass:[MKCourseListModel class] json:MKResult.dataResponseObject[@"onlineCourseList"]];
                 if (userOnlineCourseList.count > 0) {
                     UserCourseModel *userOnlineModel = [UserCourseModel new];
@@ -123,16 +124,16 @@
                     [offlineList addObject:model];
                 }
                 
-                completionBlock(YES,userCourseArr.copy,offlineList, MKResult.message);
+                completionBlock(YES,lastCourseListModel,userCourseArr.copy,offlineList, MKResult.message);
             }
         }else{
             if (completionBlock) {
-                completionBlock(NO, nil,nil,MKResult.message);
+                completionBlock(NO, nil,nil,nil,MKResult.message);
             }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (completionBlock) {
-            completionBlock(NO, nil,nil,[NSString stringWithFormat:@"error code is %ld",statusCode]);
+            completionBlock(NO, nil,nil,nil,[NSString stringWithFormat:@"error code is %ld",statusCode]);
         }
     }];
 }

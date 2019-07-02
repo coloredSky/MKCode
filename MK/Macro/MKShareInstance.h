@@ -11,10 +11,10 @@
 
 
 // .h文件
-#define XHBorrowShareSingleton_H(name) + (instancetype)shared##name;
+#define MKBorrowShareSingleton_H(name) + (instancetype)shared##name;
 
 // .m文件
-#define XHBorrowShareSingleton_M(name) \
+#define MKBorrowShareSingleton_M(name) \
 static id _instace = nil; \
 \
 + (id)allocWithZone:(struct _NSZone *)zone \

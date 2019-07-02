@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)courseDetailScrollViewReloadDataWithMKCourseDetailModel:(MKCourseDetailModel *)courseDetailModel offlineCourseDetailModel:(MKOfflineCourseDetail *)offlineCourseDetailModel;
 //使scrollView翻页
 -(void)scrollToIndex:(NSInteger )index;
+
 @end
 
 

@@ -7,14 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MKCourseListModel;
 
 NS_ASSUME_NONNULL_BEGIN
+
+@protocol MyCouseHeaderViewDelegate <NSObject>
+
+@required
+-(void)userCouseHeaderViewVideoPlay;
+@end
 
 /**
  正在观看的视频--headerView
  */
 @interface MyCouseHeaderView : UIView
--(void)cellRefreshData;
+
+@property (nonatomic, assign) id<MyCouseHeaderViewDelegate> delegate;
+
+-(void)userCourseHeaderViewRefreshDataWithMKCourseListModel:(MKCourseListModel *)courseListModel;
+
 @end
 
 NS_ASSUME_NONNULL_END

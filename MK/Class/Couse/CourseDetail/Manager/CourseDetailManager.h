@@ -57,6 +57,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(void)callBackCourseCancleCollectionRequestWithCourseID:(NSString *)course_id type:(NSInteger )type andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message))completionBlock;
 
+/**
+ 记录视频播放
+
+ @param video_id 视频ID
+ @param completionBlock 回调
+ */
++(void)callBackRecordLessonPlayRequestWithVideo_id:(NSString *)video_id andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message))completionBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

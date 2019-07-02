@@ -33,6 +33,8 @@ static NSString * const K_MK_Course_Collection_Url  = @"/api/user/focusCourse";
 static NSString * const K_MK_Course_CancleCollection_Url  = @"/api/user/cancelFocusCourse";
 //获取课程收藏列表
 static NSString * const K_MK_UserBookMarkList_Url =@"/api/user/focusCourseList";
+//记录视频播放
+static NSString * const K_MK_RecordLessonVideoPlay_Url =@"/api/user/addvideolog";
 
 //发现列表
 static NSString * const K_MK_Discover_NewsList_Url  = @"/api/article/getlist";

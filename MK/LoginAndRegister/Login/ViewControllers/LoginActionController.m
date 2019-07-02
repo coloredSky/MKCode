@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *forgetSignLab;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *phoneStringTopHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginBtnTopHeightConstraint;
 
 @end
 
@@ -31,21 +33,16 @@
     [super viewDidLoad];
     [self layoutSubViewAttributtes];
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-//    [self.navigationController setNavigationBarHidden:YES animated:NO];
-}
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-//    [self.navigationController setNavigationBarHidden:NO animated:NO];
-}
+
 -(void)layoutSubViewAttributtes
 {
+    self.phoneStringTopHeightConstraint.constant =  KScaleHeight(self.phoneStringTopHeightConstraint.constant);
+    self.loginBtnTopHeightConstraint.constant = KScaleHeight(self.loginBtnTopHeightConstraint.constant);
     self.bgIma.backgroundColor = [UIColor colorWithWhite:.8 alpha:.3];
     [self.passwordTF setValue:K_Text_grayColor forKeyPath:@"_placeholderLabel.textColor"];
     [self.passwordTF setValue:[UIFont systemFontOfSize:12] forKeyPath:@"_placeholderLabel.font"];
+    [self.phoneTF setValue:K_Text_grayColor forKeyPath:@"_placeholderLabel.textColor"];
+    [self.phoneTF setValue:[UIFont systemFontOfSize:12] forKeyPath:@"_placeholderLabel.font"];
     self.helloLab.attributedText = [self getAttributedStringWithString:@"Hello！" textFont:MKFont(30)];
     self.signLab.attributedText = [self getAttributedStringWithString:@"Sign in to continue" textFont:MKFont(30)];
     self.idStringLab.attributedText = [self getAttributedStringWithString:@"ID(email or mobile NO.)" textFont:MKFont(15)];
@@ -68,11 +65,23 @@
 //          [self dismissViewControllerAnimated:YES completion:nil];
     }
     else if(sender.tag==2){
+        if ([NSString isEmptyWithStr:self.phoneTF.text]){
+            [MBHUDManager showBriefAlert:@"请输入用户名"];
+            return;
+        }
+        if ([NSString isEmptyWithStr:self.passwordTF.text]){
+            [MBHUDManager showBriefAlert:@"请输入密码"];
+            return;
+        }
+        if (self.passwordTF.text.length < 6 || self.passwordTF.text.length > 16){
+            [MBHUDManager showBriefAlert:@"请输入6到16位的密码"];
+            return;
+        }
         //登录
         [MBHUDManager showLoading];
         [LoginManager callBackLoginDataWithHudShow:YES userName:self.phoneTF.text pwd:self.passwordTF.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, LoginModel * _Nonnull model) {
             [MBHUDManager hideAlert];
-            if (isSuccess ==YES) {
+            if (isSuccess) {
                 [self backToPreviousViewController];
                 [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginInNotifcationKey object:nil];
             }else{
@@ -94,15 +103,5 @@
     [self.navigationController pushViewController:registerVC animated:YES];
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

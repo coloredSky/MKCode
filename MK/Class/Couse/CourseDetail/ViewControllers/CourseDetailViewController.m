@@ -11,11 +11,13 @@
 #import "PLVVodSkinPlayerController.h"
 //View
 #import "CourseDetailTipView.h"
-#import "CourseDetailScrollView.h"
 #import "MKCourseDetailModel.h"
 //model
 #import "MKCourseDetailModel.h"
 #import "PLVTimer.h"
+//manager
+#import "MKCalendarsManager.h"
+
 
 
 @interface CourseDetailViewController ()<CourseDetailScrollViewDelegate,CourseDetailTipViewDelegate>
@@ -27,6 +29,7 @@
 @property (nonatomic, strong) PLVVodSkinPlayerController *player;
 @property (nonatomic, strong) UIView *maskView;
 @property (nonatomic, strong) MKCourseDetailModel *onlineCourseDetailModel;
+@property (nonatomic, strong) MKOfflineCourseDetail * _Nonnull offlineCourseDetailModel;
 
 /// 播放刷新定时器
 @property (nonatomic, strong) PLVTimer *playbackTimer;
@@ -61,6 +64,7 @@
     [CourseDetailManager callBackOfflineCourseDetailRequestWithCourseID:self.course_id andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, MKOfflineCourseDetail * _Nonnull courseDetailModel) {
         if (isSuccess) {
             [self.detailScroll courseDetailScrollViewReloadDataWithMKCourseDetailModel:nil offlineCourseDetailModel:courseDetailModel];
+            self.offlineCourseDetailModel = courseDetailModel;
 //            [self.courseIma sd_setImageWithURL:[NSURL URLWithString:courseDetailModel.courseInfoDetail.courseImage] placeholderImage:nil];
         }else{
             [MBHUDManager showBriefAlert:message];
@@ -73,6 +77,15 @@
     [CourseDetailManager callBackCourseDetailRequestWithHudShow:YES courseID:self.course_id andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, MKCourseDetailModel * _Nonnull courseDetailModel) {
         if (isSuccess) {
             self.onlineCourseDetailModel = courseDetailModel;
+            if (self.autoPlay) {
+                for (MKLessonModel *lessonModel in courseDetailModel.lessonList) {
+                    if ([lessonModel.lessonID integerValue] == [self.lessonID integerValue]) {
+                        lessonModel.isSelected = YES;
+                        [self setUpVideoWithVideoID:lessonModel.video_id lessonID:lessonModel.lessonID];
+                        break;
+                    }
+                }
+            }
             [self.detailScroll courseDetailScrollViewReloadDataWithMKCourseDetailModel:courseDetailModel offlineCourseDetailModel:nil];
             [self.courseIma sd_setImageWithURL:[NSURL URLWithString:courseDetailModel.courseInfoDetail.courseImage] placeholderImage:K_MKPlaceholderImage4_3];
         }else{
@@ -211,7 +224,7 @@
     if (![[UserManager shareInstance]isLogin]) {
         [self loginAlterViewShow];
     }
-    [self setUpVideoWithVideoID:lessonModel.video_id];
+    [self setUpVideoWithVideoID:lessonModel.video_id lessonID:lessonModel.lessonID];
 }
 
 #pragma mark --  线下课程添加日历提醒
@@ -220,14 +233,15 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您确认为该课程添加日历提醒？" preferredStyle:UIAlertControllerStyleAlert];
     [self presentViewController:alert animated:YES completion:nil];
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        [[MKCalendarsManager sharedinstance] createRemindCalendarsWithMKOfflineCourseDetailModel:self.offlineCourseDetailModel];
     }];
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style :UIAlertActionStyleDefault handler:nil];
     [alert addAction:cancleAction];
     [alert addAction:sureAction];
 }
 
--(void)setUpVideoWithVideoID:(NSString *)videoID
+
+-(void)setUpVideoWithVideoID:(NSString *)videoID lessonID:(NSString *)lessonID
 {
     MKLog(@"%@",self.player);
     // 有网情况下，也可以调用此接口，只要存在本地视频，都会优先播放本地视频
@@ -240,6 +254,11 @@
             }
             return;
         }
+        [CourseDetailManager callBackRecordLessonPlayRequestWithVideo_id:lessonID andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+            if (isSuccess) {
+                [[NSNotificationCenter defaultCenter]postNotificationName:kMKUserCourseListRefreshNotifcationKey object:nil];
+            }
+        }];
         weakSelf.player.video = video;
 //        dispatch_async(dispatch_get_main_queue(), ^{
 //            weakSelf.title = video.title;
@@ -253,7 +272,7 @@
     if (self.onlineCourseDetailModel.lessonList.count > 0) {
         MKLessonModel *lessonModel = self.onlineCourseDetailModel.lessonList[0];
         lessonModel.isSelected = YES;
-        [self setUpVideoWithVideoID:lessonModel.video_id];
+        [self setUpVideoWithVideoID:lessonModel.video_id lessonID:lessonModel.lessonID];
         [self.detailScroll courseDetailScrollViewReloadDataWithMKCourseDetailModel:self.onlineCourseDetailModel offlineCourseDetailModel:nil];
     }else{
         [MBHUDManager showBriefAlert:@"没有可以播放的课程！"];
