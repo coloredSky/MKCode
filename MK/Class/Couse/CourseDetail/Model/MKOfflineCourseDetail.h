@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *course_id;//课程ID
 @property (nonatomic, copy) NSString *course_name;//课程名字
+@property (nonatomic, copy) NSString *course_img;//课程简介图
 @property (nonatomic, copy) NSString *course_description;//课程描述
 @property (nonatomic, copy) NSString *advisor_id;//
 @property (nonatomic, copy) NSString *class_adviser;//老师

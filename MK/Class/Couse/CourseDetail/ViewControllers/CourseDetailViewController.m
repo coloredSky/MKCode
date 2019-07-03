@@ -12,6 +12,7 @@
 //View
 #import "CourseDetailTipView.h"
 #import "MKCourseDetailModel.h"
+#import "MKOfflineCourseDetail.h"
 //model
 #import "MKCourseDetailModel.h"
 #import "PLVTimer.h"
@@ -65,7 +66,7 @@
         if (isSuccess) {
             [self.detailScroll courseDetailScrollViewReloadDataWithMKCourseDetailModel:nil offlineCourseDetailModel:courseDetailModel];
             self.offlineCourseDetailModel = courseDetailModel;
-//            [self.courseIma sd_setImageWithURL:[NSURL URLWithString:courseDetailModel.courseInfoDetail.courseImage] placeholderImage:nil];
+            [self.courseIma sd_setImageWithURL:[NSURL URLWithString:courseDetailModel.course_img] placeholderImage:nil];
         }else{
             [MBHUDManager showBriefAlert:message];
         }
@@ -223,6 +224,7 @@
 {
     if (![[UserManager shareInstance]isLogin]) {
         [self loginAlterViewShow];
+        return;
     }
     [self setUpVideoWithVideoID:lessonModel.video_id lessonID:lessonModel.lessonID];
 }
@@ -243,7 +245,6 @@
 
 -(void)setUpVideoWithVideoID:(NSString *)videoID lessonID:(NSString *)lessonID
 {
-    MKLog(@"%@",self.player);
     // 有网情况下，也可以调用此接口，只要存在本地视频，都会优先播放本地视频
     __weak typeof(self) weakSelf = self;
     [PLVVodVideo requestVideoWithVid:videoID completion:^(PLVVodVideo *video, NSError *error) {

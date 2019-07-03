@@ -62,6 +62,7 @@
     }
     return _headerView;
 }
+
 -(MKBaseTableView *)contentTable
 {
     if (!_contentTable) {
@@ -82,17 +83,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
         MyCourseListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCourseListCell" forIndexPath:indexPath];
-        [cell cellRefreshDataWithIndexPath:indexPath withShowType:self.courseListShowType courseList:self.courseList];
+        [cell allCoursecellRefreshDataWithIndexPath:indexPath withShowType:self.courseListShowType courseList:self.courseList];
         return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.courseList.count;
 }
+
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) id<CourseDetailScrollViewDelegate>delegate;
 @property (nonatomic, assign) CourseSituationType courseType;
 //数据刷新
--(void)courseDetailScrollViewReloadDataWithMKCourseDetailModel:(MKCourseDetailModel *)courseDetailModel offlineCourseDetailModel:(MKOfflineCourseDetail *)offlineCourseDetailModel;
+-(void)courseDetailScrollViewReloadDataWithMKCourseDetailModel:(nullable MKCourseDetailModel *)courseDetailModel offlineCourseDetailModel:(nullable MKOfflineCourseDetail *)offlineCourseDetailModel;
 //使scrollView翻页
 -(void)scrollToIndex:(NSInteger )index;
 

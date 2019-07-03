@@ -13,6 +13,7 @@
  - WebViewShowTypeNewsDetail: 加载文章详情
  */
 typedef NS_ENUM(NSUInteger, WebViewShowType) {
+    WebViewShowTypeNormal,
     WebViewShowTypeNewsDetail,
 };
 
@@ -45,6 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSString *contentUrl;
 /**显示的富文本*/
 @property(nonatomic,copy)NSString *contentString;
+
+//加载文章详情d时，使用。
+@property (nonatomic, copy) NSString *newsID;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -52,13 +52,10 @@
 
 -(CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
 {
-    NSInteger index = (proposedContentOffset.x-K_Padding_Home_LeftPadding)/self.itemSize.width;
-    CGFloat offsetX = index == 0 ? 0:self.itemSize.width*index;
+    NSString *IndexString = [NSString stringWithFormat:@"%.1f",(proposedContentOffset.x)/self.itemSize.width];
+    NSInteger index = round([IndexString doubleValue]);
+    CGFloat offsetX = index == 0 ? 0:(self.itemSize.width*index);
     CGPoint targetPoint = CGPointMake(offsetX, 0);
     return targetPoint;
-    
-//    proposedContentOffset.x += miniDistance;
-//    proposedContentOffset.x -= K_Padding_Home_LeftPadding;
-//    return proposedContentOffset;
 }
 @end

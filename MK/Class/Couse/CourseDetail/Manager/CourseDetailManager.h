@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- k线上课程详情
+ 线上课程详情
 
  @param hudShow 是否loading
  @param course_id 课程ID
@@ -37,6 +37,13 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)callBackCourseDetailRequestWithHudShow:(BOOL )hudShow courseID:(NSString *)course_id andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message, MKCourseDetailModel *courseDetailModel))completionBlock;
 
 
+
+/**
+ 线下课程详情
+
+ @param course_id 课程ID
+ @param completionBlock 回调
+ */
 +(void)callBackOfflineCourseDetailRequestWithCourseID:(NSString *)course_id andCompletionBlock:(void(^)(BOOL isSuccess, NSString *message, MKOfflineCourseDetail *courseDetailModel))completionBlock;
 
 /**

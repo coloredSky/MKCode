@@ -29,7 +29,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThA-d0-MD0">
-                                <rect key="frame" x="165.5" y="16" width="244.5" height="20"/>
+                                <rect key="frame" x="165.5" y="15" width="244.5" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="FWs-fk-W8G"/>
                                 </constraints>
@@ -38,13 +38,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oid-6b-mLF">
-                                <rect key="frame" x="165.5" y="67.5" width="164.5" height="20"/>
+                                <rect key="frame" x="165.5" y="95.5" width="164.5" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="bhL-kY-4RV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6O-SJ-iaF">
-                                <rect key="frame" x="177.5" y="52.5" width="227.5" height="20"/>
+                                <rect key="frame" x="177.5" y="92.5" width="227.5" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="fX2-Yi-iHq"/>
                                 </constraints>
@@ -57,14 +60,13 @@
                         <constraints>
                             <constraint firstItem="DS1-Wo-GML" firstAttribute="top" secondItem="0eM-4k-6d3" secondAttribute="top" constant="10" id="2Sp-7Y-VVO"/>
                             <constraint firstItem="ThA-d0-MD0" firstAttribute="leading" secondItem="DS1-Wo-GML" secondAttribute="trailing" constant="8" id="2xQ-Dp-2uA"/>
-                            <constraint firstItem="Oid-6b-mLF" firstAttribute="height" secondItem="ThA-d0-MD0" secondAttribute="height" id="C1e-aO-mF1"/>
                             <constraint firstItem="DS1-Wo-GML" firstAttribute="centerY" secondItem="0eM-4k-6d3" secondAttribute="centerY" id="Ivx-xz-GbL"/>
                             <constraint firstItem="Oid-6b-mLF" firstAttribute="leading" secondItem="ThA-d0-MD0" secondAttribute="leading" id="ReR-qh-MZK"/>
                             <constraint firstItem="b6O-SJ-iaF" firstAttribute="leading" secondItem="DS1-Wo-GML" secondAttribute="trailing" constant="20" id="Zd5-TB-AWo"/>
                             <constraint firstItem="DS1-Wo-GML" firstAttribute="leading" secondItem="0eM-4k-6d3" secondAttribute="leading" constant="10" id="a2r-eA-D9j"/>
-                            <constraint firstItem="Oid-6b-mLF" firstAttribute="centerY" secondItem="DS1-Wo-GML" secondAttribute="centerY" constant="15" id="gjd-Nw-ykk"/>
-                            <constraint firstItem="ThA-d0-MD0" firstAttribute="top" secondItem="DS1-Wo-GML" secondAttribute="top" constant="6" id="i3C-Lz-vU3"/>
-                            <constraint firstItem="b6O-SJ-iaF" firstAttribute="centerY" secondItem="DS1-Wo-GML" secondAttribute="centerY" id="jNo-Re-KWR"/>
+                            <constraint firstItem="b6O-SJ-iaF" firstAttribute="centerY" secondItem="Oid-6b-mLF" secondAttribute="centerY" id="c7m-r5-SS3"/>
+                            <constraint firstItem="ThA-d0-MD0" firstAttribute="top" secondItem="DS1-Wo-GML" secondAttribute="top" constant="5" id="i3C-Lz-vU3"/>
+                            <constraint firstItem="Oid-6b-mLF" firstAttribute="bottom" secondItem="DS1-Wo-GML" secondAttribute="bottom" constant="-5" id="moc-wV-dhs"/>
                             <constraint firstAttribute="trailing" secondItem="ThA-d0-MD0" secondAttribute="trailing" constant="20" id="n53-Dd-taG"/>
                             <constraint firstAttribute="trailing" secondItem="b6O-SJ-iaF" secondAttribute="trailing" constant="25" id="oHV-fu-IfI"/>
                             <constraint firstAttribute="bottom" secondItem="DS1-Wo-GML" secondAttribute="bottom" constant="10" id="yoN-jv-thk"/>
@@ -83,8 +85,10 @@
             <connections>
                 <outlet property="courseIma" destination="DS1-Wo-GML" id="c3H-qW-y7s"/>
                 <outlet property="courseNameLab" destination="ThA-d0-MD0" id="5eu-rx-Nmd"/>
+                <outlet property="courseNameLabTopConstraint" destination="i3C-Lz-vU3" id="YrX-rT-E2S"/>
                 <outlet property="coursePriceLab" destination="b6O-SJ-iaF" id="Zz2-XD-5Jc"/>
                 <outlet property="courseTeacherLab" destination="Oid-6b-mLF" id="Py0-Df-dvh"/>
+                <outlet property="courseTeacherLabBottomContraint" destination="moc-wV-dhs" id="tze-O0-yIv"/>
                 <outlet property="whiteView" destination="0eM-4k-6d3" id="ZZe-Ji-luC"/>
             </connections>
             <point key="canvasLocation" x="128" y="81.859070464767626"/>

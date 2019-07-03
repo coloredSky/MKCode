@@ -63,7 +63,7 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MyCourseOnlineListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCourseOnlineListCollectionViewCell" forIndexPath:indexPath];
-    [cell cellRefreshDataWithIndexPath:indexPath withShowType:self.listViewShowType courseModel:self.courseListArr[indexPath.row]];
+    [cell cellRefreshDataWithIndexPath:indexPath withShowType:self.listViewShowType courseList:self.courseListArr];
     return cell;
 }
 

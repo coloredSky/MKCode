@@ -8,6 +8,8 @@
 
 #import "NewsViewController.h"
 #import <WebKit/WebKit.h>
+#import "DiscoverManager.h"
+#import "DiscoverNewsModel.h"
 
 @interface NewsViewController ()<WKUIDelegate,WKNavigationDelegate>
 /**webView*/
@@ -38,12 +40,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.loadType == WebViewLoadTypeLoadTheRichText){
-        //加载富文本
-        [self loadRichHtmlText];
+    if (self.showType == WebViewShowTypeNewsDetail) {
+        [self startRequest];
     }else{
-        [self webViewLoadRequest];
+        if (self.loadType == WebViewLoadTypeLoadTheRichText){
+            //加载富文本
+            [self loadRichHtmlText];
+        }else{
+            [self webViewLoadRequest];
+        }
     }
+}
+
+-(void)startRequest
+{
+    [DiscoverManager callBackDiscoverNewsDetailDataWithHUDShow:NO newsID:self.newsID andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, DiscoverNewsModel * _Nonnull newsDetailModel) {
+        if (isSuccess) {
+            self.contentString = newsDetailModel.newsContent;
+            [self loadRichHtmlText];
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }
+        }
+    }];
 }
 
 -(void)loadRichHtmlText

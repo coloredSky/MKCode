@@ -55,7 +55,7 @@
     self.lineHeightConstraints.constant = K_Line_lineWidth;
 }
 
--(void)userCourseHeaderViewRefreshDataWithMKCourseListModel:(MKCourseListModel *)courseListModel
+-(void)userCourseHeaderViewRefreshDataWithMKCourseListModel:(nullable MKCourseListModel *)courseListModel
 {
     if (!courseListModel) {
         self.tipLab.text = @"还没有观看视频";

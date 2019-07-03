@@ -213,20 +213,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DiscoverNewsModel *newsModel = self.dicoverNewsList[indexPath.section];
-    [MBHUDManager showLoading];
-    [DiscoverManager callBackDiscoverNewsDetailDataWithHUDShow:NO newsID:newsModel.newsID andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, DiscoverNewsModel * _Nonnull newsDetailModel) {
-        [MBHUDManager hideAlert];
-        if (isSuccess) {
-            NewsViewController *newsVC = [NewsViewController new];
-            newsVC.contentString = newsDetailModel.newsContent;
-            newsVC.loadType = WebViewLoadTypeLoadTheRichText;
-            [self.navigationController pushViewController:newsVC animated:YES];
-        }else{
-            if (![NSString isEmptyWithStr:message]) {
-                [MBHUDManager showBriefAlert:message];
-            }
-        }
-    }];
+    NewsViewController *newsVC = [NewsViewController new];
+    newsVC.newsID = newsModel.newsID;
+    newsVC.showType = WebViewShowTypeNewsDetail;
+    [self.navigationController pushViewController:newsVC animated:YES];
 }
 #pragma mark -- course category did selected
 -(void)itemDidSelectedWithIndex:(NSUInteger )index

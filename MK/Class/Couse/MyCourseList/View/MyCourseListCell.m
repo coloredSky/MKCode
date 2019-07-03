@@ -40,7 +40,7 @@
     self.courseStatusLab.frame = CGRectMake(self.lineIma.rightX-KScaleWidth(40), self.contentView.height/2-6, KScaleWidth(40), 20);
 }
 
--(void)cellRefreshDataWithIndexPath:(NSIndexPath *)indexPath withShowType:(UserCourseListViewShowType )listViewShowType courseList:(NSArray <MKCourseListModel *>*)courseLst
+-(void)allCoursecellRefreshDataWithIndexPath:(NSIndexPath *)indexPath withShowType:(UserCourseListViewShowType )listViewShowType courseList:(NSArray <MKCourseListModel *>*)courseLst
 {
     if (indexPath.row==courseLst.count -1) {
         self.lineIma.hidden = YES;

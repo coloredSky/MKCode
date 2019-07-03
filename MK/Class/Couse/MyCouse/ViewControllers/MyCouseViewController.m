@@ -195,6 +195,9 @@
 {
     UserCourseModel *userCourseModel = self.userCourseList[section];
     if (userCourseModel.courseList.count > 0) {
+        if (userCourseModel.courseList.count < 3) {
+            return KScaleHeight(userCourseModel.courseList.count*60);
+        }
         return KScaleHeight(180);
     }else{
         return CGFLOAT_MIN;
@@ -273,14 +276,14 @@
     UserCourseModel *userCourseModel = self.userCourseList[section];
     UIView *headerView = [UIView new];
     if (userCourseModel.isOnline) {
-        headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(180));
+        headerView.frame = CGRectMake(0, 0, KScreenWidth, [self tableView:tableView heightForFooterInSection:section]);
         MyOnlineCourseListView *onlineListView = [[MyOnlineCourseListView alloc]initWithFrame:CGRectMake(0, 0, headerView.width, headerView.height)];
         onlineListView.delegate = self;
         onlineListView.listViewShowType = UserCourseListViewShowTypeOnline;
         [headerView addSubview:onlineListView];
         [onlineListView onlineCourseListViewRefreshDataWithContentArr:userCourseModel.courseList];
     }else{
-        headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(180));
+        headerView.frame = CGRectMake(0, 0, KScreenWidth, [self tableView:tableView heightForFooterInSection:section]);
         MyOnlineCourseListView *onlineListView = [[MyOnlineCourseListView alloc]initWithFrame:CGRectMake(0, 0, headerView.width, headerView.height)];
         onlineListView.delegate = self;
         onlineListView.listViewShowType = UserCourseListViewShowTypeOfflineUnderWay;

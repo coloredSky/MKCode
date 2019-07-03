@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MyCourseListCell : MKBaseTableViewCell
 
--(void)cellRefreshDataWithIndexPath:(NSIndexPath *)indexPath withShowType:(UserCourseListViewShowType )listViewShowType courseList:(NSArray <MKCourseListModel *>*)courseLst;
+-(void)allCoursecellRefreshDataWithIndexPath:(NSIndexPath *)indexPath withShowType:(UserCourseListViewShowType )listViewShowType courseList:(NSArray <MKCourseListModel *>*)courseLst;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) id<MyCouseHeaderViewDelegate> delegate;
 
--(void)userCourseHeaderViewRefreshDataWithMKCourseListModel:(MKCourseListModel *)courseListModel;
+-(void)userCourseHeaderViewRefreshDataWithMKCourseListModel:(nullable MKCourseListModel *)courseListModel;
 
 @end
 

@@ -37,7 +37,7 @@
 {
     NSInteger itemsCount = [self.collectionView numberOfItemsInSection:0];
     CGFloat height = itemsCount < 3 ? (self.itemSize.height*itemsCount) : KScaleHeight(180);
-    return CGSizeMake(KScreenWidth*(itemsCount/3+1), height);
+    return CGSizeMake(KScreenWidth+((itemsCount-1)/3)*self.itemSize.width, height);
 }
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {
@@ -53,18 +53,10 @@
 
 -(CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
 {
-    NSInteger index = (proposedContentOffset.x-K_Padding_Home_LeftPadding)/self.itemSize.width;
-    CGFloat offsetX = index == 0 ? 0:self.itemSize.width*index;
+    NSString *IndexString = [NSString stringWithFormat:@"%.1f",(proposedContentOffset.x)/self.itemSize.width];
+    NSInteger index = round([IndexString doubleValue]);
+    CGFloat offsetX = index == 0 ? 0:(self.itemSize.width*index);
     CGPoint targetPoint = CGPointMake(offsetX, 0);
     return targetPoint;
-//    CGFloat miniDistance = MAXFLOAT;
-//    for (UICollectionViewLayoutAttributes *attributes in self.itemAttribuitesArr) {
-//        if (ABS(miniDistance) > ABS(attributes.frame.origin.x-attributes.frame.origin.x)) {
-//            miniDistance = proposedContentOffset.x-attributes.frame.origin.x;
-//        }
-//    }
-//    proposedContentOffset.x += miniDistance;
-//    proposedContentOffset.x -= K_Padding_Home_LeftPadding;
-//    return proposedContentOffset;
 }
 @end

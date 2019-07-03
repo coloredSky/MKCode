@@ -42,14 +42,19 @@
         self.topLine.frame = CGRectMake(_courseNameLab.leftX, 0, self.contentView.width-_courseNameLab.leftX-K_Padding_LeftPadding, K_Line_lineWidth);
 }
 
--(void)cellRefreshDataWithIndexPath:(NSIndexPath *)indexPath withShowType:(UserCourseListViewShowType )listViewShowType courseModel:(MKCourseListModel *)courseModel
+-(void)cellRefreshDataWithIndexPath:(NSIndexPath *)indexPath withShowType:(UserCourseListViewShowType )listViewShowType courseList:( NSArray <MKCourseListModel *>*)courseList
 {
-    self.topLine.hidden = indexPath.row%3 == 0 ?NO:YES;
-    if ((indexPath.row+1)%3==0) {
-        self.lineIma.hidden = YES;
+    if (courseList.count < 3) {
+        self.lineIma.hidden = indexPath.row == courseList.count -1 ?YES : NO;
     }else{
-        self.lineIma.hidden = NO;
+        self.topLine.hidden = indexPath.row%3 == 0 ?NO:YES;
+        if ((indexPath.row+1)%3==0) {
+            self.lineIma.hidden = YES;
+        }else{
+            self.lineIma.hidden = NO;
+        }
     }
+    MKCourseListModel *courseModel = courseList[indexPath.row];
     [self.courseIma sd_setImageWithURL:[NSURL URLWithString:courseModel.courseImage] placeholderImage:K_MKPlaceholderImage4_3];
     self.courseNameLab.text = courseModel.courseName;
     self.courseTeacherLab.text = courseModel.teacherNmae;

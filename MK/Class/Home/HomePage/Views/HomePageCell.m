@@ -14,12 +14,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *courseNameLab;
 @property (weak, nonatomic) IBOutlet UILabel *courseTeacherLab;
 @property (weak, nonatomic) IBOutlet UILabel *coursePriceLab;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *courseNameLabTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *courseTeacherLabBottomContraint;
 
 @end
 @implementation HomePageCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.courseNameLabTopConstraint.constant =  K_IS_IPHONE_5 ? 0:5;
+    self.courseTeacherLabBottomContraint.constant =  K_IS_IPHONE_5 ? 0:-5;
     self.contentView.backgroundColor = K_BG_deepGrayColor;
     _whiteView.layer.masksToBounds = YES;
     _whiteView.layer.cornerRadius = 6;
