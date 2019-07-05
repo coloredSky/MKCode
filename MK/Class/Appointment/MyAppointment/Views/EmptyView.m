@@ -28,8 +28,8 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        self.logoImageArr = @[@"appoinmentlist_nodata",@"appoinmentlist_nodata",@"appoinmentlist_nodata",@"appoinmentlist_nodata",@"course_list_nodata",@"course_list_nodata"];
-        self.tipTextArr = @[@"看不到已预约课程？先登录试试吧！",@"您还没有换班的课程!",@"您还没有请假的课程！",@"您还没有申请的预约！快去预约吧",@"您还没有课程！先去参加课程吧",@"无法添加我的课程！登录试试吧",];
+        self.logoImageArr = @[@"appoinmentlist_nodata",@"appoinmentlist_nodata",@"appoinmentlist_nodata",@"appoinmentlist_nodata",@"appoinmentlist_nodata",@"appoinmentlist_nodata",@"course_list_nodata",@"course_list_nodata"];
+        self.tipTextArr = @[@"看不到已换班的课程？先登录试试吧！",@"看不到已请假的课程？先登录试试吧！",@"看不到已申请的预约？先登录试试吧！",@"您还没有换班的课程!",@"您还没有请假的课程！",@"您还没有申请的预约！快去预约吧",@"您还没有课程！先去参加课程吧",@"无法添加我的课程！登录试试吧",];
         
         _contentView = [[UIView alloc]initWithFrame:CGRectMake(0, self.height/2-100, self.width, 200)];
         [self addSubview:_contentView];
@@ -79,7 +79,7 @@
     if (showType == EmptyViewShowTypeUnknown) {
         self.contentLab.text = @"";
         self.logoIma.image = nil;
-    }else if (showType == EmptyViewShowTypeAppointmentNoLogin){
+    }else if (showType == EmptyViewShowTypeAppointmentNoLogin || showType == EmptyViewShowTypeChangeClassNoLogin || showType == EmptyViewShowTypeAskForLeaveNoLogin){
         NSString *contentString = self.tipTextArr[showType];
         self.contentLab.attributedText = [contentString attributStrWithTargetStr:@"登录" color:K_Text_YellowColor];
     }else if (showType == EmptyViewShowTypeNoAskForLeave || showType == EmptyViewShowTypeNoChangeClass || showType == EmptyViewShowTypeNoAppointment){

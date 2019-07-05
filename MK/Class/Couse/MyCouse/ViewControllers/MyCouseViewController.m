@@ -336,7 +336,7 @@
             LoginActionController *loginVC = [LoginActionController new];
             [self.navigationController pushViewController:loginVC animated:YES];
         }
-    }else{
+    }else if(operationType == EmptyViewOperationVideoPlay){
         CourseDetailViewController *detailVC = [CourseDetailViewController new];
         detailVC.course_id = self.userLastCourse.courseID;
         detailVC.lessonID = self.userLastCourse.lessonID;

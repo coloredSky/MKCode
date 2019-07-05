@@ -76,7 +76,7 @@
 {
     if (![[UserManager shareInstance]isLogin]) {
         self.emptyView.hidden = NO;
-        self.emptyView.showType = EmptyViewShowTypeAppointmentNoLogin;
+        self.emptyView.showType = self.dispayType;
         self.contentTable.hidden = YES;
         return;
     }
@@ -254,11 +254,13 @@
 }
 
 #pragma mark --  emptyView
--(void)emptyViewClickTargetWithView:(EmptyView *)view
+-(void)emptyViewClickTargetWithView:(EmptyView *)view withEmptyViewOperationType:(EmptyViewOperationType)operationType
 {
-    if (![[UserManager shareInstance]isLogin]) {
-        LoginActionController *loginVC = [LoginActionController new];
-        [self.navigationController pushViewController:loginVC animated:YES];
+    if (operationType == EmptyViewOperationTypeLogin) {
+        if (![[UserManager shareInstance]isLogin]) {
+            LoginActionController *loginVC = [LoginActionController new];
+            [self.navigationController pushViewController:loginVC animated:YES];
+        }
     }
 }
 

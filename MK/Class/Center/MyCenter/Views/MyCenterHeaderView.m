@@ -29,9 +29,9 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
-    self.backgroundColor =K_BG_deepGrayColor;
+    self.backgroundColor = K_BG_deepGrayColor;
     _headerImage.image = KImageNamed(@"message_logo");
-    _headerImage.backgroundColor = [UIColor whiteColor];
+//    _headerImage.backgroundColor = [UIColor whiteColor];
      [_nameLabel setFont:MKBoldFont(17) textColor:K_Text_BlackColor withBackGroundColor:nil];
      [_emailLabel setFont:MKBoldFont(10) textColor:K_Text_BlackColor withBackGroundColor:nil];
     [_updateBtn setNormalTitle:@"编辑个人资料" font:MKBoldFont(10) titleColor:K_Text_BlackColor];

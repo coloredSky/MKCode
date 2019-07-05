@@ -19,6 +19,8 @@
  */
 typedef NS_ENUM(NSInteger, EmptyViewShowType) {
     EmptyViewShowTypeUnknown = -1,
+    EmptyViewShowTypeChangeClassNoLogin,
+    EmptyViewShowTypeAskForLeaveNoLogin,
     EmptyViewShowTypeAppointmentNoLogin,
     EmptyViewShowTypeNoAskForLeave,
     EmptyViewShowTypeNoChangeClass,

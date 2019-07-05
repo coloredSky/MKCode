@@ -37,7 +37,7 @@
 -(void)layoutSubViewAttributtes
 {
     self.phoneStringTopHeightConstraint.constant =  KScaleHeight(self.phoneStringTopHeightConstraint.constant);
-    self.loginBtnTopHeightConstraint.constant = KScaleHeight(self.loginBtnTopHeightConstraint.constant);
+    self.loginBtnTopHeightConstraint.constant = K_IS_IPHONE_5 ? 100 : KScaleHeight(self.loginBtnTopHeightConstraint.constant);
     self.bgIma.backgroundColor = [UIColor colorWithWhite:.8 alpha:.3];
     [self.passwordTF setValue:K_Text_grayColor forKeyPath:@"_placeholderLabel.textColor"];
     [self.passwordTF setValue:[UIFont systemFontOfSize:12] forKeyPath:@"_placeholderLabel.font"];

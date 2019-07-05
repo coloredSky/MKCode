@@ -54,8 +54,6 @@
     [self.view addSubview:self.collectionView];
     //refresh
     //    [self setUpRefresh];
-    //request
-    [self startRequest];
     [self addCenterNoti];
 }
 
@@ -65,19 +63,14 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(logoOutTarget:) name:kMKLoginOutNotifcationKey object:nil];
 }
 
-#pragma mark --  request
--(void)startRequest
-{
-}
-
 #pragma mark --  lazy
 -(UICollectionView *)collectionView
 {
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 203, KScreenWidth, KScreenHeight-203) collectionViewLayout:layout];
-        _collectionView.backgroundColor = K_BG_GrayColor;
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.headerView.bottomY, KScreenWidth, KScreenHeight-self.headerView.height-K_TabbarHeight) collectionViewLayout:layout];
+        _collectionView.backgroundColor = K_BG_deepGrayColor;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
@@ -93,7 +86,7 @@
 {
     if (!_headerView) {
         _headerView = [[NSBundle mainBundle]loadNibNamed:@"MyCenterHeaderView" owner:nil options:nil][0];
-        _headerView.frame =CGRectMake(0, 0,KScreenWidth ,203);
+        _headerView.frame =CGRectMake(0, 0,KScreenWidth ,KScaleWidth(180));
         _headerView.delegate =self;
         [_headerView refreshData];
     }
@@ -143,26 +136,19 @@
     if([kind isEqualToString:UICollectionElementKindSectionHeader])
     {
         UICollectionReusableView *headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
-        if(headerView == nil)
-        {
+        if(headerView == nil){
             headerView = [[UICollectionReusableView alloc] init];
         }
-        headerView.backgroundColor = [UIColor grayColor];
-        
         return headerView;
     }
     else if([kind isEqualToString:UICollectionElementKindSectionFooter])
     {
         UICollectionReusableView *footerView = [_collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"footer" forIndexPath:indexPath];
-        if(footerView == nil)
-        {
+        if(footerView == nil){
             footerView = [[UICollectionReusableView alloc] init];
         }
-        footerView.backgroundColor = [UIColor lightGrayColor];
-        
         return footerView;
     }
-    
     return nil;
 }
 
@@ -261,13 +247,10 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section ==0)
-    {
-        CGSize size={KScaleWidth(160),KScaleWidth(90)};
+    if (indexPath.section ==0){
+        CGSize size={KScaleWidth(160),KScaleWidth(100)};
         return size;
-    }
-    else
-    {
+    }else{
         CGSize size={KScaleWidth(100),KScaleWidth(90)};
         return size;
     }
@@ -307,22 +290,16 @@
 #pragma mark-headerViewDelegate
 -(void)headerViewBtnClickWithOperationType:(MyCenterHeaderViewOperationType )operationType
 {
-    if ([[UserManager shareInstance] isLogin ]==YES){
-    if (operationType == MyCenterHeaderViewOperationTypeLoginIn){
-          LoginActionController *loginVC = [LoginActionController new];
-        [self.navigationController pushViewController:loginVC animated:YES];
-    }else{
+    if (operationType == MyCenterHeaderViewOperationTypeEditUserInfo) {
         if (![[UserManager shareInstance]isLogin]){
             [self loginAlterViewShow];
             return;
         }
-        UpdateMessageController * uvc =[UpdateMessageController new];
-        [self.navigationController pushViewController:uvc animated:YES];
-       }
-    }else{
-    if (![[UserManager shareInstance]isLogin]) {
-        [self loginAlterViewShow];
-       }
+        UpdateMessageController * messageVC =[UpdateMessageController new];
+        [self.navigationController pushViewController:messageVC animated:YES];
+    }else if (operationType == MyCenterHeaderViewOperationTypeLoginIn){
+        LoginActionController *loginVC = [LoginActionController new];
+        [self.navigationController pushViewController:loginVC animated:YES];
     }
 }
 
