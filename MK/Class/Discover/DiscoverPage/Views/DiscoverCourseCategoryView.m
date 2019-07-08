@@ -32,10 +32,12 @@
         defaultLaout.minimumLineSpacing = 8;//列间距
         _contentCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height) collectionViewLayout:defaultLaout];
         _contentCollectionView.backgroundColor = K_BG_deepGrayColor;
-        [self addSubview:_contentCollectionView];
-        [_contentCollectionView registerNib:[UINib nibWithNibName:@"CourseCategoryCell" bundle:nil] forCellWithReuseIdentifier:@"CourseCategoryCell"];
         _contentCollectionView.delegate = self;
         _contentCollectionView.dataSource = self;
+        [self addSubview:_contentCollectionView];
+        _contentCollectionView.showsVerticalScrollIndicator = NO;
+        _contentCollectionView.showsHorizontalScrollIndicator = NO;
+        [_contentCollectionView registerNib:[UINib nibWithNibName:@"CourseCategoryCell" bundle:nil] forCellWithReuseIdentifier:@"CourseCategoryCell"];
     }
     return self;
 }

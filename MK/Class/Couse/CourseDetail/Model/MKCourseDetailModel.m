@@ -71,6 +71,16 @@
 //    }else{
 //        _teacher_detail = @"";
 //    }
+    if (_lessonList.count > 0) {
+        for (NSInteger index = 0; index < _lessonList.count; index++) {
+            MKLessonModel *lessonModel = _lessonList[index];
+            if (index == 0) {
+                lessonModel.video_status = YES;
+            }else{
+                lessonModel.video_status = _courseInfoDetail.is_bought;
+            }
+        }
+    }
     return YES;
 }
 

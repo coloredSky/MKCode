@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *order_list;//课时排序
 @property (nonatomic, copy) NSString *lessonDetail;//课时简介
 @property (nonatomic, assign) BOOL isSelected;
+@property (nonatomic, assign) BOOL video_status;
 @end
 
 @interface MKCourseInfoModel : NSObject
@@ -34,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *courseImage;//课程简介图片
 @property (nonatomic, copy) NSString *totalStudyNum;//课程学习人数
 @property (nonatomic, assign) BOOL isCollected;//课程是否收藏
+@property (nonatomic, assign) BOOL is_bought;//课程是否购买
 
 @end
 

@@ -43,5 +43,7 @@
 #define kMKPrivacyStatementUrl @"http://www.mkeduit.com/mobile/protocol/privacy_statement.html"
 //服务条款地址
 #define kMKTheTermsOfServiceUrl @"http://www.mkeduit.com/mobile/protocol/service_clause.html"
+//课程购买地址
+#define kMKCourseBuyUrl @"https://class.jastudy.com"
 
 #endif /* MKConfigKey_h */

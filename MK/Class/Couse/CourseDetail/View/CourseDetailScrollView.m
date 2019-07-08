@@ -229,14 +229,22 @@
         if (self.selectedLessonModel == lessonModel) {
             return;
         }
-        [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-        self.selectedLessonModel.isSelected = NO;
-        lessonModel.isSelected = YES;
-        self.selectedLessonModel = lessonModel;
-        if ([delegate respondsToSelector:@selector(courseDidSelectedWithIndexPath: andLessonModel:)]) {
-            [delegate courseDidSelectedWithIndexPath:indexPath andLessonModel:lessonModel];
+        if (lessonModel.video_status) {
+            //可以播放
+            [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+            self.selectedLessonModel.isSelected = NO;
+            lessonModel.isSelected = YES;
+            self.selectedLessonModel = lessonModel;
+            if ([delegate respondsToSelector:@selector(courseDidSelectedWithIndexPath: andLessonModel:)]) {
+                [delegate courseDidSelectedWithIndexPath:indexPath andLessonModel:lessonModel];
+            }
+            [tableView reloadData];
+        }else{
+            //不能播放
+            if ([delegate respondsToSelector:@selector(courseDidSelectedWithIndexPath: andLessonModel:)]) {
+                [delegate courseDidSelectedWithIndexPath:indexPath andLessonModel:lessonModel];
+            }
         }
-        [tableView reloadData];
     }
 }
 

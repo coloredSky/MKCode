@@ -32,9 +32,6 @@ static NSString *const responseMessage = @"msg";
         if ([[UserManager shareInstance]isLogin]) {
             [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":[[UserManager shareInstance] getToken]}];
         }
-//        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-//        NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-//        [WYNetworkConfig sharedConfig].defailtParameters = @{@"version":appVersion, @"platform":@"iOS"};
         [WYNetworkConfig sharedConfig].timeoutSeconds = 20;//默认30s
     });
     return sharedManager;
@@ -63,6 +60,7 @@ static NSString *const responseMessage = @"msg";
             if (result.responseCode == 999) {
                 [MBHUDManager showBriefAlert:result.message];
                 [[UserManager shareInstance] loginOut];
+                [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":@""}];
                 [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginOutNotifcationKey object:nil];
                 [[AppDelegate instance] pb_presentShowLoginViewController];
             }
@@ -100,6 +98,7 @@ static NSString *const responseMessage = @"msg";
             if (result.responseCode == 999) {
                 [MBHUDManager showBriefAlert:result.message];
                 [[UserManager shareInstance] loginOut];
+                [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":@""}];
                 [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginOutNotifcationKey object:nil];
                 [[AppDelegate instance] pb_presentShowLoginViewController];
             }

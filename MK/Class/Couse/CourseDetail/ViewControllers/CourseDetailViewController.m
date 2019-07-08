@@ -222,11 +222,36 @@
 #pragma mark --  课程点击
 -(void)courseDidSelectedWithIndexPath:(NSIndexPath *)indexPath andLessonModel:(MKLessonModel *)lessonModel
 {
-    if (![[UserManager shareInstance]isLogin]) {
-        [self loginAlterViewShow];
-        return;
+    if (lessonModel.video_status) {
+        [self setUpVideoWithVideoID:lessonModel.video_id lessonID:lessonModel.lessonID];
+    }else{
+        if (![[UserManager shareInstance]isLogin]) {
+            [self loginAlterViewShow];
+            return;
+        }
+        [self courseBuyAlterViewShow];
     }
-    [self setUpVideoWithVideoID:lessonModel.video_id lessonID:lessonModel.lessonID];
+}
+
+-(void)courseBuyAlterViewShow
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您还未购买该课程，现在就去购买？" preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //跳转
+        if (@available(iOS 10.0,*)){
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:kMKCourseBuyUrl]]){
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kMKCourseBuyUrl] options:@{UIApplicationOpenURLOptionUniversalLinksOnly:@(false)} completionHandler:nil];
+            }
+        }else{
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:kMKCourseBuyUrl]]){
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kMKCourseBuyUrl]];
+            }
+        }
+    }];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:cancleAction];
+    [alert addAction:sureAction];
 }
 
 #pragma mark --  线下课程添加日历提醒
@@ -272,11 +297,16 @@
 {
     if (self.onlineCourseDetailModel.lessonList.count > 0) {
         MKLessonModel *lessonModel = self.onlineCourseDetailModel.lessonList[0];
-        lessonModel.isSelected = YES;
-        [self setUpVideoWithVideoID:lessonModel.video_id lessonID:lessonModel.lessonID];
-        [self.detailScroll courseDetailScrollViewReloadDataWithMKCourseDetailModel:self.onlineCourseDetailModel offlineCourseDetailModel:nil];
+        if (lessonModel.video_status) {
+            lessonModel.isSelected = YES;
+            [self setUpVideoWithVideoID:lessonModel.video_id lessonID:lessonModel.lessonID];
+            [self.detailScroll courseDetailScrollViewReloadDataWithMKCourseDetailModel:self.onlineCourseDetailModel offlineCourseDetailModel:nil];
+        }else{
+            [self courseBuyAlterViewShow];
+        }
     }else{
-        [MBHUDManager showBriefAlert:@"没有可以播放的课程！"];
+//        [MBHUDManager showBriefAlert:@"没有可以播放的课程！"];
+        [self courseBuyAlterViewShow];
     }
 }
 @end
