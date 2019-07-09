@@ -99,12 +99,23 @@
         if (![self pb_isHasShowLoginViewController]){
             LoginActionController * loginVC = [[LoginActionController alloc]init];
             MKNavigationController * navigationVC = [[MKNavigationController alloc]initWithRootViewController:loginVC];
-//            navigationVC.modalPresentationStyle=UIModalPresentationFullScreen;
             if (self.window.rootViewController.presentedViewController != nil){
                 [self.window.rootViewController.presentedViewController presentViewController:navigationVC animated:YES completion:nil];
             }else{
                 [self.window.rootViewController presentViewController:navigationVC animated:YES completion:nil];
             }
+        }
+    }
+}
+
+-(void)pb_pushLoginViewController
+{
+    @synchronized (self){
+        if (![self pb_isHasShowLoginViewController]){
+            LoginActionController * loginVC = [[LoginActionController alloc]init];
+            UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+            UINavigationController *currentNav = tabBarController.selectedViewController;
+            [currentNav pushViewController:loginVC animated:YES];
         }
     }
 }

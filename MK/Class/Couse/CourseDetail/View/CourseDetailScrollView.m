@@ -7,6 +7,7 @@
 //
 
 #import "CourseDetailScrollView.h"
+#import "AppDelegate.h"
 #import <WebKit/WebKit.h>
 //View 线上课程
 #import "CourseOnlineTitleCell.h"
@@ -95,6 +96,11 @@
             __weak typeof(self) weakSelf = self;
             #pragma mark --  课程收藏
             cell.courseCollectionBlock = ^(UIButton * _Nonnull sender) {
+                if (![[UserManager shareInstance]isLogin]) {
+                    [MBHUDManager showBriefAlert:@"您还未登录，请先登录！"];
+                    [[AppDelegate instance] pb_pushLoginViewController];
+                    return;
+                }
                 __strong typeof(weakSelf) strongSelf = weakSelf;
                 if (strongSelf.courseDetailModel.courseInfoDetail.isCollected) {
                     [strongSelf courseCancleCollected];
@@ -229,6 +235,9 @@
         if (self.selectedLessonModel == lessonModel) {
             return;
         }
+        if ([delegate respondsToSelector:@selector(courseDidSelectedWithIndexPath: andLessonModel:)]) {
+            [delegate courseDidSelectedWithIndexPath:indexPath andLessonModel:lessonModel];
+        }
         if (lessonModel.video_status) {
             //可以播放
             [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
@@ -239,11 +248,6 @@
                 [delegate courseDidSelectedWithIndexPath:indexPath andLessonModel:lessonModel];
             }
             [tableView reloadData];
-        }else{
-            //不能播放
-            if ([delegate respondsToSelector:@selector(courseDidSelectedWithIndexPath: andLessonModel:)]) {
-                [delegate courseDidSelectedWithIndexPath:indexPath andLessonModel:lessonModel];
-            }
         }
     }
 }

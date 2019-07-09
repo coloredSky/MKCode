@@ -9,6 +9,8 @@
 #import "CourseDetailViewController.h"
 #import <PLVVodSDK/PLVVodSDK.h>
 #import "PLVVodSkinPlayerController.h"
+#import "LoginActionController.h"
+#import "PLVMarquee.h"
 //View
 #import "CourseDetailTipView.h"
 #import "MKCourseDetailModel.h"
@@ -44,11 +46,31 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.player pause];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (self.player.playbackState == PLVVodPlaybackStatePaused) {
+        [self.player play];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Request
     [self startRequest];
+    [self addNoti];
 //    [self.detailScroll CourseDetailScrollViewReloadData];
+}
+
+-(void)addNoti
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginTarget:) name:kMKLoginInNotifcationKey object:nil];
 }
 
 -(void)startRequest
@@ -157,21 +179,21 @@
     if (!_player) {
         // 初始化播放器
         PLVVodSkinPlayerController *player = [[PLVVodSkinPlayerController alloc] initWithNibName:nil bundle:nil];
-        [player addPlayerOnPlaceholderView:self.placeholderView rootViewController:self];
         player.rememberLastPosition = YES;
-        player.enableBackgroundPlayback = YES;
+        player.enableBackgroundPlayback = NO;
+        player.marquee.content = [NSString getAppName];
         player.reachEndHandler = ^(PLVVodPlayerViewController *player) {
         };
 //        __weak typeof(self) weakSelf = self;
-        self.playbackTimer = [PLVTimer repeatWithInterval:1 repeatBlock:^{
-            dispatch_async(dispatch_get_main_queue(), ^{
+//        self.playbackTimer = [PLVTimer repeatWithInterval:1 repeatBlock:^{
+//            dispatch_async(dispatch_get_main_queue(), ^{
 //                __strong typeof(weakSelf) strongSelf = weakSelf;
 //                if (player.currentPlaybackTime >= 10) {
 //                    [player pause];
 //                    strongSelf.maskView.hidden = NO;
 //                }
-            });
-        }];
+//            });
+//        }];
         _player = player;
     }
     return _player;
@@ -223,12 +245,18 @@
 -(void)courseDidSelectedWithIndexPath:(NSIndexPath *)indexPath andLessonModel:(MKLessonModel *)lessonModel
 {
     if (lessonModel.video_status) {
+        //能够播放
         [self setUpVideoWithVideoID:lessonModel.video_id lessonID:lessonModel.lessonID];
     }else{
+        //不能播放，先判断登录状态
         if (![[UserManager shareInstance]isLogin]) {
-            [self loginAlterViewShow];
+//            [self loginAlterViewShow];
+            [MBHUDManager showBriefAlert:@"您还未登录，请先登录！"];
+            LoginActionController *loginVC = [LoginActionController new];
+            [self.navigationController pushViewController:loginVC animated:YES];
             return;
         }
+        //已经登录，判断是否购买课程
         [self courseBuyAlterViewShow];
     }
 }
@@ -257,6 +285,10 @@
 #pragma mark --  线下课程添加日历提醒
 -(void)offlineCourseAddCalendar
 {
+    if (![[UserManager shareInstance]isLogin]) {
+        [self loginAlterViewShow];
+        return;
+    }
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您确认为该课程添加日历提醒？" preferredStyle:UIAlertControllerStyleAlert];
     [self presentViewController:alert animated:YES completion:nil];
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -270,6 +302,9 @@
 
 -(void)setUpVideoWithVideoID:(NSString *)videoID lessonID:(NSString *)lessonID
 {
+    MKLog(@"%@",self.player);
+//    self.player.rememberLastPosition = YES;
+        [self.player addPlayerOnPlaceholderView:self.placeholderView rootViewController:self];
     // 有网情况下，也可以调用此接口，只要存在本地视频，都会优先播放本地视频
     __weak typeof(self) weakSelf = self;
     [PLVVodVideo requestVideoWithVid:videoID completion:^(PLVVodVideo *video, NSError *error) {
@@ -302,11 +337,33 @@
             [self setUpVideoWithVideoID:lessonModel.video_id lessonID:lessonModel.lessonID];
             [self.detailScroll courseDetailScrollViewReloadDataWithMKCourseDetailModel:self.onlineCourseDetailModel offlineCourseDetailModel:nil];
         }else{
+            if (![[UserManager shareInstance]isLogin]) {
+                [self loginAlterViewShow];
+                return;
+            }
             [self courseBuyAlterViewShow];
         }
     }else{
-//        [MBHUDManager showBriefAlert:@"没有可以播放的课程！"];
-        [self courseBuyAlterViewShow];
+        [MBHUDManager showBriefAlert:@"没有可以播放的课程！"];
     }
 }
+
+-(void)loginTarget:(NSNotification *)noti
+{
+    [self startRequest];
+}
+
+#pragma mark --  屏幕旋转
+- (BOOL)shouldAutorotate{
+    if (self.player.playbackState == PLVVodPlaybackStatePlaying || self.player.playbackState == PLVVodPlaybackStatePaused) {
+      return YES;
+    }
+    return NO;
+}
+
+//返回支持的方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
 @end

@@ -46,8 +46,8 @@ MAX([UIScreen mainScreen].bounds.size.height,                                \
 #define K_Padding_Home_LeftPadding 25
 
 //基于iphone6 的屏幕宽度比
-#define K_iPhone6BreadthWidth [UIScreen mainScreen].bounds.size.width/375
-#define K_iPhone6BreadthHeight [UIScreen mainScreen].bounds.size.height/667
+#define K_iPhone6BreadthWidth KScreenWidth/375
+#define K_iPhone6BreadthHeight KScreenHeight/667
 // 宽度适配
 #define KScaleWidth(width) ( (width) * K_iPhone6BreadthWidth)
 // 高度适配

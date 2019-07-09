@@ -76,4 +76,16 @@
     [nav popToRootViewControllerAnimated:YES];
 }
 
+#pragma mark -- 控制屏幕旋转方法
+- (BOOL)shouldAutorotate{
+    return [self.selectedViewController shouldAutorotate];
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return [self.selectedViewController supportedInterfaceOrientations];
+}
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
+    return [self.selectedViewController preferredInterfaceOrientationForPresentation];
+}
+
 @end

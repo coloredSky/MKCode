@@ -37,6 +37,7 @@
 @end
 
 @implementation HomeRecommendViewController
+
 -(instancetype)init
 {
     if (self = [super init]) {
@@ -59,6 +60,7 @@
     //request
     [self startRequestWithHUDShow:YES];
 }
+
 -(void)homeRecommendfreshCourseListData
 {
     if (self.recommendCourseList.count == 0) {

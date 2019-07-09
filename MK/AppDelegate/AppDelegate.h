@@ -25,5 +25,10 @@
  */
 -(void)pb_presentShowLoginViewController;
 
+/**
+ 登录界面push
+ */
+-(void)pb_pushLoginViewController;
+
 @end
 
