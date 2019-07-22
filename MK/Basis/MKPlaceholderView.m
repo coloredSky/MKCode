@@ -31,7 +31,7 @@
 -(NSArray *)titleStringArr
 {
     if (!_titleStringArr) {
-        _titleStringArr = @[@"暂无数据",@"重新加载！",@"还没有预约课程？先去看看感兴趣的课程吧！",@"先去看看感兴趣的课程吧！",];
+        _titleStringArr = @[@"暂无数据",@"没网络啦！请点击重新加载！",@"还没有预约课程？先去看看感兴趣的课程吧！",@"先去看看感兴趣的课程吧！",];
     }
     return _titleStringArr;
 }

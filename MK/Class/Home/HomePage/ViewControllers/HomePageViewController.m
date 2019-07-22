@@ -60,6 +60,12 @@
     [MBHUDManager showLoading];
     [HomePageManager callBackHomePageCouurseListDataWithHUDShow:NO categoryID:@"100" pageOffset:1 pageLimit:1 andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message,NSArray<HomeCourseCategoryModel *> * _Nonnull courseCategoryList, NSArray<MKBannerModel *> * _Nonnull bannerList, NSArray<HomePublicCourseModel *> * _Nonnull publicCourseList, NSArray<MKCourseListModel *> * _Nonnull recommentCourseList) {
         [MBHUDManager hideAlert];
+        if (courseCategoryList == nil || courseCategoryList.count == 0) {
+            self.placeholderView.hidden = NO;
+            self.placeholderView.displayType = MKPlaceWorderViewDisplayTypeNoNetworking;
+        }else{
+            self.placeholderView.hidden = YES;
+        }
         if (isSuccess) {
             self.courseCategoryList = courseCategoryList;
             NSMutableArray *titleArr = [NSMutableArray arrayWithCapacity:courseCategoryList.count];
@@ -83,6 +89,8 @@
                 }
             }
             [self.contentScroll AddChildViewWithTitleArr:self.childVCs andRootViewController:self];
+        }else{
+            [MBHUDManager showBriefAlert:@"数据请求失败!"];
         }
     }];
 }
@@ -146,5 +154,10 @@
         HomeCommonViewController *commonVC = (HomeCommonViewController *)self.childVCs[index];
         [commonVC homeCommonrefreshCourseListDataWithTitle:self.titleArr[index]];
     }
+}
+
+-(void)placeholderViewClickWithDisplayType:(MKPlaceWorderViewDisplayType )placeholderDisplayType
+{
+    [self startRequestWithHUDShow:YES];
 }
 @end

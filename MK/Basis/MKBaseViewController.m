@@ -11,7 +11,7 @@
 #import "LoginActionController.h"
 
 @interface MKBaseViewController ()<MKPlaceholderViewDelegate>
-@property(nonatomic,strong)MKPlaceholderView *placeholderView;
+
 @end
 
 #pragma clang diagnostic push
@@ -56,6 +56,12 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     //background color...
     self.view.backgroundColor = K_BG_deepGrayColor;
+
+}
+
+-(void)configNoNetworkView
+{
+    
 }
 
 #pragma mark --  lazy

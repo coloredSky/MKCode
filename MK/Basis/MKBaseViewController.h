@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MKBaseViewController : UIViewController
+@property(nonatomic,strong)MKPlaceholderView *placeholderView;
 @property (nonatomic, assign) BOOL placeholderViewShow;
 //
 -(void)reloadPlacehorldViewWithFrame:(CGRect )frame placehorldDisplayType:(MKPlaceWorderViewDisplayType )displayType;

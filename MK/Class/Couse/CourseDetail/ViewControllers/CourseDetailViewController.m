@@ -27,7 +27,7 @@
 @property (nullable,nonatomic, strong) UIScrollView *contentScroll;
 @property (nonatomic, strong) CourseDetailTipView *courseTipView;
 @property (nonatomic, strong) CourseDetailScrollView *detailScroll;
-@property (nonatomic, strong) UIView *placeholderView;
+@property (nonatomic, strong) UIView *coursePlaceholderView;
 @property (nonatomic, strong) UIImageView *courseIma;
 @property (nonatomic, strong) PLVVodSkinPlayerController *player;
 @property (nonatomic, strong) UIView *maskView;
@@ -136,8 +136,8 @@
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
         [self.view addSubview:_contentScroll];
-        _placeholderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(278))];
-        [_contentScroll addSubview:_placeholderView];
+        _coursePlaceholderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(278))];
+        [_contentScroll addSubview:_coursePlaceholderView];
         
         _courseIma = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(278))];
         [_contentScroll addSubview:_courseIma];
@@ -161,7 +161,7 @@
 -(UIView *)maskView
 {
     if (!_maskView) {
-        _maskView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _placeholderView.width, _placeholderView.height)];
+        _maskView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _coursePlaceholderView.width, _coursePlaceholderView.height)];
         [self.view addSubview:_maskView];
         _maskView.backgroundColor = [UIColor colorWithWhite:.5 alpha:.5];
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(_maskView.centerX-100, _maskView.centerY-20, 200, 40)];
@@ -304,7 +304,7 @@
 {
     MKLog(@"%@",self.player);
 //    self.player.rememberLastPosition = YES;
-        [self.player addPlayerOnPlaceholderView:self.placeholderView rootViewController:self];
+        [self.player addPlayerOnPlaceholderView:self.coursePlaceholderView rootViewController:self];
     // 有网情况下，也可以调用此接口，只要存在本地视频，都会优先播放本地视频
     __weak typeof(self) weakSelf = self;
     [PLVVodVideo requestVideoWithVid:videoID completion:^(PLVVodVideo *video, NSError *error) {

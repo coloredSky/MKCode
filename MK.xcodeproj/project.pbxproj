@@ -3674,8 +3674,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A9VG9KGP8J;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GNB62SF289;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MK/Config/MKPrefix.h";
@@ -3689,8 +3689,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MeiKeWangXiao.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MeiKeEducationOnlineSchool.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "MK-EducationOnlineSchool-Develop_Profile";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
@@ -3702,8 +3703,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A9VG9KGP8J;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GNB62SF289;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MK/Config/MKPrefix.h";
@@ -3717,8 +3719,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MeiKeWangXiao.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MeiKeEducationOnlineSchool.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "MK-EducationOnlineSchool-Distribution_AD_HOC-Profi";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
