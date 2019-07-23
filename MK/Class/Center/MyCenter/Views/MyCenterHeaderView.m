@@ -30,9 +30,9 @@
 {
     [super awakeFromNib];
     self.backgroundColor = K_BG_deepGrayColor;
-    _headerImage.image = KImageNamed(@"message_logo");
+    _headerImage.image = K_MKPlaceholderImage1_1;
 //    _headerImage.backgroundColor = [UIColor whiteColor];
-     [_nameLabel setFont:MKBoldFont(17) textColor:K_Text_BlackColor withBackGroundColor:nil];
+     [_nameLabel setFont:MKBoldFont(15) textColor:K_Text_BlackColor withBackGroundColor:nil];
      [_emailLabel setFont:MKBoldFont(10) textColor:K_Text_BlackColor withBackGroundColor:nil];
     [_updateBtn setNormalTitle:@"编辑个人资料" font:MKBoldFont(10) titleColor:K_Text_BlackColor];
     
@@ -62,7 +62,7 @@
     LoginModel * model =[[UserManager shareInstance]getUser];
     self.nameLabel.text =[NSString isEmptyWithStr:model.nickname]==YES?@"您尚未设置用户名":model.nickname;
     self.emailLabel.text =[NSString isEmptyWithStr:model.email]==YES?@"您尚未设置邮箱":model.email;
-    [self.headerImage sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:KImageNamed(@"message_logo")];
+    [self.headerImage sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:K_MKPlaceholderImage1_1];
 }
 
 -(IBAction)updateBtnClick:(UIButton *)sender

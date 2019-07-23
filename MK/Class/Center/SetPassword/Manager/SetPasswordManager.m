@@ -24,9 +24,8 @@
             completionBlock(NO,MKResult.message);
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
-        if (completionBlock)
-        {
-            completionBlock(NO,nil);
+        if (completionBlock) {
+            completionBlock(NO,error.userInfo[NSLocalizedDescriptionKey]);
         }
     }];
 }

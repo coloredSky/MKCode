@@ -38,7 +38,7 @@
     [super layoutSubviews];
     self.whiteView.frame = CGRectMake(K_Padding_Home_LeftPadding, 0, self.contentView.width-K_Padding_Home_LeftPadding*2, self.contentView.height-KScaleHeight(15));
     self.iconIma.frame = CGRectMake(KScaleWidth(15), KScaleHeight(10), KScaleWidth(36), KScaleWidth(36));
-    self.courseNameLab.frame = CGRectMake(self.iconIma.rightX+KScaleWidth(15), self.iconIma.topY, self.whiteView.width-self.iconIma.rightX-KScaleWidth(15), KScaleHeight(20));
+    self.courseNameLab.frame = CGRectMake(self.iconIma.rightX+KScaleWidth(15), self.iconIma.topY, self.whiteView.width-self.iconIma.rightX-KScaleWidth(15), KScaleHeight(14));
     self.replyContentLab.frame = CGRectMake(self.courseNameLab.leftX, self.courseNameLab.bottomY, self.courseNameLab.width, self.whiteView.height-self.courseNameLab.bottomY);
 }
 

@@ -104,7 +104,7 @@
         if (isSuccess  ==YES)
         {
             self.model =model;
-            [self.headerIma sd_setImageWithURL:[NSURL URLWithString:model.userInfo.avatar] forState:UIControlStateNormal placeholderImage:KImageNamed(@"MyCenter_header")];
+            [self.headerIma sd_setImageWithURL:[NSURL URLWithString:model.userInfo.avatar] forState:UIControlStateNormal placeholderImage:K_MKPlaceholderImage1_1];
             self.nickNameLab.text = model.userInfo.nickname;
             self.emailLab.text = model.userInfo.email;
             [self setVCDataSource];

@@ -14,7 +14,7 @@
 {
     if (![NSString isEmptyWithStr:_content]) {
         CGFloat height = [_content getStrSizeWithSize:CGSizeMake(KScreenWidth-K_Padding_Home_LeftPadding*2-KScaleWidth(15+36), 3000) font:MKFont(13)].height;
-        _rowHeight = height+KScaleHeight(10+20+15)+KScaleWidth(36);
+        _rowHeight = height+KScaleHeight(10+20+30);
     }
     return YES;
 }

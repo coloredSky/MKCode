@@ -51,7 +51,11 @@
     [SetPasswordManager callBackSetPwdWithHudShow:YES oldPwd:self.oldPwdTf.text newPwd:self.pwdTf.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
         if (isSuccess==YES)
         {
-            [MBHUDManager showBriefAlert:message];
+            [MBHUDManager showBriefAlert:@"密码修改成功，请重新登录！"];
+            [[UserManager shareInstance] loginOut];
+            [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":@""}];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginOutNotifcationKey object:nil];
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
         else
         {
@@ -59,14 +63,6 @@
         }
     }];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

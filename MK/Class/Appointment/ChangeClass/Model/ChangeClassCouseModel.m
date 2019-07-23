@@ -26,7 +26,7 @@
         for (ChangeClassCouseModel *model in self.same_period_class) {
             if ([model.changeID integerValue] != [self.changeID integerValue]) {
                 [self.changeClassList addObject:model];
-                [self.changeClassStringList addObject:model.course_name];
+                [self.changeClassStringList addObject:model.class_name];
             }
         }
     }

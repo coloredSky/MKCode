@@ -60,11 +60,11 @@
             self.toeicEditView = editView;
             editView.contentString = self.originalModel.userInfo.toeic;
         }else if (i == 1){
-            editView.contentString = self.originalModel.userInfo.toeic;
+            editView.contentString = self.originalModel.userInfo.toefl;
             self.toeflEditView = editView;
         }else{
             self.jpEditView = editView;
-            editView.contentString = self.originalModel.userInfo.jlpt;
+            editView.contentString = self.originalModel.userInfo.jlptString;
             editView.contentTF.delegate = self;
             self.submitBtn.topY = editView.bottomY + 50;
         }
@@ -148,7 +148,8 @@
 {
     if (downMenuView == self.jpLauguageAbilityMenu) {
         JapaneseLanguageAbilityList *japaneseModel = self.originalModel.japaneseLanguageAbilityList[index];
-        self.userInfoModel.jlpt = japaneseModel.name;
+        self.userInfoModel.jlptID = japaneseModel.japaneseAbilityID;
+        self.userInfoModel.jlptString = japaneseModel.name;
         self.jpEditView.contentString = japaneseModel.name;
     }
 }
@@ -158,7 +159,7 @@
 {
     if (self.userInfoModel.toeic == self.originalModel.userInfo.toeic &&
         self.userInfoModel.toefl == self.originalModel.userInfo.toefl &&
-        self.userInfoModel.jlpt == self.originalModel.userInfo.jlpt) {
+        self.userInfoModel.jlptID == self.originalModel.userInfo.jlptID) {
         [MBHUDManager showBriefAlert:@"请修改后保存！"];
         return;
     }
@@ -175,7 +176,7 @@
         return;
     }
     [MBHUDManager showLoading];
-    [LanguageAblelityManager callBackUpdateLanguageAblelityWithToeic:self.toeicEditView.contentTF.text toefl:self.toeicEditView.contentTF.text jlpt:self.jpEditView.contentTF.text mobile:self.userInfoModel.mobile mobile_jp:self.userInfoModel.mobile_jp CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+    [LanguageAblelityManager callBackUpdateLanguageAblelityWithToeic:self.toeicEditView.contentTF.text toefl:self.toeicEditView.contentTF.text jlpt:self.userInfoModel.jlptID mobile:self.userInfoModel.mobile mobile_jp:self.userInfoModel.mobile_jp CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
         [MBHUDManager hideAlert];
         if (isSuccess) {
             [MBHUDManager showBriefAlert:@"修改成功！"];

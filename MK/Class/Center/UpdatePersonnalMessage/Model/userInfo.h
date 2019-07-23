@@ -32,7 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString * category ;
 @property(nonatomic,strong)NSString * toeic ;//TOEIC分数
 @property(nonatomic,strong)NSString * toefl ;//TOEFL分数
-@property(nonatomic,strong)NSString * jlpt ;//根据提供的日本语能力级别列表选择N1-N5
+@property(nonatomic,strong)NSString * jlptID;//日语能力ID
+@property(nonatomic,strong)NSString * jlptString ;//根据提供的日本语能力级别列表选择N1-N5
 @property(nonatomic,strong)NSString * arrive_jp ;//赴日日期
 @property(nonatomic,strong)NSString * study_category ;
 @property(nonatomic,strong)NSString * discipline_id_1 ;//第一志愿学校

@@ -47,6 +47,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_deepGrayColor;
+//    self.emptyView.hidden = NO;
+//    self.contentTable.hidden = YES;
+    self.emptyView.showType = EmptyViewShowTypeNoUserCourse;
     //refresh
     [self setUpRefresh];
     //request
@@ -81,9 +84,7 @@
         self.contentTable.hidden = YES;
         return;
     }
-    self.emptyView.hidden = YES;
-    self.contentTable.hidden = NO;
-    
+    [self.emptyView EmptyViewReloadDataWithMKCourseListModel:nil];
     [UserCourseListManager callBackUserCourseListWithCompletionBlock:^(BOOL isSuccess,MKCourseListModel *lastCourseListModel, NSArray<UserCourseModel *> * _Nonnull userCourseList, NSArray<MKCourseListModel *> * _Nonnull offLineCourseList, NSString * _Nonnull message) {
         [self.contentTable.mj_header endRefreshing];
         if (isSuccess) {
@@ -93,10 +94,13 @@
             [self.contentTable reloadData];
             if (self.userCourseList.count == 0) {
                 self.emptyView.hidden = NO;
+                self.contentTable.hidden = YES;
                 self.emptyView.showType = EmptyViewShowTypeNoUserCourse;
                 [self.emptyView EmptyViewReloadDataWithMKCourseListModel:lastCourseListModel];
                 self.contentTable.hidden = YES;
             }else{
+                self.emptyView.hidden = YES;
+                self.contentTable.hidden = NO;
                 [self.headerView userCourseHeaderViewRefreshDataWithMKCourseListModel:self.userLastCourse];
             }
         }

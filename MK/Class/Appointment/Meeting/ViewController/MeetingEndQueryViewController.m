@@ -112,7 +112,8 @@
 {
     if (!_headerView) {
         _headerView = [AppointmentHeaderView new];
-        _headerView.titleString = @"预约查询";
+//        _headerView.titleString = @"预约查询";
+        _headerView.titleString = self.appointmentModel.status_msg;
         [self.contentScroll addSubview:_headerView];
     }
     return _headerView;

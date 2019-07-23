@@ -51,6 +51,7 @@
     return @{@"classNewID":@"new_class_id",
              @"applyID" : @"id",
              @"classNewName":@"new_class_name",
+             @"reasonContent" : @[@"reason", @"detail"],
              };
 }
 

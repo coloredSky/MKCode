@@ -55,7 +55,7 @@
     changeClassTapView.textString = self.appointmentModel.classNewName;
     AppointmentTapView *originalTapView = self.tapViewArr[1];
     originalTapView.textString = self.appointmentModel.class_name;
-    self.reasonTextView.text = self.appointmentModel.reason;
+    self.reasonTextView.text = self.appointmentModel.reasonContent;
 }
 
 -(void)creatSubVuew
@@ -120,7 +120,7 @@
             [self.tapViewArr addObject:tapView];
             CGFloat tapViewY = tapViewY = titleLab.bottomY+ KScaleHeight(13);
             if (i == self.contentStringArr.count-1) {
-                  CGSize size = [self.appointmentModel.reason getStrSizeWithSize:CGSizeMake(_contentScroll.width-K_Padding_Home_LeftPadding*2, 300) font:K_Font_Text_Normal];
+                  CGSize size = [self.appointmentModel.reasonContent getStrSizeWithSize:CGSizeMake(_contentScroll.width-K_Padding_Home_LeftPadding*2, 300) font:K_Font_Text_Normal];
                 CGFloat height = 33;
                 if (size.height+20 > 33) {
                     height = size.height+20;
@@ -154,7 +154,7 @@
 {
     if (!_headerView) {
         _headerView = [[AppointmentHeaderView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight)];
-        _headerView.titleString = @"换班成功";
+        _headerView.titleString = self.appointmentModel.status_msg;
         [self.contentScroll addSubview:_headerView];
     }
     return _headerView;

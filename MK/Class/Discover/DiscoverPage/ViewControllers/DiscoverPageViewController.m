@@ -147,8 +147,12 @@
 {
     if (section == 0) {
         return KScaleHeight(104-5);
-    }
-    if (section > 1) {
+    }else {
+        if (section == 1) {
+            if (self.liveList.count > 0) {
+                return CGFLOAT_MIN;
+            }
+        }
         return KScaleHeight(127-10);
     }
     return CGFLOAT_MIN;
@@ -156,46 +160,53 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section==0){
-        return KScaleHeight(140-10);
+        if (self.liveList.count > 0) {
+            return KScaleHeight(140-10);
+        }
     }
     return CGFLOAT_MIN;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (section != 1) {
-        UIView *headerView = [UIView new];
-        if (section == 0) {
-            headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(104-5));
-        }else{
-            headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(127-10));
-        }
-        DiscoverNewsModel *newsModel = self.dicoverNewsList[section];
-        UILabel *weekDayLab = [UILabel new];
-        weekDayLab.frame = CGRectMake(K_Padding_LeftPadding, headerView.height-KScaleHeight(section == 0 ? KScaleHeight(6) : KScaleHeight(10) )-KScaleHeight(40), 200, KScaleHeight(40));
-        [headerView addSubview:weekDayLab];
-        [weekDayLab setFont:K_Font_WeekDay_Text textColor:K_Text_BlackColor withBackGroundColor:nil];
-        weekDayLab.text = newsModel.newsCreateWeek;
-        
-        UILabel *timeLab = [UILabel new];
-        timeLab.frame = CGRectMake(weekDayLab.leftX, weekDayLab.topY-KScaleHeight(20), weekDayLab.width, KScaleHeight(20));
-        [headerView addSubview:timeLab];
-        [timeLab setFont:K_Font_Text_Min_Max textColor:K_Text_grayColor withBackGroundColor:nil];
-        timeLab.text = newsModel.newsCreateDate;
-        
-        return  headerView;
+    if (section == 1 && self.liveList.count > 0) {
+        return nil;
     }
+//    if (section != 1 || (section == 1 && self.liveList.count == 0)) {
+    UIView *headerView = [UIView new];
+    if (section == 0) {
+        headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(104-5));
+    }else{
+        headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(127-10));
+    }
+    DiscoverNewsModel *newsModel = self.dicoverNewsList[section];
+    UILabel *weekDayLab = [UILabel new];
+    weekDayLab.frame = CGRectMake(K_Padding_LeftPadding, headerView.height-KScaleHeight(section == 0 ? KScaleHeight(6) : KScaleHeight(10) )-KScaleHeight(40), 200, KScaleHeight(40));
+    [headerView addSubview:weekDayLab];
+    [weekDayLab setFont:K_Font_WeekDay_Text textColor:K_Text_BlackColor withBackGroundColor:nil];
+    weekDayLab.text = newsModel.newsCreateWeek;
+    
+    UILabel *timeLab = [UILabel new];
+    timeLab.frame = CGRectMake(weekDayLab.leftX, weekDayLab.topY-KScaleHeight(20), weekDayLab.width, KScaleHeight(20));
+    [headerView addSubview:timeLab];
+    [timeLab setFont:K_Font_Text_Min_Max textColor:K_Text_grayColor withBackGroundColor:nil];
+    timeLab.text = newsModel.newsCreateDate;
+    
+    return  headerView;
+//    }
     return nil;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
-        UIView *fotterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(140-10))];
-        CGFloat itemWidth = (KScreenWidth-25*2-18*3)/4;
-        DiscoverCourseCategoryView *categoryView = [[DiscoverCourseCategoryView alloc]initWithFrame:CGRectMake(0, fotterView.height/2-itemWidth/2, fotterView.width, itemWidth)];
-        categoryView.delegate = self;
-        [categoryView CourseCategoryViewReloadDataWithList:self.liveList];
-        [fotterView addSubview:categoryView];
-        return fotterView;
+        if (self.liveList.count > 0) {
+            UIView *fotterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(140-10))];
+            CGFloat itemWidth = (KScreenWidth-25*2-18*3)/4;
+            DiscoverCourseCategoryView *categoryView = [[DiscoverCourseCategoryView alloc]initWithFrame:CGRectMake(0, fotterView.height/2-itemWidth/2, fotterView.width, itemWidth)];
+            categoryView.delegate = self;
+            [categoryView CourseCategoryViewReloadDataWithList:self.liveList];
+            [fotterView addSubview:categoryView];
+            return fotterView;
+        }
     }
     return nil;
 }

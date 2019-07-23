@@ -60,7 +60,7 @@
 //k加载网页
 -(void)webViewLoadRequest
 {
-    if (![NSString isEmptyWithStr:self.contentUrl]&&[self.contentUrl hasPrefix:@"https://"])
+    if (![NSString isEmptyWithStr:self.contentUrl]&&[self.contentUrl hasPrefix:@"http"])
     {
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.contentUrl] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:24*3600];
         [self.contentWeb loadRequest:request];

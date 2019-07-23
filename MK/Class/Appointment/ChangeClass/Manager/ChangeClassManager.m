@@ -19,7 +19,7 @@
                 NSArray *courseList = [NSArray yy_modelArrayWithClass:[ChangeClassCouseModel class] json:MKResult.dataResponseObject];
                 NSMutableArray *courseStringList = [NSMutableArray array];
                 for (ChangeClassCouseModel *model in courseList) {
-                    [courseStringList addObject:model.course_name];
+                    [courseStringList addObject:model.class_name];
                 }
                 completionBlock(YES,courseList, courseStringList.copy, MKResult.message);
             }

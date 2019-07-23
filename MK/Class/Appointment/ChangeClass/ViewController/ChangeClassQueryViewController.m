@@ -142,7 +142,7 @@
         _reasonTextView.font = K_Font_Text_Normal;
         _reasonTextView.editable = NO;
         _reasonTextView.placeholder = @"理由";
-        _reasonTextView.text = self.appointmentModel.reason;
+        _reasonTextView.text = self.appointmentModel.reasonContent;
         _reasonTextView.placeholdFont = K_Font_Text_Normal;
         _reasonTextView.placeholderColor = K_Text_DeepGrayColor;
     }

@@ -55,7 +55,7 @@
     changeClassTapView.textString = self.appointmentModel.class_name;
     AppointmentTapView *originalTapView = self.tapViewArr[1];
     originalTapView.textString = self.appointmentModel.lesson_name;
-    self.reasonTextView.text = self.appointmentModel.reason;
+    self.reasonTextView.text = self.appointmentModel.reasonContent;
 }
 
 -(void)creatSubVuew
@@ -123,7 +123,7 @@
         [reasonTitleLab setFont:K_Font_Text_Normal textColor:K_Text_grayColor withBackGroundColor:nil];
         reasonTitleLab.text = @"请假理由";
         //理由
-        CGSize size = [self.appointmentModel.reason getStrSizeWithSize:CGSizeMake(_contentScroll.width-K_Padding_Home_LeftPadding*2, 300) font:K_Font_Text_Normal];
+        CGSize size = [self.appointmentModel.reasonContent getStrSizeWithSize:CGSizeMake(_contentScroll.width-K_Padding_Home_LeftPadding*2, 300) font:K_Font_Text_Normal];
         CGFloat height = 33;
         if (size.height+20 > 33) {
             height = size.height+20;
@@ -147,7 +147,7 @@
 {
     if (!_headerView) {
         _headerView = [[AppointmentHeaderView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(86)+K_NaviHeight)];
-        _headerView.titleString = @"等待回复";
+        _headerView.titleString = self.appointmentModel.status_msg;
         [self.contentScroll addSubview:_headerView];
     }
     return _headerView;

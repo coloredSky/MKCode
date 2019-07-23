@@ -37,7 +37,8 @@
     userModel.category = self.category;
     userModel.toeic = self.toeic;
     userModel.toefl = self.toefl;
-    userModel.jlpt = self.jlpt;
+    userModel.jlptString = self.jlptString;
+    userModel.jlptID = self.jlptID;
     userModel.arrive_jp = self.arrive_jp;
     userModel.study_category = self.study_category;
     userModel.discipline_id_1 = self.discipline_id_1;
@@ -102,8 +103,11 @@
     if ([NSString isEmptyWithStr:_toefl]) {
         _toefl = @"";
     }
-    if ([NSString isEmptyWithStr:_jlpt]) {
-        _jlpt = @"";
+    if ([NSString isEmptyWithStr:_jlptID]) {
+        _jlptID = @"";
+    }
+    if ([NSString isEmptyWithStr:_jlptString]) {
+        _jlptString = @"";
     }
     if ([NSString isEmptyWithStr:_arrive_jp]) {
         _arrive_jp = @"";
@@ -124,6 +128,7 @@
 + (NSDictionary *)modelCustomPropertyMapper {
     // 将personId映射到key为id的数据字段
     return @{@"userID":@"id",
+             @"jlptID" : @"jlpt",
              };
 }
 

@@ -18,6 +18,8 @@
 #import "AppointmentCell.h"
 #import "AppointmentCollectionView.h"
 #import "EmptyView.h"
+//model
+#import "AppointmentListModel.h"
 
 @interface AppointmentChildViewController ()<UITableViewDelegate,UITableViewDataSource,AppointmentCollectionViewDelegate,EmptyViewDelegate>
 @property (nonatomic, strong) MKBaseTableView *contentTable;
@@ -91,7 +93,7 @@
         
         if (ongoingApplyList.count==0&&completeApplyList.count == 0) {
             self.emptyView.hidden = NO;
-            self.emptyView.showType = self.dispayType+1;
+            self.emptyView.showType = self.dispayType+3;
             self.contentTable.hidden = YES;
         }else{
             self.emptyView.hidden = YES;
@@ -216,6 +218,10 @@
 -(void)appointmentCollectionViewItemDidSelectedWithIndexPath:(NSIndexPath *)indexPath
 {
     AppointmentListModel *appointmentModel = self.ongoningList[indexPath.row];
+    if ([appointmentModel.status integerValue] != 0) {
+        [MBHUDManager showBriefAlert:@"抱歉，该申请已不可编辑！"];
+        return;
+    }
     if (self.dispayType == AppointmentDisplayTypeChangeClass) {
         ChangeClassQueryViewController *changeClassQuaryVC = [ChangeClassQueryViewController new];
         changeClassQuaryVC.showType = AppointmentDisplayTypeChangeClass;
@@ -275,7 +281,7 @@
 {
     if (![[UserManager shareInstance]isLogin]) {
         self.emptyView.hidden = NO;
-        self.emptyView.showType = EmptyViewShowTypeAppointmentNoLogin;
+        self.emptyView.showType = self.dispayType;
         self.contentTable.hidden = YES;
     }
 }

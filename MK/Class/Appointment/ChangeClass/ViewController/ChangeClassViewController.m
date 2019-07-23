@@ -46,7 +46,7 @@
     [self creatSubVuew];
     [self startRequest];
     if (self.operationType == ChangeClassOperationTypeEdit) {
-        self.reasonTextView.text = self.appointmentModel.reason;
+        self.reasonTextView.text = self.appointmentModel.reasonContent;
         self.reasonTextView.placeholder = @"理由";
         AppointmentTapView *originalTapView = self.tapViewArr[0];
         originalTapView.textString = self.appointmentModel.class_name;
@@ -65,7 +65,7 @@
             self.originalClassStringList = courseStringList;
             if (self.operationType == ChangeClassOperationTypeEdit) {
                 for (ChangeClassCouseModel *classModel in courseList) {
-                    if ([classModel.course_id integerValue] == [self.appointmentModel.class_id integerValue]) {
+                    if ([classModel.changeID integerValue] == [self.appointmentModel.class_id integerValue]) {
                         self.selectedOriginalCouseModel = classModel;
                     }
                 }
@@ -75,6 +75,11 @@
                     }
                 }
             }
+//            else if (self.operationType == ChangeClassOperationTypeTypeNew) {
+//                if (self.originalClassList.count > 0) {
+//                  self.selectedOriginalCouseModel = self.originalClassList[0];
+//                }
+//            }
         }
     }];
 }
@@ -178,7 +183,7 @@
 -(void)appointmentTapViewTapClickWithView:(AppointmentTapView *)tapView
 {
     if (tapView.tag == 1) {//原有班级
-        if (self.selectedOriginalCouseModel == nil) {
+        if (self.originalClassList == nil || self.originalClassList.count == 0) {
             [MBHUDManager showBriefAlert:@"您目前没有能选择的班级！！"];
             return;
         }
@@ -258,8 +263,13 @@
     }
     [ChangeClassManager callBackChangeClassRequestWithParameterClass_id:self.selectedOriginalCouseModel.changeID new_class_id:self.selectedChangeCouseModel.changeID reason:self.reasonTextView.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
         if (isSuccess) {
-            [MBHUDManager showBriefAlert:@"换班申请成功！！"];
+            if (self.operationType == ChangeClassOperationTypeTypeNew) {
+                [MBHUDManager showBriefAlert:@"换班申请成功！！"];
+            }else{
+                [MBHUDManager showBriefAlert:@"修改换班申请成功！！"];
+            }
             [self.navigationController popViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kMKApplyChangeClassListRefreshNotifcationKey object:nil];
         }else{
             if (![NSString isEmptyWithStr:message]) {
                 [MBHUDManager showBriefAlert:message];

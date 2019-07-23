@@ -187,7 +187,7 @@
         _reasonTextView.textColor = K_Text_WhiteColor;
         _reasonTextView.font = K_Font_Text_Normal;
         _reasonTextView.editable = NO;
-        _reasonTextView.placeholder = @"理由";
+//        _reasonTextView.placeholder = @"理由";
         _reasonTextView.placeholdFont = K_Font_Text_Normal;
         _reasonTextView.placeholderColor = K_Text_DeepGrayColor;
     }

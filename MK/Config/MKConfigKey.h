@@ -40,10 +40,11 @@
 #define kMKPhoneServiceUrl @"https://dct.zoosnet.net/LR/Chatpre.aspx?id=DCT42909734&cid=4148acc6e0374d9988ae3b2e963f860d&lng=cn&sid=4148acc6e0374d9988ae3b2e963f860d&p=about%3Ablank&rf1=&rf2=&msg=&d=1560242584360"
 
 //隐私声明地址
-#define kMKPrivacyStatementUrl @"http://www.mkeduit.com/mobile/protocol/privacy_statement.html"
+#define kMKPrivacyStatementUrl @"http://test.mkeduit.com/mobile/protocol/privacy_statement.html"
 //服务条款地址
-#define kMKTheTermsOfServiceUrl @"http://www.mkeduit.com/mobile/protocol/service_clause.html"
+#define kMKTheTermsOfServiceUrl @"http://test.mkeduit.com/mobile/protocol/service_clause.html"
 //课程购买地址
 #define kMKCourseBuyUrl @"https://class.jastudy.com"
+
 
 #endif /* MKConfigKey_h */

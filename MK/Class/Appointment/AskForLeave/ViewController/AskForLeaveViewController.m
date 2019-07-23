@@ -274,8 +274,14 @@
     [ApplyLeaveManager callBackAddApplyLeaveWithParameterClass_id:self.selectedCourseModel.class_id lesson_id:self.selectedLessonModel.lesson_id detail:self.reasonTextView.text completionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
         [MBHUDManager hideAlert];
         if (isSuccess) {
-            [MBHUDManager showBriefAlert:@"请假成功！"];
+            if (self.operationType == AskForLeaveOperationTypeNew) {
+                [MBHUDManager showBriefAlert:@"申请请假成功！"];
+            }else{
+                [MBHUDManager showBriefAlert:@"修改请假申请成功！"];
+            }
+            
             [self.navigationController popViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kMKApplyAskForLeaveListRefreshNotifcationKey object:nil];
         }else{
             if (![NSString isEmptyWithStr:message]) {
                 [MBHUDManager showBriefAlert:message];
