@@ -487,9 +487,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     // 设置日期格式
     [formatter setDateFormat:dateFormatString];
-    // 设置为UTC时区
-    // 这里如果不设置为UTC时区，会把要转换的时间字符串定为当前时区的时间（东八区）转换为UTC时区的时间
-    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"Asia/Shanghai"]];
      NSDate *date = [formatter dateFromString:dateString];
     //获取星期几
     NSDateComponents *componets = [[NSCalendar autoupdatingCurrentCalendar] components:NSCalendarUnitWeekday fromDate:date];

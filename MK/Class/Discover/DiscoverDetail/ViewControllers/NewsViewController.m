@@ -28,6 +28,7 @@
     }
     return self;
 }
+
 -(void)dealloc
 {
     [_contentWeb removeObserver:self forKeyPath:@"estimatedProgress"];
