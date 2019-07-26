@@ -127,6 +127,7 @@
 		3087BC7222B76EA900145833 /* BookMarkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3087BC7122B76EA900145833 /* BookMarkManager.m */; };
 		3087BC7F22B78D5F00145833 /* BillDetailHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3087BC7D22B78D5F00145833 /* BillDetailHeaderCell.m */; };
 		3087BC8022B78D5F00145833 /* BillDetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3087BC7E22B78D5F00145833 /* BillDetailHeaderCell.xib */; };
+		3091732622E966E0003F7A78 /* MyCenterCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3091732522E966E0003F7A78 /* MyCenterCollectionViewFlowLayout.m */; };
 		30957B0B229E2DA7009DDAAA /* ApplyLeaveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30957B0A229E2DA7009DDAAA /* ApplyLeaveManager.m */; };
 		30957B0E229E2E67009DDAAA /* ApplyLeaveCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30957B0D229E2E67009DDAAA /* ApplyLeaveCourseModel.m */; };
 		30957B12229E69B6009DDAAA /* MKDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 30957B11229E69B6009DDAAA /* MKDropDownMenu.m */; };
@@ -554,6 +555,8 @@
 		3087BC7C22B78D5F00145833 /* BillDetailHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillDetailHeaderCell.h; sourceTree = "<group>"; };
 		3087BC7D22B78D5F00145833 /* BillDetailHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillDetailHeaderCell.m; sourceTree = "<group>"; };
 		3087BC7E22B78D5F00145833 /* BillDetailHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillDetailHeaderCell.xib; sourceTree = "<group>"; };
+		3091732422E966E0003F7A78 /* MyCenterCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCenterCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		3091732522E966E0003F7A78 /* MyCenterCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCenterCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		30957B09229E2DA7009DDAAA /* ApplyLeaveManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyLeaveManager.h; sourceTree = "<group>"; };
 		30957B0A229E2DA7009DDAAA /* ApplyLeaveManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyLeaveManager.m; sourceTree = "<group>"; };
 		30957B0C229E2E67009DDAAA /* ApplyLeaveCourseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyLeaveCourseModel.h; sourceTree = "<group>"; };
@@ -1871,6 +1874,8 @@
 				712170D7223F67FE00BA1905 /* MyCenterHeaderView.h */,
 				712170D8223F67FE00BA1905 /* MyCenterHeaderView.m */,
 				712170DA223F680D00BA1905 /* MyCenterHeaderView.xib */,
+				3091732422E966E0003F7A78 /* MyCenterCollectionViewFlowLayout.h */,
+				3091732522E966E0003F7A78 /* MyCenterCollectionViewFlowLayout.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -3430,6 +3435,7 @@
 				30FBE39422488C280049C0DE /* CourseOnlineListCell.m in Sources */,
 				30A2016D225D9F9C00A6A232 /* MyCourseOnlineListCollectionViewCell.m in Sources */,
 				30A2015C225B3B3500A6A232 /* MKBillDetailViewController.m in Sources */,
+				3091732622E966E0003F7A78 /* MyCenterCollectionViewFlowLayout.m in Sources */,
 				30DC170C22C0FDDE00C201F8 /* UserCourseModel.m in Sources */,
 				71296FC222B1F4E900BB8E7D /* VolunteerFacultyList.m in Sources */,
 				3029571F226859E4006D1613 /* WYNetworkRequestEngine.m in Sources */,

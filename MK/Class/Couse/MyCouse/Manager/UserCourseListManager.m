@@ -53,8 +53,9 @@
 //    }];
 //}
 
-+(void)callBackUserCourseListWithCompletionBlock:(void(^)(BOOL isSuccess,MKCourseListModel *lastCourseListModel,NSArray <UserCourseModel *>*userCourseList,NSArray <MKCourseListModel *>*offLineCourseList,NSString *message))completionBlock
++(void)callBackUserCourseListWithCompletionBlock:(void(^)(BOOL isSuccess,MKCourseListModel *lastCourseListModel,NSArray <UserCourseModel *>*userCourseList,NSArray <MKCourseListModel *>*offLineCourseList,NSArray <MKCourseListModel *>*onLineCourseList,NSString *message))completionBlock
 {
+    
     [MKNetworkManager sendGetRequestWithUrl:K_MK_UserCourseList_Url parameters:nil hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 0) {
             NSMutableArray *userCourseArr = [NSMutableArray array];
@@ -124,16 +125,16 @@
                     [offlineList addObject:model];
                 }
                 
-                completionBlock(YES,lastCourseListModel,userCourseArr.copy,offlineList, MKResult.message);
+                completionBlock(YES,lastCourseListModel,userCourseArr.copy,offlineList,userOnlineCourseList, MKResult.message);
             }
         }else{
             if (completionBlock) {
-                completionBlock(NO, nil,nil,nil,MKResult.message);
+                completionBlock(NO, nil,nil,nil,nil,MKResult.message);
             }
         }
     } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         if (completionBlock) {
-            completionBlock(NO, nil,nil,nil,[NSString stringWithFormat:@"error code is %ld",statusCode]);
+            completionBlock(NO, nil,nil,nil,nil,[NSString stringWithFormat:@"error code is %ld",statusCode]);
         }
     }];
 }

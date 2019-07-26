@@ -226,7 +226,11 @@
     DiscoverNewsModel *newsModel = self.dicoverNewsList[indexPath.section];
     NewsViewController *newsVC = [NewsViewController new];
     newsVC.newsID = newsModel.newsID;
-    newsVC.showType = WebViewShowTypeNewsDetail;
+    if (newsModel.isUrl) {
+        newsVC.showType = WebViewShowTypeNewsDetailUrlType;
+    }else{
+        newsVC.showType = WebViewShowTypeNewsDetailHtmlContentType;
+    }
     [self.navigationController pushViewController:newsVC animated:YES];
 }
 #pragma mark -- course category did selected

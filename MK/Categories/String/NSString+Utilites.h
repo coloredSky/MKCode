@@ -106,6 +106,7 @@
  */
 -(NSAttributedString *)attributStrWithTargetStr:(NSString *)str font:(UIFont *)font;
 - (NSAttributedString *)attributStrWithTargetStr:(NSString *)str color:(UIColor *)color;
+- (NSAttributedString *)attributStrAddUnderlineWithTargetStr:(NSString *)str;
 
 /**
  改变字符串的大小 颜色

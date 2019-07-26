@@ -31,6 +31,7 @@
 @property (nonatomic, strong) MKCourseListModel *userLastCourse;
 @property (nonatomic, strong) NSArray <UserCourseModel *>*userCourseList;
 @property (nonatomic, strong) NSArray<MKCourseListModel *> *offlineCourseList;
+@property (nonatomic, strong) NSArray<MKCourseListModel *> *onlineCourseList;
 @property (nonatomic, strong) EmptyView *emptyView;
 @end
 
@@ -85,12 +86,13 @@
         return;
     }
     [self.emptyView EmptyViewReloadDataWithMKCourseListModel:nil];
-    [UserCourseListManager callBackUserCourseListWithCompletionBlock:^(BOOL isSuccess,MKCourseListModel *lastCourseListModel, NSArray<UserCourseModel *> * _Nonnull userCourseList, NSArray<MKCourseListModel *> * _Nonnull offLineCourseList, NSString * _Nonnull message) {
+    [UserCourseListManager callBackUserCourseListWithCompletionBlock:^(BOOL isSuccess,MKCourseListModel *lastCourseListModel, NSArray<UserCourseModel *> * _Nonnull userCourseList, NSArray<MKCourseListModel *> * _Nonnull offLineCourseList, NSArray<MKCourseListModel *> * _Nonnull onLineCourseList, NSString * _Nonnull message) {
         [self.contentTable.mj_header endRefreshing];
         if (isSuccess) {
             self.userLastCourse = lastCourseListModel;
             self.userCourseList = userCourseList;
             self.offlineCourseList = offLineCourseList;
+            self.onlineCourseList = onLineCourseList;
             [self.contentTable reloadData];
             if (self.userCourseList.count == 0) {
                 self.emptyView.hidden = NO;
@@ -158,7 +160,7 @@
     if (!_headerView) {
             _headerView = [[NSBundle mainBundle]loadNibNamed:@"MyCouseHeaderView" owner:nil options:nil][0];
         _headerView.delegate = self;
-        _headerView.frame =CGRectMake(0, 0,KScreenWidth ,KScaleWidth(136)+KScaleHeight(60));
+        _headerView.frame =CGRectMake(0, 0,KScreenWidth ,KScaleWidth(136)+KScaleHeight(60)+K_StatusBarHeight);
     }
     return _headerView;
 }
@@ -240,6 +242,9 @@
             lineIma.backgroundColor = K_Line_lineColor;
             [headerView addSubview:lineIma];
             lineIma.frame = CGRectMake(28, 20, KScreenWidth-28, K_Line_lineWidth);
+            if (self.onlineCourseList.count == 0) {
+                lineIma.hidden = YES;
+            }
             UILabel *titleLab = [UILabel new];
             titleLab.frame = CGRectMake(28, lineIma.bottomY+KScaleHeight(12), 200, 22);
             [headerView addSubview:titleLab];
@@ -381,5 +386,6 @@
 {
     [self startRequest];
 }
+
 
 @end

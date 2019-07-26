@@ -17,19 +17,26 @@
         _newsCreateWeek = [NSString weekdayStringWithDateString:_newsCreateTime andDateFormatString:@"YYYY-MM-dd HH:mm:ss"];
         _newsCreateDate = [NSString timeTransformWithDate:_newsCreateTime WithFormModel:@"YYYY-MM-dd HH:mm:ss" toModel:@"MM月dd日"];;
     }
+    if (![NSString isEmptyWithStr:_type]) {
+        if ([_type isEqualToString:@"wechat"]) {
+            _isUrl = YES;
+        }
+    }
     if (![NSString isEmptyWithStr:_newsContent]) {
-        _newsContent = [NSString htmlStringTransToString:_newsContent];
-        NSString *cssContentString = [NSString stringWithFormat:
-                                      @"<!DOCTYPE html>"
-                                      "<html>"
-                                      "<head>"
-                                      "<meta name=\"viewport\" content=\"width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no\">" //适配手机的关键
-                                      "</head>"
-                                      "<body>"
-                                      "%@"
-                                      "</body>"
-                                      "</html>" , _newsContent];
-        _newsContent = cssContentString;
+        if (!_isUrl) {
+//            _newsContent = [NSString htmlStringTransToString:_newsContent];
+            NSString *cssContentString = [NSString stringWithFormat:
+                                          @"<!DOCTYPE html>"
+                                          "<html>"
+                                          "<head>"
+                                          "<meta name=\"viewport\" content=\"width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no\">" //适配手机的关键
+                                          "</head>"
+                                          "<body>"
+                                          "%@"
+                                          "</body>"
+                                          "</html>" , _newsContent];
+            _newsContent = cssContentString;
+        }
     }
     return YES;
 }

@@ -25,8 +25,8 @@
                 liveList = [NSArray yy_modelArrayWithClass:[MKCourseListModel class] json:MKResult.dataResponseObject[@"article_course"]];
             }
             NSDictionary *posts_list = MKResult.dataResponseObject[@"posts_list"];
-            NSArray *newsList = [NSArray yy_modelArrayWithClass:[DiscoverNewsModel class] json:posts_list[@"list"]];
-            NSInteger totalpage =[posts_list[@"totalpage"] integerValue];
+            NSArray *newsList = [NSArray yy_modelArrayWithClass:[DiscoverNewsModel class] json:posts_list[@"data"]];
+            NSInteger totalpage =[posts_list[@"last_page"] integerValue];
             if (completionBlock) {
                 completionBlock(YES,MKResult.message,newsList,totalpage,liveList);
             }

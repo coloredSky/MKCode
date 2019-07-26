@@ -22,6 +22,8 @@
 #import "MyCenterTopCell.h"
 #import "MyCenterBottomoCell.h"
 #import "MyCenterHeaderView.h"
+#import "MyCenterCollectionViewFlowLayout.h"
+
 @interface MyCenterViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,MyCenterHeaderViewDelegate>
 @property (nonatomic, strong) MyCenterHeaderView *headerView;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -67,7 +69,7 @@
 -(UICollectionView *)collectionView
 {
     if (!_collectionView) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        MyCenterCollectionViewFlowLayout *layout = [[MyCenterCollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.headerView.bottomY, KScreenWidth, KScreenHeight-self.headerView.height-K_TabbarHeight) collectionViewLayout:layout];
         _collectionView.backgroundColor = K_BG_deepGrayColor;
@@ -86,7 +88,7 @@
 {
     if (!_headerView) {
         _headerView = [[NSBundle mainBundle]loadNibNamed:@"MyCenterHeaderView" owner:nil options:nil][0];
-        _headerView.frame =CGRectMake(0, 0,KScreenWidth ,KScaleWidth(180));
+        _headerView.frame =CGRectMake(0, 0,KScreenWidth ,KScaleWidth(130+K_StatusBarHeight));
         _headerView.delegate =self;
         [_headerView refreshData];
     }
@@ -150,24 +152,6 @@
         return footerView;
     }
     return nil;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
-
-- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath
-{
-    
-}
-
-#pragma mark ---- UICollectionViewDelegate
-
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
 }
 
 // 选中某item
@@ -240,52 +224,6 @@
     }
    
 }
-
-
-
-#pragma mark ---- UICollectionViewDelegateFlowLayout
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section ==0){
-        CGSize size={KScaleWidth(160),KScaleWidth(100)};
-        return size;
-    }else{
-        CGSize size={KScaleWidth(100),KScaleWidth(90)};
-        return size;
-    }
-}
-
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(10, 20, 10, 20);
-}
-
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 5.f;
-}
-
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 0.1f;
-}
-
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
-{
-    return (CGSize){KScreenWidth,0.1};
-}
-
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
-{
-    return (CGSize){KScreenWidth,0.1};
-}
-
 
 #pragma mark-headerViewDelegate
 -(void)headerViewBtnClickWithOperationType:(MyCenterHeaderViewOperationType )operationType

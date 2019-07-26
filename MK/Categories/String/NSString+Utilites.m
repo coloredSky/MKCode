@@ -416,6 +416,15 @@
     return outStr;
 }
 
+- (NSAttributedString *)attributStrAddUnderlineWithTargetStr:(NSString *)str
+{
+    NSRange range = [self rangeOfString:str];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:self];
+    [attrStr setAttributes:@{NSUnderlineStyleAttributeName : @(NSUnderlineStyleSingle)}
+                     range:range];
+    return  attrStr;
+}
+
 - (NSAttributedString *)attributStrWithFontTargetStr:(NSString *)fontStr font:(UIFont *)font andColorTargetStr:(NSString *)colorStr color:(UIColor *)color
 {
     NSMutableAttributedString *outStr = [[NSMutableAttributedString alloc] initWithString:self];
@@ -423,7 +432,6 @@
     NSRange colorRange = [self rangeOfString:colorStr];
     [outStr addAttributes:@{NSForegroundColorAttributeName : color} range:colorRange];
     [outStr addAttributes:@{NSFontAttributeName : font} range:fontRange];
-    
     return outStr;
 }
 

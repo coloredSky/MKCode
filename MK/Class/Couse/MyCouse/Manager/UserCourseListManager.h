@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 //+(void)callBackUserCourseListWithCompletionBlock:(void(^)(BOOL isSuccess,NSArray <NSArray *>*userCourseList,NSArray < MKCourseListModel*>*onLineCourseList,NSArray <MKCourseListModel *>*offLineCourseList,NSString *message))completionBlock;
 
-+(void)callBackUserCourseListWithCompletionBlock:(void(^)(BOOL isSuccess,MKCourseListModel *lastCourseListModel,NSArray <UserCourseModel *>*userCourseList,NSArray <MKCourseListModel *>*offLineCourseList,NSString *message))completionBlock;
++(void)callBackUserCourseListWithCompletionBlock:(void(^)(BOOL isSuccess,MKCourseListModel *lastCourseListModel,NSArray <UserCourseModel *>*userCourseList,NSArray <MKCourseListModel *>*offLineCourseList,NSArray <MKCourseListModel *>*onLineCourseList,NSString *message))completionBlock;
 
 @end
 

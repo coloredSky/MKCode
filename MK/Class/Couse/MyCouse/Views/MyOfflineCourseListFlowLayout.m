@@ -36,7 +36,7 @@
 {
     NSInteger itemsCount = [self.collectionView numberOfItemsInSection:0];
     CGFloat height = itemsCount < 3 ? (self.itemSize.height*itemsCount) : KScaleHeight(180);
-    return CGSizeMake(KScreenWidth*(itemsCount/3+1), height);
+    return CGSizeMake(KScreenWidth+((itemsCount-1)/3)*self.itemSize.width, height);
 }
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {

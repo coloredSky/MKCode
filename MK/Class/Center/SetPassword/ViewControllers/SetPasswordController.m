@@ -47,6 +47,7 @@
     if (![self.pwdTf.text  isEqualToString:self.cPwdTf.text])
     {
         [MBHUDManager showBriefAlert:@"密码与确认密码不一致！"];
+        return;
     }
     [SetPasswordManager callBackSetPwdWithHudShow:YES oldPwd:self.oldPwdTf.text newPwd:self.pwdTf.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
         if (isSuccess==YES)

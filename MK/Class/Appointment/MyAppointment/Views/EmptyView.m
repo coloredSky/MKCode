@@ -46,7 +46,7 @@
         
         _clickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_contentView addSubview:_clickBtn];
-        _clickBtn.frame = CGRectMake(self.contentLab.centerX-50, self.contentLab.topY, 100, 20);
+        _clickBtn.frame = CGRectMake(self.contentLab.centerX-80, self.contentLab.topY, 160, 20);
         [_clickBtn addTarget:self action:@selector(clickBtnTarget:) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
@@ -81,7 +81,7 @@
         self.logoIma.image = nil;
     }else if (showType == EmptyViewShowTypeAppointmentNoLogin || showType == EmptyViewShowTypeChangeClassNoLogin || showType == EmptyViewShowTypeAskForLeaveNoLogin){
         NSString *contentString = self.tipTextArr[showType];
-        self.contentLab.attributedText = [contentString attributStrWithTargetStr:@"登录" color:K_Text_YellowColor];
+        self.contentLab.attributedText = [contentString attributStrAddUnderlineWithTargetStr:@"登录"];
     }else if (showType == EmptyViewShowTypeNoAskForLeave || showType == EmptyViewShowTypeNoChangeClass || showType == EmptyViewShowTypeNoAppointment){
         self.contentLab.text = self.tipTextArr[showType];
         self.backgroundColor = K_BG_GrayColor;
@@ -92,7 +92,7 @@
         self.backgroundColor = K_BG_WhiteColor;
     }else if (showType == EmptyViewShowTypeUserCourseNoLogin){
         NSString *contentString = self.tipTextArr[showType];
-        self.contentLab.attributedText = [contentString attributStrWithTargetStr:@"登录" color:K_Text_YellowColor];
+        self.contentLab.attributedText = [contentString attributStrAddUnderlineWithTargetStr:@"登录"];
         self.headerView.hidden = NO;
         [self.headerView userCourseHeaderViewRefreshDataWithMKCourseListModel:nil];
         self.headerView.delegate = self;

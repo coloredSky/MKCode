@@ -41,7 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.showType == WebViewShowTypeNewsDetail) {
+    if (self.showType == WebViewShowTypeNewsDetailHtmlContentType || self.showType == WebViewShowTypeNewsDetailUrlType) {
         [self startRequest];
     }else{
         if (self.loadType == WebViewLoadTypeLoadTheRichText){
@@ -57,8 +57,13 @@
 {
     [DiscoverManager callBackDiscoverNewsDetailDataWithHUDShow:NO newsID:self.newsID andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, DiscoverNewsModel * _Nonnull newsDetailModel) {
         if (isSuccess) {
-            self.contentString = newsDetailModel.newsContent;
-            [self loadRichHtmlText];
+            if (self.showType == WebViewShowTypeNewsDetailHtmlContentType) {
+                self.contentString = newsDetailModel.newsContent;
+                [self loadRichHtmlText];
+            }else{
+                self.contentUrl = newsDetailModel.newsContent;
+                [self webViewLoadRequest];
+            }
         }else{
             if (![NSString isEmptyWithStr:message]) {
                 [MBHUDManager showBriefAlert:message];

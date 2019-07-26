@@ -10,11 +10,13 @@
 /**
  界面显示
 
- - WebViewShowTypeNewsDetail: 加载文章详情
+ - WebViewShowTypeNewsDetailHtmlContentType: 加载文章详情富文本
+ - WebViewShowTypeNewsDetailUrlType: 加载文章详情URL
  */
 typedef NS_ENUM(NSUInteger, WebViewShowType) {
     WebViewShowTypeNormal,
-    WebViewShowTypeNewsDetail,
+    WebViewShowTypeNewsDetailHtmlContentType,
+    WebViewShowTypeNewsDetailUrlType,
 };
 
 /**

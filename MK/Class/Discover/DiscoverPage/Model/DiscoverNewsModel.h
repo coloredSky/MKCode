@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)  NSString*newsCreateTime;
 @property (nonatomic, copy) NSString *newsCreateWeek;//星期几
 @property (nonatomic, copy) NSString *newsCreateDate;//几月几日
+@property (nonatomic, copy) NSString *type;
+@property (nonatomic, assign) BOOL isUrl;//是加载URL 还是HTML内容
+
 @end
 
 NS_ASSUME_NONNULL_END
