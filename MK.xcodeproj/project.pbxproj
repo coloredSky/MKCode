@@ -86,6 +86,9 @@
 		3035B6CD2251E27400A1AA98 /* MeetingEndQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B6CC2251E27400A1AA98 /* MeetingEndQueryViewController.m */; };
 		3035B6D22252032800A1AA98 /* AppointmentTeacherReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035B6D02252032800A1AA98 /* AppointmentTeacherReplyCell.m */; };
 		3035B6D32252032800A1AA98 /* AppointmentTeacherReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035B6D12252032800A1AA98 /* AppointmentTeacherReplyCell.xib */; };
+		303CB91322EED194008A42DB /* MKUserJoinCourseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 303CB91222EED194008A42DB /* MKUserJoinCourseView.m */; };
+		303CB91922EED523008A42DB /* MKUserJoinCourseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303CB91822EED523008A42DB /* MKUserJoinCourseView.xib */; };
+		303CB91C22EEEB33008A42DB /* UserCourseOfflineClassList.m in Sources */ = {isa = PBXBuildFile; fileRef = 303CB91B22EEEB33008A42DB /* UserCourseOfflineClassList.m */; };
 		3048D7B52232536D00FE63B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3048D7B32232536D00FE63B2 /* Main.storyboard */; };
 		3048D7B72232536F00FE63B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3048D7B62232536F00FE63B2 /* Assets.xcassets */; };
 		3048D7BA2232536F00FE63B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3048D7B82232536F00FE63B2 /* LaunchScreen.storyboard */; };
@@ -474,6 +477,11 @@
 		3035B6CF2252032800A1AA98 /* AppointmentTeacherReplyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentTeacherReplyCell.h; sourceTree = "<group>"; };
 		3035B6D02252032800A1AA98 /* AppointmentTeacherReplyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentTeacherReplyCell.m; sourceTree = "<group>"; };
 		3035B6D12252032800A1AA98 /* AppointmentTeacherReplyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentTeacherReplyCell.xib; sourceTree = "<group>"; };
+		303CB91122EED194008A42DB /* MKUserJoinCourseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKUserJoinCourseView.h; sourceTree = "<group>"; };
+		303CB91222EED194008A42DB /* MKUserJoinCourseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKUserJoinCourseView.m; sourceTree = "<group>"; };
+		303CB91822EED523008A42DB /* MKUserJoinCourseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MKUserJoinCourseView.xib; sourceTree = "<group>"; };
+		303CB91A22EEEB33008A42DB /* UserCourseOfflineClassList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserCourseOfflineClassList.h; sourceTree = "<group>"; };
+		303CB91B22EEEB33008A42DB /* UserCourseOfflineClassList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserCourseOfflineClassList.m; sourceTree = "<group>"; };
 		3048D7AA2232536D00FE63B2 /* MK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3048D7AD2232536D00FE63B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3048D7AE2232536D00FE63B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1782,6 +1790,8 @@
 			children = (
 				30DC170A22C0FDDE00C201F8 /* UserCourseModel.h */,
 				30DC170B22C0FDDE00C201F8 /* UserCourseModel.m */,
+				303CB91A22EEEB33008A42DB /* UserCourseOfflineClassList.h */,
+				303CB91B22EEEB33008A42DB /* UserCourseOfflineClassList.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1801,6 +1811,9 @@
 				30A2016C225D9F9C00A6A232 /* MyCourseOnlineListCollectionViewCell.xib */,
 				30A2017A225DDDB900A6A232 /* MyOfflineCourseListFlowLayout.h */,
 				30A2017B225DDDB900A6A232 /* MyOfflineCourseListFlowLayout.m */,
+				303CB91122EED194008A42DB /* MKUserJoinCourseView.h */,
+				303CB91222EED194008A42DB /* MKUserJoinCourseView.m */,
+				303CB91822EED523008A42DB /* MKUserJoinCourseView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -3118,6 +3131,7 @@
 				7124448D225831D3005AF711 /* OrderDetailCell.xib in Resources */,
 				30A201542255F74100A6A232 /* BillListCollectionViewCell.xib in Resources */,
 				3035B6B322505C4200A1AA98 /* UpdateMessageController.xib in Resources */,
+				303CB91922EED523008A42DB /* MKUserJoinCourseView.xib in Resources */,
 				30A20161225B449700A6A232 /* BillDetailPayTimeCell.xib in Resources */,
 				30A2DA08224DFE000030120D /* ChangeClassViewController.xib in Resources */,
 				30FBE3142240C2020049C0DE /* HomeRecommenCell.xib in Resources */,
@@ -3309,6 +3323,7 @@
 				302956D2226728CF006D1613 /* MKCourseListModel.m in Sources */,
 				30E77DCB226EFEB80052DE5D /* HomePublicCourseModel.m in Sources */,
 				71A18E2B225072CA007B4C55 /* LYSDatePickerItem.m in Sources */,
+				303CB91322EED194008A42DB /* MKUserJoinCourseView.m in Sources */,
 				3035B6AB224F2D4500A1AA98 /* UserTextView.m in Sources */,
 				3035B6D22252032800A1AA98 /* AppointmentTeacherReplyCell.m in Sources */,
 				3035B6B0224F2D4500A1AA98 /* SupportController.m in Sources */,
@@ -3424,6 +3439,7 @@
 				30354FB7227F05D30045955D /* PLVVodExamViewController.m in Sources */,
 				30A19D4122BA2BB7006D46EC /* MKOfflineCourseDetail.m in Sources */,
 				30A2DA2B224E00640030120D /* DiscoverNewsCell.m in Sources */,
+				303CB91C22EEEB33008A42DB /* UserCourseOfflineClassList.m in Sources */,
 				3035B6A9224F2D4500A1AA98 /* FeedBackController.m in Sources */,
 				71A18E21225072CA007B4C55 /* LYSDateLogicViewController.m in Sources */,
 				71296FB322B1F39200BB8E7D /* userInfo.m in Sources */,

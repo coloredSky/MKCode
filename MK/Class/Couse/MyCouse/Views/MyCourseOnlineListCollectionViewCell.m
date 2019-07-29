@@ -36,9 +36,10 @@
     [super layoutSubviews];
     self.courseIma.frame = CGRectMake(0, self.contentView.height/2-KScaleWidth(23), KScaleWidth(75), KScaleWidth(46));
     self.courseNameLab.frame = CGRectMake(_courseIma.rightX+KScaleWidth(10), _courseIma.topY, self.contentView.width-_courseIma.rightX-KScaleWidth(10), KScaleHeight(20));
-    self.courseTeacherLab.frame = CGRectMake(_courseNameLab.leftX, _courseIma.bottomY-KScaleHeight(20), _courseNameLab.width, KScaleHeight(20));
     self.lineIma.frame = CGRectMake(_courseNameLab.leftX, self.contentView.height-K_Line_lineWidth, self.contentView.width-_courseNameLab.leftX-K_Padding_LeftPadding, K_Line_lineWidth);
-    self.courseStatusLab.frame = CGRectMake(self.lineIma.rightX-KScaleWidth(40), self.contentView.height/2-6, KScaleWidth(40), 20);
+    
+     self.courseTeacherLab.frame = CGRectMake(_courseNameLab.leftX, _courseIma.bottomY-KScaleHeight(20), _courseNameLab.width, KScaleHeight(20));
+    self.courseStatusLab.frame = CGRectMake(self.lineIma.rightX-KScaleWidth(100), self.contentView.height/2-6, KScaleWidth(100), 20);
         self.topLine.frame = CGRectMake(_courseNameLab.leftX, 0, self.contentView.width-_courseNameLab.leftX-K_Padding_LeftPadding, K_Line_lineWidth);
 }
 

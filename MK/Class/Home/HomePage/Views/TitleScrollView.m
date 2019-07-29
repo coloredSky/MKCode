@@ -109,7 +109,12 @@
         [_titleScroll insertSubview:_tipIma atIndex:0];
         _tipIma.backgroundColor = K_BG_YellowColor;
         _tipIma.layer.masksToBounds = YES;
-        _tipIma.layer.cornerRadius = self.height/2;
+        if (self.showType == TitleScrollViewShowUpdatePersonInfor) {
+            _tipIma.layer.cornerRadius = 6;
+        }else{
+            _tipIma.layer.cornerRadius = self.height/2;
+        }
+        
     }
     return _tipIma;
 }

@@ -22,6 +22,7 @@
     self.billIma.layer.masksToBounds = YES;
     self.billIma.layer.cornerRadius = 6;
     self.billIma.contentMode = UIViewContentModeScaleAspectFill;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 -(void)cellRefreshDataWithUserBillListModel:(UserBillListModel *)billModel

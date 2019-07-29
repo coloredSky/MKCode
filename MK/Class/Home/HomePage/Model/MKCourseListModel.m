@@ -7,6 +7,7 @@
 //
 
 #import "MKCourseListModel.h"
+#import "UserCourseOfflineClassList.h"
 
 @implementation MKCourseListModel
 // 当 JSON 转为 Model 完成后，该方法会被调用。
@@ -34,10 +35,10 @@
              };
 }
 
-//+ (NSDictionary *)modelContainerPropertyGenericClass
-//{
-//    return @{@"lecturersList" : [MKLecturerListModel class]};
-//}
++ (NSDictionary *)modelContainerPropertyGenericClass
+{
+    return @{@"class_list" : [UserCourseOfflineClassList class]};
+}
 @end
 
 //@implementation MKLecturerListModel

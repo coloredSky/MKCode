@@ -20,6 +20,7 @@
 {
     if (self = [super initWithFrame:frame style:style]) {
         self.separatorColor = [UIColor clearColor];
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.showsVerticalScrollIndicator = NO;
         self.showsHorizontalScrollIndicator = NO;
         self.backgroundColor = K_BG_deepGrayColor;

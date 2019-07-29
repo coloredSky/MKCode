@@ -28,21 +28,29 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTE-QG-d3x">
-                    <rect key="frame" x="18" y="106" width="339" height="36"/>
+                    <rect key="frame" x="18" y="106" width="339" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="接收推送通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqM-e6-1fF">
-                            <rect key="frame" x="8" y="10.5" width="74" height="15"/>
+                            <rect key="frame" x="18" y="12.5" width="74" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Irt-ZE-gln">
-                            <rect key="frame" x="282" y="2.5" width="49" height="31"/>
+                            <rect key="frame" x="282" y="4.5" width="49" height="31"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="31" id="Aa3-er-67W"/>
                                 <constraint firstAttribute="width" constant="47" id="aDC-SA-6YE"/>
                             </constraints>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="onTintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="switchClick:" destination="-1" eventType="valueChanged" id="jEO-Co-3kk"/>
                             </connections>
@@ -52,18 +60,20 @@
                     <constraints>
                         <constraint firstItem="Irt-ZE-gln" firstAttribute="centerY" secondItem="kqM-e6-1fF" secondAttribute="centerY" id="0qI-RA-Jl6"/>
                         <constraint firstItem="kqM-e6-1fF" firstAttribute="centerY" secondItem="FTE-QG-d3x" secondAttribute="centerY" id="69Q-8Z-TSU"/>
-                        <constraint firstAttribute="height" constant="36" id="GyX-hT-7mQ"/>
+                        <constraint firstAttribute="height" constant="40" id="GyX-hT-7mQ"/>
                         <constraint firstAttribute="trailing" secondItem="Irt-ZE-gln" secondAttribute="trailing" constant="10" id="IPb-Oc-cge"/>
-                        <constraint firstItem="kqM-e6-1fF" firstAttribute="leading" secondItem="FTE-QG-d3x" secondAttribute="leading" constant="8" id="LXj-Dn-lzL"/>
+                        <constraint firstItem="kqM-e6-1fF" firstAttribute="leading" secondItem="FTE-QG-d3x" secondAttribute="leading" constant="18" id="LXj-Dn-lzL"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="5"/>
+                            <integer key="value" value="6"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="FTE-QG-d3x" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="18" id="5ez-w9-6sC"/>
                 <constraint firstItem="rLQ-lE-6LD" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="B1D-rH-hOi"/>

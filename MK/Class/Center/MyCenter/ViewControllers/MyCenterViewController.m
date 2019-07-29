@@ -52,7 +52,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = K_BG_deepGrayColor;
-    [self.view addSubview:self.headerView];
     [self.view addSubview:self.collectionView];
     //refresh
     //    [self setUpRefresh];
@@ -71,7 +70,14 @@
     if (!_collectionView) {
         MyCenterCollectionViewFlowLayout *layout = [[MyCenterCollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.headerView.bottomY, KScreenWidth, KScreenHeight-self.headerView.height-K_TabbarHeight) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight-K_TabbarHeight) collectionViewLayout:layout];
+        if (@available(ios 11.0,*)) {
+            _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }else{
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
+        _collectionView.contentInset = UIEdgeInsetsMake(KScaleWidth(180), 0, 0, 0);
+        [_collectionView addSubview:self.headerView];
         _collectionView.backgroundColor = K_BG_deepGrayColor;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.dataSource = self;
@@ -88,7 +94,7 @@
 {
     if (!_headerView) {
         _headerView = [[NSBundle mainBundle]loadNibNamed:@"MyCenterHeaderView" owner:nil options:nil][0];
-        _headerView.frame =CGRectMake(0, 0,KScreenWidth ,KScaleWidth(130+K_StatusBarHeight));
+        _headerView.frame =CGRectMake(0, -KScaleWidth(180),KScreenWidth ,KScaleWidth(180));
         _headerView.delegate =self;
         [_headerView refreshData];
     }
@@ -131,25 +137,13 @@
   }
 }
 
-// 和UITableView类似，UICollectionView也可设置段头段尾
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    
-    if([kind isEqualToString:UICollectionElementKindSectionHeader])
-    {
-        UICollectionReusableView *headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
-        if(headerView == nil){
-            headerView = [[UICollectionReusableView alloc] init];
+    if (kind == UICollectionElementKindSectionHeader) {
+        if (indexPath.section == 0) {
+            MyCenterHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"MyCenterHeaderView" forIndexPath:indexPath];
+            return header;
         }
-        return headerView;
-    }
-    else if([kind isEqualToString:UICollectionElementKindSectionFooter])
-    {
-        UICollectionReusableView *footerView = [_collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"footer" forIndexPath:indexPath];
-        if(footerView == nil){
-            footerView = [[UICollectionReusableView alloc] init];
-        }
-        return footerView;
     }
     return nil;
 }

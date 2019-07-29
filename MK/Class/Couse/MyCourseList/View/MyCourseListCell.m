@@ -37,7 +37,7 @@
     self.courseTeacherLab.frame = CGRectMake(_courseNameLab.leftX, _courseIma.bottomY-KScaleHeight(20), _courseNameLab.width, KScaleHeight(20));
     
     self.lineIma.frame = CGRectMake(_courseNameLab.leftX, self.contentView.height-K_Line_lineWidth, self.contentView.width-_courseNameLab.leftX-K_Padding_Home_LeftPadding, K_Line_lineWidth);
-    self.courseStatusLab.frame = CGRectMake(self.lineIma.rightX-KScaleWidth(40), self.contentView.height/2-6, KScaleWidth(40), 20);
+    self.courseStatusLab.frame = CGRectMake(self.lineIma.rightX-KScaleWidth(100), self.contentView.height/2-6, KScaleWidth(100), 20);
 }
 
 -(void)allCoursecellRefreshDataWithIndexPath:(NSIndexPath *)indexPath withShowType:(UserCourseListViewShowType )listViewShowType courseList:(NSArray <MKCourseListModel *>*)courseLst

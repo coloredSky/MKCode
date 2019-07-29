@@ -87,8 +87,8 @@ MAX([UIScreen mainScreen].bounds.size.height,                                \
     else
     {
         //_contentView 自定义位置
+        
     }
-    [self addSubview:_contentView];
     if (_isCustomBgFrame)
     {
         self.frame = self.bgFrame;
@@ -97,6 +97,7 @@ MAX([UIScreen mainScreen].bounds.size.height,                                \
     {
      self.frame = topViewBounds;
     }
+    [self addSubview:_contentView];
     
     [self setNeedsDisplay];
     

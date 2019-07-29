@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MKUserJoinCourseView">
+            <rect key="frame" x="0.0" y="0.0" width="453" height="246"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y1n-0J-0oa">
+                    <rect key="frame" x="0.0" y="0.0" width="453" height="42"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVs-E1-rHI">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="42"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="JzK-fH-6Dl"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="courseClassSelected:" destination="iN0-l3-epB" eventType="touchUpInside" id="DAm-1M-hHf"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDx-zQ-5lS">
+                            <rect key="frame" x="363" y="0.0" width="90" height="42"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="c3e-fg-7pz"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="cancleTarget:" destination="iN0-l3-epB" eventType="touchUpInside" id="9Q2-CJ-C4T"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="QVs-E1-rHI" secondAttribute="bottom" id="BiD-tk-ZIh"/>
+                        <constraint firstAttribute="height" constant="42" id="E9E-1Z-4Nl"/>
+                        <constraint firstItem="KDx-zQ-5lS" firstAttribute="top" secondItem="Y1n-0J-0oa" secondAttribute="top" id="KIb-C2-gfb"/>
+                        <constraint firstItem="QVs-E1-rHI" firstAttribute="leading" secondItem="Y1n-0J-0oa" secondAttribute="leading" id="Rhu-Jo-gQf"/>
+                        <constraint firstAttribute="trailing" secondItem="KDx-zQ-5lS" secondAttribute="trailing" id="SfH-5o-Xz2"/>
+                        <constraint firstAttribute="bottom" secondItem="KDx-zQ-5lS" secondAttribute="bottom" id="bU1-3G-jAc"/>
+                        <constraint firstItem="QVs-E1-rHI" firstAttribute="top" secondItem="Y1n-0J-0oa" secondAttribute="top" id="izf-9y-uRw"/>
+                    </constraints>
+                </view>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IjO-JI-OGY">
+                    <rect key="frame" x="0.0" y="42" width="453" height="120"/>
+                    <color key="backgroundColor" red="1" green="0.98431372549999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="C94-gP-TzD"/>
+                    </constraints>
+                </pickerView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qm3-fl-5GT">
+                    <rect key="frame" x="0.0" y="162" width="453" height="84"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARv-EM-o1H">
+                            <rect key="frame" x="0.0" y="10" width="453" height="30"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="aYj-lh-r6o"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="submitTarget:" destination="iN0-l3-epB" eventType="touchUpInside" id="hy0-Fm-JR8"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="ARv-EM-o1H" firstAttribute="top" secondItem="Qm3-fl-5GT" secondAttribute="top" constant="10" id="7Ip-vO-VUR"/>
+                        <constraint firstAttribute="trailing" secondItem="ARv-EM-o1H" secondAttribute="trailing" id="Kzb-at-PZg"/>
+                        <constraint firstItem="ARv-EM-o1H" firstAttribute="leading" secondItem="Qm3-fl-5GT" secondAttribute="leading" id="iL9-m2-eUD"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="IjO-JI-OGY" secondAttribute="trailing" id="Cuv-MX-Fdw"/>
+                <constraint firstItem="Y1n-0J-0oa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="I68-f5-9Ik"/>
+                <constraint firstItem="Y1n-0J-0oa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IH7-TF-WLA"/>
+                <constraint firstAttribute="trailing" secondItem="Qm3-fl-5GT" secondAttribute="trailing" id="amg-bC-Ghd"/>
+                <constraint firstItem="Qm3-fl-5GT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bBD-4k-VVf"/>
+                <constraint firstItem="Qm3-fl-5GT" firstAttribute="top" secondItem="IjO-JI-OGY" secondAttribute="bottom" id="eAs-zG-iJw"/>
+                <constraint firstAttribute="bottom" secondItem="Qm3-fl-5GT" secondAttribute="bottom" id="fyX-cy-f37"/>
+                <constraint firstItem="IjO-JI-OGY" firstAttribute="top" secondItem="Y1n-0J-0oa" secondAttribute="bottom" id="nXf-W7-ZSQ"/>
+                <constraint firstItem="IjO-JI-OGY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uWj-wr-Pl3"/>
+                <constraint firstAttribute="trailing" secondItem="Y1n-0J-0oa" secondAttribute="trailing" id="vKm-tJ-Kzp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="RFK-r1-2We"/>
+            <connections>
+                <outlet property="bottomView" destination="Qm3-fl-5GT" id="7hX-lW-2Mh"/>
+                <outlet property="cancleBtn" destination="KDx-zQ-5lS" id="sYI-zN-TGj"/>
+                <outlet property="courseBtn" destination="QVs-E1-rHI" id="JAq-Xm-stV"/>
+                <outlet property="coursePicker" destination="IjO-JI-OGY" id="ADs-VI-jY2"/>
+                <outlet property="submitBtn" destination="ARv-EM-o1H" id="KOE-Hw-JRb"/>
+                <outlet property="topView" destination="Y1n-0J-0oa" id="Ox2-jv-kqq"/>
+            </connections>
+            <point key="canvasLocation" x="11" y="-15"/>
+        </view>
+    </objects>
+</document>

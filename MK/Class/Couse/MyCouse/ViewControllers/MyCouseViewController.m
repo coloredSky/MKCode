@@ -15,6 +15,8 @@
 #import "MyCouseHeaderView.h"
 #import "MyOnlineCourseListView.h"
 #import "EmptyView.h"
+#import "MKUserJoinCourseView.h"
+#import "BMPopView.h"
 //manager
 #import "UserCourseListManager.h"
 //model
@@ -107,21 +109,6 @@
             }
         }
     }];
-    
-//    [UserCourseListManager callBackUserCourseListWithCompletionBlock:^(BOOL isSuccess, NSArray<NSArray *> * _Nonnull userCourseList, NSArray<MKCourseListModel *> * _Nonnull onLineCourseList, NSArray<MKCourseListModel *> * _Nonnull offLineCourseList, NSString * _Nonnull message) {
-//        [self.contentTable.mj_header endRefreshing];
-//        if (isSuccess) {
-//            self.allCourseList = userCourseList;
-//            self.onlineCourseList = onLineCourseList;
-//            self.offlineCourseList = offLineCourseList;
-//            [self.contentTable reloadData];
-//        }
-//        if (self.onlineCourseList.count == 0 && self.offlineCourseList.count == 0) {
-//            self.emptyView.hidden = NO;
-//            self.emptyView.showType = EmptyViewShowTypeNoUserCourse;
-//            self.contentTable.hidden = YES;
-//        }
-//    }];
 }
 
 #pragma mark --  lazy
@@ -329,10 +316,21 @@
 {
     CourseDetailViewController *detailVC = [CourseDetailViewController new];
     detailVC.course_id = courseModel.courseID;
-    if (listViewShowType == UserCourseListViewShowTypeOnline) {
-        detailVC.courseType = CourseSituationTypeOnline;
-    }else{
+    
+    if (listViewShowType == CourseSituationTypeOffline) {
         detailVC.courseType = CourseSituationTypeOffline;
+        if ([courseModel.has_class integerValue] ==0) {
+            //没有c选择班级
+            MKUserJoinCourseView *joinCourseView = [[[NSBundle mainBundle]loadNibNamed:@"MKUserJoinCourseView" owner:self options:nil]firstObject];
+            joinCourseView.frame = CGRectMake(0, KScreenHeight-250, KScreenWidth, 250);
+            BMPopView *popView = [BMPopView shareInstance];
+            popView.canDisMiss = NO;
+            popView.customFrame = YES;
+            [popView showWithContentView:joinCourseView];
+            return;
+        }
+    }else{
+        detailVC.courseType = CourseSituationTypeOnline;
     }
     [self.navigationController pushViewController:detailVC animated:YES];
 }

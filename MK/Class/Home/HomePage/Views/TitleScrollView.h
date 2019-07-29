@@ -6,6 +6,11 @@
 //  Copyright © 2016年 com.yocto. All rights reserved.
 //
 
+typedef NS_ENUM(NSUInteger, TitleScrollViewShowType) {
+    TitleScrollViewShowTypeNormal,
+    TitleScrollViewShowUpdatePersonInfor,
+};
+
 #import <UIKit/UIKit.h>
 
 
@@ -15,6 +20,8 @@
  显示标题scroll
  */
 @interface TitleScrollView : UIView
+
+@property (nonatomic, assign) TitleScrollViewShowType showType;
 @property(nonatomic,assign)id<TitleScrollViewDelegate>delegate;
 @property(nonatomic,assign)NSInteger selectedIndex;//选中的下标
 

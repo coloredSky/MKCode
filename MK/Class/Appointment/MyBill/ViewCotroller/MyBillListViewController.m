@@ -37,10 +37,6 @@
     self.contentCollectionView.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
         [self startRequest];
-        [self.contentCollectionView.mj_header endRefreshing];
-        [self reloadPlacehorldViewWithFrame:CGRectMake(0, self.headerView.bottomY, self.view.width, self.view.height-self.headerView.height) placehorldDisplayType:MKPlaceWorderViewDisplayTypeNoOrder];
-        self.placeholderViewShow = YES;
-        self.contentCollectionView.hidden = YES;
     }];
 }
 
@@ -48,8 +44,17 @@
 -(void)startRequest
 {
     [MyBillManager callBackMyBillDataWithCompletionBlock:^(BOOL isSuccess, NSArray<UserBillListModel *> * _Nonnull billList, NSString * _Nonnull message) {
+        [self.contentCollectionView.mj_header endRefreshing];
         self.billList = billList;
         [self.contentCollectionView reloadData];
+        if (billList.count == 0) {
+            [self reloadPlacehorldViewWithFrame:CGRectMake(0, self.headerView.bottomY, self.view.width, self.view.height-self.headerView.height) placehorldDisplayType:MKPlaceWorderViewDisplayTypeNoData];
+            self.placeholderViewShow = YES;
+            self.contentCollectionView.hidden = YES;
+        }else{
+            self.placeholderViewShow = NO;
+            self.contentCollectionView.hidden = NO;
+        }
     }];
 }
 
