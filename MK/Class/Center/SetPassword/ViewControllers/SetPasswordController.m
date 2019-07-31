@@ -53,10 +53,10 @@
     [SetPasswordManager callBackSetPwdWithHudShow:YES oldPwd:self.oldPwdTf.text newPwd:self.pwdTf.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
         if (isSuccess==YES)
         {
-            [MBHUDManager showBriefAlert:@"密码修改成功，请重新登录！"];
-            [[UserManager shareInstance] loginOut];
-            [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":@""}];
-            [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginOutNotifcationKey object:nil];
+            [MBHUDManager showBriefAlert:@"密码修改成功！"];
+//            [[UserManager shareInstance] loginOut];
+//            [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":@""}];
+//            [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginOutNotifcationKey object:nil];
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
         else

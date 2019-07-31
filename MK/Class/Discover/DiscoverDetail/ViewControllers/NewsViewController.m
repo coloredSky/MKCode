@@ -114,6 +114,7 @@
     }
     return _contentWeb;
 }
+
 -(UIProgressView *)progressView
 {
     if (!_progressView) {
@@ -154,6 +155,7 @@
         [self.progressView setAlpha:1.0];
     }];
 }
+
 #pragma mark-- WKNavigationDelegate
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void(^)(WKNavigationActionPolicy))decisionHandler
 {
@@ -164,6 +166,7 @@
 {
     MKLog(@"页面开始加载");
 }
+
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void(^)(WKNavigationResponsePolicy))decisionHandler {
     //收到服务器的响应头
     decisionHandler(WKNavigationResponsePolicyAllow);

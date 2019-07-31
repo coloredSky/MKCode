@@ -67,6 +67,7 @@
             self.placeholderView.hidden = YES;
         }
         if (isSuccess) {
+            self.topView.backgroundColor = [UIColor colorWithWhite:0.7 alpha:.1];
             self.courseCategoryList = courseCategoryList;
             NSMutableArray *titleArr = [NSMutableArray arrayWithCapacity:courseCategoryList.count];
             for (HomeCourseCategoryModel *model in courseCategoryList) {
@@ -98,7 +99,6 @@
 -(void)laoutTopView
 {
     _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(91)+KScaleHeight(20))];
-    _topView.backgroundColor = [UIColor colorWithWhite:0.7 alpha:.1];
     [self.view addSubview:_topView];
     _titleView = [[TitleScrollView alloc]initWithFrame:CGRectMake(0, _topView.height-KScaleWidth(36+20), _topView.width, KScaleWidth(36))];
     _titleView.delegate = self;

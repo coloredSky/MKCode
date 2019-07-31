@@ -122,13 +122,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     BookMarkModel *model = self.bookMarkList[section];
-    if (model.bookMarkList.count <= 3) {
+    if (model.bookMarkList.count <= 8) {
         return model.bookMarkList.count;
     }else{
         if (model.isSpread) {
             return model.bookMarkList.count;
         }
-        return 3;
+        return 8;
     }
 }
 #pragma mark - UITableViewDelegate
@@ -190,7 +190,7 @@
 -(void)moreShowHandleTarget:(UIButton *)sender
 {
     BookMarkModel *model = self.bookMarkList[sender.tag];
-    if (model.bookMarkList.count <= 3) {
+    if (model.bookMarkList.count <= 8) {
         [MBHUDManager showBriefAlert:@"没有更多课程了！"];
         return;
     }
