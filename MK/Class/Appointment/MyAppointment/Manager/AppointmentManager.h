@@ -21,6 +21,7 @@ typedef NS_ENUM(NSUInteger, AppointmentDisplayType) {
 @class AppointmentListModel;
 @class AppointmentDetailModel;
 @class AppoinementReplyModel;
+@class AppointmentShowModel;
 
 #import <Foundation/Foundation.h>
 
@@ -34,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param applyType 1预约 ，2请假 ，3换班
  @param completionBlock 回调
  */
-+(void)callBackAllApplyListWithParameteApply_type:(NSInteger )applyType completionBlock:(void(^)(BOOL isSuccess,NSArray <AppointmentListModel *>*ongoingApplyList, NSArray <AppointmentListModel *> *completeApplyList,NSString *message))completionBlock;
++(void)callBackAllApplyListWithParameteApply_type:(NSInteger )applyType completionBlock:(void(^)(BOOL isSuccess, NSArray <AppointmentShowModel *>*apponitmentList , NSString *message))completionBlock;
 
 
 /**

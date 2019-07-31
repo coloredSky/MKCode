@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MKBaseViewController : UIViewController
 @property(nonatomic,strong)MKPlaceholderView *placeholderView;
 @property (nonatomic, assign) BOOL placeholderViewShow;
+@property (nonatomic, assign) BOOL isLoginAlterViewShow;
 //
 -(void)reloadPlacehorldViewWithFrame:(CGRect )frame placehorldDisplayType:(MKPlaceWorderViewDisplayType )displayType;
 //登录注册

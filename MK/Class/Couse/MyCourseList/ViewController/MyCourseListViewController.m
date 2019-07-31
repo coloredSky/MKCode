@@ -8,8 +8,14 @@
 
 #import "MyCourseListViewController.h"
 #import "CourseDetailViewController.h"
-
+//View
 #import "MyCourseListCell.h"
+#import "MKUserJoinCourseView.h"
+#import "BMPopView.h"
+//manager
+#import "UserCourseListManager.h"
+//model
+#import "UserCourseOfflineClassList.h"
 #import "MKCourseListModel.h"
 
 @interface MyCourseListViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -123,14 +129,57 @@
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+        MKCourseListModel *courseModel = self.courseList[indexPath.row];
     CourseDetailViewController *detailVC = [CourseDetailViewController new];
     if (self.courseListShowType == UserCourseListViewShowTypeOnline) {
         detailVC.courseType = CourseSituationTypeOnline;
     }else{
+        if ([courseModel.has_class integerValue] ==0) {
+            //没有选择班级
+            MKUserJoinCourseView *joinCourseView = [[[NSBundle mainBundle]loadNibNamed:@"MKUserJoinCourseView" owner:self options:nil]firstObject];
+            joinCourseView.frame = CGRectMake(0, KScreenHeight-250, KScreenWidth, 250);
+            [joinCourseView userJoinCourseViewReloadDataWithClassList:courseModel.className_list];
+            
+#pragma mark --  选择班级
+            @weakObject(self);
+            joinCourseView.userJoinClassBlock = ^(NSInteger selectedIndex) {
+                @strongObject(self);
+                UserCourseOfflineClassList *courseOfflineClassModel =  courseModel.class_list[selectedIndex];
+                [MBHUDManager showLoading];
+                [UserCourseListManager callBackUserCourseJoinClassWithParameterCourse_id:courseModel.courseID class_id:courseOfflineClassModel.class_id completionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+                    [MBHUDManager hideAlert];
+                    if (isSuccess) {
+                        [[BMPopView shareInstance]dismiss];
+                        [self requestOfflineCourseListData];
+                        [[NSNotificationCenter defaultCenter]postNotificationName:kMKUserCourseListRefreshNotifcationKey object:nil];
+                    }else{
+                        [MBHUDManager showBriefAlert:message];
+                    }
+                }];
+            };
+            BMPopView *popView = [BMPopView shareInstance];
+            popView.canDisMiss = NO;
+            popView.customFrame = YES;
+            [popView showWithContentView:joinCourseView];
+            return;
+        }
         detailVC.courseType = CourseSituationTypeOffline;
     }
-    MKCourseListModel *courseModel = self.courseList[indexPath.row];
     detailVC.course_id = courseModel.courseID;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
+
+-(void)requestOfflineCourseListData
+{
+    [MBHUDManager showLoading];
+    [UserCourseListManager callBackUserCourseListWithCompletionBlock:^(BOOL isSuccess,MKCourseListModel *lastCourseListModel, NSArray<UserCourseModel *> * _Nonnull userCourseList, NSArray<MKCourseListModel *> * _Nonnull offLineCourseList, NSArray<MKCourseListModel *> * _Nonnull onLineCourseList, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
+        [MBHUDManager showBriefAlert:@"选择班级成功！"];
+        if (isSuccess) {
+            self.courseList = offLineCourseList;
+            [self.contentTable reloadData];
+        }
+    }];
+}
+
 @end

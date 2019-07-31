@@ -21,7 +21,7 @@
     self.backgroundColor =[UIColor clearColor];
     self.bgView.layer.shadowColor = K_Text_DeepGrayColor.CGColor;
     self.bgView.layer.shadowRadius = 3.0f;
-    self.bgView.layer.shadowOffset = CGSizeMake(2, 2);
+    self.bgView.layer.shadowOffset = CGSizeMake(0, 0);
     self.bgView.layer.shadowOpacity = .5;
     
     self.whiteView.layer.cornerRadius =5.f;

@@ -35,7 +35,7 @@ static NSString *subviewClassName;
 #pragma mark -
 #pragma mark Private Methods
 - (void)initialize{
-    self.clipsToBounds = YES;
+//    self.clipsToBounds = YES;
     
     self.needsReload = YES;
     self.pageCount = 0;

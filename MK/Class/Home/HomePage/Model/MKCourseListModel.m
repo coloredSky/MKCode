@@ -10,12 +10,27 @@
 #import "UserCourseOfflineClassList.h"
 
 @implementation MKCourseListModel
+
+-(instancetype)init
+{
+    if (self = [super init]) {
+        _className_list = [NSMutableArray array];
+    }
+    return self;
+}
+
 // 当 JSON 转为 Model 完成后，该方法会被调用。
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic
 {
     if (![NSString isEmptyWithStr:dic[@"detail"]]) {
         NSString *courseDescription = [NSString htmlStringTransToString:dic[@"detail"]];
         _courseDescription = [NSString filterHTML:courseDescription];
+    }
+    
+    if (_class_list.count >0) {
+        for (UserCourseOfflineClassList *model in _class_list) {
+            [_className_list addObject:model.name];
+        }
     }
     return YES;
 }

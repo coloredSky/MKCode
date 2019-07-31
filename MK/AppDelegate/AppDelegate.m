@@ -21,6 +21,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    sleep(3);
     [self MKAppConfig];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     MKTarbarViewController *mkTarbarVC = [MKTarbarViewController new];
@@ -136,7 +137,32 @@
     }
 }
     
-
-
+//- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+//    if ([NSStringFromClass([[self topViewController] class]) isEqualToString:@"CourseDetailViewController"]) {
+//        //横屏
+//        return UIInterfaceOrientationMaskLandscapeRight;
+//    }
+//    return UIInterfaceOrientationMaskPortrait;
+//}
+//
+////获取界面最上层的控制器
+//- (UIViewController*)topViewController {
+//    return [self topViewControllerWithRootViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+//}
+////一层一层的进行查找判断
+//- (UIViewController*)topViewControllerWithRootViewController:(UIViewController*)rootViewController {
+//    if ([rootViewController isKindOfClass:[UITabBarController class]]) {
+//        UITabBarController* tabBarController = (UITabBarController*)rootViewController;
+//        return [self topViewControllerWithRootViewController:tabBarController.selectedViewController];
+//    } else if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+//        UINavigationController* nav = (UINavigationController*)rootViewController;
+//        return [self topViewControllerWithRootViewController:nav.visibleViewController];
+//    } else if (rootViewController.presentedViewController) {
+//        UIViewController* presentedViewController = rootViewController.presentedViewController;
+//        return [self topViewControllerWithRootViewController:presentedViewController];
+//    } else {
+//        return rootViewController;
+//    }
+//}
 
 @end

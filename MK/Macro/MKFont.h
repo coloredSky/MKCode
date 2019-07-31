@@ -43,7 +43,7 @@
 
 //其他字体大小
 //发现栏位下的星期几
-#define K_Font_WeekDay_Text  MKBoldFont(24)
+#define K_Font_WeekDay_Text  MKBoldFont(28)
 
 
 #endif /* MKFont_h */

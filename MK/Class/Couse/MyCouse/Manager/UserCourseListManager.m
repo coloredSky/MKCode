@@ -138,4 +138,30 @@
         }
     }];
 }
+
++(void)callBackUserCourseJoinClassWithParameterCourse_id:(NSString *)course_id class_id:(NSString *)class_id completionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock
+{
+    NSDictionary * param =@{
+                            @"course_id":course_id,
+                            @"class_id":class_id,
+                            };
+    [MKNetworkManager sendPostRequestWithUrl:K_MK_UserCourseJoinClass_Url parameters:param hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode ==0) {
+            if (completionBlock)
+            {
+                completionBlock(YES,MKResult.message);
+            }
+        }
+        else
+        {
+            completionBlock(NO,MKResult.message);
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        if (completionBlock)
+        {
+            completionBlock(NO,error.userInfo[NSLocalizedDescriptionKey]);
+        }
+    }];
+}
+
 @end

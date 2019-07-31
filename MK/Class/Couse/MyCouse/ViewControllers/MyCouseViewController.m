@@ -22,6 +22,7 @@
 //model
 #import "MKCourseListModel.h"
 #import "UserCourseModel.h"
+#import "UserCourseOfflineClassList.h"
 
 
 @interface MyCouseViewController()<UITableViewDelegate,UITableViewDataSource,MyOnlineCourseListViewDelagate,EmptyViewDelegate,MyCouseHeaderViewDelegate>
@@ -320,9 +321,28 @@
     if (listViewShowType == CourseSituationTypeOffline) {
         detailVC.courseType = CourseSituationTypeOffline;
         if ([courseModel.has_class integerValue] ==0) {
-            //没有c选择班级
+            //没有选择班级
             MKUserJoinCourseView *joinCourseView = [[[NSBundle mainBundle]loadNibNamed:@"MKUserJoinCourseView" owner:self options:nil]firstObject];
             joinCourseView.frame = CGRectMake(0, KScreenHeight-250, KScreenWidth, 250);
+            [joinCourseView userJoinCourseViewReloadDataWithClassList:courseModel.className_list];
+            
+#pragma mark --  选择班级
+            @weakObject(self);
+            joinCourseView.userJoinClassBlock = ^(NSInteger selectedIndex) {
+                @strongObject(self);
+                UserCourseOfflineClassList *courseOfflineClassModel =  courseModel.class_list[selectedIndex];
+                [MBHUDManager showLoading];
+                [UserCourseListManager callBackUserCourseJoinClassWithParameterCourse_id:courseModel.courseID class_id:courseOfflineClassModel.class_id completionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+                    [MBHUDManager hideAlert];
+                    if (isSuccess) {
+                        [MBHUDManager showBriefAlert:@"选择班级成功！"];
+                        [[BMPopView shareInstance]dismiss];
+                        [self startRequest];
+                    }else{
+                        [MBHUDManager showBriefAlert:message];
+                    }
+                }];
+            };
             BMPopView *popView = [BMPopView shareInstance];
             popView.canDisMiss = NO;
             popView.customFrame = YES;

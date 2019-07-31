@@ -28,13 +28,14 @@
     self.shdowView.backgroundColor = [UIColor clearColor];
     self.contentView.backgroundColor = [UIColor clearColor];
     self.backgroundColor = [UIColor clearColor];
-    self.shdowView.layer.shadowColor = K_Text_DeepGrayColor.CGColor;
-    self.shdowView.layer.shadowRadius = 3.0f;
-    self.shdowView.layer.shadowOffset = CGSizeMake(1, 1);
-    self.shdowView.layer.shadowOpacity = .5;
+    
+    self.shdowView.layer.shadowColor = [UIColor colorWithWhite:.8 alpha:1].CGColor;
+    self.shdowView.layer.shadowRadius = 12.0f;
+    self.shdowView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.shdowView.layer.shadowOpacity = .7;
     
     _contentIma.layer.masksToBounds = YES;
-    _contentIma.layer.cornerRadius = 10;
+    _contentIma.layer.cornerRadius = 14;
     
 //    _whiteView.hidden = YES;
 //    _titleLab.hidden = YES;

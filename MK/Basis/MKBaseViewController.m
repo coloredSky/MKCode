@@ -56,7 +56,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     //background color...
     self.view.backgroundColor = K_BG_deepGrayColor;
-
 }
 
 -(void)configNoNetworkView
@@ -112,15 +111,21 @@
 
 -(void)loginAlterViewShow
 {
+    self.isLoginAlterViewShow = YES;
+    @weakObject(self);
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您还未登录？请登录" preferredStyle:UIAlertControllerStyleAlert];
-    [self presentViewController:alert animated:YES completion:nil];
-    __weak typeof(self) weakSelf = self;
-    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        LoginActionController *loginVC = [LoginActionController new];
-        [strongSelf.navigationController pushViewController:loginVC animated:YES];
+    [self presentViewController:alert animated:YES completion:^{
     }];
-    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongObject(self);
+        self.isLoginAlterViewShow = NO;
+        LoginActionController *loginVC = [LoginActionController new];
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongObject(self);
+        self.isLoginAlterViewShow = NO;
+    }];
     [alert addAction:cancleAction];
     [alert addAction:sureAction];
 }
@@ -128,8 +133,10 @@
 -(void)loginOutAlterViewShow
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您确定要退出登录？" preferredStyle:UIAlertControllerStyleAlert];
-    [self presentViewController:alert animated:YES completion:nil];
+    [self presentViewController:alert animated:YES completion:^{
+    }];
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.isLoginAlterViewShow = NO;
         [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":@""}];
         [[UserManager shareInstance]loginOut];
         [[NSNotificationCenter defaultCenter]postNotificationName:kMKLoginOutNotifcationKey object:nil];

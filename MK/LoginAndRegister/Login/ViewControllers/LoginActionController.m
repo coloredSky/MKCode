@@ -103,5 +103,16 @@
     [self.navigationController pushViewController:registerVC animated:YES];
 }
 
+#pragma mark --  屏幕旋转
+- (BOOL)shouldAutorotate{
+    return NO;
+}
+
+//返回支持的方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
 
 @end

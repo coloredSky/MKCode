@@ -109,7 +109,8 @@ static NSString * const K_MK_UserFindPassword_Url  = @"/api/user/findPwd";
 
 //我的课程
 static NSString * const K_MK_UserCourseList_Url  = @"/api/user/courseList";
-
+//我的课程未分班的参加班级
+static NSString * const K_MK_UserCourseJoinClass_Url  = @"/api/user/chooseSubClass";
 
 /*
  个人中心

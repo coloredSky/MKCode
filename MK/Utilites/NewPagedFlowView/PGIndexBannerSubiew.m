@@ -22,10 +22,15 @@
     
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        self.shadowView.layer.shadowColor = K_Text_DeepGrayColor.CGColor;
-        self.shadowView.layer.shadowRadius = 3.0f;
-        self.shadowView.layer.shadowOffset = CGSizeMake(1, 1);
-        self.shadowView.layer.shadowOpacity = .5;
+//        self.shadowView.layer.shadowColor = [UIColor colorWithWhite:.8 alpha:1].CGColor;
+//        self.shadowView.layer.shadowRadius = 5.0f;
+//        self.shadowView.layer.shadowOffset = CGSizeMake(1, 1);
+//        self.shadowView.layer.shadowOpacity = .5;
+        
+        self.shadowView.layer.shadowColor = [UIColor colorWithWhite:.7 alpha:1].CGColor;
+        self.shadowView.layer.shadowRadius = 40.0f;
+        self.shadowView.layer.shadowOffset = CGSizeMake(0, 10);
+        self.shadowView.layer.shadowOpacity = .7;
         
         [self addSubview:self.shadowView];
         [self.shadowView addSubview:self.contentView];
@@ -49,7 +54,7 @@
     if (CGRectEqualToRect(self.mainImageView.frame, superViewBounds)) {
         return;
     }
-    self.shadowView.frame = CGRectMake(5, 5, superViewBounds.size.width-10, superViewBounds.size.height-10);
+    self.shadowView.frame = CGRectMake(5, 10, superViewBounds.size.width-10, superViewBounds.size.height-10);
     self.contentView.frame = CGRectMake(0, 0, self.shadowView.width, self.shadowView.height);
     self.mainImageView.frame = CGRectMake(0, 0, self.shadowView.width, self.shadowView.height);
     self.coverView.frame = CGRectMake(0, 0, self.shadowView.width, self.shadowView.height);
@@ -69,8 +74,8 @@
     if (!_contentView) {
         _contentView = [UIView new];
         _contentView.backgroundColor = [UIColor clearColor];
-        _contentView.layer.masksToBounds = YES;
-        _contentView.layer.cornerRadius = KScaleWidth(10);
+//        _contentView.layer.masksToBounds = YES;
+        _contentView.layer.cornerRadius = KScaleWidth(16);
     }
     return _contentView;
 }
@@ -79,6 +84,8 @@
     if (_mainImageView == nil) {
         _mainImageView = [[UIImageView alloc] init];
         _mainImageView.userInteractionEnabled = YES;
+        _mainImageView.layer.masksToBounds = YES;
+        _mainImageView.layer.cornerRadius = KScaleWidth(16);
     }
     return _mainImageView;
 }

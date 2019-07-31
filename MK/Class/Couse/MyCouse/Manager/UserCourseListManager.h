@@ -31,6 +31,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)callBackUserCourseListWithCompletionBlock:(void(^)(BOOL isSuccess,MKCourseListModel *lastCourseListModel,NSArray <UserCourseModel *>*userCourseList,NSArray <MKCourseListModel *>*offLineCourseList,NSArray <MKCourseListModel *>*onLineCourseList,NSString *message))completionBlock;
 
+
+/**
+ 学生未分班课程选择班级
+
+ @param course_id 课程ID
+ @param class_id 班级ID
+ @param completionBlock 回调
+ */
++(void)callBackUserCourseJoinClassWithParameterCourse_id:(NSString *)course_id class_id:(NSString *)class_id completionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

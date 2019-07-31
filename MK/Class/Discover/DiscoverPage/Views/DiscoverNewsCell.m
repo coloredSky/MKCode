@@ -24,10 +24,11 @@
     self.shadowView.backgroundColor = [UIColor clearColor];
     self.contentView.backgroundColor = [UIColor clearColor];
     self.backgroundColor = [UIColor clearColor];
-    self.shadowView.layer.shadowColor = UIColorFromRGB_0x(000000) .CGColor;
-    self.shadowView.layer.shadowRadius = 4.0f;
+    
+    self.shadowView.layer.shadowColor = [UIColor colorWithWhite:.8 alpha:1].CGColor;
+    self.shadowView.layer.shadowRadius = 16.0f;
     self.shadowView.layer.shadowOffset = CGSizeMake(0, 0);
-    self.shadowView.layer.shadowOpacity = .2;
+    self.shadowView.layer.shadowOpacity = .7;
     
     _whiteView.layer.masksToBounds = YES;
     _whiteView.layer.cornerRadius = 16;
@@ -48,10 +49,10 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    self.shadowView.frame = CGRectMake(K_Padding_LeftPadding, KScaleHeight(5), self.contentView.width-K_Padding_LeftPadding*2, self.contentView.height-KScaleHeight(10));
+    self.shadowView.frame = CGRectMake(K_Padding_LeftPadding, 5, self.contentView.width-K_Padding_LeftPadding*2, self.contentView.height-10);
     self.whiteView.frame = CGRectMake(0, 0, self.shadowView.width, self.shadowView.height);
     self.contentIma.frame = CGRectMake(0, 0, self.whiteView.width, 257*self.whiteView.width/342);
-    self.titleLab.frame = CGRectMake(KScaleWidth(16), self.contentIma.bottomY+ KScaleHeight(14), self.whiteView.width-KScaleWidth(16*2), KScaleHeight(40));
+    self.titleLab.frame = CGRectMake(16, self.contentIma.bottomY+ 14, self.whiteView.width-16*2, 40);
 //    self.contentLab.frame = CGRectMake(self.titleLab.leftX, self.titleLab.bottomY+KScaleHeight(5), self.titleLab.width, KScaleHeight(20));
 }
 @end

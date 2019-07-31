@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *is_online;//线上线下课程
 @property (nonatomic, copy) NSString *has_class;//线下课程,是否选班
 @property (nonatomic, strong) NSArray <UserCourseOfflineClassList *>*class_list;//线下课程,可以选班的班级列表
-
+@property (nonatomic, strong) NSMutableArray <NSString *>*className_list;//线下课程,可以选班的班级名字列表
 
 //我的课程中最上部的视频播放用到
 @property (nonatomic, copy) NSString *video_name;//视频名称

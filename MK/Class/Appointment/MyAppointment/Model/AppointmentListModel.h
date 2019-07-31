@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface AppointmentListModel : NSObject
 
 @property (nonatomic, copy) NSString *applyID;//申请ID
@@ -44,6 +45,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *confirm_time;
 @property (nonatomic, copy) NSString *confirm_detail;
 @property (nonatomic, copy) NSString *status_msg;
+
+@end
+
+
+@interface AppointmentShowModel : NSObject
+
+@property (nonatomic, assign) BOOL isOngoingAppointment;//是否是正在进行的申请
+@property (nonatomic, strong) NSArray <AppointmentListModel *>*appointmentList;
 
 @end
 

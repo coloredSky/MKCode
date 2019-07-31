@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     self.versionLab.text = [NSString stringWithFormat:@"当前版本：%@",[NSString getAppVersion]];
     self.tipLab.textColor = K_Text_grayColor;
     [self startRequest];

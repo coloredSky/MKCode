@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MKUserJoinCourseView : UIView
 
+@property (nonatomic, copy)void(^userJoinClassBlock)(NSInteger selectedIndex);
+
+-(void)userJoinCourseViewReloadDataWithClassList:(NSArray <NSString *>*)classList;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -52,9 +52,10 @@
                         <constraint firstItem="QVs-E1-rHI" firstAttribute="top" secondItem="Y1n-0J-0oa" secondAttribute="top" id="izf-9y-uRw"/>
                     </constraints>
                 </view>
-                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IjO-JI-OGY">
+                <pickerView contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="IjO-JI-OGY">
                     <rect key="frame" x="0.0" y="42" width="453" height="120"/>
-                    <color key="backgroundColor" red="1" green="0.98431372549999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="120" id="C94-gP-TzD"/>
                     </constraints>

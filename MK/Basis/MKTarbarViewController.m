@@ -79,13 +79,17 @@
 #pragma mark -- 控制屏幕旋转方法
 - (BOOL)shouldAutorotate{
     return [self.selectedViewController shouldAutorotate];
+    return NO;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{
     return [self.selectedViewController supportedInterfaceOrientations];
+    return UIInterfaceOrientationMaskPortrait;
 }
+
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
     return [self.selectedViewController preferredInterfaceOrientationForPresentation];
+    return UIInterfaceOrientationPortrait;
 }
 
 @end

@@ -76,7 +76,7 @@
         }else{
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
-        _collectionView.contentInset = UIEdgeInsetsMake(KScaleWidth(180), 0, 0, 0);
+        _collectionView.contentInset = UIEdgeInsetsMake(195, 0, 0, 0);
         [_collectionView addSubview:self.headerView];
         _collectionView.backgroundColor = K_BG_deepGrayColor;
         _collectionView.showsVerticalScrollIndicator = NO;
@@ -94,7 +94,7 @@
 {
     if (!_headerView) {
         _headerView = [[NSBundle mainBundle]loadNibNamed:@"MyCenterHeaderView" owner:nil options:nil][0];
-        _headerView.frame =CGRectMake(0, -KScaleWidth(180),KScreenWidth ,KScaleWidth(180));
+        _headerView.frame =CGRectMake(0, -195,KScreenWidth ,195);
         _headerView.delegate =self;
         [_headerView refreshData];
     }
@@ -135,17 +135,6 @@
       return cell;
       
   }
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-    if (kind == UICollectionElementKindSectionHeader) {
-        if (indexPath.section == 0) {
-            MyCenterHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"MyCenterHeaderView" forIndexPath:indexPath];
-            return header;
-        }
-    }
-    return nil;
 }
 
 // 选中某item

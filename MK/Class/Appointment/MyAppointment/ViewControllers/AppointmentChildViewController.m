@@ -27,8 +27,9 @@
 @property (nonatomic, strong) NSArray *sectionOneTitleArr;
 @property (nonatomic, strong) NSArray *sectionTwoTitleArr;
 
-@property (nonatomic, strong) NSArray *ongoningList;
-@property (nonatomic, strong) NSArray *completeList;
+//@property (nonatomic, strong) NSArray *ongoningList;
+//@property (nonatomic, strong) NSArray *completeList;
+@property (nonatomic, strong) NSArray <AppointmentShowModel *>*appointmentShowList;
 @end
 
 @implementation AppointmentChildViewController
@@ -82,16 +83,17 @@
         self.contentTable.hidden = YES;
         return;
     }
-    [AppointmentManager callBackAllApplyListWithParameteApply_type:self.dispayType completionBlock:^(BOOL isSuccess, NSArray<AppointmentListModel *> * _Nonnull ongoingApplyList, NSArray<AppointmentListModel *> * _Nonnull completeApplyList, NSString * _Nonnull message) {
+    [AppointmentManager callBackAllApplyListWithParameteApply_type:self.dispayType completionBlock:^(BOOL isSuccess, NSArray<AppointmentShowModel *> * _Nonnull apponitmentList, NSString * _Nonnull message) {
         if (isSuccess) {
-            self.ongoningList = ongoingApplyList;
-            self.completeList = completeApplyList;
-//            self.completeList = ongoingApplyList;
+            self.appointmentShowList = apponitmentList;
+//            self.ongoningList = ongoingApplyList;
+//            self.completeList = completeApplyList;
+            //            self.completeList = ongoingApplyList;
             [self.contentTable reloadData];
             [self.contentTable.mj_header endRefreshing];
         }
         
-        if (ongoingApplyList.count==0&&completeApplyList.count == 0) {
+        if (apponitmentList.count == 0) {
             self.emptyView.hidden = NO;
             self.emptyView.showType = self.dispayType+3;
             self.contentTable.hidden = YES;
@@ -146,40 +148,52 @@
 #pragma mark - cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AppointmentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AppointmentCell" forIndexPath:indexPath];
-    AppointmentListModel *model = self.completeList[indexPath.row];
-    [cell cellRefreshDataWithDisplayType:self.dispayType andAppointmentListModel:model];
-    return cell;
+    AppointmentShowModel *showModel = self.appointmentShowList[indexPath.section];
+    if (!showModel.isOngoingAppointment) {
+        AppointmentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AppointmentCell" forIndexPath:indexPath];
+        AppointmentListModel *model = showModel.appointmentList[indexPath.row];
+        [cell cellRefreshDataWithDisplayType:self.dispayType andAppointmentListModel:model];
+        return cell;
+    }
+    return nil;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return self.appointmentShowList.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
+    AppointmentShowModel *showModel = self.appointmentShowList[section];
+    if (showModel.isOngoingAppointment) {
         return 0;
+    }else{
+        return showModel.appointmentList.count;
     }
-    return self.completeList.count;
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return KScaleHeight(80);
+    AppointmentShowModel *showModel = self.appointmentShowList[indexPath.section];
+    if (showModel.isOngoingAppointment) {
+        return CGFLOAT_MIN;
+    }else{
+        return KScaleHeight(80);
+    }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
+    AppointmentShowModel *showModel = self.appointmentShowList[section];
+    if (showModel.isOngoingAppointment) {
         return KScaleHeight(45);
-    }
-    else if (section == 1){
+    }else{
         return KScaleHeight(60);
     }
     return CGFLOAT_MIN;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (section == 0) {
+    AppointmentShowModel *showModel = self.appointmentShowList[section];
+    if (showModel.isOngoingAppointment) {
         return KScaleWidth(145);
     }
     return CGFLOAT_MIN;
@@ -187,7 +201,8 @@
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     float height = 0;
-    if (section == 0) {
+    AppointmentShowModel *showModel = self.appointmentShowList[section];
+    if (showModel.isOngoingAppointment) {
         height = KScaleHeight(45);
     }else{
         height = KScaleHeight(60);
@@ -195,7 +210,7 @@
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, height)];
     UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(K_Padding_Home_LeftPadding, headerView.height-20-KScaleHeight(12), 200, 20)];
     [headerView addSubview:titleLab];
-    if (section == 0) {
+    if (showModel.isOngoingAppointment) {
          titleLab.text =self.sectionOneTitleArr[self.dispayType];
     }else{
         titleLab.text = self.sectionTwoTitleArr[self.dispayType];
@@ -203,13 +218,15 @@
     [titleLab setFont:MKBoldFont(16) textColor:K_Text_grayColor withBackGroundColor:nil];
     return headerView;
 }
+
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    if (section == 0) {
+    AppointmentShowModel *showModel = self.appointmentShowList[section];
+    if (showModel.isOngoingAppointment) {
         AppointmentCollectionView *fotterView = [[AppointmentCollectionView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(145))];
         fotterView.delegate = self;
         fotterView.dispayType = self.dispayType;
-        [fotterView appointmentCollectionViewReloadDataWithAppointmentList:self.ongoningList];
+        [fotterView appointmentCollectionViewReloadDataWithAppointmentList:showModel.appointmentList];
         return fotterView;
     }
     return nil;
@@ -217,45 +234,57 @@
 #pragma mark --  collectionItem-didSelected
 -(void)appointmentCollectionViewItemDidSelectedWithIndexPath:(NSIndexPath *)indexPath
 {
-    AppointmentListModel *appointmentModel = self.ongoningList[indexPath.row];
-    if ([appointmentModel.status integerValue] != 0) {
-        [MBHUDManager showBriefAlert:@"抱歉，该申请已不可编辑！"];
-        return;
+    AppointmentShowModel *showModel;
+    for (AppointmentShowModel *model in self.appointmentShowList) {
+        if (model.isOngoingAppointment) {
+            showModel = model;
+            break;
+        }
     }
-    if (self.dispayType == AppointmentDisplayTypeChangeClass) {
-        ChangeClassQueryViewController *changeClassQuaryVC = [ChangeClassQueryViewController new];
-        changeClassQuaryVC.showType = AppointmentDisplayTypeChangeClass;
-        changeClassQuaryVC.appointmentModel = appointmentModel;
-        [self.navigationController pushViewController:changeClassQuaryVC animated:YES];
-    }else if (self.dispayType == AppointmentDisplayTypeAskForLeave){
-        AskForLeaveQueryViewController *askForLeaveQuaryVC = [AskForLeaveQueryViewController new];
-        askForLeaveQuaryVC.appointmentModel = appointmentModel;
-        askForLeaveQuaryVC.showType = AppointmentDisplayTypeAskForLeave;
-        [self.navigationController pushViewController:askForLeaveQuaryVC animated:YES];
-    }else if (self.dispayType == AppointmentDisplayTypeMeeting){
-        MeetingQueryViewController *meetingQuaryVC = [MeetingQueryViewController new];
-        meetingQuaryVC.appointmentModel = appointmentModel;
-        meetingQuaryVC.showType = AppointmentDisplayTypeMeeting;
-        [self.navigationController pushViewController:meetingQuaryVC animated:YES];
+    if (showModel) {
+        AppointmentListModel *appointmentModel = showModel.appointmentList[indexPath.row];
+        if ([appointmentModel.status integerValue] != 0) {
+            [MBHUDManager showBriefAlert:@"抱歉，该申请已不可编辑！"];
+            return;
+        }
+        if (self.dispayType == AppointmentDisplayTypeChangeClass) {
+            ChangeClassQueryViewController *changeClassQuaryVC = [ChangeClassQueryViewController new];
+            changeClassQuaryVC.showType = AppointmentDisplayTypeChangeClass;
+            changeClassQuaryVC.appointmentModel = appointmentModel;
+            [self.navigationController pushViewController:changeClassQuaryVC animated:YES];
+        }else if (self.dispayType == AppointmentDisplayTypeAskForLeave){
+            AskForLeaveQueryViewController *askForLeaveQuaryVC = [AskForLeaveQueryViewController new];
+            askForLeaveQuaryVC.appointmentModel = appointmentModel;
+            askForLeaveQuaryVC.showType = AppointmentDisplayTypeAskForLeave;
+            [self.navigationController pushViewController:askForLeaveQuaryVC animated:YES];
+        }else if (self.dispayType == AppointmentDisplayTypeMeeting){
+            MeetingQueryViewController *meetingQuaryVC = [MeetingQueryViewController new];
+            meetingQuaryVC.appointmentModel = appointmentModel;
+            meetingQuaryVC.showType = AppointmentDisplayTypeMeeting;
+            [self.navigationController pushViewController:meetingQuaryVC animated:YES];
+        }
     }
 }
 
 #pragma mark - cell did selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AppointmentListModel *appointmentModel = self.completeList[indexPath.row];
-    if (self.dispayType == AppointmentDisplayTypeChangeClass) {
-        ChangeClassEndViewController *changClassEndVC = [ChangeClassEndViewController new];
-        changClassEndVC.appointmentModel = appointmentModel;
-        [self.navigationController pushViewController:changClassEndVC animated:YES];
-    }else if (self.dispayType == AppointmentDisplayTypeAskForLeave){
-        AskForLeaveEndViewController *askForLeaveEndVC = [AskForLeaveEndViewController new];
-        askForLeaveEndVC.appointmentModel = appointmentModel;
-        [self.navigationController pushViewController:askForLeaveEndVC animated:YES];
-    }else{
-        MeetingEndQueryViewController *meetingEndVC = [MeetingEndQueryViewController new];
-        meetingEndVC.appointmentModel = appointmentModel;
-        [self.navigationController pushViewController:meetingEndVC animated:YES];
+    AppointmentShowModel *showModel = self.appointmentShowList[indexPath.section];
+    if (showModel.isOngoingAppointment == NO) {
+        AppointmentListModel *appointmentModel = showModel.appointmentList[indexPath.row];
+        if (self.dispayType == AppointmentDisplayTypeChangeClass) {
+            ChangeClassEndViewController *changClassEndVC = [ChangeClassEndViewController new];
+            changClassEndVC.appointmentModel = appointmentModel;
+            [self.navigationController pushViewController:changClassEndVC animated:YES];
+        }else if (self.dispayType == AppointmentDisplayTypeAskForLeave){
+            AskForLeaveEndViewController *askForLeaveEndVC = [AskForLeaveEndViewController new];
+            askForLeaveEndVC.appointmentModel = appointmentModel;
+            [self.navigationController pushViewController:askForLeaveEndVC animated:YES];
+        }else{
+            MeetingEndQueryViewController *meetingEndVC = [MeetingEndQueryViewController new];
+            meetingEndVC.appointmentModel = appointmentModel;
+            [self.navigationController pushViewController:meetingEndVC animated:YES];
+        }
     }
 }
 

@@ -20,9 +20,12 @@
 {
     CGSize contentSize = [_content getStrSizeWithSize:CGSizeMake(KScreenWidth-K_Padding_Home_LeftPadding*2-K_Padding_LeftPadding-KScaleWidth(40)-KScaleWidth(22)-KScaleWidth(12), 3000) font:K_Font_Text_Normal_little];
     if (contentSize.height <= 30) {
-        _cellHeight = KScaleHeight(100)+KScaleHeight(30);
+        _cellHeight = KScaleHeight(110)+KScaleHeight(30);
     }else{
-        _cellHeight = KScaleHeight(100)+contentSize.height;
+        _cellHeight = KScaleHeight(110)+contentSize.height;
+    }
+    if (![NSString isEmptyWithStr:_add_time]) {
+        _add_time = [NSString timeTransformWithDate:_add_time WithFormModel:@"YY-MM-dd HH:mm:ss" toModel:@"YY/MM/dd HH:mm"];
     }
     return YES;
 }

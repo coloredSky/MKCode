@@ -27,10 +27,11 @@
     self.shadowView.backgroundColor = [UIColor clearColor];
     self.contentView.backgroundColor = [UIColor clearColor];
     self.backgroundColor = [UIColor clearColor];
-    self.shadowView.layer.shadowColor = K_Text_DeepGrayColor.CGColor;
-    self.shadowView.layer.shadowRadius = 3.0f;
-    self.shadowView.layer.shadowOffset = CGSizeMake(2, 2);
-    self.shadowView.layer.shadowOpacity = .5;
+    self.shadowView.layer.shadowColor = [UIColor colorWithWhite:.7 alpha:1].CGColor;
+    self.shadowView.layer.shadowRadius = 12.0f;
+    self.shadowView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.shadowView.layer.shadowOpacity = .3;
+    
     
     self.whiteView.layer.masksToBounds = YES;
     self.whiteView.layer.cornerRadius = 8;
@@ -42,12 +43,12 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    self.shadowView.frame = CGRectMake(5, 5, self.contentView.width-10, self.contentView.height-10);
+    self.shadowView.frame = CGRectMake(7, 7, self.contentView.width-14, self.contentView.height-14);
 //    self.contentView.backgroundColor = [UIColor redColor];
 //    self.shadowView.backgroundColor = [UIColor blueColor];
     self.whiteView.frame = CGRectMake(0, 0, self.shadowView.width, self.shadowView.height);
     self.courseIma.frame = CGRectMake(10, 10, KScaleWidth(70), KScaleWidth(70));
-    self.courseTypeLab.frame = CGRectMake(self.courseIma.rightX+KScaleWidth(10), self.courseIma.centerY-9, self.whiteView.width-self.courseTypeLab.leftX-KScaleWidth(10), 18);
+    self.courseTypeLab.frame = CGRectMake(self.courseIma.rightX+10, self.courseIma.centerY-9, self.whiteView.width-self.courseTypeLab.leftX-10, 18);
     self.courseTitleLab.frame = CGRectMake(self.courseTypeLab.leftX, self.courseTypeLab.topY-18, self.courseTypeLab.width, self.courseTypeLab.height);
     self.courseTimeLab.frame = CGRectMake(self.courseTypeLab.leftX, self.courseTypeLab.bottomY, self.courseTypeLab.width, self.courseTypeLab.height);
     self.typeIma.frame = CGRectMake(self.whiteView.width-10-24, 0, 24, 24);

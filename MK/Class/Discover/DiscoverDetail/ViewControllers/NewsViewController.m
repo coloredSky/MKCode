@@ -97,7 +97,7 @@
     if (!_contentWeb)
     {
         _contentWeb = [WKWebView new];
-        _contentWeb.frame = CGRectMake(0, K_StatusBarHeight, KScreenWidth,KScreenHeight-K_StatusBarHeight);
+        _contentWeb.frame = CGRectMake(0, 0, KScreenWidth,KScreenHeight);
         [self.view addSubview:_contentWeb];
          if (@available(ios 11.0,*)) {
             _contentWeb.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -119,7 +119,7 @@
     if (!_progressView) {
         _progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, K_StatusBarHeight, KScreenWidth, 1)];
         [self.view addSubview:_progressView];
-        _progressView.trackTintColor = [UIColor whiteColor];
+        _progressView.trackTintColor = [UIColor clearColor];
         _progressView.progressTintColor = K_BG_YellowColor;
         _progressView.progressViewStyle = UIProgressViewStyleDefault;
     }

@@ -56,3 +56,9 @@
 }
 
 @end
+
+@implementation AppointmentShowModel
+
+@end
+
+

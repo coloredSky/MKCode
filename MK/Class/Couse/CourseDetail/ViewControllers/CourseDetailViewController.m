@@ -250,10 +250,7 @@
     }else{
         //不能播放，先判断登录状态
         if (![[UserManager shareInstance]isLogin]) {
-//            [self loginAlterViewShow];
-            [MBHUDManager showBriefAlert:@"您还未登录，请先登录！"];
-            LoginActionController *loginVC = [LoginActionController new];
-            [self.navigationController pushViewController:loginVC animated:YES];
+            [self loginAlterViewShow];
             return;
         }
         //已经登录，判断是否购买课程
@@ -263,7 +260,7 @@
 
 -(void)courseBuyAlterViewShow
 {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您还未购买该课程，现在就去购买？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"该课程尚未对您开放，请联系业务人员！" preferredStyle:UIAlertControllerStyleAlert];
     [self presentViewController:alert animated:YES completion:nil];
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //跳转
@@ -355,14 +352,19 @@
 
 #pragma mark --  屏幕旋转
 - (BOOL)shouldAutorotate{
-    if (self.player.playbackState == PLVVodPlaybackStatePlaying || self.player.playbackState == PLVVodPlaybackStatePaused) {
-      return YES;
+    if (self.isLoginAlterViewShow == NO) {
+        if (self.player.playbackState == PLVVodPlaybackStatePlaying || self.player.playbackState == PLVVodPlaybackStatePaused) {
+            return YES;
+        }
     }
     return NO;
 }
 
 //返回支持的方向
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    if (self.isLoginAlterViewShow){
+        return UIInterfaceOrientationMaskPortrait;
+    }
     return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 

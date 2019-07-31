@@ -55,10 +55,10 @@
     self.whiteView.frame = CGRectMake(0, 0, self.shadowView.width, self.shadowView.height);
     
     self.meeeageTimeLab.frame = CGRectMake(self.whiteView.width-200-K_Padding_LeftPadding, KScaleHeight(10), 200, KScaleHeight(15));
-    self.messageIconIma.frame = CGRectMake(K_Padding_LeftPadding, self.meeeageTimeLab.bottomY, KScaleWidth(40), KScaleWidth(40));
+    self.messageIconIma.frame = CGRectMake(K_Padding_LeftPadding, self.meeeageTimeLab.bottomY+8, KScaleWidth(40), KScaleWidth(40));
     self.meeeageTitleLab.frame = CGRectMake(self.messageIconIma.rightX+KScaleWidth(22), self.messageIconIma.topY, self.whiteView.width-(self.messageIconIma.rightX+KScaleWidth(22))-KScaleWidth(12), KScaleHeight(20));
-    self.messageShowIma.frame = CGRectMake(self.whiteView.centerX-KScaleWidth(16), self.whiteView.height-KScaleWidth(8)-KScaleHeight(15), KScaleWidth(16), KScaleWidth(16));
-    self.messageContentLab.frame = CGRectMake(self.meeeageTitleLab.leftX, self.meeeageTitleLab.bottomY+KScaleHeight(15), self.meeeageTitleLab.width, self.messageShowIma.topY-(self.meeeageTitleLab.bottomY+KScaleHeight(15))-KScaleHeight(15));
+    self.messageShowIma.frame = CGRectMake(self.whiteView.width/2-KScaleWidth(8), self.whiteView.height-KScaleWidth(8)-KScaleHeight(16), KScaleWidth(16), KScaleWidth(16));
+    self.messageContentLab.frame = CGRectMake(self.meeeageTitleLab.leftX, self.meeeageTitleLab.bottomY+KScaleHeight(5), self.meeeageTitleLab.width, self.messageShowIma.topY-(self.meeeageTitleLab.bottomY+KScaleHeight(5))-KScaleHeight(15));
 }
 
 -(void)cellRefreshDataWithMKMessageMode:(MKMessageModel *)messageModel

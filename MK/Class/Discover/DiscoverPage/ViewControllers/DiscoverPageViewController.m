@@ -141,19 +141,19 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 257*(KScreenWidth-K_Padding_LeftPadding*2)/342+KScaleHeight(90);
+    return 257*(KScreenWidth-K_Padding_LeftPadding*2)/342+90;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
-        return KScaleHeight(104-5);
+        return 84;
     }else {
         if (section == 1) {
             if (self.liveList.count > 0) {
                 return CGFLOAT_MIN;
             }
         }
-        return KScaleHeight(127-10);
+        return 116;
     }
     return CGFLOAT_MIN;
 }
@@ -161,7 +161,7 @@
 {
     if (section==0){
         if (self.liveList.count > 0) {
-            return KScaleHeight(140-10);
+            return 140-10;
         }
     }
     return CGFLOAT_MIN;
@@ -174,21 +174,21 @@
 //    if (section != 1 || (section == 1 && self.liveList.count == 0)) {
     UIView *headerView = [UIView new];
     if (section == 0) {
-        headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(104-5));
+        headerView.frame = CGRectMake(0, 0, KScreenWidth, 84);
     }else{
-        headerView.frame = CGRectMake(0, 0, KScreenWidth, KScaleHeight(127-10));
+        headerView.frame = CGRectMake(0, 0, KScreenWidth, 116);
     }
     DiscoverNewsModel *newsModel = self.dicoverNewsList[section];
     UILabel *weekDayLab = [UILabel new];
-    weekDayLab.frame = CGRectMake(K_Padding_LeftPadding, headerView.height-KScaleHeight(section == 0 ? KScaleHeight(6) : KScaleHeight(10) )-KScaleHeight(40), 200, KScaleHeight(40));
+    weekDayLab.frame = CGRectMake(K_Padding_LeftPadding, headerView.height- 40-8, 200, 40);
     [headerView addSubview:weekDayLab];
     [weekDayLab setFont:K_Font_WeekDay_Text textColor:K_Text_BlackColor withBackGroundColor:nil];
     weekDayLab.text = newsModel.newsCreateWeek;
     
     UILabel *timeLab = [UILabel new];
-    timeLab.frame = CGRectMake(weekDayLab.leftX, weekDayLab.topY-KScaleHeight(20), weekDayLab.width, KScaleHeight(20));
+    timeLab.frame = CGRectMake(weekDayLab.leftX, weekDayLab.topY-14, weekDayLab.width, 14);
     [headerView addSubview:timeLab];
-    [timeLab setFont:K_Font_Text_Min_Max textColor:K_Text_grayColor withBackGroundColor:nil];
+    [timeLab setFont:MKFont(12) textColor:K_Text_grayColor withBackGroundColor:nil];
     timeLab.text = newsModel.newsCreateDate;
     
     return  headerView;
@@ -199,7 +199,7 @@
 {
     if (section == 0) {
         if (self.liveList.count > 0) {
-            UIView *fotterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleHeight(140-10))];
+            UIView *fotterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 140-10)];
             CGFloat itemWidth = (KScreenWidth-25*2-18*3)/4;
             DiscoverCourseCategoryView *categoryView = [[DiscoverCourseCategoryView alloc]initWithFrame:CGRectMake(0, fotterView.height/2-itemWidth/2, fotterView.width, itemWidth)];
             categoryView.delegate = self;

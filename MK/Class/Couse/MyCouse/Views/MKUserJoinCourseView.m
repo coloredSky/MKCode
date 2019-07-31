@@ -16,8 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *coursePicker;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
-@property (nonatomic, strong) NSMutableArray *dataList;
-
+@property (nonatomic, strong) NSArray <NSString *>*dataList;
+@property (nonatomic, assign) NSInteger selectedIndex;
 
 @end
 
@@ -26,6 +26,7 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+    self.selectedIndex = -1;
     self.coursePicker.delegate = self;
     self.coursePicker.dataSource = self;
     self.topView.backgroundColor = UIColorFromAlphaRGB_0x(0xC6C6C6, .6);
@@ -45,8 +46,7 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-//    return self.dataList.count;
-    return 3;
+    return self.dataList.count;
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
@@ -56,31 +56,62 @@
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(nullable UIView *)view
 {
+    for(UIView *singleLine in pickerView.subviews)
+    {
+        if (singleLine.frame.size.height < 1)
+        {
+            singleLine.backgroundColor = [UIColor colorWithWhite:.7 alpha:1];
+        }
+    }
+    
     UIView *reusingView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.width, 40)];
     UILabel *contentLab = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, reusingView.width-40, reusingView.height)];
     [reusingView addSubview:contentLab];
     [contentLab setFont:MKFont(20) textColor:K_Text_BlackColor withBackGroundColor:nil];
     contentLab.textAlignment = NSTextAlignmentCenter;
-    contentLab.text = @"2019年7月班";
+    contentLab.text = self.dataList[row];
     return reusingView;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    
+    self.selectedIndex = row;
 }
 
 #pragma mark --  EVENT
-
-- (IBAction)courseClassSelected:(UIButton *)sender {
-    [[BMPopView shareInstance]dismiss];
-}
 - (IBAction)cancleTarget:(UIButton *)sender {
     [[BMPopView shareInstance]dismiss];
 }
-- (IBAction)submitTarget:(UIButton *)sender {
-    [[BMPopView shareInstance]dismiss];
+
+- (IBAction)courseClassSelected:(UIButton *)sender {
+    if (self.selectedIndex == -1) {
+        [MBHUDManager showBriefAlert:@"当前暂时没有可供选择的班级！"];
+        return;
+    }
+    if (self.userJoinClassBlock) {
+        self.userJoinClassBlock(self.selectedIndex);
+    }
+//    [[BMPopView shareInstance]dismiss];
 }
 
+- (IBAction)submitTarget:(UIButton *)sender {
+    if (self.selectedIndex == -1) {
+        [MBHUDManager showBriefAlert:@"当前暂时没有可供选择的班级！"];
+        return;
+    }
+    if (self.userJoinClassBlock) {
+        self.userJoinClassBlock(self.selectedIndex);
+    }
+//    [[BMPopView shareInstance]dismiss];
+}
+
+-(void)userJoinCourseViewReloadDataWithClassList:(NSArray <NSString *>*)classList
+{
+    self.dataList = classList;
+    if (classList.count > 0) {
+        self.selectedIndex = 0;
+        [self.coursePicker reloadAllComponents];
+    }
+}
 
 @end

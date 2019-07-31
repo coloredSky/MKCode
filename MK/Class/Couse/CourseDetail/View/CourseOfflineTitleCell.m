@@ -71,7 +71,8 @@
     self.attendanceLab.frame = CGRectMake(self.attendanceIma.rightX+5, self.timeConsumingLab.topY, self.timeConsumingLab.width, self.timeConsumingLab.height);
     self.personsIma.frame = CGRectMake(self.attendanceLab.rightX, self.timeConsumingIma.topY, self.timeConsumingIma.width, self.timeConsumingIma.height);
     self.personsLab.frame = CGRectMake(self.personsIma.rightX+5, self.timeConsumingLab.topY, self.timeConsumingLab.width, self.timeConsumingLab.height);
-    self.lineIma.frame = CGRectMake(KScaleWidth(20), self.bottomView.height-K_Line_lineWidth, self.bottomView.width-KScaleWidth(20*2), K_Line_lineWidth);
+    
+    self.lineIma.frame = CGRectMake(KScaleWidth(20), self.bottomView.height-14, self.bottomView.width-KScaleWidth(20*2), K_Line_lineWidth);
 }
 
 -(void)cellRefreshDataWithMKOfflineCourseDetail:(MKOfflineCourseDetail *)offlineCourseModel
