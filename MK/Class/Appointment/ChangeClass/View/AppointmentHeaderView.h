@@ -22,9 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface AppointmentHeaderView : UIView
+
 @property (nonatomic, copy) NSString *titleString;
 @property (nonatomic, assign) AppointmentHeaderViewShowType showType;
 @property (nonatomic, copy) void(^operationBlock)(AppointmentHeaderViewOperationType operationType);
+
 @end
 
 NS_ASSUME_NONNULL_END

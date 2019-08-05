@@ -190,6 +190,7 @@
 		30B26C2C229FFA8A004A8F81 /* ChangeClassCouseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B26C2B229FFA8A004A8F81 /* ChangeClassCouseModel.m */; };
 		30BA54922297C62200E9A6A0 /* DiscoverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BA54912297C62200E9A6A0 /* DiscoverManager.m */; };
 		30BA54952297C73A00E9A6A0 /* DiscoverNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BA54942297C73A00E9A6A0 /* DiscoverNewsModel.m */; };
+		30C94E2422F7C007003E731E /* ValSchoolHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C94E2222F7C007003E731E /* ValSchoolHeaderView.m */; };
 		30D54D092270489F0004D034 /* MKCourseDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D54D082270489F0004D034 /* MKCourseDetailModel.m */; };
 		30DC170C22C0FDDE00C201F8 /* UserCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DC170B22C0FDDE00C201F8 /* UserCourseModel.m */; };
 		30DC171022C224B700C201F8 /* MKUniversityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DC170F22C224B700C201F8 /* MKUniversityModel.m */; };
@@ -212,7 +213,6 @@
 		30FBE3552241E83C0049C0DE /* MessageNoticeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3482241E83C0049C0DE /* MessageNoticeController.m */; };
 		30FBE3562241E83C0049C0DE /* MessageNoticeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE34A2241E83C0049C0DE /* MessageNoticeController.xib */; };
 		30FBE3572241E83C0049C0DE /* PolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE34D2241E83C0049C0DE /* PolicyViewController.m */; };
-		30FBE3582241E83C0049C0DE /* PolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE34F2241E83C0049C0DE /* PolicyViewController.xib */; };
 		30FBE3592241E83C0049C0DE /* SetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3522241E83C0049C0DE /* SetPasswordController.m */; };
 		30FBE35A2241E83C0049C0DE /* SetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FBE3532241E83C0049C0DE /* SetPasswordController.xib */; };
 		30FBE3622241F81D0049C0DE /* CourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE3612241F81D0049C0DE /* CourseDetailViewController.m */; };
@@ -673,6 +673,8 @@
 		30BA54912297C62200E9A6A0 /* DiscoverManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverManager.m; sourceTree = "<group>"; };
 		30BA54932297C73A00E9A6A0 /* DiscoverNewsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverNewsModel.h; sourceTree = "<group>"; };
 		30BA54942297C73A00E9A6A0 /* DiscoverNewsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverNewsModel.m; sourceTree = "<group>"; };
+		30C94E2222F7C007003E731E /* ValSchoolHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValSchoolHeaderView.m; sourceTree = "<group>"; };
+		30C94E2322F7C007003E731E /* ValSchoolHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValSchoolHeaderView.h; sourceTree = "<group>"; };
 		30D54D072270489F0004D034 /* MKCourseDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKCourseDetailModel.h; sourceTree = "<group>"; };
 		30D54D082270489F0004D034 /* MKCourseDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKCourseDetailModel.m; sourceTree = "<group>"; };
 		30DC170A22C0FDDE00C201F8 /* UserCourseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserCourseModel.h; sourceTree = "<group>"; };
@@ -715,7 +717,6 @@
 		30FBE34A2241E83C0049C0DE /* MessageNoticeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageNoticeController.xib; sourceTree = "<group>"; };
 		30FBE34D2241E83C0049C0DE /* PolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolicyViewController.m; sourceTree = "<group>"; };
 		30FBE34E2241E83C0049C0DE /* PolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolicyViewController.h; sourceTree = "<group>"; };
-		30FBE34F2241E83C0049C0DE /* PolicyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PolicyViewController.xib; sourceTree = "<group>"; };
 		30FBE3522241E83C0049C0DE /* SetPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetPasswordController.m; sourceTree = "<group>"; };
 		30FBE3532241E83C0049C0DE /* SetPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetPasswordController.xib; sourceTree = "<group>"; };
 		30FBE3542241E83C0049C0DE /* SetPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetPasswordController.h; sourceTree = "<group>"; };
@@ -2369,6 +2370,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		30C94E2122F7BFF1003E731E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30C94E2322F7C007003E731E /* ValSchoolHeaderView.h */,
+				30C94E2222F7C007003E731E /* ValSchoolHeaderView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		30DC170D22C2248300C201F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -2494,7 +2504,6 @@
 			children = (
 				30FBE34E2241E83C0049C0DE /* PolicyViewController.h */,
 				30FBE34D2241E83C0049C0DE /* PolicyViewController.m */,
-				30FBE34F2241E83C0049C0DE /* PolicyViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2889,6 +2898,7 @@
 		71A18E09225072CA007B4C55 /* VoluntarySchools  */ = {
 			isa = PBXGroup;
 			children = (
+				30C94E2122F7BFF1003E731E /* Views */,
 				30DC170D22C2248300C201F8 /* Model */,
 				71C28F2222B735DF00BBAF96 /* Manager */,
 				71A18E0B225072CA007B4C55 /* ViewControllers */,
@@ -3142,7 +3152,6 @@
 				30FBE31C2240E6B50049C0DE /* HomeCourseCollectionViewCell.xib in Resources */,
 				712170DB223F680D00BA1905 /* MyCenterHeaderView.xib in Resources */,
 				30FBE38822488AF30049C0DE /* CourseOnlineTitleCell.xib in Resources */,
-				30FBE3582241E83C0049C0DE /* PolicyViewController.xib in Resources */,
 				3035B6D32252032800A1AA98 /* AppointmentTeacherReplyCell.xib in Resources */,
 				30FBE39522488C280049C0DE /* CourseOnlineListCell.xib in Resources */,
 				3035B65D224F2C7D00A1AA98 /* LoginActionController.xib in Resources */,
@@ -3498,6 +3507,7 @@
 				3035B6BD2250725000A1AA98 /* AskForLeaveViewController.m in Sources */,
 				71244491225832A1005AF711 /* OrderDetailCell_2.m in Sources */,
 				30295721226859E4006D1613 /* WYNetworkRequestModel.m in Sources */,
+				30C94E2422F7C007003E731E /* ValSchoolHeaderView.m in Sources */,
 				71296FA422B1DE7100BB8E7D /* SetPasswordManager.m in Sources */,
 				304EDFEF22C4B85000E5B28B /* UniversityModel.m in Sources */,
 				30FBE38722488AF30049C0DE /* CourseOnlineTitleCell.m in Sources */,

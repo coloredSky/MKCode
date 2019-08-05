@@ -15,6 +15,7 @@
 @property(nonatomic,strong)userInfo * userInfoModel;//用户信息
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bgViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UILabel *dateTitleLab;
 
 @end
 
@@ -25,9 +26,10 @@
     self.view.backgroundColor =K_BG_WhiteColor;
     self.bgView.layer.masksToBounds = YES;
     self.bgView.layer.cornerRadius = 6.0f;
-    self.bgViewHeightConstraint.constant = KScaleHeight(33);
+    self.bgViewHeightConstraint.constant = KScaleHeight(36);
+        [self.dateTitleLab setFont:MKFont(12) textColor:K_Text_grayColor withBackGroundColor:nil];
     [self.timeBtn  setTitle:self.originalModel.userInfo.arrive_jp forState:UIControlStateNormal];
-    
+    [self.timeBtn setNormalTitle:@"" font:MKFont(14) titleColor:K_Text_BlackColor];
 }
 
 -(void)viewWillLayoutSubviews

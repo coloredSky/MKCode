@@ -13,12 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UniversityModel : NSObject
 
 
-@property(nonatomic,strong)NSString * university_name;
-@property(nonatomic,strong)NSString * university_id;
-@property(nonatomic,strong)NSString * faculty_name;
-@property(nonatomic,strong)NSString * faculty_id;
-@property(nonatomic,strong)NSString * discipline_name;
-@property(nonatomic,strong)NSString * discipline_id;
+@property(nonatomic,copy)NSString * study_category;
+@property(nonatomic,copy)NSString * university_name;
+@property(nonatomic,copy)NSString * university_id;
+@property(nonatomic,copy)NSString * faculty_name;
+@property(nonatomic,copy)NSString * faculty_id;
+@property(nonatomic,copy)NSString * discipline_name;
+@property(nonatomic,copy)NSString * discipline_id;
 
 @end
 

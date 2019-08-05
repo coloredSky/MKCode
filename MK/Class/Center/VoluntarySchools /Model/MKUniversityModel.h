@@ -19,8 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *discipline_id;
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *faculty_id;
-@property (nonatomic, assign) BOOL isSelected;
+//@property (nonatomic, copy) NSString *faculty_id;
+//@property (nonatomic, assign) BOOL isSelected;
 
 @end
 
@@ -31,10 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *faculty_id;
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *university_id;
-@property (nonatomic, assign) BOOL isSelected;
-@property (nonatomic, strong,nullable) MKUniversityDisciplineListModel *selectedDisciplineListModel;//选中的学科
-@property (nonatomic, strong) NSArray <MKUniversityDisciplineListModel *>*disciplineList;
+//@property (nonatomic, copy) NSString *university_id;
+//@property (nonatomic, assign) BOOL isSelected;
+//@property (nonatomic, strong,nullable) MKUniversityDisciplineListModel *selectedDisciplineListModel;//选中的学科
+//@property (nonatomic, strong) NSArray <MKUniversityDisciplineListModel *>*disciplineList;
 
 
 @end
@@ -45,10 +45,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *universityID;
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *zh_name;
-@property (nonatomic, copy) NSString *en_name;
-@property (nonatomic, strong , nullable) MKUniversityFacultyListModel *selectedFacultyListModel;//选中的学部
-@property (nonatomic, strong) NSArray <MKUniversityFacultyListModel *>*facultyList;
+//@property (nonatomic, copy) NSString *zh_name;
+//@property (nonatomic, copy) NSString *en_name;
+//@property (nonatomic, strong , nullable) MKUniversityFacultyListModel *selectedFacultyListModel;//选中的学部
+//@property (nonatomic, strong) NSArray <MKUniversityFacultyListModel *>*facultyList;
 
 @end
 

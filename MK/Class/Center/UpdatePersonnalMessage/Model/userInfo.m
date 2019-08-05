@@ -7,12 +7,34 @@
 //
 
 #import "userInfo.h"
+#import "UniversityModel.h"
 
 @interface userInfo()<NSCopying>
 
 @end
 
 @implementation userInfo
+
+-(instancetype)init
+{
+    if (self = [super init]) {
+        self.study_category = @"B";
+        self.isBcolleage = YES;
+        
+        _BUniversityList = [NSMutableArray arrayWithCapacity:3];
+        for (int i=0; i<3; i++) {
+            UniversityModel *model = [UniversityModel new];
+            [_BUniversityList addObject:model];
+        }
+        _MUniversityList = [NSMutableArray arrayWithCapacity:3];
+        for (int i=0; i<3; i++) {
+            UniversityModel *model = [UniversityModel new];
+            model.study_category = @"M";
+            [_MUniversityList addObject:model];
+        }
+    }
+    return self;
+}
 
 - (instancetype)copyWithZone:(NSZone *)zone {
     
@@ -45,12 +67,25 @@
     userModel.discipline_id_1 = self.discipline_id_1;
     userModel.discipline_id_2 = self.discipline_id_2;
     userModel.discipline_id_3 = self.discipline_id_3;
+    userModel.study_category = self.study_category;
     
     NSMutableArray *universityList = [NSMutableArray arrayWithCapacity:self.university.count];
     for (UniversityModel *universityModel in self.university) {
         [universityList addObject:[universityModel copy]];
     }
     userModel.university = [universityList copy];
+    
+    NSMutableArray *BUniversityList = [NSMutableArray arrayWithCapacity:self.BUniversityList.count];
+    for (UniversityModel *universityModel in self.BUniversityList) {
+        [BUniversityList addObject:[universityModel copy]];
+    }
+    userModel.BUniversityList = [BUniversityList copy];
+    
+    NSMutableArray *MUniversityList = [NSMutableArray arrayWithCapacity:self.MUniversityList.count];
+    for (UniversityModel *universityModel in self.MUniversityList) {
+        [MUniversityList addObject:[universityModel copy]];
+    }
+    userModel.MUniversityList = [MUniversityList copy];
     
     return userModel;
 }
@@ -121,7 +156,41 @@
     if ([NSString isEmptyWithStr:_discipline_id_3]) {
         _discipline_id_3 = @"";
     }
-
+    if ([self.study_category isEqualToString:@"M"]) {
+        _isBcolleage = NO;
+    }
+    _university = [NSMutableArray arrayWithCapacity:3];
+    for (int i=0; i<3; i++) {
+        UniversityModel *model = [UniversityModel new];
+        model.study_category = self.study_category;
+        [_university addObject:model];
+    }
+    if (dic[@"university"]) {
+        NSDictionary *universityListDic = dic[@"university"];
+        NSArray *keyS = [universityListDic allKeys];
+        if (keyS.count > 0) {
+            //数据解析。返回的数据结构，很垃圾。将就着用。
+            for (NSString *key in keyS) {
+                if ([universityListDic[key] isKindOfClass:[NSDictionary class]]) {
+                    NSDictionary *universityDic= universityListDic[key];
+                    UniversityModel *model = [UniversityModel yy_modelWithJSON:universityDic];
+                    if ([key isEqualToString:@"volunteer_school_1"]) {
+                        _university[0] =  model;
+                    }else if ([key isEqualToString:@"volunteer_school_2"]){
+                        _university[1] =  model;
+                    }else if ([key isEqualToString:@"volunteer_school_3"]){
+                        _university[2] =  model;
+                    }
+                    if (_isBcolleage) {
+                        self.BUniversityList = _university;
+                    }else{
+                        self.MUniversityList = _university;
+                    }
+                }
+            }
+        }
+    }
+    
     return YES;
 }
 
@@ -132,8 +201,8 @@
              };
 }
 
-+ (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"university" : [UniversityModel class]
-             };
-}
+//+ (NSDictionary *)modelContainerPropertyGenericClass {
+//    return @{@"university" : [UniversityModel class]
+//             };
+//}
 @end

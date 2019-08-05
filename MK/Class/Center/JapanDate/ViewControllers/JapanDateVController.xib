@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="bgView" destination="BtU-kp-Dza" id="9BN-HA-nOc"/>
                 <outlet property="bgViewHeightConstraint" destination="X7v-cQ-7pD" id="jgX-L7-XEm"/>
+                <outlet property="dateTitleLab" destination="75U-vq-upg" id="fwl-tj-rqu"/>
                 <outlet property="timeBtn" destination="FZW-fc-Bc6" id="jGz-Md-vty"/>
                 <outlet property="view" destination="TWm-SB-NTB" id="sPG-z7-E9K"/>
             </connections>
@@ -36,9 +37,9 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZW-fc-Bc6">
-                            <rect key="frame" x="78" y="1.5" width="222" height="30"/>
+                            <rect key="frame" x="78" y="0.0" width="222" height="33"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="xk1-Eo-0Rn"/>
+                                <constraint firstAttribute="height" constant="33" id="xk1-Eo-0Rn"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <state key="normal">
@@ -58,6 +59,12 @@
                         <constraint firstItem="FZW-fc-Bc6" firstAttribute="centerY" secondItem="75U-vq-upg" secondAttribute="centerY" id="c9I-Zs-1jo"/>
                         <constraint firstItem="75U-vq-upg" firstAttribute="leading" secondItem="BtU-kp-Dza" secondAttribute="leading" constant="8" id="puj-rn-eYn"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RER-Th-yqm">
                     <rect key="frame" x="25" y="103" width="325" height="54"/>

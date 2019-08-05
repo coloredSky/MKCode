@@ -123,6 +123,13 @@ static NSString * const K_MK_GetFeedBackType_url  = @"api/user/getFeedbackTypeLi
 static NSString * const K_MK_FeedBack_url  = @"api/user/insertUserFeedback";
 //获取个人信息
 static NSString * const K_MK_GetUserInfo_url  = @"/api/user/GetUserInfo";
+//获取志愿学校列表
+static NSString * const K_MK_GetUniversityList_url  = @"/api/user/getUniversityList";
+//获取志愿学校的学部列表
+static NSString * const K_MK_GetFacultyList_url  = @"/api/user/getFacultyList";
+//获取志愿学校专业列表
+static NSString * const K_MK_GetDisciplineList_url  = @"/api/user/getDisciplineList";
+
 /*
  更改个人信息接口功能如下
  */

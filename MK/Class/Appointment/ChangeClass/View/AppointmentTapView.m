@@ -8,11 +8,12 @@
 
 #import "AppointmentTapView.h"
 #import "AppDelegate.h"
+#import "UITextView+WJPlaceholder.h"
 
 @interface AppointmentTapView()
 @property (nonatomic, strong) UIView *shadowView;
 @property (nonatomic, strong) UIView *whiteView;
-@property (nonatomic, strong) UITextField *contentTF;
+@property (nonatomic, strong) UITextView *contentTF;
 @property (nonatomic, strong) UIButton *clickBtn;
 
 //@property (nonatomic, assign) BOOL isSelected;
@@ -51,7 +52,7 @@
     _whiteView.layer.masksToBounds = YES;
     _whiteView.layer.cornerRadius = KScaleHeight(6);
     
-    _contentTF = [UITextField new];
+    _contentTF = [UITextView new];
     [self.whiteView addSubview:_contentTF];
     _contentTF.font = K_Font_Text_Normal_little;
     _contentTF.textColor = K_Text_WhiteColor;
@@ -77,16 +78,21 @@
     self.contentTF.userInteractionEnabled = canEditing;
     self.clickBtn.hidden = canEditing;
 }
+
 -(void)setPlaceholderString:(NSString *)placeholderString
 {
     self.contentTF.placeholder = placeholderString;
-    [self.contentTF setValue:K_Text_grayColor forKeyPath:@"_placeholderLabel.textColor"];
-    [self.contentTF setValue:K_Font_Text_Normal_little forKeyPath:@"_placeholderLabel.font"];
+    self.contentTF.placeholderColor = K_Text_grayColor;
+    self.contentTF.placeholdFont = K_Font_Text_Normal_little;
+//    [self.contentTF setValue:K_Text_grayColor forKeyPath:@"_placeholderLabel.textColor"];
+//    [self.contentTF setValue:K_Font_Text_Normal_little forKeyPath:@"_placeholderLabel.font"];
 }
+
 -(void)setTextString:(NSString *)textString
 {
     self.contentTF.text = textString;
 }
+
 -(NSString *)textString
 {
     return self.contentTF.text;

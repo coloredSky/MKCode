@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *placeholderString;//设置默认字
 @property (nonatomic, strong) UIColor *normalColor;
 @property (nonatomic, strong) UIColor *selectedColor;
+
 @end
 
 NS_ASSUME_NONNULL_END

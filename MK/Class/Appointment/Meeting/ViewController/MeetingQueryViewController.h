@@ -6,6 +6,11 @@
 //  Copyright © 2019年 周洋. All rights reserved.
 //
 
+typedef NS_ENUM(NSUInteger, MeetingQueryCheckType) {
+    MeetingQueryCheckTypeCanEdit,
+    MeetingQueryCheckTypeNotEdit,
+};
+
 #import <UIKit/UIKit.h>
 #import "AppointmentManager.h"
 @class AppointmentListModel;
@@ -19,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MeetingQueryViewController : MKNavViewController
 @property (nonatomic, strong) AppointmentListModel *appointmentModel;
 @property (nonatomic, assign) AppointmentDisplayType showType;
+@property (nonatomic, assign) MeetingQueryCheckType checkType;
 @end
 
 NS_ASSUME_NONNULL_END

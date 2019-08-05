@@ -141,7 +141,7 @@
     {
         return;
     }
-    sender.selected = YES;
+//    sender.selected = YES;
     self.haveSelectedLab.selected = NO;
     self.haveSelectedLab = sender;
     self.selectedIndex = sender.tag;
@@ -159,6 +159,8 @@
 {
     [UIView animateWithDuration:.5 animations:^{
         self.tipIma.frame = CGRectMake(self.haveSelectedLab.centerX-(self.haveSelectedLab.width+32)/2, self.haveSelectedLab.centerY-self.height/2, self.haveSelectedLab.width+32, self.height);
+    } completion:^(BOOL finished) {
+        self.haveSelectedLab.selected = YES;
     }];
 }
 
@@ -174,7 +176,6 @@
         return;
     }
      [self titleScrollContentOffsetChange:sender.tag];
-    sender.selected = YES;
     self.haveSelectedLab.selected = NO;
     self.haveSelectedLab = sender;
     [self tipImaAnimatied];

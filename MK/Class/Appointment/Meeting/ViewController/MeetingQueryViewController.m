@@ -73,6 +73,7 @@
         //
         for (int i=0; i < self.tipStringArr.count; i++) {
             AppointmentTapView *tapView = [AppointmentTapView new];
+            [self.contentScroll addSubview:tapView];
             CGFloat tapViewY = 0;
             if (i < 2) {
                 tapViewY = KScaleHeight(86)+K_NaviHeight+KScaleHeight(35)+(KScaleHeight(33+15)*i);
@@ -81,7 +82,7 @@
             }
             tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
             tapView.textString = self.tipStringArr[i];
-            [self.contentScroll addSubview:tapView];
+            
             
             if (i == self.tipStringArr.count-1) {
                 _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, tapView.bottomY+KScaleHeight(35), KScreenWidth, KScreenHeight-tapView.bottomY-KScaleHeight(35)) style:UITableViewStyleGrouped];
@@ -103,7 +104,7 @@
 //        _headerView.titleString = @"等待回复";
         _headerView.titleString = self.appointmentModel.status_msg;
         [self.contentScroll addSubview:_headerView];
-        _headerView.showType = AppointmentHeaderViewShowTypeEditting;
+        _headerView.showType = self.checkType == MeetingQueryCheckTypeCanEdit ? AppointmentHeaderViewShowTypeEditting : AppointmentHeaderViewShowTypeNormal;
         __weak typeof(self) weakSelf = self;
         _headerView.operationBlock = ^(AppointmentHeaderViewOperationType operationType) {
             __strong typeof(weakSelf) strongSelf = weakSelf;

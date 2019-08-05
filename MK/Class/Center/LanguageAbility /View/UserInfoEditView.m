@@ -27,7 +27,7 @@
 
         _titleLab = [[UILabel alloc]initWithFrame:CGRectMake(8, 0, 60, _contentView.height)];
         [_contentView addSubview:_titleLab];
-        [_titleLab setFont:MKFont(14) textColor:K_Text_grayColor withBackGroundColor:nil];
+        [_titleLab setFont:MKFont(12) textColor:K_Text_BasicInforDeepGrayColor withBackGroundColor:nil];
         
         _contentTF = [[UITextField alloc]initWithFrame:CGRectMake(_titleLab.rightX+15, 0, _contentView.width-_titleLab.width-10, _contentView.height)];
         [_contentView addSubview:_contentTF];

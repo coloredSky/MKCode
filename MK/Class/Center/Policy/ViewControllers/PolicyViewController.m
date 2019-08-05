@@ -9,7 +9,6 @@
 #import "PolicyViewController.h"
 #import <WebKit/WebKit.h>
 @interface PolicyViewController ()<WKUIDelegate,WKNavigationDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *titleLab;
 
 /**webView*/
 @property(nonatomic,strong) WKWebView *contentWeb;
@@ -39,7 +38,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.titleLab.text = self.titleString;
     if (self.loadType == WebViewLoadTypeLoadTheRichText){
         //加载富文本
         [self loadRichHtmlText];
@@ -73,7 +71,7 @@
     if (!_contentWeb)
     {
         _contentWeb = [WKWebView new];
-        _contentWeb.frame = CGRectMake(20, 80+K_NaviHeight, KScreenWidth-40,KScreenHeight-80-K_NaviHeight);
+        _contentWeb.frame = CGRectMake(15, 0, KScreenWidth-30,KScreenHeight-K_BottomHeight);
         [self.view addSubview:_contentWeb];
         if (@available(ios 11.0,*)) {
             _contentWeb.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;

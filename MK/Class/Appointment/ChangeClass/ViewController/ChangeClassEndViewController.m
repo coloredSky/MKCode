@@ -117,6 +117,7 @@
             titleLab.text = self.tipStringArr[i];
             
             AppointmentTapView *tapView = [AppointmentTapView new];
+            [self.contentScroll addSubview:tapView];
             [self.tapViewArr addObject:tapView];
             CGFloat tapViewY = tapViewY = titleLab.bottomY+ KScaleHeight(13);
             if (i == self.contentStringArr.count-1) {
@@ -134,7 +135,7 @@
                 tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
             }
             tapView.textString = self.contentStringArr[i];
-            [self.contentScroll addSubview:tapView];
+            
             tapView.normalColor = K_Text_YellowColor;
             //底部消息列表
             if (i == self.tipStringArr.count-1) {

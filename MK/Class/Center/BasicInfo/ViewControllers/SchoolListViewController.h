@@ -19,27 +19,34 @@ typedef NS_ENUM(NSUInteger, SchoolListViewShowType) {
 };
 
 #import "PersonModel.h"
+@class MKSchoolListSelectedModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol SchoolListViewControllerDelegate <NSObject>
-
--(void)schoolListViewClickWithIndex:(NSInteger )index schoolListViewShowType:(SchoolListViewShowType )showType;
+@optional
+-(void)schoolListViewClickWithMKSchoolListSelectedModel:(MKSchoolListSelectedModel * )schoolModel schoolListViewShowType:(SchoolListViewShowType )showType;
 
 @end
 
 @interface SchoolListViewController : MKNavViewController
-@property (nonatomic, copy)void(^schoolValueSelectedBlock)(NSInteger index,SchoolListViewShowType showType);
+@property (nonatomic, copy)void(^schoolValueSelectedBlock)(MKSchoolListSelectedModel *schoolModel,SchoolListViewShowType showType);
 
 @property (nonatomic, assign) id<SchoolListViewControllerDelegate> delegate;
 
+@property(nonatomic,copy)NSString *study_category;
+@property(nonatomic,copy)NSString *university_id;
+@property(nonatomic,copy)NSString *faculty_id;
+
 //@property(nonatomic,strong)PersonModel * originalModel;
-@property (nonatomic, strong) NSArray *universityList;//学校
-@property (nonatomic, strong) NSArray *facultyList;//学部
-@property (nonatomic, strong) NSArray *disciplineList;//学科
 @property (nonatomic, assign) SchoolListViewShowType showType;
 
 
+@end
+
+@interface MKSchoolListSelectedModel : NSObject
+@property(nonatomic,copy)NSString *selectedname;
+@property(nonatomic,copy)NSString *selectedID;
 @end
 
 NS_ASSUME_NONNULL_END

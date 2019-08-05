@@ -31,6 +31,7 @@
     self.bgView.layer.masksToBounds = YES;
     self.bgView.layer.cornerRadius = 6.0f;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(contentTFValueChange:) name:UITextFieldTextDidChangeNotification object:self.textField];
+    [self.ttLabel setFont:MKFont(12) textColor:K_Text_BasicInforDeepGrayColor withBackGroundColor:nil];
 }
 
  -(void)contentTFValueChange:(NSNotification *)noti

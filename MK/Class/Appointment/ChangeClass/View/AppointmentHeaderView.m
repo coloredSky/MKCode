@@ -24,6 +24,7 @@
     }
     return self;
 }
+
 -(instancetype)init
 {
     if (self = [super init]) {
@@ -31,6 +32,7 @@
     }
     return self;
 }
+
 -(void)createSubView
 {
     _lineIma = [UIImageView new];
@@ -57,6 +59,7 @@
     [_deleteBtn addTarget:self action:@selector(senderTarget:) forControlEvents:UIControlEventTouchUpInside];
     _deleteBtn.tag = 1;
 }
+
 -(void)layoutSubviews
 {
     [super layoutSubviews];

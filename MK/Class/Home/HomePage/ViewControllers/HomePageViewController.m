@@ -55,6 +55,7 @@
     [self startRequestWithHUDShow:YES];
     [self.updateManager checkUpXHBorrowAppVersionUpdateWhenFoundNewsVersion];
 }
+
 -(void)startRequestWithHUDShow:(BOOL )hudShow
 {
     [MBHUDManager showLoading];

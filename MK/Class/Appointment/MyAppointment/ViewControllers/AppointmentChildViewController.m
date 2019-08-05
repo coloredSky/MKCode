@@ -242,26 +242,31 @@
         }
     }
     if (showModel) {
-        AppointmentListModel *appointmentModel = showModel.appointmentList[indexPath.row];
-        if ([appointmentModel.status integerValue] != 0) {
-            [MBHUDManager showBriefAlert:@"抱歉，该申请已不可编辑！"];
-            return;
-        }
+            AppointmentListModel *appointmentModel = showModel.appointmentList[indexPath.row];
         if (self.dispayType == AppointmentDisplayTypeChangeClass) {
             ChangeClassQueryViewController *changeClassQuaryVC = [ChangeClassQueryViewController new];
             changeClassQuaryVC.showType = AppointmentDisplayTypeChangeClass;
+            changeClassQuaryVC.checkType = [appointmentModel.status integerValue] == 0 ? ChangeClassQueryCheckTypeCanEdit : ChangeClassQueryCheckTypeNotEdit;
             changeClassQuaryVC.appointmentModel = appointmentModel;
             [self.navigationController pushViewController:changeClassQuaryVC animated:YES];
         }else if (self.dispayType == AppointmentDisplayTypeAskForLeave){
             AskForLeaveQueryViewController *askForLeaveQuaryVC = [AskForLeaveQueryViewController new];
             askForLeaveQuaryVC.appointmentModel = appointmentModel;
             askForLeaveQuaryVC.showType = AppointmentDisplayTypeAskForLeave;
+            askForLeaveQuaryVC.checkType = [appointmentModel.status integerValue] == 0 ? AskForLeaveQueryCheckTypeCanEdit : AskForLeaveQueryCheckTypeNotEdit;
             [self.navigationController pushViewController:askForLeaveQuaryVC animated:YES];
         }else if (self.dispayType == AppointmentDisplayTypeMeeting){
-            MeetingQueryViewController *meetingQuaryVC = [MeetingQueryViewController new];
-            meetingQuaryVC.appointmentModel = appointmentModel;
-            meetingQuaryVC.showType = AppointmentDisplayTypeMeeting;
-            [self.navigationController pushViewController:meetingQuaryVC animated:YES];
+            if ([appointmentModel.status integerValue] == 1) {//预约成功
+                MeetingEndQueryViewController *meetingEndVC = [MeetingEndQueryViewController new];
+                meetingEndVC.appointmentModel = appointmentModel;
+                [self.navigationController pushViewController:meetingEndVC animated:YES];
+            }else{
+                MeetingQueryViewController *meetingQuaryVC = [MeetingQueryViewController new];
+                meetingQuaryVC.appointmentModel = appointmentModel;
+                meetingQuaryVC.showType = AppointmentDisplayTypeMeeting;
+                meetingQuaryVC.checkType = [appointmentModel.status integerValue] == 0 ? MeetingQueryCheckTypeCanEdit : MeetingQueryCheckTypeNotEdit;
+                [self.navigationController pushViewController:meetingQuaryVC animated:YES];
+            }
         }
     }
 }

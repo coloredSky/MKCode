@@ -110,12 +110,13 @@
         
         for (int i=0; i < self.tipStringArr.count; i++) {
             AppointmentTapView *tapView = [AppointmentTapView new];
+            [self.contentScroll addSubview:tapView];
             [self.tapViewArr addObject:tapView];
             CGFloat tapViewY = tapViewY = courseTitleLab.bottomY+ KScaleHeight(13)+(KScaleHeight(33+15)*i);
             tapView.normalColor = K_Text_YellowColor;
             tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
             tapView.textString = self.tipStringArr[i];
-            [self.contentScroll addSubview:tapView];
+            
         }
         //理由
         UILabel *reasonTitleLab = [[UILabel alloc]initWithFrame:CGRectMake(courseTitleLab.leftX, courseTitleLab.bottomY+KScaleHeight(114), 200, KScaleHeight(20))];

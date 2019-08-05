@@ -133,13 +133,14 @@
         
         for (int i=0; i < self.tipStringArr.count; i++) {
             AppointmentTapView *tapView = [AppointmentTapView new];
+            [self.contentScroll addSubview:tapView];
             [self.tapViewArr addObject:tapView];
             tapView.delegate = self;
             tapView.tag = i+1;
             CGFloat tapViewY = tapViewY = titleLab.bottomY+ KScaleHeight(13)+(KScaleHeight(33+15)*i);
             tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
             tapView.textString = self.tipStringArr[i];
-            [self.contentScroll addSubview:tapView];
+            
             //底部按钮
             if (i == self.tipStringArr.count-1) {
                 UIButton *submitBtn = [UIButton getBottomBtnWithBtnX:tapView.leftX btnY:tapView.bottomY+KScaleHeight(130) btnTitle:@"发送"];

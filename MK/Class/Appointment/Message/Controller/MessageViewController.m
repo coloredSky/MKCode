@@ -27,8 +27,8 @@
 -(instancetype)init
 {
     if (self = [super init]) {
+        self.pageOffset = 1;
         self.pageLimit = 5;
-        self.pageOffset = 0;
         self.messageList = [NSMutableArray array];
     }
     return self;
@@ -49,7 +49,7 @@
     self.contentTable.mj_header = [XHRefreshHeader headerWithRefreshingBlock:^{
         @strongObject(self);
         self.pageLimit = 5;
-        self.pageOffset = 0;
+        self.pageOffset = 1;
         [self startRequest];
     }];
 }
@@ -70,7 +70,7 @@
     [MessageManager callBackMessageListDataWithLimit:self.pageLimit offset:self.pageOffset completionBlock:^(BOOL isSuccess, NSArray<MKMessageModel *> * _Nonnull messageList, NSString * _Nonnull message) {
         [self.contentTable.mj_header endRefreshing];
         if (isSuccess) {
-            if (self.pageOffset == 0) {
+            if (self.pageOffset == 1) {
                 [self.messageList removeAllObjects];
                 if (messageList.count == self.pageLimit) {
                     [self setUpFooterRefresh];

@@ -188,6 +188,10 @@
             }else{
                 tapViewY = KScaleHeight(86)+K_NaviHeight+KScaleHeight(35)+KScaleHeight(20)+(KScaleHeight(33+15)*i);
             }
+            tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
+            [self.contentScroll addSubview:tapView];
+            [tapView setNeedsLayout];
+            [tapView layoutIfNeeded];
             if (i == 1) {
                 tapView.canEditing = YES;
                 tapView.placeholderString = self.tipStringArr[i];
@@ -196,8 +200,8 @@
                 tapView.textString = self.tipStringArr[i];
                 [self.tapViewArr addObject:tapView];
             }
-            tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
-            [self.contentScroll addSubview:tapView];
+            
+            
             
             if (i == self.tipStringArr.count-1) {
                 UIButton *submitBtn = [UIButton getBottomBtnWithBtnX:tapView.leftX btnY:tapView.bottomY+KScaleHeight(80) btnTitle:@"发送"];

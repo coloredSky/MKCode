@@ -57,7 +57,15 @@
     teacherTapView.textString = self.appointmentModel.staff_name;
     AppointmentTapView *timeTapView = self.tapViewArr[2];
     timeTapView.textString = [NSString timeTransformWithDate:self.appointmentModel.selected_time WithFormModel:@"YY-MM-dd HH:mm:ss" toModel:@"YY年MM月dd日 HH:mm"];
+    
     AppointmentTapView *addressTapView = self.tapViewArr[3];
+    NSString *addressString = self.appointmentModel.address;
+    CGSize addressSize = [addressString getStrSizeWithSize:CGSizeMake(KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33)) font:MKFont(13)];
+    CGFloat addressHeight = KScaleHeight(33);
+    if (addressSize.height +10 > KScaleHeight(33)) {
+        addressHeight = addressSize.height +16;
+        addressTapView.height = addressHeight;
+    }
     addressTapView.textString = self.appointmentModel.address;
 }
 
@@ -86,13 +94,14 @@
         //
         for (int i=0; i < self.tipStringArr.count; i++) {
             AppointmentTapView *tapView = [AppointmentTapView new];
+            [self.contentScroll addSubview:tapView];
             [self.tapViewArr addObject:tapView];
             CGFloat tapViewY = 0;
             tapViewY = KScaleHeight(86)+K_NaviHeight+KScaleHeight(35)+(KScaleHeight(33+15)*i);
             tapView.normalColor = K_Text_YellowColor;
             tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
             tapView.textString = self.tipStringArr[i];
-            [self.contentScroll addSubview:tapView];
+            
             
             if (i == self.tipStringArr.count-1) {
                 _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, tapView.bottomY+KScaleHeight(35), KScreenWidth, KScreenHeight-tapView.bottomY-KScaleHeight(35)) style:UITableViewStyleGrouped];

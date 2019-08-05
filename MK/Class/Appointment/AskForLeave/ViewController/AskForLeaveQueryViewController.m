@@ -103,10 +103,11 @@
         
         for (int i=0; i < self.tipStringArr.count; i++) {
             AppointmentTapView *tapView = [AppointmentTapView new];
+            [self.contentScroll addSubview:tapView];
             CGFloat tapViewY = tapViewY = titleLab.bottomY+ KScaleHeight(13)+(KScaleHeight(33+15)*i);
             tapView.frame =  CGRectMake(K_Padding_Home_LeftPadding, tapViewY, KScreenWidth-K_Padding_Home_LeftPadding*2, KScaleHeight(33));
             tapView.textString = self.tipStringArr[i];
-            [self.contentScroll addSubview:tapView];
+            
             if (i == 0) {
                 self.classTapView  = tapView;
             }else{
@@ -134,7 +135,7 @@
 //        _headerView.titleString = @"等待回复";
         _headerView.titleString = self.appointmentModel.status_msg;
         [self.contentScroll addSubview:_headerView];
-        _headerView.showType = AppointmentHeaderViewShowTypeEditting;
+        _headerView.showType = self.checkType == AskForLeaveQueryCheckTypeCanEdit ? AppointmentHeaderViewShowTypeEditting : AppointmentHeaderViewShowTypeNormal;
         __weak typeof(self) weakSelf = self;
         _headerView.operationBlock = ^(AppointmentHeaderViewOperationType operationType) {
             __strong typeof(weakSelf) strongSelf = weakSelf;

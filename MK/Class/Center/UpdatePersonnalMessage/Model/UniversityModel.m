@@ -16,8 +16,12 @@
 {
     if (self = [super init]) {
         self.university_name = @"";
+        self.university_id = @"";
         self.faculty_name = @"";
+        self.faculty_id = @"";
         self.discipline_name = @"";
+        self.discipline_id = @"";
+        self.study_category = @"B";
     }
     return self;
 }
@@ -25,6 +29,7 @@
 - (instancetype)copyWithZone:(NSZone *)zone {
     
     UniversityModel *universityModel = [[self class]allocWithZone:zone];
+    universityModel.study_category = self.study_category;
     universityModel.university_id = self.university_id;
     universityModel.university_name = self.university_name;
     universityModel.faculty_name = self.faculty_name;
