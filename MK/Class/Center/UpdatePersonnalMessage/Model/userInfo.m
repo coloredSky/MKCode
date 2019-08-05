@@ -18,8 +18,6 @@
 -(instancetype)init
 {
     if (self = [super init]) {
-        self.study_category = @"B";
-        self.isBcolleage = YES;
         
         _BUniversityList = [NSMutableArray arrayWithCapacity:3];
         for (int i=0; i<3; i++) {
@@ -62,30 +60,24 @@
     userModel.jlptString = self.jlptString;
     userModel.jlptID = self.jlptID;
     userModel.arrive_jp = self.arrive_jp;
-    userModel.study_category = self.study_category;
-    userModel.discipline_id_1 = self.discipline_id_1;
-    userModel.discipline_id_1 = self.discipline_id_1;
-    userModel.discipline_id_2 = self.discipline_id_2;
-    userModel.discipline_id_3 = self.discipline_id_3;
-    userModel.study_category = self.study_category;
     
     NSMutableArray *universityList = [NSMutableArray arrayWithCapacity:self.university.count];
     for (UniversityModel *universityModel in self.university) {
         [universityList addObject:[universityModel copy]];
     }
-    userModel.university = [universityList copy];
+    userModel.university = universityList;
     
     NSMutableArray *BUniversityList = [NSMutableArray arrayWithCapacity:self.BUniversityList.count];
     for (UniversityModel *universityModel in self.BUniversityList) {
         [BUniversityList addObject:[universityModel copy]];
     }
-    userModel.BUniversityList = [BUniversityList copy];
+    userModel.BUniversityList = BUniversityList;
     
     NSMutableArray *MUniversityList = [NSMutableArray arrayWithCapacity:self.MUniversityList.count];
     for (UniversityModel *universityModel in self.MUniversityList) {
         [MUniversityList addObject:[universityModel copy]];
     }
-    userModel.MUniversityList = [MUniversityList copy];
+    userModel.MUniversityList = MUniversityList;
     
     return userModel;
 }
@@ -147,24 +139,13 @@
     if ([NSString isEmptyWithStr:_arrive_jp]) {
         _arrive_jp = @"";
     }
-    if ([NSString isEmptyWithStr:_discipline_id_1]) {
-        _discipline_id_1 = @"";
-    }
-    if ([NSString isEmptyWithStr:_discipline_id_2]) {
-        _discipline_id_2 = @"";
-    }
-    if ([NSString isEmptyWithStr:_discipline_id_3]) {
-        _discipline_id_3 = @"";
-    }
-    if ([self.study_category isEqualToString:@"M"]) {
-        _isBcolleage = NO;
-    }
+    
     _university = [NSMutableArray arrayWithCapacity:3];
     for (int i=0; i<3; i++) {
         UniversityModel *model = [UniversityModel new];
-        model.study_category = self.study_category;
         [_university addObject:model];
     }
+    
     if (dic[@"university"]) {
         NSDictionary *universityListDic = dic[@"university"];
         NSArray *keyS = [universityListDic allKeys];
@@ -176,15 +157,25 @@
                     UniversityModel *model = [UniversityModel yy_modelWithJSON:universityDic];
                     if ([key isEqualToString:@"volunteer_school_1"]) {
                         _university[0] =  model;
+                        if ([model.study_category isEqualToString:@"M"]) {
+                            self.MUniversityList[0] = model;
+                        }else{
+                            self.BUniversityList[0] = model;
+                        }
                     }else if ([key isEqualToString:@"volunteer_school_2"]){
                         _university[1] =  model;
+                        if ([model.study_category isEqualToString:@"M"]) {
+                            self.MUniversityList[1] = model;
+                        }else{
+                            self.BUniversityList[1] = model;
+                        }
                     }else if ([key isEqualToString:@"volunteer_school_3"]){
                         _university[2] =  model;
-                    }
-                    if (_isBcolleage) {
-                        self.BUniversityList = _university;
-                    }else{
-                        self.MUniversityList = _university;
+                        if ([model.study_category isEqualToString:@"M"]) {
+                            self.MUniversityList[2] = model;
+                        }else{
+                            self.BUniversityList[2] = model;
+                        }
                     }
                 }
             }

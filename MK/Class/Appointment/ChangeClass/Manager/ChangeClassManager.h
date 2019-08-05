@@ -23,14 +23,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 新增换班申请
+ 新增、编辑换班申请
 
  @param class_id 原班级ID
  @param new_class_id 换班的班级ID
  @param reason 理由
  @param completionBlock 回调
  */
-+(void)callBackChangeClassRequestWithParameterClass_id:(NSString *)class_id new_class_id:(NSString *)new_class_id reason:(NSString *)reason  CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
++(void)callBackChangeClassRequestWithParameterClass_id:(NSString *)class_id new_class_id:(NSString *)new_class_id reason:(NSString *)reason apply_id:(NSString *)apply_id  CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
 
 
 /**

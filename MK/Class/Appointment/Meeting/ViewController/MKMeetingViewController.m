@@ -324,6 +324,16 @@
         [MBHUDManager showBriefAlert:@"请选择您希望预约相谈的时间3"];
         return;
     }
+    if (self.operationType == MeetingOperationTypeNew) {
+        [self requestAddMeeting];
+    }else{
+        [self requestUpdateMeeting];
+    }
+
+}
+
+-(void)requestAddMeeting
+{
     [MakeMeetingManager callBackAddMeetingRequestWithParameterType:self.meetingModel.purposeType teacherName:self.meetingModel.teacherName select_time_one:self.meetingModel.meetingTime1 select_time_two:self.meetingModel.meetingTime2 select_time_three:self.meetingModel.meetingTime3 withCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
         if (isSuccess) {
             if (self.operationType == MeetingOperationTypeNew) {
@@ -340,4 +350,26 @@
         }
     }];
 }
+
+-(void)requestUpdateMeeting
+{
+    [MakeMeetingManager callBackUpdateMeetingRequestWithParameterType:self.meetingModel.purposeType teacherName:self.meetingModel.teacherName select_time_one:self.meetingModel.meetingTime1 select_time_two:self.meetingModel.meetingTime2 select_time_three:self.meetingModel.meetingTime3 apply_id:self.appointmentModel.applyID withCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        if (isSuccess) {
+            if (self.operationType == MeetingOperationTypeNew) {
+                [MBHUDManager showBriefAlert:@"新增预约相谈成功！！"];
+            }else{
+                [MBHUDManager showBriefAlert:@"修改预约相谈成功！"];
+            }
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kMKApplyMeetingListRefreshNotifcationKey object:nil];
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }
+        }
+
+    }];
+}
+
+
 @end

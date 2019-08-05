@@ -35,7 +35,7 @@
     }];
 }
 
-+(void)callBackChangeClassRequestWithParameterClass_id:(NSString *)class_id new_class_id:(NSString *)new_class_id reason:(NSString *)reason  CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
++(void)callBackChangeClassRequestWithParameterClass_id:(NSString *)class_id new_class_id:(NSString *)new_class_id reason:(NSString *)reason apply_id:(NSString *)apply_id  CompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock
 {
     if ([NSString isEmptyWithStr:class_id]) {
         return;
@@ -50,8 +50,9 @@
                                 @"class_id":class_id,
                                 @"new_class_id":new_class_id,
                                 @"reason":reason,
+                                @"apply_id" : apply_id,
                                 };
-    [MKNetworkManager sendPostRequestWithUrl:K_MK_AddChangeClass_Url parameters:parameter hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+    [MKNetworkManager sendPostRequestWithUrl:K_MK_AddChangeClass_Url parameters:parameter hudIsShow:YES success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 0) {
             if (completionBlock) {
                 completionBlock(YES, MKResult.message);

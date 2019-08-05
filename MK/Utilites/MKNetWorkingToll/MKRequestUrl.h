@@ -78,13 +78,15 @@ static NSString * const K_MK_MeetingTime_Url  = @"/api/user/getReservationTimeLi
 static NSString * const K_MK_MeetingReservation_Url  = @"/api/user/getReservationList";
 //新增预约相谈
 static NSString * const K_MK_AddMeeting_Url  = @"/api/user/AddApplyReservation";
+//编辑预约相谈
+static NSString * const K_MK_UpdateMeeting_Url  = @"/api/user/UpdateApplyReservation";
 //删除预约相谈
 static NSString * const K_MK_DeleteMeeting_Url  = @"/api/user/DelApplyReservation";
 
 //换班
 //换班列表
 static NSString * const K_MK_ChangeClass_CourseList_Url  = @"/api/user/getStudentClass";
-//新增换班申请
+//新增、编辑换班申请
 static NSString * const K_MK_AddChangeClass_Url  = @"/api/user/addEditClassChangeApply";
 //删除换班申请
 static NSString * const K_MK_DeleteChangeClass_Url  = @"/api/user/deleteChangeClassApply";

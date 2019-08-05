@@ -267,10 +267,24 @@
         return;
     }
     if (!self.selectedLessonModel) {
-        [MBHUDManager showBriefAlert:@"请选择您要请假的课程！"];
+        if (self.operationType == AskForLeaveOperationTypeNew) {
+            [MBHUDManager showBriefAlert:@"请选择您要请假的课程！"];
+        }else{
+            [MBHUDManager showBriefAlert:@"请重新选择您要请假的课程！"];
+        }
         return;
     }
     [self.reasonTextView endEditing:YES];
+    if (self.operationType == AskForLeaveOperationTypeNew) {
+        [self requestAddAskForLeave];
+    }else{
+        [self requestUpdateAskForLeave];
+    }
+
+}
+
+-(void)requestAddAskForLeave
+{
     [MBHUDManager showLoading];
     [ApplyLeaveManager callBackAddApplyLeaveWithParameterClass_id:self.selectedCourseModel.class_id lesson_id:self.selectedLessonModel.lesson_id detail:self.reasonTextView.text completionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
         [MBHUDManager hideAlert];
@@ -280,7 +294,6 @@
             }else{
                 [MBHUDManager showBriefAlert:@"修改请假申请成功！"];
             }
-            
             [self.navigationController popViewControllerAnimated:YES];
             [[NSNotificationCenter defaultCenter]postNotificationName:kMKApplyAskForLeaveListRefreshNotifcationKey object:nil];
         }else{
@@ -288,6 +301,29 @@
                 [MBHUDManager showBriefAlert:message];
             }else{
                 [MBHUDManager showBriefAlert:@"请假失败！"];
+            }
+        }
+    }];
+}
+
+-(void)requestUpdateAskForLeave
+{
+    [MBHUDManager showLoading];
+    [ApplyLeaveManager callBackEditApplyLeaveWithParameterApply_id:self.detailModel.applyID class_id:self.selectedCourseModel.class_id lesson_id:self.selectedLessonModel.lesson_id detail:self.reasonTextView.text completionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+        [MBHUDManager hideAlert];
+        if (isSuccess) {
+            if (self.operationType == AskForLeaveOperationTypeNew) {
+                [MBHUDManager showBriefAlert:@"申请请假成功！"];
+            }else{
+                [MBHUDManager showBriefAlert:@"修改请假申请成功！"];
+            }
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kMKApplyAskForLeaveListRefreshNotifcationKey object:nil];
+        }else{
+            if (![NSString isEmptyWithStr:message]) {
+                [MBHUDManager showBriefAlert:message];
+            }else{
+                [MBHUDManager showBriefAlert:@"编辑失败！"];
             }
         }
     }];

@@ -95,7 +95,34 @@
                                     @"select_time_two":select_time_two,
                                     @"select_time_three":select_time_three,
                                 };
-    [MKNetworkManager sendPostRequestWithUrl:K_MK_AddMeeting_Url parameters:parameter hudIsShow:NO success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+    [MKNetworkManager sendPostRequestWithUrl:K_MK_AddMeeting_Url parameters:parameter hudIsShow:YES success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
+        if (MKResult.responseCode == 0) {
+            if (completionBlock) {
+                completionBlock(YES, MKResult.message);
+            }
+        }else{
+            if (completionBlock) {
+                completionBlock(NO,MKResult.message);
+            }
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        if (completionBlock) {
+            completionBlock(NO,error.userInfo[NSLocalizedDescriptionKey]);
+        }
+    }];
+}
+
++(void)callBackUpdateMeetingRequestWithParameterType:(NSInteger )type teacherName:(NSString *)staff_name select_time_one:(NSString *)select_time_one select_time_two:(NSString *)select_time_two select_time_three:(NSString *)select_time_three apply_id:(NSString *)apply_id withCompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock
+{
+    NSDictionary *parameter = @{
+                                @"type":@(type),
+                                @"staff_name":staff_name,
+                                @"select_time_one":select_time_one,
+                                @"select_time_two":select_time_two,
+                                @"select_time_three":select_time_three,
+                                @"apply_id" : apply_id,
+                                };
+    [MKNetworkManager sendPostRequestWithUrl:K_MK_UpdateMeeting_Url parameters:parameter hudIsShow:YES success:^(MKResponseResult *MKResult, BOOL isCacheObject) {
         if (MKResult.responseCode == 0) {
             if (completionBlock) {
                 completionBlock(YES, MKResult.message);

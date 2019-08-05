@@ -51,21 +51,8 @@
 {
     _originalModel = originalModel;
     _userInfoModel = [originalModel.userInfo copy];
-    
-    BOOL isBcolleage = YES;//是 学部类型的志愿
-    for (UniversityModel *model in _userInfoModel.university) {
-        if ([model.study_category isEqualToString:@"M"]) {
-            isBcolleage = NO;
-            break;
-        }
-    }
-    if (isBcolleage) {
-        self.BcolleageList = _userInfoModel.university;
-        
-    }else{
-        
-    }
-    
+//    self.BcolleageList = _userInfoModel.BUniversityList;
+//    self.McolleageList = _userInfoModel.MUniversityList;
 }
 
 #pragma mark --  lazy
@@ -138,34 +125,34 @@
 {
     ValSchoolHeaderView *headerView = [[ValSchoolHeaderView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, [self tableView:tableView heightForHeaderInSection:section])];
     ValSchoolHeaderViewShowType showType = ValSchoolHeaderViewShowTypeDivision;
-    UniversityModel *universityModel = self.userInfoModel.university[section];
+    __block UniversityModel *universityModel = self.userInfoModel.university[section];
     if ([universityModel.study_category isEqualToString:@"M"]) {
         showType = ValSchoolHeaderViewShowTypeCollege;
     }
     [headerView valSchoolHeaderViewReloadDataWithTitle:self.sectionArr [section] headerViewShowType:showType];
     headerView.schoolHeaderViewBlock = ^(ValSchoolHeaderViewOperationType operationType) {
         if (operationType == ValSchoolHeaderViewOperationTypeDivision) {
-            self.userInfoModel.university = self.userInfoModel.BUniversityList;
-            //            for (UniversityModel *model in self.userInfoModel.university) {
-            //                model.study_category = @"B";
-            //                model.university_name = @"";
-            //                model.university_id = @"";
-            //                model.faculty_name = @"";
-            //                model.faculty_id = @"";
-            //                model.discipline_name = @"";
-            //                model.discipline_id = @"";
-            //            }
+//            UniversityModel *firstModel = self.userInfoModel.university[section];
+//            UniversityModel *lastModel = self.BcolleageList[section];
+//            self.userInfoModel.university[section] = self.BcolleageList[section];
+                universityModel.study_category = @"B";
+                universityModel.university_name = @"";
+                universityModel.university_id = @"";
+                universityModel.faculty_name = @"";
+                universityModel.faculty_id = @"";
+                universityModel.discipline_name = @"";
+                universityModel.discipline_id = @"";
         }else{
-            self.userInfoModel.university = self.userInfoModel.MUniversityList;
-            //            for (UniversityModel *model in self.userInfoModel.university) {
-            //                model.study_category = @"M";
-            //                model.university_name = @"";
-            //                model.university_id = @"";
-            //                model.faculty_name = @"";
-            //                model.faculty_id = @"";
-            //                model.discipline_name = @"";
-            //                model.discipline_id = @"";
-            //            }
+//            UniversityModel *firstModel = self.userInfoModel.university[section];
+//            UniversityModel *lastModel = self.McolleageList[section];
+//            self.userInfoModel.university[section] = self.McolleageList[section];
+                universityModel.study_category = @"M";
+                universityModel.university_name = @"";
+                universityModel.university_id = @"";
+                universityModel.faculty_name = @"";
+                universityModel.faculty_id = @"";
+                universityModel.discipline_name = @"";
+                universityModel.discipline_id = @"";
         }
         [self.contentTable reloadData];
     };

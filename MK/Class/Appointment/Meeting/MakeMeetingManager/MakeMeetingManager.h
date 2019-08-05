@@ -49,6 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(void)callBackAddMeetingRequestWithParameterType:(NSInteger )type teacherName:(NSString *)staff_name select_time_one:(NSString *)select_time_one select_time_two:(NSString *)select_time_two select_time_three:(NSString *)select_time_three withCompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
 
++(void)callBackUpdateMeetingRequestWithParameterType:(NSInteger )type teacherName:(NSString *)staff_name select_time_one:(NSString *)select_time_one select_time_two:(NSString *)select_time_two select_time_three:(NSString *)select_time_three apply_id:(NSString *)apply_id withCompletionBlock:(void(^)(BOOL isSuccess,NSString *message))completionBlock;
+
 
 /**
  删除预约相谈

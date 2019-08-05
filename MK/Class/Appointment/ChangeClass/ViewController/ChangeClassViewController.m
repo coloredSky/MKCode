@@ -63,6 +63,7 @@
         if (isSuccess) {
             self.originalClassList = courseList;
             self.originalClassStringList = courseStringList;
+            AppointmentListModel *modelList = self.appointmentModel;
             if (self.operationType == ChangeClassOperationTypeEdit) {
                 for (ChangeClassCouseModel *classModel in courseList) {
                     if ([classModel.changeID integerValue] == [self.appointmentModel.class_id integerValue]) {
@@ -70,7 +71,7 @@
                     }
                 }
                 for (ChangeClassCouseModel *classModel in self.selectedOriginalCouseModel.changeClassList) {
-                    if ([classModel.course_id integerValue] == [self.appointmentModel.classNewID integerValue]) {
+                    if ([classModel.changeID integerValue] == [self.appointmentModel.classNewID integerValue]) {
                         self.selectedChangeCouseModel = classModel;
                     }
                 }
@@ -262,14 +263,19 @@
         [MBHUDManager showBriefAlert:@"请选择希望更换的班级！！"];
         return;
     }
-    [ChangeClassManager callBackChangeClassRequestWithParameterClass_id:self.selectedOriginalCouseModel.changeID new_class_id:self.selectedChangeCouseModel.changeID reason:self.reasonTextView.text CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
+    NSString *apply_id = @"";
+    if (self.operationType == ChangeClassOperationTypeEdit) {
+        apply_id = self.appointmentModel.applyID;
+    }
+    [ChangeClassManager callBackChangeClassRequestWithParameterClass_id:self.selectedOriginalCouseModel.changeID new_class_id:self.selectedChangeCouseModel.changeID reason:self.reasonTextView.text apply_id:apply_id CompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message) {
         if (isSuccess) {
             if (self.operationType == ChangeClassOperationTypeTypeNew) {
                 [MBHUDManager showBriefAlert:@"换班申请成功！！"];
+                [self.navigationController popViewControllerAnimated:YES];
             }else{
                 [MBHUDManager showBriefAlert:@"修改换班申请成功！！"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
             }
-            [self.navigationController popViewControllerAnimated:YES];
             [[NSNotificationCenter defaultCenter]postNotificationName:kMKApplyChangeClassListRefreshNotifcationKey object:nil];
         }else{
             if (![NSString isEmptyWithStr:message]) {

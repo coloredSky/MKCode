@@ -35,14 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString * jlptID;//日语能力ID
 @property(nonatomic,strong)NSString * jlptString ;//根据提供的日本语能力级别列表选择N1-N5
 @property(nonatomic,strong)NSString * arrive_jp ;//赴日日期
-@property(nonatomic,strong)NSString * study_category ;//志愿类别
-@property(nonatomic,strong)NSString * discipline_id_1 ;//第一志愿学校
-@property(nonatomic,strong)NSString * discipline_id_2 ;//第二志愿学校
-@property(nonatomic,strong)NSString * discipline_id_3 ;//第三志愿学校
+
 
 @property(nonatomic,strong)NSMutableArray <UniversityModel *>* university;
-
-@property(nonatomic,assign)BOOL isBcolleage;//是否是志愿学校-学部
 //志愿学校-学部
 @property(nonatomic,strong)NSMutableArray <UniversityModel *>* BUniversityList;
 //志愿学校-大学院
