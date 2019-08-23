@@ -61,7 +61,8 @@
     self.updateBtn.hidden = !isLogin;
     
     LoginModel * model =[[UserManager shareInstance]getUser];
-    self.nameLabel.text =[NSString isEmptyWithStr:model.nickname]==YES?@"您尚未设置用户名":model.nickname;
+    NSString *nameString = [model.firstname stringByAppendingString:model.lastname];
+    self.nameLabel.text =[NSString isEmptyWithStr:nameString]==YES?@"您尚未设置用户名":nameString;
     self.emailLabel.text =[NSString isEmptyWithStr:model.email]==YES?@"您尚未设置邮箱":model.email;
     [self.headerImage sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:K_MKPlaceholderImage1_1];
 }

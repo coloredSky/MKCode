@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LoginModel : NSObject
-@property(nonatomic,strong)NSString * lastName;
+@property(nonatomic,strong)NSString * lastname;
 @property(nonatomic,strong)NSString * language;
 @property(nonatomic,strong)NSString * status;
 @property(nonatomic,strong)NSString * birthday;
