@@ -12,5 +12,7 @@
 
 @interface SelectedCustomLab : UILabel
 
+-(instancetype)initWithFrame:(CGRect)frame andNormalColor:(UIColor *)normalColor selectedColor:(UIColor *)selectedColor;
+
 @property(nonatomic,assign)BOOL selected;
 @end

@@ -39,7 +39,10 @@
     [super viewDidLoad];
     self.view.backgroundColor =K_BG_WhiteColor;
     [self configSubViews];
+    
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(XDSDropDownMenuAllHiden)]];
 }
+
 
 -(void)configSubViews
 {
@@ -114,6 +117,18 @@
         _jpLauguageAbilityMenu.menuShowType = XDSDropDownMenuShowTypeUserInforEdit;
     }
     return _jpLauguageAbilityMenu;
+}
+
+-(void)XDSDropDownMenuAllHiden
+{
+    if (self.downMenuArr.count > 0) {
+        for (int i=0; i<self.downMenuArr.count; i++) {
+            XDSDropDownMenu *menu = self.downMenuArr[i];
+            if (menu.isShow == YES) {
+                [menu hideDropDownMenuWithBtnFrame:self.jpEditView.frame];
+            }
+        }
+    }
 }
 
 #pragma mark --  EVENT

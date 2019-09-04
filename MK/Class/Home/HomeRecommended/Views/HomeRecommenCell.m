@@ -34,6 +34,8 @@
     self.shdowView.layer.shadowOffset = CGSizeMake(0, 0);
     self.shdowView.layer.shadowOpacity = .7;
     
+    _contentIma.contentMode = UIViewContentModeScaleAspectFill;
+    _contentIma.clipsToBounds = YES;
     _contentIma.layer.masksToBounds = YES;
     _contentIma.layer.cornerRadius = 14;
     

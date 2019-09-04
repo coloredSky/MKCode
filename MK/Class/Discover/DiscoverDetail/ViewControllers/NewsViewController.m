@@ -41,6 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = K_BG_WhiteColor;
     if (self.showType == WebViewShowTypeNewsDetailHtmlContentType || self.showType == WebViewShowTypeNewsDetailUrlType) {
         [self startRequest];
     }else{
@@ -58,9 +59,11 @@
     [DiscoverManager callBackDiscoverNewsDetailDataWithHUDShow:NO newsID:self.newsID andCompletionBlock:^(BOOL isSuccess, NSString * _Nonnull message, DiscoverNewsModel * _Nonnull newsDetailModel) {
         if (isSuccess) {
             if (self.showType == WebViewShowTypeNewsDetailHtmlContentType) {
+                newsDetailModel.isUrl = NO;
                 self.contentString = newsDetailModel.newsContent;
                 [self loadRichHtmlText];
             }else{
+                newsDetailModel.isUrl = YES;
                 self.contentUrl = newsDetailModel.newsContent;
                 [self webViewLoadRequest];
             }
@@ -97,7 +100,9 @@
     if (!_contentWeb)
     {
         _contentWeb = [WKWebView new];
-        _contentWeb.frame = CGRectMake(0, 0, KScreenWidth,KScreenHeight);
+        _contentWeb.scrollView.backgroundColor = K_BG_WhiteColor;
+        _contentWeb.opaque = false;
+        _contentWeb.frame = CGRectMake(0, K_StatusBarHeight, KScreenWidth,KScreenHeight-K_StatusBarHeight);
         [self.view addSubview:_contentWeb];
          if (@available(ios 11.0,*)) {
             _contentWeb.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -174,6 +179,7 @@
 - (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
     MKLog(@"内容开始返回");
 }
+
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     MKLog(@"页面加载完成");
     if (self.loadType == WebViewLoadTypeLoadTheRichText)
@@ -181,13 +187,16 @@
         [webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '100%'" completionHandler:nil];
     }
 }
+
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation {
     MKLog(@"页面加载失败");
     [self hiddenProgressViewAnimated:NO];
 }
+
 - (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)navigation {
     MKLog(@"接收到服务器跳转请求");
 }
+
 - (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
     MKLog(@"数据加载发生错误");
     [self hiddenProgressViewAnimated:NO];

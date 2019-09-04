@@ -36,7 +36,9 @@
     [_titleLab setFont:MKBoldFont(14) textColor:K_Text_grayColor withBackGroundColor:nil];[_contentLab setFont:K_Font_Text_Min_Max textColor:K_Text_grayColor withBackGroundColor:nil];
     _titleLab.numberOfLines = 2;
     self.contentLab.hidden = YES;
-//    self.contentLab.numberOfLines = 2;
+
+    self.contentIma.contentMode = UIViewContentModeScaleAspectFill;
+    self.contentIma.clipsToBounds = YES;
 }
 
 -(void)cellRefreshDataWithDiscoverNewsModel:(DiscoverNewsModel *)newsModel

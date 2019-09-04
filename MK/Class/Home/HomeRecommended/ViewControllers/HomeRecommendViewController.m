@@ -144,7 +144,7 @@
 -(MKBaseTableView *)contentTable
 {
     if (!_contentTable) {
-        _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth,KScreenHeight-(KScaleHeight(91)+KScaleHeight(20))-K_TabbarHeight) style:UITableViewStyleGrouped];
+        _contentTable = [[MKBaseTableView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth,KScreenHeight-(KScaleHeight(91))-K_TabbarHeight) style:UITableViewStyleGrouped];
         _contentTable.delegate = self;
         _contentTable.dataSource = self;
         [self.view addSubview:_contentTable];

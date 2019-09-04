@@ -38,7 +38,7 @@
             [backBtn addTarget:self action:@selector(backToPreviousViewController) forControlEvents:UIControlEventTouchUpInside];
             if (K_ios11_0_){
                 [backBtn setFrame:CGRectMake(0, 0, 40, 40)];
-                backBtn.contentEdgeInsets=UIEdgeInsetsMake(0, -10, 0, 10);
+                backBtn.contentEdgeInsets=UIEdgeInsetsMake(0, 0, 0, 0);
             }
             UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
             self.navigationItem.rightBarButtonItem = item;

@@ -41,16 +41,16 @@
      }
      if (self.indexPath.section == 0) {
          if (self.indexPath.row == 0) {
-             self.userInfoModel.firstname = self.textField.text;
-         }else if (self.indexPath.row ==1){
              self.userInfoModel.lastname = self.textField.text;
+         }else if (self.indexPath.row ==1){
+             self.userInfoModel.firstname = self.textField.text;
          }
      }
      if (self.indexPath.section == 1) {
          if (self.indexPath.row == 0) {
-             self.userInfoModel.firstkana = self.textField.text;
-         }else if (self.indexPath.row ==1){
              self.userInfoModel.lastkana = self.textField.text;
+         }else if (self.indexPath.row ==1){
+             self.userInfoModel.firstkana = self.textField.text;
          }
      }
      if (self.indexPath.section == 2) {
@@ -78,16 +78,16 @@
     self.userInfoModel = userInfoModel;
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            self.textField.text = userInfoModel.firstname;
-        }else if (indexPath.row ==1){
             self.textField.text = userInfoModel.lastname;
+        }else if (indexPath.row ==1){
+            self.textField.text = userInfoModel.firstname;
         }
     }
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            self.textField.text = userInfoModel.firstkana;
-        }else if (indexPath.row ==1){
             self.textField.text = userInfoModel.lastkana;
+        }else if (indexPath.row ==1){
+            self.textField.text = userInfoModel.firstkana;
         }
     }
     if (indexPath.section == 2) {

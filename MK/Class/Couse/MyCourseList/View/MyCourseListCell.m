@@ -21,6 +21,8 @@
 @implementation MyCourseListCell
 - (void)awakeFromNib {
     [super awakeFromNib];
+    _courseIma.contentMode = UIViewContentModeScaleAspectFill;
+    _courseIma.clipsToBounds = YES;
     [_courseNameLab setFont:MKBoldFont(14) textColor:K_Text_BlackColor withBackGroundColor:nil];
     [_courseTeacherLab setFont:K_Font_Text_Min_Max textColor:K_Text_grayColor withBackGroundColor:nil];
     [_courseStatusLab setFont:MKBoldFont(15) textColor:K_Text_grayColor withBackGroundColor:nil];

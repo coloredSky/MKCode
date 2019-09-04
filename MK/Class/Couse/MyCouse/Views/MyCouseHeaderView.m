@@ -46,6 +46,8 @@
     [_tipLab setFont:MKBoldFont(15) textColor:K_Text_WhiteColor withBackGroundColor:nil];
     self.tipLab.text = @"";
     
+    _courseIma.contentMode = UIViewContentModeScaleAspectFill;
+    _courseIma.clipsToBounds = YES;
     _courseIma.userInteractionEnabled = YES;
     [_courseIma addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(userCoursePlay:)]];
 }

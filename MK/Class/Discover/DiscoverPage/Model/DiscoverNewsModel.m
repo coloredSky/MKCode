@@ -22,9 +22,14 @@
             _isUrl = YES;
         }
     }
-    if (![NSString isEmptyWithStr:_newsContent]) {
-        if (!_isUrl) {
-//            _newsContent = [NSString htmlStringTransToString:_newsContent];
+ 
+    return YES;
+}
+
+-(void)setIsUrl:(BOOL)isUrl
+{
+    if (!isUrl) {
+        if (![NSString isEmptyWithStr:_newsContent]) {
             NSString *cssContentString = [NSString stringWithFormat:
                                           @"<!DOCTYPE html>"
                                           "<html>"
@@ -38,7 +43,6 @@
             _newsContent = cssContentString;
         }
     }
-    return YES;
 }
 
 + (NSDictionary *)modelCustomPropertyMapper {

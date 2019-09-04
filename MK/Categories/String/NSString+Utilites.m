@@ -400,7 +400,7 @@
     }
 }
 
-- (NSAttributedString *)attributStrWithTargetStr:(NSString *)str font:(UIFont *)font
+- (NSMutableAttributedString *)attributStrWithTargetStr:(NSString *)str font:(UIFont *)font
 {
     NSRange range = [self rangeOfString:str];
     NSMutableAttributedString *outStr = [[NSMutableAttributedString alloc] initWithString:self];
@@ -408,7 +408,7 @@
     return outStr;
 }
 
-- (NSAttributedString *)attributStrWithTargetStr:(NSString *)str color:(UIColor *)color
+- (NSMutableAttributedString *)attributStrWithTargetStr:(NSString *)str color:(UIColor *)color
 {
     NSRange range = [self rangeOfString:str];
     NSMutableAttributedString *outStr = [[NSMutableAttributedString alloc] initWithString:self];
@@ -416,7 +416,7 @@
     return outStr;
 }
 
-- (NSAttributedString *)attributStrAddUnderlineWithTargetStr:(NSString *)str
+- (NSMutableAttributedString *)attributStrAddUnderlineWithTargetStr:(NSString *)str
 {
     NSRange range = [self rangeOfString:str];
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:self];
@@ -425,7 +425,7 @@
     return  attrStr;
 }
 
-- (NSAttributedString *)attributStrWithFontTargetStr:(NSString *)fontStr font:(UIFont *)font andColorTargetStr:(NSString *)colorStr color:(UIColor *)color
+- (NSMutableAttributedString *)attributStrWithFontTargetStr:(NSString *)fontStr font:(UIFont *)font andColorTargetStr:(NSString *)colorStr color:(UIColor *)color
 {
     NSMutableAttributedString *outStr = [[NSMutableAttributedString alloc] initWithString:self];
     NSRange fontRange = [self rangeOfString:fontStr];

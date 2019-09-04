@@ -23,6 +23,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    _courseIma.contentMode = UIViewContentModeScaleAspectFill;
+    _courseIma.clipsToBounds = YES;
     self.selectedLeftIma.backgroundColor = K_BG_blackColor;
     self.whiteView.backgroundColor = K_BG_deepGrayColor;
     self.playIma.image = KImageNamed(@"courseDetail_play");

@@ -47,6 +47,7 @@
     
     self.downMenuArr = @[self.schoolMenu,self.schoolTimeMenu];
     [self configSubViews];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(XDSDropDownMenuAllHiden)]];
 }
 
 -(void)configSubViews
@@ -132,6 +133,19 @@
 }
 
 #pragma mark --  EVENT
+#pragma mark --  下拉表消失
+-(void)XDSDropDownMenuAllHiden
+{
+    if (self.downMenuArr.count > 0) {
+        for (int i=0; i<self.downMenuArr.count; i++) {
+            XDSDropDownMenu *menu = self.downMenuArr[i];
+            if (menu.isShow == YES) {
+                [menu hideDropDownMenuWithBtnFrame:self.schoolTimeEditView.frame];
+            }
+        }
+    }
+}
+
 #pragma mark --  下拉表出现
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {

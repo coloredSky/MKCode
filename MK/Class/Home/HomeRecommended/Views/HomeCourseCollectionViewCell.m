@@ -32,6 +32,8 @@
     self.shadowView.layer.shadowOffset = CGSizeMake(0, 0);
     self.shadowView.layer.shadowOpacity = .3;
     
+    _courseIma.contentMode = UIViewContentModeScaleAspectFit;
+//    _courseIma.clipsToBounds = YES;
     
     self.whiteView.layer.masksToBounds = YES;
     self.whiteView.layer.cornerRadius = 8;

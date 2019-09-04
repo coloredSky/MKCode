@@ -203,7 +203,8 @@
 #pragma mark --  webView-delagate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     MKLog(@"页面加载完成");
-    [webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '250%'" completionHandler:nil];
+//    [webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '250%'" completionHandler:nil];
+    
 }
 
 #pragma mark --  scroll-Delegate
@@ -277,7 +278,17 @@
             webContent = offlineCourseDetailModel.course_description;
         }
     }
-    [self.contentWeb loadHTMLString:webContent baseURL:nil];
+//    NSString *webviewText = [NSString stringWithFormat:@"<style>body{margin:0;background-color:transparent;font:20px/25px}</style>%@",webContent];
+    NSString *jsString = [NSString stringWithFormat:@"<html> \n"
+                          "<head> \n"
+                          "<style type=\"text/css\"> \n"
+                          "body {font-size: %f;  color: %@; letter-spacing: 3px; line-height:62px; }\n"
+                          "</style> \n"
+                          "</head> \n"
+                          "<body>%@</body> \n"
+                          "</html>", 32.f, @"#727272", webContent];
+    [self.contentWeb loadHTMLString:jsString baseURL:nil];
+//    [self.contentWeb loadHTMLString:webviewText baseURL:nil];
     [self.contentTable reloadData];
 }
 

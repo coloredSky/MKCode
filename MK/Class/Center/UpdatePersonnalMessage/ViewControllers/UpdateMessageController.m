@@ -65,7 +65,7 @@
 -(TitleScrollView * )titleView
 {
     if (!_titleView) {
-        _titleView = [[TitleScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 40)];
+        _titleView = [[TitleScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 40) withItemPadding:34];
         _titleView.delegate = self;
         _titleView.showType =TitleScrollViewShowUpdatePersonInfor;
         [_titleView reloadDataWithTitleArr:self.titleArr.mutableCopy];

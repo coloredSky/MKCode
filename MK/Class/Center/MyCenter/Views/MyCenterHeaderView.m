@@ -30,6 +30,8 @@
 {
     [super awakeFromNib];
     self.backgroundColor = K_BG_deepGrayColor;
+    _headerImage.contentMode = UIViewContentModeScaleAspectFill;
+    _headerImage.clipsToBounds = YES;
     _headerImage.image = K_MKPlaceholderImage1_1;
 //    _headerImage.backgroundColor = [UIColor whiteColor];
      [_nameLabel setFont:MKBoldFont(15) textColor:K_Text_BlackColor withBackGroundColor:nil];
@@ -61,7 +63,7 @@
     self.updateBtn.hidden = !isLogin;
     
     LoginModel * model =[[UserManager shareInstance]getUser];
-    NSString *nameString = [model.firstname stringByAppendingString:model.lastname];
+    NSString *nameString = [model.lastname stringByAppendingString:model.firstname];
     self.nameLabel.text =[NSString isEmptyWithStr:nameString]==YES?@"您尚未设置用户名":nameString;
     self.emailLabel.text =[NSString isEmptyWithStr:model.email]==YES?@"您尚未设置邮箱":model.email;
     [self.headerImage sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:K_MKPlaceholderImage1_1];

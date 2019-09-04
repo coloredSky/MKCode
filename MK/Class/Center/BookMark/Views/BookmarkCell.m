@@ -22,7 +22,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    _courseImage.contentMode = UIViewContentModeScaleToFill;
+    _courseImage.contentMode = UIViewContentModeScaleAspectFill;
+    _courseImage.clipsToBounds = YES;
+//    _courseImage.contentMode = UIViewContentModeScaleToFill;
     [_courseName setFont:MKBoldFont(12) textColor:K_Text_BlackColor withBackGroundColor:nil];
 //    _courseImage.backgroundColor = [UIColor redColor];
     [_coursePlace setFont:MKFont(10) textColor:K_Text_grayColor withBackGroundColor:nil];

@@ -32,6 +32,8 @@
     
     self.contentIma.layer.masksToBounds = YES;
     self.contentIma.layer.cornerRadius = 16;
+    self.contentIma.contentMode = UIViewContentModeScaleAspectFill;
+    self.contentIma.clipsToBounds = YES;
     
 }
 

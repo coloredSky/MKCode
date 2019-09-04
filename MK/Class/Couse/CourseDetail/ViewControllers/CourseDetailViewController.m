@@ -141,6 +141,8 @@
         
         _courseIma = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScaleWidth(278))];
         [_contentScroll addSubview:_courseIma];
+        _courseIma.contentMode = UIViewContentModeScaleAspectFill;
+        _courseIma.clipsToBounds = YES;
         _courseIma.image = K_MKPlaceholderImage4_3;
         
         UIImageView *bgIma = [[UIImageView alloc]initWithFrame:CGRectMake(_courseIma.leftX, _courseIma.topY, _courseIma.width, _courseIma.height)];

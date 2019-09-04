@@ -104,9 +104,9 @@
  @param font font
  @return 改变g后的字符
  */
--(NSAttributedString *)attributStrWithTargetStr:(NSString *)str font:(UIFont *)font;
-- (NSAttributedString *)attributStrWithTargetStr:(NSString *)str color:(UIColor *)color;
-- (NSAttributedString *)attributStrAddUnderlineWithTargetStr:(NSString *)str;
+-(NSMutableAttributedString *)attributStrWithTargetStr:(NSString *)str font:(UIFont *)font;
+- (NSMutableAttributedString *)attributStrWithTargetStr:(NSString *)str color:(UIColor *)color;
+- (NSMutableAttributedString *)attributStrAddUnderlineWithTargetStr:(NSString *)str;
 
 /**
  改变字符串的大小 颜色
@@ -117,7 +117,7 @@
  @param color 颜色
  @return 改变后的字符
  */
-- (NSAttributedString *)attributStrWithFontTargetStr:(NSString *)fontStr font:(UIFont *)font andColorTargetStr:(NSString *)colorStr color:(UIColor *)color;
+- (NSMutableAttributedString *)attributStrWithFontTargetStr:(NSString *)fontStr font:(UIFont *)font andColorTargetStr:(NSString *)colorStr color:(UIColor *)color;
 
 
 /**

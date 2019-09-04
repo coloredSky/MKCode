@@ -14,6 +14,7 @@
 
 
 @interface TitleScrollView()
+@property (nonatomic, strong) UIFont *titleFont;
 @property(nonatomic,assign)CGFloat itemPadding;//title间距
 @property(nonatomic,strong)UIScrollView *titleScroll;//title的scroll
 @property(nonnull,strong)SelectedCustomLab *haveSelectedLab;
@@ -33,10 +34,12 @@
     }
     return self;
 }
+
 -(instancetype)initWithFrame:(CGRect)frame withItemPadding:(CGFloat )padding
 {
     if (self = [super initWithFrame:frame])
     {
+        self.titleFont = TitleLabFont;
         self.backgroundColor = [UIColor clearColor];
         self.itemPadding = padding;
         self.titleScroll.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
@@ -62,18 +65,25 @@
         @strongObject(self);
         NSString *title = obj;
         //每个字符的长度
-        float titleWidth = [title getStrWidthWithfont:TitleLabFont];
+        float titleWidth = [title getStrWidthWithfont:self.titleFont];
         contentWidth += (titleWidth + self.itemPadding);
         //X
         float currentWidthX = widthX;
         if (idx > 0)
         {
             NSString *beforeString = self.allTitleArr[idx - 1];
-            float beforeTitleWidth = [beforeString getStrWidthWithfont:TitleLabFont];
+            float beforeTitleWidth = [beforeString getStrWidthWithfont:self.titleFont];
             widthX += (beforeTitleWidth +self.itemPadding);
             currentWidthX = widthX;
         }
-        SelectedCustomLab *titleLab = [[SelectedCustomLab alloc]initWithFrame:CGRectMake(currentWidthX, self.height/2-10, titleWidth, 20)];
+        UIColor *normalColor = K_Text_grayColor;
+        UIColor *selectedColor = K_Text_WhiteColor;
+        if (self.showType == TitleScrollViewShowUpdatePersonInfor) {
+            normalColor = K_Text_BlackColor;
+            selectedColor = K_Text_BlackColor;
+        }
+        SelectedCustomLab *titleLab = [[SelectedCustomLab alloc]initWithFrame:CGRectMake(currentWidthX, self.height/2-10, titleWidth, 20) andNormalColor:normalColor selectedColor:selectedColor];
+        titleLab.font = self.titleFont;
         [self.titleScroll addSubview:titleLab];
         if (idx == 0) {
             titleLab.selected = YES;
@@ -125,6 +135,7 @@
     }
     return _titleLabArr;
 }
+
 -(NSMutableArray *)allTitleArr
 {
     if (!_allTitleArr) {
@@ -210,5 +221,13 @@
 -(void)titleScrollViewScrollToIndex:(NSInteger )index
 {
     self.selectedIndex = index;
+}
+
+-(void)setShowType:(TitleScrollViewShowType)showType
+{
+    _showType = showType;
+    if (showType == TitleScrollViewShowUpdatePersonInfor) {
+        self.titleFont = MKBoldFont(14);
+    }
 }
 @end

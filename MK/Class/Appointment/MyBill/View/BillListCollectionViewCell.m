@@ -35,6 +35,9 @@
     self.contentIma.layer.masksToBounds = YES;
     self.contentIma.layer.cornerRadius = KScaleWidth(10);
     
+    self.contentIma.contentMode = UIViewContentModeScaleAspectFill;
+    self.contentIma.clipsToBounds = YES;
+    
     self.bgIma.layer.masksToBounds = YES;
     self.bgIma.layer.cornerRadius = KScaleWidth(10);
     self.bgIma.backgroundColor = [UIColor colorWithWhite:.5 alpha:.5];
